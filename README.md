@@ -69,6 +69,8 @@ Create a default configuration file with comments
 ### 1997
 
 - *Thomas Eisner*, the *St. Francis* of *bugs* (1997/01/12/0900997)
+- *Shaka*, the *Attila* of *Zululand* (1997/01/18/0902375)
+- *Albert Belle*, the *Bad Boy* of *Baseball*, (1997/02/10/0908025)
 
 ### 1998
 
