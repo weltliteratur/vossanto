@@ -5,7 +5,7 @@
 
 ### English: POS tagging with NLTK
 
-- see [vossanto.py](blob/master/vossanto.py)
+- see [vossanto.py](vossanto.py)
 
 ### German: POS tagging with the Stanford tagger
 
