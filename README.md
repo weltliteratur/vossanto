@@ -67,7 +67,6 @@ Create a default configuration file with comments
 - *Mille Lacs* is the *Yankee Stadium* of *ice fishing* (2003/02/21/1466539)
 - *Olivier Award*, the *London equivalent* of the *Tony* (2003/03/02/1468848)
 - *Las Cruces*, the *Mesilla Valley* of *southern New Mexico* (2003/03/09/1470804)
-- 
 
 ## 2004
 
