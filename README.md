@@ -77,6 +77,13 @@ Create a default configuration file with comments
 ### 1993
 
 - The *Sig Sauer* is the *Rolex* of *guns* today (1993/01/03/0580645)
+- *Superintendent Martin Beck*, the *Scandinavian equivalent* of *Sherlock Holmes* (1993/02/21/0591703)
+- *Franco Moschino* is the *Weird Al Yankovic* of *fashion (1993/03/11/0595373)
+- *Jack B. Solerwitz* is the *Babe Ruth* of *ripoffs* (1993/03/19/0596753)
+
+### 1994
+
+- 
 
 ### 1995
 
