@@ -51,6 +51,7 @@ Create a default configuration file with comments
 - *Willis Haviland Carrier*, the *Bill Gates* of the *air conditioner* (2000/05/01/1196085)
 - *Miss Loveydear*, the *Mae West* of *dragonflies* (2000/05/12/1198733)
 - If *Houston's cozy new Enron Field* is the *Rhode Island* of *ballparks*, then *Comerica Park* is *Alaska* (2000/05/14/1199574)
+- *Brighton Beach* is the *Russian bazaar* of *America* (2000/05/21/1201255)
 
 ### 2001
 
@@ -62,6 +63,8 @@ Create a default configuration file with comments
 - *Celia Cruz*, the *Queen* of *Salsa* (2001/03/16/1278191)
 - *Tobias Meyer* is the *James Bond* of the *art market* (2001/05/20/1294977)
 - *Orbitz* is the *Standard Oil* of *online travel* (2001/05/27/1296569)
+- *cartoon villain Dirty Dee* is the *Pigpen* of *macks* (2001/06/29/1305441)
+- *Dr. Alex*, the *Freud* of the *Cocktail Hour* (2001/07/08/1307710)
 
 ### 2002
 
@@ -70,6 +73,7 @@ Create a default configuration file with comments
 - *Eldredge* is the *Cadillac* among *Ferraris* (2002/02/12/1367217)
 - *J Mascis* is the *Neil Young* of *Generation X* (2002/03/22/1377696)
 - *Mr. Bogdanovich*, the *Icarus* of the *New Hollywood* (2002/04/12/1383292)
+- *MagLiner*, the *Cadillac* of *hand trucks* (2002/06/09/1399279)
 
 ### 2003
 
@@ -81,6 +85,7 @@ Create a default configuration file with comments
 - *Olivier Award*, the *London equivalent* of the *Tony* (2003/03/02/1468848)
 - *Las Cruces*, the *Mesilla Valley* of *southern New Mexico* (2003/03/09/1470804)
 - *goddess Inanna*, the *Sumerian version* of *Ishtar* (2003/04/13/1480703)
+- *Isabella Beeton*, the *Fannie Farmer* of *Britain* (2003/06/11/1495897)
 
 ### 2004
 
@@ -91,3 +96,5 @@ Create a default configuration file with comments
 - If *Mariano Rivera of the Yankees* is the *Mr. October* of *closers*, *Gagne* is the *Mr. Season*. (2004/05/18/1582589)
 - *Lil' John*, the *King* of *Crunk* (2004/05/23/1583885)
 - *TechZilla*, the *Lamborghini* of *slow-pitch bats* (2004/05/30/1585628)
+- *Dionysos*, the *God of drama* (2004/06/27/1592422)
+- *Brenda Bishop*, the *Granny Bandit* of *Macomb County* (2004/07/03/1593896)
