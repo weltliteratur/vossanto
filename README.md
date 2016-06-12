@@ -32,3 +32,7 @@ Create a default configuration file with comments
 
     java -classpath stanford-postagger.jar:lib/* edu.stanford.nlp.tagger.maxent.MaxentTagger \
         -genprops > myPropsFile.prop
+
+# Examples
+
+| SOFTWARE | DNA | the high-technology age |
