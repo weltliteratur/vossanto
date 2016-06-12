@@ -67,6 +67,13 @@ Create a default configuration file with comments
 - *Hasselblad*, the *Mercedes-Benz* of *camera makers* (1991/03/10/0428959)
 - If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
 
+### 1992
+
+-  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
+- the Islanders, the Boys of Winter nyt_corpus_1992.har/01/24/0502719.xml
+- Forget the Yankees of Reggie, the Giants of Taylor, the Mets of Carter and Hernandez, even the Knicks of Reed and DeBusschere. The Islanders won like the old, old New York Yankees and they charmed like the old, old Brooklyn Dodgers (1992/03/04/0511581)
+- *Vaz Auto Works*, the *General Motors* of *Russia* (1992/03/08/0512599)
+
 ### 1993
 
 - The *Sig Sauer* is the *Rolex* of *guns* today (1993/01/03/0580645)
