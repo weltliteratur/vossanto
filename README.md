@@ -83,6 +83,12 @@ Create a default configuration file with comments
 - If *Houston's cozy new Enron Field* is the *Rhode Island* of *ballparks*, then *Comerica Park* is *Alaska* (2000/05/14/1199574)
 - *Brighton Beach* is the *Russian bazaar* of *America* (2000/05/21/1201255)
 - *Olivier Awards*, the *London equivalent* of the *Tony Awards* (2000/07/05/1212567)
+- *Gertrude Jekyll* is the *Elvis* of the *gardening world* (2000/07/23/1217052)
+- The *stunt biker Dave Mirra*, the *Michael Jordan* of the *dirt set* (2000/08/13/1222322)
+- *Los Angeles* is the *Ellis Island* of the *west* (2000/08/13/1222376)
+- *Cafe Riche* is the *Deux Magots* of *Cairo* (2000/08/20/1223752)
+- *Cynthia Cooper* is the *Michael Jordan*, the *Larry Bird*, the *Magic Johnson* of *this league* (2000/08/28/1226010)
+- *Harris* has been called the *Queen* of *Country Music*, the *Angel* of *This*, the *Sweetheart* of *That* (2000/09/03/1227433)
 
 ### 2001
 

@@ -43,23 +43,22 @@ from nltk.tree import Tree
 #
 # and other patterns
 vossanto_re_str = """
-(                                        # an entity
-\((PERSON|ORGANIZATION)\ (?P<x10>[^)]*?)\)
+(                                         # an entity
+\((PERSON|ORGANIZATION|GPE)\ (?P<x10>[^)]*?)\)
 (\ \((PERSON|ORGANIZATION)\ (?P<x11>[^)]*?)\))?
-) 
-\ 
+)
 
-(
-is/VBZ|
+\ 
+(                                         # is 
+(is|has)/VBZ (\ (often|sometimes)/RB)? (\ been/VBN)? (\ called/VBN)?|
 -/:|
 ,/,
 )
 
-\ the/DT
+\ the/DT                                  # the
 
 \ 
-
-(                                         # another entity
+(                                         # entity
 \((PERSON|ORGANIZATION)\ (?P<y1>[^)]*?)\) 
 |
 (\(GPE\ (?P<y21>[^)]*?)\) (\ (?P<y22>[^/()]*?)/NNP?)?)
@@ -67,9 +66,9 @@ is/VBZ|
 (?P<y31>[^/()]*?)/NNP
 )
 
-\ (of|among)/IN
+\ (of|among)/IN                           # of
 
-\ (
+\ (                                       # another entity
   ((?P<z10>[^/()]*?)/(CD|DT|JJ|IN))? 
   (?P<z11>[^/()]*?)/(NNS?|DT)
   (\ (?P<z12>[^/()]*?)/(IN|JJ))? 

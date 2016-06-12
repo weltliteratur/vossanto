@@ -44,7 +44,7 @@ def xml2vossanto(f, fname):
     if txt:
         # find vossanto
         try:
-            for v in vossanto.text2vossanto(txt):
+            for v in vossanto.text2vossanto(txt.decode("utf-8")):
                 # print vossanto
                 if v:
                     print(fname, v[0], v[1], v[2], sep='\t')

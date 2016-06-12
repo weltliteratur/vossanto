@@ -49,7 +49,10 @@ class TestVossanto(unittest.TestCase):
         # not yet possible: 
         self.tv("Angela Merkel is the Tuberkulose of the digital age.", "Angela Merkel", "Tuberkulose", "the digital age")
         self.tv("Angela Merkel is the Porsche Cayenne among shoes.", "Angela Merkel", "Porsche Cayenne", "shoes")
-
+        self.tv("Harris has been called the Queen of Country Music.", "Harris", "Queen", "Country Music")
+        self.tv("Harris is called the Queen of Country Music.", "Harris", "Queen", "Country Music")
+        self.tv("Harris is often called the Queen of Country Music.", "Harris", "Queen", "Country Music")
+        self.tv("Harris is sometimes called the Queen of Country Music.", "Harris", "Queen", "Country Music")
 
     def test_non_vossanto(self):
         self.tnv("This is a simple example of a road.")
