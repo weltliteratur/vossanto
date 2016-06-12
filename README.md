@@ -42,6 +42,10 @@ Create a default configuration file with comments
 ### 1988 
 
 - *Mr. Pacepa* is the *Happy Hooker* of the *spy trade* (1988/01/03/0106811)
+- *New South Wales*, the *Georgian equivalent* of *deep space* (1987/01/25/0007151)
+- the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
+- Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
+- *Olivier Award*, the *English equivalent* of the *Tony Award* (1987/02/01/0009058)
 
 ### 1990
 
