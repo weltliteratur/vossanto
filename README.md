@@ -62,6 +62,10 @@ Create a default configuration file with comments
 ### 1991
 
 - *George Foreman*, the *Santa Claus* of *sports* (1991/01/01/0412333)
+- *New York* is the *Cadillac* of *welfare states* (1991/01/31/0419226)
+- *Gillian Anderson* is the *Pauper* of *professional experience*, *Brenda Blethyn* is the *Princess* (1991/02/20/0424794)
+- *Hasselblad*, the *Mercedes-Benz* of *camera makers* (1991/03/10/0428959)
+- If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
 
 ### 1993
 
