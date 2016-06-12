@@ -95,6 +95,17 @@ Create a default configuration file with comments
 - *Mr. Lovano* is the *General Motors* of *jazz* (1995/01/15/0736903)
 - *La Villa*, the *Village Vanguard* of *Paris* (1995/01/15/0736911)
 
+### 1996
+
+- *Ann Landers*, the *Oprah Winfrey* of *newspapers*, (1996/01/17/0823245)
+- *Cherry*, the *Rush Limbaugh* of *hockey commentary* (1996/01/21/0824224)
+- *Robert Redford*, the *Thomas Jefferson* of *Sundance* (1996/01/24/0825044)
+- *Lee Koppelman* is the *Robert Moses* of *Long Island* (1996/02/04/0827620)
+- *Peyton* is the *Tanya Harding* of the *plot* (1996/02/10/0828923)
+- *Bob Dole* is the *Mozart* of *resentment* (1996/02/11/0829501)
+- *Bennett S. LeBow*, the *Niccolo Machiavelli* of the *foxy deal* (1996/03/14/0836529)
+- *Julian Luna*, the *Michael Corleone* of *vampires* (1996/04/02/0840971)
+
 ### 1997
 
 - *Thomas Eisner*, the *St. Francis* of *bugs* (1997/01/12/0900997)
