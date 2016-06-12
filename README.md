@@ -38,6 +38,36 @@ Create a default configuration file with comments
 
 ## Examples
 
+
+### 1988 
+
+- *Mr. Pacepa* is the *Happy Hooker* of the *spy trade* (1988/01/03/0106811)
+
+### 1990
+
+- the *remarkable enclosed indoor Housewives' Market*, the *Halles* of *soul food*  (1990/01/07/0314867)
+
+
+### 1991
+
+- *George Foreman*, the *Santa Claus* of *sports* (1991/01/01/0412333)
+
+### 1993
+
+- The *Sig Sauer* is the *Rolex* of *guns* today (1993/01/03/0580645)
+
+### 1997
+
+- *Thomas Eisner*, the *St. Francis* of *bugs* (1997/01/12/0900997)
+
+### 1998
+
+- *Lovely Lane Methodist Church*, the *Mother Church* of *American Methodism* (1998/01/09/0986279)
+
+### 1999
+
+- the *Estee Lauder Companies*, the *General Motors* of the *cosmetics world* (1999/01/10/1075990)
+
 ### 2000
 
 - *SOFTWARE* is the *DNA* of the *high-technology age* (2000/01/01/1165197)
@@ -52,6 +82,7 @@ Create a default configuration file with comments
 - *Miss Loveydear*, the *Mae West* of *dragonflies* (2000/05/12/1198733)
 - If *Houston's cozy new Enron Field* is the *Rhode Island* of *ballparks*, then *Comerica Park* is *Alaska* (2000/05/14/1199574)
 - *Brighton Beach* is the *Russian bazaar* of *America* (2000/05/21/1201255)
+- *Olivier Awards*, the *London equivalent* of the *Tony Awards* (2000/07/05/1212567)
 
 ### 2001
 
@@ -65,6 +96,7 @@ Create a default configuration file with comments
 - *Orbitz* is the *Standard Oil* of *online travel* (2001/05/27/1296569)
 - *cartoon villain Dirty Dee* is the *Pigpen* of *macks* (2001/06/29/1305441)
 - *Dr. Alex*, the *Freud* of the *Cocktail Hour* (2001/07/08/1307710)
+- *Rebecca Wisocky*, the *Sandra Bernhard* of *dance* (2001/07/17/1309968)
 
 ### 2002
 
@@ -74,6 +106,8 @@ Create a default configuration file with comments
 - *J Mascis* is the *Neil Young* of *Generation X* (2002/03/22/1377696)
 - *Mr. Bogdanovich*, the *Icarus* of the *New Hollywood* (2002/04/12/1383292)
 - *MagLiner*, the *Cadillac* of *hand trucks* (2002/06/09/1399279)
+- *Hillary*, the *Cattle Queen* of *commodities trading* (2002/07/10/1407094)
+- the *jockey Jim Burns*, the *Jerry Bailey* of *mule racing* (2002/07/11/1407365)
 
 ### 2003
 
