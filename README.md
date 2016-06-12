@@ -36,6 +36,11 @@ Create a default configuration file with comments
     java -classpath stanford-postagger.jar:lib/* edu.stanford.nlp.tagger.maxent.MaxentTagger \
         -genprops > myPropsFile.prop
 
+## Ideas for Improvements
+
+- collect values for y and omit matches which contain a frequent y,
+  e.g., "Ezer Weizman President Israel"
+
 ## Examples
 
 
@@ -116,10 +121,21 @@ Create a default configuration file with comments
 ### 1998
 
 - *Lovely Lane Methodist Church*, the *Mother Church* of *American Methodism* (1998/01/09/0986279)
+- *Benjamin Netanyahu* is the *Ronald Reagan* of *Israel*  (1998/01/20/0989013)
+- *Zulu King Shaka*, the *Genghis Khan* of *Africa* (1998/02/05/0993081)
+- *Eurosport*, the *European equivalent* of *ESPN* (1998/02/23/0997564)
+- The *Palm Pilot* is the *Volkswagen Bug* of the *handheld universe* (1998/02/26/0998073)
+- *Parappa* is the *Will Smith* of *video game characters* (1998/03/12/1001407)
+- *Beatrice Wood*, the *Mama* of *Dada* (1998/03/14/1001941)
+- *Kenneth Starr*, the *Sultan* of the *Subpoena* (1998/03/20/1003494)
+- *Adam Graves*, the *Billy Budd* of *hockey* (1998/04/05/1007678)
 
 ### 1999
 
 - the *Estee Lauder Companies*, the *General Motors* of the *cosmetics world* (1999/01/10/1075990)
+- *Shimano of Japan*, the *Microsoft* of *bicycle-part makers* (1999/03/11/1091448)
+- *Tito  Nieves* is called the *Pavarotti of salsa* (1999/03/26/1095206)
+- *Special Unit Corps*, the *Yugoslav equivalent* of the *American Special Forces* (1999/04/01/1096836)
 
 ### 2000
 
