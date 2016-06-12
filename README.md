@@ -49,6 +49,8 @@ Create a default configuration file with comments
 - *Larry*, the *Marvin Miller* of *hoops* (2000/04/02/1188826)
 - *James Brown*, the *Godfather* of *Soul* (2000/04/13/1191452)
 - *Willis Haviland Carrier*, the *Bill Gates* of the *air conditioner* (2000/05/01/1196085)
+- *Miss Loveydear*, the *Mae West* of *dragonflies* (2000/05/12/1198733)
+- If *Houston's cozy new Enron Field* is the *Rhode Island* of *ballparks*, then *Comerica Park* is *Alaska* (2000/05/14/1199574)
 
 ### 2001
 
@@ -58,6 +60,8 @@ Create a default configuration file with comments
 - *William Woys Weaver* is the *Julia Child* of *long-lost vegetables* (2001/03/15/1277939)
 - *Peggy Spina* is the *Brenda Blethyn* of *tap* (2001/03/13/1277631)
 - *Celia Cruz*, the *Queen* of *Salsa* (2001/03/16/1278191)
+- *Tobias Meyer* is the *James Bond* of the *art market* (2001/05/20/1294977)
+- *Orbitz* is the *Standard Oil* of *online travel* (2001/05/27/1296569)
 
 ### 2002
 
@@ -84,4 +88,6 @@ Create a default configuration file with comments
 - *Steinway*, the *Mercedes* of *pianos* (2004/02/29/1562589)
 - *Azim Premji* is the *Bill Gates* of *India* (2004/03/21/1568087)
 - *Yomiuri Giants*, the *Japanese equivalent* of the *Yankees* (2004/03/28/1569955)
-- If *Mariano Rivera of the Yankees* is the *Mr. October* of *closers*, Gagne is the Mr. Season. (2004/05/18/1582589)
+- If *Mariano Rivera of the Yankees* is the *Mr. October* of *closers*, *Gagne* is the *Mr. Season*. (2004/05/18/1582589)
+- *Lil' John*, the *King* of *Crunk* (2004/05/23/1583885)
+- *TechZilla*, the *Lamborghini* of *slow-pitch bats* (2004/05/30/1585628)
