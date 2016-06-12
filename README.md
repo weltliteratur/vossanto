@@ -1,6 +1,9 @@
 
 # Vossianische Antonomasien
 
+siehe
+[Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/category/vossianische-antonomasie/)
+
 ## Howto
 
 ### English: POS tagging with NLTK
