@@ -83,7 +83,11 @@ Create a default configuration file with comments
 
 ### 1994
 
-- 
+- *Sweden*, the *Rangers* of *international hockey* (1994/02/12/0668308)
+- *Tourte*, the *Stradivarius* of *bows* (1994/02/20/0670039)
+- *Phil Liggett*, the *Ben Wright* of the *snow* (1994/02/21/0670187)
+- *Ariels*, the *Mexican equivalent* of *Oscars* (1994/03/20/0675424)
+- *Canal Plus*, the *HBO* of *France* (1994/03/27/0676813)
 
 ### 1995
 
