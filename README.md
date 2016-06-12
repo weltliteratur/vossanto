@@ -56,6 +56,12 @@ Create a default configuration file with comments
 
 - The *Sig Sauer* is the *Rolex* of *guns* today (1993/01/03/0580645)
 
+### 1995
+
+- *Rush Limbaugh*, the *Babe Ruth* of the *talk-show circuit* (1995/01/05/0735173)
+- *Mr. Lovano* is the *General Motors* of *jazz* (1995/01/15/0736903)
+- *La Villa*, the *Village Vanguard* of *Paris* (1995/01/15/0736911)
+
 ### 1997
 
 - *Thomas Eisner*, the *St. Francis* of *bugs* (1997/01/12/0900997)
