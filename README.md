@@ -41,6 +41,11 @@ Create a default configuration file with comments
 - *Virginia Gonzalez*  is the *Dorothea Dix* of *Mexico* (har/01/16/1168831)
 - *Lorne Michaels*, the *Flo Ziegfeld* of *sketch comedy* (2000/02/06/1174188)
 - *Much Music* is the *Canadian version* of *MTV* (2000/02/06/1174454)
+- *El Camino Real*, the *Champs-Elysees* of the *new economy* (2000/03/10/1182787)
+- *Mr. McMahon* is the *Willie Wonka* of *pro wrestling* (2000/03/17/1184459)
+- *Larry*, the *Marvin Miller* of *hoops* (2000/04/02/1188826)
+- *James Brown*, the *Godfather* of *Soul* (2000/04/13/1191452)
+- *Willis Haviland Carrier*, the *Bill Gates* of the *air conditioner* (2000/05/01/1196085)
 
 ## 2001
 
@@ -57,6 +62,7 @@ Create a default configuration file with comments
 - *today's National Enquirer* is the *Las Vegas* of *journalism* (2002/01/13/1359135)
 - *Eldredge* is the *Cadillac* among *Ferraris* (2002/02/12/1367217)
 - *J Mascis* is the *Neil Young* of *Generation X* (2002/03/22/1377696)
+- *Mr. Bogdanovich*, the *Icarus* of the *New Hollywood* (2002/04/12/1383292)
 
 ## 2003
 
@@ -67,9 +73,12 @@ Create a default configuration file with comments
 - *Mille Lacs* is the *Yankee Stadium* of *ice fishing* (2003/02/21/1466539)
 - *Olivier Award*, the *London equivalent* of the *Tony* (2003/03/02/1468848)
 - *Las Cruces*, the *Mesilla Valley* of *southern New Mexico* (2003/03/09/1470804)
+- *goddess Inanna*, the *Sumerian version* of *Ishtar* (2003/04/13/1480703)
 
 ## 2004
 
 - *Arturo Gatti* is the *Oscar De La Hoya* of *New Jersey* (2004/02/22/1560800)
 - *Steinway*, the *Mercedes* of *pianos* (2004/02/29/1562589)
 - *Azim Premji* is the *Bill Gates* of *India* (2004/03/21/1568087)
+- *Yomiuri Giants*, the *Japanese equivalent* of the *Yankees* (2004/03/28/1569955)
+- If *Mariano Rivera of the Yankees* is the *Mr. October* of *closers*, Gagne is the Mr. Season. (2004/05/18/1582589)
