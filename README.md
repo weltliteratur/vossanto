@@ -1,13 +1,13 @@
----
-title: Vossianische Antonomasien
-date: 2016-06-12
----
 
-# English: POS tagging with NLTK
+# Vossianische Antonomasien
 
-- see [[vossanto.py]]
+## Howto
 
-# German: POS tagging with the Stanford tagger
+### English: POS tagging with NLTK
+
+- see [vossanto.py](blob/master/vossanto.py)
+
+### German: POS tagging with the Stanford tagger
 
 why not NLTK:
 
@@ -33,9 +33,9 @@ Create a default configuration file with comments
     java -classpath stanford-postagger.jar:lib/* edu.stanford.nlp.tagger.maxent.MaxentTagger \
         -genprops > myPropsFile.prop
 
-# Examples
+## Examples
 
-## 2000
+### 2000
 
 - *SOFTWARE* is the *DNA* of the *high-technology age* (2000/01/01/1165197)
 - *Virginia Gonzalez*  is the *Dorothea Dix* of *Mexico* (har/01/16/1168831)
@@ -47,7 +47,7 @@ Create a default configuration file with comments
 - *James Brown*, the *Godfather* of *Soul* (2000/04/13/1191452)
 - *Willis Haviland Carrier*, the *Bill Gates* of the *air conditioner* (2000/05/01/1196085)
 
-## 2001
+### 2001
 
 - *Youngman* is the *King* of *One Liners* (2001/01/07/1260710)
 - *Palm Springs* is the *Hamptons* of *Los Angeles* (2001/01/14/1262501)
@@ -56,7 +56,7 @@ Create a default configuration file with comments
 - *Peggy Spina* is the *Brenda Blethyn* of *tap* (2001/03/13/1277631)
 - *Celia Cruz*, the *Queen* of *Salsa* (2001/03/16/1278191)
 
-## 2002
+### 2002
 
 - *the North American International Auto Show*, the *Cannes Film Festival* of the *auto industry* (2002/01/06/1357245)
 - *today's National Enquirer* is the *Las Vegas* of *journalism* (2002/01/13/1359135)
@@ -64,7 +64,7 @@ Create a default configuration file with comments
 - *J Mascis* is the *Neil Young* of *Generation X* (2002/03/22/1377696)
 - *Mr. Bogdanovich*, the *Icarus* of the *New Hollywood* (2002/04/12/1383292)
 
-## 2003
+### 2003
 
 - *Eric Bergoust*, the *Babe Ruth* of *freestyle aerials* (2003/01/23/1458686)
 - *New Jersey's Vince Lombardi* is the *Yosemite* of *rest stops* (2003/02/02/1461651)
@@ -75,7 +75,7 @@ Create a default configuration file with comments
 - *Las Cruces*, the *Mesilla Valley* of *southern New Mexico* (2003/03/09/1470804)
 - *goddess Inanna*, the *Sumerian version* of *Ishtar* (2003/04/13/1480703)
 
-## 2004
+### 2004
 
 - *Arturo Gatti* is the *Oscar De La Hoya* of *New Jersey* (2004/02/22/1560800)
 - *Steinway*, the *Mercedes* of *pianos* (2004/02/29/1562589)
