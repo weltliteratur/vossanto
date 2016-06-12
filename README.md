@@ -55,7 +55,9 @@ Create a default configuration file with comments
 ### 1990
 
 - the *remarkable enclosed indoor Housewives' Market*, the *Halles* of *soul food*  (1990/01/07/0314867)
-
+- *Mr. Gorbachev*, the *Houdini* of *politicians* (1990/02/05/0323616)
+- *Clive Barker* is the *Paul McCartney* of *horror fiction* (1990/02/11/0325668)
+- *Waterman*, the *Rolls-Royce* of *pens* acquired in 1987, and *Papermate*, the *Chevrolet* of *pens* (1990/02/25/0329728)
 
 ### 1991
 
