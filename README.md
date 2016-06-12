@@ -35,4 +35,6 @@ Create a default configuration file with comments
 
 # Examples
 
+| x        | y   | z                       |
+|----------+-----+-------------------------|
 | SOFTWARE | DNA | the high-technology age |
