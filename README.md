@@ -1,7 +1,7 @@
 
-# Vossianische Antonomasien
+# Vossian Antonomasia
 
-siehe [Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)
+see [Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)
 
 ## Howto
 
