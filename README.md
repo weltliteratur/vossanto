@@ -237,6 +237,13 @@ source: New York Times corpus 1987-2007
 - *Dionysos*, the *God of drama* (2004/06/27/1592422)
 - *Brenda Bishop*, the *Granny Bandit* of *Macomb County* (2004/07/03/1593896)
 
+### 2006
+
+- *Lance Fung*, the *Admiral Perry* of the *art world* (2006/02/02/1736482)
+- If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
+- *Bafta*, the *British equivalent* of the *Academy Awards* (2006/03/06/1744762)
+- *Joe Namath* is the *Ann Calvello* of *football* (2006/03/17/1747425)
+
 ### 2007
 
 - *Jon Jerde*, the *California master* of *mall design* (2007/01/04/1816247)
