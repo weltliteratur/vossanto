@@ -51,7 +51,7 @@ def xml2vossanto(f, fname):
             for v in vossanto.text2vossanto(txt):
                 # print vossanto
                 if v:
-                    print(fname, v[0]., v[1], v[2], sep='\t')
+                    print(fname, v[0], v[1], v[2], sep='\t')
         except UnicodeDecodeError:
             print(fname, "UnicodeDecodeError")
 
