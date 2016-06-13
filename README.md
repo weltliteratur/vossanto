@@ -50,6 +50,21 @@ Create a default configuration file with comments
 - the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
 - Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
 - *Olivier Award*, the *English equivalent* of the *Tony Award* (1987/02/01/0009058)
+- *George Romney*, the *Middle America sort* of *guy* (1987/03/15/0021513)
+- the *Wireless Service*, the *German equivalent* of the *BBC* (1987/04/05/0027535)
+- *Lone Mountain* is the *Club Med* of *dude ranches* (1987/05/24/0043648)
+- *Algarve*, the *Riviera* of *Portugal* (1987/06/14/0048773)
+- Anne Horner's husband was the great-grandson of *Sir John Horner*, the *Little Jack Horner* of the *nursery rhyme* (1987/06/24/0051512)
+- *Hiroshi Itsuki*, the *Frank Sinatra* of *Japan* (1987/06/29/0052991)
+- the *Cesars* - the *French equivalent* of *Oscars* (1987/06/29/0052991)
+- the *Olivier Award* - the *British equivalent* of a *Tony* (1987/07/10/0055426)
+- *Sassy*, the *United States version* of *Dolly* (1987/08/24/0068801)
+- *Windsor* is the *Detroit* of *Canada* (1987/09/21/0076414)
+- the *Wailers*, the *Beatles* of *reggae* (1987/09/27/0077678)
+- *Jeff Reardon*, the *Terminator* of the *Minnesota Twins* (1987/10/17/0083602)
+- *Moses Malone* is the *Paul Newman* of *professional basketball* (1987/11/14/0092773)
+- *Dana Dane*, the *King* of *Rap*, (1987/11/26/0096606)
+- *Laurence Olivier Award*, the *English equivalent* of the *Tony Award* (1987/12/22/0103798)
 
 ### 1988 
 
