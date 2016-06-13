@@ -59,11 +59,10 @@ vossanto_re_str = """
 
 \ 
 (                                         # entity
-\((PERSON|ORGANIZATION)\ (?P<y1>[^)]*?)\) 
+  \((PERSON|ORGANIZATION|GPE)\ (?P<y11>[^)]*?)\) 
+  (\ (?P<y12>[^/()]*?)/NNP?)?
 |
-(\(GPE\ (?P<y21>[^)]*?)\) (\ (?P<y22>[^/()]*?)/NNP?)?)
-|
-(?P<y31>[^/()]*?)/NNP
+  (?P<y31>[^/()]*?)/NNP
 )
 
 \ (of|among)/IN                           # of
@@ -73,14 +72,12 @@ vossanto_re_str = """
   (?P<z11>[^/()]*?)/(NNS?|DT)
   (\ (?P<z12>[^/()]*?)/(IN|JJ))? 
   (\ (?P<z13>[^/()]*?)/NNS?)?
-  |
-  (\(GPE\ (?P<z21>[^)]*?)\) (\ (?P<z22>[^/()]*?)/NNP)?)
-  |
+|
   (?P<z31>[^/()]*?)/NNP
-  |
+|
   ((?P<z40>[^/()]*?)/(CD|DT|JJ)\ )? 
-  \(ORGANIZATION \ (?P<z41>[^)]*?)\)
-  (\ (?P<z43>[^/()]*?)/NNS?)?
+  \((ORGANIZATION|PERSON|GPE)\ (?P<z41>[^)]*?)\)
+  (\ (?P<z43>[^/()]*?)/NN[SP]?)?
 )
 
 \ [\.,-]/[\.,:]
@@ -97,7 +94,7 @@ def tags2str(tags):
             parts.append(tag[0] + "/" + tag[1])
     return " ".join(parts)
 
-def vossanto(sentence):
+def vossanto(sentence, verbose=False):
     # split into words
     words = word_tokenize(sentence)
 
@@ -112,7 +109,8 @@ def vossanto(sentence):
 
     # debug
     #if "Mozart" in sentence:
-    #print(ttext)
+    if verbose:
+        print(ttext)
 
 
     #print(ttext)
@@ -124,11 +122,9 @@ def vossanto(sentence):
         if d["x11"]:
             x += " " + d["x11"]
         # y
-        y = d["y1"]
-        if not y:
-            y = d["y21"]
-            if d["y22"]:
-                y += " " + d["y22"]
+        y = d["y11"]
+        if d["y12"]:
+            y += " " + d["y12"]
         if not y:
             y = d["y31"]        
                 
@@ -142,11 +138,6 @@ def vossanto(sentence):
             z += " " + d["z13"]
 
         # z is/contains a GPE:
-        if not z:
-            if d["z21"]:
-                z = d["z21"]
-                if d["z22"]:
-                    z += " " + d["z22"]
         if not z:
             if d["z31"]:
                 z = d["z31"]

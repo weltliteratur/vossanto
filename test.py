@@ -53,6 +53,7 @@ class TestVossanto(unittest.TestCase):
         self.tv("Harris is called the Queen of Country Music.", "Harris", "Queen", "Country Music")
         self.tv("Harris is often called the Queen of Country Music.", "Harris", "Queen", "Country Music")
         self.tv("Harris is sometimes called the Queen of Country Music.", "Harris", "Queen", "Country Music")
+        self.tv("Berlin is the New York of Germany.", "Berlin", "New York", "Germany")
 
     def test_non_vossanto(self):
         self.tnv("This is a simple example of a road.")
@@ -62,10 +63,10 @@ class TestVossanto(unittest.TestCase):
         self.tnv("Helmut Kohl is a boring speaker.")
 
     def tv(self, s, x, y, z):
-        self.assertEqual(vossanto.vossanto(s), (x, y, z))
+        self.assertEqual(vossanto.vossanto(s, True), (x, y, z))
 
     def tnv(self, s):
-        self.assertEqual(vossanto.vossanto(s), None)
+        self.assertEqual(vossanto.vossanto(s, True), None)
         
 if __name__ == '__main__':
     unittest.main()
