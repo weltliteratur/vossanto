@@ -20,9 +20,14 @@ import tarfile
 import argparse
 import os
 import sys
+import codecs
 import vossanto
 
 version = "0.0.1"
+
+# convert all output into a byte string to be safe when redirecting
+UTF8Writer = codecs.getwriter('utf8')
+sys.stdout = UTF8Writer(sys.stdout)
 
 # convert NYT XML to text
 def xml2str(f, fname):
@@ -46,7 +51,7 @@ def xml2vossanto(f, fname):
             for v in vossanto.text2vossanto(txt):
                 # print vossanto
                 if v:
-                    print(fname, v[0], v[1], v[2], sep='\t')
+                    print(fname, v[0]., v[1], v[2], sep='\t')
         except UnicodeDecodeError:
             print(fname, "UnicodeDecodeError")
 
