@@ -69,8 +69,22 @@ source: New York Times corpus 1987-2007
 ### 1988 
 
 - *Mr. Pacepa* is the *Happy Hooker* of the *spy trade* (1988/01/03/0106811)
+- *Olivier Award*, the *English equivalent* of the *Tony* (1988/02/01/0114868)
 - *Queen Victoria*, the *Great Satan* of the *time* (1988/02/03/0115425)
 - *David Leslie*, the *Evel Knievel* of *performance artists* (1988/02/05/0116272)
+- *Nahlas - the *Slovak equivalent* of *glasnost* (1988/03/03/0124041)
+- the *Young Pioneers* - the *Soviet equivalent* of the *Boy Scouts* (1988/03/21/0129426)
+- *Smith*, the *Wizard* of *Ahs* (1988/04/02/0132691)
+- If *Mr. Moynihan* is the *Sherlock Holmes* of the *fiscal story*, then *Mr. Stockman* is at once *its Dr. Watson* and *its Moriarty*. (1988/04/17/0136766)
+- *Robert Stroud*, the *Birdman of *Alcatraz* (1988/04/23/0138826)
+- *Mr. John*, the *Emperor* of *Fashion* (1988/05/02/0141129)
+- *Gypsy Byrne*, the *Beau Brummel* of *Broadway* (1988/05/29/0149355)
+- *Morris* has been the *Clark Cable* of the *catnip crowd* (1988/05/29/0149364)
+- *Gainsborough* is the *Mozart* of *portraiture* (1988/07/17/0162061)
+- *Hughes*, the *Mad Hatter* of *capitalism* (1988/09/11/0178234)
+- *Eddie Shore*, the *Babe Ruth* of *hockey* (1988/11/04/0194523)
+- *Sax* dressed alongside *Kirk Gibson* and *Mickey Hatcher*, the *Three Musketeers* of *Hyperactivity* (1988/11/27/0201849)
+- *Guzman* is regarded as "the *Stalin* of *Patchogue*, the *Idi Amin* of *Long Island*" (1988/12/06/0204254)
 
 ### 1990
 
