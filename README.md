@@ -236,3 +236,19 @@ source: New York Times corpus 1987-2007
 - *TechZilla*, the *Lamborghini* of *slow-pitch bats* (2004/05/30/1585628)
 - *Dionysos*, the *God of drama* (2004/06/27/1592422)
 - *Brenda Bishop*, the *Granny Bandit* of *Macomb County* (2004/07/03/1593896)
+
+### 2007
+
+- *Jon Jerde*, the *California master* of *mall design* (2007/01/04/1816247)
+- *Richard Feynman*, the *Neal Cassady* of *physics* (2007/01/07/1816844)
+- *Mariano*, the *Mariano* of the *present* (2007/02/15/1826443)
+- *Mary Magdalene* is the *Ringo* of *this inquiry* (2007/03/03/1830035)
+- *New York* is the *Mecca* of *basketball* (2007/04/05/1838196)
+- *Talaa Kebira*, the *Broadway* of *Fez* (2007/04/08/1839030)
+- *Mr. Gunn* is the *Michelangelo* of *the form* (2007/04/12/1839640)
+- *Superman*, the *Man* of *Steel* (2007/04/25/1842867)
+- *Clomid* is the *Alfred Hitchcock* of *drugs* (2007/05/02/1844502)
+- *Jack Reacher*, the *Paul Bunyan* of the *thriller world* (2007/05/14/1847325)
+- *James Brown*, the *Godfather* of *Soul* (2007/05/27/1850236)
+- *Alberto Gonzales* is the *Michael Brown* of the *Justice Department* (2007/06/11/1853778)
+- *Fred Sandback*, the *American master* of *ethereal string geometries* (2007/06/15/1854531)
