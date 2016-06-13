@@ -33,10 +33,9 @@ def xml2str(f, fname):
     for block in content:
         if block.attrib["class"] == "full_text":
             # strip XML
-            return ET.tostring(block, encoding="utf-8", method="text")
+            return ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
 
     return None
-
 
 def xml2vossanto(f, fname):
     # process contained file
@@ -44,7 +43,7 @@ def xml2vossanto(f, fname):
     if txt:
         # find vossanto
         try:
-            for v in vossanto.text2vossanto(txt.decode("utf-8")):
+            for v in vossanto.text2vossanto(txt):
                 # print vossanto
                 if v:
                     print(fname, v[0], v[1], v[2], sep='\t')
