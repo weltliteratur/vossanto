@@ -1,8 +1,7 @@
 
 # Vossianische Antonomasien
 
-siehe
-[Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/category/vossianische-antonomasie/)
+siehe [Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)
 
 ## Howto
 
@@ -43,6 +42,7 @@ Create a default configuration file with comments
 
 ## Examples
 
+source: New York Times corpus 1987-2007
 
 ### 1987
 
