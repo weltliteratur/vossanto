@@ -260,6 +260,22 @@ source: New York Times corpus 1987-2007
 - *Dionysos*, the *God of drama* (2004/06/27/1592422)
 - *Brenda Bishop*, the *Granny Bandit* of *Macomb County* (2004/07/03/1593896)
 
+### 2005
+
+- the *District of Columbia*, the *Camp David* of the *day* (2005/01/09/1640426)
+- *LAUREN HUTTON* is the *Zelig* of *travel* (2005/01/09/1640625)
+- *Bill Belichick* is the *Bobby Fischer* of *football* (2005/01/18/1643049)
+- *Richard Foreman*, the *Florenz Ziegfeld* of *avant-garde drama* (2005/01/21/1643632)
+- *Hocoka*, the *Sioux concept* of *healing* (2005/02/06/1647643)
+- *Michael Powell*, the *Savonarola* of the *Federal Communications Commission* (2005/02/06/1647680)
+- *Veggie Booty*, the *Cheez Doodles* of the *21st century* (2005/03/06/1654677)
+- *Long Island*, the *Galapagos* of *suburban dysfunction* (2005/03/20/1658622)
+- *Qwest*, the *Rodney Dangerfield* of the *telephone industry* (2005/04/01/1661389)
+- *John LaValle* has been the *Gorbachev* of *Brookhaven* (2005/04/10/1663656)
+- *Intel*, the *Goliath* of the *chip industry* (2005/04/21/1666553)
+- *Mont Ventoux*, the *Giant* of *Provence* (2005/06/05/1678016)
+- *Mr. Ruscha*, the *Riddler* of the *art world* (2005/06/12/1679564)
+
 ### 2006
 
 - *Lance Fung*, the *Admiral Perry* of the *art world* (2006/02/02/1736482)
