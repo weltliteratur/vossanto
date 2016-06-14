@@ -44,8 +44,9 @@ from nltk.tree import Tree
 # and other patterns
 vossanto_re_str = """
 (                                         # an entity
-\((PERSON|ORGANIZATION|GPE)\ (?P<x10>[^)]*?)\)
-(\ \((PERSON|ORGANIZATION)\ (?P<x11>[^)]*?)\))?
+  \((PERSON|ORGANIZATION|GPE)\ (?P<x10>[^)]*?)\)
+  (\ \((PERSON|ORGANIZATION)\ (?P<x11>[^)]*?)\))?
+  (\ (?P<x12>[^/()]*?)/NNP?)?
 )
 
 \ 
@@ -65,7 +66,7 @@ vossanto_re_str = """
   (?P<y31>[^/()]*?)/NNP
 )
 
-\ (of|among)/IN                           # of
+\ (of|among|from)/IN                      # of
 
 \ (                                       # another entity
   ((?P<z10>[^/()]*?)/(CD|DT|JJ|IN))? 
@@ -121,6 +122,8 @@ def vossanto(sentence, verbose=False):
         x = d["x10"]
         if d["x11"]:
             x += " " + d["x11"]
+        if d["x12"]:
+            x += " " + d["x12"]
         # y
         y = d["y11"]
         if d["y12"]:

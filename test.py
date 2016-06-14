@@ -54,6 +54,7 @@ class TestVossanto(unittest.TestCase):
         self.tv("Harris is often called the Queen of Country Music.", "Harris", "Queen", "Country Music")
         self.tv("Harris is sometimes called the Queen of Country Music.", "Harris", "Queen", "Country Music")
         self.tv("Berlin is the New York of Germany.", "Berlin", "New York", "Germany")
+        self.tv("Norbert Röttgen is the Obama from Meckenheim.", "Norbert Röttgen", "Obama", "Meckenheim")
 
     def test_non_vossanto(self):
         self.tnv("This is a simple example of a road.")
