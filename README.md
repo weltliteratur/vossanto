@@ -72,11 +72,11 @@ source: New York Times corpus 1987-2007
 - *Olivier Award*, the *English equivalent* of the *Tony* (1988/02/01/0114868)
 - *Queen Victoria*, the *Great Satan* of the *time* (1988/02/03/0115425)
 - *David Leslie*, the *Evel Knievel* of *performance artists* (1988/02/05/0116272)
-- *Nahlas - the *Slovak equivalent* of *glasnost* (1988/03/03/0124041)
+- *Nahlas* - the *Slovak equivalent* of *glasnost* (1988/03/03/0124041)
 - the *Young Pioneers* - the *Soviet equivalent* of the *Boy Scouts* (1988/03/21/0129426)
 - *Smith*, the *Wizard* of *Ahs* (1988/04/02/0132691)
 - If *Mr. Moynihan* is the *Sherlock Holmes* of the *fiscal story*, then *Mr. Stockman* is at once *its Dr. Watson* and *its Moriarty*. (1988/04/17/0136766)
-- *Robert Stroud*, the *Birdman of *Alcatraz* (1988/04/23/0138826)
+- *Robert Stroud*, the *Birdman* of *Alcatraz* (1988/04/23/0138826)
 - *Mr. John*, the *Emperor* of *Fashion* (1988/05/02/0141129)
 - *Gypsy Byrne*, the *Beau Brummel* of *Broadway* (1988/05/29/0149355)
 - *Morris* has been the *Clark Cable* of the *catnip crowd* (1988/05/29/0149364)
@@ -85,6 +85,29 @@ source: New York Times corpus 1987-2007
 - *Eddie Shore*, the *Babe Ruth* of *hockey* (1988/11/04/0194523)
 - *Sax* dressed alongside *Kirk Gibson* and *Mickey Hatcher*, the *Three Musketeers* of *Hyperactivity* (1988/11/27/0201849)
 - *Guzman* is regarded as "the *Stalin* of *Patchogue*, the *Idi Amin* of *Long Island*" (1988/12/06/0204254)
+
+### 1989
+
+- *Ace Nelson*, the *Oracle* of *Survay* (1989/01/09/0212675)
+- *California* is the *State* of *Champions* (1989/01/24/0217109)
+- *EUROPCAR*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
+- *Late 18th Century*, the *Age of *Reason* (1989/03/10/0230298)
+- *Banter* is the *Ping-Pong* of *debate* (1989/04/30/0245628)
+- *Kips Bay* is the *Academy Awards* of *interior design* (1989/05/21/0251994)
+- *Barnum* - the *Michelangelo* of *buncombe*, *hokum*, *hoopla* and *ballyhoo* (1989/06/06/0256423)
+- *Early Wright*, the *Chaucer* of the *Mississippi Delta* (1989/06/28/0262085)
+- *Milton Friedman*, the *American apostle* of *free-market economics* (1989/07/12/0265229)
+- *Sturm, Ruger* is the *Benedict Arnold* of the *gun industry* (1989/07/14/0265756)
+- the *New Orleans chef Paul Prudhomme*, the *Louis Armstrong* of *jambalaya*, *crawfish pie* and *file gumbo*  (1989/08/17/0276060)
+- *Colombia* is the *South Korea* of *flower exporters* (1989/09/20/0284628)
+- *Raj Path*, the *Champs-Elysees* of *Delhi* (1989/10/01/0287183)
+- *Heiner Goebbels*, the *John Zorn* of *West Germany* (1989/11/10/0299484)
+- *Romeo Gigli*, the *Pavarotti* of *embroidery* (1989/11/12/0299980)
+- the *Design Museum* is the *Louvre* of *industrial design* (1989/11/19/0302179)
+- *Dr. Oswaldo Cruz*, the *Walter Reed* of *Brazil* (1989/11/26/0304421)
+- *Clios*, the *Oscars* of *advertising* (1989/11/27/0304652)
+- She told on me to Him, *Himself*, the *Bestower* of *All Toys* (1989/12/24/0311534)
+- the *House of the Republic*, the *Staircase* of *Honor* (1989/12/31/0313389)
 
 ### 1990
 
