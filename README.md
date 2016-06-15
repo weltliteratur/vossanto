@@ -78,7 +78,7 @@ source: New York Times corpus 1987-2007
 - the *Young Pioneers* - the *Soviet equivalent* of the *Boy Scouts* (1988/03/21/0129426)
 - *Smith*, the *Wizard* of *Ahs* (1988/04/02/0132691)
 - If *Mr. Moynihan* is the *Sherlock Holmes* of the *fiscal story*, then *Mr. Stockman* is at once *its Dr. Watson* and *its Moriarty*. (1988/04/17/0136766)
-- *Robert Stroud*, the *Birdman of *Alcatraz* (1988/04/23/0138826)
+- *Robert Stroud*, the *Birdman* of *Alcatraz* (1988/04/23/0138826)
 - *Mr. John*, the *Emperor* of *Fashion* (1988/05/02/0141129)
 - *Gypsy Byrne*, the *Beau Brummel* of *Broadway* (1988/05/29/0149355)
 - *Morris* has been the *Clark Cable* of the *catnip crowd* (1988/05/29/0149364)
@@ -87,6 +87,29 @@ source: New York Times corpus 1987-2007
 - *Eddie Shore*, the *Babe Ruth* of *hockey* (1988/11/04/0194523)
 - *Sax* dressed alongside *Kirk Gibson* and *Mickey Hatcher*, the *Three Musketeers* of *Hyperactivity* (1988/11/27/0201849)
 - *Guzman* is regarded as "the *Stalin* of *Patchogue*, the *Idi Amin* of *Long Island*" (1988/12/06/0204254)
+
+### 1989
+
+- *Ace Nelson*, the *Oracle* of *Survay* (1989/01/09/0212675)
+- *California* is the *State* of *Champions* (1989/01/24/0217109)
+- *EUROPCAR*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
+- *Late 18th Century*, the *Age of *Reason* (1989/03/10/0230298)
+- *Banter* is the *Ping-Pong* of *debate* (1989/04/30/0245628)
+- *Kips Bay* is the *Academy Awards* of *interior design* (1989/05/21/0251994)
+- *Barnum* - the *Michelangelo* of *buncombe*, *hokum*, *hoopla* and *ballyhoo* (1989/06/06/0256423)
+- *Early Wright*, the *Chaucer* of the *Mississippi Delta* (1989/06/28/0262085)
+- *Milton Friedman*, the *American apostle* of *free-market economics* (1989/07/12/0265229)
+- *Sturm, Ruger* is the *Benedict Arnold* of the *gun industry* (1989/07/14/0265756)
+- the *New Orleans chef Paul Prudhomme*, the *Louis Armstrong* of *jambalaya*, *crawfish pie* and *file gumbo*  (1989/08/17/0276060)
+- *Colombia* is the *South Korea* of *flower exporters* (1989/09/20/0284628)
+- *Raj Path*, the *Champs-Elysees* of *Delhi* (1989/10/01/0287183)
+- *Heiner Goebbels*, the *John Zorn* of *West Germany* (1989/11/10/0299484)
+- *Romeo Gigli*, the *Pavarotti* of *embroidery* (1989/11/12/0299980)
+- the *Design Museum* is the *Louvre* of *industrial design* (1989/11/19/0302179)
+- *Dr. Oswaldo Cruz*, the *Walter Reed* of *Brazil* (1989/11/26/0304421)
+- *Clios*, the *Oscars* of *advertising* (1989/11/27/0304652)
+- She told on me to Him, *Himself*, the *Bestower* of *All Toys* (1989/12/24/0311534)
+- the *House of the Republic*, the *Staircase* of *Honor* (1989/12/31/0313389)
 
 ### 1990
 
@@ -258,3 +281,42 @@ source: New York Times corpus 1987-2007
 - *TechZilla*, the *Lamborghini* of *slow-pitch bats* (2004/05/30/1585628)
 - *Dionysos*, the *God of drama* (2004/06/27/1592422)
 - *Brenda Bishop*, the *Granny Bandit* of *Macomb County* (2004/07/03/1593896)
+
+### 2005
+
+- the *District of Columbia*, the *Camp David* of the *day* (2005/01/09/1640426)
+- *LAUREN HUTTON* is the *Zelig* of *travel* (2005/01/09/1640625)
+- *Bill Belichick* is the *Bobby Fischer* of *football* (2005/01/18/1643049)
+- *Richard Foreman*, the *Florenz Ziegfeld* of *avant-garde drama* (2005/01/21/1643632)
+- *Hocoka*, the *Sioux concept* of *healing* (2005/02/06/1647643)
+- *Michael Powell*, the *Savonarola* of the *Federal Communications Commission* (2005/02/06/1647680)
+- *Veggie Booty*, the *Cheez Doodles* of the *21st century* (2005/03/06/1654677)
+- *Long Island*, the *Galapagos* of *suburban dysfunction* (2005/03/20/1658622)
+- *Qwest*, the *Rodney Dangerfield* of the *telephone industry* (2005/04/01/1661389)
+- *John LaValle* has been the *Gorbachev* of *Brookhaven* (2005/04/10/1663656)
+- *Intel*, the *Goliath* of the *chip industry* (2005/04/21/1666553)
+- *Mont Ventoux*, the *Giant* of *Provence* (2005/06/05/1678016)
+- *Mr. Ruscha*, the *Riddler* of the *art world* (2005/06/12/1679564)
+
+### 2006
+
+- *Lance Fung*, the *Admiral Perry* of the *art world* (2006/02/02/1736482)
+- If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
+- *Bafta*, the *British equivalent* of the *Academy Awards* (2006/03/06/1744762)
+- *Joe Namath* is the *Ann Calvello* of *football* (2006/03/17/1747425)
+
+### 2007
+
+- *Jon Jerde*, the *California master* of *mall design* (2007/01/04/1816247)
+- *Richard Feynman*, the *Neal Cassady* of *physics* (2007/01/07/1816844)
+- *Mariano*, the *Mariano* of the *present* (2007/02/15/1826443)
+- *Mary Magdalene* is the *Ringo* of *this inquiry* (2007/03/03/1830035)
+- *New York* is the *Mecca* of *basketball* (2007/04/05/1838196)
+- *Talaa Kebira*, the *Broadway* of *Fez* (2007/04/08/1839030)
+- *Mr. Gunn* is the *Michelangelo* of *the form* (2007/04/12/1839640)
+- *Superman*, the *Man* of *Steel* (2007/04/25/1842867)
+- *Clomid* is the *Alfred Hitchcock* of *drugs* (2007/05/02/1844502)
+- *Jack Reacher*, the *Paul Bunyan* of the *thriller world* (2007/05/14/1847325)
+- *James Brown*, the *Godfather* of *Soul* (2007/05/27/1850236)
+- *Alberto Gonzales* is the *Michael Brown* of the *Justice Department* (2007/06/11/1853778)
+- *Fred Sandback*, the *American master* of *ethereal string geometries* (2007/06/15/1854531)
