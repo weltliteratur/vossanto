@@ -44,6 +44,8 @@ Create a default configuration file with comments
 
 source: New York Times corpus 1987-2007
 
+[1987](#1987)
+
 ### 1987
 
 - *New South Wales*, the *Georgian equivalent* of *deep space* (1987/01/25/0007151)
