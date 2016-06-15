@@ -93,7 +93,7 @@ source: New York Times corpus 1987-2007
 - *Ace Nelson*, the *Oracle* of *Survay* (1989/01/09/0212675)
 - *California* is the *State* of *Champions* (1989/01/24/0217109)
 - *EUROPCAR*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
-- *Late 18th Century*, the *Age of *Reason* (1989/03/10/0230298)
+- *Late 18th Century*, the *Age* of *Reason* (1989/03/10/0230298)
 - *Banter* is the *Ping-Pong* of *debate* (1989/04/30/0245628)
 - *Kips Bay* is the *Academy Awards* of *interior design* (1989/05/21/0251994)
 - *Barnum* - the *Michelangelo* of *buncombe*, *hokum*, *hoopla* and *ballyhoo* (1989/06/06/0256423)
