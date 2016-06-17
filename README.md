@@ -68,7 +68,7 @@ source: New York Times corpus 1987-2007
 - *Dana Dane*, the *King* of *Rap*, (1987/11/26/0096606)
 - *Laurence Olivier Award*, the *English equivalent* of the *Tony Award* (1987/12/22/0103798)
 
-### 1988 
+### 1988
 
 - *Mr. Pacepa* is the *Happy Hooker* of the *spy trade* (1988/01/03/0106811)
 - *Olivier Award*, the *English equivalent* of the *Tony* (1988/02/01/0114868)
@@ -149,7 +149,7 @@ source: New York Times corpus 1987-2007
 ### 1992
 
 -  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
-- the Islanders, the Boys of Winter nyt_corpus_1992.har/01/24/0502719.xml
+- the Islanders, the Boys of Winter (1992/01/24/0502719)
 - Forget the Yankees of Reggie, the Giants of Taylor, the Mets of Carter and Hernandez, even the Knicks of Reed and DeBusschere. The Islanders won like the old, old New York Yankees and they charmed like the old, old Brooklyn Dodgers (1992/03/04/0511581)
 - *Vaz Auto Works*, the *General Motors* of *Russia* (1992/03/08/0512599)
 
@@ -304,6 +304,32 @@ source: New York Times corpus 1987-2007
 - If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
 - *Bafta*, the *British equivalent* of the *Academy Awards* (2006/03/06/1744762)
 - *Joe Namath* is the *Ann Calvello* of *football* (2006/03/17/1747425)
+- *James Brown*, the *Godfather* of *Soul* (2006/03/25/1749390)
+- *Sunset Park*, the *Chinatown* of *Brooklyn* (2006/04/09/1753245)
+- *Reggie Jackson*, the *Yankees Hall* of *Famer* (2006/04/12/1753998)
+- *Everlast* is the *Mercedes-Benz* of *boxing* (2006/04/24/1756853)
+- *Treasury Secretary John Snow*, the *Sarah Bernhardt* of the *Bush administration* (2006/05/14/1761468)
+- *Moon Mullican*, the *King* of the *Hillbilly Piano* (2006/06/04/1766403)
+- *Jeffrey Chodorow* is the *Jerry Bruckheimer* of *restaurants* (2006/06/04/1766638)
+- *Mark Hanna*, the *Karl Rove* of *the day* (2006/06/18/1769818)
+- *Johnny Miller*, the *Simon Cowell* of *golf criticism* (2006/06/20/1770506)
+- *Biz Cool*, the *Japanese equivalent* of *business casual* (2006/06/24/1771315)
+- *Liberty*, the *British equivalent* of the *American Civil Liberties Union* (2006/06/25/1771465)
+- *Ghana* is the *Brazil* of *Africa* (2006/06/28/1772401)
+- *Garberville*, the *Central Valley* of *marijuana* (2006/08/28/1786070)
+- the *modern Steinway*, the *Hummer* of *instruments* (2006/08/30/1786358)
+- *Elisabeth Hasselbeck*, the *Zeppo Marx* of the *foursome* (2006/09/06/1787907)
+- *Jacob Arabo*, the *Harry Winston* of the *bling-bling set* (2006/09/12/1789409)
+- the 2006 *Westminster Kennel Club Dog Show*, the *Kentucky Derby* of *canine competitions* (2006/09/24/1792272)
+- *Darquier de Pellepoix* is the *Zelig* of this *history* (2006/10/12/1796531)
+- *Artaud*, the *Wieland Wagner* of the *present time* (2006/10/22/1799005)
+- *Eclipse Awards*, *Oscars* of *horse racing* (2006/10/30/1801003)
+- *Chalkhill Estates in London*, the *British equivalent* of a *housing project* (2006/11/01/1801327)
+- *Benny Goodman*, the *King* of *Swing* (2006/11/22/1806655)
+- *Kyle Avila*, the *Michelangelo* of the *bunch* (2006/12/17/1812547)
+- *Vegas*, the *Renaissance Florence* of the *art* (2006/12/22/1813538)
+- *Anna Netrebko*, the *Julia Roberts* of *opera* (2006/12/22/1813555)
+- the *AVN Awards*, the *Oscars* of the *skin trade* (2006/12/31/1815543)
 
 ### 2007
 
