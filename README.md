@@ -272,6 +272,12 @@ source: New York Times corpus 1987-2007
 
 ### 2004
 
+- *Terry Riley*, the *California Minimalist*; *Astor Piazzolla*, the *Argentine master* of the *nuevo tango*; and *John Zorn*, the *New York bender* of *genres* (2004/01/11/1549709)
+- the *Callichoron*, the *Well* of the *Beautiful Dances* (2004/01/15/1550942)
+- *Norman Lebrecht* has been the *Cassandra* of *classical music* (2004/02/04/1556102)
+- *Hal Schell*, the *Boswell* of the *delta* (2004/02/06/1556601)
+- *Ouidad*, the *Queen* of *Curl* (2004/02/15/1559089)
+- *Maddux* has been the *Larry Bird* of *baseball* (2004/02/21/1560506)
 - *Arturo Gatti* is the *Oscar De La Hoya* of *New Jersey* (2004/02/22/1560800)
 - *Steinway*, the *Mercedes* of *pianos* (2004/02/29/1562589)
 - *Azim Premji* is the *Bill Gates* of *India* (2004/03/21/1568087)
@@ -281,6 +287,29 @@ source: New York Times corpus 1987-2007
 - *TechZilla*, the *Lamborghini* of *slow-pitch bats* (2004/05/30/1585628)
 - *Dionysos*, the *God of drama* (2004/06/27/1592422)
 - *Brenda Bishop*, the *Granny Bandit* of *Macomb County* (2004/07/03/1593896)
+- *Oden* is the *Japanese equivalent* of *chicken soup* (2004/03/10/1565172)
+- A *reforming liberal leader in Russia* is the *Holy Grail* of *Kremlinology* (2004/03/14/1566359)
+- *Graham*, the *Keeper* of the *List* (2004/04/04/1571542)
+- the *Village Vanguard*, the *Stradivarius* of *jazz clubs* (2004/05/12/1581028)
+- *Sirius*, the *Avis* of *satellite radio broadcasters* (2004/06/20/1590789)
+- *Daniel Jackling* has been called the *Henry Ford* of *minerals* (2004/07/15/1596782)
+- the *Helen Hayes Awards*, the *Tonys* of *Washington* (2004/08/08/1602364)
+- *Papa Ge*, the *Demon* of *Death* (2004/08/22/1605641)
+- *Arnold Schwarzenegger* is the *John Wayne* of the *current generation* (2004/09/01/1608307)
+- *Reggaeton*, the *Puerto Rican amalgam* of *dancehall reggae*, *gangsta rap* and *touches of salsa* (2004/09/03/1608662)
+- *Styx Valley*, the *Valley* of the *Giants* (2004/09/12/1610579)
+- *Darren Romeo*, the *Voice* of *Magic* (2004/09/19/1612812)
+- *Evans* is the *Jerry Lewis* of *modern design* (2004/09/23/1613516)
+- the *only alternative* to the *Canyon* of *Heroes* is the *Valley* of *Doom* (2004/09/30/1615408)
+- *Dan Flavin*, the *American avatar* of the *fluorescent tube* (2004/10/01/1615466)
+- *Nanz Custom Hardware*, the *Barwil* of *cabinet pulls* (2004/10/14/1619047)
+- *Mesa Verde National Park* has been called the *Disneyland* of *ancient sites*, but it's also the *Anasazi* *Yosemite* (2004/10/15/1619273)
+- *Osama, the *BAAAADest* of the *Bad* (2004/11/02/1624049)
+- *Dave Gorman*, the *Picasso* of *procrastination* (2004/11/05/1624728)
+- the *southern French city of Grasse*, the *Mecca* of *perfume manufacturers* (2004/11/05/1624748)
+- *John Monteleone*, the *Stradivari* of the *six-string world*
+- *Ours* is the *Age* of *Recycling* (2004/12/03/1631679)
+- *Chip Foose* is the *Vargas* of the *custom-car world* (2004/12/31/1638539)
 
 ### 2005
 
@@ -318,7 +347,7 @@ source: New York Times corpus 1987-2007
 - *Cambridge*, the *Athens* of *America* (2005/11/27/1720488)
 - *Robinson*, the *Thumbelina* of *rookies* (2005/11/27/1720778)
 - *Rijkswaterstaat*, the *Dutch equivalent* of the *Corps of Engineers* (2005/11/29/1721150)
-- the *beautiful Hudson*, the *Hudson* of the *imagination* (2005/12/04/1722098) 
+- the *beautiful Hudson*, the *Hudson* of the *imagination* (2005/12/04/1722098)
 
 ### 2006
 
