@@ -214,7 +214,7 @@ source: New York Times corpus 1987-2007
 ### 2000
 
 - *SOFTWARE* is the *DNA* of the *high-technology age* (2000/01/01/1165197)
-- *Virginia Gonzalez*  is the *Dorothea Dix* of *Mexico* (har/01/16/1168831)
+- *Virginia Gonzalez*  is the *Dorothea Dix* of *Mexico* (2000/01/16/1168831)
 - *Lorne Michaels*, the *Flo Ziegfeld* of *sketch comedy* (2000/02/06/1174188)
 - *Much Music* is the *Canadian version* of *MTV* (2000/02/06/1174454)
 - *El Camino Real*, the *Champs-Elysees* of the *new economy* (2000/03/10/1182787)
@@ -276,7 +276,7 @@ source: New York Times corpus 1987-2007
 - *Andy* is the *Hulk Hogan* of this *food-phobic crowd* (2003/04/14/1480850)
 - *J Mascis* is the *Neil Young* of *Generation X* (2003/04/25/1483632)
 - *Isabella Beeton*, the *Fannie Farmer* of *Britain* (2003/06/11/1495897)
-- *Carlos Gardel*, the *Elvis* of *tango culture* (2003/06/15/14972589
+- *Carlos Gardel*, the *Elvis* of *tango culture* (2003/06/15/14972589)
 - *Yalom* is the *Scheherazade* of the *couch* (2003/06/15/1497273)
 - *Lawrence Rubey*, the *American booster* of *free enterprise* (2003/07/13/1503960)
 - *Carol Page*, the *Miss Manners* of the *cellphone world* (2003/07/15/1504614)
@@ -337,7 +337,7 @@ source: New York Times corpus 1987-2007
 - *Osama, the *BAAAADest* of the *Bad* (2004/11/02/1624049)
 - *Dave Gorman*, the *Picasso* of *procrastination* (2004/11/05/1624728)
 - the *southern French city of Grasse*, the *Mecca* of *perfume manufacturers* (2004/11/05/1624748)
-- *John Monteleone*, the *Stradivari* of the *six-string world*
+- *John Monteleone*, the *Stradivari* of the *six-string world* (2004/11/21/1628816)
 - *Ours* is the *Age* of *Recycling* (2004/12/03/1631679)
 - *Chip Foose* is the *Vargas* of the *custom-car world* (2004/12/31/1638539)
 
