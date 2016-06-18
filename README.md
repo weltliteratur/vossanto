@@ -92,7 +92,7 @@ source: New York Times corpus 1987-2007
 
 - *Ace Nelson*, the *Oracle* of *Survay* (1989/01/09/0212675)
 - *California* is the *State* of *Champions* (1989/01/24/0217109)
-- *EUROPCAR*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
+- *Europcar*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
 - *Late 18th Century*, the *Age* of *Reason* (1989/03/10/0230298)
 - *Banter* is the *Ping-Pong* of *debate* (1989/04/30/0245628)
 - *Kips Bay* is the *Academy Awards* of *interior design* (1989/05/21/0251994)
@@ -118,7 +118,7 @@ source: New York Times corpus 1987-2007
 - *Clive Barker* is the *Paul McCartney* of *horror fiction* (1990/02/11/0325668)
 - *Sadaharu Oh*, the *Shogun* of *Swat* (1990/02/19/0328100)
 - *Waterman*, the *Rolls-Royce* of *pens* acquired in 1987, and *Papermate*, the *Chevrolet* of *pens* (1990/02/25/0329728)
-- *CHARDONNAY* is the *Budweiser* of *white wines* (1990/03/28/0338654)
+- *Chardonnay* is the *Budweiser* of *white wines* (1990/03/28/0338654)
 - *Don Zimmer*, the *Merlin* of the *Chicago Cubs* (1990/04/18/0344773)
 - *Robert Tappan Morris* is the *Oliver North* of *computer abuse* (1990/05/08/0351502)
 - The *Public Media Center* is the *Ralph Nader* of *agencies* (1990/05/21/0355271)
@@ -213,7 +213,7 @@ source: New York Times corpus 1987-2007
 
 ### 2000
 
-- *SOFTWARE* is the *DNA* of the *high-technology age* (2000/01/01/1165197)
+- *Software* is the *DNA* of the *high-technology age* (2000/01/01/1165197)
 - *Virginia Gonzalez*  is the *Dorothea Dix* of *Mexico* (2000/01/16/1168831)
 - *Lorne Michaels*, the *Flo Ziegfeld* of *sketch comedy* (2000/02/06/1174188)
 - *Much Music* is the *Canadian version* of *MTV* (2000/02/06/1174454)
@@ -249,14 +249,44 @@ source: New York Times corpus 1987-2007
 
 ### 2002
 
+- *Strauss*, the *Jupiter* of the *composer gods* (2002/01/06/1357042)
 - *the North American International Auto Show*, the *Cannes Film Festival* of the *auto industry* (2002/01/06/1357245)
 - *today's National Enquirer* is the *Las Vegas* of *journalism* (2002/01/13/1359135)
+- *Dedinje*, the *Beverly Hills* of *Belgrade* (2002/01/20/1360689)
+- *Girish*, the *Balanchine* of *editors* (2002/01/20/1360716)
+- *Eugene*, the *Yellowman* of the *title* (2002/01/20/1360838)
+- the *A-team in New York* is the *A-team* of *A-teams* (2002/01/21/1361231)
 - *Eldredge* is the *Cadillac* among *Ferraris* (2002/02/12/1367217)
+- *Leona Helmsley*, the *Queen* of *Mean* (2002/02/27/1371153)
+- the *different Rangers*, the *Rangers* of *Rocker* (2002/02/28/1371472)
+- *Nat*, the *Don Quixote* of *Central Park West* (2002/03/03/1372223)
+- *Elizabeth Schneider* is the *Neil Armstrong* of *cookbook authors* (2002/03/06/1373384)
+- Tonight is the *Super Bowl* of *professional wrestling*, the World Wrestling Federation's annual *Wrestlemania* extravaganza. (2002/03/17/1376534)
 - *J Mascis* is the *Neil Young* of *Generation X* (2002/03/22/1377696)
+- *David Rockwell* is the *Wolfgang Puck* of *blueprints* (2002/04/03/1380928)
+- *Frank O'Connor*, the *Joyce* of *"Dubliners"* (2002/04/07/1381831)
 - *Mr. Bogdanovich*, the *Icarus* of the *New Hollywood* (2002/04/12/1383292)
+- the *Eldorado* has been the *Cadillac* of *Cadillacs* (2002/05/10/1390973)
+- *Italy* is the *Boston Red Sox* of *soccer* (2002/05/26/1395524)
 - *MagLiner*, the *Cadillac* of *hand trucks* (2002/06/09/1399279)
 - *Hillary*, the *Cattle Queen* of *commodities trading* (2002/07/10/1407094)
 - the *jockey Jim Burns*, the *Jerry Bailey* of *mule racing* (2002/07/11/1407365)
+- *Mont Ventoux*, the *Giant* of *Provence* (2002/07/22/1410302)
+- *Lance Armstrong*, the *Giant* of the *Tour* (2002/07/22/1410302)
+- *Kabul* is the *Klondike* of the *new century* (2002/07/28/1411474)
+- *Jersey Shore*, the *Land* of *Imposition* (2002/07/28/1411586)
+- *Television* is the *Johnny Appleseed* of *bad manners* (2002/09/27/1426969)
+- *Clemens* is the *Ryan* of *today* (2002/10/09/1430396)
+- *J Mascis* is the *Neil Young* of *Generation X* (2002/10/11/1430880)
+- *Celebi*, the *Voice* of the *Forest* (2002/10/11/1431006)
+- *Frank Lautenberg*, the *Rosie Ruiz* of the *New Jersey race* (2002/10/30/1436301)
+- *Amitabh Bachchan*, the *Paul Newman* of *Bollywood* (2002/11/03/1437189)
+- *L'Ami Louis*, the *Parisian temple* of *foie gras* (2002/11/06/1438122)
+- *Saudi Arabia* is the *Augusta National* of *Islam* (2002/11/17/1441420)
+- *Fado* is the *Portuguese version* of the *blues* (2002/11/24/1443088)
+- *Brisket* is the *Zelig* of the *kitchen* (2002/11/27/1444008)
+- *Simon Keenlyside* is the *Ralph Fiennes* of *opera* (2002/12/22/1450621)
+- If *Kelly Hoppen* is the *Design Diva* of *London*, then *Rita Konig* is the *Design It Girl*. (2002/12/26/1451541)
 
 ### 2003
 
