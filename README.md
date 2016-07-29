@@ -141,10 +141,25 @@ source: New York Times corpus 1987-2007
 ### 1991
 
 - *George Foreman*, the *Santa Claus* of *sports* (1991/01/01/0412333)
-- *New York* is the *Cadillac* of *welfare states* (1991/01/31/0419226)
+- "*New York* is the *Cadillac* of *welfare states*," he said. "We can't afford it anymore. What we need is *Chevys* and *Fords* in this state." (1991/01/31/0419226)
 - *Gillian Anderson* is the *Pauper* of *professional experience*, *Brenda Blethyn* is the *Princess* (1991/02/20/0424794)
 - *Hasselblad*, the *Mercedes-Benz* of *camera makers* (1991/03/10/0428959)
 - If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
+- *Tiramisu*, the *New Queen* of *Italian Desserts* (1991/03/13/0429693)
+- *Willard Espy*, the *Valentino* of *word lovers* (1991/03/24/0432396)
+- A *bagel's* the *Shakespeare*, the *Tolstoy* of *flour* (1991/03/27/0433213)
+- *Jack Viertel*, the *Clark Kent* of *Broadway* (1991/04/12/0436865)
+- *Francie Larrieu-Smith*, the *Nolan Ryan* of *distance running* (1991/06/13/0452266)
+- *Pepsi* is the *Nike* of *soft drinks* (1991/08/14/0466928)
+- *Claudette Colbert*, the *Grover Cleveland* of *Blackglama* (1991/09/30/0477414)
+- *Lady Caroline Wrey*, otherwise known as *Lady Velcro*, the *Barbara Woodhouse* of *windows* (1991/10/24/0482422)
+- *Michael R. Milken*, the *Midas* of *Drexel Burnham Lambert* (1991/10/28/0483283)
+- *Gay Byrne*, the *Johnny Carson* of *Ireland* (1991/11/13/0486648)
+- *Eclipse Awards*, the *Oscars* of the *thoroughbred business* (1991/11/16/0487236)
+- *Winnipeg* is the *Green Bay* of *Canada* (1991/11/25/0489598)
+- *Seattle*, the *American mecca* of *waste reduction* (1991/12/12/0493523)
+- teaming *Tampa Bay with the Bears*, the *Velcro* of *ratings* (1991/12/13/0493699)
+- *Getty Square* is the *Ellis Island* of *Westchester County* (1991/12/22/0495500)
 
 ### 1992
 
@@ -325,7 +340,7 @@ source: New York Times corpus 1987-2007
 - *Andy* is the *Hulk Hogan* of this *food-phobic crowd* (2003/04/14/1480850)
 - *J Mascis* is the *Neil Young* of *Generation X* (2003/04/25/1483632)
 - *Isabella Beeton*, the *Fannie Farmer* of *Britain* (2003/06/11/1495897)
-- *Carlos Gardel*, the *Elvis* of *tango culture* (2003/06/15/14972589)
+- *Carlos Gardel*, the *Elvis* of *tango culture* (2003/06/15/1497258)
 - *Yalom* is the *Scheherazade* of the *couch* (2003/06/15/1497273)
 - *Lawrence Rubey*, the *American booster* of *free enterprise* (2003/07/13/1503960)
 - *Carol Page*, the *Miss Manners* of the *cellphone world* (2003/07/15/1504614)
