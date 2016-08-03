@@ -51,7 +51,7 @@ vossanto_re_str = """
 
 \ 
 (                                         # is 
-(is|has)/VBZ (\ (often|sometimes)/RB)? (\ been/VBN)? (\ called/VBN)?|
+(is|has|are)/VBZ (\ (often|sometimes)/RB)? (\ been/VBN)? (\ called/VBN)?|
 -/:|
 ,/,
 )
