@@ -221,11 +221,34 @@ source: New York Times corpus 1987-2007
 
 ### 1994
 
+- *Marv Levy*, the *Lionel Trilling* of *coaches* (1994/01/28/0665094)
 - *Sweden*, the *Rangers* of *international hockey* (1994/02/12/0668308)
 - *Tourte*, the *Stradivarius* of *bows* (1994/02/20/0670039)
 - *Phil Liggett*, the *Ben Wright* of the *snow* (1994/02/21/0670187)
 - *Ariels*, the *Mexican equivalent* of *Oscars* (1994/03/20/0675424)
 - *Canal Plus*, the *HBO* of *France* (1994/03/27/0676813)
+- the *Performer*, the *British equivalent* of *Variety* (1994/04/24/0682538)
+- *Frazier* is the *Bill Stern* of *basketball analysis* (1994/05/10/0686448)
+- *Leslie Abramson*, the *Bette Midler* of the *criminal courtroom* (1994/05/24/0689343)
+- *Robert B. Reich*, the *Pied Piper* of *high performance* (1994/06/05/0691688)
+- *Howard Golden* is the *Marcel Marceau* of *city politics* (1994/06/05/0691809)
+- *Vernon Maxwell*, the *Mad Max* of the *National Basketball Association* (1994/06/08/0692270)
+- If *Vanilla Ice* is the *Pat Boone* of *hip-hop*, watering down a vibrant black musical form to make it appeal to a generic pop audience, then *G. Love* is *its* *Elvis Presley*. (1994/06/20/0694707)
+- *Russell Cera*, the *Pied Piper* of *education* (1994/07/03/0697153)
+- *Romario* is the *Michael Jordan* of *soccer* and *Bebeto* is the *Magic Johnson* of *soccer* (1994/07/05/0697643)
+- *MediCal*, the *California version* of *Medicaid* (1994/07/11/0698715)
+- *Dan Marino*, the *Lou Gehrig* of *quarterbacks* (1994/08/04/0704092)
+- *Tom Scott*, the *Rush Limbaugh* of *state politics* (1994/08/08/0704950)
+- *Gosatomnadzor or GAN*, the *Russian equivalent* of the *Nuclear Regulatory Commission* (1994/08/19/0707174)
+- *James Vacca*, the *King* of *Clean* (1994/08/21/0707596)
+- *Alan King*, the *Spike Lee* of *tennis* (1994/09/10/0711111)
+- *Jean-Claude Van Damme*, the *Energizer Bunny* of *action stars* (1994/09/11/0711230)
+- *Martin Margiela*, the *Belgian godfather* of *deconstructionism* (1994/09/11/0711455)
+- *Gary Bettman*, the *Brendan Suhr* of *sports commissioners* (1994/10/30/0721907)
+- *Prodigy* is the *Sears* of *cyberspace* (1994/11/01/0722202)
+- *Socks* is the *First Feline* of *cyberspace* (1994/11/02/0722400)
+- *Gres* is the *Bosnia* of *couture* (1994/12/14/0731085)
+- *Hillary*, the *Queen* of *Cups*, is going to go to bat for *Bill*, the *King* of *Wands* (1994/12/25/0733168)
 
 ### 1995
 
