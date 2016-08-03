@@ -191,9 +191,33 @@ source: New York Times corpus 1987-2007
 ### 1993
 
 - The *Sig Sauer* is the *Rolex* of *guns* today (1993/01/03/0580645)
+- *Brad Dalgarno*, the *Old Dude* of the *Kid Line* (1993/01/27/0586154)
+- *Boxing* is the *Wild West* of *sports* (1993/02/06/0588384)
 - *Superintendent Martin Beck*, the *Scandinavian equivalent* of *Sherlock Holmes* (1993/02/21/0591703)
 - *Franco Moschino* is the *Weird Al Yankovic* of *fashion* (1993/03/11/0595373)
 - *Jack B. Solerwitz* is the *Babe Ruth* of *ripoffs* (1993/03/19/0596753)
+- *Denmark* is the *Hong Kong* of *Europe* (1993/04/01/0599397)
+- If *Woo* is the *Bill Clinton* of the *race*, then *Riordan* is the *Ross Perot* (1993/04/18/0602876)
+- *National Magazine Award*, the *Oscar* of the *magazine industry* (1993/04/26/0604930)
+- *Monoprix*, the *French equivalent* of *Kmart* (1993/04/27/0605068)
+- *Peter Sellars*, the *Bart Simpson* of *multicultural politics* (1993/05/02/0605816)
+- *Dr. John Harvey Kellogg*, the *Edison* of *clean living* (1993/05/02/0605847)
+- *Peter Partle*, the *Brown stroke* of the *second varsity* (1993/05/02/0605963)
+- *Pittsburgh's Mario Lemieux*, the *Marquis* of *Marquees* (1993/05/04/0606594)
+- *Andrea Dworkin*, the *Pat Robertson* of *feminism* (1993/05/05/0606897)
+- *Scott Sanderson* is the *Rodney Dangerfield* of *baseball* (1993/05/09/0607593)
+- *Louis V. Gerstner* is the *Jack Welch* of the *computer industry* (1993/05/27/0611510)
+- *Ross Perot* is the *San Diego Chicken* of *politics* (1993/06/25/0617492)
+- *our 1 1/2-year-old son Jake*, the *Houdini* of *shoelaces* (1993/06/27/0617938)
+- *Whitney Lynch* is the *Liz Smith* of the *Sagaponack Store* (1993/07/11/0620690)
+- *Ludwig*, the *Mad King* of *Bavaria* (1993/07/14/0621506)
+- *Ocean Beach*, the *Levittown* of *shore resorts* (1993/07/15/0621583)
+- *Murray Hill* is the *Everest* of *Manhattan* (1993/08/15/0628714)
+- *Sea Hero* is the *Bobo Holloman* of *racing* (1993/08/18/0629471)
+- If *Klensch* is the *Cronkite* of the *rag trade*, *Crawford* is a *game, albeit hipper, Kathie Lee* (1993/10/24/0644390)
+- *Christopher (Mad Dog) Russo*, the *Czar* of *Mystification* (1993/11/30/0653147)
+- *Aerosmith*, the *Dorian Gray* of *rock bands* (1993/12/10/0654992)
+- *Starbucks Coffee*, the *General Motors* of *espresso* (1993/12/22/0657572)
 
 ### 1994
 
