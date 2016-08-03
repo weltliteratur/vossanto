@@ -23,7 +23,7 @@ import sys
 import codecs
 import vossanto
 
-version = "0.0.1"
+version = "0.0.3"
 
 # convert all output into a byte string to be safe when redirecting
 UTF8Writer = codecs.getwriter('utf8')
