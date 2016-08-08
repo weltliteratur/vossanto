@@ -260,12 +260,28 @@ source: New York Times corpus 1987-2007
 
 - *Ann Landers*, the *Oprah Winfrey* of *newspapers*, (1996/01/17/0823245)
 - *Cherry*, the *Rush Limbaugh* of *hockey commentary* (1996/01/21/0824224)
+- the *Presidency of the United States* is the *Holy Grail* of *world politics* (1996/01/21/0824276)
 - *Robert Redford*, the *Thomas Jefferson* of *Sundance* (1996/01/24/0825044)
 - *Lee Koppelman* is the *Robert Moses* of *Long Island* (1996/02/04/0827620)
 - *Peyton* is the *Tanya Harding* of the *plot* (1996/02/10/0828923)
 - *Bob Dole* is the *Mozart* of *resentment* (1996/02/11/0829501)
 - *Bennett S. LeBow*, the *Niccolo Machiavelli* of the *foxy deal* (1996/03/14/0836529)
 - *Julian Luna*, the *Michael Corleone* of *vampires* (1996/04/02/0840971)
+- *Aretha Franklin*, the *Queen* of *Soul* (1996/05/02/0847754)
+- "Some people say *Claire Shulman* is the *Golda Meir* of *Queens*. [...] I say *Golda Meir* was the *Claire Shulman* of *Israel*." (1996/05/21/0852275)
+- the *British Navy*, the *NASA* of the *19th century* (1996/05/26/0853082)
+- *New Jersey*, the *Charlie Brown* of *franchises* (1996/05/26/0853475)
+- If *Kentucky* is the *Roman Empire* of *college basketball*, the *Nets' franchise* is the *Roamin' Empire* of *pro basketball*. (1996/05/31/0854362)
+- *William H. Reynolds*, the *Robert Moses* of *Long Beach* (1996/06/13/0857512)
+- the *Hudson* has been the *John Barrymore* of *rivers* (1996/07/05/0862461)
+- *Dukes Stadium* is the *Coors Field* of the *minor leagues* (1996/07/08/0863204)
+- *Frank Thomas* is the *Thomas Jefferson* of *baseball* (1996/07/09/0863379)
+- *Bob Dornan*, the *Zhirinovsky* of *the race* (1996/07/14/0864251)
+- *St. Petersburg* has been called the *Venice* of *Russia* (1996/07/28/0867647)
+- *Michael J. Deaver*, the *Michelangelo* of the *balloon drop* (1996/08/13/0871265)
+- *Samuel Barber*, the *Pioneer* of the *American Symphony* (1996/09/22/0878602)
+- *Wei Jingsheng*, the *Sakharov* of *China* (1996/12/09/0894541)
+- *John Rabe* is the *Oskar Schindler* of *China* (1996/12/12/0895003)
 
 ### 1997
 
