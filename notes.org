@@ -331,3 +331,74 @@
 - the *only alternative* to the *Canyon* of *Heroes* is the *Valley* of *Doom* (2004/09/30/1615408)
 - *Mesa Verde National Park* has been called the *Disneyland* of *ancient sites*, but it's also the *Anasazi* *Yosemite* (2004/10/15/1619273)
 
+** Frequent
+
+#+BEGIN_SRC sh
+    grep "^-" README.md | sed -e "s/[^\*]*\*[^\*]*\*[^\*]*\*//" -e "s/\*.*//" | sort | uniq -c | sort -nr | head -n11 \
+      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $1"\t"$2}'
+#+END_SRC
+
+| 9 | King               |
+| 7 | Queen              |
+| 7 | British equivalent |
+| 6 | Pied Piper         |
+| 6 | Oscars             |
+| 6 | Michael Jordan     |
+| 5 | Michelangelo       |
+| 5 | Holy Grail         |
+| 5 | Godfather          |
+| 5 | General Motors     |
+| 5 | Cadillac           |
+
+#+BEGIN_SRC sh :results raw output
+  grep -E "Pied Piper" README.md
+#+END_SRC
+
+- *Gregory Hines* is the *Pied Piper* of *modern tap* (1992/12/25/0578860)
+- *Robert B. Reich*, the *Pied Piper* of *high performance* (1994/06/05/0691688)
+- *Russell Cera*, the *Pied Piper* of *education* (1994/07/03/0697153)
+- *Carl Rogers*, the *Pied Piper* of *"self-actualization"* (1997/12/18/0981253)
+- *Ken Kesey*, the *Pied Piper* of the *psychedelic era* (2001/11/11/1342116)
+- *George Gilder*, the *Pied Piper* of *telecommunications investors* (2003/12/14/1543026)
+
+#+BEGIN_SRC sh :results raw output
+  grep -E "Michael Jordan" README.md
+#+END_SRC
+
+- *Romario* is the *Michael Jordan* of *soccer* and *Bebeto* is the *Magic Johnson* of *soccer* (1994/07/05/0697643)
+- *Michael Jordan* is the *God* of *Chicago* (1995/03/12/0748227)
+- *Bonfire*, the *Michael Jordan* of *dressage horses* (1998/11/05/1059693)
+- *Brian Foster*, the *Michael Jordan* of *BMX racing* (1998/12/27/1072824)
+- The *stunt biker Dave Mirra*, the *Michael Jordan* of the *dirt set* (2000/08/13/1222322)
+- *Cynthia Cooper* is the *Michael Jordan*, the *Larry Bird*, the *Magic Johnson* of *this league* (2000/08/28/1226010)
+- *McNabb* has been called the *Michael Jordan* of the *National Football League* (2001/01/08/1261308)
+
+#+BEGIN_SRC sh :results raw output
+  grep -E "Michelangelo" README.md
+#+END_SRC
+
+- *Barnum* - the *Michelangelo* of *buncombe*, *hokum*, *hoopla* and *ballyhoo* (1989/06/06/0256423)
+- *Michael J. Deaver*, the *Michelangelo* of the *balloon drop* (1996/08/13/0871265)
+- *Mel Gibson* is the *Michelangelo* of *this generation* (2003/08/02/1508990)
+- *Kyle Avila*, the *Michelangelo* of the *bunch* (2006/12/17/1812547)
+- *Mr. Gunn* is the *Michelangelo* of *the form* (2007/04/12/1839640)
+
+#+BEGIN_SRC sh :results raw output
+  grep -E "General Motors" README.md
+#+END_SRC
+
+- *Delta Pride*, the *General Motors* of *catfish processing factories* (1990/12/10/0407519)
+- *Vaz Auto Works*, the *General Motors* of *Russia* (1992/03/08/0512599)
+- *Starbucks Coffee*, the *General Motors* of *espresso* (1993/12/22/0657572)
+- *Mr. Lovano* is the *General Motors* of *jazz* (1995/01/15/0736903)
+- the *Estee Lauder Companies*, the *General Motors* of the *cosmetics world* (1999/01/10/1075990)
+
+#+BEGIN_SRC sh :results raw output
+  grep -E "Cadillac" README.md
+#+END_SRC
+
+- "*New York State* is the *Cadillac* of *social services*," Mr. Alfonso said. "*Other states* have *Volkswagens*."  (1990/11/26/0404144)
+- "*New York* is the *Cadillac* of *welfare states*," he said. "We can't afford it anymore. What we need is *Chevys* and *Fords* in this state." (1991/01/31/0419226)
+- *Eldredge* is the *Cadillac* among *Ferraris* (2002/02/12/1367217)
+- the *Eldorado* has been the *Cadillac* of *Cadillacs* (2002/05/10/1390973)
+- *MagLiner*, the *Cadillac* of *hand trucks* (2002/06/09/1399279)
