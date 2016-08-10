@@ -104,7 +104,7 @@
 1996	24
 1997	35
 1998	38
-1999	4
+1999	35
 2000	19
 2001	30
 2002	38
@@ -132,7 +132,7 @@
 |  1996 |    79077 |   584 |   7.39 |     24 |    0.30 |   4.06 |   773 |   9.78 |  841 |   |
 |  1997 |    85396 |   632 |   7.40 |     35 |    0.41 |   5.54 |   781 |   9.15 |  835 |   |
 |  1998 |    89163 |   667 |   7.48 |     38 |    0.43 |   5.75 |   859 |   9.63 |  925 |   |
-|  1999 |    91074 |   604 |   6.63 |      4 |    0.04 |   0.60 |   822 |   9.03 |  881 |   |
+|  1999 |    91074 |   604 |   6.63 |     35 |    0.38 |   5.73 |   822 |   9.03 |  881 |   |
 |  2000 |    94258 |   420 |   4.46 |     19 |    0.20 |   4.48 |   604 |   6.41 |  654 |   |
 |  2001 |    96282 |   365 |   3.79 |     30 |    0.31 |   8.18 |   525 |   5.45 |  585 |   |
 |  2002 |    97258 |   340 |   3.50 |     38 |    0.39 |  11.14 |   497 |   5.11 |  574 |   |
@@ -142,13 +142,13 @@
 |  2006 |    87052 |   260 |   2.99 |     30 |    0.34 |  11.37 |   405 |   4.65 |  457 |   |
 |  2007 |    39953 |   121 |   3.03 |     13 |    0.33 |  10.89 |   187 |   4.68 |  211 |   |
 |-------+----------+-------+--------+--------+---------+--------+-------+--------+------+---|
-| *sum* |  1854726 | 10744 | 120.57 |    549 |    0.30 | 131.25 | 14478 | 162.65 |      |   |
-| *avg* |    88320 |   512 |   5.74 |     26 |    0.29 |   6.25 |   689 |   7.75 |      |   |
+| *sum* |  1854726 | 10744 | 120.57 |    580 |    0.30 | 136.38 | 14478 | 162.65 |      |   |
+| *avg* |    88320 |   512 |   5.74 |     28 |    0.29 |   6.49 |   689 |   7.75 |      |   |
 #+TBLFM: $4=($-1/$2)*1000;%0.2f::$6=($-1/$-4)*1000;%0.2f::$7=($-1/$-3)*100;%0.2f::$9=($-1/$2)*1000;%0.2f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$7=vsum(@I..@II)::@23$8=vsum(@I..@II)::@23$9=vsum(@I..@II)::@24$2=@-1/vlen(@I..@II);%0.0f::@24$3=@-1/vlen(@I..@II);%0.0f::@24$4=@-1/vlen(@I..@II);%0.2f::@24$5=@-1/vlen(@I..@II);%0.0f::@24$7=@-1/vlen(@I..@II);%0.2f::@24$8=@-1/vlen(@I..@II);%0.0f::@24$9=@-1/vlen(@I..@II);%0.2f
 
 
 * special/dubious cases
-** the COUNTRY version of 
+** the PLACE version of 
 
 #+BEGIN_SRC sh :results raw output
   grep -i version README.md
@@ -160,10 +160,11 @@
 - *Buran*, the *Russian version* of the *space shuttle* (1995/03/21/0750052)
 - *Macco*, the *Calabrian version* of the *dish* (1997/02/14/0908831)
 - *Voluntary Service Overseas*, the *British version* of the *Peace Corps* (1997/12/21/0981913)
+- *Take That*, the *British version* of the *Backstreet Boys* (1999/05/10/1106572)
 - *Much Music* is the *Canadian version* of *MTV* (2000/02/06/1174454)
 - *Fado* is the *Portuguese version* of the *blues* (2002/11/24/1443088)
 
-** the COUNTRY equivalent of 
+** the PLACE equivalent of 
 
 #+BEGIN_SRC sh :results raw output
   grep -i equivalent README.md
@@ -193,6 +194,8 @@
 - the *Tax Administration Service*, the *Mexican equivalent* of the *Internal Revenue Service* (1997/11/10/0972063)
 - *Eurosport*, the *European equivalent* of *ESPN* (1998/02/23/0997564)
 - *Special Unit Corps*, the *Yugoslav equivalent* of the *American Special Forces* (1999/04/01/1096836)
+- *Central Service of Information*, the *Greek equivalent* of the *Central Intelligence Agency* (1999/06/28/1119302)
+- *Juno Awards*, the *Canadian equivalent* of the *Grammys* (1999/10/17/1146042)
 - *Olivier Awards*, the *London equivalent* of the *Tony Awards* (2000/07/05/1212567)
 - *Olivier Award*, the *London equivalent* of the *Tony* (2003/03/02/1468848)
 - *Yomiuri Giants*, the *Japanese equivalent* of the *Yankees* (2004/03/28/1569955)
@@ -204,10 +207,10 @@
 - *Liberty*, the *British equivalent* of the *American Civil Liberties Union* (2006/06/25/1771465)
 - *Chalkhill Estates in London*, the *British equivalent* of a *housing project* (2006/11/01/1801327)
 
-** the pioneer/king/queen/god/master/lord of 
+** the pioneer/king/queen/god/master/lord/dean of 
 
 #+BEGIN_SRC sh :results raw output
-  grep -i "\(pioneer\|king\|queen\|god\|master\|lord\)" README.md
+  grep -i "\(pioneer\|king\|queen\|god\|master\|lord\|dean\)" README.md
 #+END_SRC
 
 - Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
@@ -237,6 +240,15 @@
 - *Zulu King Shaka*, the *Genghis Khan* of *Africa* (1998/02/05/0993081)
 - *Frank Pembleton*, the *Lord* of the *Box* (1998/03/29/1005941)
 - the *former Kiva Shliuger*, performs regularly as a fire-eater known as Combustible Kiva, the *Queen* of *Kerosene* (1998/06/07/1022995)
+- the *Masters*, the "*cathedral* of *golf*"  (1999/04/11/1099455)
+- *Queens*, the *Rodney Dangerfield* of *boroughs* (1999/05/15/1107670)
+- If *Nelson Mandela* is the *George Washington* of this *new democracy*, the kind of giant among men who turns down offers to be king, then *Mr. Mbeki* is *its* *John Adams*. (1999/06/04/1112428)
+- *Russel Wright*, the *American pioneer* of *modern product design* (1999/06/05/1112688)
+- When the bassist *Harry Goodman* began his own swing band in the 1940's, posters billed him as the brother of *Benny Goodman*, the *King* of *Swing*. (Perhaps he could have been the *Duke* of *Swing*, if it weren't for Ellington.) (1999/06/06/1113206)
+- *Roy Lancaster*, the *English dean* of *plant explorers* (1999/06/20/1116753)
+- *James Brown*, *Godfather* of *soul music* (1999/06/27/1119059)
+- *Raymond Chandler*, the *Anglo master* of *crime fiction* (1999/07/13/1123045)
+- *Alan Greenspan* is the *Master* of the *Universe* (1999/12/19/1162227)
 - *James Brown*, the *Godfather* of *Soul* (2000/04/13/1191452)
 - *Harris* has been called the *Queen* of *Country Music*, the *Angel* of *This*, the *Sweetheart* of *That* (2000/09/03/1227433)
 - *Youngman* is the *King* of *One Liners* (2001/01/07/1260710)
@@ -249,6 +261,7 @@
 - *George Duboeuf*, called *King* of *Beaujolais* (2003/04/09/1479284)
 - *Yasujiro Ozu*, the *Japanese master* of *emotional understatement* (2003/08/08/1510478)
 - the *late Jack Kirby*, the *King* of *Comics* (2003/08/27/1514969)
+- *Howard Dean*, the *Huey Long* of the *iPod set* (2003/12/23/1545369)
 - *Terry Riley*, the *California Minimalist*; *Astor Piazzolla*, the *Argentine master* of the *nuevo tango*; and *John Zorn*, the *New York bender* of *genres* (2004/01/11/1549709)
 - *Ouidad*, the *Queen* of *Curl* (2004/02/15/1559089)
 - *Lil' John*, the *King* of *Crunk* (2004/05/23/1583885)
@@ -260,55 +273,7 @@
 - *James Brown*, the *Godfather* of *Soul* (2007/05/27/1850236)
 - *Fred Sandback*, the *American master* of *ethereal string geometries* (2007/06/15/1854531)
 
-** more than three parts
-
-#+BEGIN_SRC sh :results raw output
-  grep -E "(\*.*){7,}" README.md
-#+END_SRC
-
-- Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
-- If *Mr. Moynihan* is the *Sherlock Holmes* of the *fiscal story*, then *Mr. Stockman* is at once *its Dr. Watson* and *its Moriarty*. (1988/04/17/0136766)
-- *Sax* dressed alongside *Kirk Gibson* and *Mickey Hatcher*, the *Three Musketeers* of *Hyperactivity* (1988/11/27/0201849)
-- *Guzman* is regarded as "the *Stalin* of *Patchogue*, the *Idi Amin* of *Long Island*" (1988/12/06/0204254)
-- *Barnum* - the *Michelangelo* of *buncombe*, *hokum*, *hoopla* and *ballyhoo* (1989/06/06/0256423)
-- the *New Orleans chef Paul Prudhomme*, the *Louis Armstrong* of *jambalaya*, *crawfish pie* and *file gumbo*  (1989/08/17/0276060)
-- *Waterman*, the *Rolls-Royce* of *pens* acquired in 1987, and *Papermate*, the *Chevrolet* of *pens* (1990/02/25/0329728)
-- If *Wrigley* is the *Faneuil Hall Marketplace* of *ball parks*, *Comiskey* is *Paddy's Market*. (1990/09/30/0387487)
-- "*New York State* is the *Cadillac* of *social services*," Mr. Alfonso said. "*Other states* have *Volkswagens*."  (1990/11/26/0404144)
-- If *Toys "R" Us* is the *Gulliver* of *toy sellers*, then *Nintendo* is the *Godzilla of toys*  (1990/12/06/0406527)
-- "*New York* is the *Cadillac* of *welfare states*," he said. "We can't afford it anymore. What we need is *Chevys* and *Fords* in this state." (1991/01/31/0419226)
-- *Gillian Anderson* is the *Pauper* of *professional experience*, *Brenda Blethyn* is the *Princess* (1991/02/20/0424794)
-- If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
-- A *bagel's* the *Shakespeare*, the *Tolstoy* of *flour* (1991/03/27/0433213)
-- *Lady Caroline Wrey*, otherwise known as *Lady Velcro*, the *Barbara Woodhouse* of *windows* (1991/10/24/0482422)
--  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
-- But if *Jordan* is the *Chuck Yeager* of *basketball*, *Julius Erving* was its *Charles Lindbergh* and *Connie Hawkins* was its *Wright Brothers*. (1992/05/07/0526474)
-- If *Woo* is the *Bill Clinton* of the *race*, then *Riordan* is the *Ross Perot* (1993/04/18/0602876)
-- If *Klensch* is the *Cronkite* of the *rag trade*, *Crawford* is a *game, albeit hipper, Kathie Lee* (1993/10/24/0644390)
-- If *Vanilla Ice* is the *Pat Boone* of *hip-hop*, watering down a vibrant black musical form to make it appeal to a generic pop audience, then *G. Love* is *its* *Elvis Presley*. (1994/06/20/0694707)
-- *Romario* is the *Michael Jordan* of *soccer* and *Bebeto* is the *Magic Johnson* of *soccer* (1994/07/05/0697643)
-- *Hillary*, the *Queen* of *Cups*, is going to go to bat for *Bill*, the *King* of *Wands* (1994/12/25/0733168)
-- "Some people say *Claire Shulman* is the *Golda Meir* of *Queens*. [...] I say *Golda Meir* was the *Claire Shulman* of *Israel*." (1996/05/21/0852275)
-- If *Kentucky* is the *Roman Empire* of *college basketball*, the *Nets' franchise* is the *Roamin' Empire* of *pro basketball*. (1996/05/31/0854362)
-- *Rutherford* is the *St. Julien* of the *valley*, and *Stag's Leap* is the *Pauillac* (1997/08/27/0953268)
-- *Sushiko* is the *DMZ* of *Hollywood*, the *38th parallel* (1998/11/15/1062145)
-- If *Houston's cozy new Enron Field* is the *Rhode Island* of *ballparks*, then *Comerica Park* is *Alaska* (2000/05/14/1199574)
-- *Cynthia Cooper* is the *Michael Jordan*, the *Larry Bird*, the *Magic Johnson* of *this league* (2000/08/28/1226010)
-- *Harris* has been called the *Queen* of *Country Music*, the *Angel* of *This*, the *Sweetheart* of *That* (2000/09/03/1227433)
-- the *Dandelion Capital* of the *World* (also known as *Vineland, N.J.*) and the *Fire Hydrant Capital* of the *World* (*Albertville, Ala.*, of course) (2001/07/12/1308610)
-- *Crawford*, the *Deer Capital* of *Nebraska*, or *Llano*, the *Deer Capital* of *Texas* (2001/07/12/1308610)
-- *Pepe Sanseli* is considered nothing less than the *Signore* of the *Sideburn*, the *Maestro* of the *Mustache*, *Herr Hair* (2001/11/25/1345804)
-- If *Kelly Hoppen* is the *Design Diva* of *London*, then *Rita Konig* is the *Design It Girl*. (2002/12/26/1451541)
-- *Terry Riley*, the *California Minimalist*; *Astor Piazzolla*, the *Argentine master* of the *nuevo tango*; and *John Zorn*, the *New York bender* of *genres* (2004/01/11/1549709)
-- If *Mariano Rivera of the Yankees* is the *Mr. October* of *closers*, *Gagne* is the *Mr. Season*. (2004/05/18/1582589)
-- *Reggaeton*, the *Puerto Rican amalgam* of *dancehall reggae*, *gangsta rap* and *touches of salsa* (2004/09/03/1608662)
-- the *only alternative* to the *Canyon* of *Heroes* is the *Valley* of *Doom* (2004/09/30/1615408)
-- *Mesa Verde National Park* has been called the *Disneyland* of *ancient sites*, but it's also the *Anasazi* *Yosemite* (2004/10/15/1619273)
-- "If *bin Laden* is the *Robin Hood* of *jihad*," the authors write, then *Abu Musab al-Zarqawi* "has been its *Horatio Alger*, and *Iraq* his *field of dreams*." (2005/11/20/1719129)
-- If the *vast, empty plain of eastern Montana* is the *Saudi Arabia* of *coal*, then *Gov. Brian Schweitzer* may be its *Lawrence*. (2005/11/21/1719391)
-- If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
-
-** "If"
+** If ...
 
 #+BEGIN_SRC sh :results raw output
   grep -E "^- \"?If" README.md 
@@ -322,9 +287,47 @@
 - If *Klensch* is the *Cronkite* of the *rag trade*, *Crawford* is a *game, albeit hipper, Kathie Lee* (1993/10/24/0644390)
 - If *Vanilla Ice* is the *Pat Boone* of *hip-hop*, watering down a vibrant black musical form to make it appeal to a generic pop audience, then *G. Love* is *its* *Elvis Presley*. (1994/06/20/0694707)
 - If *Kentucky* is the *Roman Empire* of *college basketball*, the *Nets' franchise* is the *Roamin' Empire* of *pro basketball*. (1996/05/31/0854362)
+- If *Wynton Marsalis* is the *Steven Spielberg* of the *jazz scene*, the alto saxophonist *Steve Coleman* has a strong claim to being *its* *Stanley Kubrick*. (1999/05/02/1104452)
+- If *Nelson Mandela* is the *George Washington* of this *new democracy*, the kind of giant among men who turns down offers to be king, then *Mr. Mbeki* is *its* *John Adams*. (1999/06/04/1112428)
 - If *Houston's cozy new Enron Field* is the *Rhode Island* of *ballparks*, then *Comerica Park* is *Alaska* (2000/05/14/1199574)
 - If *Kelly Hoppen* is the *Design Diva* of *London*, then *Rita Konig* is the *Design It Girl*. (2002/12/26/1451541)
 - If *Mariano Rivera of the Yankees* is the *Mr. October* of *closers*, *Gagne* is the *Mr. Season*. (2004/05/18/1582589)
 - "If *bin Laden* is the *Robin Hood* of *jihad*," the authors write, then *Abu Musab al-Zarqawi* "has been its *Horatio Alger*, and *Iraq* his *field of dreams*." (2005/11/20/1719129)
 - If the *vast, empty plain of eastern Montana* is the *Saudi Arabia* of *coal*, then *Gov. Brian Schweitzer* may be its *Lawrence*. (2005/11/21/1719391)
 - If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
+
+** more than three parts (but not "If ...")
+
+#+BEGIN_SRC sh :results raw output
+  grep -E "(\*.*){7,}" README.md | grep -v -E "^- \"?If" 
+#+END_SRC
+
+- Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
+- *Sax* dressed alongside *Kirk Gibson* and *Mickey Hatcher*, the *Three Musketeers* of *Hyperactivity* (1988/11/27/0201849)
+- *Guzman* is regarded as "the *Stalin* of *Patchogue*, the *Idi Amin* of *Long Island*" (1988/12/06/0204254)
+- *Barnum* - the *Michelangelo* of *buncombe*, *hokum*, *hoopla* and *ballyhoo* (1989/06/06/0256423)
+- the *New Orleans chef Paul Prudhomme*, the *Louis Armstrong* of *jambalaya*, *crawfish pie* and *file gumbo*  (1989/08/17/0276060)
+- *Waterman*, the *Rolls-Royce* of *pens* acquired in 1987, and *Papermate*, the *Chevrolet* of *pens* (1990/02/25/0329728)
+- "*New York State* is the *Cadillac* of *social services*," Mr. Alfonso said. "*Other states* have *Volkswagens*."  (1990/11/26/0404144)
+- "*New York* is the *Cadillac* of *welfare states*," he said. "We can't afford it anymore. What we need is *Chevys* and *Fords* in this state." (1991/01/31/0419226)
+- *Gillian Anderson* is the *Pauper* of *professional experience*, *Brenda Blethyn* is the *Princess* (1991/02/20/0424794)
+- A *bagel's* the *Shakespeare*, the *Tolstoy* of *flour* (1991/03/27/0433213)
+- *Lady Caroline Wrey*, otherwise known as *Lady Velcro*, the *Barbara Woodhouse* of *windows* (1991/10/24/0482422)
+-  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
+- But if *Jordan* is the *Chuck Yeager* of *basketball*, *Julius Erving* was its *Charles Lindbergh* and *Connie Hawkins* was its *Wright Brothers*. (1992/05/07/0526474)
+- *Romario* is the *Michael Jordan* of *soccer* and *Bebeto* is the *Magic Johnson* of *soccer* (1994/07/05/0697643)
+- *Hillary*, the *Queen* of *Cups*, is going to go to bat for *Bill*, the *King* of *Wands* (1994/12/25/0733168)
+- "Some people say *Claire Shulman* is the *Golda Meir* of *Queens*. [...] I say *Golda Meir* was the *Claire Shulman* of *Israel*." (1996/05/21/0852275)
+- *Rutherford* is the *St. Julien* of the *valley*, and *Stag's Leap* is the *Pauillac* (1997/08/27/0953268)
+- *Sushiko* is the *DMZ* of *Hollywood*, the *38th parallel* (1998/11/15/1062145)
+- When the bassist *Harry Goodman* began his own swing band in the 1940's, posters billed him as the brother of *Benny Goodman*, the *King* of *Swing*. (Perhaps he could have been the *Duke* of *Swing*, if it weren't for Ellington.) (1999/06/06/1113206)
+- *Cynthia Cooper* is the *Michael Jordan*, the *Larry Bird*, the *Magic Johnson* of *this league* (2000/08/28/1226010)
+- *Harris* has been called the *Queen* of *Country Music*, the *Angel* of *This*, the *Sweetheart* of *That* (2000/09/03/1227433)
+- the *Dandelion Capital* of the *World* (also known as *Vineland, N.J.*) and the *Fire Hydrant Capital* of the *World* (*Albertville, Ala.*, of course) (2001/07/12/1308610)
+- *Crawford*, the *Deer Capital* of *Nebraska*, or *Llano*, the *Deer Capital* of *Texas* (2001/07/12/1308610)
+- *Pepe Sanseli* is considered nothing less than the *Signore* of the *Sideburn*, the *Maestro* of the *Mustache*, *Herr Hair* (2001/11/25/1345804)
+- *Terry Riley*, the *California Minimalist*; *Astor Piazzolla*, the *Argentine master* of the *nuevo tango*; and *John Zorn*, the *New York bender* of *genres* (2004/01/11/1549709)
+- *Reggaeton*, the *Puerto Rican amalgam* of *dancehall reggae*, *gangsta rap* and *touches of salsa* (2004/09/03/1608662)
+- the *only alternative* to the *Canyon* of *Heroes* is the *Valley* of *Doom* (2004/09/30/1615408)
+- *Mesa Verde National Park* has been called the *Disneyland* of *ancient sites*, but it's also the *Anasazi* *Yosemite* (2004/10/15/1619273)
+
