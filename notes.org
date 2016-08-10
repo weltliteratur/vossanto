@@ -340,21 +340,86 @@
 ** Frequent
 
 #+BEGIN_SRC sh
-    grep "^-" README.md | sed -e "s/[^\*]*\*[^\*]*\*[^\*]*\*//" -e "s/\*.*//" | sort | uniq -c | sort -nr | head -n11 \
-      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $1"\t"$2}'
+    grep "^-" README.md | sed -e "s/[^\*]*\*[^\*]*\*[^\*]*\*//" -e "s/\*.*//" | sort | uniq -c | sort -nr \
+      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{if ($1 >= 2) print $1"\t"$2}'
 #+END_SRC
 
-| 9 | King               |
-| 7 | Queen              |
-| 7 | British equivalent |
-| 6 | Pied Piper         |
-| 6 | Oscars             |
-| 6 | Michael Jordan     |
-| 5 | Michelangelo       |
-| 5 | Holy Grail         |
-| 5 | Godfather          |
-| 5 | General Motors     |
-| 5 | Cadillac           |
+#+RESULTS:
+| 9 | King                |
+| 7 | Queen               |
+| 7 | British equivalent  |
+| 6 | Pied Piper          |
+| 6 | Oscars              |
+| 6 | Michael Jordan      |
+| 5 | Michelangelo        |
+| 5 | Holy Grail          |
+| 5 | Godfather           |
+| 5 | General Motors      |
+| 5 | Cadillac            |
+| 4 | Mecca               |
+| 4 | English equivalent  |
+| 4 | Babe Ruth           |
+| 3 | Zelig               |
+| 3 | Rodney Dangerfield  |
+| 3 | Neil Young          |
+| 3 | Microsoft           |
+| 3 | Japanese equivalent |
+| 3 | Giant               |
+| 3 | Elvis               |
+| 3 | Don Quixote         |
+| 3 | Champs-Elysees      |
+| 3 | Canadian equivalent |
+| 3 | British version     |
+| 2 | Yankee Stadium      |
+| 2 | Wizard              |
+| 2 | Wild West           |
+| 2 | Voice               |
+| 2 | Thomas Jefferson    |
+| 2 | Super Bowl          |
+| 2 | Sultan              |
+| 2 | Stradivarius        |
+| 2 | Simon Cowell        |
+| 2 | Silicon Valley      |
+| 2 | Rush Limbaugh       |
+| 2 | Ronald Reagan       |
+| 2 | Rolls-Royce         |
+| 2 | Robert Moses        |
+| 2 | Riviera             |
+| 2 | Rangers             |
+| 2 | Ralph Nader         |
+| 2 | Picasso             |
+| 2 | Paul Newman         |
+| 2 | Paul Bunyan         |
+| 2 | Nolan Ryan          |
+| 2 | Mr. October         |
+| 2 | Mozart              |
+| 2 | Mister Rogers       |
+| 2 | Mexican equivalent  |
+| 2 | Mercedes-Benz       |
+| 2 | Man                 |
+| 2 | Mad Hatter          |
+| 2 | Lord                |
+| 2 | London equivalent   |
+| 2 | Larry Bird          |
+| 2 | John Wayne          |
+| 2 | Johnny Appleseed    |
+| 2 | James Brown         |
+| 2 | Houdini             |
+| 2 | Great Satan         |
+| 2 | God                 |
+| 2 | French equivalent   |
+| 2 | Everest             |
+| 2 | European equivalent |
+| 2 | Energizer Bunny     |
+| 2 | Ellis Island        |
+| 2 | Detroit             |
+| 2 | Czar                |
+| 2 | Buddha              |
+| 2 | Boswell             |
+| 2 | Bill Gates          |
+| 2 | Beverly Hills       |
+| 2 | American mecca      |
+| 2 | Age                 |
 
 #+BEGIN_SRC sh :results raw output
   grep -E "Pied Piper" README.md
@@ -408,3 +473,15 @@
 - *Eldredge* is the *Cadillac* among *Ferraris* (2002/02/12/1367217)
 - the *Eldorado* has been the *Cadillac* of *Cadillacs* (2002/05/10/1390973)
 - *MagLiner*, the *Cadillac* of *hand trucks* (2002/06/09/1399279)
+
+#+BEGIN_SRC sh :results raw output
+  grep -E "Babe Ruth" README.md
+#+END_SRC
+
+#+RESULTS:
+- *Eddie Shore*, the *Babe Ruth* of *hockey* (1988/11/04/0194523)
+- *Jack B. Solerwitz* is the *Babe Ruth* of *ripoffs* (1993/03/19/0596753)
+- *Rush Limbaugh*, the *Babe Ruth* of the *talk-show circuit* (1995/01/05/0735173)
+- *Babe Ruth*, the *Sultan* of *Swat* (1995/11/27/0811882)
+- *Eric Bergoust*, the *Babe Ruth* of *freestyle aerials* (2003/01/23/1458686)
+
