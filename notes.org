@@ -204,10 +204,10 @@
 - *Liberty*, the *British equivalent* of the *American Civil Liberties Union* (2006/06/25/1771465)
 - *Chalkhill Estates in London*, the *British equivalent* of a *housing project* (2006/11/01/1801327)
 
-** the pioneer/king/queen/god/master of 
+** the pioneer/king/queen/god/master/lord of 
 
 #+BEGIN_SRC sh :results raw output
-  grep -i "\(pioneer\|king\|queen\|god\|master\)" README.md
+  grep -i "\(pioneer\|king\|queen\|god\|master\|lord\)" README.md
 #+END_SRC
 
 - Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
@@ -232,8 +232,10 @@
 - *Samuel Barber*, the *Pioneer* of the *American Symphony* (1996/09/22/0878602)
 - *James Brown*, the *Godfather* of *Soul* (1997/02/27/0911924)
 - *Viktor Dysenko*, the *Russian king* of *pulp* (1997/05/14/0929759)
+- *Amado Carrillo Fuentes*, the *Lord* of the *Skies* (1997/05/24/0932060)
 - *Momo*, the *God* of *Bad-mouthing* (1997/06/14/0936821)
 - *Zulu King Shaka*, the *Genghis Khan* of *Africa* (1998/02/05/0993081)
+- *Frank Pembleton*, the *Lord* of the *Box* (1998/03/29/1005941)
 - the *former Kiva Shliuger*, performs regularly as a fire-eater known as Combustible Kiva, the *Queen* of *Kerosene* (1998/06/07/1022995)
 - *James Brown*, the *Godfather* of *Soul* (2000/04/13/1191452)
 - *Harris* has been called the *Queen* of *Country Music*, the *Angel* of *This*, the *Sweetheart* of *That* (2000/09/03/1227433)
