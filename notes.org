@@ -306,3 +306,23 @@
 - If the *vast, empty plain of eastern Montana* is the *Saudi Arabia* of *coal*, then *Gov. Brian Schweitzer* may be its *Lawrence*. (2005/11/21/1719391)
 - If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
 
+** "If"
+
+#+BEGIN_SRC sh :results raw output
+  grep -E "^- \"?If" README.md 
+#+END_SRC
+
+- If *Mr. Moynihan* is the *Sherlock Holmes* of the *fiscal story*, then *Mr. Stockman* is at once *its Dr. Watson* and *its Moriarty*. (1988/04/17/0136766)
+- If *Wrigley* is the *Faneuil Hall Marketplace* of *ball parks*, *Comiskey* is *Paddy's Market*. (1990/09/30/0387487)
+- If *Toys "R" Us* is the *Gulliver* of *toy sellers*, then *Nintendo* is the *Godzilla of toys*  (1990/12/06/0406527)
+- If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
+- If *Woo* is the *Bill Clinton* of the *race*, then *Riordan* is the *Ross Perot* (1993/04/18/0602876)
+- If *Klensch* is the *Cronkite* of the *rag trade*, *Crawford* is a *game, albeit hipper, Kathie Lee* (1993/10/24/0644390)
+- If *Vanilla Ice* is the *Pat Boone* of *hip-hop*, watering down a vibrant black musical form to make it appeal to a generic pop audience, then *G. Love* is *its* *Elvis Presley*. (1994/06/20/0694707)
+- If *Kentucky* is the *Roman Empire* of *college basketball*, the *Nets' franchise* is the *Roamin' Empire* of *pro basketball*. (1996/05/31/0854362)
+- If *Houston's cozy new Enron Field* is the *Rhode Island* of *ballparks*, then *Comerica Park* is *Alaska* (2000/05/14/1199574)
+- If *Kelly Hoppen* is the *Design Diva* of *London*, then *Rita Konig* is the *Design It Girl*. (2002/12/26/1451541)
+- If *Mariano Rivera of the Yankees* is the *Mr. October* of *closers*, *Gagne* is the *Mr. Season*. (2004/05/18/1582589)
+- "If *bin Laden* is the *Robin Hood* of *jihad*," the authors write, then *Abu Musab al-Zarqawi* "has been its *Horatio Alger*, and *Iraq* his *field of dreams*." (2005/11/20/1719129)
+- If the *vast, empty plain of eastern Montana* is the *Saudi Arabia* of *coal*, then *Gov. Brian Schweitzer* may be its *Lawrence*. (2005/11/21/1719391)
+- If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
