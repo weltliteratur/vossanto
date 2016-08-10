@@ -204,7 +204,7 @@
 - *Liberty*, the *British equivalent* of the *American Civil Liberties Union* (2006/06/25/1771465)
 - *Chalkhill Estates in London*, the *British equivalent* of a *housing project* (2006/11/01/1801327)
 
-** the pioneer/king/ of 
+** the pioneer/king/queen/god/master of 
 
 #+BEGIN_SRC sh :results raw output
   grep -i "\(pioneer\|king\|queen\|god\|master\)" README.md
