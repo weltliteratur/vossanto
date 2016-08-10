@@ -67,7 +67,7 @@
 (setq org-babel-python-command "python3")
 #+end_src
 
-#+BEGIN_SRC python :results output raw table
+#+BEGIN_SRC python :results output table raw
   year = None
   count = None
   with open("README.md", "r") as f:
@@ -145,3 +145,168 @@
 |  sum |  1854726 | 10744 | 120.57 |    549 |    0.30 | 131.25 | 14478 | 162.65 |      |   |
 |  avg |    88320 |   512 |   5.74 |     26 |    0.29 |   6.25 |   689 |   7.75 |      |   |
 #+TBLFM: $4=($-1/$2)*1000;%0.2f::$6=($-1/$-4)*1000;%0.2f::$7=($-1/$-3)*100;%0.2f::$9=($-1/$2)*1000;%0.2f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$7=vsum(@I..@II)::@23$8=vsum(@I..@II)::@23$9=vsum(@I..@II)::@24$2=@-1/vlen(@I..@II);%0.0f::@24$3=@-1/vlen(@I..@II);%0.0f::@24$4=@-1/vlen(@I..@II);%0.2f::@24$5=@-1/vlen(@I..@II);%0.0f::@24$7=@-1/vlen(@I..@II);%0.2f::@24$8=@-1/vlen(@I..@II);%0.0f::@24$9=@-1/vlen(@I..@II);%0.2f
+
+
+* special/dubious cases
+** the COUNTRY version of 
+
+#+BEGIN_SRC sh :results raw output
+  grep -i version README.md
+#+END_SRC
+
+#+RESULTS:
+- *Sassy*, the *United States version* of *Dolly* (1987/08/24/0068801)
+- *Marks & Spencer* is the *British version* of *Wal-Mart* (1992/11/09/0569053)
+- *MediCal*, the *California version* of *Medicaid* (1994/07/11/0698715)
+- *Buran*, the *Russian version* of the *space shuttle* (1995/03/21/0750052)
+- *Macco*, the *Calabrian version* of the *dish* (1997/02/14/0908831)
+- *Voluntary Service Overseas*, the *British version* of the *Peace Corps* (1997/12/21/0981913)
+- *Much Music* is the *Canadian version* of *MTV* (2000/02/06/1174454)
+- *Fado* is the *Portuguese version* of the *blues* (2002/11/24/1443088)
+
+** the COUNTRY equivalent of 
+
+#+BEGIN_SRC sh :results raw output
+  grep -i equivalent README.md
+#+END_SRC
+
+#+RESULTS:
+- *New South Wales*, the *Georgian equivalent* of *deep space* (1987/01/25/0007151)
+- *Olivier Award*, the *English equivalent* of the *Tony Award* (1987/02/01/0009058)
+- the *Wireless Service*, the *German equivalent* of the *BBC* (1987/04/05/0027535)
+- the *Cesars* - the *French equivalent* of *Oscars* (1987/06/29/0052991)
+- the *Olivier Award* - the *British equivalent* of a *Tony* (1987/07/10/0055426)
+- *Laurence Olivier Award*, the *English equivalent* of the *Tony Award* (1987/12/22/0103798)
+- *Olivier Award*, the *English equivalent* of the *Tony* (1988/02/01/0114868)
+- *Nahlas* - the *Slovak equivalent* of *glasnost* (1988/03/03/0124041)
+- the *Young Pioneers* - the *Soviet equivalent* of the *Boy Scouts* (1988/03/21/0129426)
+- *Olivier Award*, the *British equivalent* of the *Tony* (1990/09/06/0382052)
+- the *Grey Cup*, the *Canadian equivalent* of the *Super Bowl* (1990/11/25/0403957)
+- *Superintendent Martin Beck*, the *Scandinavian equivalent* of *Sherlock Holmes* (1993/02/21/0591703)
+- *Monoprix*, the *French equivalent* of *Kmart* (1993/04/27/0605068)
+- *Ariels*, the *Mexican equivalent* of *Oscars* (1994/03/20/0675424)
+- the *Performer*, the *British equivalent* of *Variety* (1994/04/24/0682538)
+- *Gosatomnadzor or GAN*, the *Russian equivalent* of the *Nuclear Regulatory Commission* (1994/08/19/0707174)
+- *Fairfax*, the *Los Angeles equivalent* of the *Lower East Side* (1995/05/11/0761719)
+- *Hulton Deutsch*, the *European equivalent* of the *Bettman Archive* (1997/05/18/0930910)
+- the *Inland Revenue*, the *British equivalent* of the *Internal Revenue Service* (1997/09/06/0955411)
+- *Business Review Weekly*, the *Australian equivalent* of *Business Week* (1997/09/13/0957036)
+- *Muchmusic*, the *Canadian equivalent* of *MTV* (1997/09/28/0960868)
+- the *Tax Administration Service*, the *Mexican equivalent* of the *Internal Revenue Service* (1997/11/10/0972063)
+- *Eurosport*, the *European equivalent* of *ESPN* (1998/02/23/0997564)
+- *Special Unit Corps*, the *Yugoslav equivalent* of the *American Special Forces* (1999/04/01/1096836)
+- *Olivier Awards*, the *London equivalent* of the *Tony Awards* (2000/07/05/1212567)
+- *Olivier Award*, the *London equivalent* of the *Tony* (2003/03/02/1468848)
+- *Yomiuri Giants*, the *Japanese equivalent* of the *Yankees* (2004/03/28/1569955)
+- *Oden* is the *Japanese equivalent* of *chicken soup* (2004/03/10/1565172)
+- *Mabahith*, the *Egyptian equivalent* of the *F.B.I.* (2005/04/08/1663228)
+- *Rijkswaterstaat*, the *Dutch equivalent* of the *Corps of Engineers* (2005/11/29/1721150)
+- *Bafta*, the *British equivalent* of the *Academy Awards* (2006/03/06/1744762)
+- *Biz Cool*, the *Japanese equivalent* of *business casual* (2006/06/24/1771315)
+- *Liberty*, the *British equivalent* of the *American Civil Liberties Union* (2006/06/25/1771465)
+- *Chalkhill Estates in London*, the *British equivalent* of a *housing project* (2006/11/01/1801327)
+
+** the pioneer/king/ of 
+
+#+BEGIN_SRC sh :results raw output
+  grep -i "\(pioneer\|king\|queen\|god\|master\)" README.md
+#+END_SRC
+
+#+RESULTS:
+- Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
+- *Dana Dane*, the *King* of *Rap*, (1987/11/26/0096606)
+- *Queen Victoria*, the *Great Satan* of the *time* (1988/02/03/0115425)
+- the *Young Pioneers* - the *Soviet equivalent* of the *Boy Scouts* (1988/03/21/0129426)
+- If *Toys "R" Us* is the *Gulliver* of *toy sellers*, then *Nintendo* is the *Godzilla of toys*  (1990/12/06/0406527)
+- If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
+- *Tiramisu*, the *New Queen* of *Italian Desserts* (1991/03/13/0429693)
+-  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
+- *Mount Meru*, the *Olympus* of the *Hindu gods* (1992/06/21/0537615)
+- *Mike Wallace*, the *Godzilla* of the *tube* (1992/10/26/0565903)
+- *Ludwig*, the *Mad King* of *Bavaria* (1993/07/14/0621506)
+- *James Vacca*, the *King* of *Clean* (1994/08/21/0707596)
+- *Alan King*, the *Spike Lee* of *tennis* (1994/09/10/0711111)
+- *Martin Margiela*, the *Belgian godfather* of *deconstructionism* (1994/09/11/0711455)
+- *Hillary*, the *Queen* of *Cups*, is going to go to bat for *Bill*, the *King* of *Wands* (1994/12/25/0733168)
+- *Michael Jordan* is the *God* of *Chicago* (1995/03/12/0748227)
+- *Riley*, the *King* of *Heat* (1995/11/25/0811302)
+- *Aretha Franklin*, the *Queen* of *Soul* (1996/05/02/0847754)
+- "Some people say *Claire Shulman* is the *Golda Meir* of *Queens*. [...] I say *Golda Meir* was the *Claire Shulman* of *Israel*." (1996/05/21/0852275)
+- *Samuel Barber*, the *Pioneer* of the *American Symphony* (1996/09/22/0878602)
+- *James Brown*, the *Godfather* of *Soul* (1997/02/27/0911924)
+- *Viktor Dysenko*, the *Russian king* of *pulp* (1997/05/14/0929759)
+- *Momo*, the *God* of *Bad-mouthing* (1997/06/14/0936821)
+- *Zulu King Shaka*, the *Genghis Khan* of *Africa* (1998/02/05/0993081)
+- the *former Kiva Shliuger*, performs regularly as a fire-eater known as Combustible Kiva, the *Queen* of *Kerosene* (1998/06/07/1022995)
+- *James Brown*, the *Godfather* of *Soul* (2000/04/13/1191452)
+- *Harris* has been called the *Queen* of *Country Music*, the *Angel* of *This*, the *Sweetheart* of *That* (2000/09/03/1227433)
+- *Youngman* is the *King* of *One Liners* (2001/01/07/1260710)
+- *Bing Crosby*, the *Unsung King* of *Song* (2001/02/11/1269897)
+- *Celia Cruz*, the *Queen* of *Salsa* (2001/03/16/1278191)
+- *Strauss*, the *Jupiter* of the *composer gods* (2002/01/06/1357042)
+- *Leona Helmsley*, the *Queen* of *Mean* (2002/02/27/1371153)
+- *Hillary*, the *Cattle Queen* of *commodities trading* (2002/07/10/1407094)
+- *Alice Gordon of Massapequa Park* is the *Queen Mother* of the *Long Island Lusties* (2003/03/30/1476594)
+- *George Duboeuf*, called *King* of *Beaujolais* (2003/04/09/1479284)
+- *Yasujiro Ozu*, the *Japanese master* of *emotional understatement* (2003/08/08/1510478)
+- the *late Jack Kirby*, the *King* of *Comics* (2003/08/27/1514969)
+- *Terry Riley*, the *California Minimalist*; *Astor Piazzolla*, the *Argentine master* of the *nuevo tango*; and *John Zorn*, the *New York bender* of *genres* (2004/01/11/1549709)
+- *Ouidad*, the *Queen* of *Curl* (2004/02/15/1559089)
+- *Lil' John*, the *King* of *Crunk* (2004/05/23/1583885)
+- *Dionysos*, the *God of drama* (2004/06/27/1592422)
+- *James Brown*, the *Godfather* of *Soul* (2006/03/25/1749390)
+- *Moon Mullican*, the *King* of the *Hillbilly Piano* (2006/06/04/1766403)
+- *Benny Goodman*, the *King* of *Swing* (2006/11/22/1806655)
+- *Jon Jerde*, the *California master* of *mall design* (2007/01/04/1816247)
+- *James Brown*, the *Godfather* of *Soul* (2007/05/27/1850236)
+- *Fred Sandback*, the *American master* of *ethereal string geometries* (2007/06/15/1854531)
+
+** more than three parts
+
+#+BEGIN_SRC sh :results raw output
+  grep -E "(\*.*){7,}" README.md
+#+END_SRC
+
+#+RESULTS:
+- Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
+- If *Mr. Moynihan* is the *Sherlock Holmes* of the *fiscal story*, then *Mr. Stockman* is at once *its Dr. Watson* and *its Moriarty*. (1988/04/17/0136766)
+- *Sax* dressed alongside *Kirk Gibson* and *Mickey Hatcher*, the *Three Musketeers* of *Hyperactivity* (1988/11/27/0201849)
+- *Guzman* is regarded as "the *Stalin* of *Patchogue*, the *Idi Amin* of *Long Island*" (1988/12/06/0204254)
+- *Barnum* - the *Michelangelo* of *buncombe*, *hokum*, *hoopla* and *ballyhoo* (1989/06/06/0256423)
+- the *New Orleans chef Paul Prudhomme*, the *Louis Armstrong* of *jambalaya*, *crawfish pie* and *file gumbo*  (1989/08/17/0276060)
+- *Waterman*, the *Rolls-Royce* of *pens* acquired in 1987, and *Papermate*, the *Chevrolet* of *pens* (1990/02/25/0329728)
+- If *Wrigley* is the *Faneuil Hall Marketplace* of *ball parks*, *Comiskey* is *Paddy's Market*. (1990/09/30/0387487)
+- "*New York State* is the *Cadillac* of *social services*," Mr. Alfonso said. "*Other states* have *Volkswagens*."  (1990/11/26/0404144)
+- If *Toys "R" Us* is the *Gulliver* of *toy sellers*, then *Nintendo* is the *Godzilla of toys*  (1990/12/06/0406527)
+- "*New York* is the *Cadillac* of *welfare states*," he said. "We can't afford it anymore. What we need is *Chevys* and *Fords* in this state." (1991/01/31/0419226)
+- *Gillian Anderson* is the *Pauper* of *professional experience*, *Brenda Blethyn* is the *Princess* (1991/02/20/0424794)
+- If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
+- A *bagel's* the *Shakespeare*, the *Tolstoy* of *flour* (1991/03/27/0433213)
+- *Lady Caroline Wrey*, otherwise known as *Lady Velcro*, the *Barbara Woodhouse* of *windows* (1991/10/24/0482422)
+-  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
+- But if *Jordan* is the *Chuck Yeager* of *basketball*, *Julius Erving* was its *Charles Lindbergh* and *Connie Hawkins* was its *Wright Brothers*. (1992/05/07/0526474)
+- If *Woo* is the *Bill Clinton* of the *race*, then *Riordan* is the *Ross Perot* (1993/04/18/0602876)
+- If *Klensch* is the *Cronkite* of the *rag trade*, *Crawford* is a *game, albeit hipper, Kathie Lee* (1993/10/24/0644390)
+- If *Vanilla Ice* is the *Pat Boone* of *hip-hop*, watering down a vibrant black musical form to make it appeal to a generic pop audience, then *G. Love* is *its* *Elvis Presley*. (1994/06/20/0694707)
+- *Romario* is the *Michael Jordan* of *soccer* and *Bebeto* is the *Magic Johnson* of *soccer* (1994/07/05/0697643)
+- *Hillary*, the *Queen* of *Cups*, is going to go to bat for *Bill*, the *King* of *Wands* (1994/12/25/0733168)
+- "Some people say *Claire Shulman* is the *Golda Meir* of *Queens*. [...] I say *Golda Meir* was the *Claire Shulman* of *Israel*." (1996/05/21/0852275)
+- If *Kentucky* is the *Roman Empire* of *college basketball*, the *Nets' franchise* is the *Roamin' Empire* of *pro basketball*. (1996/05/31/0854362)
+- *Rutherford* is the *St. Julien* of the *valley*, and *Stag's Leap* is the *Pauillac* (1997/08/27/0953268)
+- *Sushiko* is the *DMZ* of *Hollywood*, the *38th parallel* (1998/11/15/1062145)
+- If *Houston's cozy new Enron Field* is the *Rhode Island* of *ballparks*, then *Comerica Park* is *Alaska* (2000/05/14/1199574)
+- *Cynthia Cooper* is the *Michael Jordan*, the *Larry Bird*, the *Magic Johnson* of *this league* (2000/08/28/1226010)
+- *Harris* has been called the *Queen* of *Country Music*, the *Angel* of *This*, the *Sweetheart* of *That* (2000/09/03/1227433)
+- the *Dandelion Capital* of the *World* (also known as *Vineland, N.J.*) and the *Fire Hydrant Capital* of the *World* (*Albertville, Ala.*, of course) (2001/07/12/1308610)
+- *Crawford*, the *Deer Capital* of *Nebraska*, or *Llano*, the *Deer Capital* of *Texas* (2001/07/12/1308610)
+- *Pepe Sanseli* is considered nothing less than the *Signore* of the *Sideburn*, the *Maestro* of the *Mustache*, *Herr Hair* (2001/11/25/1345804)
+- If *Kelly Hoppen* is the *Design Diva* of *London*, then *Rita Konig* is the *Design It Girl*. (2002/12/26/1451541)
+- *Terry Riley*, the *California Minimalist*; *Astor Piazzolla*, the *Argentine master* of the *nuevo tango*; and *John Zorn*, the *New York bender* of *genres* (2004/01/11/1549709)
+- If *Mariano Rivera of the Yankees* is the *Mr. October* of *closers*, *Gagne* is the *Mr. Season*. (2004/05/18/1582589)
+- *Reggaeton*, the *Puerto Rican amalgam* of *dancehall reggae*, *gangsta rap* and *touches of salsa* (2004/09/03/1608662)
+- the *only alternative* to the *Canyon* of *Heroes* is the *Valley* of *Doom* (2004/09/30/1615408)
+- *Mesa Verde National Park* has been called the *Disneyland* of *ancient sites*, but it's also the *Anasazi* *Yosemite* (2004/10/15/1619273)
+- "If *bin Laden* is the *Robin Hood* of *jihad*," the authors write, then *Abu Musab al-Zarqawi* "has been its *Horatio Alger*, and *Iraq* his *field of dreams*." (2005/11/20/1719129)
+- If the *vast, empty plain of eastern Montana* is the *Saudi Arabia* of *coal*, then *Gov. Brian Schweitzer* may be its *Lawrence*. (2005/11/21/1719391)
+- If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
+
