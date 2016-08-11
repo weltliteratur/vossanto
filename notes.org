@@ -212,66 +212,48 @@
 ** the pioneer, king, queen, ... of 
 
 #+BEGIN_SRC sh :results raw output
-  for term in apostle blues boys capital counterpart czar darling dean diva duke emperor father giant god king land lord marquis master mecca pioneer princess queen satan sultan valley voice; do
+  for term in apostle Boys Capital counterpart Czar Darling dean Diva Duke Emperor Father Giant [gG]od [kK]ing Land Lord Marquis [mM]aster [mM]ecca [pP]ioneer Princess Queen Satan Sultan Valley Voice; do
       echo "- $term ::"
-      grep -i $term README.md | sed "s/^/  /"
+      grep $term README.md | sed "s/^/  /"
   done
 #+END_SRC
 
 - apostle ::
   - *Milton Friedman*, the *American apostle* of *free-market economics* (1989/07/12/0265229)
-- blues ::
-  - *Albert Collins*, the *Iceman* of *blues* (1995/08/20/0783539)
-  - *Fado* is the *Portuguese version* of the *blues* (2002/11/24/1443088)
-- boys ::
-  - the Islanders, the Boys of Winter (1992/01/24/0502719)
+- Boys ::
+  - the *Islanders*, the *Boys* of *Winter* (1992/01/24/0502719)
   - *Take That*, the *British version* of the *Backstreet Boys* (1999/05/10/1106572)
-- capital ::
-  - *Hughes*, the *Mad Hatter* of *capitalism* (1988/09/11/0178234)
-  - *Savannah*, the *Central Park* of the capital, *Port of Spain* (1999/08/11/1129887)
+- Capital ::
   - the *Dandelion Capital* of the *World* (also known as *Vineland, N.J.*) and the *Fire Hydrant Capital* of the *World* (*Albertville, Ala.*, of course) (2001/07/12/1308610)
   - *Crawford*, the *Deer Capital* of *Nebraska*, or *Llano*, the *Deer Capital* of *Texas* (2001/07/12/1308610)
   - *Ogallala*, the *Cowboy Capital* of *Nebraska* (2001/11/10/1341592)
 - counterpart ::
   - *Europcar*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
-- czar ::
+- Czar ::
   - *Albert*, the *Czar* of *Sportscast Shtick* (1992/11/06/0568322)
   - *Christopher (Mad Dog) Russo*, the *Czar* of *Mystification* (1993/11/30/0653147)
-- darling ::
+- Darling ::
   - *Dainty June*, the *Darling* of *Vaudeville* (1998/08/16/1039368)
 - dean ::
   - *Roy Lancaster*, the *English dean* of *plant explorers* (1999/06/20/1116753)
-  - *Howard Dean*, the *Huey Long* of the *iPod set* (2003/12/23/1545369)
-- diva ::
-  - *Tourte*, the *Stradivarius* of *bows* (1994/02/20/0670039)
+- Diva ::
   - If *Kelly Hoppen* is the *Design Diva* of *London*, then *Rita Konig* is the *Design It Girl*. (2002/12/26/1451541)
-  - the *Village Vanguard*, the *Stradivarius* of *jazz clubs* (2004/05/12/1581028)
-  - *John Monteleone*, the *Stradivari* of the *six-string world* (2004/11/21/1628816)
-- duke ::
+- Duke ::
   - *Dukes Stadium* is the *Coors Field* of the *minor leagues* (1996/07/08/0863204)
   - When the bassist *Harry Goodman* began his own swing band in the 1940's, posters billed him as the brother of *Benny Goodman*, the *King* of *Swing*. (Perhaps he could have been the *Duke* of *Swing*, if it weren't for Ellington.) (1999/06/06/1113206)
-- emperor ::
+- Emperor ::
   - *Mr. John*, the *Emperor* of *Fashion* (1988/05/02/0141129)
-- father ::
-  - Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
-  - *Martin Margiela*, the *Belgian godfather* of *deconstructionism* (1994/09/11/0711455)
-  - *James Brown*, the *Godfather* of *Soul* (1997/02/27/0911924)
-  - *James Brown*, *Godfather* of *soul music* (1999/06/27/1119059)
-  - *Yoshinori Watanabe*, the *Japanese godfather* of the *yakuza* (2000/04/02/1188831)
-  - *James Brown*, the *Godfather* of *Soul* (2000/04/13/1191452)
+- Father ::
   - *Norbert Wiener*, the *Father* of *Cybernetics* (2005/03/01/1653553)
-  - *James Brown*, the *Godfather* of *Soul* (2006/03/25/1749390)
-  - *James Brown*, the *Godfather* of *Soul* (2007/05/27/1850236)
-- giant ::
+- Giant ::
   - the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
   - Forget the Yankees of Reggie, the Giants of Taylor, the Mets of Carter and Hernandez, even the Knicks of Reed and DeBusschere. The Islanders won like the old, old New York Yankees and they charmed like the old, old Brooklyn Dodgers (1992/03/04/0511581)
-  - If *Nelson Mandela* is the *George Washington* of this *new democracy*, the kind of giant among men who turns down offers to be king, then *Mr. Mbeki* is *its* *John Adams*. (1999/06/04/1112428)
   - *Mont Ventoux*, the *Giant* of *Provence* (2002/07/22/1410302)
   - *Lance Armstrong*, the *Giant* of the *Tour* (2002/07/22/1410302)
   - *Yomiuri Giants*, the *Japanese equivalent* of the *Yankees* (2004/03/28/1569955)
   - *Styx Valley*, the *Valley* of the *Giants* (2004/09/12/1610579)
   - *Mont Ventoux*, the *Giant* of *Provence* (2005/06/05/1678016)
-- god ::
+- [gG]od ::
   - Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
   - If *Toys "R" Us* is the *Gulliver* of *toy sellers*, then *Nintendo* is the *Godzilla of toys*  (1990/12/06/0406527)
   - *Mount Meru*, the *Olympus* of the *Hindu gods* (1992/06/21/0537615)
@@ -287,7 +269,7 @@
   - *Dionysos*, the *God of drama* (2004/06/27/1592422)
   - *James Brown*, the *Godfather* of *Soul* (2006/03/25/1749390)
   - *James Brown*, the *Godfather* of *Soul* (2007/05/27/1850236)
-- king ::
+- [kK]ing ::
   - Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
   - *Dana Dane*, the *King* of *Rap*, (1987/11/26/0096606)
   - If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
@@ -307,38 +289,16 @@
   - *Lil' John*, the *King* of *Crunk* (2004/05/23/1583885)
   - *Moon Mullican*, the *King* of the *Hillbilly Piano* (2006/06/04/1766403)
   - *Benny Goodman*, the *King* of *Swing* (2006/11/22/1806655)
-- land ::
-  - *Guzman* is regarded as "the *Stalin* of *Patchogue*, the *Idi Amin* of *Long Island*" (1988/12/06/0204254)
-  - *Claudette Colbert*, the *Grover Cleveland* of *Blackglama* (1991/09/30/0477414)
-  - *Gay Byrne*, the *Johnny Carson* of *Ireland* (1991/11/13/0486648)
-  - *Getty Square* is the *Ellis Island* of *Westchester County* (1991/12/22/0495500)
-  - the Islanders, the Boys of Winter (1992/01/24/0502719)
-  - Forget the Yankees of Reggie, the Giants of Taylor, the Mets of Carter and Hernandez, even the Knicks of Reed and DeBusschere. The Islanders won like the old, old New York Yankees and they charmed like the old, old Brooklyn Dodgers (1992/03/04/0511581)
-  - *Todt Hill* is the *Beverly Hills* of the *island* (1992/09/13/0556197)
-  - *Graceland Too* is sometimes called the *Smithsonian Institute* of *Elvis* (1995/08/05/0780317)
-  - *Glandore*, the *Cannes* of *West Cork* (1995/08/20/0783604)
+- Land ::
   - *Ann Landers*, the *Oprah Winfrey* of *newspapers*, (1996/01/17/0823245)
-  - *Lee Koppelman* is the *Robert Moses* of *Long Island* (1996/02/04/0827620)
-  - *Shaka*, the *Attila* of *Zululand* (1997/01/18/0902375)
-  - the *Inland Revenue*, the *British equivalent* of the *Internal Revenue Service* (1997/09/06/0955411)
-  - *Willis Haviland Carrier*, the *Bill Gates* of the *air conditioner* (2000/05/01/1196085)
-  - If *Houston's cozy new Enron Field* is the *Rhode Island* of *ballparks*, then *Comerica Park* is *Alaska* (2000/05/14/1199574)
-  - *Los Angeles* is the *Ellis Island* of the *west* (2000/08/13/1222376)
-  - the *Dandelion Capital* of the *World* (also known as *Vineland, N.J.*) and the *Fire Hydrant Capital* of the *World* (*Albertville, Ala.*, of course) (2001/07/12/1308610)
-  - *Long Island*, the *Siberia* of *hockey* (2001/09/22/1327006)
   - *Jersey Shore*, the *Land* of *Imposition* (2002/07/28/1411586)
-  - *Alice Gordon of Massapequa Park* is the *Queen Mother* of the *Long Island Lusties* (2003/03/30/1476594)
-  - *Mesa Verde National Park* has been called the *Disneyland* of *ancient sites*, but it's also the *Anasazi* *Yosemite* (2004/10/15/1619273)
-  - *Long Island*, the *Galapagos* of *suburban dysfunction* (2005/03/20/1658622)
-  - *Charles Birnbaum* is the *Johnny Appleseed* of *landscape preservation* (2005/09/15/1702130)
-  - *Artaud*, the *Wieland Wagner* of the *present time* (2006/10/22/1799005)
-- lord ::
+- Lord ::
   - *Amado Carrillo Fuentes*, the *Lord* of the *Skies* (1997/05/24/0932060)
   - *Frank Pembleton*, the *Lord* of the *Box* (1998/03/29/1005941)
   - *Lord's Cricket Ground*, the *Yankee Stadium* of the *sport* (2000/12/07/1253266)
-- marquis ::
+- Marquis ::
   - *Pittsburgh's Mario Lemieux*, the *Marquis* of *Marquees* (1993/05/04/0606594)
-- master ::
+- [mM]aster ::
   - the *Masters*, the "*cathedral* of *golf*"  (1999/04/11/1099455)
   - *Raymond Chandler*, the *Anglo master* of *crime fiction* (1999/07/13/1123045)
   - *Alan Greenspan* is the *Master* of the *Universe* (1999/12/19/1162227)
@@ -346,21 +306,21 @@
   - *Terry Riley*, the *California Minimalist*; *Astor Piazzolla*, the *Argentine master* of the *nuevo tango*; and *John Zorn*, the *New York bender* of *genres* (2004/01/11/1549709)
   - *Jon Jerde*, the *California master* of *mall design* (2007/01/04/1816247)
   - *Fred Sandback*, the *American master* of *ethereal string geometries* (2007/06/15/1854531)
-- mecca ::
+- [mM]ecca ::
   - *Seattle*, the *American mecca* of *waste reduction* (1991/12/12/0493523)
   - *University of California at Davis*, the *American mecca* of *viniculture education* (1998/08/15/1039075)
   - *America* is the *Mecca* of that *ideology* (2001/11/27/1346329)
   - *Las Vegas*, the *Mecca* of *boxing* (2003/11/30/1539102)
   - the *southern French city of Grasse*, the *Mecca* of *perfume manufacturers* (2004/11/05/1624748)
   - *New York* is the *Mecca* of *basketball* (2007/04/05/1838196)
-- pioneer ::
+- [pP]ioneer ::
   - the *Young Pioneers* - the *Soviet equivalent* of the *Boy Scouts* (1988/03/21/0129426)
   - *Samuel Barber*, the *Pioneer* of the *American Symphony* (1996/09/22/0878602)
   - *Russel Wright*, the *American pioneer* of *modern product design* (1999/06/05/1112688)
-- princess ::
+- Princess ::
   - *Gillian Anderson* is the *Pauper* of *professional experience*, *Brenda Blethyn* is the *Princess* (1991/02/20/0424794)
   - Call her the *Princess* of *Patina*, the *Queen* of *Faux* (2000/07/30/1218802)
-- queen ::
+- Queen ::
   - *Queen Victoria*, the *Great Satan* of the *time* (1988/02/03/0115425)
   - *Tiramisu*, the *New Queen* of *Italian Desserts* (1991/03/13/0429693)
   -  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
@@ -376,15 +336,14 @@
   - *Hillary*, the *Cattle Queen* of *commodities trading* (2002/07/10/1407094)
   - *Alice Gordon of Massapequa Park* is the *Queen Mother* of the *Long Island Lusties* (2003/03/30/1476594)
   - *Ouidad*, the *Queen* of *Curl* (2004/02/15/1559089)
-- satan ::
+- Satan ::
   - *Queen Victoria*, the *Great Satan* of the *time* (1988/02/03/0115425)
   - the *Walt Disney Company* is the *Great Satan* of *this jeremiad* (1997/04/06/0920680)
-- sultan ::
+- Sultan ::
   - *Babe Ruth*, the *Sultan* of *Swat* (1995/11/27/0811882)
   - *Kenneth Starr*, the *Sultan* of the *Subpoena* (1998/03/20/1003494)
-- valley ::
+- Valley ::
   - *Bangalore*, India, the *Silicon Valley* of *South Asia* (1997/06/19/0938068)
-  - *Rutherford* is the *St. Julien* of the *valley*, and *Stag's Leap* is the *Pauillac* (1997/08/27/0953268)
   - *Dick French Jr*. is the *Ted Turner* of the *Hudson Valley* (1998/04/26/1012685)
   - *Hsinchu Science Park*, *Silicon Valley* of *Taiwan* (1999/09/22/1139658)
   - *Las Cruces*, the *Mesilla Valley* of *southern New Mexico* (2003/03/09/1470804)
@@ -392,7 +351,7 @@
   - the *only alternative* to the *Canyon* of *Heroes* is the *Valley* of *Doom* (2004/09/30/1615408)
   - *Ravenswood* is the *Death Valley* of *New York City* (2005/07/23/1689358)
   - *Garberville*, the *Central Valley* of *marijuana* (2006/08/28/1786070)
-- voice ::
+- Voice ::
   - *Celebi*, the *Voice* of the *Forest* (2002/10/11/1431006)
   - *Darren Romeo*, the *Voice* of *Magic* (2004/09/19/1612812)
 

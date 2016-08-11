@@ -164,7 +164,7 @@ source: New York Times corpus 1987-2007
 ### 1992
 
 -  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
-- the Islanders, the Boys of Winter (1992/01/24/0502719)
+- the *Islanders*, the *Boys* of *Winter* (1992/01/24/0502719)
 - Forget the Yankees of Reggie, the Giants of Taylor, the Mets of Carter and Hernandez, even the Knicks of Reed and DeBusschere. The Islanders won like the old, old New York Yankees and they charmed like the old, old Brooklyn Dodgers (1992/03/04/0511581)
 - *Vaz Auto Works*, the *General Motors* of *Russia* (1992/03/08/0512599)
 - *Japan*, the *Everest* of *export markets* (1992/05/01/0524977)
@@ -547,7 +547,7 @@ source: New York Times corpus 1987-2007
 - *Mille Lacs* is the *Yankee Stadium* of *ice fishing* (2003/02/21/1466539)
 - *Arizona*, the *Atlanta Braves* of *college basketball* (2003/02/25/1467785)
 - *Olivier Award*, the *London equivalent* of the *Tony* (2003/03/02/1468848)
-- *Mini, the *British maker* of *pint-size cars* (2003/03/08/1470553)
+- *Mini*, the *British maker* of *pint-size cars* (2003/03/08/1470553)
 - *Las Cruces*, the *Mesilla Valley* of *southern New Mexico* (2003/03/09/1470804)
 - *Alice Gordon of Massapequa Park* is the *Queen Mother* of the *Long Island Lusties* (2003/03/30/1476594)
 - *George Duboeuf*, called *King* of *Beaujolais* (2003/04/09/1479284)
@@ -612,7 +612,7 @@ source: New York Times corpus 1987-2007
 - *Dan Flavin*, the *American avatar* of the *fluorescent tube* (2004/10/01/1615466)
 - *Nanz Custom Hardware*, the *Barwil* of *cabinet pulls* (2004/10/14/1619047)
 - *Mesa Verde National Park* has been called the *Disneyland* of *ancient sites*, but it's also the *Anasazi* *Yosemite* (2004/10/15/1619273)
-- *Osama, the *BAAAADest* of the *Bad* (2004/11/02/1624049)
+- *Osama*, the *BAAAADest* of the *Bad* (2004/11/02/1624049)
 - *Dave Gorman*, the *Picasso* of *procrastination* (2004/11/05/1624728)
 - the *southern French city of Grasse*, the *Mecca* of *perfume manufacturers* (2004/11/05/1624748)
 - *John Monteleone*, the *Stradivari* of the *six-string world* (2004/11/21/1628816)
