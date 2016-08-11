@@ -555,7 +555,6 @@
   grep -E "Babe Ruth" README.md
 #+END_SRC
 
-#+RESULTS:
 - *Eddie Shore*, the *Babe Ruth* of *hockey* (1988/11/04/0194523)
 - *Jack B. Solerwitz* is the *Babe Ruth* of *ripoffs* (1993/03/19/0596753)
 - *Rush Limbaugh*, the *Babe Ruth* of the *talk-show circuit* (1995/01/05/0735173)
