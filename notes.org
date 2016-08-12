@@ -715,7 +715,6 @@
   done
 #+END_SRC
 
-#+RESULTS:
 - Afghanistan ::
   - *Faryab* is the *Wild West* of *Afghanistan* (2005/09/18/1703218)
 - Argentina ::
