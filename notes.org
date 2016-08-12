@@ -706,60 +706,48 @@
 **** Continents
 
 #+BEGIN_SRC sh :results raw output
-  grep Africa README.md
+  for CONTINENT in Africa America Asia Australia Europe; do
+    echo "- $CONTINENT ::"
+    grep $CONTINENT README.md | sed "s/^/  /"
+  done
 #+END_SRC
 
-- *Zulu King Shaka*, the *Genghis Khan* of *Africa* (1998/02/05/0993081)
-- *Victoria Falls*, the *Niagara* of *Africa* (1999/08/06/1128621)
-- *Ghana* is the *Brazil* of *Africa* (2006/06/28/1772401)
-
-#+BEGIN_SRC sh :results raw output
-  grep America README.md
-#+END_SRC
-
-- the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
-- Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
-- *George Romney*, the *Middle America sort* of *guy* (1987/03/15/0021513)
-- *Milton Friedman*, the *American apostle* of *free-market economics* (1989/07/12/0265229)
-- If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
-- *Seattle*, the *American mecca* of *waste reduction* (1991/12/12/0493523)
-- *Samuel Barber*, the *Pioneer* of the *American Symphony* (1996/09/22/0878602)
-- *Willoughby* is sometimes called the *Lake Lucerne* of *North America* (1997/09/21/0959002)
-- *Lovely Lane Methodist Church*, the *Mother Church* of *American Methodism* (1998/01/09/0986279)
-- *University of California at Davis*, the *American mecca* of *viniculture education* (1998/08/15/1039075)
-- *Special Unit Corps*, the *Yugoslav equivalent* of the *American Special Forces* (1999/04/01/1096836)
-- *Russel Wright*, the *American pioneer* of *modern product design* (1999/06/05/1112688)
-- *Brighton Beach* is the *Russian bazaar* of *America* (2000/05/21/1201255)
-- *America* is the *Mecca* of that *ideology* (2001/11/27/1346329)
-- *the North American International Auto Show*, the *Cannes Film Festival* of the *auto industry* (2002/01/06/1357245)
-- *Lawrence Rubey*, the *American booster* of *free enterprise* (2003/07/13/1503960)
-- *Dan Flavin*, the *American avatar* of the *fluorescent tube* (2004/10/01/1615466)
-- *Cambridge*, the *Athens* of *America* (2005/11/27/1720488)
-- If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
-- *Liberty*, the *British equivalent* of the *American Civil Liberties Union* (2006/06/25/1771465)
-- *Fred Sandback*, the *American master* of *ethereal string geometries* (2007/06/15/1854531)
-
-#+BEGIN_SRC sh :results raw output
-  grep Asia README.md
-#+END_SRC
-
-- *Bangalore*, India, the *Silicon Valley* of *South Asia* (1997/06/19/0938068)
-
-#+BEGIN_SRC sh :results raw output
-  grep Australia README.md
-#+END_SRC
-
-- *Business Review Weekly*, the *Australian equivalent* of *Business Week* (1997/09/13/0957036)
-
-#+BEGIN_SRC sh :results raw output
-  grep Europe README.md
-#+END_SRC
-
-- *Europcar*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
-- *Denmark* is the *Hong Kong* of *Europe* (1993/04/01/0599397)
-- *Hulton Deutsch*, the *European equivalent* of the *Bettman Archive* (1997/05/18/0930910)
-- *Latin*, the *European language* of *learning* (1998/01/03/0984739)
-- *Eurosport*, the *European equivalent* of *ESPN* (1998/02/23/0997564)
+- Africa ::
+  - *Zulu King Shaka*, the *Genghis Khan* of *Africa* (1998/02/05/0993081)
+  - *Victoria Falls*, the *Niagara* of *Africa* (1999/08/06/1128621)
+  - *Ghana* is the *Brazil* of *Africa* (2006/06/28/1772401)
+- America ::
+  - the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
+  - Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, the *Bela Lugosi* of *American Politics*, Richard the Chicken-Hearted, the *Nero* of *Our Times*, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick. (1987/01/29/0008167)
+  - *George Romney*, the *Middle America sort* of *guy* (1987/03/15/0021513)
+  - *Milton Friedman*, the *American apostle* of *free-market economics* (1989/07/12/0265229)
+  - If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
+  - *Seattle*, the *American mecca* of *waste reduction* (1991/12/12/0493523)
+  - *Samuel Barber*, the *Pioneer* of the *American Symphony* (1996/09/22/0878602)
+  - *Willoughby* is sometimes called the *Lake Lucerne* of *North America* (1997/09/21/0959002)
+  - *Lovely Lane Methodist Church*, the *Mother Church* of *American Methodism* (1998/01/09/0986279)
+  - *University of California at Davis*, the *American mecca* of *viniculture education* (1998/08/15/1039075)
+  - *Special Unit Corps*, the *Yugoslav equivalent* of the *American Special Forces* (1999/04/01/1096836)
+  - *Russel Wright*, the *American pioneer* of *modern product design* (1999/06/05/1112688)
+  - *Brighton Beach* is the *Russian bazaar* of *America* (2000/05/21/1201255)
+  - *America* is the *Mecca* of that *ideology* (2001/11/27/1346329)
+  - *the North American International Auto Show*, the *Cannes Film Festival* of the *auto industry* (2002/01/06/1357245)
+  - *Lawrence Rubey*, the *American booster* of *free enterprise* (2003/07/13/1503960)
+  - *Dan Flavin*, the *American avatar* of the *fluorescent tube* (2004/10/01/1615466)
+  - *Cambridge*, the *Athens* of *America* (2005/11/27/1720488)
+  - If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
+  - *Liberty*, the *British equivalent* of the *American Civil Liberties Union* (2006/06/25/1771465)
+  - *Fred Sandback*, the *American master* of *ethereal string geometries* (2007/06/15/1854531)
+- Asia ::
+  - *Bangalore*, India, the *Silicon Valley* of *South Asia* (1997/06/19/0938068)
+- Australia ::
+  - *Business Review Weekly*, the *Australian equivalent* of *Business Week* (1997/09/13/0957036)
+- Europe ::
+  - *Europcar*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
+  - *Denmark* is the *Hong Kong* of *Europe* (1993/04/01/0599397)
+  - *Hulton Deutsch*, the *European equivalent* of the *Bettman Archive* (1997/05/18/0930910)
+  - *Latin*, the *European language* of *learning* (1998/01/03/0984739)
+  - *Eurosport*, the *European equivalent* of *ESPN* (1998/02/23/0997564)
 
 
 
