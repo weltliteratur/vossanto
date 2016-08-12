@@ -561,3 +561,212 @@
 - *Babe Ruth*, the *Sultan* of *Swat* (1995/11/27/0811882)
 - *Eric Bergoust*, the *Babe Ruth* of *freestyle aerials* (2003/01/23/1458686)
 
+** Categories
+
+*** Sport
+
+#+BEGIN_SRC sh :results raw output
+  grep -i "basketball" README.md
+#+END_SRC
+
+- *Moses Malone* is the *Paul Newman* of *professional basketball* (1987/11/14/0092773)
+- But if *Jordan* is the *Chuck Yeager* of *basketball*, *Julius Erving* was its *Charles Lindbergh* and *Connie Hawkins* was its *Wright Brothers*. (1992/05/07/0526474)
+- *Frazier* is the *Bill Stern* of *basketball analysis* (1994/05/10/0686448)
+- *Vernon Maxwell*, the *Mad Max* of the *National Basketball Association* (1994/06/08/0692270)
+- If *Kentucky* is the *Roman Empire* of *college basketball*, the *Nets' franchise* is the *Roamin' Empire* of *pro basketball*. (1996/05/31/0854362)
+- *Arizona*, the *Atlanta Braves* of *college basketball* (2003/02/25/1467785)
+- *New York* is the *Mecca* of *basketball* (2007/04/05/1838196)
+
+#+BEGIN_SRC sh :results raw output
+  grep -i "baseball" README.md
+#+END_SRC
+
+- *Scott Sanderson* is the *Rodney Dangerfield* of *baseball* (1993/05/09/0607593)
+- *Frank Thomas* is the *Thomas Jefferson* of *baseball* (1996/07/09/0863379)
+- *Albert Belle*, the *Bad Boy* of *Baseball*, (1997/02/10/0908025)
+- *Maddux* has been the *Larry Bird* of *baseball* (2004/02/21/1560506)
+
+#+BEGIN_SRC sh :results raw output
+  grep -i "hockey" README.md
+#+END_SRC
+
+#+RESULTS:
+- *Eddie Shore*, the *Babe Ruth* of *hockey* (1988/11/04/0194523)
+- *Sweden*, the *Rangers* of *international hockey* (1994/02/12/0668308)
+- *Cherry*, the *Rush Limbaugh* of *hockey commentary* (1996/01/21/0824224)
+- *Adam Graves*, the *Billy Budd* of *hockey* (1998/04/05/1007678)
+- *Long Island*, the *Siberia* of *hockey* (2001/09/22/1327006)
+
+#+BEGIN_SRC sh :results raw output
+  grep -i "football" README.md
+#+END_SRC
+
+#+RESULTS:
+- the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
+- *Notre Dame* is the *Vatican* of *college football* (1999/08/29/1134218)
+- *Jim Fassel*, the *Mister Rogers* of *football coaches* (2000/11/23/1249646)
+- *McNabb* has been called the *Michael Jordan* of the *National Football League* (2001/01/08/1261308)
+- *Bill Belichick* is the *Bobby Fischer* of *football* (2005/01/18/1643049)
+- *Testaverde* is the *Roger Clemens* of *pro football* (2005/10/10/1708694)
+- *Joe Namath* is the *Ann Calvello* of *football* (2006/03/17/1747425)
+
+#+BEGIN_SRC sh :results raw output
+  grep -i "sport" README.md
+#+END_SRC
+
+#+RESULTS:
+- *George Foreman*, the *Santa Claus* of *sports* (1991/01/01/0412333)
+- *Albert*, the *Czar* of *Sportscast Shtick* (1992/11/06/0568322)
+- *Boxing* is the *Wild West* of *sports* (1993/02/06/0588384)
+- *Gary Bettman*, the *Brendan Suhr* of *sports commissioners* (1994/10/30/0721907)
+- *Eurosport*, the *European equivalent* of *ESPN* (1998/02/23/0997564)
+- *National Collegiate Athletic Association*, the *Kenneth Starr* of *sports* (1998/04/05/1007678)
+- *Jordan*, the *Seinfeld* of *sports* (1998/05/29/1020525)
+- *Lord's Cricket Ground*, the *Yankee Stadium* of the *sport* (2000/12/07/1253266)
+- *Bob Irsay*, the *Caesar* of *sports carpetbaggers* (2003/02/06/1462734)
+- *George Steinbrenner*, the *David Merrick* of *sports* (2003/10/15/1527475)
+
+#+BEGIN_SRC sh :results raw output
+  grep -i racing README.md
+#+END_SRC
+
+#+RESULTS:
+- *Sea Hero* is the *Bobo Holloman* of *racing* (1993/08/18/0629471)
+- the *Kentucky Derby* is the *Wimbledon* of *horse racing* (1997/06/07/0935255)
+- *Brian Foster*, the *Michael Jordan* of *BMX racing* (1998/12/27/1072824)
+- the *jockey Jim Burns*, the *Jerry Bailey* of *mule racing* (2002/07/11/1407365)
+- *Jacques Villeneuve*, the *Dennis Rodman* of the *racing world* (2003/09/21/1521031)
+- *Eclipse Awards*, *Oscars* of *horse racing* (2006/10/30/1801003)
+
+#+BEGIN_SRC sh :results raw output
+  grep -i golf README.md
+#+END_SRC
+
+#+RESULTS:
+- *Vijay Singh*, the *James Brown* of *golf* (1995/05/22/0764316)
+- the *Masters*, the "*cathedral* of *golf*"  (1999/04/11/1099455)
+- *Johnny Miller*, the *Simon Cowell* of *golf criticism* (2006/06/20/1770506)
+
+#+BEGIN_SRC sh :results raw output
+  grep -i soccer README.md
+#+END_SRC
+
+#+RESULTS:
+- *Romario* is the *Michael Jordan* of *soccer* and *Bebeto* is the *Magic Johnson* of *soccer* (1994/07/05/0697643)
+- *Italy* is the *Boston Red Sox* of *soccer* (2002/05/26/1395524)
+
+
+#+BEGIN_SRC sh :results raw output
+  grep -E -i pitcher\|forward\|coach\|quarterback\|heavyweight\|league README.md
+#+END_SRC
+
+#+RESULTS:
+- the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
+- *Charles Oakley*, the *Charles Atlas* of *forwards* (1990/11/06/0398601)
+-  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
+- *Pat Riley*, the *Dale Carnegie* of *coaches* (1992/09/23/0558269)
+- *Jack Morris*, the *Mr. October* of *pitchers* (1992/10/17/0563655)
+- *Marv Levy*, the *Lionel Trilling* of *coaches* (1994/01/28/0665094)
+- *Dan Marino*, the *Lou Gehrig* of *quarterbacks* (1994/08/04/0704092)
+- *Al Hrabosky*, the *Mad Hungarian* of a *relief pitcher* (1995/02/26/0745507)
+- *Dukes Stadium* is the *Coors Field* of the *minor leagues* (1996/07/08/0863204)
+- *George Foreman*, the *Hamlet* of *heavyweights* (1997/10/09/0963817)
+- *Don Zimmer*, the *Yoda* of *bench coaches* (1999/10/01/1141878)
+- *Cynthia Cooper* is the *Michael Jordan*, the *Larry Bird*, the *Magic Johnson* of *this league* (2000/08/28/1226010)
+- *Jim Fassel*, the *Mister Rogers* of *football coaches* (2000/11/23/1249646)
+- *McNabb* has been called the *Michael Jordan* of the *National Football League* (2001/01/08/1261308)
+- *Clemens*, the *John Wayne* of *pitchers* (2005/10/23/1712004)
+
+*** Music
+
+#+BEGIN_SRC sh :results raw output
+  grep -E -i  punk\|rock\|jazz\|blues\|soul\|salsa README.md
+#+END_SRC
+
+#+RESULTS:
+- the *remarkable enclosed indoor Housewives' Market*, the *Halles* of *soul food*  (1990/01/07/0314867)
+- *Oscar D'Leon*, the *James Brown* of *salsa* (1990/06/29/0364544)
+- *Nick Cave* is the *Elvis* of *punk* (1992/08/03/0547319)
+- *Aerosmith*, the *Dorian Gray* of *rock bands* (1993/12/10/0654992)
+- *Mr. Lovano* is the *General Motors* of *jazz* (1995/01/15/0736903)
+- *Albert Collins*, the *Iceman* of *blues* (1995/08/20/0783539)
+- *Aretha Franklin*, the *Queen* of *Soul* (1996/05/02/0847754)
+- *James Brown*, the *Godfather* of *Soul* (1997/02/27/0911924)
+- *Charles Barkley*, the *Einstein* of the *Houston Rockets* (1997/10/29/0968855)
+- *Ozzy Osbourne*, the *Grandpa Munster* of *hard rock* (1998/07/06/1029895)
+- *Peaches and Herb*, the *First Couple* of *soul* (1998/08/09/1037632)
+- *Sally Timms*, the *Lauren Bacall* of *underground rock* (1998/11/06/1059917)
+- *Tito  Nieves* is called the *Pavarotti of salsa* (1999/03/26/1095206)
+- If *Wynton Marsalis* is the *Steven Spielberg* of the *jazz scene*, the alto saxophonist *Steve Coleman* has a strong claim to being *its* *Stanley Kubrick*. (1999/05/02/1104452)
+- *James Brown*, *Godfather* of *soul music* (1999/06/27/1119059)
+- *Keith Jarrett*, the *Proust* of *jazz* (1999/11/28/1156627)
+- *James Brown*, the *Godfather* of *Soul* (2000/04/13/1191452)
+- *Celia Cruz*, the *Queen* of *Salsa* (2001/03/16/1278191)
+- the *different Rangers*, the *Rangers* of *Rocker* (2002/02/28/1371472)
+- *David Rockwell* is the *Wolfgang Puck* of *blueprints* (2002/04/03/1380928)
+- *Fado* is the *Portuguese version* of the *blues* (2002/11/24/1443088)
+- the *Village Vanguard*, the *Stradivarius* of *jazz clubs* (2004/05/12/1581028)
+- *Reggaeton*, the *Puerto Rican amalgam* of *dancehall reggae*, *gangsta rap* and *touches of salsa* (2004/09/03/1608662)
+- *James Brown*, the *Godfather* of *Soul* (2006/03/25/1749390)
+- *James Brown*, the *Godfather* of *Soul* (2007/05/27/1850236)
+
+*** Places
+
+#+BEGIN_SRC sh :results raw output
+  grep -E -i  France\|Spain\|Germany\|Europe\|Britain\|Italy\|Portugal\|Sweden\|Czech\|Ireland\| README.md
+#+END_SRC
+
+#+RESULTS:
+- *Algarve*, the *Riviera* of *Portugal* (1987/06/14/0048773)
+- *Europcar*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
+- *Heiner Goebbels*, the *John Zorn* of *West Germany* (1989/11/10/0299484)
+- If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
+- *Gay Byrne*, the *Johnny Carson* of *Ireland* (1991/11/13/0486648)
+- *Jean-Claude Gallotta*, the *Mark Morris* of *France* (1992/12/14/0576566)
+- *Denmark* is the *Hong Kong* of *Europe* (1993/04/01/0599397)
+- *Sweden*, the *Rangers* of *international hockey* (1994/02/12/0668308)
+- *Canal Plus*, the *HBO* of *France* (1994/03/27/0676813)
+- *Hulton Deutsch*, the *European equivalent* of the *Bettman Archive* (1997/05/18/0930910)
+- *Latin*, the *European language* of *learning* (1998/01/03/0984739)
+- *Eurosport*, the *European equivalent* of *ESPN* (1998/02/23/0997564)
+- *Savannah*, the *Central Park* of the capital, *Port of Spain* (1999/08/11/1129887)
+- *Italy* is the *Boston Red Sox* of *soccer* (2002/05/26/1395524)
+- *Isabella Beeton*, the *Fannie Farmer* of *Britain* (2003/06/11/1495897)
+
+#+BEGIN_SRC sh :results raw output
+  grep -E -i London README.md
+#+END_SRC
+
+#+RESULTS:
+- *Olivier Awards*, the *London equivalent* of the *Tony Awards* (2000/07/05/1212567)
+- If *Kelly Hoppen* is the *Design Diva* of *London*, then *Rita Konig* is the *Design It Girl*. (2002/12/26/1451541)
+- *Olivier Award*, the *London equivalent* of the *Tony* (2003/03/02/1468848)
+- *Chalkhill Estates in London*, the *British equivalent* of a *housing project* (2006/11/01/1801327)
+
+#+BEGIN_SRC sh :results raw output
+  grep -E -i Paris README.md
+#+END_SRC
+
+#+RESULTS:
+- *La Villa*, the *Village Vanguard* of *Paris* (1995/01/15/0736911)
+- *Biennale International des Antiquaries* in Paris, *Super Bowl* of *antique fairs* (2000/09/08/1228700)
+- *L'Ami Louis*, the *Parisian temple* of *foie gras* (2002/11/06/1438122)
+- If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
+
+#+BEGIN_SRC sh :results raw output
+  grep -E -i "^-.*New York" README.md
+#+END_SRC
+
+#+RESULTS:
+- the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
+- "*New York State* is the *Cadillac* of *social services*," Mr. Alfonso said. "*Other states* have *Volkswagens*."  (1990/11/26/0404144)
+- "*New York* is the *Cadillac* of *welfare states*," he said. "We can't afford it anymore. What we need is *Chevys* and *Fords* in this state." (1991/01/31/0419226)
+- Forget the Yankees of Reggie, the Giants of Taylor, the Mets of Carter and Hernandez, even the Knicks of Reed and DeBusschere. The Islanders won like the old, old New York Yankees and they charmed like the old, old Brooklyn Dodgers (1992/03/04/0511581)
+- *New York* is the *Gomorrah* of the *New World* (1995/04/09/0753967)
+- *Peter Eisenman* of New York is the *Gertrude Stein* of *contemporary architecture* (1999/03/14/1092170)
+- the *Bronx*, the *Riviera* of *New York City* (2000/07/09/1213712)
+- the *Mighty Mose*, the *Paul Bunyan* of *New York* (2001/11/04/1339907)
+- the *A-team in New York* is the *A-team* of *A-teams* (2002/01/21/1361231)
+- *Terry Riley*, the *California Minimalist*; *Astor Piazzolla*, the *Argentine master* of the *nuevo tango*; and *John Zorn*, the *New York bender* of *genres* (2004/01/11/1549709)
+- *Ravenswood* is the *Death Valley* of *New York City* (2005/07/23/1689358)
+- *New York* is the *Mecca* of *basketball* (2007/04/05/1838196)
