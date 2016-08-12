@@ -714,12 +714,6 @@
 - *Ghana* is the *Brazil* of *Africa* (2006/06/28/1772401)
 
 #+BEGIN_SRC sh :results raw output
-  grep Asia README.md
-#+END_SRC
-
-- *Bangalore*, India, the *Silicon Valley* of *South Asia* (1997/06/19/0938068)
-
-#+BEGIN_SRC sh :results raw output
   grep America README.md
 #+END_SRC
 
@@ -744,6 +738,12 @@
 - If *Buenos Aires* is the *Paris* of *South America*, *Quebec City* is the *Paris* of *North America*. (2006/02/19/1740811)
 - *Liberty*, the *British equivalent* of the *American Civil Liberties Union* (2006/06/25/1771465)
 - *Fred Sandback*, the *American master* of *ethereal string geometries* (2007/06/15/1854531)
+
+#+BEGIN_SRC sh :results raw output
+  grep Asia README.md
+#+END_SRC
+
+- *Bangalore*, India, the *Silicon Valley* of *South Asia* (1997/06/19/0938068)
 
 #+BEGIN_SRC sh :results raw output
   grep Australia README.md
