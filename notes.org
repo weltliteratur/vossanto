@@ -421,7 +421,6 @@
       | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{if ($1 >= 2) print $1"\t"$2}'
 #+END_SRC
 
-#+RESULTS:
 | 9 | King                |
 | 7 | Queen               |
 | 7 | British equivalent  |
@@ -590,7 +589,6 @@
   grep -i "hockey" README.md
 #+END_SRC
 
-#+RESULTS:
 - *Eddie Shore*, the *Babe Ruth* of *hockey* (1988/11/04/0194523)
 - *Sweden*, the *Rangers* of *international hockey* (1994/02/12/0668308)
 - *Cherry*, the *Rush Limbaugh* of *hockey commentary* (1996/01/21/0824224)
@@ -601,7 +599,6 @@
   grep -i "football" README.md
 #+END_SRC
 
-#+RESULTS:
 - the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
 - *Notre Dame* is the *Vatican* of *college football* (1999/08/29/1134218)
 - *Jim Fassel*, the *Mister Rogers* of *football coaches* (2000/11/23/1249646)
@@ -614,7 +611,6 @@
   grep -i "sport" README.md
 #+END_SRC
 
-#+RESULTS:
 - *George Foreman*, the *Santa Claus* of *sports* (1991/01/01/0412333)
 - *Albert*, the *Czar* of *Sportscast Shtick* (1992/11/06/0568322)
 - *Boxing* is the *Wild West* of *sports* (1993/02/06/0588384)
@@ -630,7 +626,6 @@
   grep -i racing README.md
 #+END_SRC
 
-#+RESULTS:
 - *Sea Hero* is the *Bobo Holloman* of *racing* (1993/08/18/0629471)
 - the *Kentucky Derby* is the *Wimbledon* of *horse racing* (1997/06/07/0935255)
 - *Brian Foster*, the *Michael Jordan* of *BMX racing* (1998/12/27/1072824)
@@ -642,7 +637,6 @@
   grep -i golf README.md
 #+END_SRC
 
-#+RESULTS:
 - *Vijay Singh*, the *James Brown* of *golf* (1995/05/22/0764316)
 - the *Masters*, the "*cathedral* of *golf*"  (1999/04/11/1099455)
 - *Johnny Miller*, the *Simon Cowell* of *golf criticism* (2006/06/20/1770506)
@@ -651,7 +645,6 @@
   grep -i soccer README.md
 #+END_SRC
 
-#+RESULTS:
 - *Romario* is the *Michael Jordan* of *soccer* and *Bebeto* is the *Magic Johnson* of *soccer* (1994/07/05/0697643)
 - *Italy* is the *Boston Red Sox* of *soccer* (2002/05/26/1395524)
 
@@ -660,7 +653,6 @@
   grep -E -i pitcher\|forward\|coach\|quarterback\|heavyweight\|league README.md
 #+END_SRC
 
-#+RESULTS:
 - the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
 - *Charles Oakley*, the *Charles Atlas* of *forwards* (1990/11/06/0398601)
 -  *Luis Cisneros*, better known to colleagues as *Sandra*, the *Queen* of the *Bois* (1992/01/11/0499353)
@@ -683,7 +675,6 @@
   grep -E -i  punk\|rock\|jazz\|blues\|soul\|salsa README.md
 #+END_SRC
 
-#+RESULTS:
 - the *remarkable enclosed indoor Housewives' Market*, the *Halles* of *soul food*  (1990/01/07/0314867)
 - *Oscar D'Leon*, the *James Brown* of *salsa* (1990/06/29/0364544)
 - *Nick Cave* is the *Elvis* of *punk* (1992/08/03/0547319)
@@ -716,7 +707,6 @@
   grep -E -i  France\|Spain\|Germany\|Europe\|Britain\|Italy\|Portugal\|Sweden\|Czech\|Ireland\| README.md
 #+END_SRC
 
-#+RESULTS:
 - *Algarve*, the *Riviera* of *Portugal* (1987/06/14/0048773)
 - *Europcar*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
 - *Heiner Goebbels*, the *John Zorn* of *West Germany* (1989/11/10/0299484)
@@ -737,7 +727,6 @@
   grep -E -i London README.md
 #+END_SRC
 
-#+RESULTS:
 - *Olivier Awards*, the *London equivalent* of the *Tony Awards* (2000/07/05/1212567)
 - If *Kelly Hoppen* is the *Design Diva* of *London*, then *Rita Konig* is the *Design It Girl*. (2002/12/26/1451541)
 - *Olivier Award*, the *London equivalent* of the *Tony* (2003/03/02/1468848)
@@ -747,7 +736,6 @@
   grep -E -i Paris README.md
 #+END_SRC
 
-#+RESULTS:
 - *La Villa*, the *Village Vanguard* of *Paris* (1995/01/15/0736911)
 - *Biennale International des Antiquaries* in Paris, *Super Bowl* of *antique fairs* (2000/09/08/1228700)
 - *L'Ami Louis*, the *Parisian temple* of *foie gras* (2002/11/06/1438122)
@@ -757,7 +745,6 @@
   grep -E -i "^-.*New York" README.md
 #+END_SRC
 
-#+RESULTS:
 - the *Giants*, the *New York Titans* of the *American Football League* (1987/01/28/0007820)
 - "*New York State* is the *Cadillac* of *social services*," Mr. Alfonso said. "*Other states* have *Volkswagens*."  (1990/11/26/0404144)
 - "*New York* is the *Cadillac* of *welfare states*," he said. "We can't afford it anymore. What we need is *Chevys* and *Fords* in this state." (1991/01/31/0419226)
