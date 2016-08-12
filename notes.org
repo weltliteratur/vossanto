@@ -704,24 +704,125 @@
 *** Places
 
 #+BEGIN_SRC sh :results raw output
-  grep -E -i  France\|Spain\|Germany\|Europe\|Britain\|Italy\|Portugal\|Sweden\|Czech\|Ireland\| README.md
+  URL=http://data.okfn.org/data/core/country-list/r/data.csv
+  for COUNTRY in $(wget -q -O - "$URL" | tail -n +2 data.csv | sed -e "s/ /_/g" -e "s/\"//"| awk -F',' '{print $1}' | sort -u); do
+    COUNTRY=$(echo $COUNTRY | sed "s/_/ /g")
+    MATCHES=$(grep "$COUNTRY" README.md)
+    if [ "$MATCHES" ]; then
+      echo "- $COUNTRY ::"
+      grep "^-.*$COUNTRY" README.md | sed "s/^/  /"
+    fi
+  done
 #+END_SRC
 
-- *Algarve*, the *Riviera* of *Portugal* (1987/06/14/0048773)
+#+RESULTS:
+- Afghanistan ::
+  - *Faryab* is the *Wild West* of *Afghanistan* (2005/09/18/1703218)
+- Argentina ::
+  - *Cordoba*, the *Omaha* of *Argentina* (1998/11/22/1063995)
+- Australia ::
+  - *Business Review Weekly*, the *Australian equivalent* of *Business Week* (1997/09/13/0957036)
+- Brazil ::
+  - *Dr. Oswaldo Cruz*, the *Walter Reed* of *Brazil* (1989/11/26/0304421)
+  - *Oscar*, the *Larry Bird* of *Brazil* (1990/07/29/0372556)
+  - *Tom Ze*, the *Tristan Tzara* of *Brazilian Tropicalia* (1999/10/03/1142247)
+  - *Ghana* is the *Brazil* of *Africa* (2006/06/28/1772401)
+- Canada ::
+  - *Windsor* is the *Detroit* of *Canada* (1987/09/21/0076414)
+  - *Winnipeg* is the *Green Bay* of *Canada* (1991/11/25/0489598)
+  - *Canada* is the *Death Star* of *cultural fortifications* (1999/07/14/1123261)
+- China ::
+  - *Wei Jingsheng*, the *Sakharov* of *China* (1996/12/09/0894541)
+  - *John Rabe* is the *Oskar Schindler* of *China* (1996/12/12/0895003)
+  - *Sunset Park*, the *Chinatown* of *Brooklyn* (2006/04/09/1753245)
+- Colombia ::
+  - *Colombia* is the *South Korea* of *flower exporters* (1989/09/20/0284628)
+  - *Colombia*, the *Fort Knox* of *ransom proceeds* (1998/08/09/1037554)
+- Denmark ::
+  - *Denmark* is the *Hong Kong* of *Europe* (1993/04/01/0599397)
+- Egypt ::
+  - *Mabahith*, the *Egyptian equivalent* of the *F.B.I.* (2005/04/08/1663228)
+- France ::
+  - *Jean-Claude Gallotta*, the *Mark Morris* of *France* (1992/12/14/0576566)
+  - *Canal Plus*, the *HBO* of *France* (1994/03/27/0676813)
+- Georgia ::
+  - *New South Wales*, the *Georgian equivalent* of *deep space* (1987/01/25/0007151)
+  - the *Appalachian Trail* marching grandly from Georgia to Maine, the *Holy Grail* of *thousands of hikers* (1998/07/10/1030659)
+- Germany ::
+  - *Heiner Goebbels*, the *John Zorn* of *West Germany* (1989/11/10/0299484)
+- Ghana ::
+  - *Ghana* is the *Brazil* of *Africa* (2006/06/28/1772401)
+- Hong Kong ::
+  - *Denmark* is the *Hong Kong* of *Europe* (1993/04/01/0599397)
+- India ::
+  - *Bangalore*, India, the *Silicon Valley* of *South Asia* (1997/06/19/0938068)
+  - *Azim Premji* is the *Bill Gates* of *India* (2004/03/21/1568087)
+- Iraq ::
+  - "If *bin Laden* is the *Robin Hood* of *jihad*," the authors write, then *Abu Musab al-Zarqawi* "has been its *Horatio Alger*, and *Iraq* his *field of dreams*." (2005/11/20/1719129)
+- Ireland ::
+  - *Gay Byrne*, the *Johnny Carson* of *Ireland* (1991/11/13/0486648)
+- Israel ::
+  - "Some people say *Claire Shulman* is the *Golda Meir* of *Queens*. [...] I say *Golda Meir* was the *Claire Shulman* of *Israel*." (1996/05/21/0852275)
+  - *Benjamin Netanyahu* is the *Ronald Reagan* of *Israel*  (1998/01/20/0989013)
+- Italy ::
+  - *Italy* is the *Boston Red Sox* of *soccer* (2002/05/26/1395524)
+- Japan ::
+  - *Hiroshi Itsuki*, the *Frank Sinatra* of *Japan* (1987/06/29/0052991)
+  - *Japan*, the *Everest* of *export markets* (1992/05/01/0524977)
+  - *NHK*, the *BBC* of *Japan* (1998/10/11/1053265)
+  - *Shimano of Japan*, the *Microsoft* of *bicycle-part makers* (1999/03/11/1091448)
+  - *Yoshinori Watanabe*, the *Japanese godfather* of the *yakuza* (2000/04/02/1188831)
+  - *Yasujiro Ozu*, the *Japanese master* of *emotional understatement* (2003/08/08/1510478)
+  - *Yomiuri Giants*, the *Japanese equivalent* of the *Yankees* (2004/03/28/1569955)
+  - *Oden* is the *Japanese equivalent* of *chicken soup* (2004/03/10/1565172)
+  - *Biz Cool*, the *Japanese equivalent* of *business casual* (2006/06/24/1771315)
+- Jersey ::
+  - *New Jersey*, the *Charlie Brown* of *franchises* (1996/05/26/0853475)
+  - *Jersey Shore*, the *Land* of *Imposition* (2002/07/28/1411586)
+  - *Frank Lautenberg*, the *Rosie Ruiz* of the *New Jersey race* (2002/10/30/1436301)
+  - *New Jersey's Vince Lombardi* is the *Yosemite* of *rest stops* (2003/02/02/1461651)
+  - *Arturo Gatti* is the *Oscar De La Hoya* of *New Jersey* (2004/02/22/1560800)
+- Jordan ::
+  - But if *Jordan* is the *Chuck Yeager* of *basketball*, *Julius Erving* was its *Charles Lindbergh* and *Connie Hawkins* was its *Wright Brothers*. (1992/05/07/0526474)
+  - *Romario* is the *Michael Jordan* of *soccer* and *Bebeto* is the *Magic Johnson* of *soccer* (1994/07/05/0697643)
+  - *Michael Jordan* is the *God* of *Chicago* (1995/03/12/0748227)
+  - *Jordan*, the *Seinfeld* of *sports* (1998/05/29/1020525)
+  - *Bonfire*, the *Michael Jordan* of *dressage horses* (1998/11/05/1059693)
+  - *Brian Foster*, the *Michael Jordan* of *BMX racing* (1998/12/27/1072824)
+  - The stunt biker *Dave Mirra*, the *Michael Jordan* of the *dirt set* (2000/08/13/1222322)
+  - *Cynthia Cooper* is the *Michael Jordan*, the *Larry Bird*, the *Magic Johnson* of *this league* (2000/08/28/1226010)
+  - *McNabb* has been called the *Michael Jordan* of the *National Football League* (2001/01/08/1261308)
+- Korea ::
+  - *Colombia* is the *South Korea* of *flower exporters* (1989/09/20/0284628)
+- Mexico ::
+  - *Virginia Gonzalez*  is the *Dorothea Dix* of *Mexico* (2000/01/16/1168831)
+  - *Las Cruces*, the *Mesilla Valley* of *southern New Mexico* (2003/03/09/1470804)
+  - *Puebla* is the *Lyon* of *Mexico* (2005/11/20/1718800)
+- Portugal ::
+  - *Algarve*, the *Riviera* of *Portugal* (1987/06/14/0048773)
+- Saudi Arabia ::
+  - *Saudi Arabia* is the *Augusta National* of *Islam* (2002/11/17/1441420)
+  - If the *vast, empty plain of eastern Montana* is the *Saudi Arabia* of *coal*, then *Gov. Brian Schweitzer* may be its *Lawrence*. (2005/11/21/1719391)
+- Spain ::
+  - *Savannah*, the *Central Park* of the capital, *Port of Spain* (1999/08/11/1129887)
+- Sweden ::
+  - *Sweden*, the *Rangers* of *international hockey* (1994/02/12/0668308)
+- Taiwan ::
+  - *Hsinchu Science Park*, *Silicon Valley* of *Taiwan* (1999/09/22/1139658)
+- United States ::
+  - *Sassy*, the *United States version* of *Dolly* (1987/08/24/0068801)
+  - the *Presidency of the United States* is the *Holy Grail* of *world politics* (1996/01/21/0824276)
+
+
+#+BEGIN_SRC sh :results raw output
+  grep -E -i Europe README.md
+#+END_SRC
+
 - *Europcar*, the *European counterpart* of *National Car Rental* (1989/03/05/0228921)
-- *Heiner Goebbels*, the *John Zorn* of *West Germany* (1989/11/10/0299484)
-- If the *American Budweiser* is the *King of Beers*, what does that make the *Czech Budweiser*? Why, none other than the *Beer* of *Kings*, if negotiations between the two brewers succeed. (1991/03/10/0429088)
-- *Gay Byrne*, the *Johnny Carson* of *Ireland* (1991/11/13/0486648)
-- *Jean-Claude Gallotta*, the *Mark Morris* of *France* (1992/12/14/0576566)
 - *Denmark* is the *Hong Kong* of *Europe* (1993/04/01/0599397)
-- *Sweden*, the *Rangers* of *international hockey* (1994/02/12/0668308)
-- *Canal Plus*, the *HBO* of *France* (1994/03/27/0676813)
 - *Hulton Deutsch*, the *European equivalent* of the *Bettman Archive* (1997/05/18/0930910)
 - *Latin*, the *European language* of *learning* (1998/01/03/0984739)
 - *Eurosport*, the *European equivalent* of *ESPN* (1998/02/23/0997564)
-- *Savannah*, the *Central Park* of the capital, *Port of Spain* (1999/08/11/1129887)
-- *Italy* is the *Boston Red Sox* of *soccer* (2002/05/26/1395524)
-- *Isabella Beeton*, the *Fannie Farmer* of *Britain* (2003/06/11/1495897)
 
 #+BEGIN_SRC sh :results raw output
   grep -E -i London README.md
@@ -757,3 +858,5 @@
 - *Terry Riley*, the *California Minimalist*; *Astor Piazzolla*, the *Argentine master* of the *nuevo tango*; and *John Zorn*, the *New York bender* of *genres* (2004/01/11/1549709)
 - *Ravenswood* is the *Death Valley* of *New York City* (2005/07/23/1689358)
 - *New York* is the *Mecca* of *basketball* (2007/04/05/1838196)
+
+
