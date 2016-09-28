@@ -63,6 +63,28 @@ class TestVossanto(unittest.TestCase):
         self.tnv("Angela Merkel is chancelor of the Federal Republic of Germany.")
         self.tnv("Helmut Kohl is a boring speaker.")
 
+    """Examples from 
+
+    Angelika Bergien: Names as frames in current-day media
+    discourse. In: Felecan, O. (ed.) Name and Naming. Proceedings of
+    the second international conference on onomastics. Cluj-Napoca
+    2013: Editura Mega, p. 19–27.
+
+    """
+    def test_nerlich(self):
+        pass
+        # − the new Luther King2 (2007)
+        # − a John Kennedy for our times (2008)
+        # − the George W. Bush of the Democratic Party3 (2008)
+        # − the new Franklin Roosevelt4 (2008)
+        # − the new Reagan5 (2008)
+        # − the new Nixon6 (2009)
+        # − the new Jimmy Carter7 (2010)
+        # − the next Herbert Hoover (2010)
+        # − the new King George III (2010)
+        # − no FDR8 (2011)
+        # − the Anti-Reagan9 (2013).
+    
     def tv(self, s, x, y, z):
         self.assertEqual(vossanto.vossanto(s, True), (x, y, z))
 
