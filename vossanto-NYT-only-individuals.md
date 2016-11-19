@@ -77,7 +77,7 @@ source: New York Times corpus 1987–2007
 - *Heiner Goebbels*, the *John Zorn* of *West Germany* (1989/11/10/0299484)
 - *Romeo Gigli*, the *Pavarotti* of *embroidery* (1989/11/12/0299980)
 - <strike>the *Design Museum* is the *Louvre* of *industrial design* (1989/11/19/0302179)</strike>
-- <strike>*Dr. Oswaldo Cruz*, the *Walter Reed* of *Brazil* (1989/11/26/0304421)</strike>
+- *Dr. Oswaldo Cruz*, the *Walter Reed* of *Brazil* (1989/11/26/0304421)
 - <strike>*Clios*, the *Oscars* of *advertising* (1989/11/27/0304652)</strike>
 - <strike>She told on me to Him, *Himself*, the *Bestower* of *All Toys* (1989/12/24/0311534)</strike>
 - <strike>the *House of the Republic*, the *Staircase* of *Honor* (1989/12/31/0313389)</strike>
