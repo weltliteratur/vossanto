@@ -337,7 +337,7 @@ source: New York Times corpus 1987–2007
 - <strike>the *former Kiva Shliuger*, performs regularly as a fire-eater known as Combustible Kiva, the *Queen* of *Kerosene* (1998/06/07/1022995)</strike>
 - *Ozzy Osbourne*, the *Grandpa Munster* of *hard rock* (1998/07/06/1029895)
 - <strike>the *Appalachian Trail* marching grandly from Georgia to Maine, the *Holy Grail* of *thousands of hikers* (1998/07/10/1030659)</strike>
-- <strike>*Robert Thurman* has been called the *Billy Graham* of *Buddhism* (1998/07/12/1031036)</strike>
+- *Robert Thurman* has been called the *Billy Graham* of *Buddhism* (1998/07/12/1031036)
 - *Edward Rogoff*, the *Don Quixote* of *cab riders* (1998/07/12/1031070)
 - *Lauritz Melchior*, the *Tristan* of the *century* (1998/08/03/1036513)
 - *Ramiro Mendoza* is the *Calvin Coolidge* of the *Yankees* (1998/08/04/1036769)
