@@ -5,7 +5,7 @@ The following list is a manually tagged version of the list in the [README file]
 
 Contingent decisions:
 
-* striked out "the King/Queen of"/"the Satan of"/"the Emperor of"/"the Oracle of"/"the Shogun of"/"the Czar of"/"the Sultan of"/"the Buddha of"/"the Jupiter of" for not alluding to a specific person (but I did **not** strike "the Santa Claus of"/"the Midas of"/"the Godzilla of"/"the Pied Piper"/"the Energizer Bunny of"/"the Icarus of" – well, debatable)
+* striked out "the King/Queen of"/"the Satan of"/"the Emperor of"/"the Oracle of"/"the Shogun of"/"the Czar of"/"the Sultan of"/"the Buddha of" for not alluding to a specific person (but I did **not** strike "the Santa Claus of"/"the Midas of"/"the Godzilla of"/"the Pied Piper"/"the Energizer Bunny of"/"the Jupiter of"/"the Icarus of" – well, debatable)
 * striked out groups of people ("the *Wailers*, the *Beatles* of *reggae*", "the Three Musketeers")
 * what about animals? [Morris the Cat](https://de.wikipedia.org/wiki/Morris_the_Cat) and several horses were kept for the time being…
 
@@ -468,7 +468,7 @@ source: New York Times corpus 1987–2007
 
 ### 2002
 
-- <strike>*Strauss*, the *Jupiter* of the *composer gods* (2002/01/06/1357042)</strike>
+- *Strauss*, the *Jupiter* of the *composer gods* (2002/01/06/1357042)
 - <strike>*the North American International Auto Show*, the *Cannes Film Festival* of the *auto industry* (2002/01/06/1357245)</strike>
 - <strike>*today's National Enquirer* is the *Las Vegas* of *journalism* (2002/01/13/1359135)</strike>
 - <strike>*Dedinje*, the *Beverly Hills* of *Belgrade* (2002/01/20/1360689)</strike>
