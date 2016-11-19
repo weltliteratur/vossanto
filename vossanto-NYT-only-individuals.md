@@ -299,7 +299,7 @@ source: New York Times corpus 1987–2007
 - <strike>*Rutherford* is the *St. Julien* of the *valley*, and *Stag's Leap* is the *Pauillac* (1997/08/27/0953268)</strike>
 - <strike>the *Inland Revenue*, the *British equivalent* of the *Internal Revenue Service* (1997/09/06/0955411)</strike>
 - <strike>*Business Review Weekly*, the *Australian equivalent* of *Business Week* (1997/09/13/0957036)</strike>
-- <strike>*David H. Murdock*, the Californian chairman and chief executive of Castle & Cook Homes and the Dole Food Company, the *Kubla Khan* of *Lanai* (1997/09/14/0957263)</strike>
+- *David H. Murdock*, the Californian chairman and chief executive of Castle & Cook Homes and the Dole Food Company, the *Kubla Khan* of *Lanai* (1997/09/14/0957263)
 - <strike>*Willoughby* is sometimes called the *Lake Lucerne* of *North America* (1997/09/21/0959002)</strike>
 - *Ehud Olmert*, the *Marion Barry* of *Jerusalem* (1997/09/22/0959661)
 - <strike>*Muchmusic*, the *Canadian equivalent* of *MTV* (1997/09/28/0960868)</strike>
