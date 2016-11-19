@@ -361,7 +361,7 @@ source: New York Times corpus 1987–2007
 - <strike>the *Estee Lauder Companies*, the *General Motors* of the *cosmetics world* (1999/01/10/1075990)</strike>
 - <strike>*Shimano of Japan*, the *Microsoft* of *bicycle-part makers* (1999/03/11/1091448)</strike>
 - *Peter Eisenman* of New York is the *Gertrude Stein* of *contemporary architecture* (1999/03/14/1092170)
-- <strike>*Tito Nieves* is called the *Pavarotti of salsa* (1999/03/26/1095206)</strike>
+- *Tito Nieves* is called the *Pavarotti of salsa* (1999/03/26/1095206)
 - <strike>*Special Unit Corps*, the *Yugoslav equivalent* of the *American Special Forces* (1999/04/01/1096836)</strike>
 - <strike>the *Masters*, the "*cathedral* of *golf*"  (1999/04/11/1099455)</strike>
 - If *Wynton Marsalis* is the *Steven Spielberg* of the *jazz scene*, the alto saxophonist *Steve Coleman* has a strong claim to being *its* *Stanley Kubrick*. (1999/05/02/1104452)
