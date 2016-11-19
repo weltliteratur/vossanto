@@ -3,8 +3,9 @@
 
 The following list is a manually tagged version of the results from the Die ZEIT corpus, striking out all false positives and all vossantos that don't exhibit names of individuals (people, animals, fictitious characters) as sources or targets (but instead names of companies, cities, etc.).
 
-Contingent decisions:
+Known issues and contingent decisions:
 
+* some extracted sentences are doublettes (apparantly appeared twice in the corpus)
 * …
 
 ## Extracted Vossanto Candidates
@@ -268,7 +269,7 @@ source: Die Zeit corpus 1995–2011
 * 2006-01-12 Und sie entflutschten diesem Dichtermundwerk so geschmeidig, so genüsslich schmatzend, als wär's der Peter Hintze des Dr. Kohl oder der **Ronald Pofalla** des Weltgeistes, der redet wie die Fleischersfrau aus Die Schlacht, die ihrem Mann beim Ersaufen zusieht:
 * 2006-04-06 **Petra Hedorfer** ist so etwas wie der **Franz Beckenbauer** des deutschen Tourismus:
 * 2006-03-23 Ich bin der **Mick Jagger** der Literatur.
-* 2006-03-23 Oder man ruft zwei, drei seiner Parteifreunde an, die so kurz vor der Landtagswahl natürlich auf keinen Fall namentlich genannt werden möchten, die einem aber sehr entschieden darlegen können, warum die CDU in Rheinland-Pfalz auch in den kommenden fünf Jahren nicht den Ministerpräsidenten stellen wird: weil **Christoph Böhr*, ihr Spitzenkandidat, ein blasser Intellektueller sei, kommunikationsunfähig, hölzern, ungelenk, autistisch, eine Art **Rudolf Scharping** der CDU.
+* 2006-03-23 Oder man ruft zwei, drei seiner Parteifreunde an, die so kurz vor der Landtagswahl natürlich auf keinen Fall namentlich genannt werden möchten, die einem aber sehr entschieden darlegen können, warum die CDU in Rheinland-Pfalz auch in den kommenden fünf Jahren nicht den Ministerpräsidenten stellen wird: weil **Christoph Böhr**, ihr Spitzenkandidat, ein blasser Intellektueller sei, kommunikationsunfähig, hölzern, ungelenk, autistisch, eine Art **Rudolf Scharping** der CDU.
 * 2006-07-13 Er hat den Blues, Kinderlieder und Zirkusmelodien wiedergefunden und spielt sie mit einem nasalen Ton, mit seltsamen Betonungen, unerwartbaren Pausen und Dehnungen, ein **Bob Dylan** des Jazz.
 * 2006-11-09 « In der Percussionszene ist er ein Popstar: der **Jamie Cullum** des Schlagzeugs.
 * 2006-11-09 Amerikas Medien sehen in ihr die **Jodie Foster** der Physik.
@@ -293,7 +294,7 @@ source: Die Zeit corpus 1995–2011
 * 2007-07-05 Ein großer Anwesenheitspolitiker ist **Oskar Lafontaine**, der **Graf Cagliostro** des Sozialismus.
 * 2007-11-08 Regierungssprecher **Cemil Çiçek**, der als scharfer Antiterrorkämpfer so etwas wie der **Otto Schily** der Türkei ist, sagte, die DTP-Abgeordneten seien auf frischer Tat ertappt worden.
 * 2007-10-25 Nichts ist banaler als dieses ewige »**Ute Lemper** ist die **Marlene Dietrich** von heute«, »**Hansjörg Felmy** war der deutsche **Humphrey Bogart**«.
-* 2007-10-25 Nichts ist banaler als dieses ewige »**Ute Lemper ist die Marlene Dietrich von heute**«, »**Hansjörg Felmy** war der deutsche **Humphrey Bogart**«.
+* 2007-10-25 Nichts ist banaler als dieses ewige »**Ute Lemper** ist die **Marlene Dietrich** von heute«, »**Hansjörg Felmy** war der deutsche **Humphrey Bogart**«.
 * 2006-12-28 « **Ferenc Gyurcsány**, ungarischer Ministerpräsident, in einer vermeintlich vertraulichen Regierungsbilanz »Ich bin der **Jesus Christus** der Politik, leidend, ich nehme alles auf mich, ich opfere mich für jeden.
 * <strike>2007-05-03 Mal heißt die Nuss Faust, mal Liliom, mal Lulu, aber immer packt **Thalheimer** das Stück in seine gemäßigt modernistische Regiezange, eine Art Alessi der Theaterkunst, er knackt das Stück und sucht einen Kern und findet meistens jene existenzielle Einsamkeit, die um die jüngste Jahrhundertwende noch so schick aussah.</strike>
 * <strike>2007-05-03 Die Wings sind herauszuhören, der John Lennon der ersten Soloalben, manchmal, in den duellierenden Gitarren, auch die Allman Brothers Band, ohne dass von bloßem Retrorock die Rede sein könnte.</strike>
