@@ -947,47 +947,137 @@ An alternative would be the taxonomic classes, in the example above
   done | sort | uniq -c | sort -nr
 #+END_SRC
 
-| 55 | Sports                                 |
-| 28 | Arts                                   |
-| 22 | New York and Region                    |
-| 20 | Movies; Arts                           |
-| 18 | Arts; Books                            |
-| 10 | Opinion                                |
-|  9 | Style                                  |
-|  8 | Arts; Theater                          |
-|  7 | U.S.                                   |
-|  7 | Magazine                               |
-|  7 | Home and Garden; Style                 |
-|  6 | Business                               |
-|  5 | World                                  |
-|  4 | Technology; Business                   |
-|  3 | Travel                                 |
-|  2 | Travel; Magazine                       |
-|  2 | Magazine; Washington                   |
-|  2 | Education; New York and Region         |
-|  2 | Dining and Wine; Style                 |
-|  1 | World; Washington                      |
-|  1 | World; Front Page                      |
-|  1 | Week in Review                         |
-|  1 | U.S.; Washington                       |
-|  1 | Travel; Style                          |
-|  1 | Theater; New York and Region           |
-|  1 | Technology; Science; Arts; Books       |
-|  1 | Technology                             |
-|  1 | Style; Magazine                        |
-|  1 | Science; Movies; Arts                  |
-|  1 | Obituaries; Sports                     |
-|  1 | Obituaries; Books; New York and Region |
-|  1 | New York and Region; Opinion           |
-|  1 | Movies; New York and Region            |
-|  1 | Movies; Front Page; U.S.               |
-|  1 | Movies; Arts; Theater                  |
-|  1 | Movies; Arts; Books                    |
-|  1 | Health; Sports                         |
-|  1 | Health; Magazine                       |
-|  1 | Front Page; U.S.                       |
-|  1 | Dining and Wine; Style; Books          |
-|  1 | Business; Obituaries                   |
-|  1 | Business; Books                        |
-|  1 | Books                                  |
+| category                               | count |
+|----------------------------------------+-------|
+| Sports                                 |    55 |
+| Arts                                   |    28 |
+| New York and Region                    |    22 |
+| Movies; Arts                           |    20 |
+| Arts; Books                            |    18 |
+| Opinion                                |    10 |
+| Style                                  |     9 |
+| Arts; Theater                          |     8 |
+| U.S.                                   |     7 |
+| Magazine                               |     7 |
+| Home and Garden; Style                 |     7 |
+| Business                               |     6 |
+| World                                  |     5 |
+| Technology; Business                   |     4 |
+| Travel                                 |     3 |
+| Travel; Magazine                       |     2 |
+| Magazine; Washington                   |     2 |
+| Education; New York and Region         |     2 |
+| Dining and Wine; Style                 |     2 |
+| World; Washington                      |     1 |
+| World; Front Page                      |     1 |
+| Week in Review                         |     1 |
+| U.S.; Washington                       |     1 |
+| Travel; Style                          |     1 |
+| Theater; New York and Region           |     1 |
+| Technology; Science; Arts; Books       |     1 |
+| Technology                             |     1 |
+| Style; Magazine                        |     1 |
+| Science; Movies; Arts                  |     1 |
+| Obituaries; Sports                     |     1 |
+| Obituaries; Books; New York and Region |     1 |
+| New York and Region; Opinion           |     1 |
+| Movies; New York and Region            |     1 |
+| Movies; Front Page; U.S.               |     1 |
+| Movies; Arts; Theater                  |     1 |
+| Movies; Arts; Books                    |     1 |
+| Health; Sports                         |     1 |
+| Health; Magazine                       |     1 |
+| Front Page; U.S.                       |     1 |
+| Dining and Wine; Style; Books          |     1 |
+| Business; Obituaries                   |     1 |
+| Business; Books                        |     1 |
+| Books                                  |     1 |
+|----------------------------------------+-------|
+| sum                                    |   241 |
+#+TBLFM: @45$2=vsum(@I..@II)
 
+Five articles are missing in the above list:
+
+#+BEGIN_SRC sh :results raw output
+grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/.*(//" -e "s/)/.xml/" | wc -l
+#+END_SRC
+
+246
+
+** First category only
+
+Since some articles are in several categories, the list is rather
+long. Taking just the first category we get the following result:
+
+#+BEGIN_SRC sh :results raw output
+  for i in $(grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/.*(//" -e "s/)/.xml/"); do
+    grep 'name="online_sections"' nyt/$i | sed -e "s/.*content=\"//" -e "s/\".*//" -e "s/;.*//"
+  done | sort | uniq -c | sort -nr
+#+END_SRC
+
+| category            | count |
+|---------------------+-------|
+| Sports              |    55 |
+| Arts                |    54 |
+| Movies              |    24 |
+| New York and Region |    23 |
+| Style               |    10 |
+| Opinion             |    10 |
+| Magazine            |     9 |
+| U.S.                |     8 |
+| Business            |     8 |
+| World               |     7 |
+| Home and Garden     |     7 |
+| Travel              |     6 |
+| Technology          |     6 |
+| Dining and Wine     |     3 |
+| Obituaries          |     2 |
+| Health              |     2 |
+| Education           |     2 |
+| Week in Review      |     1 |
+| Theater             |     1 |
+| Science             |     1 |
+| Front Page          |     1 |
+| Books               |     1 |
+|---------------------+-------|
+| sum                 |   241 |
+#+TBLFM: @24$2=vsum(@I..@II)
+
+** All categories
+
+We can also consider all categories:
+
+#+BEGIN_SRC sh :results raw output
+  for i in $(grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/.*(//" -e "s/)/.xml/"); do
+    grep 'name="online_sections"' nyt/$i | sed -e "s/.*content=\"//" -e "s/\".*//" -e "s/; /\n/g"
+  done | sort | uniq -c | sort -nr
+#+END_SRC
+
+| category            | count |
+|---------------------+-------|
+| Arts                |    78 |
+| Sports              |    57 |
+| New York and Region |    28 |
+| Movies              |    25 |
+| Books               |    24 |
+| Style               |    21 |
+| Magazine            |    13 |
+| Business            |    12 |
+| Opinion             |    11 |
+| U.S.                |    10 |
+| Theater             |    10 |
+| World               |     7 |
+| Home and Garden     |     7 |
+| Travel              |     6 |
+| Technology          |     6 |
+| Washington          |     4 |
+| Obituaries          |     3 |
+| Front Page          |     3 |
+| Dining and Wine     |     3 |
+| Science             |     2 |
+| Health              |     2 |
+| Education           |     2 |
+| Week in Review      |     1 |
+|---------------------+-------|
+| sum                 |   335 |
+#+TBLFM: @25$2=vsum(@I..@II)
