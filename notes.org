@@ -146,7 +146,6 @@
 | *avg* |    88320 |   512 |   5.74 |     28 |    0.32 |   6.69 |   689 |   7.75 |      |   |
 #+TBLFM: $4=($-1/$2)*1000;%0.2f::$6=($-1/$-4)*1000;%0.2f::$7=($-1/$-3)*100;%0.2f::$9=($-1/$2)*1000;%0.2f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$7=vsum(@I..@II)::@23$8=vsum(@I..@II)::@23$9=vsum(@I..@II)::@24$2=@-1/vlen(@I..@II);%0.0f::@24$3=@-1/vlen(@I..@II);%0.0f::@24$4=@-1/vlen(@I..@II);%0.2f::@24$5=@-1/vlen(@I..@II);%0.0f::@24$7=@-1/vlen(@I..@II);%0.2f::@24$8=@-1/vlen(@I..@II);%0.0f::@24$9=@-1/vlen(@I..@II);%0.2f
 
-
 * special/dubious cases
 ** the PLACE version of 
 
@@ -901,4 +900,60 @@
 - *Ravenswood* is the *Death Valley* of *New York City* (2005/07/23/1689358)
 - *New York* is the *Mecca* of *basketball* (2007/04/05/1838196)
 
+
+* categories
+
+In which categories do Vossantos typically appear?
+
+** Raw Categories
+
+#+BEGIN_SRC sh :results raw output
+  for i in $(grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/.*(//" -e "s/)/.xml/"); do
+    grep 'name="online_sections"' nyt/$i | sed -e "s/.*content=\"//" -e "s/\".*//"
+  done | sort | uniq -c | sort -nr
+#+END_SRC
+
+| 55 | Sports                                 |
+| 28 | Arts                                   |
+| 22 | New York and Region                    |
+| 20 | Movies; Arts                           |
+| 18 | Arts; Books                            |
+| 10 | Opinion                                |
+|  9 | Style                                  |
+|  8 | Arts; Theater                          |
+|  7 | U.S.                                   |
+|  7 | Magazine                               |
+|  7 | Home and Garden; Style                 |
+|  6 | Business                               |
+|  5 | World                                  |
+|  4 | Technology; Business                   |
+|  3 | Travel                                 |
+|  2 | Travel; Magazine                       |
+|  2 | Magazine; Washington                   |
+|  2 | Education; New York and Region         |
+|  2 | Dining and Wine; Style                 |
+|  1 | World; Washington                      |
+|  1 | World; Front Page                      |
+|  1 | Week in Review                         |
+|  1 | U.S.; Washington                       |
+|  1 | Travel; Style                          |
+|  1 | Theater; New York and Region           |
+|  1 | Technology; Science; Arts; Books       |
+|  1 | Technology                             |
+|  1 | Style; Magazine                        |
+|  1 | Science; Movies; Arts                  |
+|  1 | Obituaries; Sports                     |
+|  1 | Obituaries; Books; New York and Region |
+|  1 | New York and Region; Opinion           |
+|  1 | Movies; New York and Region            |
+|  1 | Movies; Front Page; U.S.               |
+|  1 | Movies; Arts; Theater                  |
+|  1 | Movies; Arts; Books                    |
+|  1 | Health; Sports                         |
+|  1 | Health; Magazine                       |
+|  1 | Front Page; U.S.                       |
+|  1 | Dining and Wine; Style; Books          |
+|  1 | Business; Obituaries                   |
+|  1 | Business; Books                        |
+|  1 | Books                                  |
 
