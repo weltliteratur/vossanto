@@ -905,6 +905,40 @@
 
 In which categories do Vossantos typically appear?
 
+We extract the XML ~meta~ tag with the name ~online_sections~:
+
+#+BEGIN_SRC xml
+  <head>
+    <title>By These Names. . .</title>
+    <meta content="29" name="publication_day_of_month"/>
+    <meta content="1" name="publication_month"/>
+    <meta content="1987" name="publication_year"/>
+    <meta content="Thursday" name="publication_day_of_week"/>
+    <meta content="National Desk" name="dsk"/>
+    <meta content="24" name="print_page_number"/>
+    <meta content="A" name="print_section"/>
+    <meta content="1" name="print_column"/>
+    <meta content="U.S." name="online_sections"/>
+    <docdata>
+      <doc-id id-string="8167"/>
+      <doc.copyright holder="The New York Times" year="1987"/>
+      <series series.name="WASHINGTON TALK: BRIEFING"/>
+      <identified-content>
+        <person class="indexing_service">REAGAN, RONALD WILSON (PRES)</person>
+        <person class="indexing_service">KING, WAYNE</person>
+        <person class="indexing_service">WEAVER, WARREN JR</person>
+        <object.title class="indexing_service">WASHINGTON TALK PAGE (NYT)</object.title>
+        <object.title class="indexing_service">PSEUDONYMS AND NICKNAMES DICTIONARY, THE (BOOK)</object.title>
+        <classifier class="online_producer" type="taxonomic_classifier">Top/News/U.S.</classifier>
+      </identified-content>
+    </docdata>
+    <pubdata date.publication="19870129T000000" ex-ref="http://query.nytimes.com/gst/fullpage.html?res=9B0DE7DA173FF93AA15752C0A961948260" item-length="209" name="The New York Times" unit-of-measure="word"/>
+  </head>
+#+END_SRC
+
+An alternative would be the taxonomic classes, in the example above
+"Top/News/U.S.".
+
 ** Raw Categories
 
 #+BEGIN_SRC sh :results raw output
