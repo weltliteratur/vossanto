@@ -65,111 +65,119 @@ This is the set of candidates after the first cleansing round, still
 including some non Vossantos and many non-individuals like countries
 or companies.
 
-#+begin_src emacs-lisp :results none
-(setq org-babel-python-command "python3")
-#+end_src
-
-#+BEGIN_SRC python :results output table raw
-  year = None
-  count = None
-  with open("README.md", "r") as f:
-      for line in f:
-          # find "## Examples"
-          if line.startswith("## Examples"):
-              year = 0
-              continue
-          # find "### YEAR"
-          if year is not None and line.startswith("### "):
-              # output count for previous year
-              if year > 0:
-                  print(year, count, sep='\t')
-              year = int(line[4:8])
-              count = 0
-              continue
-          # find Vossantos
-          if year is not None and year > 0 and line.startswith("- "):
-              count += 1
-              continue
-      print(year, count, sep='\t')
+#+BEGIN_SRC sh
+  grep "^-.*([0-9]" README.md | sed -e "s/.*(//" -e "s/\/.*//"  | sort | uniq -c 
 #+END_SRC
 
-#+RESULTS:
-1987	19
-1988	17
-1989	20
-1990	24
-1991	20
-1992	24
-1993	28
-1994	28
-1995	26
-1996	24
-1997	35
-1998	38
-1999	35
-2000	36
-2001	30
-2002	38
-2003	39
-2004	38
-2005	35
-2006	30
-2007	13
+| year | candidates |
+|------+------------|
+| 1987 |         19 |
+| 1988 |         17 |
+| 1989 |         20 |
+| 1990 |         24 |
+| 1991 |         20 |
+| 1992 |         24 |
+| 1993 |         28 |
+| 1994 |         28 |
+| 1995 |         26 |
+| 1996 |         24 |
+| 1997 |         35 |
+| 1998 |         38 |
+| 1999 |         35 |
+| 2000 |         36 |
+| 2001 |         30 |
+| 2002 |         38 |
+| 2003 |         39 |
+| 2004 |         38 |
+| 2005 |         35 |
+| 2006 |         30 |
+| 2007 |         13 |
 
 ** number of vossantos
+After the second cleansing round -- only individuals are included:
 
-After second cleansing round -- only individuals are included.
-
-#+begin_src emacs-lisp :results none
-(setq org-babel-python-command "python3")
-#+end_src
-
-#+BEGIN_SRC python :results output table raw
-  year = None
-  count = None
-  with open("vossanto-NYT-only-individuals.md", "r") as f:
-      for line in f:
-          # find "## Examples"
-          if line.startswith("## Examples"):
-              year = 0
-              continue
-          # find "### YEAR"
-          if year is not None and line.startswith("### "):
-              # output count for previous year
-              if year > 0:
-                  print(year, count, sep='\t')
-              year = int(line[4:8])
-              count = 0
-              continue
-          # find Vossantos
-          if year is not None and year > 0 and line.startswith("- ") and not line.startswith("- <strike>"):
-              count += 1
-              continue
-      print(year, count, sep='\t')
+*** New York Times
+#+BEGIN_SRC sh
+  grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/.*(//" -e "s/\/.*//"  | sort | uniq -c 
 #+END_SRC
 
-#+RESULTS:
-1987	4
-1988	9
-1989	6
-1990	10
-1991	8
-1992	12
-1993	14
-1994	15
-1995	7
-1996	15
-1997	11
-1998	17
-1999	12
-2000	14
-2001	14
-2002	15
-2003	19
-2004	11
-2005	16
-2006	12
-2007	5 
+|  4 | 1987 |
+|  9 | 1988 |
+|  6 | 1989 |
+| 10 | 1990 |
+|  8 | 1991 |
+| 12 | 1992 |
+| 14 | 1993 |
+| 15 | 1994 |
+|  7 | 1995 |
+| 15 | 1996 |
+| 11 | 1997 |
+| 17 | 1998 |
+| 12 | 1999 |
+| 14 | 2000 |
+| 14 | 2001 |
+| 15 | 2002 |
+| 19 | 2003 |
+| 11 | 2004 |
+| 16 | 2005 |
+| 12 | 2006 |
+|  5 | 2007 |
+
+*** Die Zeit
+
+#+BEGIN_SRC sh
+  grep "^\* [0-9]" vossanto-ZEIT.md | sed -e "s/-[0-9].*//" -e "s/^* //" | sort | uniq -c 
+#+END_SRC
+
+|  9 | 1995 |
+| 12 | 1996 |
+| 13 | 1997 |
+| 10 | 1998 |
+| 16 | 1999 |
+| 12 | 2000 |
+| 16 | 2001 |
+| 12 | 2002 |
+| 11 | 2003 |
+| 13 | 2004 |
+| 19 | 2005 |
+| 20 | 2006 |
+| 17 | 2007 |
+|  8 | 2008 |
+| 10 | 2009 |
+| 17 | 2010 |
+|  9 | 2011 |
+
+*** Plot
+
+# call with org-plot/gnuplot
+#+PLOT: ind:1 deps:(2 3) type:2d with:linespoints set:"yrange [0:]" file:"vossantos.png" set:"term png enhanced font 'Arial,16' size 800,600 lw 2" set:"xlabel 'Jahr'" set:"grid on" set:"ylabel 'Vossantos'" set:"ls pt 7"
+| year | NYT | Zeit |
+|------+-----+------|
+| 1987 |   4 |      |
+| 1988 |   9 |      |
+| 1989 |   6 |      |
+| 1990 |  10 |      |
+| 1991 |   8 |      |
+| 1992 |  12 |      |
+| 1993 |  14 |      |
+| 1994 |  15 |      |
+| 1995 |   7 |    9 |
+| 1996 |  15 |   12 |
+| 1997 |  11 |   13 |
+| 1998 |  17 |   10 |
+| 1999 |  12 |   16 |
+| 2000 |  14 |   12 |
+| 2001 |  14 |   16 |
+| 2002 |  15 |   12 |
+| 2003 |  19 |   11 |
+| 2004 |  11 |   13 |
+| 2005 |  16 |   19 |
+| 2006 |  12 |   20 |
+| 2007 |   5 |   17 |
+| 2008 |     |    8 |
+| 2009 |     |   10 |
+| 2010 |     |   17 |
+| 2011 |     |    9 |
 
 ** final result
 
