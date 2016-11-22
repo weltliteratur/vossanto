@@ -13,7 +13,7 @@
 - The present code did not find "Nintendo, the king of video games" in
   1993/07/18/0622176. That is something we should check.
 
-* statistics of large set
+* statistics
 ** number of articles
 #+BEGIN_SRC sh :dir /hadoopext:vossanto
   for i in $(seq 1987 2007); do
