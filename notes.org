@@ -150,7 +150,7 @@ After the second cleansing round -- only individuals are included:
 *** Plot
 
 # call with org-plot/gnuplot
-#+PLOT: ind:1 deps:(2 3) type:2d with:linespoints set:"yrange [0:]" file:"vossantos.png" set:"term png enhanced font 'Arial,16' size 800,600 lw 2" set:"xlabel 'Jahr'" set:"grid on" set:"ylabel 'Vossantos'" set:"ls pt 7"
+#+PLOT: ind:1 deps:(2 3) type:2d with:linespoints set:"yrange [0:]" file:"vossantos.png" set:"term png enhanced font 'Arial,16' size 800,600 lw 2" set:"xlabel 'Jahr'" set:"grid on" set:"ylabel 'Vossantos'" set:"style line 0 pt 7"
 | year | NYT | Zeit |
 |------+-----+------|
 | 1987 |   4 |      |
@@ -178,6 +178,11 @@ After the second cleansing round -- only individuals are included:
 | 2009 |     |   10 |
 | 2010 |     |   17 |
 | 2011 |     |    9 |
+
+#+CAPTION: Found Vossantos over time
+#+NAME:   fig:VOSS-TIME
+[[vossantos.png]]
+
 
 ** final result
 
