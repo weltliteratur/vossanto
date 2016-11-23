@@ -9,6 +9,10 @@
 #+PANDOC_OPTIONS:
 #+STARTUP: hidestars showall
 
+* next steps 
+- Use text search to find all occurrences of "the Michael Jordan of"
+  and use the results to improve the identification method.
+
 * missing vossantos
 The current code did not find the following vossantos:
 - "Nintendo, the king of video games" in 1993/07/18/0622176
