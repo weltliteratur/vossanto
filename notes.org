@@ -49,6 +49,10 @@
 | *sum* |  1854726 |
 #+TBLFM: @23$2=vsum(@I..@II)
 
+The corpus starts in January 1987 and ends in June 2007. Thus, it
+spans 20 years and 6 months, which is equal to 246 months. The average
+number of articles per month thus is 1854726/246 = 7540.
+
 ** number of candidates
 #+BEGIN_SRC sh :dir /hadoopext:vossanto
   echo -e "year\tv01\tv02\tv03"
