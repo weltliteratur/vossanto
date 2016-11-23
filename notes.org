@@ -9,9 +9,12 @@
 #+PANDOC_OPTIONS:
 #+STARTUP: hidestars showall
 
-* remarks
-- The present code did not find "Nintendo, the king of video games" in
-  1993/07/18/0622176. That is something we should check.
+* missing vossantos
+The current code did not find the following vossantos:
+- "Nintendo, the king of video games" in 1993/07/18/0622176
+- "I'm the 'Michael Jordan of rodeo" in [[http://www.nytimes.com/2002/05/15/sports/rodeo-rodeo-s-breakthrough-star-retires-at-32.html][2002/05/15]]
+- "he was the Michael Jordan of late-night TV" in [[http://www.nytimes.com/1999/01/24/sports/backtalk-good-mike-bad-mike-and-the-anti-mike.html][1999/01/24]]
+- For more examples, see [[https://www.google.co.uk/search?q%3D%2522the%2Bmichael%2Bjordan%2Bof%2522%2Bsite:nytimes.com&gws_rd%3Dcr&ei%3DW201WNe6C8mTaqOBu7AG][Google]].
 
 * statistics
 ** number of articles
