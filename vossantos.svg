@@ -224,19 +224,7 @@
 	<path  d='M559.2,542.4 L559.2,279.5 L571.1,279.5 L571.1,542.4 L559.2,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
 		<polygon fill = 'currentColor' points = '582.9,542.4 594.9,542.4 594.9,509.4 582.9,509.4 '/>
 	</g>
-	<path  d='M582.9,542.4 L582.9,509.5 L594.8,509.5 L594.8,542.4 L582.9,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
-		<polygon fill = 'currentColor' points = '606.6,542.4 618.6,542.4 618.6,410.9 606.6,410.9 '/>
-	</g>
-	<path  d='M606.6,542.4 L606.6,411.0 L618.5,411.0 L618.5,542.4 L606.6,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
-		<polygon fill = 'currentColor' points = '630.3,542.4 642.3,542.4 642.3,345.2 630.3,345.2 '/>
-	</g>
-	<path  d='M630.3,542.4 L630.3,345.3 L642.2,345.3 L642.2,542.4 L630.3,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
-		<polygon fill = 'currentColor' points = '654.1,542.4 666.0,542.4 666.0,115.2 654.1,115.2 '/>
-	</g>
-	<path  d='M654.1,542.4 L654.1,115.3 L665.9,115.3 L665.9,542.4 L654.1,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
-		<polygon fill = 'currentColor' points = '677.8,542.4 689.7,542.4 689.7,378.0 677.8,378.0 '/>
-	</g>
-	<path  d='M677.8,542.4 L677.8,378.1 L689.6,378.1 L689.6,542.4 L677.8,542.4 Z  '/></g>
+	<path  d='M582.9,542.4 L582.9,509.5 L594.8,509.5 L594.8,542.4 L582.9,542.4 Z  '/></g>
 	</g>
 	<g id="gnuplot_plot_2" ><title>gnuplot_plot_2</title>
 <g style="fill:none; color:green; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
@@ -285,7 +273,19 @@
 	<path  d='M552.1,542.4 L552.1,16.7 L564.0,16.7 L564.0,542.4 L552.1,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
 		<polygon fill = 'currentColor' points = '575.8,542.4 587.8,542.4 587.8,115.2 575.8,115.2 '/>
 	</g>
-	<path  d='M575.8,542.4 L575.8,115.3 L587.7,115.3 L587.7,542.4 L575.8,542.4 Z  '/></g>
+	<path  d='M575.8,542.4 L575.8,115.3 L587.7,115.3 L587.7,542.4 L575.8,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'currentColor' points = '599.5,542.4 611.5,542.4 611.5,410.9 599.5,410.9 '/>
+	</g>
+	<path  d='M599.5,542.4 L599.5,411.0 L611.4,411.0 L611.4,542.4 L599.5,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'currentColor' points = '623.2,542.4 635.2,542.4 635.2,345.2 623.2,345.2 '/>
+	</g>
+	<path  d='M623.2,542.4 L623.2,345.3 L635.1,345.3 L635.1,542.4 L623.2,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'currentColor' points = '646.9,542.4 658.9,542.4 658.9,115.2 646.9,115.2 '/>
+	</g>
+	<path  d='M646.9,542.4 L646.9,115.3 L658.8,115.3 L658.8,542.4 L646.9,542.4 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
+		<polygon fill = 'currentColor' points = '670.7,542.4 682.6,542.4 682.6,378.0 670.7,378.0 '/>
+	</g>
+	<path  d='M670.7,542.4 L670.7,378.1 L682.5,378.1 L682.5,542.4 L670.7,542.4 Z  '/></g>
 	</g>
 <g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
 	<path stroke='black'  d='M63.6,16.7 L63.6,542.4 L775.0,542.4 L775.0,16.7 L63.6,16.7 Z  '/></g>
