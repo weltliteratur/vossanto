@@ -200,6 +200,7 @@ source: Die Zeit corpus 1995–2011
 * 2003-03-06 **Terry Quinn**, als Direktor des Bureau International des Poids et Mesures (BIPM) der **Kofi Annan** des Einheitensystems, formuliert diplomatisch:
 * <strike>2003-09-04 Wer wissen will, ob sich die Menschen um das Alkoholverbot auf öffentlichen Plätzen scheren, was der Jesus von Medinaceli gegen die Ölpest ausrichten kann oder wie versöhnlich König Juan Carlos zu den Paparazzi steht - Burghardt bringt einem all das, inklusive historischen und politischen Mehrwerts, auf gekonnt amüsante Weise näher.</strike>
 * <strike>2003-12-11 AUSGABE 51/2003, WIRTSCHAFT Der Schneider von Wolfsburg Volkswagen hat ein Problem.</strike>
+* 2003-12-31 Fällt der **Michael Ballack** der Zukunft aus, liefe der Auswechselklon auf den Rasen.
 
 ### 2004
 
@@ -213,7 +214,6 @@ source: Die Zeit corpus 1995–2011
 * 2004-09-16 Natürlich war **Kretzschmar** damals so etwas wie der deutsche **Dennis Rodman**.
 * 2004-01-08 "Der **Rudi Völler** der Politik - über den Kampf fand er zum Spiel" (Bild).
 * <strike>2003-12-31 Der Anton aus Tirol.</strike>
-* 2003-12-31 Fällt der **Michael Ballack** der Zukunft aus, liefe der Auswechselklon auf den Rasen.
 * <strike>2004-03-11 Kurios die Vorstellung, dass ein Charles Baudelaire der Hölle des Opiums durch regelmäßiges Jogging hätte entgehen können, das im Gehirn die gleichen Effekte erzielt!</strike>
 * 2004-08-26 Ich dachte, hier war ein **Udo Walz** der Tonwellen am Werk, ein mit allen Duftwässern gewaschener Gigant der Spätromantik.
 * <strike>2004-08-26 Heuser, Uwe Jean Der Hüne aus Harvard ist 95 Jahre alt, und so manche Einsicht von John Kenneth Galbraith ist wieder jung geworden.</strike>
