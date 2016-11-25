@@ -61,9 +61,9 @@ def xml2regex(f, fname, **kwargs):
     if txt:
         # find regex
         try:
-            for match in re.findall(txt):
+            for match in kwargs["regex"].findall(txt):
                 # print match
-                print(fname, match[1], sep='\t')
+                print(fname, match, sep='\t')
         except UnicodeDecodeError:
             print(fname, "UnicodeDecodeError")
 
@@ -78,7 +78,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.regex:
-        regex = re.compile(args.regex)
+        regex = re.compile(args.regex, re.IGNORECASE)
         sfunc = xml2regex
     else:
         regex = None
