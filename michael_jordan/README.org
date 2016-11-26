@@ -96,6 +96,8 @@ done
 #+NAME:   fig:mj
 [[file:mj.svg]]
 
+<img src="mj.svg"/>
+
 
 ** "michael jordan of"
 #+BEGIN_SRC sh
