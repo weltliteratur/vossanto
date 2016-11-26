@@ -12,6 +12,9 @@
 * next steps 
 - Use text search to find all occurrences of "the Michael Jordan of"
   and use the results to improve the identification method.
+- Add all examples from NYT as test cases.
+- Analyse distribution of regex patterns.
+- Try to restrict to search for 2nd and 3rd part.
 
 * missing vossantos
 The current code did not find the following vossantos:

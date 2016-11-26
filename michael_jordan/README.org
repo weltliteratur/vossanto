@@ -1,0 +1,107 @@
+#+TITLE:
+#+AUTHOR: 
+#+EMAIL: 
+#+KEYWORDS:
+#+DESCRIPTION:
+#+TAGS:
+#+LANGUAGE: en
+#+OPTIONS: toc:nil ':t H:5
+#+STARTUP: hidestars overview
+#+LaTeX_CLASS: scrartcl
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+#+PANDOC_OPTIONS:
+
+* extraction from corpus
+#+BEGIN_SRC sh
+for i in nyt_corpus_*gz; do
+  ./nyt.py --regex "(\\.?.*?michael Jordan.*?[\\.\\n])"  $i > michael_jordan_$i.txt
+done
+#+END_SRC
+
+* cleansing
+** merge
+#+BEGIN_SRC sh
+  cat michael_jordan_*.txt > mj.txt
+#+END_SRC
+
+** remove empty lines
+*TODO* check why we have them
+#+BEGIN_SRC sh
+  grep -v -e '^[[:space:]]*$' mj.txt > mj1.txt
+  mv mj1.txt mj.txt
+#+END_SRC
+* validity checks
+** duplicate phrases
+#+BEGIN_SRC sh
+  grep -v "^\s*$" mj.txt | wc -l
+  awk -F'\t' '{print $2}' mj.txt | sort -u | wc -l
+#+END_SRC
+
+| 7892 |
+| 7725 |
+
+* number of articles per year
+
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $1}' mj.txt | sed -e "s/.*corpus_//" -e "s/\..*//" | sort  | uniq -c
+#+END_SRC
+
+* phrases
+
+# call with org-plot/gnuplot
+#+PLOT: ind:1 deps:(2 3 4 5 6) type:2d with:linespoints set:"yrange [0:]" file:"mj.svg" set:"term svg enhanced size 800,600 lw 2" set:"xlabel 'year" set:"grid on" set:"ylabel 'count" set:"style line 0 pt 7"
+| year |  "MJ" |     "MJ of" | "the MJ of" | "a MJ of" | "of MJ of" |
+|------+-------+-------------+-------------+-----------+------------|
+| 1987 |   178 |          26 |           0 |         0 |          0 |
+| 1988 |   203 |          21 |           0 |         0 |          0 |
+| 1989 |   276 |          20 |           1 |         0 |          2 |
+| 1990 |   247 |          21 |           4 |         0 |          0 |
+| 1991 |   368 |          26 |           6 |         0 |          1 |
+| 1992 |   467 |          11 |           2 |         0 |          0 |
+| 1993 |   675 |          13 |           4 |         0 |          0 |
+| 1994 |   367 |           3 |           2 |         1 |          0 |
+| 1995 |   413 |           1 |           0 |         0 |          0 |
+| 1996 |   702 |           8 |           6 |         0 |          0 |
+| 1997 |   602 |           8 |           1 |         0 |          0 |
+| 1998 |   664 |          10 |           7 |         0 |          0 |
+| 1999 |   593 |          13 |           8 |         3 |          0 |
+| 2000 |   479 |          13 |          12 |         0 |          0 |
+| 2001 |   409 |           8 |           7 |         0 |          0 |
+| 2002 |   336 |           7 |           5 |         0 |          0 |
+| 2003 |   324 |           4 |           2 |         0 |          0 |
+| 2004 |   162 |           1 |           0 |         0 |          0 |
+| 2005 |   183 |           2 |           2 |         0 |          0 |
+| 2006 |   131 |           3 |           3 |         0 |          0 |
+| 2007 |   113 |           3 |           3 |         0 |          0 |
+|------+-------+-------------+-------------+-----------+------------|
+|  sum |  7892 |         222 |          75 |         4 |          3 |
+| mean | 375.8 |        10.6 |         3.6 |       0.2 |        0.1 |
+#+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.1f::@24$3=vmean(@I..@II);%2.1f::@24$4=vmean(@I..@II);%2.1f::@24$5=vmean(@I..@II);%2.1f::@24$6=vmean(@I..@II);%2.1f::@25$3=(@-2/$-1@-2) * 100
+
+#+caption: articles over time
+#+name:   fig:mj
+[[file:mj.svg]]
+
+
+** "michael jordan of"
+#+BEGIN_SRC sh
+  grep -i "michael jordan of" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+#+END_SRC
+
+*** "the michael jordan of"
+#+BEGIN_SRC sh
+  grep -i "the michael jordan of" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+#+END_SRC
+
+*** "a michael jordan of"
+#+BEGIN_SRC sh
+  grep -i "a michael jordan of" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+#+END_SRC
+
+*** "of michael jordan of"
+#+BEGIN_SRC sh
+  grep -i "of michael jordan of" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+#+END_SRC
+
+* TODO vossantos
+manually check all candidates ...
