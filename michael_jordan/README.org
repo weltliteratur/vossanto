@@ -92,12 +92,8 @@ done
        data u 1:6 w linespoints pt 8 title 'of MJ of'
 #+end_src
 
-#+RESULTS:
-[[file:mj.svg]]
-
-
-#+caption: articles over time
-#+name:   fig:mj
+#+CAPTION: articles over time
+#+NAME:   fig:mj
 [[file:mj.svg]]
 
 
