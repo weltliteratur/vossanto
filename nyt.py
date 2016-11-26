@@ -33,14 +33,17 @@ sys.stdout = UTF8Writer(sys.stdout)
 def xml2str(f, fname):
     tree = ET.parse(f)
     root = tree.getroot()
+    # path to the heading
+    heading = root.findall("./body/body.head/")
+    heading = ET.tostring(heading, encoding="utf-8", method="text").decode("utf-8")
+        
     # path to the main text block
     content = root.findall("./body/body.content/")
     for block in content:
         if block.attrib["class"] == "full_text":
             # strip XML
-            return ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
-
-    return None
+            content = ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
+    return heading + "\n\n" + content
 
 def xml2vossanto(f, fname, **kwargs):
     # process contained file
