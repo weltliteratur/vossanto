@@ -114,7 +114,7 @@ done
 #+END_SRC
 
 #+BEGIN_SRC sh :results raw list
-  grep -i "the michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/the michael jordan of/*the Michael Jordan of*/i"
+  grep -i "the michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/the michael jordan of/*&*/i"
 #+END_SRC
 
 - 1989/05/19/0251456	        The future jurist stood in the pivot and dazzled crowd and opponents by whipping the ball around to cutting teammates. He may have been the closest thing to *the Michael Jordan of* his day, as earthbound as he was.
@@ -143,7 +143,7 @@ done
 - 1996/12/06/0893794	        ''I thought, wouldn't it be interesting to do a commercial that played off that?,'' he continued. ''Our Michael Jordan liked the idea, and we discussed it with the representatives of *the Michael Jordan of* the Bulls.
 - 1996/12/06/0893794	        ''Initially we had *the Michael Jordan of* the College Fund, who actually could shoot, making all his shots,'' said Marvin Waldman, executive vice president and group creative director at Y.
 - 1997/12/26/0983138	        At the Waffle House, the anonymity factor is almost as intoxicating as the hot maple syrup. No one wants his autograph, and no one asks him if he thinks of himself as *the Michael Jordan of* tennis, a question that makes Sampras lose his appetite wherever and whenever it is asked.
-- 1998/03/30/1006144	        ''*the Michael Jordan of* women's basketball,'' Barmore called Holdsclaw.
+- 1998/03/30/1006144	        ''*The Michael Jordan of* women's basketball,'' Barmore called Holdsclaw.
 - 1998/03/30/1006162	        And Holdsclaw is often referred to as *the Michael Jordan of* women's basketball.
 - 1998/09/27/1049680	        For Saturday's anniversary race, the celebrities include Mike Adamle, a former football standout at Northwestern University who later played in the N.F.L. and is now a sportscaster, and David Bailey, *the Michael Jordan of* motocross racing in the 1980's who became paralyzed in a racing accident and will compete in a wheelchair along part of the course.
 - 1998/11/05/1059693	        The show also features equine entertainers including Bonfire, *the Michael Jordan of* dressage horses.
@@ -200,7 +200,7 @@ done
 #+END_SRC
 
 #+BEGIN_SRC sh :results raw list
-  grep -i "a michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/a michael jordan of/*a Michael Jordan of*/i"
+  grep -i "a michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/a michael jordan of/*&*/i"
 #+END_SRC
 
 - 1994/01/23/0664050	        "He was, I think, one of the fiercest competitors I've ever seen. For a long time, it was L. T. every day, every way. He was kind of like *a Michael Jordan of* football.
@@ -214,13 +214,12 @@ done
 #+END_SRC
 
 #+BEGIN_SRC sh :results raw list
-  grep -i "of michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/of michael jordan of/*of Michael Jordan of*/i"
+  grep -i "of michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/of michael jordan of/*&*/i"
 #+END_SRC
 
 - 1989/02/07/0221328	        LEAD: Kenny Walker of the Knicks and two rookies, Shelton Jones of the Philadelphia 76ers and Chris Morris of the Nets, have been added to the field for the National Basketball Association's slam-dunk championship Saturday at Houston. The three additions followed by one day the withdrawal *of Michael Jordan of* the
 - 1989/02/07/0221328	        Kenny Walker of the Knicks and two rookies, Shelton Jones of the Philadelphia 76ers and Chris Morris of the Nets, have been added to the field for the National Basketball Association's slam-dunk championship Saturday at Houston. The three additions followed by one day the withdrawal *of Michael Jordan of* the Bulls, the two-time defending champion, who has a sprained knee.
 - 1991/07/02/0456931	        Also during the All-Star Game, Nike plans to show new spots with the tennis star Andre Agassi; David Robinson of the San Antonio Spurs of the National Basketball Association, and the film director Spike Lee as Mars Blackmon, the ultimate fan *of Michael Jordan of* the N.
-
 
 * TODO vossantos
 manually check all candidates ...
