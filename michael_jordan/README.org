@@ -90,16 +90,18 @@ done
        data u 1:4 w linespoints pt 8 title 'the MJ of',\
        data u 1:5 w linespoints pt 8 title 'a MJ of',\
        data u 1:6 w linespoints pt 8 title 'of MJ of'
+  
+  set term png enhanced size 800,600 lw 2
+  set out 'mj.png'
+  replot
 #+end_src
+
+#+RESULTS:
+[[file:mj.svg]]
 
 #+CAPTION: articles over time
 #+NAME:   fig:mj
-[[file:mj.svg]]
-
-#+BEGIN_HTML
-  <img src="mj.svg"/>
-#+END_HTML
-
+[[file:mj.png]]
 
 ** "michael jordan of"
 #+BEGIN_SRC sh
