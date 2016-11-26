@@ -35,8 +35,9 @@ def xml2str(f, fname):
     root = tree.getroot()
     # path to the heading
     heading = root.findall("./body/body.head/")
+    head = ""
     for block in heading:
-        heading = ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
+        head = ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
         
     # path to the main text block
     content = root.findall("./body/body.content/")
@@ -45,7 +46,7 @@ def xml2str(f, fname):
         if block.attrib["class"] == "full_text":
             # strip XML
             body = body + "\n" + ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
-    return heading + "\n\n" + body
+    return head + "\n\n" + body
 
 def xml2vossanto(f, fname, **kwargs):
     # process contained file
