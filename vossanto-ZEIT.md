@@ -75,7 +75,7 @@ source: Die Zeit corpus 1995–2011
 * <strike>1998-09-17 Doch mit 1,6 Millionen Teilnehmern blieb eplus der Benjamin unter den Anbietern.</strike>
 * 1998-01-23 **Hans-Olaf Henkel** BDI-Präsident, auf die Frage, ob er sich zur Wiederwahl stelle "Herr Henkel ist ja inzwischen so etwas wie der **Harald Schmidt** der Wirtschaft.
 * 1998-01-23 **Erwin Teufel** ist der **Gerhard Schröder** von Baden-Württemberg:
-* 1998-08-13 Hier paradieren die James Deans von Ostbottnien mit ihren amerikanischen Gebrauchtwagen, hier dröhnt HipHop aus Kassettenrecordern, und hier treffen wir auch den siebzehnjährigen Antti.
+* 1998-08-13 Hier paradieren die **James Dean**s von Ostbottnien mit ihren amerikanischen Gebrauchtwagen, hier dröhnt HipHop aus Kassettenrecordern, und hier treffen wir auch den siebzehnjährigen Antti.
 * 1998-04-02 **Krause**, der Streiter für eine andere CDU, der **Robin Hood** des Ostens.
 * 1998-04-02 **Tante Lavinia** schließlich, die **Marthe Schwertlein** der ersten Kreise, ist mindestens so verliebt in ihn wie ihre Nichte, der sie nicht viel Romantik zutraut.
 * 1998-07-09 Wer ist der **Michael Owen** des deutschen Fußballs?
@@ -124,7 +124,7 @@ source: Die Zeit corpus 1995–2011
 * <strike>2000-04-27 Ich bin der Anton aus Tirol!</strike>
 * 2000-07-06 In der Presse ist **Bové** der **Robin Hood** der entrechteten Schafhirten, der listige **Asterix**, der es mit den übermächtigen Römern aufnimmt, der französische **David** gegen den amerikanischen Goliath.
 * 2000-10-05 Eine griechische **Cathy Freeman** zu haben wäre nicht schlecht.
-* 2000-04-06 Das katholische Milieu, aus dem die Norbert Blüms der Partei stammten, ist weithin ausgetrocknet.
+* 2000-04-06 Das katholische Milieu, aus dem die **Norbert Blüm**s der Partei stammten, ist weithin ausgetrocknet.
 * 2000-03-23 Der russische **James Bond** heißt Stierlitz.
 * 2000-08-31 « - »Meine Stadt hat ihre Lichter gelöscht, hat ihre Türen verschlossen, wurde einsam am Abend, allein mit der Nacht«, sang **Feyrouz**, die **Edith Piaf** des Libanon.
 * 2000-11-09 Eine deutsche **Celine Dion** gibt es bislang einfach nicht", meint Eberhard Kromer, der bei Sony Music Verträge für deutsche Popstars wie die Fantastischen Vier oder Sabrina Setlur schließt.
