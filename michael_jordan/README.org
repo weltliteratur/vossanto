@@ -96,7 +96,9 @@ done
 #+NAME:   fig:mj
 [[file:mj.svg]]
 
-<img src="mj.svg"/>
+#+BEGIN_HTML
+  <img src="mj.svg"/>
+#+END_HTML
 
 
 ** "michael jordan of"
