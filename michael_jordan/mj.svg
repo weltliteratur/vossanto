@@ -121,7 +121,7 @@
 		<text><tspan> 2010</tspan></text>
 	</g>
 	<path stroke='black'  d='M80.2,16.7 L80.2,542.4 L775.0,542.4 L775.0,16.7 L80.2,16.7 Z  '/>	<g transform="translate(17.6,279.6) rotate(270)" style="stroke:none; fill:black; font-family:Arial; font-size:12.00pt; text-anchor:middle">
-		<text><tspan>count</tspan></text>
+		<text><tspan>articles</tspan></text>
 	</g>
 	<g transform="translate(427.6,591.9)" style="stroke:none; fill:black; font-family:Arial; font-size:12.00pt; text-anchor:middle">
 		<text><tspan>year</tspan></text>
