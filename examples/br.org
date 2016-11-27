@@ -143,7 +143,7 @@ done
 | 2005 |        2 |
 | 2006 |        2 |
 
-**** frequent targets
+**** frequent modifiers ("aktualisierende Signale")
 
 #+BEGIN_SRC sh 
   grep -i "the babe ruth of" br.txt | sed -r -e "s/.*the babe ruth of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
