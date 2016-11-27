@@ -81,7 +81,7 @@ done
   set term svg enhanced size 800,600 lw 2
   set yrange [1:]
   set xlabel "year"
-  set ylabel "count"
+  set ylabel "articles"
   set grid on
   set logscale y
 
@@ -109,9 +109,96 @@ done
 #+END_SRC
 
 *** "the michael jordan of"
+
+**** Distribution
+
 #+BEGIN_SRC sh
   grep -i "the michael jordan of" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
 #+END_SRC
+
+| year | articles |
+|------+----------|
+| 1989 |        1 |
+| 1990 |        4 |
+| 1991 |        6 |
+| 1992 |        2 |
+| 1993 |        4 |
+| 1994 |        2 |
+| 1996 |        6 |
+| 1997 |        1 |
+| 1998 |        7 |
+| 1999 |        8 |
+| 2000 |       12 |
+| 2001 |        7 |
+| 2002 |        5 |
+| 2003 |        2 |
+| 2005 |        2 |
+| 2006 |        3 |
+| 2007 |        3 |
+
+**** frequent targets
+
+#+BEGIN_SRC sh 
+  grep -i "the michael jordan of" mj.txt | sed -r -e "s/.*the michael jordan of *(the|his|this|her)? *//i" -e "s/[ \.,'\")]+.*//" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
+#+END_SRC
+
+| 5 | hockey       |
+| 4 | time         |
+| 4 | golf         |
+| 3 | women        |
+| 3 | sport        |
+| 3 | game         |
+| 2 | geopolitics  |
+| 2 | figure       |
+| 2 | college      |
+| 2 | boxing       |
+| 1 | white        |
+| 1 | tennis       |
+| 1 | television   |
+| 1 | team         |
+| 1 | south        |
+| 1 | soccer       |
+| 1 | snowboarding |
+| 1 | sauternes    |
+| 1 | orange       |
+| 1 | national     |
+| 1 | motocross    |
+| 1 | mexico       |
+| 1 | management   |
+| 1 | late-night   |
+| 1 | laser        |
+| 1 | language     |
+| 1 | jumpers      |
+| 1 | julienne     |
+| 1 | integrating  |
+| 1 | indiana      |
+| 1 | hunting      |
+| 1 | hudson       |
+| 1 | horse        |
+| 1 | harlem       |
+| 1 | foosball     |
+| 1 | fast         |
+| 1 | eagles       |
+| 1 | dressage     |
+| 1 | diving       |
+| 1 | dirt         |
+| 1 | day          |
+| 1 | dance        |
+| 1 | cyberspace   |
+| 1 | cricket      |
+| 1 | computer     |
+| 1 | bulls        |
+| 1 | buffalo      |
+| 1 | brazilian    |
+| 1 | bmx          |
+| 1 | baseball     |
+| 1 | australia    |
+| 1 | afghanistan  |
+| 1 | actresses    |
+| 1 | 12th         |
+| 1 |              |
+
+**** Examples
 
 #+BEGIN_SRC sh :results raw list
   grep -i "the michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/the michael jordan of/*&*/i"
