@@ -167,9 +167,9 @@
 		<polygon fill = 'red' points = '259.6,523.2 289.9,523.2 289.9,122.5 259.6,122.5 '/>
 	</g>
 	<path stroke='red'  d='M259.6,523.2 L259.6,122.6 L289.8,122.6 L289.8,523.2 L259.6,523.2 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
-		<polygon fill = 'red' points = '297.4,523.2 327.7,523.2 327.7,222.7 297.4,222.7 '/>
+		<polygon fill = 'red' points = '297.4,523.2 327.7,523.2 327.7,197.6 297.4,197.6 '/>
 	</g>
-	<path stroke='red'  d='M297.4,523.2 L297.4,222.8 L327.6,222.8 L327.6,523.2 L297.4,523.2 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
+	<path stroke='red'  d='M297.4,523.2 L297.4,197.7 L327.6,197.7 L327.6,523.2 L297.4,523.2 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
 		<polygon fill = 'red' points = '335.2,523.2 365.5,523.2 365.5,122.5 335.2,122.5 '/>
 	</g>
 	<path stroke='red'  d='M335.2,523.2 L335.2,122.6 L365.4,122.6 L365.4,523.2 L335.2,523.2 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>

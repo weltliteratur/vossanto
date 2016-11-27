@@ -180,7 +180,7 @@ After the second cleansing round -- only individuals are included:
 | 1997 |   11 |   13 |
 | 1998 |   17 |   10 |
 | 1999 |   12 |   16 |
-| 2000 |   14 |   12 |
+| 2000 |   14 |   13 |
 | 2001 |   14 |   16 |
 | 2002 |   15 |   12 |
 | 2003 |   19 |   11 |
@@ -197,7 +197,7 @@ After the second cleansing round -- only individuals are included:
 | mean | 11.7 | 13.2 |
 #+TBLFM: @27$2=vsum(@I..@II)::@27$3=vsum(@I..@II)::@28$2=vmean(@I..@II);%2.1f::@28$3=vmean(@I..@II);%2.1f
 
-#+begin_src gnuplot :var data=year-data :file vossantos.svg
+#+begin_src gnuplot :var data=year-data :file vossantos.svg :results silent
 set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
 
 set xlabel "Jahr"
@@ -224,9 +224,6 @@ set out "vossantos_zeit.svg"
 plot data using 1:3 with boxes title ''
 #+end_src
 
-#+RESULTS:
-[[file:vossantos.svg]]
-
 #+caption: found vossantos over time
 #+name:   fig:voss-time
 [[file:vossantos.svg]]
@@ -238,8 +235,6 @@ plot data using 1:3 with boxes title ''
 #+CAPTION: Found Vossantos over time for Die Zeit
 #+NAME:   fig:VOSS-TIME-ZEIT
 [[file:vossantos_zeit.svg]]
-
-
 
 ** final result
 
