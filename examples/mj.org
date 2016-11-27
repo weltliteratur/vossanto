@@ -14,7 +14,7 @@
 * extraction from corpus
 #+BEGIN_SRC sh
 for i in nyt_corpus_*gz; do
-  ./nyt.py --regex "(\\.?.*?michael Jordan.*?[\\.\\n])"  $i > michael_jordan_$i.txt
+  ./nyt.py --regex "(\\.?.*?michael jordan.*?[\\.\\n])"  $i > michael_jordan_$i.txt
 done
 #+END_SRC
 
