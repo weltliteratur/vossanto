@@ -537,7 +537,6 @@ not the 264 cleansed ones in [[file:vossanto-NYT-only-individuals.md][vossanto-N
       | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{if ($1 >= 2) print $1"\t"$2}'
 #+END_SRC
 
-#+RESULTS:
 | 6 | Pied Piper         |
 | 6 | Michael Jordan     |
 | 5 | Michelangelo       |
