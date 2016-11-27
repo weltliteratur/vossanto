@@ -530,6 +530,46 @@ not the 264 cleansed ones in [[file:vossanto-NYT-only-individuals.md][vossanto-N
 
 ** Frequent
 
+*** invividiuals only
+
+#+BEGIN_SRC sh
+    grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/[^\*]*\*[^\*]*\*[^\*]*\*//" -e "s/\*.*//" | sort | uniq -c | sort -nr \
+      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{if ($1 >= 2) print $1"\t"$2}'
+#+END_SRC
+
+#+RESULTS:
+| 6 | Pied Piper         |
+| 6 | Michael Jordan     |
+| 5 | Michelangelo       |
+| 4 | Babe Ruth          |
+| 3 | Neil Young         |
+| 3 | Elvis              |
+| 3 | Don Quixote        |
+| 2 | Zelig              |
+| 2 | Thomas Jefferson   |
+| 2 | Rush Limbaugh      |
+| 2 | Ronald Reagan      |
+| 2 | Rodney Dangerfield |
+| 2 | Robert Moses       |
+| 2 | Picasso            |
+| 2 | Paul Newman        |
+| 2 | Paul Bunyan        |
+| 2 | Nolan Ryan         |
+| 2 | Mr. October        |
+| 2 | Mozart             |
+| 2 | Mister Rogers      |
+| 2 | Mad Hatter         |
+| 2 | Larry Bird         |
+| 2 | John Wayne         |
+| 2 | Johnny Appleseed   |
+| 2 | James Brown        |
+| 2 | Houdini            |
+| 2 | Energizer Bunny    |
+| 2 | Boswell            |
+| 2 | Bill Gates         |
+
+*** all
+
 #+BEGIN_SRC sh
     grep "^-" README.md | sed -e "s/[^\*]*\*[^\*]*\*[^\*]*\*//" -e "s/\*.*//" | sort | uniq -c | sort -nr \
       | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{if ($1 >= 2) print $1"\t"$2}'
