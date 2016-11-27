@@ -146,45 +146,47 @@ done
 **** frequent modifiers ("aktualisierende Signale")
 
 #+BEGIN_SRC sh 
-  grep -i "the babe ruth of" br.txt | sed -r -e "s/.*the babe ruth of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
+  grep -i "babe ruth of" br.txt | sed -r -e "s/.*babe ruth of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
 #+END_SRC
 
-|        phrase | count        |
-|---------------+--------------|
-|     stock-car | 2            |
-|        hockey | 2            |
-|    basketball | 2            |
-|      baseball | 2            |
-|         women | 1            |
-|    this_sport | 1            |
-|          this | 1            |
-|      the_team | 1            |
-| the_talk-show | 1            |
-|   the_harness | 1            |
-| the_dominican | 1            |
-| the_caribbean | 1            |
-|      the_bond | 1            |
-|        tennis | 1            |
-|         south | 1            |
-|        soccer | 1            |
-|       ripoffs | 1            |
-|    racehorses | 1            |
-|           new | 1            |
-|    management | 1            |
-|          jazz | 1            |
-|      japanese | 1            |
-|     incentive | 1            |
-|          high | 1            |
-|       harness | 1            |
-|          golf | 1            |
-|     freestyle | 1            |
-|      football | 1            |
-|         civil | 1            |
-|  bodybuilding | 1            |
-|          bank | 1            |
-|           arm | 1            |
-|             a | 1            |
-| 35-millimeter | 1            |
+| phrase        | count |
+|---------------+-------|
+| the_yankees   |     3 |
+| stock-car     |     2 |
+| new           |     2 |
+| hockey        |     2 |
+| basketball    |     2 |
+| baseball      |     2 |
+| women         |     1 |
+| this_sport    |     1 |
+| this          |     1 |
+| the_team      |     1 |
+| the_talk-show |     1 |
+| the_harness   |     1 |
+| the_dominican |     1 |
+| the_caribbean |     1 |
+| the_bond      |     1 |
+| tennis        |     1 |
+| south         |     1 |
+| soccer        |     1 |
+| ripoffs       |     1 |
+| racehorses    |     1 |
+| management    |     1 |
+| jazz          |     1 |
+| japanese      |     1 |
+| incentive     |     1 |
+| high          |     1 |
+| harness       |     1 |
+| golf          |     1 |
+| freestyle     |     1 |
+| football      |     1 |
+| civil         |     1 |
+| bodybuilding  |     1 |
+| bank          |     1 |
+| arm           |     1 |
+| a             |     1 |
+| 35-millimeter |     1 |
+
 
 **** Examples
 
@@ -192,7 +194,6 @@ done
   grep -i "babe ruth of" br.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/babe ruth of/*&*/i"
 #+END_SRC
 
-#+RESULTS:
 - 1987/05/23/0043074	        What would Eddie Shore, known as the *Babe Ruth of* hockey, have said about this? Shore, who played from 1926 through 1940, incurred fractures to his hip, collarbone and back, had a jaw that was broken five times, a nose broken 14 times, an ear that was virtually chewed off, and was a guy who witnessed all of his teeth being knocked out, and who needed 978 stitches in order to get through his 14-year career.
 - 1988/03/07/0125336	        LEAD:  QUESTION: An obituary last month of Bob O'Farrell, the former St. Louis Cardinal catcher, reported that he ended the 1926 World Series by throwing out *Babe Ruth of* the Yankees attempting to steal second base. What were the circumstances of such a bizarre Series-ending play? How many stolen bases did
 - 1988/03/07/0125336	        QUESTION: An obituary last month of Bob O'Farrell, the former St. Louis Cardinal catcher, reported that he ended the 1926 World Series by throwing out *Babe Ruth of* the Yankees attempting to steal second base. What were the circumstances of such a bizarre Series-ending play? How many stolen bases did Ruth have in his career?
