@@ -131,7 +131,7 @@ done
 | 2006 |        3 |
 | 2007 |        3 |
 
-**** frequent targets
+**** frequent modifiers ("aktualisierende Signale")
 
 #+BEGIN_SRC sh 
   grep -i "the michael jordan of" mj.txt | sed -r -e "s/.*the michael jordan of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
