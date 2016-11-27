@@ -116,7 +116,7 @@ done
 #+NAME:   fig:m
 [[file:m.png]]
 
-** "michelangelp of"
+** "michelangelo of"
 **** Distribution
 #+BEGIN_SRC sh
   grep -i "michelangelo of" m.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
