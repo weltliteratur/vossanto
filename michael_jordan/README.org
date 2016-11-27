@@ -139,64 +139,70 @@ done
 **** frequent targets
 
 #+BEGIN_SRC sh 
-  grep -i "the michael jordan of" mj.txt | sed -r -e "s/.*the michael jordan of *(the|his|this|her)? *//i" -e "s/[ \.,'\")]+.*//" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
+  grep -i "the michael jordan of" mj.txt | sed -r -e "s/.*the michael jordan of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
 #+END_SRC
 
-| 5 | hockey       |
-| 4 | time         |
-| 4 | golf         |
-| 3 | women        |
-| 3 | sport        |
-| 3 | game         |
-| 2 | geopolitics  |
-| 2 | figure       |
-| 2 | college      |
-| 2 | boxing       |
-| 1 | white        |
-| 1 | tennis       |
-| 1 | television   |
-| 1 | team         |
-| 1 | south        |
-| 1 | soccer       |
-| 1 | snowboarding |
-| 1 | sauternes    |
-| 1 | orange       |
-| 1 | national     |
-| 1 | motocross    |
-| 1 | mexico       |
-| 1 | management   |
-| 1 | late-night   |
-| 1 | laser        |
-| 1 | language     |
-| 1 | jumpers      |
-| 1 | julienne     |
-| 1 | integrating  |
-| 1 | indiana      |
-| 1 | hunting      |
-| 1 | hudson       |
-| 1 | horse        |
-| 1 | harlem       |
-| 1 | foosball     |
-| 1 | fast         |
-| 1 | eagles       |
-| 1 | dressage     |
-| 1 | diving       |
-| 1 | dirt         |
-| 1 | day          |
-| 1 | dance        |
-| 1 | cyberspace   |
-| 1 | cricket      |
-| 1 | computer     |
-| 1 | bulls        |
-| 1 | buffalo      |
-| 1 | brazilian    |
-| 1 | bmx          |
-| 1 | baseball     |
-| 1 | australia    |
-| 1 | afghanistan  |
-| 1 | actresses    |
-| 1 | 12th         |
-| 1 |              |
+| phrase       | count |
+|--------------+-------|
+| hockey       |     5 |
+| golf         |     4 |
+| women        |     3 |
+| his_time     |     3 |
+| geopolitics  |     2 |
+| game         |     2 |
+| figure       |     2 |
+| boxing       |     2 |
+| this_sport   |     1 |
+| the_white    |     1 |
+| the_sport    |     1 |
+| the_south    |     1 |
+| the_national |     1 |
+| the_hudson   |     1 |
+| the_game     |     1 |
+| the_eagles   |     1 |
+| the_dirt     |     1 |
+| the_college  |     1 |
+| the_bulls    |     1 |
+| the_buffalo  |     1 |
+| tennis       |     1 |
+| television   |     1 |
+| soccer       |     1 |
+| snowboarding |     1 |
+| sauternes    |     1 |
+| orange       |     1 |
+| motocross    |     1 |
+| mexico       |     1 |
+| management   |     1 |
+| late-night   |     1 |
+| laser        |     1 |
+| language     |     1 |
+| jumpers      |     1 |
+| julienne     |     1 |
+| integrating  |     1 |
+| indiana      |     1 |
+| hunting      |     1 |
+| horse        |     1 |
+| his_team     |     1 |
+| his_sport    |     1 |
+| his_day      |     1 |
+| her_time     |     1 |
+| harlem       |     1 |
+| foosball     |     1 |
+| fast         |     1 |
+| dressage     |     1 |
+| diving       |     1 |
+| dance        |     1 |
+| cyberspace   |     1 |
+| cricket      |     1 |
+| computer     |     1 |
+| college      |     1 |
+| brazilian    |     1 |
+| bmx          |     1 |
+| baseball     |     1 |
+| australia    |     1 |
+| afghanistan  |     1 |
+| actresses    |     1 |
+| 12th         |     1 |
 
 **** Examples
 
@@ -279,7 +285,6 @@ done
 - 2007/03/28/1836163	        Like Solzhenitsyn's Denisovich, Mr. Thomas finds a grim satisfaction in work. He is happy to cobble shoes for the Korean riot police at the rate of 80 cents a day. Even better than the loose camaraderie and open spaces of the factory floor is the prison sports program. Each factory has a basketball team, and Mr. Thomas, a first-round draft pick, emerges as *the Michael Jordan of* the South Korean penal system.
 - 2007/04/17/1841042	        Billed as *the Michael Jordan of* hockey by a former Lightning owner, Lecavalier appeared to be on a career path more like Sam Bowie's, his 37 points in 76 games in his fourth season seeming to cement his underachieving status.
 - 2007/05/03/1844722	        ''In terms of his crossover appeal in boxing, there is nobody like him,'' said Brian Herlihy, the division marketing manager for Cazadores, whose name will appear on the mat below the boxers, on the ropes and on a banner above the ring. ''He is unique. He's *the Michael Jordan of* boxing.
-
 
 *** "a michael jordan of"
 #+BEGIN_SRC sh
