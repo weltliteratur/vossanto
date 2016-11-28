@@ -175,7 +175,6 @@ After the second cleansing round -- only individuals are included:
 
 *** Plots
 
-# call with org-plot/gnuplot
 #+tblname: year-data
 | year |  nyt | zeit |
 |------+------+------|
@@ -210,30 +209,39 @@ After the second cleansing round -- only individuals are included:
 #+TBLFM: @27$2=vsum(@I..@II)::@27$3=vsum(@I..@II)::@28$2=vmean(@I..@II);%2.1f::@28$3=vmean(@I..@II);%2.1f
 
 #+begin_src gnuplot :var data=year-data :file vossantos.svg :results silent
-set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
-
+set datafile separator "\t"
 set xlabel "Jahr"
 set ylabel "Vossantos"
-set grid
-set key top left
-set style fill solid 1
-set datafile separator "\t"
 set yrange [0:*]
 set ytics 5
+set grid linetype 1 linecolor 0
+set key top left
+set style fill solid 1
 
 jitter=.15
 set boxwidth .5 relative
 
+set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
+set out "vossantos.svg"
 plot data using ($1+jitter):2 with boxes title 'New York Times',\
      data using ($1-jitter):3 with boxes title 'Die Zeit'
 
 set boxwidth .8 relative
 
+set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
 set out "vossantos_nyt.svg"
 plot data using 1:2 with boxes title ''
+set term png enhanced size 800,600 font "Arial,16" lw 3
+set out "vossantos_nyt.png"
+replot
 
+set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
 set out "vossantos_zeit.svg"
 plot data using 1:3 with boxes title ''
+set term png enhanced size 800,600 font "Arial,16" lw  2
+set out "vossantos_zeit.png"
+replot 
+
 #+end_src
 
 #+CAPTION: found vossantos over time
