@@ -119,7 +119,7 @@ done
 ** "michelangelo of"
 **** Distribution
 #+BEGIN_SRC sh
-  grep -i "michelangelo of" m.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+  grep -i "michelangelo of\b" m.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
 #+END_SRC
 
 | year | articles |
@@ -136,7 +136,7 @@ done
 | 1996 |        1 |
 | 1997 |        2 |
 | 1998 |        4 |
-| 1999 |        2 |
+| 1999 |        1 |
 | 2000 |        2 |
 | 2001 |        1 |
 | 2002 |        3 |
@@ -149,7 +149,7 @@ done
 **** frequent modifiers ("aktualisierende Signale")
 
 #+BEGIN_SRC sh 
-  grep -i "michelangelo of" m.txt | sed -r -e "s/.*michelangelo of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
+  grep -i "michelangelo of\b" m.txt | sed -r -e "s/.*michelangelo of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
 #+END_SRC
 
 | phrase          | count |
@@ -182,7 +182,6 @@ done
 | his_age         |     1 |
 | g-men;          |     1 |
 | floats          |     1 |
-| fended          |     1 |
 | eastport        |     1 |
 | control         |     1 |
 | confectioners   |     1 |
@@ -192,7 +191,7 @@ done
 **** Examples
 
 #+BEGIN_SRC sh :results raw list
-  grep -i "michelangelo of" m.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/michelangelo of/*&*/i"
+  grep -i "michelangelo of\b" m.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/michelangelo of/*&*/i"
 #+END_SRC
 
 - 1987/03/24/0024161	        You don't know about postmodernism? Never heard of deconstruction? Yet you have the gall to take up precious space between a mansard roof and a wood-and-leather lobby under the illusion that you can become a *Michelangelo of* the art form known as living?
@@ -213,7 +212,6 @@ done
 - 1998/09/25/1049076	        While Lee drifts among glamorous women (with Famke Janssen as a svelte book editor and bewitchingly flirty Winona Ryder as an ambitious waitress-actress), Robin fumes and tries desperate measures. She visits a religious retreat where the priest with the television show signs autographs. She goes to a plastic surgeon (Michael Lerner) who's been dubbed ''the *Michelangelo of* Manhattan'' by Newsweek. She begins dating a television producer (Joe Mantegna) who takes her to a screening of a film he finds pretentiously shot in black and white. (''Celebrity'' is, of course, also shot in black and white, enhanced by the superb clarity of Sven Nykvist's cinematography.)
 - 1998/11/20/1063495	        While Lee drifts among glamorous women (with Famke Janssen as a svelte book editor and bewitchingly flirty Winona Ryder as an ambitious waitress-actress), Robin fumes and tries desperate measures. She visits a religious retreat where a priest with a television show signs autographs. She goes to a plastic surgeon (Michael Lerner) who's been dubbed ''the *Michelangelo of* Manhattan'' by  Newsweek. She begins dating a television producer (Joe Mantegna) who takes her to a screening of a film he finds pretentiously shot in black and white. (''Celebrity'' is, of course, also shot in black and white, enhanced by the superb clarity of Sven Nykvist's cinematography.)
 - 1998/12/06/1067343	        Almost from his birth in 1598, Gianlorenzo Bernini was groomed to be the *Michelangelo of* his age. A child prodigy whose facility in carving pushed marble to extremes of mimicry never seen before or since, he served as artist-in-chief to the Roman Catholic Church for most of his 82 years. At the height of his career, his artistic power was virtually absolute, and he transformed the face of Rome as surely as any emperor ever did. It was a great achievement, but his reputation began to crumble even before his death in 1680. In part this was inevitable, given Bernini's domination of papal patronage and the enmities it engendered. Beyond that, Bernini always recognized that his artistic genius was sustained by an idiosyncratic combination of religious fervor and sensual imagery, so characteristic of what we call Baroque art, but scandalous to many even in his own lifetime.
-- 1999/09/24/1140172	        But no race or issue is actually untouchable in the arts. In another time, *Michelangelo of*fended the church with his ''Last Judgment.'' From the sublime to the absurd, Mel Brooks, a Jew, famously made light of the Holocaust and slavery in ''The Producers'' and ''History of the World, Part I.'' Maybe we should all lighten up.
 - 1999/11/10/1152159	        He has already had an encounter with two of the students -- the troubled basketball star Lester Dewitt (Usher Raymond) and Ziggy Malone (Robert Ri'chard ), the abused pint-size *Michelangelo of* the Lincoln High cockloft by the time Mr. Knowles and his students are forced to abandon their classroom.
 - 2000/06/27/1210663	        So Astorre starts lookin' into who ordered the hit on the don, and he finds this conspiracy like you wouldn't believe. It involves a rival don who's a stone cold whack-a-doo; this F.B.I. agent who acts like he's the  *Michelangelo of* G-men; these two crooked cops who've been on the take; and this fat pig of a drug dealer, who -- get this -- is trying to get his mitts on the A-bomb to protect his business in South America. Jeez, it's like something outta Oliver Stone.
 - 2000/07/02/1211833	        MONTE WARNE is a down-home Renaissance man, a *Michelangelo of* machinery: a licensed aircraft and airplane-engine mechanic, an aircraft designer, a licensed private, commercial and crop-duster pilot, a lifelong motorcyclist and a former motorcycle and car racer. So what possessed him to build the outrageous Boss Hoss, a motorcycle with a Corvette V-8 engine?
