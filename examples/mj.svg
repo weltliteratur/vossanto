@@ -186,21 +186,21 @@
 	<g transform="translate(171.5,57.2)" style="stroke:none; fill:black; font-family:Arial; font-size:12.00pt; text-anchor:end">
 		<text><tspan>MJ of</tspan></text>
 	</g>
-	<path  d='M179.8,52.7 L222.0,52.7 M143.4,393.6 L170.9,403.4 L198.3,405.6 L225.8,403.4 L253.3,393.6 L280.7,432.9 
-		L308.2,425.3 L335.6,492.2 L363.1,542.4 L390.6,447.4 L418.0,447.4 L445.5,437.3 L472.9,425.3 L500.4,425.3 
+	<path  d='M179.8,52.7 L222.0,52.7 M143.4,393.6 L170.9,403.4 L198.3,405.6 L225.8,403.4 L253.3,395.4 L280.7,432.9 
+		L308.2,428.9 L335.6,492.2 L363.1,542.4 L390.6,447.4 L418.0,468.9 L445.5,442.1 L472.9,432.9 L500.4,425.3 
 		L527.9,447.4 L555.3,453.5 L582.8,479.1 L610.2,542.4 L637.7,510.7 L665.2,492.2 L692.6,492.2  '/>	<use xlink:href='#gpPt6' transform='translate(143.4,393.6) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(170.9,403.4) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(198.3,405.6) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(225.8,403.4) scale(4.50)'/>
-	<use xlink:href='#gpPt6' transform='translate(253.3,393.6) scale(4.50)'/>
+	<use xlink:href='#gpPt6' transform='translate(253.3,395.4) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(280.7,432.9) scale(4.50)'/>
-	<use xlink:href='#gpPt6' transform='translate(308.2,425.3) scale(4.50)'/>
+	<use xlink:href='#gpPt6' transform='translate(308.2,428.9) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(335.6,492.2) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(363.1,542.4) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(390.6,447.4) scale(4.50)'/>
-	<use xlink:href='#gpPt6' transform='translate(418.0,447.4) scale(4.50)'/>
-	<use xlink:href='#gpPt6' transform='translate(445.5,437.3) scale(4.50)'/>
-	<use xlink:href='#gpPt6' transform='translate(472.9,425.3) scale(4.50)'/>
+	<use xlink:href='#gpPt6' transform='translate(418.0,468.9) scale(4.50)'/>
+	<use xlink:href='#gpPt6' transform='translate(445.5,442.1) scale(4.50)'/>
+	<use xlink:href='#gpPt6' transform='translate(472.9,432.9) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(500.4,425.3) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(527.9,447.4) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(555.3,453.5) scale(4.50)'/>

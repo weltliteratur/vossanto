@@ -49,33 +49,33 @@ done
 * phrases
 
 #+tblname: mj-data
-| year |  "MJ" |     "MJ of" | "the MJ of" | "a MJ of" | "of MJ of" |
-|------+-------+-------------+-------------+-----------+------------|
-| 1987 |   178 |          26 |           0 |         0 |          0 |
-| 1988 |   203 |          21 |           0 |         0 |          0 |
-| 1989 |   276 |          20 |           1 |         0 |          2 |
-| 1990 |   247 |          21 |           4 |         0 |          0 |
-| 1991 |   368 |          26 |           6 |         0 |          1 |
-| 1992 |   467 |          11 |           2 |         0 |          0 |
-| 1993 |   675 |          13 |           4 |         0 |          0 |
-| 1994 |   367 |           3 |           2 |         1 |          0 |
-| 1995 |   413 |           1 |           0 |         0 |          0 |
-| 1996 |   702 |           8 |           6 |         0 |          0 |
-| 1997 |   602 |           8 |           1 |         0 |          0 |
-| 1998 |   664 |          10 |           7 |         0 |          0 |
-| 1999 |   593 |          13 |           8 |         3 |          0 |
-| 2000 |   479 |          13 |          12 |         0 |          0 |
-| 2001 |   409 |           8 |           7 |         0 |          0 |
-| 2002 |   336 |           7 |           5 |         0 |          0 |
-| 2003 |   324 |           4 |           2 |         0 |          0 |
-| 2004 |   162 |           1 |           0 |         0 |          0 |
-| 2005 |   183 |           2 |           2 |         0 |          0 |
-| 2006 |   131 |           3 |           3 |         0 |          0 |
-| 2007 |   113 |           3 |           3 |         0 |          0 |
-|------+-------+-------------+-------------+-----------+------------|
-|  sum |  7892 |         222 |          75 |         4 |          3 |
-| mean | 375.8 |        10.6 |         3.6 |       0.2 |        0.1 |
-#+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.1f::@24$3=vmean(@I..@II);%2.1f::@24$4=vmean(@I..@II);%2.1f::@24$5=vmean(@I..@II);%2.1f::@24$6=vmean(@I..@II);%2.1f::@25$3=(@-2/$-1@-2) * 100
+| year |  "MJ" | "MJ of" | "the MJ of" | "a MJ of" | "of MJ of" |
+|------+-------+---------+-------------+-----------+------------|
+| 1987 |   178 |      26 |           0 |         0 |          0 |
+| 1988 |   203 |      21 |           0 |         0 |          0 |
+| 1989 |   276 |      20 |           1 |         0 |          2 |
+| 1990 |   247 |      21 |           4 |         0 |          0 |
+| 1991 |   368 |      25 |           6 |         0 |          1 |
+| 1992 |   467 |      11 |           2 |         0 |          0 |
+| 1993 |   675 |      12 |           4 |         0 |          0 |
+| 1994 |   367 |       3 |           2 |         1 |          0 |
+| 1995 |   413 |       1 |           0 |         0 |          0 |
+| 1996 |   702 |       8 |           6 |         0 |          0 |
+| 1997 |   602 |       5 |           1 |         0 |          0 |
+| 1998 |   664 |       9 |           7 |         0 |          0 |
+| 1999 |   593 |      11 |           8 |         3 |          0 |
+| 2000 |   479 |      13 |          12 |         0 |          0 |
+| 2001 |   409 |       8 |           7 |         0 |          0 |
+| 2002 |   336 |       7 |           5 |         0 |          0 |
+| 2003 |   324 |       4 |           2 |         0 |          0 |
+| 2004 |   162 |       1 |           0 |         0 |          0 |
+| 2005 |   183 |       2 |           2 |         0 |          0 |
+| 2006 |   131 |       3 |           3 |         0 |          0 |
+| 2007 |   113 |       3 |           3 |         0 |          0 |
+|------+-------+---------+-------------+-----------+------------|
+|  sum |  7892 |     222 |          75 |         4 |          3 |
+| mean | 375.8 |    10.6 |         3.6 |       0.2 |        0.1 |
+#+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.1f::@24$3=vmean(@I..@II);%2.1f::@24$4=vmean(@I..@II);%2.1f::@24$5=vmean(@I..@II);%2.1f::@24$6=vmean(@I..@II);%2.1f
 
 #+begin_src gnuplot :var data=mj-data :file mj.svg :results silent
   set term svg enhanced size 800,600 lw 2
@@ -100,41 +100,20 @@ done
 
 ** "michael jordan of"
 #+BEGIN_SRC sh
-  grep -i "michael jordan of" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+  grep -i "michael jordan of\b" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
 #+END_SRC
 
 *** "the michael jordan of"
-
 **** Distribution
 
 #+BEGIN_SRC sh
-  grep -i "the michael jordan of" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+  grep -i "the michael jordan of\b" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
 #+END_SRC
-
-| year | articles |
-|------+----------|
-| 1989 |        1 |
-| 1990 |        4 |
-| 1991 |        6 |
-| 1992 |        2 |
-| 1993 |        4 |
-| 1994 |        2 |
-| 1996 |        6 |
-| 1997 |        1 |
-| 1998 |        7 |
-| 1999 |        8 |
-| 2000 |       12 |
-| 2001 |        7 |
-| 2002 |        5 |
-| 2003 |        2 |
-| 2005 |        2 |
-| 2006 |        3 |
-| 2007 |        3 |
 
 **** frequent modifiers ("aktualisierende Signale")
 
 #+BEGIN_SRC sh 
-  grep -i "the michael jordan of" mj.txt | sed -r -e "s/.*the michael jordan of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
+  grep -i "the michael jordan of\b" mj.txt | sed -r -e "s/.*the michael jordan of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
 #+END_SRC
 
 | phrase       | count |
@@ -198,11 +177,12 @@ done
 | afghanistan  |     1 |
 | actresses    |     1 |
 | 12th         |     1 |
+|              |     1 |
 
 **** Examples
 
 #+BEGIN_SRC sh :results raw list
-  grep -i "the michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/the michael jordan of/*&*/i"
+  grep -i "the michael jordan of\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/the michael jordan of/*&*/i"
 #+END_SRC
 
 - 1989/05/19/0251456	        The future jurist stood in the pivot and dazzled crowd and opponents by whipping the ball around to cutting teammates. He may have been the closest thing to *the Michael Jordan of* his day, as earthbound as he was.
@@ -283,11 +263,11 @@ done
 
 *** "a michael jordan of"
 #+BEGIN_SRC sh
-  grep -i "a michael jordan of" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+  grep -i "a michael jordan of\b" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
 #+END_SRC
 
 #+BEGIN_SRC sh :results raw list
-  grep -i "a michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/a michael jordan of/*&*/i"
+  grep -i "a michael jordan of\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/a michael jordan of/*&*/i"
 #+END_SRC
 
 - 1994/01/23/0664050	        "He was, I think, one of the fiercest competitors I've ever seen. For a long time, it was L. T. every day, every way. He was kind of like *a Michael Jordan of* football.
@@ -297,11 +277,11 @@ done
 
 *** "of michael jordan of"
 #+BEGIN_SRC sh
-  grep -i "of michael jordan of" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+  grep -i "of michael jordan of\b" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
 #+END_SRC
 
 #+BEGIN_SRC sh :results raw list
-  grep -i "of michael jordan of" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/of michael jordan of/*&*/i"
+  grep -i "of michael jordan of\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/of michael jordan of/*&*/i"
 #+END_SRC
 
 - 1989/02/07/0221328	        LEAD: Kenny Walker of the Knicks and two rookies, Shelton Jones of the Philadelphia 76ers and Chris Morris of the Nets, have been added to the field for the National Basketball Association's slam-dunk championship Saturday at Houston. The three additions followed by one day the withdrawal *of Michael Jordan of* the

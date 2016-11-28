@@ -187,7 +187,7 @@
 		<text><tspan>Michelangelo of</tspan></text>
 	</g>
 	<path  d='M229.6,52.7 L271.8,52.7 M143.4,510.7 L170.9,542.4 L198.3,510.7 L225.8,542.4 M280.7,542.4 L308.2,492.2 
-		L335.6,542.4 M390.6,542.4 L418.0,510.7 L445.5,479.1 L472.9,510.7 L500.4,510.7 L527.9,542.4 L555.3,492.2 
+		L335.6,542.4 M390.6,542.4 L418.0,510.7 L445.5,479.1 L472.9,542.4 L500.4,510.7 L527.9,542.4 L555.3,492.2 
 		L582.8,468.9 L610.2,510.7 L637.7,510.7 L665.2,542.4 L692.6,542.4  '/>	<use xlink:href='#gpPt6' transform='translate(143.4,510.7) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(170.9,542.4) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(198.3,510.7) scale(4.50)'/>
@@ -198,7 +198,7 @@
 	<use xlink:href='#gpPt6' transform='translate(390.6,542.4) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(418.0,510.7) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(445.5,479.1) scale(4.50)'/>
-	<use xlink:href='#gpPt6' transform='translate(472.9,510.7) scale(4.50)'/>
+	<use xlink:href='#gpPt6' transform='translate(472.9,542.4) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(500.4,510.7) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(527.9,542.4) scale(4.50)'/>
 	<use xlink:href='#gpPt6' transform='translate(555.3,492.2) scale(4.50)'/>
