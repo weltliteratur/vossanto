@@ -33,16 +33,22 @@ sys.stdout = UTF8Writer(sys.stdout)
 def xml2str(f, fname):
     tree = ET.parse(f)
     root = tree.getroot()
+    # path to the heading
+    heading = root.findall("./body/body.head/")
+    head = ""
+    for block in heading:
+        head = ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
+        
     # path to the main text block
     content = root.findall("./body/body.content/")
+    body = ""
     for block in content:
         if block.attrib["class"] == "full_text":
             # strip XML
-            return ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
+            body = body + "\n" + ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
+    return head + "\n\n" + body
 
-    return None
-
-def xml2vossanto(f, fname):
+def xml2vossanto(f, fname, **kwargs):
     # process contained file
     txt = xml2str(f, fname)
     if txt:
@@ -55,23 +61,43 @@ def xml2vossanto(f, fname):
         except UnicodeDecodeError:
             print(fname, "UnicodeDecodeError")
 
+def xml2regex(f, fname, **kwargs):
+    # process contained file
+    txt = xml2str(f, fname)
+    if txt:
+        # find regex
+        try:
+            for match in kwargs["regex"].findall(txt):
+                # print match
+                print(fname, match, sep='\t')
+        except UnicodeDecodeError:
+            print(fname, "UnicodeDecodeError")
+
+            
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Find Vossantos in the NYT corpus.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('input', type=str, help='input TAR file')
+    parser.add_argument('-r', '--regex', dest="regex", type=str, help='search for regex and output matches')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
 
+    if args.regex:
+        regex = re.compile(args.regex, re.IGNORECASE)
+        sfunc = xml2regex
+    else:
+        regex = None
+        sfunc = xml2vossanto
     
     if os.path.splitext(args.input)[1] == ".xml":
         # XML input: just one file
         with open(args.input, "rt") as f:
-            xml2vossanto(f, args.input)
+            sfunc(f, args.input, regex=regex)
     else:
         # read TAR file
         tar = tarfile.open(args.input, "r:gz")
         for tarinfo in tar:
             if tarinfo.isreg():
-                xml2vossanto(tar.extractfile(tarinfo), tarinfo.name)
+                sfunc(tar.extractfile(tarinfo), tarinfo.name, regex=regex)
             

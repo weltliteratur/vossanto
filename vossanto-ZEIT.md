@@ -75,13 +75,13 @@ source: Die Zeit corpus 1995–2011
 * <strike>1998-09-17 Doch mit 1,6 Millionen Teilnehmern blieb eplus der Benjamin unter den Anbietern.</strike>
 * 1998-01-23 **Hans-Olaf Henkel** BDI-Präsident, auf die Frage, ob er sich zur Wiederwahl stelle "Herr Henkel ist ja inzwischen so etwas wie der **Harald Schmidt** der Wirtschaft.
 * 1998-01-23 **Erwin Teufel** ist der **Gerhard Schröder** von Baden-Württemberg:
-* <strike>1998-08-13 Hier paradieren die James Deans von Ostbottnien mit ihren amerikanischen Gebrauchtwagen, hier dröhnt HipHop aus Kassettenrecordern, und hier treffen wir auch den siebzehnjährigen Antti.</strike>
+* 1998-08-13 Hier paradieren die **James Dean**s von Ostbottnien mit ihren amerikanischen Gebrauchtwagen, hier dröhnt HipHop aus Kassettenrecordern, und hier treffen wir auch den siebzehnjährigen Antti.
 * 1998-04-02 **Krause**, der Streiter für eine andere CDU, der **Robin Hood** des Ostens.
 * 1998-04-02 **Tante Lavinia** schließlich, die **Marthe Schwertlein** der ersten Kreise, ist mindestens so verliebt in ihn wie ihre Nichte, der sie nicht viel Romantik zutraut.
 * 1998-07-09 Wer ist der **Michael Owen** des deutschen Fußballs?
 * 1998-10-22 Der Kommunikationstrainer selbst sieht sich als "eine Art **Bill Gates** des Stolperns", der "mit System und Spaß" das Unperfekte kultiviert und eingefrorene Organisationen zum Auftauen bringt.
 * 1998-12-10 Entweder abwarten und dann eine deutsche **Margaret Thatcher** ranlassen oder sofort dem "holländischen Modell" nacheifern.
-* 1998-12-10 Vielleicht doch der Zimmermann aus Nazareth beim Check-up seines Bodenpersonals.
+* <strike>1998-12-10 Vielleicht doch der Zimmermann aus Nazareth beim Check-up seines Bodenpersonals.</strike>
 * <strike>1998-10-08 Als hätten die Honey Suckles der Kunst alle Künstlichkeit ausgetrieben.</strike>
 * 1998-01-16 Dort lebt er noch heute, **Wolfgang Hempel**, der **Richard Wagner** der DDR-Fußballreportage.
 * <strike>1999-02-11 Wenn man nicht weiß, daß Marc Bolan der Sänger von T. Rex war und Tyrannosaurus Rex nicht nur ein von Spielberg wiederbelebter Saurier ist, wird man nicht nur vom Autor bedauert, sondern spürt auch nicht viel.</strike>
@@ -124,7 +124,7 @@ source: Die Zeit corpus 1995–2011
 * <strike>2000-04-27 Ich bin der Anton aus Tirol!</strike>
 * 2000-07-06 In der Presse ist **Bové** der **Robin Hood** der entrechteten Schafhirten, der listige **Asterix**, der es mit den übermächtigen Römern aufnimmt, der französische **David** gegen den amerikanischen Goliath.
 * 2000-10-05 Eine griechische **Cathy Freeman** zu haben wäre nicht schlecht.
-* <strike>2000-04-06 Das katholische Milieu, aus dem die Norbert Blüms der Partei stammten, ist weithin ausgetrocknet.</strike>
+* 2000-04-06 Das katholische Milieu, aus dem die **Norbert Blüm**s der Partei stammten, ist weithin ausgetrocknet.
 * 2000-03-23 Der russische **James Bond** heißt Stierlitz.
 * 2000-08-31 « - »Meine Stadt hat ihre Lichter gelöscht, hat ihre Türen verschlossen, wurde einsam am Abend, allein mit der Nacht«, sang **Feyrouz**, die **Edith Piaf** des Libanon.
 * 2000-11-09 Eine deutsche **Celine Dion** gibt es bislang einfach nicht", meint Eberhard Kromer, der bei Sony Music Verträge für deutsche Popstars wie die Fantastischen Vier oder Sabrina Setlur schließt.
@@ -200,6 +200,7 @@ source: Die Zeit corpus 1995–2011
 * 2003-03-06 **Terry Quinn**, als Direktor des Bureau International des Poids et Mesures (BIPM) der **Kofi Annan** des Einheitensystems, formuliert diplomatisch:
 * <strike>2003-09-04 Wer wissen will, ob sich die Menschen um das Alkoholverbot auf öffentlichen Plätzen scheren, was der Jesus von Medinaceli gegen die Ölpest ausrichten kann oder wie versöhnlich König Juan Carlos zu den Paparazzi steht - Burghardt bringt einem all das, inklusive historischen und politischen Mehrwerts, auf gekonnt amüsante Weise näher.</strike>
 * <strike>2003-12-11 AUSGABE 51/2003, WIRTSCHAFT Der Schneider von Wolfsburg Volkswagen hat ein Problem.</strike>
+* 2003-12-31 Fällt der **Michael Ballack** der Zukunft aus, liefe der Auswechselklon auf den Rasen.
 
 ### 2004
 
@@ -213,7 +214,6 @@ source: Die Zeit corpus 1995–2011
 * 2004-09-16 Natürlich war **Kretzschmar** damals so etwas wie der deutsche **Dennis Rodman**.
 * 2004-01-08 "Der **Rudi Völler** der Politik - über den Kampf fand er zum Spiel" (Bild).
 * <strike>2003-12-31 Der Anton aus Tirol.</strike>
-* 2003-12-31 Fällt der **Michael Ballack** der Zukunft aus, liefe der Auswechselklon auf den Rasen.
 * <strike>2004-03-11 Kurios die Vorstellung, dass ein Charles Baudelaire der Hölle des Opiums durch regelmäßiges Jogging hätte entgehen können, das im Gehirn die gleichen Effekte erzielt!</strike>
 * 2004-08-26 Ich dachte, hier war ein **Udo Walz** der Tonwellen am Werk, ein mit allen Duftwässern gewaschener Gigant der Spätromantik.
 * <strike>2004-08-26 Heuser, Uwe Jean Der Hüne aus Harvard ist 95 Jahre alt, und so manche Einsicht von John Kenneth Galbraith ist wieder jung geworden.</strike>
@@ -278,6 +278,7 @@ source: Die Zeit corpus 1995–2011
 * 2006-11-30 Wie ein **Robin Hood** der Kranken und Verunsicherten, der sich über jegliche Kosten- und Nutzenargumente der Kranke nkassen hinwegsetzt, fordert er auch »flächendeckende Grippeimpfungen« und einen »großzügigen Einsatz der neuen Grippemedikamente«.
 * 2006-06-01 "Sie ist die **Pamela Anderson** der Handelsabteilung" - da wird von einem Strip-Club-Besuch nach einem erfolgreichen Geschäftsabschluss berichtet.
 * 2006-03-30 « Einmal saßen sie im Flieger, und als die Stewardess Markus nicht erkannte, erklärte er ihr mit ernster Miene, er sei der **Udo Jürgens** des Techno.
+* 2006-12-28 « **Ferenc Gyurcsány**, ungarischer Ministerpräsident, in einer vermeintlich vertraulichen Regierungsbilanz »Ich bin der **Jesus Christus** der Politik, leidend, ich nehme alles auf mich, ich opfere mich für jeden.
 
 ### 2007
 
@@ -295,7 +296,6 @@ source: Die Zeit corpus 1995–2011
 * 2007-11-08 Regierungssprecher **Cemil Çiçek**, der als scharfer Antiterrorkämpfer so etwas wie der **Otto Schily** der Türkei ist, sagte, die DTP-Abgeordneten seien auf frischer Tat ertappt worden.
 * 2007-10-25 Nichts ist banaler als dieses ewige »**Ute Lemper** ist die **Marlene Dietrich** von heute«, »**Hansjörg Felmy** war der deutsche **Humphrey Bogart**«.
 * 2007-10-25 Nichts ist banaler als dieses ewige »**Ute Lemper** ist die **Marlene Dietrich** von heute«, »**Hansjörg Felmy** war der deutsche **Humphrey Bogart**«.
-* 2006-12-28 « **Ferenc Gyurcsány**, ungarischer Ministerpräsident, in einer vermeintlich vertraulichen Regierungsbilanz »Ich bin der **Jesus Christus** der Politik, leidend, ich nehme alles auf mich, ich opfere mich für jeden.
 * <strike>2007-05-03 Mal heißt die Nuss Faust, mal Liliom, mal Lulu, aber immer packt **Thalheimer** das Stück in seine gemäßigt modernistische Regiezange, eine Art Alessi der Theaterkunst, er knackt das Stück und sucht einen Kern und findet meistens jene existenzielle Einsamkeit, die um die jüngste Jahrhundertwende noch so schick aussah.</strike>
 * <strike>2007-05-03 Die Wings sind herauszuhören, der John Lennon der ersten Soloalben, manchmal, in den duellierenden Gitarren, auch die Allman Brothers Band, ohne dass von bloßem Retrorock die Rede sein könnte.</strike>
 * 2007-05-03 » **Jo Public**«, so wird der britische **Otto Normalverbraucher** genannt, ging es noch nie so gut wie heute.

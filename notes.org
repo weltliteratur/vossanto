@@ -12,6 +12,9 @@
 * next steps 
 - Use text search to find all occurrences of "the Michael Jordan of"
   and use the results to improve the identification method.
+- Add all examples from NYT as test cases.
+- Analyse distribution of regex patterns.
+- Try to restrict to search for 2nd and 3rd part.
 
 * missing vossantos
 The current code did not find the following vossantos:
@@ -173,34 +176,65 @@ After the second cleansing round -- only individuals are included:
 *** Plots
 
 # call with org-plot/gnuplot
-#+PLOT: ind:1 deps:(2 3) type:2d with:linespoints set:"yrange [0:]" file:"vossantos.svg" set:"term svg enhanced size 800,600 lw 2" set:"xlabel 'Jahr'" set:"grid on" set:"ylabel 'Vossantos'" set:"style line 0 pt 7"
-| year | nyt | zeit |
-|------+-----+------|
-| 1987 |   4 |      |
-| 1988 |   9 |      |
-| 1989 |   6 |      |
-| 1990 |  10 |      |
-| 1991 |   8 |      |
-| 1992 |  12 |      |
-| 1993 |  14 |      |
-| 1994 |  15 |      |
-| 1995 |   7 |    9 |
-| 1996 |  15 |   12 |
-| 1997 |  11 |   13 |
-| 1998 |  17 |   10 |
-| 1999 |  12 |   16 |
-| 2000 |  14 |   12 |
-| 2001 |  14 |   16 |
-| 2002 |  15 |   12 |
-| 2003 |  19 |   11 |
-| 2004 |  11 |   13 |
-| 2005 |  16 |   19 |
-| 2006 |  12 |   20 |
-| 2007 |   5 |   17 |
-| 2008 |     |    8 |
-| 2009 |     |   10 |
-| 2010 |     |   17 |
-| 2011 |     |    9 |
+#+tblname: year-data
+| year |  nyt | zeit |
+|------+------+------|
+| 1987 |    4 |      |
+| 1988 |    9 |      |
+| 1989 |    6 |      |
+| 1990 |   10 |      |
+| 1991 |    8 |      |
+| 1992 |   12 |      |
+| 1993 |   14 |      |
+| 1994 |   15 |      |
+| 1995 |    7 |    9 |
+| 1996 |   15 |   12 |
+| 1997 |   11 |   13 |
+| 1998 |   17 |   10 |
+| 1999 |   12 |   16 |
+| 2000 |   14 |   13 |
+| 2001 |   14 |   16 |
+| 2002 |   15 |   12 |
+| 2003 |   19 |   11 |
+| 2004 |   11 |   13 |
+| 2005 |   16 |   19 |
+| 2006 |   12 |   20 |
+| 2007 |    5 |   17 |
+| 2008 |      |    8 |
+| 2009 |      |   10 |
+| 2010 |      |   17 |
+| 2011 |      |    9 |
+|------+------+------|
+|  sum |  246 |  224 |
+| mean | 11.7 | 13.2 |
+#+TBLFM: @27$2=vsum(@I..@II)::@27$3=vsum(@I..@II)::@28$2=vmean(@I..@II);%2.1f::@28$3=vmean(@I..@II);%2.1f
+
+#+begin_src gnuplot :var data=year-data :file vossantos.svg :results silent
+set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
+
+set xlabel "Jahr"
+set ylabel "Vossantos"
+set grid
+set key top left
+set style fill solid 1
+set datafile separator "\t"
+set yrange [0:*]
+set ytics 5
+
+jitter=.15
+set boxwidth .5 relative
+
+plot data using ($1+jitter):2 with boxes title 'New York Times',\
+     data using ($1-jitter):3 with boxes title 'Die Zeit'
+
+set boxwidth .8 relative
+
+set out "vossantos_nyt.svg"
+plot data using 1:2 with boxes title ''
+
+set out "vossantos_zeit.svg"
+plot data using 1:3 with boxes title ''
+#+end_src
 
 #+CAPTION: found vossantos over time
 #+NAME:   fig:voss-time
@@ -213,8 +247,6 @@ After the second cleansing round -- only individuals are included:
 #+CAPTION: Found Vossantos over time for Die Zeit
 #+NAME:   fig:VOSS-TIME-ZEIT
 [[file:vossantos_zeit.svg]]
-
-
 
 ** final result
 
@@ -538,6 +570,45 @@ not the 264 cleansed ones in [[file:vossanto-NYT-only-individuals.md][vossanto-N
 - *Mesa Verde National Park* has been called the *Disneyland* of *ancient sites*, but it's also the *Anasazi* *Yosemite* (2004/10/15/1619273)
 
 ** Frequent
+
+*** invividiuals only
+
+#+BEGIN_SRC sh
+    grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/[^\*]*\*[^\*]*\*[^\*]*\*//" -e "s/\*.*//" | sort | uniq -c | sort -nr \
+      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{if ($1 >= 2) print $1"\t"$2}'
+#+END_SRC
+
+| 6 | Pied Piper         |
+| 6 | Michael Jordan     |
+| 5 | Michelangelo       |
+| 4 | Babe Ruth          |
+| 3 | Neil Young         |
+| 3 | Elvis              |
+| 3 | Don Quixote        |
+| 2 | Zelig              |
+| 2 | Thomas Jefferson   |
+| 2 | Rush Limbaugh      |
+| 2 | Ronald Reagan      |
+| 2 | Rodney Dangerfield |
+| 2 | Robert Moses       |
+| 2 | Picasso            |
+| 2 | Paul Newman        |
+| 2 | Paul Bunyan        |
+| 2 | Nolan Ryan         |
+| 2 | Mr. October        |
+| 2 | Mozart             |
+| 2 | Mister Rogers      |
+| 2 | Mad Hatter         |
+| 2 | Larry Bird         |
+| 2 | John Wayne         |
+| 2 | Johnny Appleseed   |
+| 2 | James Brown        |
+| 2 | Houdini            |
+| 2 | Energizer Bunny    |
+| 2 | Boswell            |
+| 2 | Bill Gates         |
+
+*** all
 
 #+BEGIN_SRC sh
     grep "^-" README.md | sed -e "s/[^\*]*\*[^\*]*\*[^\*]*\*//" -e "s/\*.*//" | sort | uniq -c | sort -nr \

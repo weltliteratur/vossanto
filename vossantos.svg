@@ -34,7 +34,7 @@
 	  <feComposite in='SourceGraphic' in2='grey' operator='atop'/>
 	</filter>
 </defs>
-<g style="fill:none; color:white; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+<g style="fill:none; color:white; stroke:black; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
 </g>
 <g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
 </g>
@@ -225,9 +225,9 @@
 		<polygon fill = 'currentColor' points = '394.2,523.2 405.6,523.2 405.6,122.5 394.2,122.5 '/>
 	</g>
 	<path  d='M394.2,523.2 L394.2,122.6 L405.5,122.6 L405.5,523.2 L394.2,523.2 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
-		<polygon fill = 'currentColor' points = '416.9,523.2 428.3,523.2 428.3,222.7 416.9,222.7 '/>
+		<polygon fill = 'currentColor' points = '416.9,523.2 428.3,523.2 428.3,197.6 416.9,197.6 '/>
 	</g>
-	<path  d='M416.9,523.2 L416.9,222.8 L428.2,222.8 L428.2,523.2 L416.9,523.2 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
+	<path  d='M416.9,523.2 L416.9,197.7 L428.2,197.7 L428.2,523.2 L416.9,523.2 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
 		<polygon fill = 'currentColor' points = '439.6,523.2 451.0,523.2 451.0,122.5 439.6,122.5 '/>
 	</g>
 	<path  d='M439.6,523.2 L439.6,122.6 L450.9,122.6 L450.9,523.2 L439.6,523.2 Z  '/>	<g style = 'stroke:none; shape-rendering:crispEdges'>
