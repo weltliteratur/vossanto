@@ -11,92 +11,91 @@
 #+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
 #+PANDOC_OPTIONS:
 
-* extraction from corpus
+* preparation
+** extraction from corpus
 #+BEGIN_SRC sh
-for i in nyt_corpus_*gz; do
-  ./nyt.py --regex "(\\.?.*?michelangelo.*?[\\.\\n])"  $i > michelangelo_$i.txt
-done
+  for i in nyt_corpus_*gz; do
+      ./nyt.py --regex "([^\\.?\!\\n]*?michelangelo.*?[\\.?\!\\n])"  $i > michelangelo_$i.txt
+  done
 #+END_SRC
 
-* cleansing
 ** merge and remove empty lines
 *TODO* check why we have empty lines
 #+BEGIN_SRC sh :results silent
   grep -v -h -e '^[[:space:]]*$' michelangelo_*.txt > m.txt
 #+END_SRC
 
-* validity checks
-** duplicate phrases
-#+BEGIN_SRC sh
+** count duplicate phrases
+#+BEGIN_SRC sh :results raw list
   grep -v "^\s*$" m.txt | wc -l
   awk -F'\t' '{print $2}' m.txt | sort -u | wc -l
 #+END_SRC
 
-| 2840 |
-| 2788 |
+- 3121
+- 3007
+* statistics
 
-* number of articles per year
+** number of articles per year
 
 #+BEGIN_SRC sh
   awk -F'\t' '{print $1}' m.txt | sed -e "s/.*corpus_//" -e "s/\..*//" | sort  | uniq -c
 #+END_SRC
 
-| year | articles |
-|------+----------|
-| 1987 |      151 |
-| 1988 |      149 |
-| 1989 |      137 |
-| 1990 |      164 |
-| 1991 |       95 |
-| 1992 |      126 |
-| 1993 |       94 |
-| 1994 |      124 |
-| 1995 |      129 |
-| 1996 |      132 |
-| 1997 |      127 |
-| 1998 |      136 |
-| 1999 |      164 |
-| 2000 |      129 |
-| 2001 |      147 |
-| 2002 |      144 |
-| 2003 |      201 |
-| 2004 |      144 |
-| 2005 |      151 |
-| 2006 |      138 |
-| 2007 |       58 |
+#+RESULTS:
+| 162 | 1987 |
+| 178 | 1988 |
+| 145 | 1989 |
+| 185 | 1990 |
+| 102 | 1991 |
+| 134 | 1992 |
+|  97 | 1993 |
+| 134 | 1994 |
+| 131 | 1995 |
+| 143 | 1996 |
+| 137 | 1997 |
+| 142 | 1998 |
+| 188 | 1999 |
+| 148 | 2000 |
+| 168 | 2001 |
+| 168 | 2002 |
+| 218 | 2003 |
+| 165 | 2004 |
+| 156 | 2005 |
+| 153 | 2006 |
+|  67 | 2007 |
 
 * phrases
 
-#+tblname: m-data
+#+tblname: data
 | year |   "M" | "M of" |
 |------+-------+--------|
-| 1987 |   151 |      2 |
-| 1988 |   149 |      1 |
-| 1989 |   137 |      2 |
-| 1990 |   164 |      1 |
-| 1991 |    95 |      0 |
-| 1992 |   126 |      1 |
-| 1993 |    94 |      3 |
-| 1994 |   124 |      1 |
-| 1995 |   129 |      0 |
-| 1996 |   132 |      1 |
-| 1997 |   127 |      2 |
-| 1998 |   136 |      4 |
-| 1999 |   164 |      1 |
-| 2000 |   129 |      2 |
-| 2001 |   147 |      1 |
-| 2002 |   144 |      3 |
-| 2003 |   201 |      5 |
-| 2004 |   144 |      2 |
-| 2005 |   151 |      2 |
-| 2006 |   138 |      1 |
-| 2007 |    58 |      1 |
+| 1987 |   162 |      2 |
+| 1988 |   178 |      1 |
+| 1989 |   145 |      2 |
+| 1990 |   185 |      1 |
+| 1991 |   102 |      0 |
+| 1992 |   134 |      1 |
+| 1993 |    97 |      3 |
+| 1994 |   134 |      1 |
+| 1995 |   131 |      0 |
+| 1996 |   143 |      1 |
+| 1997 |   137 |      2 |
+| 1998 |   142 |      4 |
+| 1999 |   188 |      1 |
+| 2000 |   148 |      2 |
+| 2001 |   168 |      1 |
+| 2002 |   168 |      3 |
+| 2003 |   218 |      5 |
+| 2004 |   165 |      2 |
+| 2005 |   156 |      2 |
+| 2006 |   153 |      1 |
+| 2007 |    67 |      1 |
 |------+-------+--------|
-|  sum |  2840 |     36 |
-| mean | 135.2 |    1.7 |
+|  sum |  3121 |     36 |
+| mean | 148.6 |    1.7 |
 #+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.1f::@24$3=vmean(@I..@II);%2.1f::
 
-#+begin_src gnuplot :var data=m-data :file m.svg :results silent
+#+begin_src gnuplot :var data=data :file m.svg :results silent
   set term svg enhanced size 800,600 lw 2
   set yrange [1:]
   set xlabel "year"
@@ -117,119 +116,118 @@ done
 [[file:m.png]]
 
 ** "michelangelo of"
-**** Distribution
+*** distribution
 #+BEGIN_SRC sh
   grep -i "michelangelo of\b" m.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
 #+END_SRC
 
-| year | articles |
-|------+----------|
-| 1987 |        2 |
-| 1988 |        1 |
-| 1989 |        2 |
-| 1990 |        1 |
-| 1991 |        0 |
-| 1992 |        1 |
-| 1993 |        3 |
-| 1994 |        1 |
-| 1995 |        0 |
-| 1996 |        1 |
-| 1997 |        2 |
-| 1998 |        4 |
-| 1999 |        1 |
-| 2000 |        2 |
-| 2001 |        1 |
-| 2002 |        3 |
-| 2003 |        5 |
-| 2004 |        2 |
-| 2005 |        2 |
-| 2006 |        1 |
-| 2007 |        1 |
+#+RESULTS:
+| 2 | 1987 |
+| 1 | 1988 |
+| 2 | 1989 |
+| 1 | 1990 |
+| 0 | 1991 |
+| 1 | 1992 |
+| 3 | 1993 |
+| 1 | 1994 |
+| 0 | 1995 |
+| 1 | 1996 |
+| 2 | 1997 |
+| 4 | 1998 |
+| 1 | 1999 |
+| 2 | 2000 |
+| 1 | 2001 |
+| 3 | 2002 |
+| 5 | 2003 |
+| 2 | 2004 |
+| 2 | 2005 |
+| 1 | 2006 |
+| 1 | 2007 |
 
-**** frequent modifiers ("aktualisierende Signale")
+*** frequent modifiers ("aktualisierende Signale")
 
 #+BEGIN_SRC sh 
-  grep -i "michelangelo of\b" m.txt | sed -r -e "s/.*michelangelo of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
+  grep -i "michelangelo of\b" m.txt | sed -r -e "s/.*michelangelo of *(((the|his|this|her|that) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
 #+END_SRC
 
-| phrase          | count |
-|-----------------+-------|
-| this_generation |     2 |
-| the_menagerie   |     2 |
-| manhattan       |     2 |
-| wood            |     1 |
-| the_title       |     1 |
-| the_sistine     |     1 |
-| the_memorial    |     1 |
-| the_lincoln     |     1 |
-| the_leica       |     1 |
-| the_laurentian  |     1 |
-| the_form        |     1 |
-| the_dog         |     1 |
-| the_capitol     |     1 |
-| the_cancer      |     1 |
-| the_bunch       |     1 |
-| the_balloon     |     1 |
-| the_art         |     1 |
-| that            |     1 |
-| tango           |     1 |
-| seashell        |     1 |
-| saying          |     1 |
-| martial         |     1 |
-| marfa           |     1 |
-| machinery:      |     1 |
-| his_generation  |     1 |
-| his_age         |     1 |
-| g-men;          |     1 |
-| floats          |     1 |
-| eastport        |     1 |
-| control         |     1 |
-| confectioners   |     1 |
-| coaching        |     1 |
-| buncombe        |     1 |
+| modifier        | articles |
+|-----------------+----------|
+| this_generation |        2 |
+| the_menagerie   |        2 |
+| manhattan       |        2 |
+| wood            |        1 |
+| the_title       |        1 |
+| the_sistine     |        1 |
+| the_memorial    |        1 |
+| the_lincoln     |        1 |
+| the_leica       |        1 |
+| the_laurentian  |        1 |
+| the_form        |        1 |
+| the_dog         |        1 |
+| the_capitol     |        1 |
+| the_cancer      |        1 |
+| the_bunch       |        1 |
+| the_balloon     |        1 |
+| the_art         |        1 |
+| that_form       |        1 |
+| tango           |        1 |
+| seashell        |        1 |
+| saying          |        1 |
+| martial         |        1 |
+| marfa           |        1 |
+| machinery:      |        1 |
+| his_generation  |        1 |
+| his_age         |        1 |
+| g-men;          |        1 |
+| floats          |        1 |
+| eastport        |        1 |
+| control         |        1 |
+| confectioners   |        1 |
+| coaching        |        1 |
+| buncombe        |        1 |
 
-**** Examples
+*** examples
 
 #+BEGIN_SRC sh :results raw list
   grep -i "michelangelo of\b" m.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/michelangelo of/*&*/i"
 #+END_SRC
 
-- 1987/03/24/0024161	        You don't know about postmodernism? Never heard of deconstruction? Yet you have the gall to take up precious space between a mansard roof and a wood-and-leather lobby under the illusion that you can become a *Michelangelo of* the art form known as living?
-- 1987/12/20/0103276	        If, as the author tells us, the deal is an art form, then the book makes clear that Mr. Trump sees himself as the *Michelangelo of* that form. His method, or style, is to find a run-down property in a prime location and go into partnership with a corporation that gives him enough credibility to obtain financing. This is what he says he did when he built the Grand Hyatt Hotel near Grand Central Terminal in the late 1970's: he got an option from Penn Central on the old Commodore Hotel. With Hyatt Hotels as a partner, he received a warm welcome from the banks. His timing was right, for in the midst of a fiscal crisis, Mayor Koch was offering tax abatements to encourage private developers. Mr. Trump's 40-year abatement on property taxes was worth tens of millions of dollars. Mr. Trump explains how he tricked the city into thinking he had an exclusive option on the property: ''Several months earlier, a city official had requested that I send along a copy of my option agreement with Penn Central. I did - but it was signed only by me, and not the railroad, because I had yet to put down my $250,000. No one even noticed that until almost two years later, when a reporter doing a story on the deal called the city and asked to see the original agreement.'' The theme of municipal incompetence is a recurrent one in this account.
-- <strike>1988/01/08/0107736	        The main influences suggest the ambition. There is the *Michelangelo of* the Sistine Chapel. There is Abstract Expressionism. And there is Chinese painting, with its humor, attention to nature and feeling for the integrity and personality of the individual brushstroke. This is heady stuff, but these paintings seem like a manifesto of what Ms. Gunderson believes painting can always be. She does not fall on her face, and that is saying a lot.  HEIDI GLUCK  Art Galaxy Gallery  262 Mott Street  Through tomorrow</strike>
-- 1989/04/05/0237599	        Mr. Walker said his cancer has gone into complete remission under Dr. Medenica's care. ''He's a medical genius,'' Mr. Walker said. ''I call him the *Michelangelo of* the cancer world.''
-- 1989/06/06/0256423	        Instead, a six-foot-tall talking likeness of Phineas Taylor Barnum will meet museumgoers with a pitchman's spiel: ''I'm P. T. Barnum. Perhaps you've heard of me. All the world knew Barnum the showman. . . . '' The top-hatted statue will utter not a word about the American sucker, for the simple reason that Barnum - the *Michelangelo of* buncombe, hokum, hoopla and ballyhoo - was himself the victim of a hoax.
-- <strike>1990/06/24/0363548	        The *Michelangelo of* the Laurentian Library in Florence is somewhere behind the unornamented finesse of the carved walnut frame of around 1540 that is all lightness and apparent simplicity and yet can stand, in its own right, as an object of great beauty.</strike>
-- 1992/10/17/0563533	        He knows. Michael Tracy is a *Michelangelo of* the memorial wall, the sprawling street-side shrines to victims of urban violence that have sprung up around New York with unnerving frequency in recent years. He puts his signature, Tracy 168, on less sinister canvases, too, including gates and signs for stores along busy Kingsbridge Road, and self-expressive pieces like the wall on Morris Avenue. Yet even these pieces are adorned with "scrolls of respect," as he calls the lists of names. And he knows it is only a matter of time before there is another memorial to be painted and another mother crying.
-- 1993/05/09/0607682	        Not since Godzilla met Megalon has the big screen seen such a clash of the titans. Herewith, the season's six big action heroes. Let the games begin.  Actor: Jason Scott Lee  Vital statistics: Age 26, 5 feet 11 inches tall, 155 pounds  Training routine: Six to eight hours a day, six days a week, for 10 months, plus weeks of work with those nasty Oriental weapons, the nunchukus  Salary: A reported $250,000 Movie: "Dragon: The Bruce Lee Story" (opened on Friday)  Pitch: A Bruce Lee movie without Bruce Lee  Budget: $15 million to $20 million Character: Bruce Lee, the *Michelangelo of* martial arts  Lethal Weapons: Jeet kune do (Lee's personal brand of  mayhem) and the accompanying vocal hee-yah-ahhhhs  Lethal line: "I have to finish my workout. Might as well finish on you."  Best expression: A rippling slo-mo grimace that seems to say, "My God, what have I done?"
-- 1993/06/04/0612971	        He has been called the *Michelangelo of* floats. ("That's a little embarrassing.") Sometimes he gets carried away. ("You do something with a model of Independence Hall, you might as well do it really well. Even if you realize you went a little over budget, you can keep it and rent it out for 10 years.")
-- 1993/09/26/0636806	        A noted French writer has called Leni Riefenstahl "the Plato and *Michelangelo of* the Leica," and her films assure her an enduring place in cinematic history. That she put her art to the use of evil is an issue she never seriously addresses here. But can the self-deceptions of an obsessed esthete wipe out the fact of her greatness as an artist? A leading British film historian, John Grierson, publicly kissed her foot and paid her expenses in one of her libel suits. In the United States, frequent showings of her films, including a retrospective at the Telluride Festival in Colorado in 1974, did much to rehabilitate her as a genius. If there were still attacks accusing her not only of gleeful collaboration with the Nazis but also, among other things, of not influencing the course of cinema, the last charge, at least, is otiose. Successes generate demonstrable imitations; masterpieces subtly alter perception and create influences less easy to trace.
-- 1994/05/01/0684246	        It is the rarest of carousels, sculptured by the "*Michelangelo of* wood carvers," says one of the men who brought it back to life. And now, after years of abuse and orphanage, it has found a new and loving parent.
-- 1996/08/13/0871265	        The people who ran things four years ago are out, and people who made Republican images in happier days are back -- people like Michael J. Deaver, the *Michelangelo of* the balloon drop, and the joint impresarios here, William I. Greener 3d and Paul J. Manafort, who both made their names in the 1980's, heyday of Ronald Reagan.
-- 1997/03/29/0918913	        ''Multiple defenses, Carolina was the first team that I can remember that all of a sudden they're in a zone and then they're in the man and then they're in full-court pressure. And when he's referred to as the *Michelangelo of* coaching, I really think that's a very appropriate term.''
-- 1997/07/08/0942413	        Maddux? The *Michelangelo of* control pitchers has not walked a batter in his last five starts. Maddux leads the majors in victories (116) since 1990 and this year ranks in the top three in his league in complete games, e.r.a., victories, innings pitched and strikeouts.
-- <strike>1998/09/20/1047759	        *Michelangelo of* Eastport will open a fourth restaurant next month at County Road 111 in Manorville (878-1616), on the route to the Hamptons. The 100-plus-seat spot, like the other outlets, will feature pastas, pizzas and seafood dishes at prices in the $8.95-to-$24.95 bracket.</strike>
-- 1998/09/25/1049076	        While Lee drifts among glamorous women (with Famke Janssen as a svelte book editor and bewitchingly flirty Winona Ryder as an ambitious waitress-actress), Robin fumes and tries desperate measures. She visits a religious retreat where the priest with the television show signs autographs. She goes to a plastic surgeon (Michael Lerner) who's been dubbed ''the *Michelangelo of* Manhattan'' by Newsweek. She begins dating a television producer (Joe Mantegna) who takes her to a screening of a film he finds pretentiously shot in black and white. (''Celebrity'' is, of course, also shot in black and white, enhanced by the superb clarity of Sven Nykvist's cinematography.)
-- 1998/11/20/1063495	        While Lee drifts among glamorous women (with Famke Janssen as a svelte book editor and bewitchingly flirty Winona Ryder as an ambitious waitress-actress), Robin fumes and tries desperate measures. She visits a religious retreat where a priest with a television show signs autographs. She goes to a plastic surgeon (Michael Lerner) who's been dubbed ''the *Michelangelo of* Manhattan'' by  Newsweek. She begins dating a television producer (Joe Mantegna) who takes her to a screening of a film he finds pretentiously shot in black and white. (''Celebrity'' is, of course, also shot in black and white, enhanced by the superb clarity of Sven Nykvist's cinematography.)
-- 1998/12/06/1067343	        Almost from his birth in 1598, Gianlorenzo Bernini was groomed to be the *Michelangelo of* his age. A child prodigy whose facility in carving pushed marble to extremes of mimicry never seen before or since, he served as artist-in-chief to the Roman Catholic Church for most of his 82 years. At the height of his career, his artistic power was virtually absolute, and he transformed the face of Rome as surely as any emperor ever did. It was a great achievement, but his reputation began to crumble even before his death in 1680. In part this was inevitable, given Bernini's domination of papal patronage and the enmities it engendered. Beyond that, Bernini always recognized that his artistic genius was sustained by an idiosyncratic combination of religious fervor and sensual imagery, so characteristic of what we call Baroque art, but scandalous to many even in his own lifetime.
-- 1999/11/10/1152159	        He has already had an encounter with two of the students -- the troubled basketball star Lester Dewitt (Usher Raymond) and Ziggy Malone (Robert Ri'chard ), the abused pint-size *Michelangelo of* the Lincoln High cockloft by the time Mr. Knowles and his students are forced to abandon their classroom.
-- 2000/06/27/1210663	        So Astorre starts lookin' into who ordered the hit on the don, and he finds this conspiracy like you wouldn't believe. It involves a rival don who's a stone cold whack-a-doo; this F.B.I. agent who acts like he's the  *Michelangelo of* G-men; these two crooked cops who've been on the take; and this fat pig of a drug dealer, who -- get this -- is trying to get his mitts on the A-bomb to protect his business in South America. Jeez, it's like something outta Oliver Stone.
-- 2000/07/02/1211833	        MONTE WARNE is a down-home Renaissance man, a *Michelangelo of* machinery: a licensed aircraft and airplane-engine mechanic, an aircraft designer, a licensed private, commercial and crop-duster pilot, a lifelong motorcyclist and a former motorcycle and car racer. So what possessed him to build the outrageous Boss Hoss, a motorcycle with a Corvette V-8 engine?
-- 2001/08/13/1316945	        ''The kitsch is a reaction against people's pomposity or solemnity in regard to aesthetic things, a challenge to look for quality in surprising places,'' said Nina Bourne, the director of advertising at Knopf and old friend of Mr. Gottlieb. ''But he will have found the best of whatever it is, the *Michelangelo of* seashell art.''
-- 2002/06/14/1400433	        The depths of Coolidge's anonymity surprise Mrs. Acheson; after all, she said, ''He is supposed to be the *Michelangelo of* the dog world.'' Then again, the town historian admitted that even she did not know who Coolidge was until a decade ago -- when a stranger came to town, chatting about some long-forgotten artist who used to paint dogs.
-- 2002/09/08/1421681	        ''I HAVE, you know, in my time been called -- in print -- the *Michelangelo of* confectioners,'' says the proprietor of a Los Angeles store where the movie star Kaye Wayfaring buys white-chocolate-dipped strawberries. Vartan Vartanessian loves to boast about his candied triumphs -- an edible model of the Colleen Moore Fairy Castle (''there I did work to challenge the Sistine Chapel'') or ''Sid Grauman's Chinese Theater in brilliantly sculpted multihued spun sugars.'' Something of this confectioner's exuberance animates the work of James McCourt, whose fiction -- an arch, allusive stream of ''in'' jokes, arcana and camp backchat -- has won him a small but enthusiastic following of sweet-toothed readers. But while Vartanessian knows that double-dipping a strawberry is wrong -- ''it is every bit as incorrect to overwhelm the fruit with the chocolate as to be skimpy'' -- McCourt, in his new volume of Kaye Wayfaring stories, ''Wayfaring at Waverly in Silver Lake,'' is rather more profligate with his gifts.
-- 2002/12/29/1452372	        Mr. Byrd has occupied an extraordinarily beautiful suite, resplendent with frescoes by Constantino Brumidi, the Italian artist often called the *Michelangelo of* the Capitol. Senator Ted Stevens, Republican of Alaska, is moving in. It will be up to Senator Rick Santorum, a Pennsylvania Republican who will become chairman of the Rules Committee, to decide where Mr. Byrd moves.
-- 2003/04/18/1481787	        Delacroix and Barye were friends, Mr. Davies said. ''Once, when a lion died, Delacroix rushed Barye a note, and they both went out to draw it at close range.'' Barye also studied the reptiles at the menagerie at the natural history museum in Paris. (The French critic Théophile Gautier called him the *Michelangelo of* the menagerie.) ''His subjects are very much limited to what he saw at the zoo and the natural history museum,'' Mr. Davies said. ''He became the earliest and most important sculptor of the French animaliers, a school of animal artists.''
-- 2003/08/02/1508990	        ''Mel Gibson is the *Michelangelo of* this generation,'' said the Rev. Ted Haggard, president of the National Association of Evangelicals.
-- 2003/08/05/1509790	        Bruce Ellerstein letter says that if Mel Gibson really were '*Michelangelo of* his generation' he would open up screenings of The Passion to viewers other than those he knows will safely embrace it
-- 2003/08/05/1509790	        If Mel Gibson was truly the ''*Michelangelo of* this generation,'' as one supporter puts it, he would open screenings of ''The Passion'' to viewers other than those he knows will safely embrace it (front page, Aug. 2).
-- 2003/11/11/1534480	        This is no way to behave on a studio show! Lobbying for a coaching job is unseemly. Denial or subterfuge is the strategy. The prototype was Bill Parcells, who, while working for NBC after he left the Giants, was the *Michelangelo of* saying he did not interview with clubs he had clearly interviewed with. On Fox's pregame show, before Jimmy Johnson left to coach the Miami Dolphins, he wore a cap with the names of two teams he was said to be talking to or being pursued by.
-- 2004/02/06/1556771	        Hailed in his time as ''the *Michelangelo of* the menagerie,'' and today as France's greatest animalier, or portrayer of animals, Antoine-Louis Barye (1796-1875) applied a robust realism to his portrayal of beasts and reptiles as well as humans. His small-scale bronzes depicting warriors on horseback, lions and tigers at their prey, frisky elephants and mythological encounters appealed -- like the work of his friend Eugène Delacroix -- to a Romantic Age audience with an appetite for the passionate and fiercely intense.
-- 2004/03/03/1563330	        The movement of the tango -- originally two beats to a measure, the first divided, and later 4/4 or 4/8 time -- is seductive. So, too, are the harmonic progressions and repetitive song-form stanzas. Both elements enter a vastly broader and more complex world in the music of Astor Piazzolla, certainly the *Michelangelo of* tango music. But surrounding, indeed enveloping, is the dark beauty of the dance itself.
-- 2005/03/20/1658232	        Until fairly recently, Marfa was known for only two things: the Marfa Mystery Lights, which allegedly resemble headlights dancing in the night sky but have no known cause -- and which I am afraid I did not see; and the 1956 movie ''Giant,'' for which the town served as the setting for James Dean's last cinematic appearance. (Memorabilia commemorating both phenomena are widely available in town.) Things began to change in 1971, when the Minimalist artist Donald Judd sought a refuge from New York in more open Western territory and settled on Marfa as a congenial locale. Judd -- who, I am hardly the first to note, was very acquisitive for a so-called Minimalist -- went on intermittent real estate binges, so that by the time he died in 1994, he presided over most of the mothballed military base, Fort D.A. Russell, and the majority of the boarded-up buildings in town. He transformed the property into exhibition spaces for both his own work and that of artists he admired. ''Too often, I believe, the meaning of a work of art is lost as a result of thoughtless or unsuitable placement of the work for display,'' he wrote three years before his death. He felt that, if possible, art should be installed permanently, as was done in Renaissance churches. With the help of the Dia Foundation, he began the project of becoming both the Medici and the *Michelangelo of* Marfa. When Dia encountered financial difficulties in 1985 and tried to curtail its commitment, Judd threatened to sue. He eventually negotiated a divorce and rechristened the reorganized holdings as the Chinati Foundation.
-- <strike>2005/11/06/1715174	        THE human body's largest organ is its skin: at an average of around 20 square feet, an ample if challenging canvas for the tattoo artists who, in Sarah Hall's new novel, make this piercing and inking a kind of birth rite for selfhood. The best of them ''bestowed uncompromising communication upon the world'' and ''caught the echo of a person and engraved it on to them.'' Once 14-year-old Cyril Parks -- the future Electric *Michelangelo of* the title -- apprentices himself to one of these ''scrapers,'' he'll spend the rest of his life working with the human body in all its pain and flux, wiping blood away as he inscribes pictures that both sum up and inspire his customers' lives.</strike>
-- 2006/12/17/1812547	        ''There's four of us,'' said Kyle Avila, the *Michelangelo of* the bunch, adorably holding up his three turtle fingers.
-- 2007/04/12/1839640	        Rejection is an art best crafted by experience. Mr. Gunn is the *Michelangelo of* the form. Here, a sampling of his words to a series of washouts:
+- 1987/03/24/0024161	Yet you have the gall to take up precious space between a mansard roof and a wood-and-leather lobby under the illusion that you can become a *Michelangelo of* the art form known as living?
+- 1987/12/20/0103276	Trump sees himself as the *Michelangelo of* that form.
+- 1988/01/08/0107736	There is the *Michelangelo of* the Sistine Chapel.
+- 1989/04/05/0237599	''I call him the *Michelangelo of* the cancer world.
+- 1989/06/06/0256423	'' The top-hatted statue will utter not a word about the American sucker, for the simple reason that Barnum - the *Michelangelo of* buncombe, hokum, hoopla and ballyhoo - was himself the victim of a hoax.
+- 1990/06/24/0363548	The *Michelangelo of* the Laurentian Library in Florence is somewhere behind the unornamented finesse of the carved walnut frame of around 1540 that is all lightness and apparent simplicity and yet can stand, in its own right, as an object of great beauty.
+- 1992/10/17/0563533	Michael Tracy is a *Michelangelo of* the memorial wall, the sprawling street-side shrines to victims of urban violence that have sprung up around New York with unnerving frequency in recent years.
+- 1993/05/09/0607682	Actor: Jason Scott Lee  Vital statistics: Age 26, 5 feet 11 inches tall, 155 pounds  Training routine: Six to eight hours a day, six days a week, for 10 months, plus weeks of work with those nasty Oriental weapons, the nunchukus  Salary: A reported $250,000 Movie: "Dragon: The Bruce Lee Story" (opened on Friday)  Pitch: A Bruce Lee movie without Bruce Lee  Budget: $15 million to $20 million Character: Bruce Lee, the *Michelangelo of* martial arts  Lethal Weapons: Jeet kune do (Lee's personal brand of  mayhem) and the accompanying vocal hee-yah-ahhhhs  Lethal line: "I have to finish my workout.
+- 1993/06/04/0612971	He has been called the *Michelangelo of* floats.
+- 1993/09/26/0636806	A noted French writer has called Leni Riefenstahl "the Plato and *Michelangelo of* the Leica," and her films assure her an enduring place in cinematic history.
+- 1994/05/01/0684246	It is the rarest of carousels, sculptured by the "*Michelangelo of* wood carvers," says one of the men who brought it back to life.
+- 1996/08/13/0871265	Deaver, the *Michelangelo of* the balloon drop, and the joint impresarios here, William I.
+- 1997/03/29/0918913	And when he's referred to as the *Michelangelo of* coaching, I really think that's a very appropriate term.
+- 1997/07/08/0942413	The *Michelangelo of* control pitchers has not walked a batter in his last five starts.
+- 1998/09/20/1047759	*Michelangelo of* Eastport will open a fourth restaurant next month at County Road 111 in Manorville (878-1616), on the route to the Hamptons.
+- 1998/09/25/1049076	She goes to a plastic surgeon (Michael Lerner) who's been dubbed ''the *Michelangelo of* Manhattan'' by Newsweek.
+- 1998/11/20/1063495	She goes to a plastic surgeon (Michael Lerner) who's been dubbed ''the *Michelangelo of* Manhattan'' by  Newsweek.
+- 1998/12/06/1067343	Almost from his birth in 1598, Gianlorenzo Bernini was groomed to be the *Michelangelo of* his age.
+- 1999/11/10/1152159	He has already had an encounter with two of the students -- the troubled basketball star Lester Dewitt (Usher Raymond) and Ziggy Malone (Robert Ri'chard ), the abused pint-size *Michelangelo of* the Lincoln High cockloft by the time Mr.
+- 2000/06/27/1210663	agent who acts like he's the  *Michelangelo of* G-men; these two crooked cops who've been on the take; and this fat pig of a drug dealer, who -- get this -- is trying to get his mitts on the A-bomb to protect his business in South America.
+- 2000/07/02/1211833	MONTE WARNE is a down-home Renaissance man, a *Michelangelo of* machinery: a licensed aircraft and airplane-engine mechanic, an aircraft designer, a licensed private, commercial and crop-duster pilot, a lifelong motorcyclist and a former motorcycle and car racer.
+- 2001/08/13/1316945	''But he will have found the best of whatever it is, the *Michelangelo of* seashell art.
+- 2002/06/14/1400433	Acheson; after all, she said, ''He is supposed to be the *Michelangelo of* the dog world.
+- 2002/09/08/1421681	''I HAVE, you know, in my time been called -- in print -- the *Michelangelo of* confectioners,'' says the proprietor of a Los Angeles store where the movie star Kaye Wayfaring buys white-chocolate-dipped strawberries.
+- 2002/12/29/1452372	Byrd has occupied an extraordinarily beautiful suite, resplendent with frescoes by Constantino Brumidi, the Italian artist often called the *Michelangelo of* the Capitol.
+- 2003/04/18/1481787	(The French critic Théophile Gautier called him the *Michelangelo of* the menagerie.
+- 2003/08/02/1508990	''Mel Gibson is the *Michelangelo of* this generation,'' said the Rev.
+- 2003/08/05/1509790	Bruce Ellerstein letter says that if Mel Gibson really were '*Michelangelo of* his generation' he would open up screenings of The Passion to viewers other than those he knows will safely embrace it
+- 2003/08/05/1509790	If Mel Gibson was truly the ''*Michelangelo of* this generation,'' as one supporter puts it, he would open screenings of ''The Passion'' to viewers other than those he knows will safely embrace it (front page, Aug.
+- 2003/11/11/1534480	The prototype was Bill Parcells, who, while working for NBC after he left the Giants, was the *Michelangelo of* saying he did not interview with clubs he had clearly interviewed with.
+- 2004/02/06/1556771	Hailed in his time as ''the *Michelangelo of* the menagerie,'' and today as France's greatest animalier, or portrayer of animals, Antoine-Louis Barye (1796-1875) applied a robust realism to his portrayal of beasts and reptiles as well as humans.
+- 2004/03/03/1563330	Both elements enter a vastly broader and more complex world in the music of Astor Piazzolla, certainly the *Michelangelo of* tango music.
+- 2005/03/20/1658232	With the help of the Dia Foundation, he began the project of becoming both the Medici and the *Michelangelo of* Marfa.
+- 2005/11/06/1715174	'' Once 14-year-old Cyril Parks -- the future Electric *Michelangelo of* the title -- apprentices himself to one of these ''scrapers,'' he'll spend the rest of his life working with the human body in all its pain and flux, wiping blood away as he inscribes pictures that both sum up and inspire his customers' lives.
+- 2006/12/17/1812547	''There's four of us,'' said Kyle Avila, the *Michelangelo of* the bunch, adorably holding up his three turtle fingers.
+- 2007/04/12/1839640	Gunn is the *Michelangelo of* the form.
 
 * TODO vossantos
 manually check all candidates ...

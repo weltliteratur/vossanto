@@ -104,8 +104,8 @@
   set grid on
   set logscale y
 
-  plot data u 1:2 w linespoints pt 7 title 'DQ',\
-       data u 1:3 w linespoints pt 7 title 'DQ of'
+  plot data u 1:2 w linespoints pt 7 title 'Don Quixote',\
+       data u 1:3 w linespoints pt 7 title 'Don Quixote of'
 
   set term png enhanced size 800,600 lw 2
   set out 'dq.png'
