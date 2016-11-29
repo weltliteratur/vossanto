@@ -10,8 +10,10 @@
 #+STARTUP: hidestars showall
 
 * next steps 
-- Use text search to find all occurrences of "the Michael Jordan of"
-  and use the results to improve the identification method.
+- Use text search to find all occurrences of "the Michael Jordan
+  of". (first results for [[file:examples/mj.org][Michael Jordan]], [[file:examples/m.org][Michelangelo]], [[file:examples/br.org][Babe Ruth]], [[examples/dq.org][Don
+  Quixote]])
+- Use the results to improve the identification method.
 - Add all examples from NYT as test cases.
 - Analyse distribution of regex patterns.
 - Try to restrict to search for 2nd and 3rd part.
