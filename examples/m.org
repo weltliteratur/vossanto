@@ -15,7 +15,7 @@
 ** extraction from corpus
 #+BEGIN_SRC sh
   for i in nyt_corpus_*gz; do
-      ./nyt.py --regex "([^\\.?\!\\n]*?michelangelo.*?[\\.?\!\\n])"  $i > michelangelo_$i.txt
+      ./nyt.py --regex "([^\\.?\!\\n]*?michelangelo.*?[\\.?\!\\n])" $i > michelangelo_$i.txt
   done
 #+END_SRC
 
@@ -33,6 +33,7 @@
 
 - 3121
 - 3007
+
 * statistics
 
 ** number of articles per year
