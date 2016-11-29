@@ -174,7 +174,6 @@ done
   grep -i "don quixote of\b" dq.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/don quixote of/*&*/i"
 #+END_SRC
 
-#+RESULTS:
 - 1987/06/28/0052659	'*Don Quixote of* the Skies'
 - 1987/06/28/0052659	A Stern reporter and photographer accompanied the parents to Moscow for their encounter with the ''*Don Quixote of* the Skies,'' as the magazine anointed the teen-age pilot.
 - 1988/05/01/0140606	'' (Chicago papers dubbed him the ''*Don Quixote of* Dumping.
