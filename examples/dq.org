@@ -1,0 +1,200 @@
+#+TITLE: Don Quixote
+#+AUTHOR: 
+#+EMAIL: 
+#+KEYWORDS:
+#+DESCRIPTION:
+#+TAGS:
+#+LANGUAGE: en
+#+OPTIONS: toc:nil ':t H:5
+#+STARTUP: hidestars overview
+#+LaTeX_CLASS: scrartcl
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+#+PANDOC_OPTIONS:
+
+* extraction from corpus
+#+BEGIN_SRC sh
+for i in nyt_corpus_*gz; do
+   ./nyt.py --regex "([^\\.?\!\\n]*?don quixote.*?[\\.?\!\\n])"  $i > don_quixote_$i.txt
+done
+#+END_SRC
+
+* cleansing
+** merge and remove empty lines
+*TODO* check why we have empty lines
+#+BEGIN_SRC sh :results silent
+  grep -v -h -e '^[[:space:]]*$' don_quixote_*.txt > dq.txt
+#+END_SRC
+
+* validity checks
+** duplicate phrases
+#+BEGIN_SRC sh :results raw list
+  grep -v "^\s*$" dq.txt | wc -l
+  awk -F'\t' '{print $2}' dq.txt | sort -u | wc -l
+#+END_SRC
+
+- 1651
+- 1613
+
+* number of articles per year
+
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $1}' dq.txt | sed -e "s/.*corpus_//" -e "s/\..*//" | sort  | uniq -c
+#+END_SRC
+
+#+RESULTS:
+|  94 | 1987 |
+|  73 | 1988 |
+|  80 | 1989 |
+|  66 | 1990 |
+|  60 | 1991 |
+|  65 | 1992 |
+|  49 | 1993 |
+|  38 | 1994 |
+|  56 | 1995 |
+|  72 | 1996 |
+|  71 | 1997 |
+|  68 | 1998 |
+|  96 | 1999 |
+| 117 | 2000 |
+|  83 | 2001 |
+| 118 | 2002 |
+| 135 | 2003 |
+|  93 | 2004 |
+| 138 | 2005 |
+|  51 | 2006 |
+|  28 | 2007 |
+
+* phrases
+
+#+tblname: data
+| year | "DQ" | "DQ of" |
+|------+------+---------|
+| 1987 |   94 |       2 |
+| 1988 |   73 |       1 |
+| 1989 |   80 |       2 |
+| 1990 |   66 |       0 |
+| 1991 |   60 |       0 |
+| 1992 |   65 |       0 |
+| 1993 |   49 |       1 |
+| 1994 |   38 |       2 |
+| 1995 |   56 |       0 |
+| 1996 |   72 |       0 |
+| 1997 |   71 |       2 |
+| 1998 |   68 |       1 |
+| 1999 |   96 |       1 |
+| 2000 |  117 |       1 |
+| 2001 |   83 |       0 |
+| 2002 |  118 |       1 |
+| 2003 |  135 |       1 |
+| 2004 |   93 |       4 |
+| 2005 |  138 |       1 |
+| 2006 |   51 |       0 |
+| 2007 |   28 |       0 |
+|------+------+---------|
+|  sum | 1651 |      20 |
+| mean | 78.6 |     1.0 |
+#+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.1f::@24$3=vmean(@I..@II);%2.1f::
+
+#+begin_src gnuplot :var data=data :file dq.svg :results silent
+  set term svg enhanced size 800,600 lw 2
+  set yrange [1:]
+  set xlabel "year"
+  set ylabel "articles"
+  set grid on
+  set logscale y
+
+  plot data u 1:2 w linespoints pt 7 title 'DQ',\
+       data u 1:3 w linespoints pt 7 title 'DQ of'
+  
+  set term png enhanced size 800,600 lw 2
+  set out 'dq.png'
+  replot
+#+end_src
+
+#+CAPTION: articles over time
+#+NAME:   fig:dq
+[[file:dq.png]]
+
+** "don quixote of"
+**** Distribution
+#+BEGIN_SRC sh
+  grep -i "don quixote of\b" dq.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
+#+END_SRC
+
+#+RESULTS:
+| 2 | 1987 |
+| 1 | 1988 |
+| 2 | 1989 |
+| 0 | 1990 |
+| 0 | 1991 |
+| 0 | 1992 |
+| 1 | 1993 |
+| 2 | 1994 |
+| 0 | 1995 |
+| 0 | 1996 |
+| 2 | 1997 |
+| 1 | 1998 |
+| 1 | 1999 |
+| 1 | 2000 |
+| 0 | 2001 |
+| 1 | 2002 |
+| 1 | 2003 |
+| 4 | 2004 |
+| 1 | 2005 |
+| 0 | 2006 |
+| 0 | 2007 |
+
+**** frequent modifiers ("aktualisierende Signale")
+
+#+BEGIN_SRC sh 
+  grep -i "don quixote of\b" dq.txt | sed -r -e "s/.*don quixote of *(((the|his|this|her|la) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
+#+END_SRC
+
+| articles | modifier       |
+|----------+----------------|
+|        4 | la_mancha      |
+|        2 | washington     |
+|        2 | the_skies      |
+|        1 | trainers       |
+|        1 | this_political |
+|        1 | the_state      |
+|        1 | the_race       |
+|        1 | the_keyboard   |
+|        1 | modern-day     |
+|        1 | local          |
+|        1 | film           |
+|        1 | dumping        |
+|        1 | central        |
+|        1 | cab            |
+|        1 | alaska         |
+
+**** Examples
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "don quixote of\b" dq.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/don quixote of/*&*/i"
+#+END_SRC
+
+#+RESULTS:
+- 1987/06/28/0052659	'*Don Quixote of* the Skies'
+- 1987/06/28/0052659	A Stern reporter and photographer accompanied the parents to Moscow for their encounter with the ''*Don Quixote of* the Skies,'' as the magazine anointed the teen-age pilot.
+- 1988/05/01/0140606	'' (Chicago papers dubbed him the ''*Don Quixote of* Dumping.
+- 1989/02/20/0225067	LEAD: The *Don Quixote of* Washington magazines is celebrating an anniversary this month, having tilted at this city's bureaucratic windmills for 20 years.
+- 1989/02/20/0225067	The *Don Quixote of* Washington magazines is celebrating an anniversary this month, having tilted at this city's bureaucratic windmills for 20 years.
+- 1993/05/30/0611945	Over the last 24 years, he has emerged as the undisputed *Don Quixote of* the State Legislature, a man willing to rail endlessly about the political misdeeds of the majority even when absolutely nobody was listening.
+- 1994/02/01/0665939	Koppelman, who also heads the Center for Policy Studies at the State University of New York at Stony Brook, is the *Don Quixote of* local consolidation, forever tilting at the excesses of home rule -- and never getting very far.
+- 1994/05/10/0686386	London, a professor at New York University and the Conservative Party candidate four years ago, is the seasoned veteran of this road show, a wanderer who is either the Odysseus or *Don Quixote of* the race, depending how his fortunes fall.
+- 1997/04/06/0920859	Murphy, the *Don Quixote of* this political season, is when his romance with the Governor's mansion will end.
+- 1997/04/26/0925445	Kind reader, this is the story of how in a certain building in Madrid there gathered the intrepid people of Castile, some of them bearing modern armor like attache cases, cameras and mobile telephones, and, trusting in a favorable reception, they stayed up throughout the night and read aloud the life and adventures of that famous knight *Don Quixote of* La Mancha.
+- 1998/07/12/1031070	Then I called Edward Rogoff, the *Don Quixote of* cab riders.
+- 1999/06/27/1119090	The talk led newspapers and neighbors to call him the *Don Quixote of* Alaska.
+- 2000/02/18/1177421	He is the *Don Quixote of* modern-day politics.
+- 2002/03/03/1372223	Nat, the *Don Quixote of* Central Park West, is a street-smart spirit, undaunted by a walker, a thug or two in the park, or a daughter who wants to shield him in suburbia, put him in a nursing home or, if need be, have him declared mentally incompetent, for his own good, of course.
+- 2003/12/25/1545782	This *Don Quixote of* the keyboard, who didn't play well enough to pursue a performing career, explained his fascination.
+- 2004/03/21/1568022	The *Don Quixote of* trainers, he has taught people in wheelchairs to mountain climb and scuba dive.
+- 2004/05/02/1578828	To this day, it seems, the imaginary world that Cervantes created in The Ingenious Knight *Don Quixote of* La Mancha is where Spaniards still try to work out who they are.
+- 2004/11/18/1628258	Miguel de Cervantes, always outsider in Spain in his lifetime, is still struggling in some ways to fit in, even as nation plans big celebrations for 400th anniversary of his book *Don Quixote of* La Mancha in Jan; Cervantes's Madrid tomb is closed to public, his house no longer stands and shop where book was first printed is marked only by plaque; scholars lament that he is more applauded as source of pride than revered, or read, in Spain; photos (M)
+- 2004/11/18/1628258	But his tomb is closed to the public, his house no longer stands and the shop where ''*Don Quixote of* La Mancha'' was first printed is marked only by a plaque.
+- 2005/05/01/1668876	Does any name come to mind more insistently than Welles, that *Don Quixote of* film directors?
+
+* TODO vossantos
+manually check all candidates ...
