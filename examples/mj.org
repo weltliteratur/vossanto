@@ -1,6 +1,6 @@
 #+TITLE: Michael Jordan
-#+AUTHOR: 
-#+EMAIL: 
+#+AUTHOR:
+#+EMAIL:
 #+KEYWORDS:
 #+DESCRIPTION:
 #+TAGS:
@@ -11,73 +11,92 @@
 #+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
 #+PANDOC_OPTIONS:
 
-* extraction from corpus
+* preparation
+** extraction from corpus
 #+BEGIN_SRC sh
-for i in nyt_corpus_*gz; do
-  ./nyt.py --regex "(\\.?.*?michael jordan.*?[\\.\\n])"  $i > michael_jordan_$i.txt
-done
+  for i in nyt_corpus_*gz; do
+      ./nyt.py --regex "([^\\.?\!\\n]*?michael jordan.*?[\\.?\!\\n])"  $i > michael_jordan_$i.txt
+  done
 #+END_SRC
 
-* cleansing
-** merge
-#+BEGIN_SRC sh
-  cat michael_jordan_*.txt > mj.txt
+** merge and remove empty lines
+*TODO* check why we have empty lines
+#+BEGIN_SRC sh :results silent
+  grep -v -h -e '^[[:space:]]*$' michael_jordan_*.txt > mj.txt
 #+END_SRC
 
-** remove empty lines
-*TODO* check why we have them
-#+BEGIN_SRC sh
-  grep -v -e '^[[:space:]]*$' mj.txt > mj1.txt
-  mv mj1.txt mj.txt
-#+END_SRC
-* validity checks
-** duplicate phrases
-#+BEGIN_SRC sh
+** count duplicate phrases
+#+BEGIN_SRC sh :results raw list
   grep -v "^\s*$" mj.txt | wc -l
   awk -F'\t' '{print $2}' mj.txt | sort -u | wc -l
 #+END_SRC
 
-| 7892 |
-| 7725 |
+- 7898
+- 7658
 
-* number of articles per year
+* statistics
+
+** number of articles per year
 
 #+BEGIN_SRC sh
   awk -F'\t' '{print $1}' mj.txt | sed -e "s/.*corpus_//" -e "s/\..*//" | sort  | uniq -c
 #+END_SRC
 
+#+RESULTS:
+| 178 | 1987 |
+| 203 | 1988 |
+| 277 | 1989 |
+| 247 | 1990 |
+| 368 | 1991 |
+| 467 | 1992 |
+| 675 | 1993 |
+| 369 | 1994 |
+| 413 | 1995 |
+| 703 | 1996 |
+| 603 | 1997 |
+| 664 | 1998 |
+| 593 | 1999 |
+| 479 | 2000 |
+| 409 | 2001 |
+| 336 | 2002 |
+| 324 | 2003 |
+| 162 | 2004 |
+| 183 | 2005 |
+| 132 | 2006 |
+| 113 | 2007 |
+
 * phrases
 
-#+tblname: mj-data
-| year |  "MJ" | "MJ of" | "the MJ of" | "a MJ of" | "of MJ of" |
-|------+-------+---------+-------------+-----------+------------|
-| 1987 |   178 |      26 |           0 |         0 |          0 |
-| 1988 |   203 |      21 |           0 |         0 |          0 |
-| 1989 |   276 |      20 |           1 |         0 |          2 |
-| 1990 |   247 |      21 |           4 |         0 |          0 |
-| 1991 |   368 |      25 |           6 |         0 |          1 |
-| 1992 |   467 |      11 |           2 |         0 |          0 |
-| 1993 |   675 |      12 |           4 |         0 |          0 |
-| 1994 |   367 |       3 |           2 |         1 |          0 |
-| 1995 |   413 |       1 |           0 |         0 |          0 |
-| 1996 |   702 |       8 |           6 |         0 |          0 |
-| 1997 |   602 |       5 |           1 |         0 |          0 |
-| 1998 |   664 |       9 |           7 |         0 |          0 |
-| 1999 |   593 |      11 |           8 |         3 |          0 |
-| 2000 |   479 |      13 |          12 |         0 |          0 |
-| 2001 |   409 |       8 |           7 |         0 |          0 |
-| 2002 |   336 |       7 |           5 |         0 |          0 |
-| 2003 |   324 |       4 |           2 |         0 |          0 |
-| 2004 |   162 |       1 |           0 |         0 |          0 |
-| 2005 |   183 |       2 |           2 |         0 |          0 |
-| 2006 |   131 |       3 |           3 |         0 |          0 |
-| 2007 |   113 |       3 |           3 |         0 |          0 |
-|------+-------+---------+-------------+-----------+------------|
-|  sum |  7892 |     222 |          75 |         4 |          3 |
-| mean | 375.8 |    10.6 |         3.6 |       0.2 |        0.1 |
-#+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.1f::@24$3=vmean(@I..@II);%2.1f::@24$4=vmean(@I..@II);%2.1f::@24$5=vmean(@I..@II);%2.1f::@24$6=vmean(@I..@II);%2.1f
+#+tblname: data
+| year |  "MJ" | "MJ of" | "the MJ of" |
+|------+-------+---------+-------------|
+| 1987 |   178 |      26 |           0 |
+| 1988 |   203 |      21 |           0 |
+| 1989 |   277 |      20 |           1 |
+| 1990 |   247 |      21 |           4 |
+| 1991 |   368 |      25 |           6 |
+| 1992 |   467 |      11 |           2 |
+| 1993 |   675 |      12 |           4 |
+| 1994 |   369 |       3 |           2 |
+| 1995 |   413 |       1 |           0 |
+| 1996 |   703 |       8 |           6 |
+| 1997 |   603 |       5 |           1 |
+| 1998 |   664 |       9 |           7 |
+| 1999 |   593 |      11 |           8 |
+| 2000 |   479 |      13 |          12 |
+| 2001 |   409 |       8 |           7 |
+| 2002 |   336 |       7 |           5 |
+| 2003 |   324 |       4 |           2 |
+| 2004 |   162 |       1 |           0 |
+| 2005 |   183 |       2 |           2 |
+| 2006 |   132 |       3 |           3 |
+| 2007 |   113 |       3 |           3 |
+|------+-------+---------+-------------|
+|  sum |  7898 |     214 |          75 |
+| mean | 376.1 |    10.2 |         3.6 |
+#+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.1f::@24$3=vmean(@I..@II);%2.1f::@24$4=vmean(@I..@II);%2.1f::
 
-#+begin_src gnuplot :var data=mj-data :file mj.svg :results silent
+#+begin_src gnuplot :var data=data :file mj.svg :results silent
   set term svg enhanced size 800,600 lw 2
   set yrange [1:]
   set xlabel "year"
@@ -88,7 +107,7 @@ done
   plot data u 1:2 w linespoints pt 7 title 'MJ',\
        data u 1:3 w linespoints pt 7 title 'MJ of',\
        data u 1:4 w linespoints pt 7 title 'the MJ of'
-  
+
   set term png enhanced size 800,600 lw 2
   set out 'mj.png'
   replot
@@ -99,194 +118,521 @@ done
 [[file:mj.png]]
 
 ** "michael jordan of"
+*** distribution
 #+BEGIN_SRC sh
   grep -i "michael jordan of\b" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
 #+END_SRC
 
-*** "the michael jordan of"
-**** Distribution
+#+RESULTS:
+| 26 | 1987 |
+| 21 | 1988 |
+| 20 | 1989 |
+| 21 | 1990 |
+| 25 | 1991 |
+| 11 | 1992 |
+| 12 | 1993 |
+|  3 | 1994 |
+|  1 | 1995 |
+|  8 | 1996 |
+|  5 | 1997 |
+|  9 | 1998 |
+| 11 | 1999 |
+| 13 | 2000 |
+|  8 | 2001 |
+|  7 | 2002 |
+|  4 | 2003 |
+|  1 | 2004 |
+|  2 | 2005 |
+|  3 | 2006 |
+|  3 | 2007 |
+
+*** frequent modifiers ("aktualisierende Signale")
+
+#+BEGIN_SRC sh
+  grep -i "michael jordan of\b" mj.txt | sed -r -e "s/.*michael jordan of *(((the|his|this|her|my) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
+#+END_SRC
+
+| modifier       | articles |
+|----------------+----------|
+| the_chicago    |       86 |
+| the_bulls      |       19 |
+| chicago        |       17 |
+| hockey         |        6 |
+| golf           |        4 |
+| women          |        3 |
+| his_time       |        3 |
+| the_n          |        2 |
+| snowboarding   |        2 |
+| geopolitics    |        2 |
+| game           |        2 |
+| figure         |        2 |
+| boxing         |        2 |
+| this_sport     |        1 |
+| the_white      |        1 |
+| the_washington |        1 |
+| the_university |        1 |
+| the_state      |        1 |
+| the_sport      |        1 |
+| the_south      |        1 |
+| the_national   |        1 |
+| the_hudson     |        1 |
+| the_game       |        1 |
+| the_eagles     |        1 |
+| the_dirt       |        1 |
+| the_college    |        1 |
+| the_buffalo    |        1 |
+| the            |        1 |
+| tennis         |        1 |
+| television     |        1 |
+| soccer         |        1 |
+| sauternes      |        1 |
+| rodeo          |        1 |
+| real-life      |        1 |
+| putting        |        1 |
+| orange         |        1 |
+| north          |        1 |
+| my_trade       |        1 |
+| motocross      |        1 |
+| mexico         |        1 |
+| management     |        1 |
+| late-night     |        1 |
+| laser          |        1 |
+| language       |        1 |
+| jumpers        |        1 |
+| julienne       |        1 |
+| integrating    |        1 |
+| indiana        |        1 |
+| hunting        |        1 |
+| horse          |        1 |
+| his_team       |        1 |
+| his_sport      |        1 |
+| his_day        |        1 |
+| her_time       |        1 |
+| harlem         |        1 |
+| football       |        1 |
+| foosball       |        1 |
+| fast           |        1 |
+| dressage       |        1 |
+| diving         |        1 |
+| dance          |        1 |
+| cyberspace     |        1 |
+| cricket        |        1 |
+| computer       |        1 |
+| college        |        1 |
+| bull           |        1 |
+| broadway       |        1 |
+| brazilian      |        1 |
+| bmx            |        1 |
+| basketball     |        1 |
+| baseball       |        1 |
+| australia      |        1 |
+| american       |        1 |
+| afghanistan    |        1 |
+| actresses      |        1 |
+| 12th           |        1 |
+|                |        1 |
+
+*** examples
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "michael jordan of\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/michael jordan of/*&*/i"
+#+END_SRC
+
+- 1987/01/04/0000798	*Michael Jordan of* the Chicago Bulls, tearing up the N.
+- 1987/01/04/0000798	*Michael Jordan of* the Chicago Bulls, tearing up the N.
+- 1987/01/27/0007666	The East starters selected by the fans, include Julius Erving of the Philadelphia 76ers and *Michael Jordan of* the Chicago Bulls, at guard, Larry Bird of the Celtics and Dominque Wilkins of the Atlanta Hawks, at forward, and Moses Malone of the Washington Bullets, at center.
+- 1987/01/28/0007841	Since the fans preferred *Michael Jordan of* the Chicago Bulls and Julius Erving of the 76ers as the starting guards, the coaches provided K.
+- 1987/01/30/0008549	LEAD: *Michael Jordan of* the Chicago Bulls, who is leading the National Basketball Association in scoring with 36.
+- 1987/01/30/0008549	*Michael Jordan of* the Chicago Bulls, who is leading the National Basketball Association in scoring with 36.
+- 1987/02/04/0010044	*Michael Jordan of* the Chicago Bulls, the league's scoring leader, has missed more shots from the field (677) than any of his teammates have taken.
+- 1987/02/15/0013464	LEAD: Dunk: *Michael Jordan of* the Bulls scoring against the Knicks at the Garden.
+- 1987/02/15/0013464	Dunk: *Michael Jordan of* the Bulls scoring against the Knicks at the Garden.
+- 1987/03/02/0018130	Only Rick Barry, but that singularity might end this season if *Michael Jordan of* the Chicago Bulls maintains his 37.
+- 1987/03/12/0020963	The majority will be spent in television, starting with a 60-second commercial of the black-and-white documentary genre in which ordinary health nuts appear with such stars as *Michael Jordan of* basketball and John McEnroe of tennis in a variety of sports including barefoot swimming.
+- 1987/03/18/0022459	Since then, the awards have gone to Terry Cummings of the San Diego Clippers (25-57), Ralph Sampson of the Houston Rockets (29-53), *Michael Jordan of* the Chicago Bulls (38-44), and Patrick Ewing of the Knicks (23-59).
+- 1987/04/07/0028002	84 field goals attempted per game - *Michael Jordan of* the Chicago Bulls will finish the regular season a week from Friday with not only a higher scoring average but also more shots tried than anyone else in N.
+- 1987/04/07/0028002	84 field goals attempted per game - *Michael Jordan of* the Chicago Bulls will finish the regular season a week from Friday with not only a higher scoring average but also more shots tried than anyone else in N.
+- 1987/04/17/0030891	Above 2,000 are *Michael Jordan of* Chicago, Alex English of Denver, Dominique Wilkins of Atlanta, Kiki Vandeweghe of Portland, Larry Bird of Boston and Mark Aguirre of Dallas.
+- 1987/05/04/0036924	3 in a six-game series against the Baltimore Bullets in 1965, and *Michael Jordan of* the Chicago Bulls, whose 43.
+- 1987/05/11/0039369	QUESTION: If the National Hockey League practice of giving a goal and an assist equal weight in scoring (1 point apiece) were adopted by the National Basketball Association, would *Michael Jordan of* the Chicago Bulls still have been the league's leading scorer this season?
+- 1987/05/27/0044152	Chosen to join Johnson in the starting backcourt by 78 media representatives who cover the National Basketball Association was the league's scoring champion, *Michael Jordan of* the Chicago Bulls.
+- 1987/08/11/0064926	A team of scientists, led by *Michael Jordan of* the University of North Carolina at Wilmington, will look for openings in the sea floor where water heated inside the earth's crust is welling up.
+- 1987/10/31/0088121	LEAD: *Michael Jordan of* Chicago scoring against Nets' Mike Gminski in first half of exhibition game last night at Charlotte, N.
+- 1987/10/31/0088121	*Michael Jordan of* Chicago scoring against Nets' Mike Gminski in first half of exhibition game last night at Charlotte, N.
+- 1987/11/01/0088506	Moreover, Chuck Person of the Indiana Pacers, who made the playoffs for the first time in six years, won rookie-of-the-year honors, Ron Harper of the Cavaliers was the runner-up and *Michael Jordan of* the Chicago Bulls led the league in scoring.
+- 1987/11/11/0091856	LEAD: *Michael Jordan of* the Bulls was all alone at the basket as he slammed one in against the Hawks in the first half last night at Atlanta.
+- 1987/11/11/0091856	*Michael Jordan of* the Bulls was all alone at the basket as he slammed one in against the Hawks in the first half last night at Atlanta.
+- 1987/11/24/0095833	*Michael Jordan of* the Bulls is the only player in the league to have led his team in scoring in every game this season.
+- 1987/12/28/0105374	*Michael Jordan of* the Bulls had a 37.
+- 1988/01/13/0109127	LEAD: *Michael Jordan of* the Chicago Bulls will defend his title in the slam-dunk competition during the National Basketball Association All-Star weekend against two former winners, Dominique Wilkins and Spud Webb of the Atlanta Hawks.
+- 1988/01/13/0109127	*Michael Jordan of* the Chicago Bulls will defend his title in the slam-dunk competition during the National Basketball Association All-Star weekend against two former winners, Dominique Wilkins and Spud Webb of the Atlanta Hawks.
+- 1988/01/13/0109163	(AP)  Celtics 104, Bulls 97: Larry Bird of Boston scored 16 of his 38 points in a furious fourth quarter last night to outduel *Michael Jordan of* Chicago and lead the Celtics to victory.
+- 1988/01/22/0111953	LEAD: When the fans' ballots had been counted, *Michael Jordan of* the Chicago Bulls and Earvin (Magic) Johnson of the Los Angeles Lakers were the only players to draw more than a million votes each for the National Basketball Association's All-Star Game Feb.
+- 1988/01/22/0111953	When the fans' ballots had been counted, *Michael Jordan of* the Chicago Bulls and Earvin (Magic) Johnson of the Los Angeles Lakers were the only players to draw more than a million votes each for the National Basketball Association's All-Star Game Feb.
+- 1988/02/09/0117213	The leaders in the other categories were Michael Cooper of the Lakers as the best defensive player, Jerome Kersey of the Trail Blazers as the most improved, Roy Tarpley of the Dallas Mavericks as best sixth man, Pat Riley of the Lakers as coach of the year, and *Michael Jordan of* the Chicago Bulls as most valuable player.
+- 1988/02/12/0118417	Wilkins finished second to the hometown favorite, *Michael Jordan of* the Chicago Bulls, after receiving a score of 45 of a possible 50 - his lowest total of the competition - on his final dunk, Jordan was awarded a 50 on his final shot and won.
+- 1988/02/20/0120667	CHICAGO (AP) - *Michael Jordan of* Chicago scored 18 of his 49 points in the second quarter and broke open a close game with 16 points and two steals in the third quarter.
+- 1988/02/22/0121176	The performance by Daugherty, who had 29 points for the game, overcame a 46-point effort by *Michael Jordan of* Chicago.
+- 1988/03/18/0128589	It has been an especially tumultuous year for Smart, the 6-foot-1 inch guard who joined Lorenzo Charles of North Carolina State and *Michael Jordan of* North Carolina as college basketball's last-second heroes.
+- 1988/04/05/0133599	LEAD: *Michael Jordan of* the Chicago Bulls, who scored a season-high 59 points against the Detroit Pistons on Sunday, has been named National Basketball Association player of the week for the period ending Sunday.
+- 1988/04/05/0133599	*Michael Jordan of* the Chicago Bulls, who scored a season-high 59 points against the Detroit Pistons on Sunday, has been named National Basketball Association player of the week for the period ending Sunday.
+- 1988/04/25/0139340	Even *Michael Jordan of* the Chicago Bulls, the league's top scorer, said he wished that the Celtics would get to play the Knicks ''so they can tire the Celtics out in case we have to play them in the next round.
+- 1988/05/07/0142795	LEAD: Even with the home-system advantage, *Michael Jordan of* the Chicago Bulls finished second by a slim margin to Larry Bird of the Boston Celtics, who was declared the National Basketball Association's best player according to a new statistical method of rating basketball players.
+- 1988/05/07/0142795	Even with the home-system advantage, *Michael Jordan of* the Chicago Bulls finished second by a slim margin to Larry Bird of the Boston Celtics, who was declared the National Basketball Association's best player according to a new statistical method of rating basketball players.
+- 1988/05/14/0145084	in scoring with an average of 35 points a game, *Michael Jordan of* the Chicago Bulls won recognition for the second consecutive season as the league's top offensive player.
+- 1988/05/14/0145084	in scoring with an average of 35 points a game, *Michael Jordan of* the Chicago Bulls won recognition for the second consecutive season as the league's top offensive player.
+- 1988/05/24/0148271	Next came *Michael Jordan of* the Chicago Bulls, the N.
+- 1988/06/09/0152571	LEAD: *Michael Jordan of* the Chicago Bulls, the National Basketball Association's leader in scoring and steals, was the only unanimous choice to the league's all-star team announced yesterday.
+- 1988/06/09/0152571	*Michael Jordan of* the Chicago Bulls, the National Basketball Association's leader in scoring and steals, was the only unanimous choice to the league's all-star team announced yesterday.
+- 1988/12/27/0209764	9 points a game, second best in the league behind *Michael Jordan of* the Chicago Bulls (35).
+- 1989/01/22/0216423	5 points a game, third best in the National Basketball Association behind *Michael Jordan of* the Chicago Bulls and Karl Malone of the Utah Jazz.
+- 1989/01/24/0217133	'' Afterward, the Bengals were comparing Rice taking over the game to *Michael Jordan of* the Chicago Bulls taking over a basketball game.
+- 1989/01/26/0217691	LEAD: *Michael Jordan of* the Chicago Bulls scored the 10,000th point of his career tonight, but the Bulls lost to the Philadelphia 76ers, 120-108.
+- 1989/01/26/0217691	*Michael Jordan of* the Chicago Bulls scored the 10,000th point of his career tonight, but the Bulls lost to the Philadelphia 76ers, 120-108.
+- 1989/02/01/0219422	The East starters will be *Michael Jordan of* the Chicago Bulls and Isiah Thomas of the Detroit Pistons, guards; Charles Barkley of the Philadelphia 76ers and Dominique Wilkins of the Atlanta Hawks, forwards, and Moses Malone of the Hawks, center.
+- 1989/02/01/0219462	*Michael Jordan of* Chicago had his third triple-double of the season - 21 points, 12 assists, 10 rebounds.
+- 1989/02/07/0221328	The three additions followed by one day the withdrawal of *Michael Jordan of* the
+- 1989/02/07/0221328	The three additions followed by one day the withdrawal of *Michael Jordan of* the Bulls, the two-time defending champion, who has a sprained knee.
+- 1989/03/19/0232912	''Jack Purcell's,'' the low-top canvas shoes from Converse associated with the actor James Dean, and the Nike basketball shoes endorsed by *Michael Jordan of* the Chicago Bulls both have great street credibility.
+- 1989/05/19/0251456	He may have been the closest thing to the *Michael Jordan of* his day, as earthbound as he was.
+- 1989/05/23/0252838	in 1987, edged *Michael Jordan of* the Chicago Bulls in the closest voting in eight years.
+- 1989/06/23/0260813	Bird, *Michael Jordan of* the Chicago Bulls and Isiah Thomas of the Detroit Pistons head the roster of National Basketball Association and former Indiana college stars competing in Larry's Game, a benefit in Indianapolis to raise money for college scholarships for disadvantaged youth.
+- 1989/08/13/0274995	8 million a year, far less than the $3 million-plus such National Basketball Association players as *Michael Jordan of* Chicago, David Robinson of San Antonio and Patrick Ewing of the Knicks are expected to earn in a single year over the lives of their contracts.
+- 1989/11/18/0302069	9 scoring average is third highest in the National Basketball Association, behind *Michael Jordan of* the Chicago Bulls and Chris Mullin of the Golden State Warriors.
+- 1989/12/05/0306655	2 points a game, second best in the National Basketball Association behind *Michael Jordan of* the Chicago Bulls.
+- 1989/12/05/0306655	2 points a game, second best in the National Basketball Association behind *Michael Jordan of* the Chicago Bulls.
+- 1989/12/12/0308534	*Michael Jordan of* the Chicago Bulls, who averaged 33.
+- 1989/12/19/0310406	1 points, third best in the league behind *Michael Jordan of* the Chicago Bulls and Patrick Ewing of the Knicks.
+- 1989/12/22/0311286	There is truly Magic in Orlando, where even a 52-point game by *Michael Jordan of* the Bulls on Wednesday night could not break the spell.
+- 1989/12/31/0313383	*Michael Jordan of* the Chicago Bulls led the scorers with a 32.
+- 1990/01/03/0313936	'*Michael Jordan of* Hockey'
+- 1990/01/03/0313936	''Gretzky is the *Michael Jordan of* hockey,'' said Fitzpatrick, who intimidated shooters in the manner of Patrick Ewing.
+- 1990/01/16/0317202	LEAD: A National Basketball Association official has been quoted as saying the league will not sanction a proposal for a $1 million one-on-one duel between *Michael Jordan of* the Bulls and Magic Johnson of the Lakers.
+- 1990/01/16/0317202	A National Basketball Association official has been quoted as saying the league will not sanction a proposal for a $1 million one-on-one duel between *Michael Jordan of* the Bulls and Magic Johnson of the Lakers.
+- 1990/01/26/0320444	For the fourth consecutive year, *Michael Jordan of* the Chicago Bulls was the leading vote-getter, named on 321,114 of the 1,162,033 ballots cast.
+- 1990/01/26/0320469	Karl Malone, the league's best power forward and second best scorer behind *Michael Jordan of* the Bulls, was obviously shaken when A .
+- 1990/01/31/0322100	The Celtic power forward and the 36-year-old Parish were among the seven reserves added in a vote by the conference coaches to augment the starting team of Bird, Charles Barkley of Philadelphia, Patrick Ewing of the Knicks, *Michael Jordan of* Chicago and Isiah Thomas of Detroit, who were selected as starters in a vote by the fans.
+- 1990/02/10/0325065	Dumars of the Pistons and *Michael Jordan of* the Chicago Bulls will be playing together on the East team.
+- 1990/03/07/0332581	LEAD: She is the *Michael Jordan of* figure skating, a dazzling athlete of uncommon skill who performs at a level unattained by many skaters, unattainable by most others.
+- 1990/03/07/0332581	She is the *Michael Jordan of* figure skating, a dazzling athlete of uncommon skill who performs at a level unattained by many skaters, unattainable by most others.
+- 1990/03/11/0333896	And star players have long been paid to promote sneakers: *Michael Jordan of* the Chicago Bulls earns about $1.
+- 1990/05/08/0351575	LEAD: Given the man-to-man defense that is mandated in the National Basketball Association, you rarely see a matchup featuring a beefy forward like Charles Barkley of the Philadelphia 76ers against a slender guard like *Michael Jordan of* the Chicago Bulls.
+- 1990/05/08/0351575	Given the man-to-man defense that is mandated in the National Basketball Association, you rarely see a matchup featuring a beefy forward like Charles Barkley of the Philadelphia 76ers against a slender guard like *Michael Jordan of* the Chicago Bulls.
+- 1990/05/18/0354457	They were joined on the team by *Michael Jordan of* Chicago, Akeem Olajuwon of Houston and Buck Williams of Portland.
+- 1990/05/23/0355969	*Michael Jordan of* the Chicago Bulls was third with 571 points.
+- 1990/05/26/0356664	In balloting by 180 players, Barkley received 57 1/2 votes to 44 1/2 for Magic Johnson of the Los Angeles Lakers and 44 for *Michael Jordan of* the Chicago Bulls.
+- 1990/05/26/0356664	In balloting by 180 players, Barkley received 57 1/2 votes to 44 1/2 for Magic Johnson of the Los Angeles Lakers and 44 for *Michael Jordan of* the Chicago Bulls.
+- 1990/06/07/0359546	551 from the field, joined repeaters Magic Johnson of the Los Angeles Lakers and *Michael Jordan of* Chicago, the guards, and Charles Barkley of Philadelphia and Karl Malone of
+- 1990/06/07/0359546	551 from the field, joined repeaters Magic Johnson of the Los Angeles Lakers and *Michael Jordan of* Chicago, the guards, and Charles Barkley of Philadelphia and Karl Malone of Utah, the forwards.
+- 1990/08/14/0376022	''The pre-pension plan, as it is set up now, is bad for basketball,'' *Michael Jordan of* the Chicago Bulls said in a statement.
+- 1990/12/24/0410716	"But, in reality, I think I could be the *Michael Jordan of* 12th men.
+- 1991/01/15/0415377	2), *Michael Jordan of* the Chicago Bulls (31.
+- 1991/01/22/0417057	" A few days later, *Michael Jordan of* the Bulls asked, "Where are you from?
+- 1991/01/25/0417777	The fans who vote for the starting teams in the National Basketball Association All-Star Game have decided to shake up the Western Conference lineup and stand pat with the Eastern one, which features *Michael Jordan of* the Chicago Bulls, the only player to receive more than a million votes.
+- 1991/01/30/0418993	In selecting the guards Joe Dumars of the Pistons, Ricky Pierce and Alvin Robertson of the Milwaukee Bucks, the coaches left it up to Chris Ford of the Boston Celtics, who will coach the East, to determine who will start in the backcourt with *Michael Jordan of* the Chicago Bulls.
+- 1991/02/24/0425782	"We just pulled out of a first-half funk," said Charles Barkley, the National Basketball Association's second leading scorer behind *Michael Jordan of* the Chicago Bulls.
+- 1991/03/04/0427731	Gear not to use the theme, which takes a swipe at Nike and its spokesman, *Michael Jordan of* the Chicago Bulls professional basketball team.
+- 1991/03/20/0431286	Nike has a stable of celebrities, including *Michael Jordan of* the Chicago Bulls in the National Basketball Association and John McEnroe, the tennis star.
+- 1991/03/23/0432009	The campaign from Lois/GGK, called "Pump up and Air out," featured athletes taking a swipe at Nike's spokesman, *Michael Jordan of* the Chicago Bulls of the National Basketball Association, and the maker's Air Jordan shoes.
+- 1991/05/09/0444151	On video as on the basketball court, *Michael Jordan of* the Chicago Bulls rolls up the score.
+- 1991/06/03/0450163	In a report, "Dribbling for Dollars," the advertising agency picked *Michael Jordan of* the Chicago Bulls as first in the starting lineup of endorsers.
+- 1991/07/02/0456931	Also during the All-Star Game, Nike plans to show new spots with the tennis star Andre Agassi; David Robinson of the San Antonio Spurs of the National Basketball Association, and the film director Spike Lee as Mars Blackmon, the ultimate fan of *Michael Jordan of* the N.
+- 1991/07/03/0457218	498 million) and *Michael Jordan of* the Chicago Bulls ($3.
+- 1991/07/04/0457461	498 million) and *Michael Jordan of* the Chicago Bulls ($3.
+- 1991/07/22/0462127	498 million) and *Michael Jordan of* the Chicago Bulls ($3.
+- 1991/07/23/0462310	498 million) and *Michael Jordan of* the Chicago Bulls ($3.
+- 1991/07/24/0462379	498 million) and *Michael Jordan of* the Chicago Bulls ($3.
+- 1991/07/30/0463947	It is undisputed that there were three such players -- *Michael Jordan of* the Chicago Bulls, John Williams of the Cleveland Cavaliers and Hakeem Olajuwon of the Houston Rockets, but for two reasons, I do not accept Ewing's contention that there was a fourth such player, Larry Bird of the Boston Celtics.
+- 1991/08/01/0464227	"I want to become the *Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
+- 1991/08/01/0464228	"I want to become the *Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
+- 1991/08/01/0464297	"I want to become the *Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
+- 1991/08/04/0465076	"I want to be the *Michael Jordan of* golf," said Mr.
+- 1991/08/11/0466343	On a recent evening on the Upper West Side, Earl Manigault recalled the days when he was the *Michael Jordan of* Harlem, a man who jumped so high he once believed he could take off after a running start and end up sitting on the rim.
+- 1991/09/24/0476001	About widespread speculation that *Michael Jordan of* the Chicago Bulls had said he wouldn't play if Thomas was selected, Thomas said he hoped that no one player would be able to wield that much power.
+- 1991/11/09/0485714	And in Chicago, *Michael Jordan of* the Bulls told an afternoon news conference that Johnson doesn't even have to ask.
+- 1991/12/08/0492282	She's the *Michael Jordan of* actresses.
+- 1992/01/05/0498328	When *Michael Jordan of* the Chicago Bulls basketball team began advertising basketball shoes a few years ago -- the Air Jordan line by Nike Inc.
+- 1992/01/07/0498722	They outnumbered the players by 4 to 1; the two active athletes on the list -- both, by no coincidence, busy product endorsers -- were the basketball superstar *Michael Jordan of* the Chicago Bulls and the golfer Jack Nicklaus.
+- 1992/01/24/0502719	The Bills are not necessarily in trouble in Sunday's Super Bowl just because Thomas wants to be known as the *Michael Jordan of* his team, leaving the implication that Jim Kelly, the quarterback, is merely Scottie Pippen.
+- 1992/02/02/0505134	That process reached its fullest development in Nike's dealing with *Michael Jordan of* the Chicago Bulls, the electrifying athlete whose association with Nike put the term "Air Jordans" into the sports lexicon -- and burned a desire for fancy footwear into the minds of countless impoverished city youths.
+- 1992/02/10/0506739	The game's final minute was particularly poignant, when Johnson had two one-on-one duels with two of his closest friends on the East team, Isiah Thomas of the Detroit Pistons and *Michael Jordan of* the Chicago Bulls.
+- 1992/04/05/0519164	*Michael Jordan of* the Chicago Bulls basketball team changed the way basketball shoes are colored, Mr.
+- 1992/05/28/0532049	NBA -- Fined Danny Ferry of the Cleveland Cavaliers $5,000, for throwing two punches at *Michael Jordan of* the Chicago Bulls during Game 4 of the Eastern Conference finals.
+- 1992/06/17/0536619	Eventually, Pacific Bell and Dow Jones would like to customize the service so subscribers can get specific kinds of news, such as only reports about *Michael Jordan of* the Chicago Bulls, instead of general sports summaries.
+- 1992/07/17/0543317	"He's the *Michael Jordan of* management in Digital.
+- 1992/08/16/0550508	2), Dave Anderson seems to accuse *Michael Jordan of* putting his commercial interests ahead of his country's in the great logo race.
+- 1992/09/19/0557433	Ramsey, referring to *Michael Jordan of* the Chicago Bulls.
+- 1993/01/24/0585384	*Bills offensive coordinator Ted Marchibroda calls quarterback Jim Kelly the *Michael Jordan of* the Buffalo team.
+- 1993/02/04/0587971	Joining O'Neal in the Eastern Conference starting lineup is guard *Michael Jordan of* Chicago, who was the last rookie to start and who led all players in votes for a record seventh straight year with 1,035,824.
+- 1993/02/09/0589135	22, was the *Michael Jordan of* his time and the unofficial player spokesman before Magic Johnson.
+- 1993/02/09/0589066	While Reebok enjoyed the leadership position in athletic footwear for three years in the 1980's, Nike moved ahead in 1989, powered by the popularity of its celebrity spokesman, *Michael Jordan of* the Chicago Bulls, the world's most marketed athlete, and the introduction of the Air Jordan product.
+- 1993/02/10/0589436	Erving was the *Michael Jordan of* his time, but what a different time that was.
+- 1993/05/03/0606212	One of four outstanding players will win the award: Charles Barkley of the Phoenix Suns, Patrick Ewing of the Knicks, *Michael Jordan of* the Chicago Bulls or Hakeem Olajuwon of the Houston Rockets.
+- 1993/05/15/0608959	*MICHAEL JORDAN of* Chicago and DAVID ROBINSON of San Antonio, last year's winner, tied for second with nine votes each, followed by Detroit's DENNIS RODMAN, winner of the award in 1990 and 1991, with three votes.
+- 1993/05/22/0610424	Now, with the opening game of the Eastern Conference final scheduled for Sunday, and with most onlookers conceding that nobody will be able to stop *Michael Jordan of* the Bulls, there's a lot of focus on how the Knicks, specifically Smith, will cope with Chicago's backup go-to man.
+- 1993/05/28/0611654	Charles Barkley of the Suns, the National Basketball Association's most valuable player, and *Michael Jordan of* the Bulls, the league's scoring champion for a record-tying seventh straight time, were unanimous selections to the 1992-93 all-N.
+- 1993/05/30/0611970	Starks was ejected from Game 3 of the Eastern Conference championship series against Chicago following his angry and persistent exchange with *Michael Jordan of* the Bulls with 9 minutes 9 seconds to play.
+- 1993/06/04/0612985	If pro basketball's most famout clean-shaven heads - *MICHAEL JORDAN of* the Chicago Bulls and CHARLES BARKELY of the Phoenix Suns - meet for the championship next week, at least one of them will be speaking to the news media.
+- 1993/08/26/0631050	"Joey Cora calls me the *Michael Jordan of* the White Sox.
+- 1994/01/23/0664050	He was kind of like a *Michael Jordan of* football.
+- 1994/07/05/0697585	If Jones was the *Michael Jordan of* her time, scoring at will, Cain, 33, is the Magic Johnson of hers.
+- 1994/07/05/0697643	"Romario is the *Michael Jordan of* soccer and Bebeto is the Magic Johnson of soccer," said American defender Paul Caligiuri.
+- 1995/10/29/0805151	Most people believed they were just finals-crashers at the conclusion of a depressed season, after *Michael Jordan of* Chicago quit and Charles Barkley of Phoenix got hurt.
+- 1996/01/08/0821241	Given his celebrity status, he certainly could pick up the phone and call, say, *Michael Jordan of* the Bulls and ask his advice about trying to make it in two sports.
+- 1996/01/17/0823248	When a Guy starts cooking, he wants to be the Joe Montana of mousse, the *Michael Jordan of*  julienne, the Cal Ripken Jr.
+- 1996/05/10/0849554	Burry is the *Michael Jordan of* integrating insurance and health care, so he commands a pretty big salary," said William Silverman, a spokesman for Blue Cross.
+- 1996/06/14/0857634	He said he would bid on free agents "if the *Michael Jordan of* hockey" becomes available.
+- 1996/08/03/0869199	And, of course, the *Michael Jordan of* Brazilian basketball for the past 20 years, has simply been known as Oscar.
+- 1996/12/06/0893794	''Our Michael Jordan liked the idea, and we discussed it with the representatives of the *Michael Jordan of* the Bulls.
+- 1996/12/06/0893794	''Initially we had the *Michael Jordan of* the College Fund, who actually could shoot, making all his shots,'' said Marvin Waldman, executive vice president and group creative director at Y.
+- 1996/12/06/0893794	I said to Spike, 'This is not *Michael Jordan of* the Bulls.
+- 1997/04/06/0920711	Last year *Michael Jordan of* the Chicago Bulls gave $1 million to the University of North Carolina at Chapel Hill to create a new research institute on families in the School of Social Work.
+- 1997/05/29/0933223	Ira Berkow column disputes contention that *Michael Jordan of* Chicago Bulls played poorly against Miami Heat in fourth game of Eastern Conference finals because he had played 48 holes of golf day before; says Jordan had miserable first half because he was not challenged (M)
+- 1997/07/06/0942047	That was the lesson Alonzo Mourning, the star center for the Miami Heat, tried to draw in May from the fifth game of the Eastern Conference finals of the National Basketball Association, when *Michael Jordan of* the Chicago Bulls refused to shake his outstretched hand.
+- 1997/12/12/0979675	*Michael Jordan of* the State Department of Environmental Conservation.
+- 1997/12/26/0983138	No one wants his autograph, and no one asks him if he thinks of himself as the *Michael Jordan of* tennis, a question that makes Sampras lose his appetite wherever and whenever it is asked.
+- 1998/03/30/1006144	''The *Michael Jordan of* women's basketball,'' Barmore called Holdsclaw.
+- 1998/03/30/1006162	And Holdsclaw is often referred to as the *Michael Jordan of* women's basketball.
+- 1998/05/15/1017089	*Michael Jordan of* the Chicago Bulls has helped win five N.
+- 1998/05/19/1018219	*Michael Jordan of* Chicago Bulls wins NBA's most valuable player award; joins Kareem Abdul-Jabbar and Bill Russell to become only third player to win award five times; Abdul-Jabbar has won award six times (M)
+- 1998/09/27/1049680	and is now a sportscaster, and David Bailey, the *Michael Jordan of* motocross racing in the 1980's who became paralyzed in a racing accident and will compete in a wheelchair along part of the course.
+- 1998/11/05/1059693	The show also features equine entertainers including Bonfire, the *Michael Jordan of* dressage horses.
+- 1998/11/06/1060001	The exhibitions featured the trick horses of the charro champion Jerry Diaz, who surrounds himself and his palomino with a spinning lariat, as well as a balletic dressage demonstration by the four-time United States Olympian Robert Dover and Anky van Grunsven of the Netherlands, whose bay horse, Bonfire, is the *Michael Jordan of* this sport.
+- 1998/11/19/1063282	Moments ago, in the preliminary round of the computer game championships, he didn't just beat but demolished Dennis Fong, who happens to be the *Michael Jordan of* computer games.
+- 1998/12/27/1072824	Here's to Brian Foster, the *Michael Jordan of* BMX racing, whose bike-riding skills earn him more than $100,000 per year.
+- 1999/01/17/1077956	But although Jordan retired from the Chicago Bulls and the game of basketball last week, there's still a *Michael Jordan of* snowboarding.
+- 1999/01/17/1077956	And a *Michael Jordan of* bull riding.
+- 1999/01/17/1077956	Even a *Michael Jordan of* real-life bulls.
+- 1999/01/17/1077956	Terje Haakenson, a Norwegian, executes moves on a snowboard that nobody had ever seen before, so he's dubbed the *Michael Jordan of* snowboarding -- in every interview and article on him.
+- 1999/01/17/1077956	That makes him the *Michael Jordan of* cricket.
+- 1999/01/17/1077956	To his publicist, that makes him the *Michael Jordan of* Mexico.
+- 1999/01/17/1077956	Meet the *Michael Jordan of* .
+- 1999/01/24/1080017	If you think that Mike will live forever, remember the role Johnny Carson played in the national culture (he was the *Michael Jordan of* late-night TV) and the enormous coverage of his retirement and his replacements.
+- 1999/03/28/1095607	America today is the *Michael Jordan of* geopolitics -- the overwhelmingly dominant system.
+- 1999/05/19/1108691	''Tropicana is the *Michael Jordan of* orange juice,'' said Emanuel Goldman, a global consumer-products analyst for Merrill Lynch.
+- 1999/12/05/1158663	'' Or when, during a heated practice, she's trying to outfox youngsters like Chamique Holdsclaw, the player she's pegged as the star for the new millennium and to whom she's prepared to bequeath her moniker as the *Michael Jordan of* women's ball.
+- 2000/02/22/1178469	''It's very unique, though, to be able to bring the *Michael Jordan of* baseball home where he was raised in Cincinnati,'' said Jim Bowden, the Reds' general manager, who tried to minimize how the contract favors the Reds.
+- 2000/03/05/1181268	Suppose you are a would-be *Michael Jordan of* my trade, consulting?
+- 2000/05/06/1197248	For the benefit of anyone under 40, Howdy Doody was the *Michael Jordan of* television puppets.
+- 2000/05/14/1199474	''They wanted the *Michael Jordan of* fast food,'' Mr.
+- 2000/05/15/1199732	He is the *Michael Jordan of* his sport, but even Jordan could find legitimate challengers.
+- 2000/06/19/1208725	''He's the *Michael Jordan of* diving,'' Ruiz said.
+- 2000/08/13/1222322	The stunt biker Dave Mirra, the *Michael Jordan of* the dirt set, has his own chewing gum (Dave Mirra's BMX Bubble Gum), as well as his own pro model signature Adidas sneaker as well as a cereal en route.
+- 2000/09/17/1231421	LASER -- In the popular open dinghy class, Robert Scheidt of Brazil is the *Michael Jordan of* Laser sailing, a dominant force who has won four world championships.
+- 2000/09/29/1234541	When the Australian point guard, Shane Heal, referred to him as ''the *Michael Jordan of* Australia'' today, Gaze shook his head.
+- 2000/11/05/1244777	Chris Ballard article on trivia buffs who are passionate almost to obsession about becoming contestants on TV game shows and spend lots of time playing, and winning, Internet trivia contests; focuses on Leszek Pawlowicz, considered the *Michael Jordan of* game shows; photos (M)
+- 2000/11/05/1244777	A quiet 43-year-old computer consultant who has been called ''the *Michael Jordan of* game shows,'' Pawlowicz (pronounced pa-VLO-vich) never lost a match while steamrolling to the title of the 1992 ''Jeopardy!
+- 2000/12/15/1255406	America today is the *Michael Jordan of* geopolitics.
+- 2000/12/31/1259397	Willey said it would benefit the *Michael Jordan of* cyberspace to log a few minutes on a real basketball court, and for the virtual version of Mike Tyson to know his way around an actual boxing ring.
+- 2001/01/04/1260139	Armstead and Barrow have been extremely respectful of McNabb this week, with Barrow calling him the *Michael Jordan of* the Eagles.
+- 2001/01/08/1261308	McNabb has been called the *Michael Jordan of* the National Football League.
+- 2001/10/04/1330703	He will share the stage at MCI Center with *Michael Jordan of* the N.
+- 2001/10/28/1337997	''He was not destined to become the *Michael Jordan of* Afghanistan,'' recalled Thomas E.
+- 2001/11/04/1339731	In their case, it's from wearing pin-striped shirts bearing the numbers of the most storied players in baseball history -- the Babe (now known as the *Michael Jordan of* his time), Lou Gehrig (if he hadn't died under contract, he would still be playing and nobody would know Cal Ripken), Joe DiMaggio (less mysteriously dignified but more interesting since the recent publication of a sour bio), Yogi Berra (in a deserved comeback as the role model for Yoda) and Mickey Mantle (redeemed by a gutsy death and Billy Crystal's movie, ''61*'').
+- 2001/11/08/1340953	'' The solo sensitively celebrates the gifts of Steve Humphrey, a longtime standout in the fine company and who, in a world that valued art more, would probably be the *Michael Jordan of* dance.
+- 2001/12/05/1348659	's 1998 entry draft, he was touted by the Tampa Bay Lightning as ''the *Michael Jordan of* hockey'' -- the ultimate sports mixed metaphor.
+- 2001/12/05/1348659	But it's doubtful that the Lightning could justify trading ''the *Michael Jordan of* hockey'' for Gomez and White.
+- 2002/01/27/1362878	*Michael Jordan of* the Washington Wizards should get credit, too, for nothing more than activating himself.
+- 2002/01/27/1362919	''They say he is the best boxer in the world, the *Michael Jordan of* boxing,'' Forrest said.
+- 2002/04/14/1384103	I drove out to a spot on the north side of the pier and stopped to talk to some of the regulars, Jimmy Mulligan, Peter Catanese and John Francesconi, known to his friends as the *Michael Jordan of* the Hudson.
+- 2002/05/15/1392385	''I've read that I'm the '*Michael Jordan of* rodeo' thousands of times,'' Murray said.
+- 2002/07/01/1405095	''Kiraly, he's like the *Michael Jordan of* the sport,'' said Armato, who founded the A.
+- 2002/07/25/1410921	He learned much from Lukas, who statistically is the *Michael Jordan of* horse racing, and he is grateful.
+- 2002/12/22/1450658	He was introduced as the *Michael Jordan of* hunting and fishing.
+- 2003/02/10/1463946	This would not be the vintage *Michael Jordan of* the Chicago Bulls, winner of six N.
+- 2003/03/09/1471019	''He's the *Michael Jordan of* the game,'' Bowden said.
+- 2003/06/01/1493264	'' By the time he stands, slick with sweat and smiling, at the curtain calls, the audience is on its feet and screaming for him as if he is the Mick Jagger or *Michael Jordan of* Broadway.
+- 2003/06/03/1494048	He was the *Michael Jordan of* Indiana.
+- 2004/07/25/1599236	United who has been hailed as the future *Michael Jordan of* American soccer.
+- 2005/09/18/1702809	''Château d'Yquem is the *Michael Jordan of* Sauternes,'' he says.
+- 2005/10/09/1708539	''Bill is the *Michael Jordan of* language.
+- 2006/02/05/1737164	And soon to become, in marketing terms, ''the *Michael Jordan of* college coaches,'' according to his agent, David Falk (who is, yes, Jordan's agent).
+- 2006/06/06/1767059	He had them open a container that held the *Michael Jordan of* jumpers, a species the biologists liked to call rocket frogs.
+- 2006/11/06/1802795	Frederic Collignon, a 30-year-old who works as a car salesman in Liège, Belgium, but who is considered by his fans to be the *Michael Jordan of* foosball, said, ''Nice mountains, nice view, a little bit too cold, and it is different from Vegas, but I still like the town.
+- 2007/03/28/1836163	Thomas, a first-round draft pick, emerges as the *Michael Jordan of* the South Korean penal system.
+- 2007/04/17/1841042	Billed as the *Michael Jordan of* hockey by a former Lightning owner, Lecavalier appeared to be on a career path more like Sam Bowie's, his 37 points in 76 games in his fourth season seeming to cement his underachieving status.
+- 2007/05/03/1844722	He's the *Michael Jordan of* boxing.
+
+** "the michael jordan of"
+*** distribution
 
 #+BEGIN_SRC sh
   grep -i "the michael jordan of\b" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
 #+END_SRC
 
-**** frequent modifiers ("aktualisierende Signale")
+#+RESULTS:
+|  0 | 1987 |
+|  0 | 1988 |
+|  1 | 1989 |
+|  4 | 1990 |
+|  6 | 1991 |
+|  2 | 1992 |
+|  4 | 1993 |
+|  2 | 1994 |
+|  0 | 1995 |
+|  6 | 1996 |
+|  1 | 1997 |
+|  7 | 1998 |
+|  8 | 1999 |
+| 12 | 2000 |
+|  7 | 2001 |
+|  5 | 2002 |
+|  2 | 2003 |
+|  0 | 2004 |
+|  2 | 2005 |
+|  3 | 2006 |
+|  3 | 2007 |
 
-#+BEGIN_SRC sh 
-  grep -i "the michael jordan of\b" mj.txt | sed -r -e "s/.*the michael jordan of *(((the|his|this|her) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
+*** frequent modifiers ("aktualisierende Signale")
+
+#+BEGIN_SRC sh
+  grep -i "the michael jordan of\b" mj.txt | sed -r -e "s/.*the michael jordan of *(((the|his|this|her|my) *)?[^ \.,'\"\)]*).*/\1/i" -e "s/ /_/" | tr 'A-Z' 'a-z' | sort | uniq -c  | sort -nr
 #+END_SRC
 
-| phrase       | count |
-|--------------+-------|
-| hockey       |     5 |
-| golf         |     4 |
-| women        |     3 |
-| his_time     |     3 |
-| geopolitics  |     2 |
-| game         |     2 |
-| figure       |     2 |
-| boxing       |     2 |
-| this_sport   |     1 |
-| the_white    |     1 |
-| the_sport    |     1 |
-| the_south    |     1 |
-| the_national |     1 |
-| the_hudson   |     1 |
-| the_game     |     1 |
-| the_eagles   |     1 |
-| the_dirt     |     1 |
-| the_college  |     1 |
-| the_bulls    |     1 |
-| the_buffalo  |     1 |
-| tennis       |     1 |
-| television   |     1 |
-| soccer       |     1 |
-| snowboarding |     1 |
-| sauternes    |     1 |
-| orange       |     1 |
-| motocross    |     1 |
-| mexico       |     1 |
-| management   |     1 |
-| late-night   |     1 |
-| laser        |     1 |
-| language     |     1 |
-| jumpers      |     1 |
-| julienne     |     1 |
-| integrating  |     1 |
-| indiana      |     1 |
-| hunting      |     1 |
-| horse        |     1 |
-| his_team     |     1 |
-| his_sport    |     1 |
-| his_day      |     1 |
-| her_time     |     1 |
-| harlem       |     1 |
-| foosball     |     1 |
-| fast         |     1 |
-| dressage     |     1 |
-| diving       |     1 |
-| dance        |     1 |
-| cyberspace   |     1 |
-| cricket      |     1 |
-| computer     |     1 |
-| college      |     1 |
-| brazilian    |     1 |
-| bmx          |     1 |
-| baseball     |     1 |
-| australia    |     1 |
-| afghanistan  |     1 |
-| actresses    |     1 |
-| 12th         |     1 |
-|              |     1 |
+| modifier     | articles |
+|--------------+----------|
+| hockey       |        5 |
+| golf         |        4 |
+| women        |        3 |
+| his_time     |        3 |
+| geopolitics  |        2 |
+| game         |        2 |
+| figure       |        2 |
+| boxing       |        2 |
+| this_sport   |        1 |
+| the_white    |        1 |
+| the_sport    |        1 |
+| the_south    |        1 |
+| the_national |        1 |
+| the_hudson   |        1 |
+| the_game     |        1 |
+| the_eagles   |        1 |
+| the_dirt     |        1 |
+| the_college  |        1 |
+| the_bulls    |        1 |
+| the_buffalo  |        1 |
+| tennis       |        1 |
+| television   |        1 |
+| soccer       |        1 |
+| snowboarding |        1 |
+| sauternes    |        1 |
+| orange       |        1 |
+| motocross    |        1 |
+| mexico       |        1 |
+| management   |        1 |
+| late-night   |        1 |
+| laser        |        1 |
+| language     |        1 |
+| jumpers      |        1 |
+| julienne     |        1 |
+| integrating  |        1 |
+| indiana      |        1 |
+| hunting      |        1 |
+| horse        |        1 |
+| his_team     |        1 |
+| his_sport    |        1 |
+| his_day      |        1 |
+| her_time     |        1 |
+| harlem       |        1 |
+| foosball     |        1 |
+| fast         |        1 |
+| dressage     |        1 |
+| diving       |        1 |
+| dance        |        1 |
+| cyberspace   |        1 |
+| cricket      |        1 |
+| computer     |        1 |
+| college      |        1 |
+| brazilian    |        1 |
+| bmx          |        1 |
+| baseball     |        1 |
+| australia    |        1 |
+| afghanistan  |        1 |
+| actresses    |        1 |
+| 12th         |        1 |
+|              |        1 |
 
-**** Examples
+*** examples
 
 #+BEGIN_SRC sh :results raw list
   grep -i "the michael jordan of\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/the michael jordan of/*&*/i"
 #+END_SRC
 
-- 1989/05/19/0251456	        The future jurist stood in the pivot and dazzled crowd and opponents by whipping the ball around to cutting teammates. He may have been the closest thing to *the Michael Jordan of* his day, as earthbound as he was.
-- 1990/01/03/0313936	        ''Gretzky is *the Michael Jordan of* hockey,'' said Fitzpatrick, who intimidated shooters in the manner of Patrick Ewing.
-- 1990/03/07/0332581	        LEAD: She is *the Michael Jordan of* figure skating, a dazzling athlete of uncommon skill who performs at a level unattained by many skaters, unattainable by most others.
-- 1990/03/07/0332581	        She is *the Michael Jordan of* figure skating, a dazzling athlete of uncommon skill who performs at a level unattained by many skaters, unattainable by most others.
-- 1990/12/24/0410716	        "As a player, my ego says that I don't want to be a 12th man," Haley said. "But, in reality, I think I could be *the Michael Jordan of* 12th men.
-- 1991/08/01/0464227	        "I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
-- 1991/08/01/0464228	        "I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
-- 1991/08/01/0464297	        "I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
-- 1991/08/04/0465076	        Eldrick (Tiger) Woods was learning to play out of sand traps when his contemporaries were playing in sandboxes. Now 15 years old, Mr. Woods last weekend became the youngest player ever to win the United States Junior Amateur golf championship. The California high school sophomore, who is also the first black player ever to win the junior championship, may be the best adolescent golfer to come along since Bobby Jones won the Georgia State Amateur in 1944 at the age of 14. Mr. Woods began playing as a toddler, and shot a 48 over nine regulation holes at the age of 3. He marks the progress of his career against that of Jack Nicklaus, whom he intends to supplant as the golf world's consensus all-time greatest. He will get his shot at the reigning United States Amateur champion, 21-year-old Phil Mickelson, in a tournament beginning Aug. 20. "I want to be *the Michael Jordan of* golf," said Mr.
-- 1991/08/11/0466343	        On a recent evening on the Upper West Side, Earl Manigault recalled the days when he was *the Michael Jordan of* Harlem, a man who jumped so high he once believed he could take off after a running start and end up sitting on the rim.
-- 1991/12/08/0492282	        "I knew immediately that she was a long-ball hitter, emotionally, intellectually and artistically -- and by the way, physically, too -- and it was hard to see where the limitations were," he says. "I thought I had some objectivity. Now, I'm just completely nonobjective about her. She's *the Michael Jordan of* actresses.
-- 1992/01/24/0502719	        The Bills are not necessarily in trouble in Sunday's Super Bowl just because Thomas wants to be known as *the Michael Jordan of* his team, leaving the implication that Jim Kelly, the quarterback, is merely Scottie Pippen.
-- 1992/07/17/0543317	        "Palmer is brilliant, one of the most balanced managers I've seen," a Digital finance manager said. "He's *the Michael Jordan of* management in Digital.
-- 1993/01/24/0585384	        *Bills offensive coordinator Ted Marchibroda calls quarterback Jim Kelly *the Michael Jordan of* the Buffalo team.
-- 1993/02/09/0589135	        Erving, who will be 43 on Feb. 22, was *the Michael Jordan of* his time and the unofficial player spokesman before Magic Johnson.
-- 1993/02/10/0589436	        Erving was *the Michael Jordan of* his time, but what a different time that was.
-- 1993/08/26/0631050	        So do his teammates. "My teammates give me a hard time," he said. "Joey Cora calls me *the Michael Jordan of* the White Sox.
-- 1994/07/05/0697585	        If Jones was *the Michael Jordan of* her time, scoring at will, Cain, 33, is the Magic Johnson of hers.
-- 1994/07/05/0697643	        "Romario is *the Michael Jordan of* soccer and Bebeto is the Magic Johnson of soccer," said American defender Paul Caligiuri.
-- 1996/01/17/0823248	        In large part, this is due to the fact that Guys approach food as they do most things. Like, for example, war. Or its corollary, sports. When a Guy starts cooking, he wants to be the Joe Montana of mousse, *the Michael Jordan of*  julienne, the Cal Ripken Jr.
-- 1996/05/10/0849554	        "Mr. Burry is *the Michael Jordan of* integrating insurance and health care, so he commands a pretty big salary," said William Silverman, a spokesman for Blue Cross.
-- 1996/06/14/0857634	        Smith said he didn't know if he could afford to keep the veterans Pat Verbeek, a forward, and Jeff Beukeboom, a defenseman. Both become unrestricted free agents on July 1. He said he would bid on free agents "if *the Michael Jordan of* hockey" becomes available.
-- 1996/08/03/0869199	        And, of course, *the Michael Jordan of* Brazilian basketball for the past 20 years, has simply been known as Oscar.
-- 1996/12/06/0893794	        ''I thought, wouldn't it be interesting to do a commercial that played off that?,'' he continued. ''Our Michael Jordan liked the idea, and we discussed it with the representatives of *the Michael Jordan of* the Bulls.
-- 1996/12/06/0893794	        ''Initially we had *the Michael Jordan of* the College Fund, who actually could shoot, making all his shots,'' said Marvin Waldman, executive vice president and group creative director at Y.
-- 1997/12/26/0983138	        At the Waffle House, the anonymity factor is almost as intoxicating as the hot maple syrup. No one wants his autograph, and no one asks him if he thinks of himself as *the Michael Jordan of* tennis, a question that makes Sampras lose his appetite wherever and whenever it is asked.
-- 1998/03/30/1006144	        ''*The Michael Jordan of* women's basketball,'' Barmore called Holdsclaw.
-- 1998/03/30/1006162	        And Holdsclaw is often referred to as *the Michael Jordan of* women's basketball.
-- 1998/09/27/1049680	        For Saturday's anniversary race, the celebrities include Mike Adamle, a former football standout at Northwestern University who later played in the N.F.L. and is now a sportscaster, and David Bailey, *the Michael Jordan of* motocross racing in the 1980's who became paralyzed in a racing accident and will compete in a wheelchair along part of the course.
-- 1998/11/05/1059693	        The show also features equine entertainers including Bonfire, *the Michael Jordan of* dressage horses.
-- 1998/11/06/1060001	        The exhibitions featured the trick horses of the charro champion Jerry Diaz, who surrounds himself and his palomino with a spinning lariat, as well as a balletic dressage demonstration by the four-time United States Olympian Robert Dover and Anky van Grunsven of the Netherlands, whose bay horse, Bonfire, is *the Michael Jordan of* this sport.
-- 1998/11/19/1063282	        Kurt Shimada is shaking with joy, disbelief and a twinge of guilt. Moments ago, in the preliminary round of the computer game championships, he didn't just beat but demolished Dennis Fong, who happens to be *the Michael Jordan of* computer games.
-- 1998/12/27/1072824	        Here's to Brian Foster, *the Michael Jordan of* BMX racing, whose bike-riding skills earn him more than $100,000 per year.
-- 1999/01/17/1077956	        Terje Haakenson, a Norwegian, executes moves on a snowboard that nobody had ever seen before, so he's dubbed *the Michael Jordan of* snowboarding -- in every interview and article on him.
-- 1999/01/17/1077956	 The Australian batsman Steve Waugh wins championships everywhere he plays. That makes him *the Michael Jordan of* cricket.
-- 1999/01/17/1077956	 Doubt it? Check out his news clippings. Jorge Campos isn't necessarily the world's best soccer player, but he can't go anywhere in his country without being recognized. To his publicist, that makes him *the Michael Jordan of* Mexico.
-- 1999/01/17/1077956	        So here's a guide to the Jordans still at work. Meet *the Michael Jordan of* .
-- 1999/01/24/1080017	        If you think that Mike will live forever, remember the role Johnny Carson played in the national culture (he was *the Michael Jordan of* late-night TV) and the enormous coverage of his retirement and his replacements.
-- 1999/03/28/1095607	        It is not easy for this generation of Americans to grasp how important the United States is to the world in the era of globalization. America today is *the Michael Jordan of* geopolitics -- the overwhelmingly dominant system.
-- 1999/05/19/1108691	        ''Tropicana is *the Michael Jordan of* orange juice,'' said Emanuel Goldman, a global consumer-products analyst for Merrill Lynch.
-- 1999/12/05/1158663	        Now, as in 1996, she's the oldest, a distinction she has learned to forget ''except when I wake up in the middle of the night feeling the aches and pains.'' Or when, during a heated practice, she's trying to outfox youngsters like Chamique Holdsclaw, the player she's pegged as the star for the new millennium and to whom she's prepared to bequeath her moniker as *the Michael Jordan of* women's ball.
-- 2000/02/22/1178469	        ''It's very unique, though, to be able to bring *the Michael Jordan of* baseball home where he was raised in Cincinnati,'' said Jim Bowden, the Reds' general manager, who tried to minimize how the contract favors the Reds.
-- 2000/05/06/1197248	        For the benefit of anyone under 40, Howdy Doody was *the Michael Jordan of* television puppets.
-- 2000/05/14/1199474	        He sold his Checkers restaurants when he joined Burger King. ''They wanted *the Michael Jordan of* fast food,'' Mr.
-- 2000/05/15/1199732	        But do not feel too sorry for Jones. He has a 42-1 record. He is a millionaire many times over. He is *the Michael Jordan of* his sport, but even Jordan could find legitimate challengers.
-- 2000/06/19/1208725	        ''He's *the Michael Jordan of* diving,'' Ruiz said.
-- 2000/08/13/1222322	        The games, now six years old -- an eternity in youth culture -- as well as the newer Gravity Games on NBC, are spawning extremes of their own. This fall, for instance, will see the debut of not one but two brands of extreme sports trading cards. The stunt biker Dave Mirra, *the Michael Jordan of* the dirt set, has his own chewing gum (Dave Mirra's BMX Bubble Gum), as well as his own pro model signature Adidas sneaker as well as a cereal en route.
-- 2000/09/17/1231421	        LASER -- In the popular open dinghy class, Robert Scheidt of Brazil is *the Michael Jordan of* Laser sailing, a dominant force who has won four world championships.
-- 2000/09/29/1234541	        When the Australian point guard, Shane Heal, referred to him as ''*the Michael Jordan of* Australia'' today, Gaze shook his head.
-- 2000/11/05/1244777	        Chris Ballard article on trivia buffs who are passionate almost to obsession about becoming contestants on TV game shows and spend lots of time playing, and winning, Internet trivia contests; focuses on Leszek Pawlowicz, considered *the Michael Jordan of* game shows; photos (M)
-- 2000/11/05/1244777	        But even with all the cerebral firepower on hand, there is one man who stands head-and-slumping shoulders above all these factheads, a non-Jipter named Leszek Pawlowicz. A quiet 43-year-old computer consultant who has been called ''*the Michael Jordan of* game shows,'' Pawlowicz (pronounced pa-VLO-vich) never lost a match while steamrolling to the title of the 1992 ''Jeopardy!'' Tournament of Champions.
-- 2000/12/15/1255406	        Mr. Bush will soon discover that preserving this system is critical not only for America, it is critical for the world. America today is *the Michael Jordan of* geopolitics.
-- 2000/12/31/1259397	        Willey said it would benefit *the Michael Jordan of* cyberspace to log a few minutes on a real basketball court, and for the virtual version of Mike Tyson to know his way around an actual boxing ring.
-- 2001/01/04/1260139	        Armstead and Barrow have been extremely respectful of McNabb this week, with Barrow calling him *the Michael Jordan of* the Eagles.
-- 2001/01/08/1261308	        A quarterback who came into this game confident, with a cocky bounce in his step, looked confused in the pocket, even timid, against the Giants. McNabb has been called *the Michael Jordan of* the National Football League.
-- 2001/10/28/1337997	        During his high school years, Mr. Khalilzad attended the Ghazi Lycée in Kabul, a rigorous, elite school, and went out for the Afghan national basketball team. ''He was not destined to become *the Michael Jordan of* Afghanistan,'' recalled Thomas E.
-- 2001/11/04/1339731	        While he was a particularly obnoxious version, Yankee fans have long been the ugly Americans of sport. Like the old stereotype of Americans abroad, Yankee fans flaunt an assumption of wealth and dominance. In their case, it's from wearing pin-striped shirts bearing the numbers of the most storied players in baseball history -- the Babe (now known as *the Michael Jordan of* his time), Lou Gehrig (if he hadn't died under contract, he would still be playing and nobody would know Cal Ripken), Joe DiMaggio (less mysteriously dignified but more interesting since the recent publication of a sour bio), Yogi Berra (in a deserved comeback as the role model for Yoda) and Mickey Mantle (redeemed by a gutsy death and Billy Crystal's movie, ''61*'').
-- 2001/11/08/1340953	        In his new ''Music of the Line/ Words in Shape,'' which completed the program, the first two of three central trios glow with wonderfully inventive choreography that is full of quietly humane surprises, as do a quartet and a solo in ''Mix 25.'' The solo sensitively celebrates the gifts of Steve Humphrey, a longtime standout in the fine company and who, in a world that valued art more, would probably be *the Michael Jordan of* dance.
-- 2001/12/05/1348659	        AS a Quebec teenager, he was compared to Jean Béliveau, the best center in the Montreal Canadiens' elegant history. When he was the No. 1 choice over all in the N.H.L.'s 1998 entry draft, he was touted by the Tampa Bay Lightning as ''*the Michael Jordan of* hockey'' -- the ultimate sports mixed metaphor.
-- 2001/12/05/1348659	        Center Scott Gomez and defenseman Colin White were mentioned in the reported trade talk and for Lecavalier, and the Devils would probably part with those two. But it's doubtful that the Lightning could justify trading ''*the Michael Jordan of* hockey'' for Gomez and White.
-- 2002/01/27/1362919	        ''They say he is the best boxer in the world, *the Michael Jordan of* boxing,'' Forrest said.
-- 2002/04/14/1384103	        The next morning, I tested my hypothesis. I drove out to a spot on the north side of the pier and stopped to talk to some of the regulars, Jimmy Mulligan, Peter Catanese and John Francesconi, known to his friends as *the Michael Jordan of* the Hudson.
-- 2002/07/01/1405095	        ''Kiraly, he's like *the Michael Jordan of* the sport,'' said Armato, who founded the A.
-- 2002/07/25/1410921	        In Pletcher's case, he would like, just once, to hear his name without the qualification that he is a former assistant to D. Wayne Lukas. He learned much from Lukas, who statistically is *the Michael Jordan of* horse racing, and he is grateful.
-- 2002/12/22/1450658	        Mr. Barta is neither a Jethro Clampett nor a redneck. He said his political views were ''just to the right of Attila the Hun,'' but he talks about honor and chivalry, grew up in a well-to-do family in Westchester with a second home in Maine, learned his manners at preppy New England boarding schools and buys and sells corporate jets for a living. He writes for Sport Fishing, Marlin and Big Game Fishing Journal magazines and The Improper Hamptonian. He flies turboprops and light jets, skydives and runs an annual blue marlin tournament that has raised $775,000 for charity in the last six years. This month he appeared as the outdoors consultant on ''The Best Damn Sport Show, Period'' with Tom Arnold on Fox Sports. He was introduced as *the Michael Jordan of* hunting and fishing.
-- 2003/03/09/1471019	        A month later, Bowden was using only superlatives. ''He's *the Michael Jordan of* the game,'' Bowden said.
-- 2003/06/03/1494048	        ''The next thing you know, I get cut for Mr. Indiana Basketball,'' Bowen said. ''I posted him up, shot right over him and scored. The coach says, 'I don't want that.' You don't want that? He was *the Michael Jordan of* Indiana.
-- 2005/09/18/1702809	        2. 2001 Château Guiraud Sauternes, $38 (half bottle). ''Château d'Yquem is *the Michael Jordan of* Sauternes,'' he says.
-- 2005/10/09/1708539	        ''I would tape it, and replay it, to make sure that I understood everything,'' Mr. Lowry said. ''Bill is *the Michael Jordan of* language.
-- 2006/02/05/1737164	        Ethics exemplar. And soon to become, in marketing terms, ''*the Michael Jordan of* college coaches,'' according to his agent, David Falk (who is, yes, Jordan's agent).
-- 2006/06/06/1767059	        He had them open a container that held *the Michael Jordan of* jumpers, a species the biologists liked to call rocket frogs.
-- 2006/11/06/1802795	        Frederic Collignon, a 30-year-old who works as a car salesman in Liège, Belgium, but who is considered by his fans to be *the Michael Jordan of* foosball, said, ''Nice mountains, nice view, a little bit too cold, and it is different from Vegas, but I still like the town.
-- 2007/03/28/1836163	        Like Solzhenitsyn's Denisovich, Mr. Thomas finds a grim satisfaction in work. He is happy to cobble shoes for the Korean riot police at the rate of 80 cents a day. Even better than the loose camaraderie and open spaces of the factory floor is the prison sports program. Each factory has a basketball team, and Mr. Thomas, a first-round draft pick, emerges as *the Michael Jordan of* the South Korean penal system.
-- 2007/04/17/1841042	        Billed as *the Michael Jordan of* hockey by a former Lightning owner, Lecavalier appeared to be on a career path more like Sam Bowie's, his 37 points in 76 games in his fourth season seeming to cement his underachieving status.
-- 2007/05/03/1844722	        ''In terms of his crossover appeal in boxing, there is nobody like him,'' said Brian Herlihy, the division marketing manager for Cazadores, whose name will appear on the mat below the boxers, on the ropes and on a banner above the ring. ''He is unique. He's *the Michael Jordan of* boxing.
-
-*** "a michael jordan of"
-#+BEGIN_SRC sh
-  grep -i "a michael jordan of\b" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
-#+END_SRC
-
-#+BEGIN_SRC sh :results raw list
-  grep -i "a michael jordan of\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/a michael jordan of/*&*/i"
-#+END_SRC
-
-- 1994/01/23/0664050	        "He was, I think, one of the fiercest competitors I've ever seen. For a long time, it was L. T. every day, every way. He was kind of like *a Michael Jordan of* football.
-- 1999/01/17/1077956	 But although Jordan retired from the Chicago Bulls and the game of basketball last week, there's still *a Michael Jordan of* snowboarding.
-- 1999/01/17/1077956	 And *a Michael Jordan of* bull riding.
-- 1999/01/17/1077956	 Even *a Michael Jordan of* real-life bulls.
-
-*** "of michael jordan of"
-#+BEGIN_SRC sh
-  grep -i "of michael jordan of\b" mj.txt | awk -F'\t' '{print $1}' | sed -e "s/.*corpus_//" -e "s/\..*//" | sort | uniq -c
-#+END_SRC
-
-#+BEGIN_SRC sh :results raw list
-  grep -i "of michael jordan of\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | sed "s/of michael jordan of/*&*/i"
-#+END_SRC
-
-- 1989/02/07/0221328	        LEAD: Kenny Walker of the Knicks and two rookies, Shelton Jones of the Philadelphia 76ers and Chris Morris of the Nets, have been added to the field for the National Basketball Association's slam-dunk championship Saturday at Houston. The three additions followed by one day the withdrawal *of Michael Jordan of* the
-- 1989/02/07/0221328	        Kenny Walker of the Knicks and two rookies, Shelton Jones of the Philadelphia 76ers and Chris Morris of the Nets, have been added to the field for the National Basketball Association's slam-dunk championship Saturday at Houston. The three additions followed by one day the withdrawal *of Michael Jordan of* the Bulls, the two-time defending champion, who has a sprained knee.
-- 1991/07/02/0456931	        Also during the All-Star Game, Nike plans to show new spots with the tennis star Andre Agassi; David Robinson of the San Antonio Spurs of the National Basketball Association, and the film director Spike Lee as Mars Blackmon, the ultimate fan *of Michael Jordan of* the N.
+- 1989/05/19/0251456	He may have been the closest thing to *the Michael Jordan of* his day, as earthbound as he was.
+- 1990/01/03/0313936	''Gretzky is *the Michael Jordan of* hockey,'' said Fitzpatrick, who intimidated shooters in the manner of Patrick Ewing.
+- 1990/03/07/0332581	LEAD: She is *the Michael Jordan of* figure skating, a dazzling athlete of uncommon skill who performs at a level unattained by many skaters, unattainable by most others.
+- 1990/03/07/0332581	She is *the Michael Jordan of* figure skating, a dazzling athlete of uncommon skill who performs at a level unattained by many skaters, unattainable by most others.
+- 1990/12/24/0410716	"But, in reality, I think I could be *the Michael Jordan of* 12th men.
+- 1991/08/01/0464227	"I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
+- 1991/08/01/0464228	"I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
+- 1991/08/01/0464297	"I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
+- 1991/08/04/0465076	"I want to be *the Michael Jordan of* golf," said Mr.
+- 1991/08/11/0466343	On a recent evening on the Upper West Side, Earl Manigault recalled the days when he was *the Michael Jordan of* Harlem, a man who jumped so high he once believed he could take off after a running start and end up sitting on the rim.
+- 1991/12/08/0492282	She's *the Michael Jordan of* actresses.
+- 1992/01/24/0502719	The Bills are not necessarily in trouble in Sunday's Super Bowl just because Thomas wants to be known as *the Michael Jordan of* his team, leaving the implication that Jim Kelly, the quarterback, is merely Scottie Pippen.
+- 1992/07/17/0543317	"He's *the Michael Jordan of* management in Digital.
+- 1993/01/24/0585384	*Bills offensive coordinator Ted Marchibroda calls quarterback Jim Kelly *the Michael Jordan of* the Buffalo team.
+- 1993/02/09/0589135	22, was *the Michael Jordan of* his time and the unofficial player spokesman before Magic Johnson.
+- 1993/02/10/0589436	Erving was *the Michael Jordan of* his time, but what a different time that was.
+- 1993/08/26/0631050	"Joey Cora calls me *the Michael Jordan of* the White Sox.
+- 1994/07/05/0697585	If Jones was *the Michael Jordan of* her time, scoring at will, Cain, 33, is the Magic Johnson of hers.
+- 1994/07/05/0697643	"Romario is *the Michael Jordan of* soccer and Bebeto is the Magic Johnson of soccer," said American defender Paul Caligiuri.
+- 1996/01/17/0823248	When a Guy starts cooking, he wants to be the Joe Montana of mousse, *the Michael Jordan of*  julienne, the Cal Ripken Jr.
+- 1996/05/10/0849554	Burry is *the Michael Jordan of* integrating insurance and health care, so he commands a pretty big salary," said William Silverman, a spokesman for Blue Cross.
+- 1996/06/14/0857634	He said he would bid on free agents "if *the Michael Jordan of* hockey" becomes available.
+- 1996/08/03/0869199	And, of course, *the Michael Jordan of* Brazilian basketball for the past 20 years, has simply been known as Oscar.
+- 1996/12/06/0893794	''Our Michael Jordan liked the idea, and we discussed it with the representatives of *the Michael Jordan of* the Bulls.
+- 1996/12/06/0893794	''Initially we had *the Michael Jordan of* the College Fund, who actually could shoot, making all his shots,'' said Marvin Waldman, executive vice president and group creative director at Y.
+- 1997/12/26/0983138	No one wants his autograph, and no one asks him if he thinks of himself as *the Michael Jordan of* tennis, a question that makes Sampras lose his appetite wherever and whenever it is asked.
+- 1998/03/30/1006144	''*The Michael Jordan of* women's basketball,'' Barmore called Holdsclaw.
+- 1998/03/30/1006162	And Holdsclaw is often referred to as *the Michael Jordan of* women's basketball.
+- 1998/09/27/1049680	and is now a sportscaster, and David Bailey, *the Michael Jordan of* motocross racing in the 1980's who became paralyzed in a racing accident and will compete in a wheelchair along part of the course.
+- 1998/11/05/1059693	The show also features equine entertainers including Bonfire, *the Michael Jordan of* dressage horses.
+- 1998/11/06/1060001	The exhibitions featured the trick horses of the charro champion Jerry Diaz, who surrounds himself and his palomino with a spinning lariat, as well as a balletic dressage demonstration by the four-time United States Olympian Robert Dover and Anky van Grunsven of the Netherlands, whose bay horse, Bonfire, is *the Michael Jordan of* this sport.
+- 1998/11/19/1063282	Moments ago, in the preliminary round of the computer game championships, he didn't just beat but demolished Dennis Fong, who happens to be *the Michael Jordan of* computer games.
+- 1998/12/27/1072824	Here's to Brian Foster, *the Michael Jordan of* BMX racing, whose bike-riding skills earn him more than $100,000 per year.
+- 1999/01/17/1077956	Terje Haakenson, a Norwegian, executes moves on a snowboard that nobody had ever seen before, so he's dubbed *the Michael Jordan of* snowboarding -- in every interview and article on him.
+- 1999/01/17/1077956	That makes him *the Michael Jordan of* cricket.
+- 1999/01/17/1077956	To his publicist, that makes him *the Michael Jordan of* Mexico.
+- 1999/01/17/1077956	Meet *the Michael Jordan of* .
+- 1999/01/24/1080017	If you think that Mike will live forever, remember the role Johnny Carson played in the national culture (he was *the Michael Jordan of* late-night TV) and the enormous coverage of his retirement and his replacements.
+- 1999/03/28/1095607	America today is *the Michael Jordan of* geopolitics -- the overwhelmingly dominant system.
+- 1999/05/19/1108691	''Tropicana is *the Michael Jordan of* orange juice,'' said Emanuel Goldman, a global consumer-products analyst for Merrill Lynch.
+- 1999/12/05/1158663	'' Or when, during a heated practice, she's trying to outfox youngsters like Chamique Holdsclaw, the player she's pegged as the star for the new millennium and to whom she's prepared to bequeath her moniker as *the Michael Jordan of* women's ball.
+- 2000/02/22/1178469	''It's very unique, though, to be able to bring *the Michael Jordan of* baseball home where he was raised in Cincinnati,'' said Jim Bowden, the Reds' general manager, who tried to minimize how the contract favors the Reds.
+- 2000/05/06/1197248	For the benefit of anyone under 40, Howdy Doody was *the Michael Jordan of* television puppets.
+- 2000/05/14/1199474	''They wanted *the Michael Jordan of* fast food,'' Mr.
+- 2000/05/15/1199732	He is *the Michael Jordan of* his sport, but even Jordan could find legitimate challengers.
+- 2000/06/19/1208725	''He's *the Michael Jordan of* diving,'' Ruiz said.
+- 2000/08/13/1222322	The stunt biker Dave Mirra, *the Michael Jordan of* the dirt set, has his own chewing gum (Dave Mirra's BMX Bubble Gum), as well as his own pro model signature Adidas sneaker as well as a cereal en route.
+- 2000/09/17/1231421	LASER -- In the popular open dinghy class, Robert Scheidt of Brazil is *the Michael Jordan of* Laser sailing, a dominant force who has won four world championships.
+- 2000/09/29/1234541	When the Australian point guard, Shane Heal, referred to him as ''*the Michael Jordan of* Australia'' today, Gaze shook his head.
+- 2000/11/05/1244777	Chris Ballard article on trivia buffs who are passionate almost to obsession about becoming contestants on TV game shows and spend lots of time playing, and winning, Internet trivia contests; focuses on Leszek Pawlowicz, considered *the Michael Jordan of* game shows; photos (M)
+- 2000/11/05/1244777	A quiet 43-year-old computer consultant who has been called ''*the Michael Jordan of* game shows,'' Pawlowicz (pronounced pa-VLO-vich) never lost a match while steamrolling to the title of the 1992 ''Jeopardy!
+- 2000/12/15/1255406	America today is *the Michael Jordan of* geopolitics.
+- 2000/12/31/1259397	Willey said it would benefit *the Michael Jordan of* cyberspace to log a few minutes on a real basketball court, and for the virtual version of Mike Tyson to know his way around an actual boxing ring.
+- 2001/01/04/1260139	Armstead and Barrow have been extremely respectful of McNabb this week, with Barrow calling him *the Michael Jordan of* the Eagles.
+- 2001/01/08/1261308	McNabb has been called *the Michael Jordan of* the National Football League.
+- 2001/10/28/1337997	''He was not destined to become *the Michael Jordan of* Afghanistan,'' recalled Thomas E.
+- 2001/11/04/1339731	In their case, it's from wearing pin-striped shirts bearing the numbers of the most storied players in baseball history -- the Babe (now known as *the Michael Jordan of* his time), Lou Gehrig (if he hadn't died under contract, he would still be playing and nobody would know Cal Ripken), Joe DiMaggio (less mysteriously dignified but more interesting since the recent publication of a sour bio), Yogi Berra (in a deserved comeback as the role model for Yoda) and Mickey Mantle (redeemed by a gutsy death and Billy Crystal's movie, ''61*'').
+- 2001/11/08/1340953	'' The solo sensitively celebrates the gifts of Steve Humphrey, a longtime standout in the fine company and who, in a world that valued art more, would probably be *the Michael Jordan of* dance.
+- 2001/12/05/1348659	's 1998 entry draft, he was touted by the Tampa Bay Lightning as ''*the Michael Jordan of* hockey'' -- the ultimate sports mixed metaphor.
+- 2001/12/05/1348659	But it's doubtful that the Lightning could justify trading ''*the Michael Jordan of* hockey'' for Gomez and White.
+- 2002/01/27/1362919	''They say he is the best boxer in the world, *the Michael Jordan of* boxing,'' Forrest said.
+- 2002/04/14/1384103	I drove out to a spot on the north side of the pier and stopped to talk to some of the regulars, Jimmy Mulligan, Peter Catanese and John Francesconi, known to his friends as *the Michael Jordan of* the Hudson.
+- 2002/07/01/1405095	''Kiraly, he's like *the Michael Jordan of* the sport,'' said Armato, who founded the A.
+- 2002/07/25/1410921	He learned much from Lukas, who statistically is *the Michael Jordan of* horse racing, and he is grateful.
+- 2002/12/22/1450658	He was introduced as *the Michael Jordan of* hunting and fishing.
+- 2003/03/09/1471019	''He's *the Michael Jordan of* the game,'' Bowden said.
+- 2003/06/03/1494048	He was *the Michael Jordan of* Indiana.
+- 2005/09/18/1702809	''Château d'Yquem is *the Michael Jordan of* Sauternes,'' he says.
+- 2005/10/09/1708539	''Bill is *the Michael Jordan of* language.
+- 2006/02/05/1737164	And soon to become, in marketing terms, ''*the Michael Jordan of* college coaches,'' according to his agent, David Falk (who is, yes, Jordan's agent).
+- 2006/06/06/1767059	He had them open a container that held *the Michael Jordan of* jumpers, a species the biologists liked to call rocket frogs.
+- 2006/11/06/1802795	Frederic Collignon, a 30-year-old who works as a car salesman in Liège, Belgium, but who is considered by his fans to be *the Michael Jordan of* foosball, said, ''Nice mountains, nice view, a little bit too cold, and it is different from Vegas, but I still like the town.
+- 2007/03/28/1836163	Thomas, a first-round draft pick, emerges as *the Michael Jordan of* the South Korean penal system.
+- 2007/04/17/1841042	Billed as *the Michael Jordan of* hockey by a former Lightning owner, Lecavalier appeared to be on a career path more like Sam Bowie's, his 37 points in 76 games in his fourth season seeming to cement his underachieving status.
+- 2007/05/03/1844722	He's *the Michael Jordan of* boxing.
 
 * TODO vossantos
 manually check all candidates ...
