@@ -69,7 +69,7 @@ def xml2regex(f, fname, **kwargs):
         try:
             for match in kwargs["regex"].findall(txt):
                 # print match
-                print(fname, match, sep='\t')
+                print(fname, match.strip(), sep='\t')
         except UnicodeDecodeError:
             print(fname, "UnicodeDecodeError")
 
