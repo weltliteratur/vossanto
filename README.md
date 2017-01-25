@@ -1,52 +1,28 @@
 
 # Vossian Antonomasia
 
-see [Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)
+Automatic extraction of Vossian Antonomasia from large newspaper
+corpora.
+
+Based on an idea by Frank Fischer (see see
+[Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)).
+
+First results will be presented at the DHd conference in Bern
+(February 13 to 18, 2017),
+[a (German) abstract is already available](http://www.dhd2017.ch/wp-content/uploads/2017/01/AbstractbandDHd2017-1.pdf#page=122).
 
 ## Howto
 
-### English: POS tagging with NLTK
+For the English corpus we used POS tagging with NLTK as implemented in
+[vossanto.py](vossanto.py).
 
-- see [vossanto.py](vossanto.py)
+## Examples (New York Times corpus 1987-2007)
 
-### German: POS tagging with the Stanford tagger
-
-why not NLTK:
-
-- https://stackoverflow.com/questions/20332762/pos-tagging-german-texts-using-nltk
-
-Hence, Stanford:
-
-- http://nlp.stanford.edu/software/tagger.shtml
-
-From the documentation (after adopting the shell script to use Java 8):
-
-    ./stanford-postagger.sh models/wsj-0-18-left3words-distsim.tagger sample-input.txt
-
-A test with German text:
-
-    ./stanford-postagger.sh models/german-hgc.tagger german-input.txt
-
-*Problem*: seems to have problems with Umlauts :-(
-
-
-Create a default configuration file with comments
-
-    java -classpath stanford-postagger.jar:lib/* edu.stanford.nlp.tagger.maxent.MaxentTagger \
-        -genprops > myPropsFile.prop
-
-## Ideas for Improvements
-
-- collect values for y and omit matches which contain a frequent y,
-  e.g., "Ezer Weizman President Israel"
-
-## Examples
-
-source: New York Times corpus 1987-2007 
+See also:
+- [a subset of this list focusing only on individuals](vossanto-NYT-only-individuals.md).
+- [some statistics and grouped examples](notes.org)
 
 [1987](#1987), [1988](#1988), [1989](#1989), [1990](#1990), [1991](#1991), [1992](#1992), [1993](#1993), [1994](#1994), [1995](#1995), [1996](#1996), [1997](#1997), [1998](#1998), [1999](#1999), [2000](#2000), [2001](#2001), [2002](#2002), [2003](#2003), [2004](#2004), [2005](#2005), [2006](#2006), [2007](#2007)
-
-[see also](notes.org)
 
 ### 1987
 
