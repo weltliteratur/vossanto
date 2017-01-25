@@ -4,7 +4,7 @@
 Automatic extraction of Vossian Antonomasia from large newspaper
 corpora.
 
-Based on an idea by Frank Fischer (see see
+Based on an idea by Frank Fischer (see
 [Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)).
 
 First results will be presented at the DHd conference in Bern
@@ -19,7 +19,7 @@ For the English corpus we used POS tagging with NLTK as implemented in
 ## Examples (New York Times corpus 1987-2007)
 
 See also:
-- [a subset of this list focusing only on individuals](vossanto-NYT-only-individuals.md).
+- [a subset of this list focusing only on individuals](vossanto-NYT-only-individuals.md)
 - [some statistics and grouped examples](notes.org)
 
 [1987](#1987), [1988](#1988), [1989](#1989), [1990](#1990), [1991](#1991), [1992](#1992), [1993](#1993), [1994](#1994), [1995](#1995), [1996](#1996), [1997](#1997), [1998](#1998), [1999](#1999), [2000](#2000), [2001](#2001), [2002](#2002), [2003](#2003), [2004](#2004), [2005](#2005), [2006](#2006), [2007](#2007)
