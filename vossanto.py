@@ -164,12 +164,15 @@ def t2v(text):
         print(t)
         text2vossanto(t)
 
-def text2vossanto(text):
+def text2vossanto(text, return_sentence=False):
     result = []
     for sentence in sent_tokenize(text):
         v = vossanto(sentence)
         if v:
-            result.append(v)
+            if return_sentence:
+                result.append((v[0], v[1], v[2], sentence))
+            else:
+                result.append(v)
     return result
 
 
