@@ -9,6 +9,8 @@
 # Author: rja
 #
 # Changes:
+# 2017-02-17 (rja)
+# - added output of match
 # 2016-06-12 (rja)
 # - initial version
 
@@ -153,7 +155,7 @@ def vossanto(sentence, verbose=False):
                 if d["z43"]:
                     z += " " + d["z43"]
 
-        return x, y, z
+        return x, y, z, m.group(0)
     return None
 
 # for debugging
@@ -178,4 +180,4 @@ if __name__ == "__main__":
             for sentence in sent_tokenize(line):
                 v = vossanto(sentence)
                 if v:
-                    print(v[0], v[1], v[2], sep='\t')
+                    print(v[0], v[1], v[2], v[3], sep='\t')
