@@ -7,13 +7,15 @@ corpora.
 Based on an idea by Frank Fischer (see
 [Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)).
 
-First results will be presented at the DHd conference in Bern
-(February 13 to 18, 2017),
-[a (German) abstract is already available](http://www.dhd2017.ch/wp-content/uploads/2017/01/AbstractbandDHd2017-1.pdf#page=122).
+First results were presented at the DHd conference in Bern
+(February 13 to 18, 2017)
+([abstract](http://www.dhd2017.ch/wp-content/uploads/2017/01/AbstractbandDHd2017-1.pdf#page=122)
+and [slides](https://lehkost.github.io/slides/2017-bern/), both in German).
 
 ## Howto
 
-For the English corpus we used POS tagging with NLTK as implemented in
+For the English corpus we used POS tagging with
+[NLTK](http://www.nltk.org/) as implemented in
 [vossanto.py](vossanto.py).
 
 ## Examples (New York Times corpus 1987-2007)
