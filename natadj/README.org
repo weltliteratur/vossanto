@@ -1,0 +1,23 @@
+#+TITLE:
+#+AUTHOR: 
+#+EMAIL: 
+#+KEYWORDS:
+#+DESCRIPTION:
+#+TAGS:
+#+LANGUAGE: en
+#+OPTIONS: toc:nil ':t H:5
+#+STARTUP: hidestars overview
+#+LaTeX_CLASS: scrartcl
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+#+PANDOC_OPTIONS:
+
+* national adjective + person
+** a list of national adjectives
+- copy content of table from [[https://en.wikipedia.org/wiki/List_of_adjectival_and_demonymic_forms_for_countries_and_nations][Wikipedia list]] into LibreOffice Calc
+- delete all but the first two columns
+- [[https://ask.libreoffice.org/en/question/71281/export-hyperlinks-url-in-csv-file/][extract hyperlink from first column]]
+- delete footnotes
+- fix China/Taiwan, Congo
+- export as TSV (three columns: country name, adjective, URL)
+- result: [[file:countries.tsv][countries.tsv]]
+
