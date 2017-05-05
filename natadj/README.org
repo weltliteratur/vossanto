@@ -49,3 +49,5 @@ Notes:
 - "LOCATION PERSON" always with countries whose names starts with
   "South" or "North"
 - "gia" must be an error, will check
+- The patterns change if we take another person than Barack Obama
+  (e.g., Franz Beckenbauer)
