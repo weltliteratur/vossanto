@@ -1298,3 +1298,21 @@ Create a directory which contains only the 500+ NYT articles:
 #+END_SRC
 
 Extract the POS/NER patterns:
+#+BEGIN_SRC sh
+  ./nyt.py --pattern v01_nyt_articles | awk -F'\t' '{print $5}' > v01_nyt_patterns
+#+END_SRC
+
+Clean them up and sort them:
+#+BEGIN_SRC sh
+  # cat v01_nyt_patterns | 
+  echo "(PERSON Spina Spina Loft Peggy Spina) is/VBZ the/DT (ORGANIZATION Brenda Blethyn) of/IN tap/NN ./.\n(PERSON Ken Kesey) ,/, the/DT (ORGANIZATION Pied Piper) of/IN the/DT psychedelic/JJ era/NN ,/," |\
+  ./clean_pattern.py
+#  perl -pe "s/\(([A-Z]*) .*?\)/\1/g" | \
+#  perl -pe "s/of\/IN ([a-z]+\/[A-Z]+ ?)+/of\/IN /"
+
+#+END_SRC
+
+#+RESULTS:
+| PERSON is/VBZ the/DT ORGANIZATION of/IN ./. |   |                           |   |
+| PERSON                                      | / | the/DT ORGANIZATION of/IN | / |
+

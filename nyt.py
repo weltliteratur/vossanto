@@ -9,6 +9,9 @@
 # Author: rja
 #
 # Changes:
+# 2017-05-05 (rja)
+# - added option "--pattern" to print the mattern instead of the matched text
+# - added option to read all files in a directory
 # 2016-06-12 (rja)
 # - initial version
 # - added "-u" to brint unbuffered output to STDOUT
@@ -57,7 +60,10 @@ def xml2vossanto(f, fname, **kwargs):
             for v in vossanto.text2vossanto(txt):
                 # print vossanto
                 if v:
-                    print(fname, v[0], v[1], v[2], sep='\t')
+                    if kwargs["pattern"]:
+                        print(fname, v[0], v[1], v[2], v[3], sep='\t')
+                    else:
+                        print(fname, v[0], v[1], v[2], sep='\t')
         except UnicodeDecodeError:
             print(fname, "UnicodeDecodeError")
 
@@ -77,8 +83,9 @@ def xml2regex(f, fname, **kwargs):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Find Vossantos in the NYT corpus.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('input', type=str, help='input TAR file')
+    parser.add_argument('input', type=str, help='input TAR or XML file or directory with XML files')
     parser.add_argument('-r', '--regex', dest="regex", type=str, help='search for regex and output matches')
+    parser.add_argument('-p', '--pattern', action="store_true", help='print pattern')    
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
@@ -90,14 +97,21 @@ if __name__ == '__main__':
         regex = None
         sfunc = xml2vossanto
     
-    if os.path.splitext(args.input)[1] == ".xml":
+    if os.path.isfile(args.input) and os.path.splitext(args.input)[1] == ".xml":
         # XML input: just one file
         with open(args.input, "rt") as f:
-            sfunc(f, args.input, regex=regex)
+            sfunc(f, args.input, regex=regex, pattern=args.pattern)
+    elif os.path.isdir(args.input):
+        # read all files in the directory
+        for fname in os.listdir(args.input):
+            fname = args.input + "/" + fname
+            if os.path.isfile(fname):
+                with open(fname, "rt") as f:
+                    sfunc(f, fname, regex=regex, pattern=args.pattern)
     else:
         # read TAR file
         tar = tarfile.open(args.input, "r:gz")
         for tarinfo in tar:
             if tarinfo.isreg():
-                sfunc(tar.extractfile(tarinfo), tarinfo.name, regex=regex)
+                sfunc(tar.extractfile(tarinfo), tarinfo.name, regex=regex, pattern=args.pattern)
             
