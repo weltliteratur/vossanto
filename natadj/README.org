@@ -76,9 +76,9 @@ This shows that extraction won't be simple using POS and NER (at least
 with NLTK).
 
 ** extraction using simple string matching
-The current implementation with the
-~NationalAdjectives.match_simple()~ finds all sentences which contain
-a national adjective preceded by "the". This returns way too many hits:
+The current implementation using ~NationalAdjectives.match_simple()~
+finds all sentences which contain a national adjective preceded by
+"the". This returns way too many hits:
 #+BEGIN_SRC sh
   ./nyt.py -c countries.tsv ../nyt_corpus_1987.tar.gz  > 1987.tsv
   wc -l 1987.tsv
