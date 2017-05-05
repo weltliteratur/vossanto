@@ -1106,7 +1106,6 @@ not the 264 cleansed ones in [[file:vossanto-NYT-only-individuals.md][vossanto-N
 - *Ravenswood* is the *Death Valley* of *New York City* (2005/07/23/1689358)
 - *New York* is the *Mecca* of *basketball* (2007/04/05/1838196)
 
-
 * categories
 
 In which categories do Vossantos typically appear?
@@ -1287,3 +1286,13 @@ We can also consider all categories:
 |---------------------+-------|
 | sum                 |   335 |
 #+TBLFM: @25$2=vsum(@I..@II)
+* POS patterns
+Which are the most frequent POS patterns?
+
+- Create a directory which contains only the 500+ NYT articles:
+#+BEGIN_SRC sh :results silent
+  mkdir v01_nyt_articles
+  for i in $(grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/.*(/nyt_corpus_/" -e "s/)/.xml/" -e "s/\//.har\//"| head); do
+      cp $i v01_nyt_articles
+  done
+#+END_SRC
