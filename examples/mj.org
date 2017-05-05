@@ -35,7 +35,6 @@
 - 7658
 
 * statistics
-
 ** number of articles per year
 
 #+BEGIN_SRC sh
@@ -633,6 +632,168 @@
 - 2007/03/28/1836163	Thomas, a first-round draft pick, emerges as *the Michael Jordan of* the South Korean penal system.
 - 2007/04/17/1841042	Billed as *the Michael Jordan of* hockey by a former Lightning owner, Lecavalier appeared to be on a career path more like Sam Bowie's, his 37 points in 76 games in his fourth season seeming to cement his underachieving status.
 - 2007/05/03/1844722	He's *the Michael Jordan of* boxing.
+
+*** Which occurences of "MJ of" are not preceded by "the"?
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "michael jordan of\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | grep -vi "the michael jordan of" | grep -iv "michael jordan of the chicago bulls" | sed "s/michael jordan of/*&*/i"
+#+END_SRC
+
+#+RESULTS:
+- 1987/02/15/0013464	LEAD: Dunk: *Michael Jordan of* the Bulls scoring against the Knicks at the Garden.
+- 1987/02/15/0013464	Dunk: *Michael Jordan of* the Bulls scoring against the Knicks at the Garden.
+- 1987/03/12/0020963	The majority will be spent in television, starting with a 60-second commercial of the black-and-white documentary genre in which ordinary health nuts appear with such stars as *Michael Jordan of* basketball and John McEnroe of tennis in a variety of sports including barefoot swimming.
+- 1987/04/17/0030891	Above 2,000 are *Michael Jordan of* Chicago, Alex English of Denver, Dominique Wilkins of Atlanta, Kiki Vandeweghe of Portland, Larry Bird of Boston and Mark Aguirre of Dallas.
+- 1987/08/11/0064926	A team of scientists, led by *Michael Jordan of* the University of North Carolina at Wilmington, will look for openings in the sea floor where water heated inside the earth's crust is welling up.
+- 1987/10/31/0088121	LEAD: *Michael Jordan of* Chicago scoring against Nets' Mike Gminski in first half of exhibition game last night at Charlotte, N.
+- 1987/10/31/0088121	*Michael Jordan of* Chicago scoring against Nets' Mike Gminski in first half of exhibition game last night at Charlotte, N.
+- 1987/11/11/0091856	LEAD: *Michael Jordan of* the Bulls was all alone at the basket as he slammed one in against the Hawks in the first half last night at Atlanta.
+- 1987/11/11/0091856	*Michael Jordan of* the Bulls was all alone at the basket as he slammed one in against the Hawks in the first half last night at Atlanta.
+- 1987/11/24/0095833	*Michael Jordan of* the Bulls is the only player in the league to have led his team in scoring in every game this season.
+- 1987/12/28/0105374	*Michael Jordan of* the Bulls had a 37.
+- 1988/01/13/0109163	(AP)  Celtics 104, Bulls 97: Larry Bird of Boston scored 16 of his 38 points in a furious fourth quarter last night to outduel *Michael Jordan of* Chicago and lead the Celtics to victory.
+- 1988/02/20/0120667	CHICAGO (AP) - *Michael Jordan of* Chicago scored 18 of his 49 points in the second quarter and broke open a close game with 16 points and two steals in the third quarter.
+- 1988/02/22/0121176	The performance by Daugherty, who had 29 points for the game, overcame a 46-point effort by *Michael Jordan of* Chicago.
+- 1988/03/18/0128589	It has been an especially tumultuous year for Smart, the 6-foot-1 inch guard who joined Lorenzo Charles of North Carolina State and *Michael Jordan of* North Carolina as college basketball's last-second heroes.
+- 1989/02/01/0219462	*Michael Jordan of* Chicago had his third triple-double of the season - 21 points, 12 assists, 10 rebounds.
+- 1989/02/07/0221328	The three additions followed by one day the withdrawal of *Michael Jordan of* the
+- 1989/02/07/0221328	The three additions followed by one day the withdrawal of *Michael Jordan of* the Bulls, the two-time defending champion, who has a sprained knee.
+- 1989/08/13/0274995	8 million a year, far less than the $3 million-plus such National Basketball Association players as *Michael Jordan of* Chicago, David Robinson of San Antonio and Patrick Ewing of the Knicks are expected to earn in a single year over the lives of their contracts.
+- 1989/12/22/0311286	There is truly Magic in Orlando, where even a 52-point game by *Michael Jordan of* the Bulls on Wednesday night could not break the spell.
+- 1990/01/03/0313936	'*Michael Jordan of* Hockey'
+- 1990/01/16/0317202	LEAD: A National Basketball Association official has been quoted as saying the league will not sanction a proposal for a $1 million one-on-one duel between *Michael Jordan of* the Bulls and Magic Johnson of the Lakers.
+- 1990/01/16/0317202	A National Basketball Association official has been quoted as saying the league will not sanction a proposal for a $1 million one-on-one duel between *Michael Jordan of* the Bulls and Magic Johnson of the Lakers.
+- 1990/01/26/0320469	Karl Malone, the league's best power forward and second best scorer behind *Michael Jordan of* the Bulls, was obviously shaken when A .
+- 1990/01/31/0322100	The Celtic power forward and the 36-year-old Parish were among the seven reserves added in a vote by the conference coaches to augment the starting team of Bird, Charles Barkley of Philadelphia, Patrick Ewing of the Knicks, *Michael Jordan of* Chicago and Isiah Thomas of Detroit, who were selected as starters in a vote by the fans.
+- 1990/05/18/0354457	They were joined on the team by *Michael Jordan of* Chicago, Akeem Olajuwon of Houston and Buck Williams of Portland.
+- 1990/06/07/0359546	551 from the field, joined repeaters Magic Johnson of the Los Angeles Lakers and *Michael Jordan of* Chicago, the guards, and Charles Barkley of Philadelphia and Karl Malone of
+- 1990/06/07/0359546	551 from the field, joined repeaters Magic Johnson of the Los Angeles Lakers and *Michael Jordan of* Chicago, the guards, and Charles Barkley of Philadelphia and Karl Malone of Utah, the forwards.
+- 1991/01/22/0417057	" A few days later, *Michael Jordan of* the Bulls asked, "Where are you from?
+- 1991/07/02/0456931	Also during the All-Star Game, Nike plans to show new spots with the tennis star Andre Agassi; David Robinson of the San Antonio Spurs of the National Basketball Association, and the film director Spike Lee as Mars Blackmon, the ultimate fan of *Michael Jordan of* the N.
+- 1991/11/09/0485714	And in Chicago, *Michael Jordan of* the Bulls told an afternoon news conference that Johnson doesn't even have to ask.
+- 1992/08/16/0550508	2), Dave Anderson seems to accuse *Michael Jordan of* putting his commercial interests ahead of his country's in the great logo race.
+- 1993/02/04/0587971	Joining O'Neal in the Eastern Conference starting lineup is guard *Michael Jordan of* Chicago, who was the last rookie to start and who led all players in votes for a record seventh straight year with 1,035,824.
+- 1993/05/15/0608959	*MICHAEL JORDAN of* Chicago and DAVID ROBINSON of San Antonio, last year's winner, tied for second with nine votes each, followed by Detroit's DENNIS RODMAN, winner of the award in 1990 and 1991, with three votes.
+- 1993/05/22/0610424	Now, with the opening game of the Eastern Conference final scheduled for Sunday, and with most onlookers conceding that nobody will be able to stop *Michael Jordan of* the Bulls, there's a lot of focus on how the Knicks, specifically Smith, will cope with Chicago's backup go-to man.
+- 1993/05/28/0611654	Charles Barkley of the Suns, the National Basketball Association's most valuable player, and *Michael Jordan of* the Bulls, the league's scoring champion for a record-tying seventh straight time, were unanimous selections to the 1992-93 all-N.
+- 1993/05/30/0611970	Starks was ejected from Game 3 of the Eastern Conference championship series against Chicago following his angry and persistent exchange with *Michael Jordan of* the Bulls with 9 minutes 9 seconds to play.
+- 1994/01/23/0664050	He was kind of like a *Michael Jordan of* football.
+- 1995/10/29/0805151	Most people believed they were just finals-crashers at the conclusion of a depressed season, after *Michael Jordan of* Chicago quit and Charles Barkley of Phoenix got hurt.
+- 1996/01/08/0821241	Given his celebrity status, he certainly could pick up the phone and call, say, *Michael Jordan of* the Bulls and ask his advice about trying to make it in two sports.
+- 1996/12/06/0893794	I said to Spike, 'This is not *Michael Jordan of* the Bulls.
+- 1997/05/29/0933223	Ira Berkow column disputes contention that *Michael Jordan of* Chicago Bulls played poorly against Miami Heat in fourth game of Eastern Conference finals because he had played 48 holes of golf day before; says Jordan had miserable first half because he was not challenged (M)
+- 1997/12/12/0979675	*Michael Jordan of* the State Department of Environmental Conservation.
+- 1998/05/19/1018219	*Michael Jordan of* Chicago Bulls wins NBA's most valuable player award; joins Kareem Abdul-Jabbar and Bill Russell to become only third player to win award five times; Abdul-Jabbar has won award six times (M)
+- 1999/01/17/1077956	But although Jordan retired from the Chicago Bulls and the game of basketball last week, there's still a *Michael Jordan of* snowboarding.
+- 1999/01/17/1077956	And a *Michael Jordan of* bull riding.
+- 1999/01/17/1077956	Even a *Michael Jordan of* real-life bulls.
+- 2000/03/05/1181268	Suppose you are a would-be *Michael Jordan of* my trade, consulting?
+- 2001/10/04/1330703	He will share the stage at MCI Center with *Michael Jordan of* the N.
+- 2002/01/27/1362878	*Michael Jordan of* the Washington Wizards should get credit, too, for nothing more than activating himself.
+- 2002/05/15/1392385	''I've read that I'm the '*Michael Jordan of* rodeo' thousands of times,'' Murray said.
+- 2003/06/01/1493264	'' By the time he stands, slick with sweat and smiling, at the curtain calls, the audience is on its feet and screaming for him as if he is the Mick Jagger or *Michael Jordan of* Broadway.
+- 2004/07/25/1599236	United who has been hailed as the future *Michael Jordan of* American soccer.
+
+*** Which occurences of "the MJ" are not followed by "of"?
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "the michael jordan\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | grep -vi "the michael jordan of" | sed "s/the michael jordan/*&*/i"
+#+END_SRC
+
+#+RESULTS:
+- 1987/12/29/0105476	Almost as soon as it was put into effect this season, it became known as *the Michael Jordan* rule because of the Chicago Bulls guard's strong one-on-one play.
+- 1990/06/03/0358576	Although the Pistons led only once, at 17-16, they were within striking distance until *the Michael Jordan* show began with 8 minutes 33 seconds remaining in the third period.
+- 1991/10/10/0479420	NBC, realizing the consumer-friendly benefits of Jordan on the air, has recently become *the Michael Jordan* Channel.
+- 1992/03/29/0517587	"*The Michael Jordan* I'm hearing and reading about now is not the Michael Jordan I know," said Fred Whitfield, a Greensboro, N.
+- 1992/05/28/0532026	"I sat down to design an Air Jordan that had an aggressive caricaturelike quality," said Tinker Hatfield, the creative director of Nike, speaking by telephone from *the Michael Jordan* Building in Beaverton, Ore.
+- 1992/07/05/0540876	Kukoc, Radja and Petrovic, all considered superstars of *the Michael Jordan* order back in their war-torn homeland, had real troubles putting aside their ample egos.
+- 1992/09/11/0555721	The idea attracted the attention and support of Dolores Jordan, the mother of Michael Jordan, and the task force proposed that, once built, the center contain *the Michael Jordan* Library.
+- 1993/04/18/0603180	Hence, guests can now request *the Michael Jordan* Suite.
+- 1993/06/14/0615255	THE bald, wounded warrior, one Charles Barkley, his bare skull gleaming in the Chicago Stadium lights last night, his charcoal-dark eyebrows skewed in tension, his sore right, shooting elbow encased in a bulky wrap, led the Phoenix Suns to a most improbable but stupendous triple-overtime victory over the home team, the defending champs, *the Michael Jordan* Chicago Bulls.
+- 1993/08/14/0628584	5-mile stretch of I-40 is known as *the Michael Jordan* Highway.
+- 1993/08/26/0631007	In the case of *the Michael Jordan* advertising, the agencies that produced those commercials have begun returning them to the broadcast and print media.
+- 1993/10/07/0639331	He mentioned to Reinsdorf that he was thinking of retiring two weeks ago at a benefit for *the Michael Jordan* Foundation.
+- 1993/10/09/0639619	Jerry Krause, the general manager of *the Michael Jordan*-less Chicago Bulls, kept saying that when he awoke Thursday morning, the sun was shining and the newspapers contained none of his friends' or relatives' obituaries.
+- 1993/10/31/0645937	Welcome to *the Michael Jordan*-less East, where two words -- I quit -- erased all memories of a stand-pat Knick summer and made heavy favorites of the team that stands behind Pat.
+- 1993/11/18/0650687	"Everyone wants to be *the Michael Jordan*, but everyone can't," he said.
+- 1993/12/17/0656528	Beneficiaries of the game's greatest player, the supporting cast in *the Michael Jordan*'s championship three-peat, those lucky Jordanaires were suddenly left to fend for themselves when Jordan quit two and a half months ago.
+- 1993/12/22/0657574	"It was like *the Michael Jordan* commercial -- off Ewing, off the backboard and swish.
+- 1994/02/25/0670816	More warmup footage than ever was used by CBS -- especially shots of Harding struggling with a lutz, with Scott Hamilton offering analysis (much like all *the Michael Jordan* batting practice footage, with accompanying analysis).
+- 1994/03/08/0673176	Statistically, that leaves him trailing *the Michael Jordan* who played for the Pirates in 1890.
+- 1994/04/11/0679885	He is still looking for a comfortable bat, *the Michael Jordan* model.
+- 1994/04/30/0683979	Randolph has a 41-inch vertical leap, which puts him in *the Michael Jordan* class of airspace.
+- 1994/05/21/0688601	Ever since *the Michael Jordan* years, it is perhaps the loudest, most raucous, most emotional arena anywhere.
+- 1994/08/15/0706450	Birmingham is also scheduled to be shown on ESPN next Sunday night, and the team plans to donate all its television revenue from that game to *the Michael Jordan* Foundation and local charities.
+- 1994/11/10/0724552	American Association teams are wasting little time in taking advantage of *the MICHAEL JORDAN* baseball show.
+- 1994/11/20/0726726	While Pippen was complimenting the opposition, his coach, Phil Jackson, was almost sneering at the suggestion that the Rockets in any way resemble *the Michael Jordan*-led Chicago teams.
+- 1995/03/13/0748524	*The Michael Jordan* saga is on hold, for now.
+- 1995/04/29/0758745	"In overtime, it was *the Michael Jordan* show," Charlotte Coach Allan Bristow said.
+- 1995/05/21/0763857	*The Michael Jordan* who exited from the playoffs in the second round this past week was clearly not the Michael Jordan we once knew, the money player who not only took the big shot but so often rattled it in.
+- 1996/01/25/0825344	It also represents a measure of revenge for *the Michael Jordan* and Ewing-led faction that opposed Gourdine during the union's bitter civil war.
+- 1996/02/22/0831767	Steffi Graf and Monica Seles are *the Michael Jordan* and Magic Johnson of this game, so maybe Capriati can find her place as another good player, join the crowd, have some good times, on the court and off.
+- 1996/05/04/0848140	Determined not to become one of those unfortunate souls who appear frustrated and awestruck in *the Michael Jordan* video collection, Mason has accepted the Chicago Bulls' supernova guard as his latest and greatest defensive challenge.
+- 1996/05/05/0848605	Here at the Dennis Rodman book signing party, conveniently located a few blocks from *the Michael Jordan* restaurant and not far from the Scottie Pippen wall mural, they merely want to see their basketball team get done with the Knicks and move on to more important things.
+- 1996/05/06/0848871	This is called *the Michael Jordan* Treatment, and how sore the Knicks are after receiving therapy today at the United Center.
+- 1996/06/24/0859996	In 1989 its sales of men's athletic shoes, powered  by *the Michael Jordan* endorsements, got another huge boost from the famous series of "Bo Knows" commercials, which featured the multi-sports prowess of Bo  Jackson.
+- 1996/12/06/0893794	''I call him the other Michael Jordan,'' *the Michael Jordan* who is the chairman and chief executive of the Westinghouse Electric Corporation in New York said of the Michael Jordan who plays for the Chicago Bulls and appears in commercials for Nike Inc.
+- 1996/12/06/0893794	So arrangements were made to shoot the commercial, which were complicated by the busy schedule of *the Michael Jordan* who is Bugs Bunny's co-star in the movie ''Space Jam.
+- 1996/12/06/0893794	Lee agreed that the commercial turned out better with *the Michael Jordan* who specializes in basketball -- whom he calls Mike after their skein of ''Mike and Spike'' Nike spots -- outdoing the Michael Jordan who doesn't.
+- 1996/12/15/0895505	*The Michael Jordan* whom Mr.
+- 1997/05/20/0931232	Because of the suspensions in Games 6 and 7, it cost them the services of key players, and it cost them what might have been one of the best chances they have had for a title in all of *the Michael Jordan* seasons.
+- 1998/01/11/0986858	He talks about ''*the Michael Jordan* scenario,'' in which a nurse might surreptitiously steal a few drops of blood from Michael Jordan during a routine physical and sell it on the black market to be used in cloning.
+- 1998/02/28/0998554	Nike has also come on board with Niketown, making shoe buying something like a trip to *the Michael Jordan* hall of fame.
+- 1998/04/11/1008892	Neither the Nets nor the Knicks want to finish eighth, because they then would have to meet the Bulls, who are intent on capturing a sixth championship in *the Michael Jordan* era.
+- 1998/05/19/1018219	Much like the legend, *the Michael Jordan* Hardware Drive continues.
+- 1998/05/30/1020677	But for Brown, the reason for making the trip was not so much to see the Bulls but to witness what might be the final days of *the Michael Jordan* era.
+- 1998/07/15/1031883	Doors lead from the bar to a shop selling accessories and gifts with *the Michael Jordan* steakhouse logo -- a steer branded No.
+- 1998/09/13/1045913	Inside Nike's main laboratory in *the Michael Jordan* Building, shoe scientists in lab coats watch slow-motion X-ray videos of how the 26 bones in the human foot react to different strides.
+- 1998/12/29/1073177	There is also his DNA line, Bijan light, and *the Michael Jordan* fragrance, for which he holds the license, which is sold in places like the Sports Authority.
+- 1999/01/10/1076050	*The Michael Jordan* who averages 17 points per game for the University of Pennsylvania, a very mortal No.
+- 1999/01/13/1076763	, for the Air Jordan and Jordan brands of footwear and apparel; the Sara Lee Corporation, for Ball Park Franks and Hanes underwear; the General Motors Corporation, for Chevrolet vehicles; the Rayovac Corporation, for batteries, and Bijan, for *the Michael Jordan* fragrance.
+- 1999/02/08/1083664	The dress code varies from the Continental clip to *the Michael Jordan* shave.
+- 1999/02/14/1084882	All I have to do is look around Ari's room -- past the clutter of Lego pieces, open books and plastic swords -- to see my son's life as a pathetic collection of props: *the Michael Jordan* poster on the wall; the knitted Senegalese cap hanging from the doorknob; the framed autograph of Tiger Woods by his bed.
+- 1999/02/21/1086906	It was there that *the Michael Jordan*-led Dream Team took the Games into outright professionalism, as well as a certain democracy; athletes were finally staying in hotels as deluxe as those housing I.
+- 1999/02/26/1088029	And when Shigeki Maruyama was in Chicago two years ago, he shopped at *the Michael Jordan* store.
+- 1999/11/12/1152776	''It gets back to *the Michael Jordan* thing,'' Knicks Coach Jeff Van Gundy said.
+- 1999/12/10/1159769	''He has not been *the Michael Jordan* in the debates,'' said Representative John R.
+- 1999/12/21/1162775	''*The Michael Jordan* comparison is something he's been dealing with since high school,'' said Carter's mother and full-time business manager, Michelle Carter-Robinson.
+- 1999/12/29/1164537	Jacobson said after the ceremony at *the Michael Jordan* Steakhouse in Grand Central, ''but we came to New York for the holidays.
+- 2000/01/11/1167761	''It was fun,'' Ewing said of playing the Bulls in *the MICHAEL JORDAN* era.
+- 2000/02/02/1173302	''You might still have a language barrier, but very quickly, if I buy the Levi's jeans, *the Michael Jordan* sneakers, the Tommy Hilfiger jackets or Polo shirts, I can look like an American.
+- 2000/08/28/1226010	''Cynthia Cooper is *the Michael Jordan*, the Larry Bird, the Magic Johnson of this league,'' Rich Adubato, the coach of the New York Liberty, said.
+- 2000/09/27/1234019	''She could be *the Michael Jordan* that women's basketball hasn't yet had,'' said Michele Timms, a guard for Australia and a member of the Phoenix Mercury in the Women's National Basketball Association.
+- 2000/10/28/1242428	Call it cultural commodification, but it is a reminder that the New York Yankees, much like *the Michael Jordan* Chicago Bulls, mean something to the world about physical power and the will to win, and that in itself keeps me thrilled to be a fan.
+- 2000/12/24/1257786	Knowing that, many men may prefer a Bic razor and *the Michael Jordan* look.
+- 2001/06/19/1302865	But as if to signify its new push toward women, the company recently named its largest building after Mia Hamm, the most popular female soccer player in the country, and moved its footwear design there from *the Michael Jordan* building.
+- 2001/10/09/1332330	*The Michael Jordan* comeback television tour has begun.
+- 2001/12/21/1353153	THE chase is on, around the screens and after the quick-triggered guards and in the vague direction of *the Michael Jordan* standard.
+- 2002/01/16/1359806	This is, simply, *the Michael Jordan* effect.
+- 2002/04/10/1382926	He scored a game-high 21 points in 28 minutes against *the Michael Jordan*-less Wizards and had 12 assists.
+- 2002/05/08/1390572	He knew he was the Babe Ruth, *the Michael Jordan*, the Wayne Gretzky of racing.
+- 2002/06/19/1401811	Elsewhere in *the Michael Jordan* Steakhouse in Grand Central Terminal were LUCIANNE S.
+- 2002/07/12/1407509	The Ocean Club Golf Course in Paradise Island, the Bahamas, holds two high-wattage tournaments: *the Michael Jordan* Celebrity Invitational, Sept.
+- 2002/07/12/1407614	James does not expect to be able to play for at least another three weeks, but he hopes to be able to participate in *the Michael Jordan* camp in Santa Barbara, Calif.
+- 2002/08/01/1412696	, *the Michael Jordan* apparel and accessories division of Nike, to Spike DDB, New York, part of the DDB Worldwide unit of the Omnicom Group, to handle a creative assignment for its new men's clothing line, Jordan Two3.
+- 2002/09/01/1420112	A larger site means that newer restaurants in the region will have access to Taste of Connecticut, she said, including *the Michael Jordan* Steakhouse from the Mohegan Sun Casino, which will offer garlic bread and ribs, and Cascades at the New London Holiday Inn, whose menu will feature Tropicana Dreamsicle Cheesecake.
+- 2003/02/08/1463229	''The most important thing I want to get out of *the Michael Jordan* thing, to clear the air, is that I respect him,'' he said.
+- 2003/05/03/1485777	First, I hate to see talent wasted, and second, I'm tired of former players -- *the Michael Jordan*-Charles Barkley era -- castigating young players for not knowing how to win, or caring whether they do.
+- 2003/06/24/1499517	They were thrilled that he was coming to the Bulls to help, as he said, rebuild the great winning tradition of *the Michael Jordan* era.
+- 2004/01/11/1549836	That fell through after *the Michael Jordan*'s steakhouse there refused to give up 40 seats for the 1.
+- 2004/02/18/1559839	Jeter is a member of Team Jordan, a cadre of athletes Nike considers such powerful endorsers they hawk *the Michael Jordan* brand of apparel and footwear.
+- 2004/10/10/1618071	The 1990's heyday of *the Michael Jordan* monk look, exemplified by Buhner and hundreds of other close-cropped or shaved-bald pro athletes, is gone.
+- 2004/11/03/1624345	stars of *the Michael Jordan* era who helped initiate the global movement by anointing themselves America's savior in the international competitions for the purpose of expanding their ancillary revenue streams.
+- 2005/01/09/1640712	's second-greatest dynasty, *the Michael Jordan*-era Bulls from 1991 to 1998, led the league in scoring in two title seasons and scored well above the league average in each of its six championship years.
+- 2005/02/14/1649911	The campaign is clearly designed to bolster merchandise sales, which have sagged since the height of *the Michael Jordan* era.
+- 2005/06/12/1679628	At *the Michael Jordan* Senior Flight School, campers meet a changing cast of basketball celebrities, like Charles Barkley and Bill Walton; play basketball for four days under the tutelage of N.
+- 2005/08/11/1693848	Armchair athletes, as we know from *the Michael Jordan* era, don't care nearly as much about the science of a drink as who is drinking it.
+- 2006/03/26/1749844	's influence reaches around the globe but when the league is still trying to recapture the popularity of *the Michael Jordan* era in the United States, Commissioner David Stern had high praise for Tagliabue.
+- 2006/07/16/1776400	One frequent fallback, which comes in handy when covering esoteric events, is to describe someone as ''*the Michael Jordan*'' of his or her sport.
+- 2006/09/03/1787354	Andy Warhol would doubtless be pleased by the comparison, but as *the Michael Jordan* reference suggests, what drives the toy craze isn't only the generative force of art; it's also its opposite -- nostalgia.
+- 2007/01/12/1818287	He recognized *the Michael Jordan* treatment when he saw it.
+- 2007/03/07/1831185	By culling through local information on her hard drive, the program was able to discern that she was interested in finding *the Michael Jordan* who is the machine-learning expert at the University of California, Berkeley, not the basketball player.
+- 2007/04/25/1842886	The Bulls, in their third straight playoff appearance, are trying to win their first first-round series since *the Michael Jordan* era, trying to separate once and for all from the past.
+- 2007/04/30/1844089	The Bulls won a playoff series for the first time since the 1997-98 season, the last of *the Michael Jordan* era, and now get to play the Eastern Conference stalwart and Chicago center Ben Wallace's former team, the Detroit Pistons, in the semifinals.
+- 2007/06/08/1853037	Magic Johnson and Larry Bird defined the golden 1980s, but as one who spent a fair amount of time trying to make sense of Knicks teams fronted by Ray Williams and Micheal Ray Richardson, let me vouch for the fact that the knucklehead quotient was not insignificant back then, or during *the Michael Jordan*-dominated 1990s.
 
 * TODO vossantos
 manually check all candidates ...

@@ -238,5 +238,135 @@
 - 2006/03/14/1746784	Lee was a pitcher when he played in high school and, Heo suggested, could be considered the *Babe Ruth of* South Korea.
 - 2006/05/14/1761444	) Edelstein, a motor-sports writer for TV Guide, chronicles the bumpy career of Curtis Turner (1924-70), who ran moonshine in the Virginia hills as a teenager and blazed a dirt trail to stardom during Nascar's early years, earning the title of ''the *Babe Ruth of* stock-car racing.
 
+** "the Babe Ruth of"
+*** Which occurences of "BR of" are not preceded by "the"?
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "babe ruth of\b" br.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | grep -vi "the babe ruth of" | sed "s/babe ruth of/*&*/i"
+#+END_SRC
+
+#+RESULTS:
+- 1988/03/07/0125336	Louis Cardinal catcher, reported that he ended the 1926 World Series by throwing out *Babe Ruth of* the Yankees attempting to steal second base.
+- 1988/03/07/0125336	Louis Cardinal catcher, reported that he ended the 1926 World Series by throwing out *Babe Ruth of* the Yankees attempting to steal second base.
+- 1990/09/30/0387484	Only 10 major leaguers have hit 50 or more home runs, although several did it more than once and *Babe Ruth of* the Yankees did it four times.
+- 2002/03/10/1374352	''I think Jason Giambi will be the next *Babe Ruth of* New York,'' Rodriguez said.
+*** Which occurences of "the BR" are not followed by "of"?
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "the babe ruth\b" br.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | grep -vi "the babe ruth of" | sed "s/the babe ruth/*&*/i"
+#+END_SRC
+
+- 1987/06/04/0046453	Was ''*The Babe Ruth* Story'' an accurate portrayal of the Yankee slugger, or was it an open distortion of the baseball hero's character?
+- 1987/06/04/0046453	Was ''*The Babe Ruth* Story'' an accurate portrayal of the Yankee slugger, or was it an open distortion of the baseball hero's character?
+- 1987/11/08/0090883	Let's call it *the Babe Ruth* Trophy.
+- 1987/12/20/0103463	Probably not, but in Baltimore, where *the Babe Ruth* Museum honors his birthplace, the votes are in.
+- 1988/05/30/0149905	That team, which finished 13 1/2 games ahead of *the Babe Ruth*-Lou Gehrig Yankees, only lost 45 times in 152 decisions.
+- 1988/08/28/0174917	''I thought of all the old William Bendix movies,'' he said, alluding to ''*The Babe Ruth* Story,'' and adding, ''Even 'The Jackie Robinson Story' was a grade-B movie without much effort, the second or third movie on a billing.
+- 1989/05/14/0249953	One's only consolation at the time was that Hollywood was equally cavalier toward every occupation it touched, and William Bendix, who couldn't even manage a decent home-run trot for ''*The Babe Ruth* Story,'' was no more at sea than Don Ameche inventing the telephone or Robert Walker frowning over ''Ol' Man River.
+- 1989/10/01/0287601	''If you're going to have the Cy Young Award for the best pitcher, you should have *the Babe Ruth* Award and give it to the most outstanding player in the league.
+- 1989/11/26/0304438	There have been history movies for decades, of course, from Eisenstein's ''Ten Days that Shook the World'' (with its famous - and unhistorical - scenes of Kerensky hiding under his couch) to ''*The Babe Ruth* Story.
+- 1990/01/11/0315885	A Hollywood Version (The version of the incident in the movie ''*The Babe Ruth* Story,'' showing Ruth delivering the promise at the youngster's hospital bed, seems to have been wrong on at least two counts.
+- 1990/02/25/0329851	The 12-foot-wide rowhouse at 216 Emory Street, rather grandly named *the Babe Ruth* Birthplace and Maryland Baseball Hall of Fame, is chockful of baseball memorabilia, including a life-size mechanized figure of the Sultan of Swat in his prime, along with gold plaques commemorating each of his 714 home runs.
+- 1990/02/26/0330056	Michael Gibbons, the executive director of *the Babe Ruth* Museum, which includes the house in which Ruth was born in a neighborhood called Ridgely's Delight, is among those who want to name the stadium for Ruth.
+- 1990/02/26/0330056	Gibbons and others at *the Babe Ruth* Museum are not overly optimistic that the Orioles and Maryland will name the new ball park for their hero, but they enjoy the opportunity to speak about this icon of the nation and to clear up any confusion.
+- 1990/02/26/0330056	And so, for all that Ruth means to the game and to his hometown, Gibbons and others at *the Babe Ruth* Museum, plus political figures and sports commentators, are pressing to have the new $100 million ball park named for their hero.
+- 1991/02/27/0426383	Bill Veeck, the owner who gave baseball exploding scoreboards and giveaway days and even sent a midget to bat, and Tony Lazzeri, second baseman for the Yankees during *the Babe Ruth* era, were elected today to the Baseball Hall of Fame by the veterans committee.
+- 1991/04/16/0437761	The Yankees haven't won a pennant since 1981, one of the team's longest droughts since *the Babe Ruth* days.
+- 1991/04/17/0437955	Keyes, director of the Mayor's Office of Film, Theater and Broadcasting, said that "Frankie and Johnny in the Claire de Lune" -- about a quintessential New York love story -- and "*The Babe Ruth* Story" -- about one of the most famous Yankees of all time -- were among at least seven films that would be shot elsewhere.
+- 1991/05/17/0446101	In the last month, at least 10 films were steered away from New York City, including "Frankie and Johnny in the Claire de Lune" and "*The Babe Ruth* Story.
+- 1991/05/31/0449385	The former baseball superstar will appear in "*The Babe Ruth* Story," which starts shooting on Tuesday as an NBC television movie.
+- 1991/06/01/0449469	A slight snag has come up for PETE ROSE in the proposed made-for-TV movie "*The Babe Ruth* Story.
+- 1991/06/02/0449764	Linz, who also coaches his son's teams in *the Babe Ruth* and Mickey Mantle Leagues in Stamford.
+- 1991/06/23/0454647	For *the Babe Ruth* story, currently in production, Wrigley Field was the logical choice: it was in the best shape and had none of the neon billboards that would give away the decade.
+- 1991/09/27/0476632	William Bendix in "*The Babe Ruth* Story.
+- 1991/09/27/0476632	"Bull Durham," "Field of Dreams" and "Eight Men Out" (apart from the stilted baseball action) have matured the genre so that attempting a whitewashed absurdity such as "*The Babe Ruth* Story" would, with any luck, be slammed out of a studio.
+- 1991/10/01/0477553	Until the agreement was reached, producers steered at least 10 films away from New York City, including "Frankie and Johnny" and "*The Babe Ruth* Story.
+- 1992/04/06/0519624	For one thing, "*The Babe Ruth* Story," the 1948 movie in which Bendix portrayed Ruth, is widely regarded as the worst baseball movie ever made.
+- 1992/04/19/0522440	The movie "The Babe" is better than "*The Babe Ruth* Story," the 1948 sop with William Bendix in the title role, but it's not what it could've been and it's hardly the best baseball movie there ever was.
+- 1992/05/02/0525150	league, *the Babe Ruth* League, the Little League and an adult softball league have been shifted to other fields in Jersey City for the season.
+- 1992/08/30/0553265	Aaron broke is also out in another edition: *THE BABE RUTH* STORY, by Babe Ruth as told to Bob Considine (Signet, $4.
+- 1992/09/01/0553809	Costuming, Mini-Series or Special -- "*The Babe Ruth* Special," NBC
+- 1992/10/15/0563058	Everything about *the Babe Ruth* legend lands sunny side up in Arthur Hiller's film.
+- 1992/11/27/0572936	But it is *the Babe Ruth* story that people most often ask the photographer to recount.
+- 1992/12/06/0574821	It may seem odd that the most majestic city of the former Soviet Union would be taking cultural cues from an American city known for baseball, crabcakes and *the Babe Ruth* house.
+- 1993/08/08/0627222	) and *the Babe Ruth* Museum (Baltimore), I have listened to the three of them exchange information on teams, dates, records and stats.
+- 1994/04/11/0679885	There has been much speculation about why Michael Jordan would walk away from basketball to subject himself to this new game, one he hasn't played since he was 17 years old, and had played in high school and *the Babe Ruth* league.
+- 1994/06/05/0691865	Back in 1961 there was a question on everyone's lips: "Is the Mickey Mantle baseball more lively than *the Babe Ruth* baseball?
+- 1994/09/12/0711723	A consequent policy to keep a cleaner, more tightly wound ball in play shifted the advantage from the pitcher to the hitter and helped clear the way for *the Babe Ruth* era.
+- 1995/04/04/0752936	" He apologized for some clutter in the basement study of his town house as he was preparing to write a speech for *the Babe Ruth* Conference at Hofstra University this month.
+- 1995/09/24/0790605	The how starts with officials of *the Babe Ruth* Birthplace and Museum in Baltimore, who learned that Hopkins was the only known surviving pitcher who served up one of Ruth's legendary 60 home runs in 1927.
+- 1995/09/24/0790605	No one seems to have remembered that moment until *the Babe Ruth* Birthplace Foundation unveiled a larger-than-life statue of Ruth outside of Oriole Park at Camden Yards (the home of the Baltimore Orioles and close by Ruth's birthplace) during a ceremony to which Hopkins and his wife, Jean were invited.
+- 1995/09/24/0790605	So much so that following the ceremonies on May 16, the executive director of *the Babe Ruth* Museum, Michael L.
+- 1995/09/24/0790605	" He met one of Ruth's two daughters, Julia Ruth Stevens, and a granddaughter, Linda Tosetti, who lives in Durham and who was the one who told officials of *the Babe Ruth* Museum about Hopkins.
+- 1996/06/28/0860754	There's *the Babe Ruth* room, with his bat and his locker, and the Hank Aaron room, ditto.
+- 1996/07/28/0868000	The autographed baseball is most likely a novelty item of the kind sold in gift  shops and candy stores for play by youngsters, said Greg Schwalenberg, curator of *the Babe Ruth* Birthplace and Museum in Baltimore.
+- 1996/07/28/0868118	The autographed baseball is most likely a novelty item of the kind sold in gift shops and candy stores for play by youngsters, said Greg Schwalenberg, curator of *the Babe Ruth* Birthplace and Museum in Baltimore.
+- 1996/09/08/0876031	In the July 28 article titled ''Babe Ruth Signature Inspires Awe and a Lawsuit'', the curator of *the Babe Ruth* Birthplace and Museum in Baltimore stated that he did not know why Babe Ruth was in Peekskill.
+- 1996/09/19/0878234	Eventually, Lasky says, he will give the ball to *the Babe Ruth* Museum in West Baltimore.
+- 1996/10/06/0881378	The current number of major league teams, 28, hasn't even kept up with the population increase since *the Babe Ruth* era, when there were 16 clubs.
+- 1996/10/11/0882632	David Wells, *the Babe Ruth* fan, pitched effectively into the seventh for Baltimore, earning his 10th victory in 11 career decisions at the Stadium as the Orioles halted New York's pursuit of a fifth straight comeback triumph and edited the script.
+- 1996/10/13/0883254	Around the corner from left field at Camden Yards, in a narrow three-story red-brick row house with a small white stoop at 216 Emory Street, is *the Babe Ruth* Birthplace and Museum.
+- 1996/11/02/0887172	The EDDIE MURRAY home run ball that sold for $500,000 last month will go to *the Babe Ruth* Museum, which won a national call-in poll.
+- 1997/02/02/0906122	Cecil Fielder, who wants to leave the Yankees, will receive *the Babe Ruth* award for his World Series performance.
+- 1997/04/27/0925599	If you walk about three blocks west from Camden Yards to *the Babe Ruth* Birthplace and Baseball Center (admission $5), you can learn more, like how he hit the first home run in Yankee Stadium on opening day in 1923 and loved ''The Lone Ranger.
+- 1997/10/12/0964253	Anyone who remembers ''*The Babe Ruth* Story,'' a 1948 howler with William Bendix in the title role, can understand why.
+- 1997/12/28/0983751	7 Walking near the high-tech ball park, I come upon *the Babe Ruth* Museum.
+- 1998/01/28/0991093	But this one, featuring clay figurines as larger-than-life figures from the New York Yankees, hit a home run, literally (a blast by *the Babe Ruth* figurine) and figuratively.
+- 1998/05/24/1019256	There is *the Babe Ruth* room.
+- 1998/08/09/1037703	'' That is a probable takeoff on the 1948 film ''*The Babe Ruth* Story'' in which William Bendix, playing Ruth, makes a promise to a dying boy in the hospital.
+- 1998/08/16/1039656	With klutzy, unathletic William Bendix in ''*The Babe Ruth* Story,'' a sappy, silly film and with John Goodman, far overweight despite losing 60 pounds to play Ruth in ''The Babe.
+- 1998/08/30/1042862	Halper has to steady his guests by pointing out the individual pieces (like *the Babe Ruth* fishing lure with the ballplayer's head as the lure).
+- 1998/09/20/1048013	(Begin video clip: William Bendix in a scene from ''*The Babe Ruth* Story.
+- 1998/10/25/1056949	For all the historic hoopla of *the Babe Ruth* and Lou Gehrig years, those Yankee teams won only two consecutive Series, in 1927 and 1928, as well as two others, in 1923 (without Gehrig) and 1932.
+- 1998/12/29/1073175	'' When he did, he wrote in his autobiography (''*The Babe Ruth* Story,'' E.
+- 1998/12/29/1073175	*The Babe Ruth* trials clearly exemplify just how much has changed in a half century.
+- 1999/01/12/1076566	That picture was taken as I was delivering $7 in pennies I had ''saved'' for *the Babe Ruth* Foundation.
+- 1999/02/07/1083443	Jeremy said he was interested in ''*the Babe Ruth* stuff.
+- 1999/02/19/1086218	BUT what about *the Babe Ruth* cap?
+- 1999/05/05/1105292	Scott Armstrong, a Washington writer who negotiated for years with the Orioles and the Cuban Government to stage two exhibition games, Monday night's and a game six weeks ago in Havana, said he spent much of Monday in Baltimore with a larger group of Cubans that included these six former players, visiting *the Babe Ruth* Museum and sitting with them during the game.
+- 2000/12/05/1252719	He was going to *the Babe Ruth* Museum, to announce a joint venture for an exhibit to focus on the history of baseball in the United States and Japan.
+- 2001/04/25/1288287	Some are egregious offenders, like ''*The Babe Ruth* Story,'' or a recent Showtime film about Rocky Marciano.
+- 2001/07/01/1306212	Here you can find gangs of sensible grown men dressed up in baseball jerseys, dreamily touring *the Babe Ruth* exhibits at the National Baseball Hall of Fame.
+- 2001/07/13/1308963	This Red Sox team, riddled with injuries, missing its biggest stars, is an unlikely candidate to begin the process of breaking *the Babe Ruth* curse.
+- 2001/10/25/1336862	Clemens's ritual of rubbing *the Babe Ruth* monument at Yankee Stadium before heading out to pitch.
+- 2002/01/26/1362379	''It's part of my life, this place, a part of me,'' he said the other day inside *the Babe Ruth* Hall of Fame Suite, a luxury loge one level up behind home plate.
+- 2002/01/26/1362379	He sits in *the Babe Ruth* Suite when his tour is done and, once more, watches the old clip of his father rushing the pitcher's mound in 1956.
+- 2002/04/28/1387716	The land portion includes Oriole Park at Camden Yards, *the Babe Ruth* Museum, Edgar Allan Poe's gravesite, the U.
+- 2002/05/08/1390572	He knew he was *the Babe Ruth*, the Michael Jordan, the Wayne Gretzky of racing.
+- 2002/09/01/1420315	Graham Spurrier gathered *the Babe Ruth* team that he coached and posed a question to the teenage boys: ''How many of you believe that it's not whether you win or lose, but how you play the game, that counts?
+- 2002/09/30/1427985	*The Babe Ruth* Birthplace and Museum in Baltimore sent Mr.
+- 2003/07/13/1504200	Ernestine Gichner Miller is the author of ''The Babe Book: Baseball's Greatest Legend Remembered'' (Andrews McMeel, 2000) and is on the board of directors of *the Babe Ruth* Museum in Baltimore.
+- 2003/08/24/1514314	A rival organization, *the Babe Ruth* League, has been gaining recruits over the last four years nearly as fast as Little League has been losing them.
+- 2003/08/24/1514314	The boom at *the Babe Ruth* League started in 1999, when Cal Ripken Jr.
+- 2003/09/14/1519724	There's *the Babe Ruth* sale, the Johnny Pesky throw, the Bill Buckner grounder through the legs.
+- 2003/10/10/1526143	Michael Gibbons, the executive director of *the Babe Ruth* Birthplace and Museum in Baltimore, said fans are being creative in trying to reverse the ''Curse of the Bambino.
+- 2003/11/30/1539317	''He was Babe Ruth playing in *the Babe Ruth* League,'' said Lincoln A.
+- 2004/01/08/1549015	After a miserable 4-12 record this season, none of the New York Giants could resort to *the Babe Ruth* answer for why he was paid more than the president of the United States.
+- 2004/03/23/1568533	''Before I went to prison, I had read two books in my life, '*The Babe Ruth* Story' and 'The Lou Gehrig Story,' because I wanted to be a ballplayer.
+- 2004/03/28/1569663	It was the last night of *the Babe Ruth* season -- the summer league for 13-to-15-year-olds.
+- 2004/05/20/1583114	That house is now *the Babe Ruth* Museum, which is not ''getting in the middle'' of the dispute, said Laurie Ward, spokeswoman for the museum.
+- 2004/09/05/1609295	New York Giants Manager John McGraw also railed against *the Babe Ruth*-catalyzed power boom of the 1920's, calling Ruth a bum who would hit into ''a hundred double plays before the season is over.
+- 2004/10/21/1620975	Not satisfied with that little bit of history, the Yanks offered the Red Sox' owners an opportunity to watch the game from the comfort of *the Babe Ruth* suite at Yankee Stadium.
+- 2005/01/08/1640371	Ripken owns the ball, but he has lent it to *the Babe Ruth* Museum near Camden Yards.
+- 2005/04/17/1665754	After he toured Camden Yards, Pavano made a point of seeing *the Babe Ruth* Birthplace and Museum, a short walk from the ballpark.
+- 2005/09/06/1700009	If they think *the Babe Ruth* curse was bad, wait till they see this one.
+- 2005/10/23/1711996	At least the Red Sox labored under the sportswriter-hyped legend of *the Babe Ruth* hex.
+- 2005/12/09/1723538	Two years before, Roy Del Ruth directed ''*The Babe Ruth* Story,'' a low point in sports cinema.
+- 2005/12/09/1723538	''*The Babe Ruth* Story'' (1948) was Roy Del Ruth's only foray into sports cinema.
+- 2006/04/02/1751560	The run batted in -- only recently added as an official statistic, thanks in part to *the Babe Ruth* slugging craze -- was still relegated to the paragraph synopsis.
+- 2006/04/16/1754963	at *the Babe Ruth* Museum, at 216 Emory Street, and at the year-old Sports Legends Museum at nearby Camden Station.
+- 2006/04/16/1754963	50 for children 3 to 12; *the Babe Ruth* Museum is $6 for adults and $3 for children 3 to 12; a combination ticket is $14 for adults and $9 for children; 410-727-1539; www.
+- 2006/04/30/1758344	The Bonds talk has helped attendance at *the Babe Ruth* Birthplace and Museum in Baltimore.
+- 2006/05/28/1765082	As long as he has been moving in slow motion to pass Babe Ruth on the home run list, Barry Bonds may want to consider contributing to a fund that is raising money that *the Babe Ruth* Museum will use to renovate Ruth's birthplace in Baltimore.
+- 2006/06/04/1766401	No wonder *the Babe Ruth* epic continues to fascinate.
+- 2006/06/04/1766401	), provided the kind of supporting cast that allowed *the Babe Ruth* story to reach legendary heights.
+- 2006/06/04/1766401	'' Often, when some aspect of *the Babe Ruth* legend falls outside his research, the fog rolls in.
+- 2006/09/06/1787849	These include the American Visionary Art Museum, *the Babe Ruth* Birthplace and Museum and the Reginald F.
+- 2006/10/03/1794539	That is hardly the stuff of *the Babe Ruth* or the Black Sox plagues.
+- 2007/04/03/1837794	Murcer watched the first two innings in *the Babe Ruth* Suite, where he was embraced some more, before he walked with his wife to the YES booth to join Singleton, Michael Kay and Joe Girardi for the third inning.
+- 2007/04/29/1843701	, the vice president and commissioner of *the Babe Ruth* League, a national youth baseball organization based in Trenton, said in a recent interview that he was aware of the law, but that ''the uptake has been very slow.
+- 2007/04/29/1843701	*The Babe Ruth* League, which has one million players, about 15,000 of them enrolled in Babe Ruth and Cal Ripken programs in New Jersey, has a rule that says players will adhere to all local laws and ordinances to maintain their eligibility.
+- 2007/06/04/1852192	, by umpiring in Little League and *the Babe Ruth* League for $3 and $5 a game.
+
 * TODO vossantos
 manually check all candidates ...
