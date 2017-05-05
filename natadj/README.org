@@ -85,3 +85,21 @@ finds all sentences which contain a national adjective preceded by
 #+END_SRC
 
 | 66262 | 1987.tsv |
+** testing detection with Stanford NLP
+Entering the lines
+#+BEGIN_SRC 
+the Spanish Michelangelo
+the Sri Lankan Michelangelo
+the Sudanese Michelangelo
+the Surinamese Michelangelo
+the Svalbard Michelangelo
+the Swazi Michelangelo
+the Swedish Michelangelo
+the Swiss Michelangelo
+the Syrian Michelangelo
+the Tajikistani Michelangelo
+the Tanzanian Michelangelo
+the Thai Michelangelo
+#+END_SRC
+into [[http://nlp.stanford.edu:8080/ner/process][the online test tool]] does not look promising, since only few
+occurrences of "Michelangelo" are recognised as person.
