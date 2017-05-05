@@ -35,19 +35,17 @@ through NLTK and check the result:
 |   3 |         3 | JJ PERSON              | the/DT Bissau-Guinean/JJ (PERSON Barack Obama)                            |
 |   3 |         1 | LOCATION NNP           | the/DT (LOCATION Persian Barack) Obama/NNP                                |
 |   3 |         8 | LOCATION PERSON        | the/DT (LOCATION Northern Irish) (PERSON Barack Obama)                    |
-|   3 |         1 | NN PERSON              | the/DT gia/NN (PERSON Barack Obama)                                       |
 |   3 |         2 | NNP PERSON             | the/DT I-Kiribati/NNP (PERSON Barack Obama)                               |
 |   3 |         1 | NNPS PERSON            | the/DT Americans/NNPS (PERSON Barack Obama)                               |
 |   4 |         2 | GPE CC PERSON          | the/DT (GPE Turks) and/CC (PERSON Caicos Island Barack Obama)             |
 |   4 |         1 | GPE LOCATION NNP       | the/DT (GPE French) (LOCATION Polynesian Barack) Obama/NNP                |
 |   4 |         1 | GPE LOCATION PERSON    | the/DT (GPE French) (LOCATION Southern Territories) (PERSON Barack Obama) |
-|   4 |         7 | GPE NNP NNP            | (GPE Greek) Barack/NNP Obama/NNP                                          |
-|   4 |         3 | GPE NNP PERSON         | (GPE Greek) Barack/NNP Obama/NNP)                                         |
+|   4 |         7 | GPE NNP NNP            | (GPE Greek) Barack/NNP Obama/NNP)                                         |
+|   4 |         3 | GPE NNP PERSON         | (GPE Hong) Kongese/NNP (PERSON Barack Obama)                              |
 |   4 |         1 | ORGANIZATION CC PERSON | the/DT (ORGANIZATION Wallis) and/CC (PERSON Futuna Barack Obama)          |
 
 Notes: 
 - "LOCATION PERSON" always with countries whose names starts with
   "South" or "North"
-- "gia" must be an error, will check
 - The patterns change if we take another person than Barack Obama
   (e.g., Franz Beckenbauer)
