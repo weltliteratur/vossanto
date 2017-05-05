@@ -78,9 +78,9 @@ class NationalAdjectives:
         return adjectives
     
     # match the string against pattern natadj + person
-    def match(self, s):
+    def match(self, s, ner=True):
         for sentence in sent_tokenize(s):
-            m = self.match_sentence(sentence)
+            yield self.match_sentence(sentence, ner)
             
     # POS/NER based matching
     def match_sentence(self, s, ner=True):
@@ -154,6 +154,7 @@ if __name__ == '__main__':
     parser.add_argument('-t', '--test', type=str, help='test string')
     parser.add_argument('-n', '--ner', action="store_true", help='enable NER')
     parser.add_argument('-p', '--print', action="store_true", help='print list of adjectives')
+    parser.add_argument('-j', '--just-annotate', action="store_true", help='just annotate the input sentence ')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
@@ -161,12 +162,21 @@ if __name__ == '__main__':
     na = NationalAdjectives(args.input)
 
     if args.test:
+        # print statistics for the test phrase "the ADJECTIVE <args.test>"
         na.test(args.test, args.ner)
     elif args.print:
+        # print the list of adjectives
         for adj in na.adjectives:
             print(adj, na.adjectives[adj], sep='\t')
     else:
+        # process input from STDIN
         for line in sys.stdin:
-            matches = na.match_simple(line)
-            if matches:
-                print("\t".join(matches))
+            if args.just_annotate:
+                # print annotations
+                for ttext, taglist, txtlist in na.match(line):
+                    print(ttext)
+            else:
+                # match against the adjective list
+                matches = na.match_simple(line)
+                if matches:
+                    print("\t".join(matches))

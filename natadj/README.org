@@ -71,3 +71,17 @@ The patterns change if we take another person, e.g., John Doe:
 |   3 |         2 | GPE NNP PERSON          | the/DT (GPE French) Guianese/NNP (PERSON John Doe)                 |
 |   4 |         1 | GPE CC PERSON PERSON    | the/DT (GPE Turks) and/CC (PERSON Caicos Island) (PERSON John Doe) |
 |   4 |         1 | GPE NNP NNP PERSON      | the/DT (GPE U.S.) Virgin/NNP Island/NNP (PERSON John Doe)          |
+
+This shows that extraction won't be simple using POS and NER (at least
+with NLTK).
+
+** extraction using simple string matching
+The current implementation with the
+~NationalAdjectives.match_simple()~ finds all sentences which contain
+a national adjective preceded by "the". This returns way too many hits:
+#+BEGIN_SRC sh
+  ./nyt.py -c countries.tsv ../nyt_corpus_1987.tar.gz  > 1987.tsv
+  wc -l 1987.tsv
+#+END_SRC
+
+| 66262 | 1987.tsv |
