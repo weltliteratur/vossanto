@@ -64,7 +64,7 @@ class NationalAdjectives:
                         for i, p in enumerate(adjective.split(',')):
                             self.add_adjective(adjectives, p.strip(), url, i + 1)
                     elif " or " in adjective:
-                        for i, p in enumerate(adjective.split('or')):
+                        for i, p in enumerate(adjective.split(" or ")):
                             self.add_adjective(adjectives, p.strip(), url, i + 1)
                     else:
                         # regular name
@@ -112,22 +112,28 @@ class NationalAdjectives:
                 parts.append(tag[0] + "/" + tag[1])
         return " ".join(parts), taglist, txtlist
 
+    # test detection using the pattern "the ADJECTIVE <person>"
+    def test(self, person):
+        cases = []
+        for adj in na.adjectives:
+            s = "the " + adj + " " + person
+            t, tagl, txtl = na.match_sentence(s)
+            print(len(tagl), '\t'.join(tagl[1:]), t, adj, na.adjectives[adj], sep='\t')
+            # check different cases
 
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Test reading of national adjectives', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('input', type=str, help='input TSV file')
+    parser.add_argument('-t', '--test', type=str, help='test string')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
 
     na = NationalAdjectives(args.input)
 
-    cases = []
-    for adj in na.adjectives:
-        s = "the " + adj + " Barack Obama"
-        t, tagl, txtl = na.match_sentence(s)
-        print(len(tagl), '\t'.join(tagl[1:]), t, sep='\t')
-        # check different cases
-        
-        
+    if args.test:
+        na.test(args.test)
+    else:
+        for adj in na.adjectives:
+            print(adj, na.adjectives[adj])

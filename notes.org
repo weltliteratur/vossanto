@@ -117,6 +117,7 @@ After the second cleansing round -- only individuals are included:
   grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/.*(//" -e "s/\/.*//"  | sort | uniq -c 
 #+END_SRC
 
+#+tblname: nyt-data
 | year |     count |
 |------+-----------|
 | 1987 |         4 |
