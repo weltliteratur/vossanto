@@ -22,38 +22,33 @@
 - result: [[file:countries.tsv][countries.tsv]]
 
 ** testing detection with NLTK
-For each adjective we feed the string "the ADJECTIVE Barack Obama"
+For each adjective we feed the string "the ADJECTIVE Michael Jordan"
 through NLTK and check the result:
 #+BEGIN_SRC sh
-  ./countries.py --test "Barack Obama" countries.tsv | sort
+  ./countries.py --test "Michael Jordan" countries.tsv | sort
 #+END_SRC
 
-| len | frequency | pattern                | example                                                                   |
-|-----+-----------+------------------------+---------------------------------------------------------------------------|
-|   1 |         1 | PERSON                 | the/DT (PERSON Albanian Barack Obama)                                     |
-|   1 |         3 | FACILITY               | the/DT (FACILITY Faroese Barack Obama)                                    |
-|   1 |       186 | ORGANIZATION           | the/DT (ORGANIZATION Cook Island Barack Obama)                            |
-|   2 |         1 | GPE ORGANIZATION       | the/DT (GPE Russian) (ORGANIZATION Barack Obama)                          |
-|   2 |         1 | LOCATION NNP           | the/DT (LOCATION Persian Barack) Obama/NNP                                |
-|   2 |         1 | NNPS PERSON            | the/DT Americans/NNPS (PERSON Barack Obama)                               |
-|   2 |         2 | NNP PERSON             | the/DT I-Kiribati/NNP (PERSON Barack Obama)                               |
-|   2 |         3 | JJ PERSON              | the/DT Saint-Martinoise/JJ (PERSON Barack Obama)                          |
-|   2 |         8 | LOCATION PERSON        | the/DT (LOCATION South Sudanese) (PERSON Barack Obama)                    |
-|   2 |        81 | GPE PERSON             | the/DT (GPE Grenadian) (PERSON Barack Obama)                              |
-|   3 |         1 | GPE LOCATION NNP       | the/DT (GPE French) (LOCATION Polynesian Barack) Obama/NNP                |
-|   3 |         1 | GPE LOCATION PERSON    | the/DT (GPE French) (LOCATION Southern Territories) (PERSON Barack Obama) |
-|   3 |         1 | ORGANIZATION CC PERSON | the/DT (ORGANIZATION Wallis) and/CC (PERSON Futuna Barack Obama)          |
-|   3 |         2 | GPE CC PERSON          | the/DT (GPE Turks) and/CC (PERSON Caicos Island Barack Obama)             |
-|   3 |         3 | GPE NNP PERSON         | the/DT (GPE U.S.) Virgin/NNP (PERSON Island Barack Obama)                 |
-|   3 |         7 | GPE NNP NNP            | the/DT (GPE Indonesian) Barack/NNP Obama/NNP                              |
+| len | frequency | pattern                | example                                                            |
+|-----+-----------+------------------------+--------------------------------------------------------------------|
+|   1 |       183 | ORGANIZATION           | the/DT (ORGANIZATION Cook Island Michael Jordan)                   |
+|   1 |         3 | FACILITY               | the/DT (FACILITY Faroese Michael Jordan)                           |
+|   1 |         5 | PERSON                 | the/DT (PERSON Chadian Michael Jordan)                             |
+|   2 |         1 | GPE ORGANIZATION       | the/DT (GPE French) (ORGANIZATION Guianese Michael Jordan)         |
+|   2 |         1 | ORGANIZATION PERSON    | the/DT (ORGANIZATION Americans) (PERSON Michael Jordan)            |
+|   2 |         2 | NNP PERSON             | the/DT I-Kiribati/NNP (PERSON Michael Jordan)                      |
+|   2 |         3 | JJ PERSON              | the/DT Saint-Martinoise/JJ (PERSON Michael Jordan)                 |
+|   2 |        89 | GPE PERSON             | the/DT (GPE Grenadian) (PERSON Michael Jordan)                     |
+|   2 |         9 | LOCATION PERSON        | the/DT (LOCATION South Sudanese) (PERSON Michael Jordan)           |
+|   3 |         1 | GPE NNP PERSON         | the/DT (GPE U.S.) Virgin/NNP (PERSON Island Michael Jordan)        |
+|   3 |         1 | ORGANIZATION CC PERSON | the/DT (ORGANIZATION Wallis) and/CC (PERSON Futuna Michael Jordan) |
+|   3 |         2 | GPE CC PERSON          | the/DT (GPE Turks) and/CC (PERSON Caicos Island Michael Jordan)    |
+|   3 |         2 | GPE LOCATION PERSON    | the/DT (GPE French) (LOCATION Polynesian) (PERSON Michael Jordan)  |
 
 Notes: 
 - "LOCATION PERSON" always with countries whose names starts with
   "South" or "North"
 
-The patterns change if we take another person than Barack Obama (e.g.,
-John Doe):
-
+The patterns change if we take another person, e.g., John Doe:
 #+BEGIN_SRC sh
   ./countries.py --test "John Doe" countries.tsv | sort
 #+END_SRC
