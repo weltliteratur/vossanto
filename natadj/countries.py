@@ -114,13 +114,22 @@ class NationalAdjectives:
 
     # test detection using the pattern "the ADJECTIVE <person>"
     def test(self, person):
-        cases = []
+        cases = dict()
         for adj in na.adjectives:
+            # test string
             s = "the " + adj + " " + person
+            # match
             t, tagl, txtl = na.match_sentence(s)
-            print(len(tagl), '\t'.join(tagl[1:]), t, adj, na.adjectives[adj], sep='\t')
-            # check different cases
+            # analyse
+            pat = ' '.join(tagl[1:])
+            if pat not in cases:
+                cases[pat] = (set(), t)
+            cases[pat][0].add(t)
 
+        # print table
+        for pat in cases:
+            print(len(pat.split(' ')), len(cases[pat][0]), pat, cases[pat][1], sep='\t')
+            
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Test reading of national adjectives', formatter_class=argparse.ArgumentDefaultsHelpFormatter)

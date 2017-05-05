@@ -24,28 +24,55 @@
 ** testing detection with NLTK
 For each adjective we feed the string "the ADJECTIVE Barack Obama"
 through NLTK and check the result:
+#+BEGIN_SRC sh
+  ./countries.py --test "Barack Obama" countries.tsv | sort
+#+END_SRC
 
 | len | frequency | pattern                | example                                                                   |
 |-----+-----------+------------------------+---------------------------------------------------------------------------|
-|   2 |         3 | FACILITY               | the/DT (FACILITY Faroese Barack Obama)                                    |
-|   2 |       186 | ORGANIZATION           | the/DT (ORGANIZATION Spanish Barack Obama)                                |
-|   2 |         1 | PERSON                 | the/DT (PERSON Albanian Barack Obama)                                     |
-|   3 |         1 | GPE ORGANIZATION       | the/DT (GPE Russian) (ORGANIZATION Barack Obama)                          |
-|   3 |        81 | GPE PERSON             | the/DT (GPE Australian) (PERSON Barack Obama)                             |
-|   3 |         3 | JJ PERSON              | the/DT Bissau-Guinean/JJ (PERSON Barack Obama)                            |
-|   3 |         1 | LOCATION NNP           | the/DT (LOCATION Persian Barack) Obama/NNP                                |
-|   3 |         8 | LOCATION PERSON        | the/DT (LOCATION Northern Irish) (PERSON Barack Obama)                    |
-|   3 |         2 | NNP PERSON             | the/DT I-Kiribati/NNP (PERSON Barack Obama)                               |
-|   3 |         1 | NNPS PERSON            | the/DT Americans/NNPS (PERSON Barack Obama)                               |
-|   4 |         2 | GPE CC PERSON          | the/DT (GPE Turks) and/CC (PERSON Caicos Island Barack Obama)             |
-|   4 |         1 | GPE LOCATION NNP       | the/DT (GPE French) (LOCATION Polynesian Barack) Obama/NNP                |
-|   4 |         1 | GPE LOCATION PERSON    | the/DT (GPE French) (LOCATION Southern Territories) (PERSON Barack Obama) |
-|   4 |         7 | GPE NNP NNP            | (GPE Greek) Barack/NNP Obama/NNP)                                         |
-|   4 |         3 | GPE NNP PERSON         | (GPE Hong) Kongese/NNP (PERSON Barack Obama)                              |
-|   4 |         1 | ORGANIZATION CC PERSON | the/DT (ORGANIZATION Wallis) and/CC (PERSON Futuna Barack Obama)          |
+|   1 |         1 | PERSON                 | the/DT (PERSON Albanian Barack Obama)                                     |
+|   1 |         3 | FACILITY               | the/DT (FACILITY Faroese Barack Obama)                                    |
+|   1 |       186 | ORGANIZATION           | the/DT (ORGANIZATION Cook Island Barack Obama)                            |
+|   2 |         1 | GPE ORGANIZATION       | the/DT (GPE Russian) (ORGANIZATION Barack Obama)                          |
+|   2 |         1 | LOCATION NNP           | the/DT (LOCATION Persian Barack) Obama/NNP                                |
+|   2 |         1 | NNPS PERSON            | the/DT Americans/NNPS (PERSON Barack Obama)                               |
+|   2 |         2 | NNP PERSON             | the/DT I-Kiribati/NNP (PERSON Barack Obama)                               |
+|   2 |         3 | JJ PERSON              | the/DT Saint-Martinoise/JJ (PERSON Barack Obama)                          |
+|   2 |         8 | LOCATION PERSON        | the/DT (LOCATION South Sudanese) (PERSON Barack Obama)                    |
+|   2 |        81 | GPE PERSON             | the/DT (GPE Grenadian) (PERSON Barack Obama)                              |
+|   3 |         1 | GPE LOCATION NNP       | the/DT (GPE French) (LOCATION Polynesian Barack) Obama/NNP                |
+|   3 |         1 | GPE LOCATION PERSON    | the/DT (GPE French) (LOCATION Southern Territories) (PERSON Barack Obama) |
+|   3 |         1 | ORGANIZATION CC PERSON | the/DT (ORGANIZATION Wallis) and/CC (PERSON Futuna Barack Obama)          |
+|   3 |         2 | GPE CC PERSON          | the/DT (GPE Turks) and/CC (PERSON Caicos Island Barack Obama)             |
+|   3 |         3 | GPE NNP PERSON         | the/DT (GPE U.S.) Virgin/NNP (PERSON Island Barack Obama)                 |
+|   3 |         7 | GPE NNP NNP            | the/DT (GPE Indonesian) Barack/NNP Obama/NNP                              |
 
 Notes: 
 - "LOCATION PERSON" always with countries whose names starts with
   "South" or "North"
-- The patterns change if we take another person than Barack Obama
-  (e.g., Franz Beckenbauer)
+
+The patterns change if we take another person than Barack Obama (e.g.,
+John Doe):
+
+#+BEGIN_SRC sh
+  ./countries.py --test "John Doe" countries.tsv | sort
+#+END_SRC
+
+| len | frequency | pattern                 | example                                                            |
+|-----+-----------+-------------------------+--------------------------------------------------------------------|
+|   1 |         1 | PERSON                  | the/DT (PERSON Albanian John Doe)                                  |
+|   2 |         1 | NNPS PERSON             | the/DT Americans/NNPS (PERSON John Doe)                            |
+|   2 |         3 | JJ PERSON               | the/DT Saint-Martinoise/JJ (PERSON John Doe)                       |
+|   2 |         4 | FACILITY PERSON         | the/DT (FACILITY Faroese) (PERSON John Doe)                        |
+|   2 |         4 | NNP PERSON              | the/DT Somalilander/NNP (PERSON John Doe)                          |
+|   2 |        11 | LOCATION PERSON         | the/DT (LOCATION South Sudanese) (PERSON John Doe)                 |
+|   2 |        90 | GPE PERSON              | the/DT (GPE Grenadian) (PERSON John Doe)                           |
+|   2 |       178 | ORGANIZATION PERSON     | the/DT (ORGANIZATION Cook Island) (PERSON John Doe)                |
+|   3 |         1 | GPE CC PERSON           | the/DT (GPE Wallisian) or/CC (PERSON Futunan John Doe)             |
+|   3 |         1 | GPE PERSON PERSON       | the/DT (GPE British) (PERSON Virgin Island) (PERSON John Doe)      |
+|   3 |         1 | ORGANIZATION CC PERSON  | the/DT (ORGANIZATION Wallis) and/CC (PERSON Futuna John Doe)       |
+|   3 |         1 | ORGANIZATION NNP PERSON | the/DT (ORGANIZATION Jan) Mayen/NNP (PERSON John Doe)              |
+|   3 |         2 | GPE LOCATION PERSON     | the/DT (GPE French) (LOCATION Polynesian) (PERSON John Doe)        |
+|   3 |         2 | GPE NNP PERSON          | the/DT (GPE French) Guianese/NNP (PERSON John Doe)                 |
+|   4 |         1 | GPE CC PERSON PERSON    | the/DT (GPE Turks) and/CC (PERSON Caicos Island) (PERSON John Doe) |
+|   4 |         1 | GPE NNP NNP PERSON      | the/DT (GPE U.S.) Virgin/NNP Island/NNP (PERSON John Doe)          |
