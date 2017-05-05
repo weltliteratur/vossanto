@@ -1289,10 +1289,12 @@ We can also consider all categories:
 * POS patterns
 Which are the most frequent POS patterns?
 
-- Create a directory which contains only the 500+ NYT articles:
+Create a directory which contains only the 500+ NYT articles:
 #+BEGIN_SRC sh :results silent
   mkdir v01_nyt_articles
-  for i in $(grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/.*(/nyt_corpus_/" -e "s/)/.xml/" -e "s/\//.har\//"| head); do
+  for i in $(grep ^- vossanto-NYT-only-individuals.md | grep -v "<strike>" | sed -e "s/.*(/nyt_corpus_/" -e "s/)/.xml/" -e "s/\//.har\//"); do
       cp $i v01_nyt_articles
   done
 #+END_SRC
+
+Extract the POS/NER patterns:
