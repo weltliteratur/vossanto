@@ -82,14 +82,17 @@ class NationalAdjectives:
             m = self.match_sentence(sentence)
             
 
-    def match_sentence(self, s):
+    def match_sentence(self, s, ner=True):
         words = word_tokenize(s)
 
         # POS
         tagged = nltk.pos_tag(words)
 
         # NER
-        entities = nltk.chunk.ne_chunk(tagged)
+        if ner:
+            entities = nltk.chunk.ne_chunk(tagged)
+        else:
+            entities = tagged
 
         # prepare for matching
         ttext, taglist, txtlist = self.tags2str(entities)
@@ -113,13 +116,14 @@ class NationalAdjectives:
         return " ".join(parts), taglist, txtlist
 
     # test detection using the pattern "the ADJECTIVE <person>"
-    def test(self, person):
+    def test(self, person, ner):
         cases = dict()
         for adj in na.adjectives:
             # test string
+            # s = "He is the " + adj + " " + person + "."
             s = "the " + adj + " " + person
             # match
-            t, tagl, txtl = na.match_sentence(s)
+            t, tagl, txtl = na.match_sentence(s, ner)
             # analyse
             pat = ' '.join(tagl[1:])
             if pat not in cases:
@@ -135,6 +139,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Test reading of national adjectives', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('input', type=str, help='input TSV file')
     parser.add_argument('-t', '--test', type=str, help='test string')
+    parser.add_argument('-n', '--ner', action="store_true", help='enable NER')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
@@ -142,7 +147,7 @@ if __name__ == '__main__':
     na = NationalAdjectives(args.input)
 
     if args.test:
-        na.test(args.test)
+        na.test(args.test, args.ner)
     else:
         for adj in na.adjectives:
             print(adj, na.adjectives[adj])

@@ -25,7 +25,7 @@
 For each adjective we feed the string "the ADJECTIVE Michael Jordan"
 through NLTK and check the result:
 #+BEGIN_SRC sh
-  ./countries.py --test "Michael Jordan" countries.tsv | sort
+  ./countries.py --test "Michael Jordan" --ner countries.tsv | sort
 #+END_SRC
 
 | len | frequency | pattern                | example                                                            |
@@ -50,7 +50,7 @@ Notes:
 
 The patterns change if we take another person, e.g., John Doe:
 #+BEGIN_SRC sh
-  ./countries.py --test "John Doe" countries.tsv | sort
+  ./countries.py --test "John Doe" --ner countries.tsv | sort
 #+END_SRC
 
 | len | frequency | pattern                 | example                                                            |
