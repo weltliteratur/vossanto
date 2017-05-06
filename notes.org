@@ -1303,16 +1303,21 @@ Extract the POS/NER patterns:
 #+END_SRC
 
 Clean them up and sort them:
-#+BEGIN_SRC sh
-  # cat v01_nyt_patterns | 
-  echo "(PERSON Spina Spina Loft Peggy Spina) is/VBZ the/DT (ORGANIZATION Brenda Blethyn) of/IN tap/NN ./.\n(PERSON Ken Kesey) ,/, the/DT (ORGANIZATION Pied Piper) of/IN the/DT psychedelic/JJ era/NN ,/," |\
-  ./clean_pattern.py
-#  perl -pe "s/\(([A-Z]*) .*?\)/\1/g" | \
-#  perl -pe "s/of\/IN ([a-z]+\/[A-Z]+ ?)+/of\/IN /"
-
+#+BEGIN_SRC sh :sep "\t"
+   awk -F'\t' '{print $5}' v01_nyt_patterns.tsv |\
+  ./analyse_patterns.py | sort | uniq -c | sort -nr | head 
 #+END_SRC
 
-#+RESULTS:
-| PERSON is/VBZ the/DT ORGANIZATION of/IN ./. |   |                           |   |
-| PERSON                                      | / | the/DT ORGANIZATION of/IN | / |
+| count |         |     |              |              |     |     | example                                                                         |
+|-------+---------+-----+--------------+--------------+-----+-----+---------------------------------------------------------------------------------|
+|    13 | PERSON, | DT  | ORGANIZATION | IN           | NNS |     |                                                                                 |
+|    13 | PERSON, | DT  | ORGANIZATION | IN           | GPE |     |                                                                                 |
+|    10 | PERSON, | DT  | ORGANIZATION | IN           | NN  |     |                                                                                 |
+|     9 | PERSON, | DT  | ORGANIZATION | IN           | DT  | NN  |                                                                                 |
+|     7 | PERSON  | VBZ | DT           | ORGANIZATION | IN  | NN  | (PERSON Mr. Solerwitz) is/VBZ the/DT (ORGANIZATION Babe Ruth) of/IN ripoffs/NNS |
+|     7 | PERSON, | DT  | PERSON       | IN           | GPE |     |                                                                                 |
+|     7 | PERSON, | DT  | ORGANIZATION | IN           | NN  | NNS |                                                                                 |
+|     6 | PERSON, | DT  | ORGANIZATION | IN           | JJ  | NN  |                                                                                 |
+|     5 | PERSON, | DT  | ORGANIZATION | IN           | NN  | NN  |                                                                                 |
+|     5 | GPE,    | DT  | ORGANIZATION | IN           | NNS |     |                                                                                 |
 
