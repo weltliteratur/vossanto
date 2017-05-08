@@ -1299,25 +1299,25 @@ Create a directory which contains only the 500+ NYT articles:
 
 Extract the POS/NER patterns:
 #+BEGIN_SRC sh
-  ./nyt.py --pattern v01_nyt_articles | awk -F'\t' '{print $5}' > v01_nyt_patterns
+  ./nyt.py --pattern v01_nyt_articles > v01_nyt_patterns.tsv
 #+END_SRC
 
 Clean them up and sort them:
 #+BEGIN_SRC sh :sep "\t"
    awk -F'\t' '{print $5}' v01_nyt_patterns.tsv |\
-  ./analyse_patterns.py | sort | uniq -c | sort -nr | head 
+  ./analyse_patterns.py | sort | uniq -c | sort -nr | head
 #+END_SRC
 
-| count |         |     |              |              |     |     | example                                                                         |
-|-------+---------+-----+--------------+--------------+-----+-----+---------------------------------------------------------------------------------|
-|    13 | PERSON, | DT  | ORGANIZATION | IN           | NNS |     |                                                                                 |
-|    13 | PERSON, | DT  | ORGANIZATION | IN           | GPE |     |                                                                                 |
-|    10 | PERSON, | DT  | ORGANIZATION | IN           | NN  |     |                                                                                 |
-|     9 | PERSON, | DT  | ORGANIZATION | IN           | DT  | NN  |                                                                                 |
-|     7 | PERSON  | VBZ | DT           | ORGANIZATION | IN  | NN  | (PERSON Mr. Solerwitz) is/VBZ the/DT (ORGANIZATION Babe Ruth) of/IN ripoffs/NNS |
-|     7 | PERSON, | DT  | PERSON       | IN           | GPE |     |                                                                                 |
-|     7 | PERSON, | DT  | ORGANIZATION | IN           | NN  | NNS |                                                                                 |
-|     6 | PERSON, | DT  | ORGANIZATION | IN           | JJ  | NN  |                                                                                 |
-|     5 | PERSON, | DT  | ORGANIZATION | IN           | NN  | NN  |                                                                                 |
-|     5 | GPE,    | DT  | ORGANIZATION | IN           | NNS |     |                                                                                 |
+| frequency | target, | the | source       | of           | modifier |     | example                                                                                  |
+|-----------+---------+-----+--------------+--------------+----------+-----+------------------------------------------------------------------------------------------|
+|        13 | PERSON, | DT  | ORGANIZATION | IN           | NNS      |     | (PERSON Thomas Eisner) ,/, the/DT (ORGANIZATION St. Francis) of/IN bugs/NNS              |
+|        13 | PERSON, | DT  | ORGANIZATION | IN           | GPE      |     | (PERSON Ethel Merman) ,/, the/DT (ORGANIZATION Birgit Nilsson) of/IN (GPE Broadway)      |
+|        10 | PERSON, | DT  | ORGANIZATION | IN           | NN       |     | (PERSON Eddie Shore) ,/, the/DT (ORGANIZATION Babe Ruth) of/IN hockey/NN                 |
+|         9 | PERSON, | DT  | ORGANIZATION | IN           | DT       | NN  | (PERSON Hal Schell) ,/, the/DT (ORGANIZATION Boswell) of/IN the/DT delta/NN              |
+|         7 | PERSON  | VBZ | DT           | ORGANIZATION | IN       | NN  | (PERSON Mr. Solerwitz) is/VBZ the/DT (ORGANIZATION Babe Ruth) of/IN ripoffs/NNS          |
+|         7 | PERSON, | DT  | PERSON       | IN           | GPE      |     | (PERSON Oscar) ,/, the/DT (PERSON Larry Bird) of/IN (GPE Brazil) ,/,                     |
+|         7 | PERSON, | DT  | ORGANIZATION | IN           | NN       | NNS | (PERSON Edward Rogoff) ,/, the/DT (ORGANIZATION Don Quixote) of/IN cab/NN riders/NNS     |
+|         6 | PERSON, | DT  | ORGANIZATION | IN           | JJ       | NN  | (PERSON Carlos Gardel) ,/, the/DT (ORGANIZATION Elvis) of/IN tango/JJ culture/NN         |
+|         5 | PERSON, | DT  | ORGANIZATION | IN           | NN       | NN  | (PERSON Johnny Miller) ,/, the/DT (ORGANIZATION Simon Cowell) of/IN golf/NN criticism/NN |
+|         5 | GPE,    | DT  | ORGANIZATION | IN           | NNS      |     | (GPE McEnroe) ,/, the/DT (ORGANIZATION Picasso) of/IN players/NNS                        |
 
