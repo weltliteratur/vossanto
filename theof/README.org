@@ -73,6 +73,29 @@ This clearly shows that the approach needs to be improved. Our idea is
 to match the source candidates against a list of person names from
 Wikidata.
 
+*** relaxed pattern
+With the relaxed regular expression ~\\bthe\\s(\\w+\\s+){1,5}of\\b~ we
+get 569291 hits, with the most frequent being the following ones:
+
+#+BEGIN_SRC sh
+  # echo hits $(cat theof_all_1987.tsv | wc -l)
+  # echo distinct $(awk -F'\t' '{print $2}' theof_all_1987.tsv | sort -S1G -u)
+  awk -F'\t' '{print $2}' theof_all_1987.tsv | sort -S1G | uniq -c | sort -nr | head
+#+END_SRC
+
+| hits |                   |
+|------+-------------------|
+| 6959 | the end of        |
+| 6015 | the University of |
+| 4389 | the number of     |
+| 3149 | the rest of       |
+| 2887 | the sale of       |
+| 2380 | the use of        |
+| 2153 | the kind of       |
+| 1944 | the age of        |
+| 1917 | the son of        |
+| 1863 | the cost of       |
+
 ** identifying source candidates in Wikidata
 *** item has "instance of" property "human"
 
@@ -178,13 +201,13 @@ Seems reasonable.
 We experiment first with the data from 1987 and match all sources in
 the "the ... of" phrases against the Wikidata list of humans:
 #+BEGIN_SRC sh 
-  ./check_wikidata.py theof_1987.tsv wikidata_humans.tsv > theof_1987_wdfiltered.tsv
+  ./check_wikidata.py theof_1987.tsv wikidata_humans.tsv > theof_1987_wd.tsv
 #+END_SRC
 
 How many (distinct) phrases do remain?
 #+BEGIN_SRC sh
-  wc -l theof_1987_wdfiltered.tsv
-  awk -F'\t' '{print $3}' theof_1987_wdfiltered.tsv | sort -u | wc -l
+  wc -l theof_1987_wd.tsv
+  awk -F'\t' '{print $3}' theof_1987_wd.tsv | sort -u | wc -l
 #+END_SRC
 
 | 2520 | theof_1987_wdfiltered.tsv |
@@ -192,7 +215,7 @@ How many (distinct) phrases do remain?
 
 Which are the most frequent ones?
 #+BEGIN_SRC sh
-  awk -F'\t' '{print $3}' theof_1987_wdfiltered.tsv | sort | uniq -c | sort -nr | head
+  awk -F'\t' '{print $3}' theof_1987_wd.tsv | sort | uniq -c | sort -nr | head
 #+END_SRC
 
 | freq | phrase            |
@@ -246,6 +269,26 @@ Which were the most frequent ones?
 |    2 | the Abraham Lincoln of |
 
 Much better! Let us repeat this process for all other years.
+
+*** repeating with the relaxed pattern
+
+#+BEGIN_SRC sh :results silent
+  ./check_wikidata.py theof_all_1987.tsv wikidata_humans.tsv > theof_all_1987_wd.tsv
+#+END_SRC
+
+How many (distinct) phrases do remain?
+#+BEGIN_SRC sh
+  wc -l theof_all_1987_wd.tsv
+  awk -F'\t' '{print $3}' theof_all_1987_wd.tsv | sort -u | wc -l
+#+END_SRC
+
+#+RESULTS:
+| 2432 | theof_all_1987_wdfiltered.tsv |
+|  231 |                               |
+
+We get less patterns, because cases like ~the Dean of the University
+of~ were split into two phrases before and now appear as one. (*TODO*
+Can we avoid this by making the pattern less greedy?)
 
 ** handling the remaining years
 
@@ -400,7 +443,7 @@ Put everything into this org file:
   done
 #+END_SRC
 
-*** 1987
+*** TODO 1987
 - [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 - [[https://www.wikidata.org/wiki/Q1744][Madonna]] (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
 - [[https://www.wikidata.org/wiki/Q1744][Madonna]] (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
