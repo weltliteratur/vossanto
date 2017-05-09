@@ -10,6 +10,7 @@
 #
 # Changes:
 # 2017-05-09 (rja)
+# - support for splitting phrases to find matches
 # - added support for word blacklist
 # - initial version copied from theof.py
 
@@ -102,4 +103,12 @@ if __name__ == '__main__':
             # check if exists
             if item in items and item not in blacklist:
                 print(article, items[item], phrase, item, sentence, sep='\t')
+            else:
+                # check if the phrase itself contains "the"
+                if " the " in item:
+                    item = item.split(" the ")[1]
+                    if item in items and item not in blacklist:
+                        print(article, items[item], phrase, item, sentence, sep='\t')
+                    
+                
             
