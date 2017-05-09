@@ -9,6 +9,9 @@
 # Author: rja
 #
 # Changes:
+# 2017-05-08 (rja)
+# - added option "--ignore-case" to enable/disable re.IGNORECASE in regex search
+# - added option "--group" to specify the regex group to extract
 # 2017-05-05 (rja)
 # - added option "--pattern" to print the mattern instead of the matched text
 # - added option to read all files in a directory
@@ -75,7 +78,10 @@ def xml2regex(f, fname, **kwargs):
         try:
             for match in kwargs["regex"].findall(txt):
                 # print match
-                print(fname, match.strip(), sep='\t')
+                if isinstance(match, tuple):
+                    print(fname, match[kwargs["group"]].strip(), sep='\t')
+                else:
+                    print(fname, match.strip(), sep='\t')
         except UnicodeDecodeError:
             print(fname, "UnicodeDecodeError")
 
@@ -85,13 +91,18 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Find Vossantos in the NYT corpus.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('input', type=str, help='input TAR or XML file or directory with XML files')
     parser.add_argument('-r', '--regex', dest="regex", type=str, help='search for regex and output matches')
-    parser.add_argument('-p', '--pattern', action="store_true", help='print pattern')    
+    parser.add_argument('-p', '--pattern', action="store_true", help='print pattern')
+    parser.add_argument('-g', '--group', type=int, default=0, help='regex group to return')
+    parser.add_argument('-i', '--ignore-case', action="store_true", help="ignore case")
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
 
     if args.regex:
-        regex = re.compile(args.regex, re.IGNORECASE)
+        if args.ignore_case:
+            regex = re.compile(args.regex, re.IGNORECASE)
+        else:
+            regex = re.compile(args.regex)
         sfunc = xml2regex
     else:
         regex = None
@@ -100,18 +111,17 @@ if __name__ == '__main__':
     if os.path.isfile(args.input) and os.path.splitext(args.input)[1] == ".xml":
         # XML input: just one file
         with open(args.input, "rt") as f:
-            sfunc(f, args.input, regex=regex, pattern=args.pattern)
+            sfunc(f, args.input, regex=regex, pattern=args.pattern, group=args.group)
     elif os.path.isdir(args.input):
         # read all files in the directory
         for fname in os.listdir(args.input):
             fname = args.input + "/" + fname
             if os.path.isfile(fname):
                 with open(fname, "rt") as f:
-                    sfunc(f, fname, regex=regex, pattern=args.pattern)
+                    sfunc(f, fname, regex=regex, pattern=args.pattern, group=args.group)
     else:
         # read TAR file
         tar = tarfile.open(args.input, "r:gz")
         for tarinfo in tar:
             if tarinfo.isreg():
-                sfunc(tar.extractfile(tarinfo), tarinfo.name, regex=regex, pattern=args.pattern)
-            
+                sfunc(tar.extractfile(tarinfo), tarinfo.name, regex=regex, pattern=args.pattern, group=args.group)
