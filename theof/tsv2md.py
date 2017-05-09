@@ -18,7 +18,8 @@ import fileinput
 
 re_articleid = re.compile(r"nyt_corpus_([0-9]{4})\.har([0-9/]+)\.xml")
 # first version
-re_theof = re.compile("(\\bthe\\s([A-Z][a-z]+\\s+){1,3}of\\b)")
+# re_theof = re.compile("(\\bthe\\s([A-Z][a-z]+\\s+){1,3}of\\b)")
+re_theof = re.compile("(\\bthe\\s(\\w+\\s+){1,5}?of\\b)", re.UNICODE)
 
 if __name__ == '__main__':
     for line in fileinput.input():
@@ -28,5 +29,5 @@ if __name__ == '__main__':
         articleid = m.group(1) + m.group(2)
 
         # print result
-        print("-", "[[https://www.wikidata.org/wiki/" + itemid + "][" + item + "]]", "(" + articleid + ")", re_theof.sub("*\\1*", sentence))
+        print("1. ", "[[https://www.wikidata.org/wiki/" + itemid + "][" + item + "]]", "(" + articleid + ")", re_theof.sub("*\\1*", sentence))
     
