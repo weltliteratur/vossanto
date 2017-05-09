@@ -428,7 +428,15 @@ Now edit ~bl.tsv~ ... and then cleanup and append to existing file:
 
 *** handling the relaxed patterns
 
-create an initial blacklist:
+The relaxation of the number of words added noise, e.g., 
+- "the other is the Maggie Smith of"
+- "referred to the writer as the Clifford Irving of baseball"
+- "the past are the David Brinkley of"
+- "the Pope was the Madonna of"
+which now cause the entities in those strings to not match. After
+extending ~check_wikidata.py~, we can run the extraction.
+
+Create an initial blacklist:
 #+BEGIN_SRC sh :results silent
   export PYTHONIOENCODING=utf-8
 
@@ -453,7 +461,7 @@ Extracting the blacklist:
 #+BEGIN_SRC sh :results silent
   export PYTHONIOENCODING=utf-8
   # current year
-  YEAR=2007
+  YEAR=2008
   LAST_YEAR=$((YEAR-1))
 
   # previous year: create blacklist-cleaned file
