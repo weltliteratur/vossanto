@@ -251,10 +251,13 @@ Much better! Let us repeat this process for all other years.
 
 First filtering step:
 #+BEGIN_SRC sh :results silent
-  for year in $(seq 1988 1988); do
-    ./check_wikidata.py theof_${year}.tsv wikidata_humans.tsv > theof_${year}_wdfiltered.tsv
+  export PYTHONIOENCODING=utf-8
+  for year in $(seq 1987 2007); do
+    ./check_wikidata.py theof_${year}.tsv wikidata_humans.tsv > theof_${year}_wd.tsv
   done
 #+END_SRC
+Now we have restricted the list to phrases which contain a source that
+matches a Wikidata item with an "instance of" property of "human".
 
 What's the distribution?
 #+BEGIN_SRC sh
@@ -262,17 +265,17 @@ What's the distribution?
     for year in $(seq 1987 2007); do
       echo $year \
            $(cat theof_${year}.tsv | wc -l) \
-           $(cat theof_${year}_wdfiltered.tsv | wc -l) \
-           $(cat theof_${year}_wdfiltered_blfiltered.tsv | wc -l)
+           $(cat theof_${year}_wd.tsv | wc -l) \
+           $(cat theof_${year}_wd_bl.tsv | wc -l)
     done
 #+END_SRC
 
 #+RESULTS:
 | year |   all | wdfiltered | blfiltered |
-| 1987 | 56513 |       2520 |        104 |
-| 1988 | 55129 |       2640 |         88 |
-| 1989 | 55602 |       2454 |        112 |
-| 1990 | 53310 |       2608 |        166 |
+| 1987 | 56513 |       2520 |          0 |
+| 1988 | 55129 |       2640 |          0 |
+| 1989 | 55602 |       2454 |          0 |
+| 1990 | 53310 |       2608 |          0 |
 | 1991 | 45822 |       2114 |          0 |
 | 1992 | 41714 |       2232 |          0 |
 | 1993 | 40338 |       2074 |          0 |
@@ -296,11 +299,11 @@ Extracting the blacklist:
   # current year
   YEAR=1991
   # extract blacklist-filtered matches
-  ./check_wikidata.py --blacklist blacklist.tsv theof_${YEAR}.tsv wikidata_humans.tsv > theof_${YEAR}_wdfiltered_blfiltered.tsv
+  ./check_wikidata.py -b blacklist.tsv theof_${YEAR}.tsv wikidata_humans.tsv > theof_${YEAR}_wd_bl.tsv
 
   # add all terms from last year to a list
   LAST_YEAR=$((YEAR-1))
-  awk -F'\t' '{print $3}' theof_${LAST_YEAR}_wdfiltered_blfiltered.tsv | sort | uniq -c | sort -nr | \
+  awk -F'\t' '{print $3}' theof_${LAST_YEAR}_wd_bl.tsv | sort | uniq -c | sort -nr | \
     sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" | awk -F'\t' '{print $2"\t"$1}' >> lybl.tsv
   # now extract only new hits
   ./check_wikidata.py --blacklist lybl.tsv theof_${YEAR}.tsv wikidata_humans.tsv |\
@@ -319,6 +322,26 @@ edit ~bl.tsv~ ... then cleanup and append to existing file:
 #+RESULTS:
 
 ... and repeat for the next year
+
+** most frequent sources
+
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $3}' theof_*_wdfiltered_blfiltered.tsv \
+      | sed -e "s/^the //" -e "s/ of$//" \
+      | sort | uniq -c | sort -nr | head
+#+END_SRC
+
+#+RESULTS:
+| 11 | Michael   | Jordan      |
+|  9 | Madonna   |             |
+|  7 | Dalai     | Lama        |
+|  5 | Rodney    | Dangerfield |
+|  5 | Rembrandt |             |
+|  5 | Johnny    | Appleseed   |
+|  5 | Jackie    | Robinson    |
+|  5 | Henry     | Ford        |
+|  5 | Frank     | Sinatra     |
+|  5 | Babe      | Ruth        |
 
 ** format data for analysis
 

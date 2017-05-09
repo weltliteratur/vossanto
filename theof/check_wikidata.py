@@ -15,8 +15,6 @@
 
 from __future__ import print_function
 import re
-import xml.etree.ElementTree as ET
-import tarfile
 import argparse
 import os
 import sys
@@ -58,6 +56,10 @@ def get_items(fname, sep='\t'):
             # ignore duplicates
             if itemLabel not in items:
                 items[itemLabel] = itemId
+            elif int(itemId[1:]) < int(items[itemLabel][1:]):
+                # ensure that we always use the item with the lowest id
+                items[itemLabel] = itemId
+                
     return items
 
 def get_blacklist(fname, sep='\t'):
