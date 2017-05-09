@@ -272,76 +272,96 @@ What's the distribution?
 
 #+RESULTS:
 | year |   all | wdfiltered | blfiltered |
-| 1987 | 56513 |       2520 |          0 |
-| 1988 | 55129 |       2640 |          0 |
-| 1989 | 55602 |       2454 |          0 |
-| 1990 | 53310 |       2608 |          0 |
-| 1991 | 45822 |       2114 |          0 |
-| 1992 | 41714 |       2232 |          0 |
-| 1993 | 40338 |       2074 |          0 |
-| 1994 | 37285 |       1867 |          0 |
-| 1995 | 41839 |       2227 |          0 |
-| 1996 | 40238 |       1972 |          0 |
-| 1997 | 42737 |       2189 |          0 |
-| 1998 | 46487 |       2654 |          0 |
-| 1999 | 47431 |       2556 |          0 |
-| 2000 | 44634 |       2165 |          0 |
-| 2001 | 43209 |       2029 |          0 |
-| 2002 | 44322 |       2236 |          0 |
-| 2003 | 42874 |       2120 |          0 |
-| 2004 | 41740 |       1943 |          0 |
-| 2005 | 40774 |       2006 |          0 |
-| 2006 | 40590 |       2071 |          0 |
-| 2007 | 19004 |       1081 |          0 |
+| 1987 | 56513 |       2520 |        104 |
+| 1988 | 55129 |       2640 |         88 |
+| 1989 | 55602 |       2454 |        112 |
+| 1990 | 53310 |       2608 |        117 |
+| 1991 | 45822 |       2114 |        123 |
+| 1992 | 41714 |       2232 |        158 |
+| 1993 | 40338 |       2074 |        168 |
+| 1994 | 37285 |       1867 |        166 |
+| 1995 | 41839 |       2227 |        168 |
+| 1996 | 40238 |       1972 |        194 |
+| 1997 | 42737 |       2189 |        181 |
+| 1998 | 46487 |       2654 |        268 |
+| 1999 | 47431 |       2556 |        196 |
+| 2000 | 44634 |       2165 |        233 |
+| 2001 | 43209 |       2029 |        216 |
+| 2002 | 44322 |       2236 |        223 |
+| 2003 | 42874 |       2120 |        223 |
+| 2004 | 41740 |       1943 |        205 |
+| 2005 | 40774 |       2006 |        224 |
+| 2006 | 40590 |       2071 |        231 |
+| 2007 | 19004 |       1081 |        122 |
 
-Extracting the blacklist:
+Filtering by blacklist:
 #+BEGIN_SRC sh
-  # current year
-  YEAR=1991
-  # extract blacklist-filtered matches
-  ./check_wikidata.py -b blacklist.tsv theof_${YEAR}.tsv wikidata_humans.tsv > theof_${YEAR}_wd_bl.tsv
-
-  # add all terms from last year to a list
-  LAST_YEAR=$((YEAR-1))
-  awk -F'\t' '{print $3}' theof_${LAST_YEAR}_wd_bl.tsv | sort | uniq -c | sort -nr | \
-    sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" | awk -F'\t' '{print $2"\t"$1}' >> lybl.tsv
-  # now extract only new hits
-  ./check_wikidata.py --blacklist lybl.tsv theof_${YEAR}.tsv wikidata_humans.tsv |\
-      awk -F'\t' '{print $3}' | sort | uniq -c | sort -nr > bl.tsv
-  # and now manually edit that list and append it to blacklist.tsv
+  export PYTHONIOENCODING=utf-8
+  for year in $(seq 1987 2007); do
+    ./check_wikidata.py -b blacklist.tsv theof_${year}.tsv wikidata_humans.tsv > theof_${year}_wd_bl.tsv
+  done
 #+END_SRC
 
-#+RESULTS:
+Extracting the blacklist:
+#+BEGIN_SRC sh :results silent
+    # current year
+    YEAR=1991
+    LAST_YEAR=$((YEAR-1))
 
-edit ~bl.tsv~ ... then cleanup and append to existing file:
+    # previous year: create blacklist-cleaned file
+    ./check_wikidata.py -b blacklist.tsv theof_${LAST_YEAR}.tsv wikidata_humans.tsv > theof_${LAST_YEAR}_wd_bl.tsv
+
+    # last year: extend blacklist by all previous terms
+    cp blacklist.tsv blacklist_lybl.tsv
+    for iy in $(seq 1987 $LAST_YEAR); do
+        awk -F'\t' '{print $3}' theof_${iy}_wd_bl.tsv | sort | uniq -c | sort -nr | \
+            sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" | awk -F'\t' '{print $2"\t"$1}' \
+                                                                  >> blacklist_lybl.tsv
+    done
+    
+    # now extract only new hits
+    ./check_wikidata.py -b blacklist_lybl.tsv theof_${YEAR}.tsv wikidata_humans.tsv |\
+        awk -F'\t' '{print $3}' | sort | uniq -c | sort -nr > bl.tsv
+#+END_SRC
+
+Now edit ~bl.tsv~ ... and then cleanup and append to existing file:
 #+BEGIN_SRC sh :results raw
   sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" bl.tsv | awk -F'\t' '{print $2"\t"$1}' >> blacklist.tsv
 #  git commit blacklist.tsv
-#+END_SRC
 
-#+RESULTS:
+#+END_SRC
 
 ... and repeat for the next year
 
 ** most frequent sources
 
 #+BEGIN_SRC sh
-  awk -F'\t' '{print $3}' theof_*_wdfiltered_blfiltered.tsv \
+  awk -F'\t' '{print $3}' theof_*_wd_bl.tsv \
       | sed -e "s/^the //" -e "s/ of$//" \
-      | sort | uniq -c | sort -nr | head
+      | sort | uniq -c | sort -nr | head -n20 
 #+END_SRC
 
 #+RESULTS:
-| 11 | Michael   | Jordan      |
-|  9 | Madonna   |             |
-|  7 | Dalai     | Lama        |
-|  5 | Rodney    | Dangerfield |
-|  5 | Rembrandt |             |
-|  5 | Johnny    | Appleseed   |
-|  5 | Jackie    | Robinson    |
-|  5 | Henry     | Ford        |
-|  5 | Frank     | Sinatra     |
-|  5 | Babe      | Ruth        |
+| 74 | Michael      | Jordan      |
+| 64 | Rodney       | Dangerfield |
+| 47 | Madonna      |             |
+| 37 | Babe         | Ruth        |
+| 30 | Johnny       | Appleseed   |
+| 26 | Mona         | Lisa        |
+| 24 | Pearl        |             |
+| 24 | Bill         | Gates       |
+| 23 | Rembrandt    |             |
+| 23 | Michelangelo |             |
+| 22 | Donald       | Trump       |
+| 22 | Dalai        | Lama        |
+| 21 | Tiger        | Woods       |
+| 21 | Jackie       | Robinson    |
+| 21 | Cary         | Grant       |
+| 19 | Tao          |             |
+| 19 | John         | Wayne       |
+| 18 | Napoleon     |             |
+| 18 | Martha       | Stewart     |
+| 18 | Boss         |             |
 
 ** format data for analysis
 
