@@ -1,0 +1,342 @@
+#+TITLE:
+#+AUTHOR: 
+#+EMAIL: 
+#+KEYWORDS:
+#+DESCRIPTION:
+#+TAGS:
+#+LANGUAGE: en
+#+OPTIONS: toc:nil ':t H:5
+#+STARTUP: hidestars overview
+#+LaTeX_CLASS: scrartcl
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+#+PANDOC_OPTIONS:
+
+* "the ... of" Vossantos 
+
+** preliminary note
+With our initial exploratory approach we were able to cover a wide
+variety of Vossantos but clearly missed some, as an analysis of some
+[[file:~/projects/vossanto/examples/br.org#examples][examples]] shows. Therefore, we started to think about simplified
+patterns which just match the source, for instance:
+
+#+BEGIN_SRC 
+  (a|the) (next|new|future|would-be)? ([A-Z][a-z]+ ){1,3} of
+#+END_SRC
+
+This pattern would not match the following examples from the NYT
+corpus:
+- "the Mick Jagger or Michael Jordan of"
+- "the Michael Jordan and Magic Johnson of"
+- "She could be the Michael Jordan that women's basketball hasn't yet had"
+- "He has not been the Michael Jordan in the debates"
+- "he was the Babe Ruth, the Michael Jordan, the Wayne Gretzky of racing"
+- "if Mel Gibson really were Michelangelo of his generation"
+- names which contain lower-case terms (e.g., "van Gogh")
+- adjectives that further describe the target, e.g., "the abused
+  pint-size Michelangelo of"
+
+This again shows the difficulty to find a good balance between recall
+and precision. We limited ourselves to the most basic pattern "the
+... of", where "..."  represents one, two, or three Capitalised words.
+
+** finding source candidates in the corpus
+We search for sentences which contain the pattern
+~\\bthe\\s([A-Z][a-z]+\\s+){1,3}of\\b~:
+#+BEGIN_SRC sh
+  for year in $(seq 1987 2007); do
+    # searches for \bthe\s([A-Z][a-z]+\s+){1,3}of\b
+    ./theof.py nyt_corpus_${year}.tar.gz > theof_${year}.tsv
+  done
+#+END_SRC
+
+** most frequent candidates
+In the NYT corpus we find 56583 hits for 1987 alone, which comprise
+7702 distinct phrases, the ten most frequent ones are the following:
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $2}' theof_1987.tsv| sort | uniq -c | sort -nr | head
+#+END_SRC
+
+| freq | phrase                |
+|------+-----------------------|
+| 6798 | the University of     |
+| 1930 | the Department of     |
+| 1495 | the Board of          |
+|  845 | the Museum of         |
+|  821 | the House of          |
+|  770 | the Bank of           |
+|  755 | the Federal Bureau of |
+|  734 | the Office of         |
+|  674 | the Government of     |
+|  661 | the Secretary of      |
+
+This clearly shows that the approach needs to be improved. Our idea is
+to match the source candidates against a list of person names from
+Wikidata.
+
+** identifying source candidates in Wikidata
+*** item has "instance of" property "human"
+
+SPARQL query to retrieve all instances of "human":
+#+BEGIN_SRC sparql
+  SELECT ?item ?itemLabel WHERE
+  {
+    ?item wdt:P31 wd:Q5 .                  # instance of human
+    SERVICE wikibase:label {               # ... include the labels
+      bd:serviceParam wikibase:language "en"
+    }
+  }
+#+END_SRC
+
+Dowloading the data:
+#+BEGIN_SRC sh :results silent
+  curl \
+      --header "Accept: text/tab-separated-values" \
+      --output wikidata_humans.tsv \
+      --globoff \
+"https://query.wikidata.org/sparql?query=SELECT%20%3Fitem%20%3FitemLabel%20WHERE%0A%20%20{%0A%20%20%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20instance%20of%20human%0A%20%20%20%20SERVICE%20wikibase%3Alabel%20{%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20...%20include%20the%20labels%0A%20%20%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22%0A%20%20%20%20}%0A%20%20}"
+#+END_SRC
+
+Checking the result:
+#+BEGIN_SRC sh
+  wc -l wikidata_humans.tsv
+#+END_SRC
+
+: 139649 wikidata_humans.tsv
+Clearly some are missing here!
+
+Let us try to get them without a label:
+#+BEGIN_SRC sh :results silent
+  curl \
+      --header "Accept: text/tab-separated-values" \
+      --output wikidata_humans_wo_labels.tsv \
+      --globoff \
+"https://query.wikidata.org/sparql?query=SELECT%20%3Fitem%20%3FitemLabel%20WHERE%0A%20%20{%0A%20%20%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20instance%20of%20human%0A%20%20}"
+#+END_SRC
+
+#+BEGIN_SRC sh
+  wc -l wikidata_humans_wo_labels.tsv
+#+END_SRC
+
+: 3455229 wikidata_humans_wo_labels.tsv
+
+This looks much better. Is there a way to get a label for all of them?
+
+With the [[https://www.mediawiki.org/wiki/Wikidata_Toolkit][Wikidata Toolkit]] and some Java code:
+#+BEGIN_SRC java
+  public void processItemDocument(final ItemDocument itemDocument) {
+      // find an instance of "human"
+      if (itemDocument.hasStatementValue("P31", Datamodel.makeWikidataItemIdValue("Q5"))) {
+          final ItemIdValue itemId = itemDocument.getItemId();
+          final MonolingualTextValue label = itemDocument.getLabels().get("en");
+          if (label != null) {
+              buf.write(csvEscape(itemId.getId()) + "\t" + csvEscape(label.getText()) + "\n");
+          }
+      }
+  }
+#+END_SRC
+it is possible:
+: Found 3454611 matching items after scanning 26132045 items.
+
+Of those, 2801931 have a label:
+#+BEGIN_SRC sh
+  wc -l wikidata_humans.tsv
+#+END_SRC
+
+: 2801931 wikidata_humans.tsv
+ We will use that file in the sequel.
+
+*** "fictional character"
+Retrieve all instances of any subclass of "fictional character":
+#+BEGIN_SRC sparql
+  SELECT (COUNT(DISTINCT ?item) AS ?count)
+  WHERE
+  {
+    ?item wdt:P31 wd:Q5 .                  # instance of human
+    SERVICE wikibase:label {               # ... include the labels
+      bd:serviceParam wikibase:language "en"
+    }
+  }
+#+END_SRC
+
+#+BEGIN_SRC sh :results silent
+  curl \
+      --header "Accept: text/tab-separated-values" \
+      --output wikidata_fictional_characters.tsv \
+      --globoff \
+"https://query.wikidata.org/sparql?query=SELECT%20%3Fitem%20%3FitemLabel%20WHERE%20{%0A%20%20%3Fitem%20%28wdt%3AP31%2Fwdt%3AP279*%29%20wd%3AQ95074.%0A%20%20SERVICE%20wikibase%3Alabel%20{%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20}%0A}%0AORDER%20BY%20DESC%28%3Fcount%29"
+#+END_SRC
+
+#+BEGIN_SRC sh
+  wc -l wikidata_fictional_characters.tsv
+#+END_SRC
+
+: 46227 wikidata_fictional_characters.tsv
+Seems reasonable.
+
+** matching the phrases against the Wikidata candidates
+
+We experiment first with the data from 1987 and match all sources in
+the "the ... of" phrases against the Wikidata list of humans:
+#+BEGIN_SRC sh 
+  ./check_wikidata.py theof_1987.tsv wikidata_humans.tsv > theof_1987_wdfiltered.tsv
+#+END_SRC
+
+How many (distinct) phrases do remain?
+#+BEGIN_SRC sh
+  wc -l theof_1987_wdfiltered.tsv
+  awk -F'\t' '{print $3}' theof_1987_wdfiltered.tsv | sort -u | wc -l
+#+END_SRC
+
+| 2520 | theof_1987_wdfiltered.tsv |
+|  231 | distinct phrases          |
+
+Which are the most frequent ones?
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $3}' theof_1987_wdfiltered.tsv | sort | uniq -c | sort -nr | head
+#+END_SRC
+
+| freq | phrase            |
+|------+-------------------|
+|  821 | the House of      |
+|  250 | the Church of     |
+|  235 | the Hall of       |
+|  140 | the Bill of       |
+|   87 | the Freedom of    |
+|   80 | the Governor of   |
+|   60 | the Sultan of     |
+|   60 | the Duke of       |
+|   55 | the King of       |
+|   40 | the Chancellor of |
+
+So most of those are covered by rather unusual "names". We put them
+into a blacklist:
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $3}' theof_1987_wdfiltered.tsv | sort | uniq -c | sort -nr > blacklist.tsv
+#+END_SRC
+which we manually cleaned up.
+
+Now we repeat the analysis:
+#+BEGIN_SRC sh :results silent
+  ./check_wikidata.py --blacklist blacklist.tsv theof_1987.tsv wikidata_humans.tsv > theof_1987_wdfiltered_blfiltered.tsv
+#+END_SRC
+
+How many results did we get?
+#+BEGIN_SRC sh
+  wc -l theof_1987_wdfiltered_blfiltered.tsv  
+#+END_SRC
+
+: 104 theof_1987_wdfiltered_blfiltered.tsv
+
+Which were the most frequent ones?
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $3}' theof_1987_wdfiltered_blfiltered.tsv | sort | uniq -c | sort -nr | head
+#+END_SRC
+
+| freq |                        |
+|------+------------------------|
+|    4 | the Horatio Alger of   |
+|    4 | the Frank Sinatra of   |
+|    3 | the Woody Allen of     |
+|    3 | the Madonna of         |
+|    2 | the Tom Seaver of      |
+|    2 | the Pete Rose of       |
+|    2 | the Joan Baez of       |
+|    2 | the Jackie Robinson of |
+|    2 | the Groucho Marx of    |
+|    2 | the Abraham Lincoln of |
+
+Much better! Let us repeat this process for all other years.
+
+** handling the remaining years
+
+First filtering step:
+#+BEGIN_SRC sh :results silent
+  for year in $(seq 1988 1988); do
+    ./check_wikidata.py theof_${year}.tsv wikidata_humans.tsv > theof_${year}_wdfiltered.tsv
+  done
+#+END_SRC
+
+What's the distribution?
+#+BEGIN_SRC sh
+    echo "year all wdfiltered blfiltered"
+    for year in $(seq 1987 2007); do
+      echo $year \
+           $(cat theof_${year}.tsv | wc -l) \
+           $(cat theof_${year}_wdfiltered.tsv | wc -l) \
+           $(cat theof_${year}_wdfiltered_blfiltered.tsv | wc -l)
+    done
+#+END_SRC
+
+#+RESULTS:
+| year |   all | wdfiltered | blfiltered |
+| 1987 | 56513 |       2520 |        104 |
+| 1988 | 55129 |       2640 |         88 |
+| 1989 | 55602 |       2454 |        112 |
+| 1990 | 53310 |       2608 |        166 |
+| 1991 | 45822 |       2114 |          0 |
+| 1992 | 41714 |       2232 |          0 |
+| 1993 | 40338 |       2074 |          0 |
+| 1994 | 37285 |       1867 |          0 |
+| 1995 | 41839 |       2227 |          0 |
+| 1996 | 40238 |       1972 |          0 |
+| 1997 | 42737 |       2189 |          0 |
+| 1998 | 46487 |       2654 |          0 |
+| 1999 | 47431 |       2556 |          0 |
+| 2000 | 44634 |       2165 |          0 |
+| 2001 | 43209 |       2029 |          0 |
+| 2002 | 44322 |       2236 |          0 |
+| 2003 | 42874 |       2120 |          0 |
+| 2004 | 41740 |       1943 |          0 |
+| 2005 | 40774 |       2006 |          0 |
+| 2006 | 40590 |       2071 |          0 |
+| 2007 | 19004 |       1081 |          0 |
+
+Extracting the blacklist:
+#+BEGIN_SRC sh
+  # current year
+  YEAR=1991
+  # extract blacklist-filtered matches
+  ./check_wikidata.py --blacklist blacklist.tsv theof_${YEAR}.tsv wikidata_humans.tsv > theof_${YEAR}_wdfiltered_blfiltered.tsv
+
+  # add all terms from last year to a list
+  LAST_YEAR=$((YEAR-1))
+  awk -F'\t' '{print $3}' theof_${LAST_YEAR}_wdfiltered_blfiltered.tsv | sort | uniq -c | sort -nr | \
+    sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" | awk -F'\t' '{print $2"\t"$1}' >> lybl.tsv
+  # now extract only new hits
+  ./check_wikidata.py --blacklist lybl.tsv theof_${YEAR}.tsv wikidata_humans.tsv |\
+      awk -F'\t' '{print $3}' | sort | uniq -c | sort -nr > bl.tsv
+  # and now manually edit that list and append it to blacklist.tsv
+#+END_SRC
+
+#+RESULTS:
+
+edit ~bl.tsv~ ... then cleanup and append to existing file:
+#+BEGIN_SRC sh :results raw
+  sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" bl.tsv | awk -F'\t' '{print $2"\t"$1}' >> blacklist.tsv
+#  git commit blacklist.tsv
+#+END_SRC
+
+#+RESULTS:
+
+... and repeat for the next year
+
+** format data for analysis
+
+Put everything into a nice Markdown file:
+
+#+BEGIN_SRC sh
+  # echo $year
+  ./tsv2md.py theof_1987_wdfiltered.tsv | head
+#+END_SRC
+
+#+RESULTS:
+| - | [Bill](https://www.wikidata.org/wiki/Q3718763)     | (1987/01/01/0000063)                         |                      |
+| - | [Prince](https://www.wikidata.org/wiki/Q7542)      | (1987/01/01/0000048)                         |                      |
+| - | [Prince](https://www.wikidata.org/wiki/Q7542)      | (1987/01/01/0000048)                         |                      |
+| - | [Hall](https://www.wikidata.org/wiki/Q16199353)    | (1987/01/01/0000069)                         |                      |
+| - | [West](https://www.wikidata.org/wiki/Q7984198)     | (1987/01/01/0000070)                         |                      |
+| - | [House](https://www.wikidata.org/wiki/Q25712978)   | (1987/01/01/0000175)                         |                      |
+| - | [Dean](https://www.wikidata.org/wiki/Q24013760)    | (1987/01/01/0000180)                         |                      |
+| - | [Freedom](https://www.wikidata.org/wiki/Q12312865) | (1987/01/01/0000201)                         |                      |
+| - | [Anthony                                           | Quinn](https://www.wikidata.org/wiki/Q83484) | (1987/01/02/0000232) |
+| - | [King](https://www.wikidata.org/wiki/Q16940470)    | (1987/01/02/0000249)                         |                      |
