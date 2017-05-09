@@ -1286,6 +1286,7 @@ We can also consider all categories:
 |---------------------+-------|
 | sum                 |   335 |
 #+TBLFM: @25$2=vsum(@I..@II)
+
 * POS patterns
 Which are the most frequent POS patterns?
 
@@ -1320,4 +1321,3 @@ Clean them up and sort them:
 |  6 | PERSON, | DT  | ORGANIZATION | IN           | JJ       | NN  | (PERSON Carlos Gardel) ,/, the/DT (ORGANIZATION Elvis) of/IN tango/JJ culture/NN         |
 |  5 | PERSON, | DT  | ORGANIZATION | IN           | NN       | NN  | (PERSON Johnny Miller) ,/, the/DT (ORGANIZATION Simon Cowell) of/IN golf/NN criticism/NN |
 |  5 | GPE,    | DT  | ORGANIZATION | IN           | NNS      |     | (GPE McEnroe) ,/, the/DT (ORGANIZATION Picasso) of/IN players/NNS                        |
-

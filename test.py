@@ -84,7 +84,7 @@ class TestVossanto(unittest.TestCase):
         # − the new King George III (2010)
         # − no FDR8 (2011)
         # − the Anti-Reagan9 (2013).
-    
+       
     def tv(self, s, x, y, z):
         self.assertEqual(vossanto.vossanto(s, True), (x, y, z))
 
