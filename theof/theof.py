@@ -31,10 +31,14 @@ sys.stdout = UTF8Writer(sys.stdout)
 
 # remove line breaks and tabs from text
 re_ws = re.compile('[\n\t\r]+')
-# simple match (first version)
+# 1: simple match
 # re_theof = re.compile("(\\bthe\\s([A-Z][a-z]+\\s+){1,3}of\\b)")
-# less restrictive
-re_theof = re.compile("(\\bthe\\s([A-Z][a-z]+\\s+)+of\\b)")
+# 2: more than three words
+# re_theof = re.compile("(\\bthe\\s([A-Z][a-z]+\\s+)+of\\b)")
+# 3: lower-case characters and at most five words
+# re_theof = re.compile("(\\bthe\\s([A-Za-z]+\\s+){1,5}+of\\b)")
+# 4: all unicode characters
+re_theof = re.compile("(\\bthe\\s(\\w+\\s+){1,5}?of\\b)", re.UNICODE)
 
 # convert NYT XML to text
 def xml2str(f, fname):
