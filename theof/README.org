@@ -261,7 +261,7 @@ matches a Wikidata item with an "instance of" property of "human".
 
 What's the distribution?
 #+BEGIN_SRC sh
-    echo "year all wdfiltered blfiltered"
+    echo "year all wd wd+bl"
     for year in $(seq 1987 2007); do
       echo $year \
            $(cat theof_${year}.tsv | wc -l) \
@@ -270,29 +270,32 @@ What's the distribution?
     done
 #+END_SRC
 
-#+RESULTS:
-| year |   all | wdfiltered | blfiltered |
-| 1987 | 56513 |       2520 |        104 |
-| 1988 | 55129 |       2640 |         88 |
-| 1989 | 55602 |       2454 |        112 |
-| 1990 | 53310 |       2608 |        117 |
-| 1991 | 45822 |       2114 |        123 |
-| 1992 | 41714 |       2232 |        158 |
-| 1993 | 40338 |       2074 |        168 |
-| 1994 | 37285 |       1867 |        166 |
-| 1995 | 41839 |       2227 |        168 |
-| 1996 | 40238 |       1972 |        194 |
-| 1997 | 42737 |       2189 |        181 |
-| 1998 | 46487 |       2654 |        268 |
-| 1999 | 47431 |       2556 |        196 |
-| 2000 | 44634 |       2165 |        233 |
-| 2001 | 43209 |       2029 |        216 |
-| 2002 | 44322 |       2236 |        223 |
-| 2003 | 42874 |       2120 |        223 |
-| 2004 | 41740 |       1943 |        205 |
-| 2005 | 40774 |       2006 |        224 |
-| 2006 | 40590 |       2071 |        231 |
-| 2007 | 19004 |       1081 |        122 |
+| year |    all |    wd | wd+bl |
+|------+--------+-------+-------|
+| 1987 |  56513 |  2520 |   104 |
+| 1988 |  55129 |  2640 |    88 |
+| 1989 |  55602 |  2454 |   112 |
+| 1990 |  53310 |  2608 |   117 |
+| 1991 |  45822 |  2114 |   123 |
+| 1992 |  41714 |  2232 |   120 |
+| 1993 |  40338 |  2074 |   129 |
+| 1994 |  37285 |  1867 |   131 |
+| 1995 |  41839 |  2227 |   134 |
+| 1996 |  40238 |  1972 |   154 |
+| 1997 |  42737 |  2189 |   139 |
+| 1998 |  46487 |  2654 |   189 |
+| 1999 |  47431 |  2556 |   145 |
+| 2000 |  44634 |  2165 |   187 |
+| 2001 |  43209 |  2029 |   168 |
+| 2002 |  44322 |  2236 |   183 |
+| 2003 |  42874 |  2120 |   176 |
+| 2004 |  41740 |  1943 |   146 |
+| 2005 |  40774 |  2006 |   157 |
+| 2006 |  40590 |  2071 |   182 |
+| 2007 |  19004 |  1081 |   122 |
+|------+--------+-------+-------|
+|  sum | 921592 | 45758 |  3006 |
+#+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)
 
 Filtering by blacklist:
 #+BEGIN_SRC sh
@@ -305,7 +308,7 @@ Filtering by blacklist:
 Extracting the blacklist:
 #+BEGIN_SRC sh :results silent
     # current year
-    YEAR=1991
+    YEAR=2007
     LAST_YEAR=$((YEAR-1))
 
     # previous year: create blacklist-cleaned file
@@ -331,6 +334,8 @@ Now edit ~bl.tsv~ ... and then cleanup and append to existing file:
 
 #+END_SRC
 
+#+RESULTS:
+
 ... and repeat for the next year
 
 ** most frequent sources
@@ -338,30 +343,51 @@ Now edit ~bl.tsv~ ... and then cleanup and append to existing file:
 #+BEGIN_SRC sh
   awk -F'\t' '{print $3}' theof_*_wd_bl.tsv \
       | sed -e "s/^the //" -e "s/ of$//" \
-      | sort | uniq -c | sort -nr | head -n20 
+      | sort | uniq -c | sort -nr | head -n40
 #+END_SRC
 
-#+RESULTS:
-| 74 | Michael      | Jordan      |
-| 64 | Rodney       | Dangerfield |
-| 47 | Madonna      |             |
-| 37 | Babe         | Ruth        |
-| 30 | Johnny       | Appleseed   |
-| 26 | Mona         | Lisa        |
-| 24 | Pearl        |             |
-| 24 | Bill         | Gates       |
-| 23 | Rembrandt    |             |
-| 23 | Michelangelo |             |
-| 22 | Donald       | Trump       |
-| 22 | Dalai        | Lama        |
-| 21 | Tiger        | Woods       |
-| 21 | Jackie       | Robinson    |
-| 21 | Cary         | Grant       |
-| 19 | Tao          |             |
-| 19 | John         | Wayne       |
-| 18 | Napoleon     |             |
-| 18 | Martha       | Stewart     |
-| 18 | Boss         |             |
+| count | source             |
+|-------+--------------------|
+|    74 | Michael Jordan     |
+|    64 | Rodney Dangerfield |
+|    47 | Madonna            |
+|    37 | Babe Ruth          |
+|    30 | Johnny Appleseed   |
+|    26 | Mona Lisa          |
+|    24 | Bill Gates         |
+|    23 | Rembrandt          |
+|    23 | Michelangelo       |
+|    22 | Donald Trump       |
+|    22 | Dalai Lama         |
+|    21 | Tiger Woods        |
+|    21 | Jackie Robinson    |
+|    21 | Cary Grant         |
+|    19 | John Wayne         |
+|    18 | Napoleon           |
+|    18 | Martha Stewart     |
+|    16 | Mother Teresa      |
+|    16 | Henry Ford         |
+|    16 | Cal Ripken         |
+|    15 | Ralph Nader        |
+|    14 | Ross Perot         |
+|    13 | Susan Lucci        |
+|    12 | Walt Disney        |
+|    12 | Rosa Parks         |
+|    12 | Robin Hood         |
+|    11 | Willie Horton      |
+|    11 | Moses              |
+|    10 | Virginia Court     |
+|    10 | Oprah Winfrey      |
+|    10 | King Kong          |
+|    10 | Julia Child        |
+|     9 | Tyson              |
+|     9 | Muhammad Ali       |
+|     9 | Mike Tyson         |
+|     9 | James Dean         |
+|     9 | Garbo              |
+|     9 | Bill Clinton       |
+|     8 | Woody Allen        |
+|     8 | Magic Johnson      |
 
 ** format data for analysis
 
