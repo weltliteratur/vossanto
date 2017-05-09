@@ -453,7 +453,7 @@ Extracting the blacklist:
 #+BEGIN_SRC sh :results silent
   export PYTHONIOENCODING=utf-8
   # current year
-  YEAR=1989
+  YEAR=1999
   LAST_YEAR=$((YEAR-1))
 
   # previous year: create blacklist-cleaned file
