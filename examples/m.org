@@ -230,5 +230,159 @@
 - 2006/12/17/1812547	''There's four of us,'' said Kyle Avila, the *Michelangelo of* the bunch, adorably holding up his three turtle fingers.
 - 2007/04/12/1839640	Gunn is the *Michelangelo of* the form.
 
+*** Which occurences of "M of" are not preceded by "the"?
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "michelangelo of\b" m.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | grep -vi "the michelangelo of" | sed "s/michelangelo of/*&*/i"
+#+END_SRC
+
+#+RESULTS:
+- 1987/03/24/0024161	Yet you have the gall to take up precious space between a mansard roof and a wood-and-leather lobby under the illusion that you can become a *Michelangelo of* the art form known as living?
+- 1992/10/17/0563533	Michael Tracy is a *Michelangelo of* the memorial wall, the sprawling street-side shrines to victims of urban violence that have sprung up around New York with unnerving frequency in recent years.
+- 1993/09/26/0636806	A noted French writer has called Leni Riefenstahl "the Plato and *Michelangelo of* the Leica," and her films assure her an enduring place in cinematic history.
+- 1994/05/01/0684246	It is the rarest of carousels, sculptured by the "*Michelangelo of* wood carvers," says one of the men who brought it back to life.
+- 1998/09/20/1047759	*Michelangelo of* Eastport will open a fourth restaurant next month at County Road 111 in Manorville (878-1616), on the route to the Hamptons.
+- 1999/11/10/1152159	He has already had an encounter with two of the students -- the troubled basketball star Lester Dewitt (Usher Raymond) and Ziggy Malone (Robert Ri'chard ), the abused pint-size *Michelangelo of* the Lincoln High cockloft by the time Mr.
+- 2000/06/27/1210663	agent who acts like he's the  *Michelangelo of* G-men; these two crooked cops who've been on the take; and this fat pig of a drug dealer, who -- get this -- is trying to get his mitts on the A-bomb to protect his business in South America.
+- 2000/07/02/1211833	MONTE WARNE is a down-home Renaissance man, a *Michelangelo of* machinery: a licensed aircraft and airplane-engine mechanic, an aircraft designer, a licensed private, commercial and crop-duster pilot, a lifelong motorcyclist and a former motorcycle and car racer.
+- 2003/08/05/1509790	Bruce Ellerstein letter says that if Mel Gibson really were '*Michelangelo of* his generation' he would open up screenings of The Passion to viewers other than those he knows will safely embrace it
+- 2003/08/05/1509790	If Mel Gibson was truly the ''*Michelangelo of* this generation,'' as one supporter puts it, he would open screenings of ''The Passion'' to viewers other than those he knows will safely embrace it (front page, Aug.
+- 2005/11/06/1715174	'' Once 14-year-old Cyril Parks -- the future Electric *Michelangelo of* the title -- apprentices himself to one of these ''scrapers,'' he'll spend the rest of his life working with the human body in all its pain and flux, wiping blood away as he inscribes pictures that both sum up and inspire his customers' lives.
+
+*** Which occurences of "the M" are not followed by "of"?
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "the michelangelo\b" m.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | grep -vi "the michelangelo of" | sed "s/the michelangelo/*&*/i"
+#+END_SRC
+
+#+RESULTS:
+- 1987/03/06/0019100	''I remember the beautiful, subtle modeling of *the Michelangelo* work when I saw it earlier, and there seems to have been a loss of that.
+- 1987/03/30/0025770	Honegger said that her father had owned the statue for many years, believing it to be a reproduction of *the Michelangelo* and not an original work by Michelangelo.
+- 1987/03/30/0025770	He said that though *the Michelangelo* statue was more valuable commercially, the Hebraic objects meant more to him personally.
+- 1987/04/16/0030667	One of them, Robert Motherwell, said the report made him ''more confident, less worried about them proceeding'' on restoring *the Michelangelo* frescos.
+- 1987/05/24/0043522	Some critics contend that as *the Michelangelo* masterpiece is exposed again to the light, it also faces greater exposure to humidity and airborne pollutants that could damage the frescoes.
+- 1988/04/10/0134559	Ryskamp, in addition to his literary interests and the care of the library's own rare books, manuscripts, prints and drawings, brought to the Morgan such memorable shows as *the Michelangelo* drawings and the royal Dutch collections, giving New Yorkers the opportunity to view material that either was rarely collected or that rarely traveled.
+- 1988/10/02/0184525	El Quijote (1191 Gregores; 17) and *the Michelangelo* (Gobernador Moyano and Comandante Espora; 45) are in the sae class.
+- 1988/10/10/0186679	Among the inevitable lessons of this handsome exhibition is that *the Michelangelo* who could make such works and then wish to burn so many of them serves perpetually as a source of mystery and inspiration.
+- 1988/11/27/0201975	(*The Michelangelo* drawing show at the National Gallery, through Dec.
+- 1988/12/04/0203772	) One of the great events of this year was *the Michelangelo* exhibition at the National Gallery in Washington.
+- 1989/06/02/0255268	LEAD: Art restorers will probably strip the painted loincloths from many figures in *the Michelangelo* masterpiece ''The Last Judgment,'' it was reported today.
+- 1989/06/02/0255268	Art restorers will probably strip the painted loincloths from many figures in *the Michelangelo* masterpiece ''The Last Judgment,'' it was reported today.
+- 1989/08/08/0273493	*The Michelangelo* David on view in Florence is also a copy.
+- 1990/03/16/0335200	Woodner wrote the catalogue entry attributing *the Michelangelo* drawing, for instance.
+- 1990/04/06/0341281	But there is also, among others, *the Michelangelo* suite, with - of course -painted ceiling frescoes; the Cleopatra with an Egyptian theme, and the Napoleon with a cobalt blue ceiling lighted in neon.
+- 1990/05/14/0353209	*The Michelangelo* whose seemingly somber palette inspired generations of painters and historians has emerged as a different artist.
+- 1990/06/07/0359553	The cleaning of *the Michelangelo* frescoes is to be discussed by Dr.
+- 1990/06/07/0359553	The cleaning of *the Michelangelo* frescoes is to be discussed by Dr.
+- 1990/10/27/0395775	Paulus's work is the larger and more varied, partly because *the Michelangelo* poems are heftier than Mr.
+- 1991/05/25/0447926	I saw *the Michelangelo* version of Christ.
+- 1992/01/28/0503835	Computer virus experts said that *the Michelangelo* virus, discovered in Europe last April, was particularly malicious.
+- 1992/03/03/0511207	A number of computer makers and software publishers have issued similar alerts about *the Michelangelo* program and a variety of companies are now offering free software to check for the virus.
+- 1992/03/03/0511318	On Friday, *the Michelangelo* virus is expected to emerge from dormancy to destroy all the data on the hard disks of infected computers.
+- 1992/03/03/0511318	The second most common virus, spreading like wildfire in the last two months, is *the Michelangelo*.
+- 1992/03/03/0511318	Buy a full-purpose antiviral program that does more than just snag *the Michelangelo* virus.
+- 1992/03/05/0511823	A number of corporations, schools and Government agencies say they have already detected *the Michelangelo* program.
+- 1992/03/06/0512133	A14  *THE MICHELANGELO* VIRUS
+- 1992/03/06/0512148	Computer users whose machines are infected with *the Michelangelo* virus will discover that they are victims when they turn their machines on for the first time today.
+- 1992/03/06/0512148	Yet experts on computers viruses who have been following *the Michelangelo* program said they had received reports of infections from hundreds of sites around the country, including the New Jersey Institute of Technology, the University of San Francisco, Government agencies and offices ranging from Los Alamos National Laboratories to the United States House of Representatives, and corporations that include Genentech, the Intel Corporation and the American Telephone and Telegraph Company.
+- 1992/03/06/0512148	At Georgetown University in Washington an attempt to distribute anti-virus programs to detect *the Michelangelo* virus initially backfired.
+- 1992/03/06/0512148	Computer center administrators found their machines had become infected by *the Michelangelo* program after they let students, faculty and staff members insert disks in machines to make copies of programs designed to protect computers against the virus.
+- 1992/03/07/0512193	*The Michelangelo* computer virus activated itself as scheduled, but from all reports the infection caused barely a sneeze among the millions of personal computers around the world.
+- 1992/03/07/0512206	In contrast to the panic caused by warnings of its existence, the advent of *the Michelangelo* computer virus caused barely a sneeze among the millions of personal computers worldwide.
+- 1992/03/07/0512212	*The Michelangelo* computer virus came to life as scheduled but from all reports the infection caused barely a sneeze.
+- 1992/03/07/0512247	*The Michelangelo* computer virus came to life as scheduled yesterday, but from all reports the infection caused barely a sneeze among the millions of personal computers worldwide and led instead to an angry exchange about whom to blame for the dire alarms sounded in recent weeks.
+- 1992/03/07/0512247	The company, which has 250,000 personal computers at sites around the globe, said that before yesterday it had received six possible reports of invasion by *the Michelangelo* virus, so named because it was designed by an anonymous programmer to erase data and programs on the artist's 517th birthday.
+- 1992/03/07/0512247	Warnings about *the Michelangelo* computer program, which was designed to crash personal computers made by the International Business Machines Corporation and compatible machines, set off an international panic among computer users and led thousands of them to seek programs to render the virus ineffective.
+- 1992/03/07/0512247	Wilkins said he suspected *the Michelangelo* virus but was not certain.
+- 1992/03/07/0512247	Scotland Yard reported that two British companies, which it would not name, had suffered from *the Michelangelo* epidemic.
+- 1992/03/08/0512621	The concern was heightened last week by *the Michelangelo* virus, so named because its creator programmed it to come alive last Friday, the Renaissance artist's 517th birthday, to destroy data on the hard disks of infected computers.
+- 1992/03/08/0512621	"What surprised us in the time between the two studies was the sudden appearance of *the Michelangelo* virus," said Jill Falk of Dataquest.
+- 1992/03/08/0512621	The study found that 7 percent of those surveyed encountered *the Michelangelo* virus in the last three months of 1991.
+- 1992/04/05/0519259	Many educators were frightened last month by news reports of *the Michelangelo* virus, a rogue program that was supposed to spread from computer to computer, erasing the hard disks of any infected machines.
+- 1992/06/21/0537661	Several months have passed since the computing world awaited with dread *the Michelangelo* virus, a rogue program that, it was feared, would erase the hard disks of millions of personal computers on March 6.
+- 1992/06/21/0537661	"The big question, at least to me, is, 'Did *the Michelangelo* scare do anything long-term and positive for the user community?
+- 1992/06/21/0537661	In retrospect, *the Michelangelo* scare seems to have provided a valuable lesson, raising virus awareness.
+- 1992/06/21/0537661	*The Michelangelo* threat also provided a lesson in the virtues of level-headedness.
+- 1992/06/28/0539172	The price was $42 million and it is now *The Michelangelo*.
+- 1992/09/27/0559335	Flack to create "heroic sculpture of *the Michelangelo* type.
+- 1993/04/03/0599696	"I take a little from all of that: *the Michelangelo* image of God in the Sistine Chapel, and then the idea that divinity permeates the air we breathe and that from this power miracles come and that we may not connect with this power because we are too busy praying to the Michelangelo God up there.
+- 1993/05/28/0611706	, when the nearby Piazza Della Signoria, site of a popular copy of *the Michelangelo* "David," was dotted with late-night strollers.
+- 1993/05/28/0611715	The event was, in the scale of its violence, a more wrenching reminder of the vulnerability of art on public view than the vandalism of *the Michelangelo* "Pieta" and Picasso's "Guernica.
+- 1993/05/29/0611863	In *the Michelangelo* Room, the walls are cracked and empty, and sunlight filters through a broken roof.
+- 1993/06/13/0614913	A group of Italian investors bought the Parc Fifty-One, now *the Michelangelo*, for $42 million last year; just three years ago, Park Lane Hotels paid $71 million for it.
+- 1993/06/15/0615411	According to some self-serving antivirus software makers, *the Michelangelo* virus, so named because it was programmed to erase hard disk drives on the birthday anniversary of the artist, was so widespread that as many as a million computers were expected to crash on March 6.
+- 1993/06/17/0615879	And unbelievably, not only are the Dossos fine, but none of the Titians or Raphaels or Veroneses or Caravaggios or *the Michelangelo* that hung in the rooms nearest the bomb were damaged.
+- 1993/07/09/0620434	Bidding for *the Michelangelo* on Tuesday was competitive.
+- 1993/10/11/0640305	"We will replace *the Michelangelo*-style wings with a Jetsons-style helicopter toaster," Mr.
+- 1993/11/04/0647253	Except for *the Michelangelo* drawing, which is on loan, all the paintings were on exhibit when the fire broke out.
+- 1993/11/07/0647848	*The Michelangelo*, operated from 1965 to 1975, the last large liner built in Italy, dominated the room at a scale of 1:50 and managed to suggest the size and majesty of those departed ships.
+- 1993/12/05/0653874	MONDAY -- Women for the Homeless is sponsoring an Italian feast at *the Michelangelo* Hotel, 125 West 51st Street, to raise funds for Urban Pathways, which provides services to mentally ill homeless women.
+- 1994/01/14/0661921	*The Michelangelo*
+- 1994/02/06/0667000	UPTOWN -- *The Michelangelo* Shoe Awards, sponsored by the Italian Trade Commission and the Italian Footwear Manufacturers Association, was held at the Metropolitan Museum of Art on Tuesday.
+- 1994/02/06/0667001	It is perfect for the trade group party at which she will present *the Michelangelo* Shoe Award to Mr.
+- 1994/03/02/0671956	"Also, when the hotel where Bellini is located became *the Michelangelo*, we were forced to do room service, and that was not a responsibility I wanted.
+- 1994/03/06/0672619	Art lovers can once again admire the works on display in *the Michelangelo* Room in the west wing of the Uffizi art gallery in Florence, one of the rooms badly damaged by a powerful car bomb that killed five people in May 1993.
+- 1994/03/06/0672619	The reopening of *the Michelangelo* and Veronese rooms will again allow visitors to view some of the Uffizi galleries' most important works of art.
+- 1994/03/27/0676832	*The Michelangelo* room, with his magnificent "Doni Tondo," reopened in late February, and the Veronese room is scheduled to reopen April 1.
+- 1994/12/04/0729258	Helping Homeless Women  TUESDAY -- The Antonio Olivieri Center for Women will be the beneficiary of an evening at *the Michelangelo* Hotel, 152 West 51st Street.
+- 1995/03/15/0748852	And the anticipated return of Jordan, whom the Bulls' coach, Phil Jackson, called "*the Michelangelo*" of basketball, created mere frenzy in Chicago.
+- 1995/03/26/0750970	It is now the home to a new hotel, *the Michelangelo*.
+- 1995/07/18/0775823	I had been stranded ever since the Queen Mary, *the Michelangelo*, the France and the S.
+- 1995/07/18/0775823	If only *the Michelangelo* were leaving the dock.
+- 1995/09/19/0789532	Whatever dooms afternoon newspapers, mourning their deaths is as silly as mourning the death of the Super Chief to Los Angeles or *the Michelangelo* to Naples.
+- 1995/12/06/0813647	By late next week, Romeo DeGobbi, who this year became the food and beverage  manager of *the Michelangelo* Hotel, hopes to open Limoncello, his Italian restaurant, at 777 Seventh Avenue (at 51st Street), in the hotel.
+- 1996/01/30/0826395	Joint Custody for *the Michelangelo*?
+- 1996/01/30/0826530	Joint Custody for *the Michelangelo*?
+- 1996/01/30/0826530	27 editorial on the discovery of *the Michelangelo* sculpture in Manhattan repeats the mistake John Keats made in his great sonnet "On First Looking Into Chapman's Home.
+- 1996/01/30/0826531	Joint Custody for *the Michelangelo*?
+- 1996/01/31/0826606	30 letter on *the Michelangelo* discovery.
+- 1996/02/03/0827327	Like *the Michelangelo* fresco at the Vatican, the vaulted sky ceiling over the main concourse in Grand Central is about to get a soap-and-water scrubbing.
+- 1996/02/03/0827400	Like *the Michelangelo* fresco in the Vatican, the vaulted sky ceiling over the main concourse in Grand  Central is about to get a soap-and-water scrubbing as a two-year restoration project begins.
+- 1996/02/25/0832507	In past conclaves, cardinals were jammed into makeshift quarters scattered around the Apostolic Palace, where they were kept as virtual prisoners until the balloting for the new pope -- conducted under *the Michelangelo* frescoes in the Sistine Chapel -- was over, and white smoke could be seen rising from a chimney  above St.
+- 1996/08/12/0871053	The most notable case was in 1992, when predictions that *the Michelangelo* virus would crash millions of computers on March 6, the artist's birth date, proved to be wildly exaggerated.
+- 1996/11/10/0888666	After a picnic lunch in *the Michelangelo* Garden, a small group of tables clustered near copies of Michelangelo sculptures, we spun tales for the kids about the giant reproductions of his ''Rebellious Slave,'' ''Moses'' and ''Pieta.
+- 1997/04/18/0923576	The ''Rodin and Michelangelo'' show, a paean to this one-sided collaboration, is itself a cooperative venture between the Philadelphia Museum and the Casa Buonarroti, *the Michelangelo* museum and study center in Florence.
+- 1997/05/17/0930349	Travel is sailing out of New York harbor aboard *the Michelangelo* for a seven-day trip to Naples, the first leg of a two-year tour of Italy from Sicily to the Dolomite Alps.
+- 1997/11/14/0972776	Other significant paintings in the show include ''The Poet'' (1941), a heroic head based on *the Michelangelo* sculpture ''The Dying Slave''; ''Leda and the Swan'' (1941), in which Leda, a figure of conical sections with a blank oval head, languishes next to the virile fowl, and ''La Fortune'' (1938), portraying a giant billiard table that projects into a sky rampant with stagy, cotton-candy clouds.
+- 1998/03/01/0998768	Its skyline is dominated by the Sandton City office tower, which is surrounded by expensive hotels: the Sandton Sun Intercontinental, Sandton Towers and *the Michelangelo*, a big chunk of sunny ersatz Florence in Tuscan pink concrete.
+- 1998/10/15/1054141	Why, *the Michelangelo*, the Cellini and the Giorgio Armani of this highly specialized profession, the most innovative and celebrated Italian armorer of the era.
+- 1998/12/24/1072121	Consider the one from *the Michelangelo* Hotel, at 152 West 51st Street, which shows the hotel staff with Santa Claus.
+- 1999/05/16/1108105	But when the Ciprianis opened a competing restaurant, called Bellini, 20 months later at what is now *the Michelangelo* Hotel at Seventh Avenue and 51st Street, Trusthouse ejected Bellini.
+- 1999/05/16/1108105	Three years later, the Ciprianis abruptly closed Bellini, refusing to pay more than $200,000 in wages and benefits to the union employees, and *the Michelangelo* was forced to pay the bill.
+- 1999/05/16/1108105	''He used to say, 'Cipriani doesn't do hamburgers,' '' said Elisabetta Fabri, president of *the Michelangelo*.
+- 1999/06/11/1114281	It stands on Capitoline Hill as part of an older museum complex in *the Michelangelo*-designed Piazza del Campidoglio, dominated by a bronze equestrian statue of Marcus Aurelius dating from Imperial days.
+- 1999/06/27/1118732	And all this within a stone's throw: Chianti, where we taste wine and olive oil at the fattorias; Arezzo, where we view the faded Piero della Francescas and walk beside the building where the monk Guido invented much of modern musical notation; Siena, where the day before the Palio, rows of bleachers are set up around the racecourse in the grand piazza and colorful banners from the competing quarters of the city fly, and, of course, Florence, where we visit the Duomo, the Uffizi, *the Michelangelo* David.
+- 1999/12/22/1162937	*The Michelangelo* novel received mixed reviews, but Mr.
+- 1999/12/26/1164072	*The Michelangelo*, at 51st Street and Seventh Avenue, considered setting its four-night millennium packages at between $4,000 and $8,000, but eventually made them $1,800 to $2,700 for three nights.
+- 2001/03/15/1277980	Schlossberg, who grew up on the Upper West Side of Manhattan, went there to see *the Michelangelo* Pietà from the Vatican Museum, on loan to the fair.
+- 2001/06/01/1297929	A standout in the show, of course, is *the Michelangelo*.
+- 2001/07/06/1307245	Under a reorganization plan approved last week by the Federal Bankruptcy Court in White Plains, *the Michelangelo* Apartments co-op refinanced its underlying mortgage, adding $1 million in debt but stabilizing its finances.
+- 2002/07/10/1407111	Among those departing is the curator of drawings, Marilyn Symmes, in whose care *the Michelangelo* had ostensibly been.
+- 2002/07/10/1407111	Frederick Hartt, a Michelangelo scholar who died in 1991, had put forward *the Michelangelo* connection for that sculpture, in which it emerged that he had a financial interest.
+- 2002/07/10/1407111	Goldner said: ''It's worth studying and it's a good drawing, but I'm not sure about Leonardo, whereas in the case of *the Michelangelo* I don't think there's any serious doubt.
+- 2002/07/13/1407738	Sir Timothy says there was no trick to discovering *the Michelangelo* among forgotten sheets at the Cooper-Hewitt.
+- 2002/08/06/1413821	Now, because it has a new director who amid controversy has begun to make significant personnel changes and because *the Michelangelo* discovery has put the museum at least momentarily in the spotlight, the Cooper-Hewitt may have a crucial opportunity to better define itself.
+- 2002/08/20/1417221	The first two sections, called ''The Living Legend'' and ''Father and Master of All,'' trumpet *the Michelangelo* connection and underline his influence over Pontormo, Bronzino, Vasari, Cellini, Baccio Bandinelli and Pierino da Vinci.
+- 2002/09/15/1423780	75 for *the Michelangelo* exhibit.
+- 2003/07/18/1505283	In 1969, when it first came here, there were still others: the France, the United States and the white ships of the Italian Line, the Rafaello and *the Michelangelo*.
+- 2003/09/05/1517070	5 about ''French Artists in Rome: Ingres to Degas, 1803-1873,'' at the Dahesh Museum in Manhattan, referred incorrectly to *the Michelangelo* work depicted by Ingres in his painting of the Sistine Chapel.
+- 2003/09/17/1520187	Arts Briefing column: Antonio Paolucci and team of conservation experts at Florence's Galleria dell'Accademia plan to ba*the Michelangelo*'s 499-year-old David with compresses of pulped cellulose, rice paper and distilled water in full view of public; Margaret Atwood, Zoe Heller, Damon Galgut, Monica Ali, Clare Morrall and DBC Pierre are six finalists for this year's Man Booker Prize; fine and decorative arts from State Hermitage Museum in St Petersburg, Russia, will go on view at University of Michigan Museum of Art in Ann Arbor; 14th-century Yuan Dynasty blue-and-white flask is sold for record $5,831,500 to unidentified London collector at Doyle auction in New York; photo (M)
+- 2003/09/17/1520299	5 about ''French Artists in Rome: Ingres to Degas, 1803-1873,'' at the Dahesh Museum in Manhattan, referred incorrectly to *the Michelangelo* work depicted by Ingres in his painting of the Sistine Chapel.
+- 2003/10/28/1530824	Rex McLennan, chief financial officer of Placer Dome, a Canadian gold producer, chooses either the SANDTON SUN AND TOWERS INTERCONTINENTAL (011-27-11-780-5000, $260 and up) or *the MICHELANGELO* (011-27-11-282-7000, $270) on his regular visits to Johannesburg.
+- 2003/11/09/1533895	A few years later -- just as she was becoming tired of teaching, but unsure what to pursue next -- she booked herself a cabin on *the Michelangelo*, an Italian Line cruise ship, and set off to see the world.
+- 2003/12/14/1543161	Rich Meyer, who manages *the Michelangelo* pizzeria across Route 111 from the shopping center and lives next door, wondered why the police have not linked a fifth find, of a head with a bullet wound found in January, to the Manorville cases.
+- 2004/02/02/1555769	''A few degrees makes a world of difference,'' said Mike Mallory, a doorman at *the Michelangelo* Hotel on West 51st Street.
+- 2004/10/03/1615908	During an interview at *the Michelangelo* Hotel, she acknowledged that longtime viewers might find it ''difficult to adjust'' to a new actor inhabiting the role of her famously sensitive poet-detective but then offered her own reassuring view of the change.
+- 2005/04/18/1665868	Some scholars have also found fault in relating the ''Laocoön'' to *the Michelangelo* drawing of a torso, now at the Ashmolean Museum at Oxford.
+- 2005/04/18/1665868	''To my eye, *the Michelangelo* drawing does not bear a close resemblance to the torso of the Vatican Laocoön,'' said Katherine E.
+- 2006/04/27/1757347	After a solid week of *the Michelangelo* act, rough spots seemed to disappear, aided by the patchy shine of the plaster.
+- 2006/09/10/1789100	The man, Noel Earl, 19, was shot three times in the torso by a group of men in the courtyard of *the Michelangelo* Apartments at 245 East 149th Street at 10:15 p.
+- 2006/09/22/1791750	David Berg, who was in training for a barefoot marathon, had a particularly remarkable set: his feet resembled those of *the Michelangelo* statue with which he shares his first name: wide, bulging with muscle and solid as marble.
+- 2006/12/20/1813110	MARCO CANORA AND PAUL GRIECO -- In the spring, the owners of Hearth in the East Village will open an Italian restaurant, as yet unnamed, in the space that had been Limoncello in *the Michelangelo* Hotel.
+- 2007/03/14/1832814	The chef Marco Canora's forthcoming restaurant in *the Michelangelo* Hotel in Midtown Manhattan will handle room service there.
+- 2007/03/27/1835971	Now he's the head concierge at *the Michelangelo* on West 51st Street.
+- 2007/04/18/1841089	It certainly applies to the menu of this understatedly elegant restaurant, with beige leather banquettes, which opened on Monday in *the Michelangelo* Hotel in Midtown.
+- 2007/05/29/1850670	He argued that *the Michelangelo* frescos were being drastically overcleaned -- a process that not only erased some of the subtle volumetric painting, he contended, but also exposed the entire surface to modern pollution.
+
 * TODO vossantos
 manually check all candidates ...
