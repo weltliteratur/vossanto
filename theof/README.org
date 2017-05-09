@@ -74,27 +74,26 @@ to match the source candidates against a list of person names from
 Wikidata.
 
 *** relaxed pattern
-With the relaxed regular expression ~\\bthe\\s(\\w+\\s+){1,5}of\\b~ we
-get 569291 hits, with the most frequent being the following ones:
-
+With the relaxed regular expression ~\\bthe\\s(\\w+\\s+){1,5}?of\\b~
+we get 575711 hits, with the most frequent being the following ones:
 #+BEGIN_SRC sh
-  # echo hits $(cat theof_all_1987.tsv | wc -l)
+  echo hits $(cat theof_all_1987.tsv | wc -l)
   # echo distinct $(awk -F'\t' '{print $2}' theof_all_1987.tsv | sort -S1G -u)
   awk -F'\t' '{print $2}' theof_all_1987.tsv | sort -S1G | uniq -c | sort -nr | head
 #+END_SRC
 
-| hits |                   |
-|------+-------------------|
-| 6959 | the end of        |
-| 6015 | the University of |
-| 4389 | the number of     |
-| 3149 | the rest of       |
-| 2887 | the sale of       |
-| 2380 | the use of        |
-| 2153 | the kind of       |
-| 1944 | the age of        |
-| 1917 | the son of        |
-| 1863 | the cost of       |
+| count | phrase            |
+|-------+-------------------|
+|  7205 | the end of        |
+|  6540 | the University of |
+|  4493 | the number of     |
+|  3239 | the sale of       |
+|  3239 | the rest of       |
+|  2451 | the use of        |
+|  2233 | the kind of       |
+|  2154 | the son of        |
+|  1961 | the age of        |
+|  1939 | the president of  |
 
 ** identifying source candidates in Wikidata
 *** item has "instance of" property "human"
@@ -240,19 +239,21 @@ which we manually cleaned up.
 
 Now we repeat the analysis:
 #+BEGIN_SRC sh :results silent
-  ./check_wikidata.py --blacklist blacklist.tsv theof_1987.tsv wikidata_humans.tsv > theof_1987_wdfiltered_blfiltered.tsv
+  ./check_wikidata.py --blacklist blacklist.tsv theof_1987.tsv wikidata_humans.tsv > theof_1987_wd_bl.tsv
 #+END_SRC
 
 How many results did we get?
 #+BEGIN_SRC sh
-  wc -l theof_1987_wdfiltered_blfiltered.tsv  
+  wc -l theof_1987_wd_bl.tsv  
+  awk -F'\t' '{print $3}' theof_1987_wd_bl.tsv | sort -u | wc -l
 #+END_SRC
 
-: 104 theof_1987_wdfiltered_blfiltered.tsv
+| 104 | theof_1987_wd_bl.tsv |
+|  88 |                      |
 
 Which were the most frequent ones?
 #+BEGIN_SRC sh
-  awk -F'\t' '{print $3}' theof_1987_wdfiltered_blfiltered.tsv | sort | uniq -c | sort -nr | head
+  awk -F'\t' '{print $3}' theof_1987_wd_bl.tsv | sort | uniq -c | sort -nr | head
 #+END_SRC
 
 | freq |                        |
@@ -273,6 +274,7 @@ Much better! Let us repeat this process for all other years.
 *** repeating with the relaxed pattern
 
 #+BEGIN_SRC sh :results silent
+  export PYTHONIOENCODING=utf-8
   ./check_wikidata.py theof_all_1987.tsv wikidata_humans.tsv > theof_all_1987_wd.tsv
 #+END_SRC
 
@@ -283,12 +285,57 @@ How many (distinct) phrases do remain?
 #+END_SRC
 
 #+RESULTS:
-| 2432 | theof_all_1987_wdfiltered.tsv |
-|  231 |                               |
+| 2683 | theof_all_1987_wd.tsv |
+|  235 |                       |
 
-We get less patterns, because cases like ~the Dean of the University
-of~ were split into two phrases before and now appear as one. (*TODO*
-Can we avoid this by making the pattern less greedy?)
+Which are the most frequent ones?
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $3}' theof_all_1987_wd.tsv | sort | uniq -c | sort -nr | head
+#+END_SRC
+
+#+RESULTS:
+| 764 | the | House    | of |
+| 316 | the | wife     | of |
+| 225 | the | Church   | of |
+| 216 | the | Hall     | of |
+| 122 | the | Bill     | of |
+|  83 | the | Freedom  | of |
+|  77 | the | Governor | of |
+|  59 | the | Duke     | of |
+|  53 | the | King     | of |
+|  45 | the | Sultan   | of |
+
+Now we repeat the analysis with the blacklist:
+#+BEGIN_SRC sh :results silent
+  export PYTHONIOENCODING=utf-8
+  ./check_wikidata.py --blacklist blacklist.tsv theof_all_1987.tsv wikidata_humans.tsv > theof_all_1987_wd_bl.tsv
+#+END_SRC
+
+How many results did we get?
+#+BEGIN_SRC sh
+  wc -l theof_all_1987_wd_bl.tsv  
+  awk -F'\t' '{print $3}' theof_all_1987_wd_bl.tsv | sort -u | wc -l
+#+END_SRC
+
+| 455 | theof_all_1987_wd_bl.tsv |
+|  98 |                          |
+
+Which were the most frequent ones?
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $3}' theof_all_1987_wd_bl.tsv | sort | uniq -c | sort -nr | head
+#+END_SRC
+
+#+RESULTS:
+| 316 | the | wife      | of      |    |
+|  15 | the | nick      | of      |    |
+|   5 | the | hide      | of      |    |
+|   4 | the | virus     | of      |    |
+|   4 | the | Horatio   | Alger   | of |
+|   4 | the | Frank     | Sinatra | of |
+|   4 | the | data      | of      |    |
+|   3 | the | Woody     | Allen   | of |
+|   3 | the | Reichmann | family  | of |
+|   3 | the | Madonna   | of      |    |
 
 ** handling the remaining years
 
@@ -350,6 +397,8 @@ Filtering by blacklist:
 
 Extracting the blacklist:
 #+BEGIN_SRC sh :results silent
+  export PYTHONIOENCODING=utf-8
+
     # current year
     YEAR=2007
     LAST_YEAR=$((YEAR-1))
@@ -374,12 +423,57 @@ Now edit ~bl.tsv~ ... and then cleanup and append to existing file:
 #+BEGIN_SRC sh :results raw
   sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" bl.tsv | awk -F'\t' '{print $2"\t"$1}' >> blacklist.tsv
 #  git commit blacklist.tsv
+#+END_SRC
+... and repeat for the next year
 
+*** handling the relaxed patterns
+
+create an initial blacklist:
+#+BEGIN_SRC sh :results silent
+  export PYTHONIOENCODING=utf-8
+
+  cp blacklist.tsv blacklist_all.tsv
+  cp blacklist.tsv blacklist_all_lybl.tsv
+  awk -F'\t' '{print $3}' theof_[0-9]*[0-9]_wd_bl.tsv | sort | uniq -c | sort -nr | \
+      sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" | awk -F'\t' '{print $2"\t"$1}' \
+                                                            >> blacklist_all_lybl.tsv
+
+  # start with the first year
+  ./check_wikidata.py -b blacklist_all_lybl.tsv theof_all_1987.tsv wikidata_humans.tsv |\
+      awk -F'\t' '{print $3}' | sort | uniq -c | sort -nr > bl.tsv
 #+END_SRC
 
 #+RESULTS:
 
+Now edit ~bl.tsv~ ... and then cleanup and append to existing file:
+#+BEGIN_SRC sh :results raw
+  sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" bl.tsv | awk -F'\t' '{print $2"\t"$1}' >> blacklist.tsv
+#  git commit blacklist.tsv
+#+END_SRC
+
+Extracting the blacklist:
+#+BEGIN_SRC sh :results silent
+  export PYTHONIOENCODING=utf-8
+  # current year
+  YEAR=1987
+  LAST_YEAR=$((YEAR-1))
+
+  # previous year: create blacklist-cleaned file
+  ./check_wikidata.py -b blacklist.tsv theof_${LAST_YEAR}.tsv wikidata_humans.tsv > theof_${LAST_YEAR}_wd_bl.tsv
+
+  # last year: extend blacklist by all previous terms
+  cp blacklist.tsv blacklist_lybl.tsv
+  awk -F'\t' '{print $3}' theof_*_wd_bl.tsv | sort | uniq -c | sort -nr | \
+      sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" | awk -F'\t' '{print $2"\t"$1}' \
+                                                            >> blacklist_lybl.tsv
+
+  # now extract only new hits
+  ./check_wikidata.py -b blacklist_lybl.tsv theof_${YEAR}.tsv wikidata_humans.tsv |\
+      awk -F'\t' '{print $3}' | sort | uniq -c | sort -nr > bl.tsv
+#+END_SRC
+
 ... and repeat for the next year
+
 
 ** most frequent sources
 
