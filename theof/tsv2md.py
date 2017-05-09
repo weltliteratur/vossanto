@@ -28,5 +28,5 @@ if __name__ == '__main__':
         articleid = m.group(1) + m.group(2)
 
         # print result
-        print("-", "[[" + itemid + "][" + item + "]]", "(" + articleid + ")", re_theof.sub("*\\1*", sentence))
+        print("-", "[[https://www.wikidata.org/wiki/" + itemid + "][" + item + "]]", "(" + articleid + ")", re_theof.sub("*\\1*", sentence))
     
