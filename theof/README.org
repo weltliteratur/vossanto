@@ -393,19 +393,264 @@ Now edit ~bl.tsv~ ... and then cleanup and append to existing file:
 
 Put everything into a nice Markdown file:
 
-#+BEGIN_SRC sh
-  # echo $year
-  ./tsv2md.py theof_1987_wdfiltered.tsv | head
+#+BEGIN_SRC sh :results raw
+  for year in $(seq 1987 2007); do
+    echo "***" $year
+    ./tsv2md.py theof_1987_wd_bl.tsv | head
+    echo
+  done
 #+END_SRC
 
-#+RESULTS:
-| - | [Bill](https://www.wikidata.org/wiki/Q3718763)     | (1987/01/01/0000063)                         |                      |
-| - | [Prince](https://www.wikidata.org/wiki/Q7542)      | (1987/01/01/0000048)                         |                      |
-| - | [Prince](https://www.wikidata.org/wiki/Q7542)      | (1987/01/01/0000048)                         |                      |
-| - | [Hall](https://www.wikidata.org/wiki/Q16199353)    | (1987/01/01/0000069)                         |                      |
-| - | [West](https://www.wikidata.org/wiki/Q7984198)     | (1987/01/01/0000070)                         |                      |
-| - | [House](https://www.wikidata.org/wiki/Q25712978)   | (1987/01/01/0000175)                         |                      |
-| - | [Dean](https://www.wikidata.org/wiki/Q24013760)    | (1987/01/01/0000180)                         |                      |
-| - | [Freedom](https://www.wikidata.org/wiki/Q12312865) | (1987/01/01/0000201)                         |                      |
-| - | [Anthony                                           | Quinn](https://www.wikidata.org/wiki/Q83484) | (1987/01/02/0000232) |
-| - | [King](https://www.wikidata.org/wiki/Q16940470)    | (1987/01/02/0000249)                         |                      |
+*** 1987
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1988
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1989
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1990
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1991
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1992
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1993
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1994
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1995
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1996
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1997
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1998
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 1999
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 2000
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 2001
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 2002
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 2003
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 2004
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 2005
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 2006
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+*** 2007
+- [Anthony Quinn](Q83484) (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+- [Madonna](Q1744) (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.
+- [Madonna](Q1744) (1987/01/02/0000431) First it was Texas, then Southern Cal, now         Jimmy Johnson is *the Madonna of* college football these days.
+- [Don Fernando](Q5292601) (1987/01/03/0000610) The other casting novelty was *the Don Fernando of* Richard J. Clark, his first at the Met.
+- [Scott Joplin](Q191499) (1987/01/20/0005135) High points of the show included the obscure Cole Porter bonbons, ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed both as a waltz and as a one-step to show how a simple time change can alter a song's character), and piano compositions by Ernesto Nazareth, ''*the Scott Joplin of* Brazil,'' that blended ragtime and tango.
+- [Rich Little](Q1341644) (1987/01/21/0005602) A backup quarterback is *the Rich Little of* football, spending the week before a game doing an impression of the opposing team's quarterback.
+- [Errol Flynn](Q93188) (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
+- [Bela Lugosi](Q34529) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Nero](Q1413) (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- [Abraham Lincoln](Q91) (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''
+
+
