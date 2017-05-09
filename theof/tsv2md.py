@@ -28,5 +28,5 @@ if __name__ == '__main__':
         articleid = m.group(1) + m.group(2)
 
         # print result
-        print("-", "[" + item + "](" + itemid + ")", "(" + articleid + ")", re_theof.sub("*\\1*", sentence))
+        print("-", "[[" + itemid + "][" + item + "]]", "(" + articleid + ")", re_theof.sub("*\\1*", sentence))
     
