@@ -199,14 +199,14 @@
 	<g transform="translate(220.0,76.5)" style="stroke:none; fill:black; font-family:Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif; font-size:16.00pt; text-anchor:end">
 		<text><tspan>Vossantos</tspan></text>
 	</g>
-	<path  d='M231.2,70.5 L288.0,70.5 M150.4,325.4 L177.1,368.0 L203.9,312.9 L230.7,302.9 L257.5,285.4 L284.3,215.3 
+	<path  d='M231.2,70.5 L288.0,70.5 M150.4,325.4 L177.1,368.0 L203.9,312.9 L230.7,302.9 L257.5,285.4 L284.3,297.9 
 		L311.0,185.2 L337.8,187.7 L364.6,182.7 L391.4,137.7 L418.2,165.2 L444.9,42.5 L471.7,147.7 L498.5,45.0 
 		L525.3,90.1 L552.1,47.5 L578.8,50.0 L605.6,127.6 L632.4,110.1 L659.2,60.1 L686.0,358.0  '/>	<use xlink:href='#gpPt6' transform='translate(150.4,325.4) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(177.1,368.0) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(203.9,312.9) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(230.7,302.9) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(257.5,285.4) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(284.3,215.3) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(284.3,297.9) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(311.0,185.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(337.8,187.7) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(364.6,182.7) scale(6.00)'/>
