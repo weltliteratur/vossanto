@@ -9,6 +9,10 @@
 # Author: rja
 #
 # Changes:
+# 2017-05-10 (rja)
+#- smaller cleanups
+# 2017-05-09 (rja)
+# - extended regex pattern
 # 2017-05-08 (rja)
 # - initial version copied from nyt.py
 
@@ -23,7 +27,7 @@ import codecs
 import nltk
 from nltk.tokenize import sent_tokenize
 
-version = "0.0.1"
+version = "0.0.2"
 
 # convert all output into a byte string to be safe when redirecting
 UTF8Writer = codecs.getwriter('utf8')
@@ -69,12 +73,12 @@ def extract(f, fname):
                 for match in re_theof.findall(sentence):
                     print(fname, re_ws.sub(' ', match[0]), re_ws.sub(' ', sentence), sep='\t')
             except UnicodeDecodeError:
-                print(fname, "UnicodeDecodeError")
+                print(fname, "UnicodeDecodeError", file=sys.stderr)
 
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Find Vossantos in the NYT corpus.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('input', type=str, help='input TAR file')
+    parser.add_argument('input', type=str, help='input TAR/XML file or directory')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
