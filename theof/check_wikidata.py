@@ -2,13 +2,17 @@
 # -*- coding: utf-8 -*-
 
 #
-# Reads the file produced by theof.py and the list of Wikidata entities with an "instance of" property of "human" and prints all lines from theof.py which match such an entity.
+# Reads the file produced by theof.py and the list of Wikidata
+# entities with an "instance of" property of "human" and prints all
+# lines which match such an entity.
 #
 # Usage:
 #
 # Author: rja
 #
 # Changes:
+# 2017-05-10 (rja)
+# - cleaned up
 # 2017-05-09 (rja)
 # - support for splitting phrases to find matches
 # - added support for word blacklist
@@ -21,7 +25,7 @@ import os
 import sys
 import codecs
 
-version = "0.0.1"
+version = "0.0.2"
 
 # convert all output into a byte string to be safe when redirecting
 UTF8Writer = codecs.getwriter('utf8')
@@ -60,7 +64,7 @@ def get_items(fname, sep='\t'):
             elif int(itemId[1:]) < int(items[itemLabel][1:]):
                 # ensure that we always use the item with the lowest id
                 items[itemLabel] = itemId
-                
+
     return items
 
 def get_blacklist(fname, sep='\t'):
@@ -109,6 +113,3 @@ if __name__ == '__main__':
                     item = item.split(" the ")[1]
                     if item in items and item not in blacklist:
                         print(article, items[item], phrase, item, sentence, sep='\t')
-                    
-                
-            
