@@ -476,7 +476,7 @@ set out "nyt_vossantos_over_time.png"
 replot 
 #+end_src
 
-[[nyt_vossantos_over_time.svg]]
+[[nyt_vossantos_over_time.png]]
 
 * Results
 
