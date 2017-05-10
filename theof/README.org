@@ -285,31 +285,31 @@ What's the distribution?
     done
 #+END_SRC
 
-| year |      all |   wd | wd+bl |
-|------+----------+------+-------|
-| 1987 |   575711 | 2880 |   106 |
-| 1988 |   572450 | 2951 |    88 |
-| 1989 |   563737 | 2761 |   114 |
-| 1990 |   554574 |    0 |   120 |
-| 1991 |   467765 |    0 |   124 |
-| 1992 |   449984 |    0 |   123 |
-| 1993 |   438737 |    0 |   135 |
-| 1994 |   422779 |    0 |   134 |
-| 1995 |   454182 |    0 |   136 |
-| 1996 |   446689 |    0 |   154 |
-| 1997 |   463034 |    0 |   143 |
-| 1998 |   512647 |    0 |   192 |
-| 1999 |   525517 |    0 |   150 |
-| 2000 |   541685 |    0 |   191 |
-| 2001 |   529114 |    0 |   173 |
-| 2002 |   537579 |    0 |   190 |
-| 2003 |   530908 |    0 |   189 |
-| 2004 |   513115 |    0 |   158 |
-| 2005 |   504570 |    0 |   165 |
-| 2006 |   503986 |    0 |   185 |
-| 2007 |   234234 |    0 |    80 |
-|------+----------+------+-------|
-|  sum | 10342997 | 8592 |  3050 |
+| year |      all |    wd | wd+bl |
+|------+----------+-------+-------|
+| 1987 |   575711 |  2880 |   106 |
+| 1988 |   572450 |  2951 |    88 |
+| 1989 |   563737 |  2761 |   114 |
+| 1990 |   554574 |  2886 |   120 |
+| 1991 |   467765 |  2348 |   124 |
+| 1992 |   449984 |  2476 |   123 |
+| 1993 |   438737 |  2306 |   135 |
+| 1994 |   422779 |  2067 |   134 |
+| 1995 |   454182 |  2482 |   136 |
+| 1996 |   446689 |  2223 |   154 |
+| 1997 |   463034 |  2455 |   143 |
+| 1998 |   512647 |  2927 |   192 |
+| 1999 |   525517 |  2864 |   150 |
+| 2000 |   541685 |  2517 |   191 |
+| 2001 |   529114 |  2314 |   173 |
+| 2002 |   537579 |  2595 |   190 |
+| 2003 |   530908 |  2395 |   189 |
+| 2004 |   513115 |  2295 |   158 |
+| 2005 |   504570 |  2319 |   165 |
+| 2006 |   503986 |  2364 |   185 |
+| 2007 |   234234 |  1237 |    80 |
+|------+----------+-------+-------|
+|  sum | 10342997 | 51662 |  3050 |
 #+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)
 
 *** creating a blacklist
@@ -376,7 +376,7 @@ Put everything into this org file:
       | sort | uniq -c | sort -nr | head -n40
 #+END_SRC
 
-| count | source             |
+| count | source candidate   |
 |-------+--------------------|
 |    74 | Michael Jordan     |
 |    64 | Rodney Dangerfield |
@@ -418,6 +418,33 @@ Put everything into this org file:
 |     9 | Bill Clinton       |
 |     8 | Woody Allen        |
 |     8 | Magic Johnson      |
+
+After cleansing (thank you Frank!):
+#+BEGIN_SRC sh
+  grep -A10000 "^* Results" README.org \
+      | grep "^[0-9]*\." \
+      | sed -e "s/^[0-9]*\. //" -e "s/ ([0-9]*\/.*//" \
+      | grep -v "^!" \
+      | sort | uniq -c | sort -nr \
+      | head -n10
+#+END_SRC
+
+| count | source             |
+|-------+--------------------|
+|    74 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]     |
+|    64 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]] |
+|    42 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]            |
+|    37 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]          |
+|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]   |
+|    26 | [[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]]          |
+|    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]         |
+|    22 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]          |
+|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]       |
+|    21 | [[https://www.wikidata.org/wiki/Q37349][Dalai Lama]]         |
+
+Test (strike-through):
+2. +[[https://www.wikidata.org/wiki/Q1744][Madonna]] (1987/01/02/0000431)          True Blue                     LEAD: Jimmy Johnson is *the Madonna of* college football these days.+
+
 
 * Results
 
