@@ -12,11 +12,10 @@
 #+PANDOC_OPTIONS:
 
 * "the ... of" Vossantos 
-
 ** preliminary note
 With our initial exploratory approach we were able to cover a wide
 variety of Vossantos but clearly missed some, as an analysis of some
-[[file:~/projects/vossanto/examples/br.org#examples][examples]] shows. Therefore, we started to think about simplified
+[[file:../examples/br.org#examples][examples]] shows. Therefore, we started to think about simplified
 patterns which just match the source, for instance:
 
 #+BEGIN_SRC 
