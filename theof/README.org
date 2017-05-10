@@ -393,15 +393,15 @@ After cleansing (thank you Frank!):
 
 | count | source             |
 |-------+--------------------|
-|    73 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]     |
+|    71 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]     |
 |    63 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]] |
-|    42 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]            |
+|    40 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]            |
 |    37 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]          |
 |    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]   |
-|    26 | [[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]]          |
 |    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]         |
-|    22 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]          |
-|    21 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]       |
+|    24 | [[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]]          |
+|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]       |
+|    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]          |
 |    21 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]       |
 
 ** temporal distribution
@@ -430,7 +430,7 @@ We plot some temporal distributions:
 |   1988 |   572450 |  2951 |    88 |   62 |  70.5 |
 |   1989 |   563737 |  2761 |   114 |   84 |  73.7 |
 |   1990 |   554574 |  2886 |   120 |   88 |  73.3 |
-|   1991 |   467765 |  2348 |   124 |  124 | 100.0 |
+|   1991 |   467765 |  2348 |   124 |  95  | 100.0 |
 |   1992 |   449984 |  2476 |   123 |  123 | 100.0 |
 |   1993 |   438737 |  2306 |   135 |  135 | 100.0 |
 |   1994 |   422779 |  2067 |   134 |  134 | 100.0 |
@@ -446,7 +446,7 @@ We plot some temporal distributions:
 |   2004 |   513115 |  2295 |   158 |  158 | 100.0 |
 |   2005 |   504570 |  2319 |   165 |  165 | 100.0 |
 |   2006 |   503986 |  2364 |   185 |  185 | 100.0 |
-|   2007 |   234234 |  1237 |    80 |   80 | 153.8 |
+|   2007 |   234234 |  1237 |    80 |   66 | 153.8 |
 |--------+----------+-------+-------+------+-------|
 |  *sum* | 10342997 | 51662 |  3050 | 2978 |  97.6 |
 | *mean* |   492524 |  2460 |   145 |  142 |  97.9 |
@@ -919,29 +919,29 @@ replot
 
 *** 1991
 1. [[https://www.wikidata.org/wiki/Q8021572][Willie Horton]] (1991/01/01/0412462) "But I think it's clearly a warning to us as Democrats that we cannot let them make quotas *the Willie Horton of* 1992."
-2. ! [[https://www.wikidata.org/wiki/Q27914430][Van Dyck]] (1991/01/06/0413334) One of the most beautiful portraits of an Englishman ever painted is, for instance, *the Van Dyck of* William Feilding, 1st Earl of Denbigh.
+2. +[[https://www.wikidata.org/wiki/Q27914430][Van Dyck]] (1991/01/06/0413334) One of the most beautiful portraits of an Englishman ever painted is, for instance, *the Van Dyck of* William Feilding, 1st Earl of Denbigh.+
 3. [[https://www.wikidata.org/wiki/Q955322][Shoeless Joe Jackson]] (1991/01/08/0413837) "He's sort of like *the Shoeless Joe Jackson of* today, isn't he?"
-4. ! [[https://www.wikidata.org/wiki/Q259847][Katerina Maleeva]] (1991/01/20/0416553) But the most intriguing matchup in the women's fourth round could be between *the Katerina Maleeva of* Bulgaria, seeded fifth, and her 14-year-old sister Magdalena, who stunned Roslyn Fairbank-Nideffer, 6-2, 6-3.
+4. +[[https://www.wikidata.org/wiki/Q259847][Katerina Maleeva]] (1991/01/20/0416553) But the most intriguing matchup in the women's fourth round could be between *the Katerina Maleeva of* Bulgaria, seeded fifth, and her 14-year-old sister Magdalena, who stunned Roslyn Fairbank-Nideffer, 6-2, 6-3.+
 5. [[https://www.wikidata.org/wiki/Q16731791][Mad Hatter]] (1991/01/20/0416604) Thomas: Forget the hair club, she's *the Mad Hatter of* rap.
-6. ! [[https://www.wikidata.org/wiki/Q34670][Albert Camus]] (1991/01/27/0418285) When his novel "La Maison de Rendez-vous" appeared in 1965, The Times Literary Supplement of London observed that Mr. Robbe-Grillet had become a gifted pornographer; "Ghosts in the Mirror" also shows him in a new role, that of gifted rhapsodist, akin to *the Albert Camus of* the North African essays.
+6. +[[https://www.wikidata.org/wiki/Q34670][Albert Camus]] (1991/01/27/0418285) When his novel "La Maison de Rendez-vous" appeared in 1965, The Times Literary Supplement of London observed that Mr. Robbe-Grillet had become a gifted pornographer; "Ghosts in the Mirror" also shows him in a new role, that of gifted rhapsodist, akin to *the Albert Camus of* the North African essays.+
 7. [[https://www.wikidata.org/wiki/Q5264][Hippocrates]] (1991/01/27/0418298) "I give you *the Hippocrates of* the quick needle, Dr.
-8. ! [[https://www.wikidata.org/wiki/Q1861386][Bach]] (1991/01/27/0418405) The Essential Bach A Medium Of Bitter Truth         How utterly irrelevant this whole esthetic is to *the Bach of* the cantatas!
+8. +[[https://www.wikidata.org/wiki/Q1861386][Bach]] (1991/01/27/0418405) The Essential Bach A Medium Of Bitter Truth         How utterly irrelevant this whole esthetic is to *the Bach of* the cantatas!+
 9. [[https://www.wikidata.org/wiki/Q1511][Richard Wagner]] (1991/02/01/0419348) But David Greenspan apparently aspires to be *the Richard Wagner of* the genre.
 10. [[https://www.wikidata.org/wiki/Q153579][Stephen Sondheim]] (1991/02/06/0420740) In the elegant precision and savage acuity of lyrics for songs like "Blizzard of Lies," "The Wheelers and the Dealers," "My Attorney Bernie," "Can't Take You Nowhere" and "I'm Hip," to name several of the roughly 100 songs he's written, Mr. Frishberg might be described as *the Stephen Sondheim of* jazz songwriting.
 11. [[https://www.wikidata.org/wiki/Q303][Elvis Presley]] (1991/02/08/0421220) Vanilla Ice has been called *the Elvis Presley of* rap, but that's an insult to Presley, who transformed the blues and country music he drew on.
 12. [[https://www.wikidata.org/wiki/Q4441][Emily Dickinson]] (1991/02/10/0421854) In the time it takes to drink one cup of coffee, Ruth reminds Ellen of how "immensely capable" she is, pushes her to pursue her dream career (seamstress) and set up her business,         mirabile dictu,         in her own attic         so she will never have to leave her house again         -- becoming *the Emily Dickinson of* the perfectly turned hem.
-13. ! [[https://www.wikidata.org/wiki/Q502002][Andrei Chesnokov]] (1991/02/15/0423546) Also advancing were Jakob Hlasek of Switzerland and *the Andrei Chesnokov of* the Soviet Union.
+13. +[[https://www.wikidata.org/wiki/Q502002][Andrei Chesnokov]] (1991/02/15/0423546) Also advancing were Jakob Hlasek of Switzerland and *the Andrei Chesnokov of* the Soviet Union.+
 14. [[https://www.wikidata.org/wiki/Q314929][Dick Francis]] (1991/02/17/0423942) "Sam Llewellyn has been described as *the Dick Francis of* sailing, and for good reason," Newgate Callendar said here last year.
-15. ! [[https://www.wikidata.org/wiki/Q2959516][Charles Keating]] (1991/02/17/0423984) LOS ANGELES, Feb. 16              Ruling against the Government, a Federal magistrate here has decided that a former mortgage banker charged with a $500 million fraud and described by prosecutors as "*the Charles Keating of* Virginia" can be freed on bail because, in the magistrate's view, he is unlikely to flee.
+15. +[[https://www.wikidata.org/wiki/Q2959516][Charles Keating]] (1991/02/17/0423984) LOS ANGELES, Feb. 16              Ruling against the Government, a Federal magistrate here has decided that a former mortgage banker charged with a $500 million fraud and described by prosecutors as "*the Charles Keating of* Virginia" can be freed on bail because, in the magistrate's view, he is unlikely to flee.+
 16. [[https://www.wikidata.org/wiki/Q2959516][Charles Keating]] (1991/02/17/0423984) "This man is *the Charles Keating of* Virginia," said Mr.
 17. [[https://www.wikidata.org/wiki/Q553321][Vince Lombardi]] (1991/02/17/0424173) The students consider Mr. Sporney *the Vince Lombardi of* model-bridge building.
 18. [[https://www.wikidata.org/wiki/Q22686][Donald Trump]] (1991/03/05/0427872) Mr. Tarasov reflects this history in wearing fine European suits and ties but hardly as *the Donald Trump of* Moscow.
-19. ! [[https://www.wikidata.org/wiki/Q37349][Dalai Lama]] (1991/03/12/0429589) But President Bush, who so warmly applauded President Ferdinand E. Marcos of the Philippines, has deferred to China by accusing *the Dalai Lama of* a "callous attitude" toward the people he has served.
+19. +[[https://www.wikidata.org/wiki/Q37349][Dalai Lama]] (1991/03/12/0429589) But President Bush, who so warmly applauded President Ferdinand E. Marcos of the Philippines, has deferred to China by accusing *the Dalai Lama of* a "callous attitude" toward the people he has served.+
 20. [[https://www.wikidata.org/wiki/Q7416][Margaret Thatcher]] (1991/03/17/0430682) A front-runner for Ms. Vieira's "60 Minutes" job is Lesley Stahl, *the Margaret Thatcher of* television news.
 21. [[https://www.wikidata.org/wiki/Q517][Napoleon]] (1991/03/17/0430749) The early compositions that established his credentials as *the Napoleon of* the avant-garde, like "Le Marteau Sans Maitre" and "Le Visage Nuptial," caught attention for their Serial rigidity and the novel severity of their sonorities.
 22. [[https://www.wikidata.org/wiki/Q8768][Henry Ford]] (1991/03/24/0432181) My father, the Ford Motor Company's distributor for the entire colony, was known as "*the Henry Ford of* Korea."
 23. [[https://www.wikidata.org/wiki/Q18218128][Valentino]] (1991/03/24/0432396) Willard Espy, *the Valentino of* word lovers, has built on this thought in Harvard Magazine to suggest         proditio         , Latin for "betrayal," or double-cross.
-24. ! [[https://www.wikidata.org/wiki/Q554527][Faust]] (1991/03/24/0432477) Although Mr. Kraus has been an engaging Faust for decades and will sing that role in tonight's anniversary concert, I correctly recalled that he was not *the Faust of* the 1963 performance at which Mr. Ghiaurov and Ms. Freni made their American debuts.
+24. +[[https://www.wikidata.org/wiki/Q554527][Faust]] (1991/03/24/0432477) Although Mr. Kraus has been an engaging Faust for decades and will sing that role in tonight's anniversary concert, I correctly recalled that he was not *the Faust of* the 1963 performance at which Mr. Ghiaurov and Ms. Freni made their American debuts.+
 25. [[https://www.wikidata.org/wiki/Q26702][Cardinal Richelieu]] (1991/03/26/0432850) LONDON, March 25              He was *the Cardinal Richelieu of* 10 Downing Street, a civil servant whose mastery of foreign affairs had made him so indispensable to Prime Minister Margaret Thatcher and her successor, John Major, that in the end he become too notorious for his own good.
 26. [[https://www.wikidata.org/wiki/Q4818464][Attila the Hun]] (1991/03/30/0433790) If the man is the Attila *the Hun of* college sports, how does he keep a job?
 27. [[https://www.wikidata.org/wiki/Q473208][Roger Clemens]] (1991/04/01/0434255) "Cheers" seems to be *the Roger Clemens of* prime-time television, renewing its deal with NBC for top dollar.
@@ -949,25 +949,25 @@ replot
 29. [[https://www.wikidata.org/wiki/Q5127297][Clark Kent]] (1991/04/12/0436865) Although the juiciest version of the story has Mr. Viertel, *the Clark Kent of* Broadway, flattening Mr. Freydberg, that one is untrue.
 30. [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]] (1991/04/14/0437373) And as Augusta National's first black, Ron Townsend is a member under a microscope, *the Jackie Robinson of* country-club golf, a 15-handicap golfer with the corporate-honcho background that Augusta National prefers.
 31. [[https://www.wikidata.org/wiki/Q344793][George Burns]] (1991/04/15/0437671) And it was a fivegone conclusion that Mr. Borge -- who is becoming *the George Burns of* the keyboard -- would win a career achievement award at the convention.
-32. ! [[https://www.wikidata.org/wiki/Q42786][Audrey Hepburn]] (1991/04/22/0439391) But *the Audrey Hepburn of* popular memory dates back to the 22 films she made between 1951 and 1966.
-33. ! [[https://www.wikidata.org/wiki/Q2799963][Ricardo Reis]] (1991/04/30/0442058) The conversations between *the Ricardo Reis of* the novel and Pessoa will have more meaning to students of Portuguese literature than to American readers.
+32. +[[https://www.wikidata.org/wiki/Q42786][Audrey Hepburn]] (1991/04/22/0439391) But *the Audrey Hepburn of* popular memory dates back to the 22 films she made between 1951 and 1966.+
+33. +[[https://www.wikidata.org/wiki/Q2799963][Ricardo Reis]] (1991/04/30/0442058) The conversations between *the Ricardo Reis of* the novel and Pessoa will have more meaning to students of Portuguese literature than to American readers.+
 34. [[https://www.wikidata.org/wiki/Q6418571][Kitty Kelley]] (1991/05/04/0442861) Mr. Fitzwater also attacked Mr. Sick, saying, "Gary Sick is *the Kitty Kelley of* foreign policy."
-35. ! [[https://www.wikidata.org/wiki/Q392][Bob Dylan]] (1991/05/10/0444418) Indeed, she brings to mind *the Bob Dylan of* the 1967 D. A. Penne baker film "Don't Look Back" in her ability to appear elusive, dangerous, and at all times absolutely in control of those around her.
+35. +[[https://www.wikidata.org/wiki/Q392][Bob Dylan]] (1991/05/10/0444418) Indeed, she brings to mind *the Bob Dylan of* the 1967 D. A. Penne baker film "Don't Look Back" in her ability to appear elusive, dangerous, and at all times absolutely in control of those around her.+
 36. [[https://www.wikidata.org/wiki/Q467364][Leona Helmsley]] (1991/05/10/0444480) Cartoons depict him with his hand caught in a cookie jar, and a local columnist has compared him to other haughty hoarders, calling him *the Leona Helmsley of* the San Francisco Bay area.
 37. [[https://www.wikidata.org/wiki/Q1328142][Stan Musial]] (1991/05/12/0444907) Mr. Gould is *the Stan Musial of* essay writing.
-38. ! [[https://www.wikidata.org/wiki/Q1744][Madonna]] (1991/05/16/0445832) "Fantasy doesn't play a part," Mr. Ancona said, dwarfed by a statue of *the Madonna of* Perpetual Help, Castellammare's patron saint, which is perched in a shrine inside the social club.
+38. +[[https://www.wikidata.org/wiki/Q1744][Madonna]] (1991/05/16/0445832) "Fantasy doesn't play a part," Mr. Ancona said, dwarfed by a statue of *the Madonna of* Perpetual Help, Castellammare's patron saint, which is perched in a shrine inside the social club.+
 39. [[https://www.wikidata.org/wiki/Q1328142][Stan Musial]] (1991/05/19/0446604) A provocative, spirited collection -- his best so far -- by *the Stan Musial of* essay writing.
 40. [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]] (1991/05/20/0446849) The company even revels in the abuse heaped on Spam, calling it "*the Rodney Dangerfield of* the food world."
 41. [[https://www.wikidata.org/wiki/Q8877][Steven Spielberg]] (1991/05/26/0448081) In this history of the big top, John Culhane shows why P. T. Barnum was the Walt Disney and *the Steven Spielberg of* his time.
 42. [[https://www.wikidata.org/wiki/Q315808][Neil Simon]] (1991/05/28/0448667) A pioneer of the Off Off Broadway experimental theater movement in the 1960's, Mr. Eyen was called *the Neil Simon of* Off Off Broadway at one point when he had four plays running simultaneously.
-43. ! [[https://www.wikidata.org/wiki/Q1076161][Dwight Gooden]] (1991/05/31/0449342) ALBANY, May 30              An East Harlem doctor once described by a state investigator as "*the Dwight Gooden of* Medicaid billers," ordering far more prescriptions and services than any doctor in the program's 25-year history, was indicted today for Medicaid fraud.
+43. +[[https://www.wikidata.org/wiki/Q1076161][Dwight Gooden]] (1991/05/31/0449342) ALBANY, May 30              An East Harlem doctor once described by a state investigator as "*the Dwight Gooden of* Medicaid billers," ordering far more prescriptions and services than any doctor in the program's 25-year history, was indicted today for Medicaid fraud.+
 44. [[https://www.wikidata.org/wiki/Q1076161][Dwight Gooden]] (1991/05/31/0449342) "This guy is *the Dwight Gooden of* Medicaid billers," James Durkin, the director of the state office that investigates Medicaid abuse, said at the time.
 45. [[https://www.wikidata.org/wiki/Q6418571][Kitty Kelley]] (1991/06/02/0449588)          Give Us a Break, Ms. Paglia                     To the Editor:         Who does Camille Paglia think she is, *the Kitty Kelley of* academia?
-46. ! [[https://www.wikidata.org/wiki/Q314712][Barry Bonds]] (1991/06/02/0449831) Much to Pittsburgh's relief, though, *the Barry Bonds of* old, the hitter capable of carrying a team for a week, a month, a season, has found himself and his stroke.
+46. +[[https://www.wikidata.org/wiki/Q314712][Barry Bonds]] (1991/06/02/0449831) Much to Pittsburgh's relief, though, *the Barry Bonds of* old, the hitter capable of carrying a team for a week, a month, a season, has found himself and his stroke.+
 47. [[https://www.wikidata.org/wiki/Q311263][John Hughes]] (1991/06/03/0450111) "Someone described me as *the John Hughes of* domestic tragedy," he said.
 48. [[https://www.wikidata.org/wiki/Q1328142][Stan Musial]] (1991/06/09/0451283) A provocative, spirited collection -- his best so far -- by *the Stan Musial of* essay writing.
 49. [[https://www.wikidata.org/wiki/Q721948][Nolan Ryan]] (1991/06/13/0452266) KRAMON, GLENN              Thirtysomething joggers wondering whether they have any hopes of achieving a personal best might take encouragement from Francie Larrieu-Smith, *the Nolan Ryan of* distance running.
-50. ! [[https://www.wikidata.org/wiki/Q1744][Madonna]] (1991/06/16/0453143) And in terms of antipathy toward men, Thelma and Louise can't hold a candle to *the Madonna of* "Truth or Dare."
+50. +[[https://www.wikidata.org/wiki/Q1744][Madonna]] (1991/06/16/0453143) And in terms of antipathy toward men, Thelma and Louise can't hold a candle to *the Madonna of* "Truth or Dare."+
 51. [[https://www.wikidata.org/wiki/Q550707][Eddie Rickenbacker]] (1991/06/20/0453844) Not *the Eddie Rickenbacker of* Air Sununu.
 52. [[https://www.wikidata.org/wiki/Q271939][Chuck Yeager]] (1991/06/23/0454777) Hawkes is already at work on plans for the vehicle, which he hopes will allow Earle to become *the Chuck Yeager of* the sea.
 53. [[https://www.wikidata.org/wiki/Q9077][Moses]] (1991/06/23/0454948) If Mr. Greenberg can be described as *the Moses of* the art world, solemnly laying down the laws of painting, he is also its Ann Landers.
@@ -976,26 +976,26 @@ replot
 56. [[https://www.wikidata.org/wiki/Q340137][Norman Schwarzkopf]] (1991/06/26/0455352) Leonard Humbrecht is *the Norman Schwarzkopf of* Alsatian wine makers: his name, as well as his wines, is on everyone's tongue and his picture is in every wine publication.
 57. [[https://www.wikidata.org/wiki/Q134183][Magic Johnson]] (1991/06/29/0456236) An Independence Supporter         "Politics is one thing; sports is another," Toni Kukoc, a Croat nicknamed *the Magic Johnson of* Europe, said in an interview.
 58. [[https://www.wikidata.org/wiki/Q285483][Mary Martin]] (1991/07/03/0457223) "We call him *the Mary Martin of* Off Broadway," Ms. Kurtz says, referring to the actress who washed that man right out of her hair more than 40 years ago in "South Pacific."
-59. ! [[https://www.wikidata.org/wiki/Q1385940][Mike Heath]] (1991/07/08/0458385) In a stirring collision with *the Mike Heath of* the Atlanta Braves, Larkin bounced the catcher from a game with a cut forehead and a stiff neck.
+59. +[[https://www.wikidata.org/wiki/Q1385940][Mike Heath]] (1991/07/08/0458385) In a stirring collision with *the Mike Heath of* the Atlanta Braves, Larkin bounced the catcher from a game with a cut forehead and a stiff neck.+
 60. [[https://www.wikidata.org/wiki/Q5604][Frank Lloyd Wright]] (1991/07/11/0458936) Many consider him *the Frank Lloyd Wright of* industrial design, not surprising since both men were born and raised in Wisconsin and did perhaps their most important work in the Middle West.
 61. [[https://www.wikidata.org/wiki/Q55249][Ken Russell]] (1991/07/12/0459273) There are times when Mr. MacMillan can be mistaken for *the Ken Russell of* British ballet; like the film director, he would have us believe that true character can be revealed by the outrageous image.
 62. [[https://www.wikidata.org/wiki/Q66107][Henry Kissinger]] (1991/07/14/0459865) Mr. Roach's interest goes beyond aspirations to become *the Henry Kissinger of* the audio industry.
 63. [[https://www.wikidata.org/wiki/Q220210][George Steinbrenner]] (1991/07/21/0461989) In that history, Modell has been called *the George Steinbrenner of* the Midwest, another owner who meddles too much and hurts his team, and in the same breath he is praised as a man who provides the N.F.L., as it gears for the 90's and beyond, with continuity, a sense of history, intense loyalty and, judiciously, service.
 64. [[https://www.wikidata.org/wiki/Q9077][Moses]] (1991/07/21/0461993) Phrases like "high priest" and "*the Moses of* the art world" set the tone.
-65. ! [[https://www.wikidata.org/wiki/Q2808][Elton John]] (1991/07/29/0463672) His nasal intonation and accentuated phrases strongly recalled *the Elton John of* the early 70's, but omitting Mr. John's melismatic gospel-style embellishments.
-66. ! [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (1991/08/01/0464227) "I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
-67. ! [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (1991/08/01/0464228) "I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
+65. +[[https://www.wikidata.org/wiki/Q2808][Elton John]] (1991/07/29/0463672) His nasal intonation and accentuated phrases strongly recalled *the Elton John of* the early 70's, but omitting Mr. John's melismatic gospel-style embellishments.+
+66. +[[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (1991/08/01/0464227) "I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.+
+67. +[[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (1991/08/01/0464228) "I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.+
 68. [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (1991/08/01/0464297) "I want to become *the Michael Jordan of* golf," said Woods, who prefers being called Tiger to Eldrick.
 69. [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (1991/08/04/0465076) "I want to be *the Michael Jordan of* golf," said Mr. Woods after his victory on Sunday.
 70. [[https://www.wikidata.org/wiki/Q913][Socrates]] (1991/08/09/0465813) Saving the image of the game -- he fired Dave Pallone basically for being gay -- was his job, but as a man who saw himself as *the Socrates of* sport, that public-relations function would have eventually rubbed up against his higher conceits.
 71. [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]] (1991/08/11/0466280) Soon, Americans could immediately recognize an Eisenstaedt picture, and several generations of photographers, amateurs and professionals alike, tried to emulate their hero, *the Babe Ruth of* 35-millimeter photography.
 72. [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (1991/08/11/0466343) On a recent evening on the Upper West Side, Earl Manigault recalled the days when he was *the Michael Jordan of* Harlem, a man who jumped so high he once believed he could take off after a running start and end up sitting on the rim.
-73. ! [[https://www.wikidata.org/wiki/Q5388635][Erik Howard]] (1991/08/13/0466736) He looked like *the Erik Howard of* old, except that his ponytail was a little longer and his Fu Manchu moustache was gone.
+73. +[[https://www.wikidata.org/wiki/Q5388635][Erik Howard]] (1991/08/13/0466736) He looked like *the Erik Howard of* old, except that his ponytail was a little longer and his Fu Manchu moustache was gone.+
 74. [[https://www.wikidata.org/wiki/Q375600][Don Nelson]] (1991/08/14/0466892) "I call him *the Don Nelson of* agents," said longtime client John Lucas, who has now retired.
 75. [[https://www.wikidata.org/wiki/Q44176][Hulk Hogan]] (1991/08/18/0467633) In The National Review, on the other hand, Jim Atkinson, referring to the comedienne as "*the Hulk Hogan of* feminism," perceives her as "a cunning marketeer who has figured out how to parlay a form of vulgar reverse sexism into stardom."
-76. ! [[https://www.wikidata.org/wiki/Q375268][Frank Stella]] (1991/08/18/0467814) There is *the Frank Stella of* "Gran Cairo," a 1962 square filled with different colored bands that owes something to Josef Albers; then there is *the Frank Stella of* "Silverstone," a baroque extravaganza in aluminum and fiberglass dabbed expressionistically with color (1981).
-77. ! [[https://www.wikidata.org/wiki/Q375268][Frank Stella]] (1991/08/18/0467814) There is *the Frank Stella of* "Gran Cairo," a 1962 square filled with different colored bands that owes something to Josef Albers; then there is *the Frank Stella of* "Silverstone," a baroque extravaganza in aluminum and fiberglass dabbed expressionistically with color (1981).
-78. ! [[https://www.wikidata.org/wiki/Q472547][David Souter]] (1991/08/22/0468451) ALBANY, Aug. 21              Dr. Mark R. Chassin, the California physician nominated to be New York State's next health commissioner, has emerged as *the David Souter of* gubernatorial appointees, a man with little public record on major health issues and little freedom to stake out his positions.
+76. +[[https://www.wikidata.org/wiki/Q375268][Frank Stella]] (1991/08/18/0467814) There is *the Frank Stella of* "Gran Cairo," a 1962 square filled with different colored bands that owes something to Josef Albers; then there is *the Frank Stella of* "Silverstone," a baroque extravaganza in aluminum and fiberglass dabbed expressionistically with color (1981).+
+77. +[[https://www.wikidata.org/wiki/Q375268][Frank Stella]] (1991/08/18/0467814) There is *the Frank Stella of* "Gran Cairo," a 1962 square filled with different colored bands that owes something to Josef Albers; then there is *the Frank Stella of* "Silverstone," a baroque extravaganza in aluminum and fiberglass dabbed expressionistically with color (1981).+
+78. +[[https://www.wikidata.org/wiki/Q472547][David Souter]] (1991/08/22/0468451) ALBANY, Aug. 21              Dr. Mark R. Chassin, the California physician nominated to be New York State's next health commissioner, has emerged as *the David Souter of* gubernatorial appointees, a man with little public record on major health issues and little freedom to stake out his positions.+
 79. [[https://www.wikidata.org/wiki/Q472547][David Souter]] (1991/08/22/0468513) B1         The nominee for health chief of New York State, Dr. Mark Chassin, is emerging as *the David Souter of* gubernatorial appointees, a man with little public record on major health issues and little freedom to stake out his positions.
 80. [[https://www.wikidata.org/wiki/Q2586583][Henny Youngman]] (1991/09/08/0472147) Gross is *the Henny Youngman of* the Acropolis.
 81. [[https://www.wikidata.org/wiki/Q7352498][Robin Hood]] (1991/09/09/0472458) VIEDMA, Argentina, Sept. 3              He is called *the Robin Hood of* Patagonia.
@@ -1015,19 +1015,19 @@ replot
 95. [[https://www.wikidata.org/wiki/Q4859415][Barbara Woodhouse]] (1991/10/24/0482422) But Lady Caroline Wrey, otherwise known as Lady Velcro, *the Barbara Woodhouse of* windows, has a foolproof barometer.
 96. [[https://www.wikidata.org/wiki/Q33977][Jules Verne]] (1991/10/29/0483487)          Topics of The Times; A Stargazer's Playground                     Gene Roddenberry, the creator and producer of "Star Trek," was *the Jules Verne of* his time.
 97. [[https://www.wikidata.org/wiki/Q1316][Saddam Hussein]] (1991/10/29/0483574) "I received a letter the other day which said the Governor has tried to make me *the Saddam Hussein of* New York State," said the Chief Judge, occasionally peeking through the Venetian blinds up the hill at the State Capitol, where the Governor sits.
-98. ! [[https://www.wikidata.org/wiki/Q21470300][Edward Darley Boit]] (1991/11/08/0485521) Or *the Edward Darley Boit of* the Place de l'Opera in 1883?
-99. ! [[https://www.wikidata.org/wiki/Q18218128][Valentino]] (1991/11/08/0485464) "Something has happened to *the Valentino of* 'The Sheik' and 'Blood and Sand,' " the movie magazine Photoplay complained in 1924.
+98. +[[https://www.wikidata.org/wiki/Q21470300][Edward Darley Boit]] (1991/11/08/0485521) Or *the Edward Darley Boit of* the Place de l'Opera in 1883?+
+99. +[[https://www.wikidata.org/wiki/Q18218128][Valentino]] (1991/11/08/0485464) "Something has happened to *the Valentino of* 'The Sheik' and 'Blood and Sand,' " the movie magazine Photoplay complained in 1924.+
 100. [[https://www.wikidata.org/wiki/Q12876261][Diogenes]] (1991/11/10/0485880) Terry Purvis-Smith, a visiting lecturer in composition, was attracted to Mr. Burke by a student essay on *the Diogenes of* the Diag.
-101. ! [[https://www.wikidata.org/wiki/Q380433][Al Sharpton]] (1991/11/10/0485911) But *the Al Sharpton of* "For *the Color of* His Skin" is a more sympathetic figure than *the Al Sharpton of* the daily press.
-102. ! [[https://www.wikidata.org/wiki/Q380433][Al Sharpton]] (1991/11/10/0485911) But *the Al Sharpton of* "For *the Color of* His Skin" is a more sympathetic figure than *the Al Sharpton of* the daily press.
+101. +[[https://www.wikidata.org/wiki/Q380433][Al Sharpton]] (1991/11/10/0485911) But *the Al Sharpton of* "For *the Color of* His Skin" is a more sympathetic figure than *the Al Sharpton of* the daily press.+
+102. +[[https://www.wikidata.org/wiki/Q380433][Al Sharpton]] (1991/11/10/0485911) But *the Al Sharpton of* "For *the Color of* His Skin" is a more sympathetic figure than *the Al Sharpton of* the daily press.+
 103. [[https://www.wikidata.org/wiki/Q4885669][Ben Franklin]] (1991/11/10/0485953) Olympic athletes, for instance, hardly ever wear glasses sprinting across the finish line, and neither do most rock stars when performing, excepting of course *the Ben Franklin of* rock, Elton John.
 104. [[https://www.wikidata.org/wiki/Q271884][Norman Rockwell]] (1991/11/12/0486441) This will not come as a blow to many art critics and Conceptual Artists, who have long regarded Christo as *the Norman Rockwell of* Conceptual Art, and his wrapping projects as a one-note exercise.
 105. [[https://www.wikidata.org/wiki/Q310819][Johnny Carson]] (1991/11/13/0486648) was given prominence on national television by two of the best known figures in the country, former Prime Minister Garret FitzGerald and Gay Byrne, *the Johnny Carson of* Ireland.
-106. ! [[https://www.wikidata.org/wiki/Q2013721][David Dukes]] (1991/11/13/0486583) The most influential public figures in this country over the last month have all three been black, as though someone was trying to send a cosmic message to *the David Dukes of* the world, to counter them with Clarence Thomas, Anita Hill and Magic Johnson.
+106. +[[https://www.wikidata.org/wiki/Q2013721][David Dukes]] (1991/11/13/0486583) The most influential public figures in this country over the last month have all three been black, as though someone was trying to send a cosmic message to *the David Dukes of* the world, to counter them with Clarence Thomas, Anita Hill and Magic Johnson.+
 107. [[https://www.wikidata.org/wiki/Q908933][Donna Summer]] (1991/11/13/0486749) Ethiopia's Donna Summer         Aster Aweke, once known as *the Donna Summer of* Ethiopia, has recently released a new record, "Kabu" (Columbia), and it features her sinuous singing, backed by a full funky band, along with a horn section.
 108. [[https://www.wikidata.org/wiki/Q9439][Queen Victoria]] (1991/11/17/0487475) He was introduced by the moderator at one candidates' forum as "*the Queen Victoria of* Louisiana politics" because he has been such a domineering figure for so long.
 109. [[https://www.wikidata.org/wiki/Q3809254][John Fairchild]] (1991/11/17/0487607) Not until 1888 did Ward McAllister -- *the John Fairchild of* his day -- designate New York's "400," those who would be at ease, and not make others ill at ease, in the ballroom of Mrs. William B. Astor Jr., then the city's social doyenne.
-110. ! [[https://www.wikidata.org/wiki/Q3246427][Bobby Bonilla]] (1991/11/20/0488120) So given that knowledge, what would Garvey do if he found himself at playing prime again, *the Bobby Bonilla of* 1991 instead of 1982?
+110. +[[https://www.wikidata.org/wiki/Q3246427][Bobby Bonilla]] (1991/11/20/0488120) So given that knowledge, what would Garvey do if he found himself at playing prime again, *the Bobby Bonilla of* 1991 instead of 1982?+
 111. [[https://www.wikidata.org/wiki/Q59215][Robert Redford]] (1991/11/20/0488274) "He has become *the Robert Redford of* hate."
 112. [[https://www.wikidata.org/wiki/Q104000][Lauren Bacall]] (1991/11/24/0489012) France's Domaine Moussiere Sancerre of 1990 is described as "*the Lauren Bacall of* sancerres -- sultry, smoky, sophisticated," and Hidden Cellars Sauvignon Blanc of 1989 as "tangos on your taste buds with lemony melon flavors."
 113. [[https://www.wikidata.org/wiki/Q748596][Sergei Bubka]] (1991/11/28/0490182) Charles Hoff, *the Sergei Bubka of* his day, achieved the ninth of his 11 world indoor pole-vault records in 1926 at the armory on 168th Street.
@@ -3498,15 +3498,15 @@ replot
 4. [[https://www.wikidata.org/wiki/Q51114][John Ford]] (2007/01/16/1819187) Genre buffs will enjoy seeing Liu Chia-liang, the veteran director (''The Eight Diagram Pole Fighter,'' ''The 36th Chamber of Shaolin'') who might be described as *the John Ford of* Kung Fu, in a leading role, though the film's other pleasures are sparse.
 5. [[https://www.wikidata.org/wiki/Q380429][Tony Robbins]] (2007/01/21/1820222) Wayne's Web site is full of references to him as ''*the king of* Vegas,'' ''the Warren Buffett'' of gambling, ''*the oddsmaker of* everything in the world,'' *the Tony Robbins of* gambling.
 6. [[https://www.wikidata.org/wiki/Q47899][Paris Hilton]] (2007/01/24/1821182) Of Mr. Cooper's comment, she said, ''Yet another cry for attention by *the Paris Hilton of* television news, Anderson Cooper.''
-7. ! [[https://www.wikidata.org/wiki/Q3758184][Garbo]] (2007/01/27/1821801) True, five decades ago Miss Randolph was dubbed *the Garbo of* Detroit, but she genuinely seems to enjoy greeting Honeymoonies, as the show's most ardent fans are called.
+7. +[[https://www.wikidata.org/wiki/Q3758184][Garbo]] (2007/01/27/1821801) True, five decades ago Miss Randolph was dubbed *the Garbo of* Detroit, but she genuinely seems to enjoy greeting Honeymoonies, as the show's most ardent fans are called.+
 8. [[https://www.wikidata.org/wiki/Q3758184][Garbo]] (2007/01/27/1821801) Some New York write-ups referred to her as *the Garbo of* Detroit, and to Miss Randolph ''that's still a mystery,'' she said.
 9. [[https://www.wikidata.org/wiki/Q34424][Shakira]] (2007/01/31/1822747) ''I was *the Shakira of* the school,'' she said.
 10. [[https://www.wikidata.org/wiki/Q253167][Margaux Hemingway]] (2007/02/04/1823588) In April 1976, Clifford Terry wrote in The Chicago Tribune about the actress Louise Lasser, whose role in the TV series ''Mary Hartman, Mary Hartman'' was ''becoming a media darling, sort of *the Margaux Hemingway of* the Crock Pot set.''
 11. [[https://www.wikidata.org/wiki/Q8023][Nelson Mandela]] (2007/02/04/1823794) It was still a Portuguese colony and he was kind of *the Nelson Mandela of* Mozambique.
 12. [[https://www.wikidata.org/wiki/Q266611][Ann Coulter]] (2007/02/06/1824127) With this book, Dinesh D'Souza, the Rishwain research scholar at the Hoover Institution at Stanford University, has officially become *the Ann Coulter of* the think tank set.
-13. ! [[https://www.wikidata.org/wiki/Q6175319][Jeff Zucker]] (2007/02/07/1824427) ''I would definitely say *the Jeff Zucker of* 1986'' -- the year he graduated -- ''had enough self-confidence to predict that *the Jeff Zucker of* 2007 would be running NBC.''
-14. ! [[https://www.wikidata.org/wiki/Q6175319][Jeff Zucker]] (2007/02/07/1824427) ''I would definitely say *the Jeff Zucker of* 1986'' -- the year he graduated -- ''had enough self-confidence to predict that *the Jeff Zucker of* 2007 would be running NBC.''
-15. ! [[https://www.wikidata.org/wiki/Q23728][Larry David]] (2007/02/11/1825308) In Curtis, Mr. McKellar created a sitcom protagonist even more complex and unlikely than *the Larry David of* ''Curb Your Enthusiasm.''
+13. +[[https://www.wikidata.org/wiki/Q6175319][Jeff Zucker]] (2007/02/07/1824427) ''I would definitely say *the Jeff Zucker of* 1986'' -- the year he graduated -- ''had enough self-confidence to predict that *the Jeff Zucker of* 2007 would be running NBC.''+
+14. +[[https://www.wikidata.org/wiki/Q6175319][Jeff Zucker]] (2007/02/07/1824427) ''I would definitely say *the Jeff Zucker of* 1986'' -- the year he graduated -- ''had enough self-confidence to predict that *the Jeff Zucker of* 2007 would be running NBC.''+
+15. +[[https://www.wikidata.org/wiki/Q23728][Larry David]] (2007/02/11/1825308) In Curtis, Mr. McKellar created a sitcom protagonist even more complex and unlikely than *the Larry David of* ''Curb Your Enthusiasm.''+
 16. [[https://www.wikidata.org/wiki/Q6101][Marco Polo]] (2007/02/11/1825570) China Ready for Change         The Yankees were not *the Marco Polo of* baseball.
 17. [[https://www.wikidata.org/wiki/Q58590][Yao Ming]] (2007/02/11/1825570) Levine did not come back with *the Yao Ming of* Chinese baseball because no such person exists.
 18. [[https://www.wikidata.org/wiki/Q180453][Dolly Parton]] (2007/02/14/1826062) ''It's *the Dolly Parton of* cakes: a little bit tacky, but you love her,'' said Angie Mosier, a food writer in Atlanta and a board member of the Southern Foodways Alliance at *the University of* Mississippi in Oxford.
@@ -3514,7 +3514,7 @@ replot
 20. [[https://www.wikidata.org/wiki/Q1152754][Mary Boone]] (2007/02/18/1826951) Could this be *the Mary Boone of* Hanoi?
 21. [[https://www.wikidata.org/wiki/Q95026][Shirley MacLaine]] (2007/02/25/1828518) While it's tempting to dismiss him as *the Shirley MacLaine of* fashion, Mugler moonwalks it like he talks it and has steadfastly adhered to his fantastical aesthetic since the early 1970s.
 22. [[https://www.wikidata.org/wiki/Q3240869][Al Roker]] (2007/02/25/1828625) It's Jack Lescoulie, an announcer on the ''Today'' show, *the Al Roker of* his day.
-23. ! [[https://www.wikidata.org/wiki/Q182665][Iggy Pop]] (2007/02/25/1828625) Still, Ron Asheton says *the Iggy Pop of* today is not altogether unfamiliar.
+23. +[[https://www.wikidata.org/wiki/Q182665][Iggy Pop]] (2007/02/25/1828625) Still, Ron Asheton says *the Iggy Pop of* today is not altogether unfamiliar.+
 24. [[https://www.wikidata.org/wiki/Q30547][Mother Teresa]] (2007/02/25/1828883) Dr. Hamlin is *the Mother Teresa of* our age.
 25. [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]] (2007/02/25/1828938) For 38 years, from the 1968-69 season until illness forced him from his courtside seat in November, Beagle was also *the Cal Ripken of* statisticians.
 26. [[https://www.wikidata.org/wiki/Q473208][Roger Clemens]] (2007/02/26/1829043) ''He is *the Roger Clemens of* the industry.
@@ -3532,7 +3532,7 @@ replot
 38. [[https://www.wikidata.org/wiki/Q1036920][John Pawson]] (2007/03/22/1834641) The pieces are undeniably chic, especially those by David Netto (*the John Pawson of* the nursery set) and Ooba, whose Eames-like bassinette ($600) could be part of MoMA's permanent collection.
 39. [[https://www.wikidata.org/wiki/Q229437][Donatella Versace]] (2007/03/25/1835279) For Laura Sorbatti, Marco's cousin and *the owner of* the firm Icas, whose love of hot pants and sunlamps has made her *the Donatella Versace of* the hat world, that chapeau is a hideous cap with the word ''gold'' picked out in rhinestones.
 40. [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (2007/03/28/1836163) Each factory has a basketball team, and Mr. Thomas, a first-round draft pick, emerges as *the Michael Jordan of* the South Korean penal system.
-41. ! [[https://www.wikidata.org/wiki/Q6389584][Kennedy]] (2007/03/30/1836640) TERMINAL 4, with mostly international flights, seems to represent *the Kennedy of* the future -- a gathering place built around upscale shopping and dining, perfect for its global clientele.
+41. +[[https://www.wikidata.org/wiki/Q6389584][Kennedy]] (2007/03/30/1836640) TERMINAL 4, with mostly international flights, seems to represent *the Kennedy of* the future -- a gathering place built around upscale shopping and dining, perfect for its global clientele.+
 42. [[https://www.wikidata.org/wiki/Q873][Meryl Streep]] (2007/04/01/1837057) I wanted *the Meryl Streep of* toasters, a Hepburn; either would do.
 43. [[https://www.wikidata.org/wiki/Q434513][Alice Waters]] (2007/04/04/1837956) Although Gavin Newsom, *the mayor of* San Francisco, recently weighed in on the 2007 Farm Bill and many mayors have taken up the anti-obesity cause, no mayor of a large urban city has stood up and become, in essence, *the Alice Waters of* city food politics.
 44. [[https://www.wikidata.org/wiki/Q936132][Monty Hall]] (2007/04/09/1839119) Elliott, Stuart              Miles S. Nadal, *the Monty Hall of* Madison Avenue, is at it again, doing what he loves to do best: making deals.
@@ -3543,8 +3543,8 @@ replot
 49. [[https://www.wikidata.org/wiki/Q56005][Ridley Scott]] (2007/04/15/1840317) Mr. Lawrence, whose previous movie was ''Lantana,'' an Altmanesque story of multiple strands about four unhappy couples, is *the Ridley Scott of* Australia, the country's most successful director of television commercials.
 50. [[https://www.wikidata.org/wiki/Q148726][Albert Pujols]] (2007/04/15/1840597) ''He is *the Albert Pujols of* fantasy sports, a player who consistently produces, a player who is money in the bank.''
 51. [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (2007/04/17/1841042) Billed as *the Michael Jordan of* hockey by a former Lightning owner, Lecavalier appeared to be on a career path more like Sam Bowie's, his 37 points in 76 games in his fourth season seeming to cement his underachieving status.
-52. ! [[https://www.wikidata.org/wiki/Q181413][Julie Christie]] (2007/04/18/1841111) She is not even much interested in *the Julie Christie of* legend.
-53. ! [[https://www.wikidata.org/wiki/Q181413][Julie Christie]] (2007/04/18/1841111) But either way, she seems at peace with herself, away from *the shadow of* *the Julie Christie of* yore.
+52. +[[https://www.wikidata.org/wiki/Q181413][Julie Christie]] (2007/04/18/1841111) She is not even much interested in *the Julie Christie of* legend.+
+53. +[[https://www.wikidata.org/wiki/Q181413][Julie Christie]] (2007/04/18/1841111) But either way, she seems at peace with herself, away from *the shadow of* *the Julie Christie of* yore.+
 54. [[https://www.wikidata.org/wiki/Q483512][Isadora Duncan]] (2007/04/20/1841510) It's a small bronze sculpture, not nine inches tall, *the Isadora Duncan of* ancient Alexandria.
 55. [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]] (2007/04/22/1842189) Mr. Johannson calls Mr. Ley ''*the Tiger Woods of* micro golfers.''
 56. [[https://www.wikidata.org/wiki/Q93341][Miles Davis]] (2007/04/22/1842224) He has become a great improviser, *the Miles Davis of* the war.
@@ -3554,15 +3554,15 @@ replot
 60. [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] (2007/05/03/1844722) He's *the Michael Jordan of* boxing.''
 61. [[https://www.wikidata.org/wiki/Q207405][Zsa Zsa Gabor]] (2007/05/17/1847901) We were thrilled to discover she was a rather fancy type known as a Frizzle -- *the Zsa Zsa Gabor of* chickens.
 62. [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]] (2007/05/18/1848087) By ROBERTA SMITH              The 18th-century painter and calligrapher Ike Taiga was something like *the Pablo Picasso of* Japan.
-63. ! [[https://www.wikidata.org/wiki/Q19673][Al Gore]] (2007/05/20/1848550) But *the Al Gore of* September 2005 was not *the Saint Albert of* today.
+63. +[[https://www.wikidata.org/wiki/Q19673][Al Gore]] (2007/05/20/1848550) But *the Al Gore of* September 2005 was not *the Saint Albert of* today.+
 64. [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]] (2007/05/20/1848574) THE SECRET LIFE OF MRS. BEETON (13, 49) Anna Madeley plays Isabella Beeton, whose ''Book of Household Management'' sold millions of copies and made her *the Martha Stewart of* 1860s Britain, in this ''Masterpiece Theater'' biopic.
 65. [[https://www.wikidata.org/wiki/Q8704][Walt Disney]] (2007/05/20/1848597) Even *the death of* Bambi's mother pales in comparison to the bloody war between a mining camp and *the resident spirits of* a mountain forest at *the center of* Hayao Miyazaki's ''Princess Mononoke,'' a 1997 film by the animator most often called *the Walt Disney of* Japan.
-66. ! [[https://www.wikidata.org/wiki/Q1172589][Dathan Ritzenhein]] (2007/05/25/1849859) Mottram ran in a 10,000-meter race last Saturday in Central Park, finishing second to *the Dathan Ritzenhein of* the United States.
+66. +[[https://www.wikidata.org/wiki/Q1172589][Dathan Ritzenhein]] (2007/05/25/1849859) Mottram ran in a 10,000-meter race last Saturday in Central Park, finishing second to *the Dathan Ritzenhein of* the United States.+
 67. [[https://www.wikidata.org/wiki/Q193368][Ted Turner]] (2007/05/27/1850120) You could think of him as *the Ted Turner of* great moments in sports history, except that Mr. Kreindler doesn't rely on computerized colorization but instead conducts painstaking research to ensure that the hues he chooses are accurate.
-68. ! [[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]] (2007/05/27/1850170) On loan from *the collection of* the Museum Boijmans Van Beuningen in Rotterdam, it is *the Mona Lisa of* fakes.
-69. ! [[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]] (2007/05/27/1850190) On loan from *the collection of* the Museum Boijmans Van Beuningen in Rotterdam, it is *the Mona Lisa of* fakes.
-70. ! [[https://www.wikidata.org/wiki/Q3181989][John Maine]] (2007/05/28/1850579) Another is their starting pitching, particularly *the John Maine of* April and Oliver Pérez, which has prevented the bullpen from being overused.
-71. ! [[https://www.wikidata.org/wiki/Q298016][Fred Thompson]] (2007/06/01/1851248) But *the Fred Thompson of* ''Law & Order'' fame is better suited as chief of staff.
+68. +[[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]] (2007/05/27/1850170) On loan from *the collection of* the Museum Boijmans Van Beuningen in Rotterdam, it is *the Mona Lisa of* fakes.+
+69. +[[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]] (2007/05/27/1850190) On loan from *the collection of* the Museum Boijmans Van Beuningen in Rotterdam, it is *the Mona Lisa of* fakes.+
+70. +[[https://www.wikidata.org/wiki/Q3181989][John Maine]] (2007/05/28/1850579) Another is their starting pitching, particularly *the John Maine of* April and Oliver Pérez, which has prevented the bullpen from being overused.+
+71. +[[https://www.wikidata.org/wiki/Q298016][Fred Thompson]] (2007/06/01/1851248) But *the Fred Thompson of* ''Law & Order'' fame is better suited as chief of staff.+
 72. [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]] (2007/06/03/1851623) In 1993, he attended a lecture by Terence McKenna, the ''geeky American'' who became *the Johnny Appleseed of* psilocybin.
 73. [[https://www.wikidata.org/wiki/Q60809][Ansel Adams]] (2007/06/10/1853443) A 52-year-old photographer from Little Rock, Ark., Mr. McDermott may be *the Ansel Adams of* Angkor.
 74. [[https://www.wikidata.org/wiki/Q1328702][Michael Brown]] (2007/06/11/1853778) Mr. Gonzales is *the Michael Brown of* the Justice Department, smilingly presiding over incompetence, chaos and malfeasance, while President Bush insists that he is doing a heck of a job.
