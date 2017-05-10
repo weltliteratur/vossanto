@@ -383,7 +383,7 @@ Put everything into this org file:
 
 After cleansing (thank you Frank!):
 #+BEGIN_SRC sh
-  grep -A10000 "^* Results" README.org \
+  grep -A10000 "^* results" README.org \
       | grep "^[0-9]*\." \
       | sed -e "s/^[0-9]*\. //" -e "s/ ([0-9]*\/.*//" \
       | grep -v "^!" \
@@ -393,16 +393,16 @@ After cleansing (thank you Frank!):
 
 | count | source             |
 |-------+--------------------|
-|    74 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]     |
-|    64 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]] |
+|    73 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]     |
+|    63 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]] |
 |    42 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]            |
 |    37 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]          |
 |    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]   |
 |    26 | [[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]]          |
 |    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]         |
 |    22 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]          |
-|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]       |
-|    21 | [[https://www.wikidata.org/wiki/Q37349][Dalai Lama]]         |
+|    21 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]       |
+|    21 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]       |
 
 ** temporal distribution
 We plot some temporal distributions:
@@ -429,7 +429,7 @@ We plot some temporal distributions:
 |   1987 |   575711 |  2880 |   106 |   79 |  74.5 |
 |   1988 |   572450 |  2951 |    88 |   62 |  70.5 |
 |   1989 |   563737 |  2761 |   114 |   84 |  73.7 |
-|   1990 |   554574 |  2886 |   120 |  120 | 100.0 |
+|   1990 |   554574 |  2886 |   120 |   88 |  73.3 |
 |   1991 |   467765 |  2348 |   124 |  124 | 100.0 |
 |   1992 |   449984 |  2476 |   123 |  123 | 100.0 |
 |   1993 |   438737 |  2306 |   135 |  135 | 100.0 |
@@ -446,10 +446,10 @@ We plot some temporal distributions:
 |   2004 |   513115 |  2295 |   158 |  158 | 100.0 |
 |   2005 |   504570 |  2319 |   165 |  165 | 100.0 |
 |   2006 |   503986 |  2364 |   185 |  185 | 100.0 |
-|   2007 |   234234 |  1237 |    80 |  123 |   0.0 |
+|   2007 |   234234 |  1237 |    80 |  123 | 153.8 |
 |--------+----------+-------+-------+------+-------|
-|  *sum* | 10342997 | 51662 |  3050 | 2887 |  94.7 |
-| *mean* |   492524 |  2460 |   145 |  137 |  94.5 |
+|  *sum* | 10342997 | 51662 |  3050 | 2978 |  97.6 |
+| *mean* |   492524 |  2460 |   145 |  142 |  97.9 |
 #+TBLFM: $6=($-1/$-2)*100;%2.1f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f
 
 
@@ -478,7 +478,7 @@ replot
 
 [[nyt_vossantos_over_time.png]]
 
-* Results
+* results
 
 *** 1987
 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
