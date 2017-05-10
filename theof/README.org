@@ -457,9 +457,10 @@ We plot some temporal distributions:
 reset
 set datafile separator "\t"
 
-set xlabel "Year"
-set ylabel "Frequency"
+set xlabel "year"
+set ylabel "frequency"
 set grid linetype 1 linecolor 0
+set yrange [0:*]
 set key top left
 set style fill solid 1
 
