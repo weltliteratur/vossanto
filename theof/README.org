@@ -337,13 +337,11 @@ Merge with existing ~README.org~:
   ./mergeorg.py README.org newR.org > newREADME.org
 #+END_SRC
 
-
-
 * statistics
 ** most frequent source candidates
 
 #+BEGIN_SRC sh
-  awk -F'\t' '{print $4}' theof_*_wd_bl.tsv \
+  awk -F'\t' '{print $4}' theof_*_wda_bl.tsv \
       | sort | uniq -c | sort -nr | head -n40
 #+END_SRC
 
@@ -353,42 +351,42 @@ Merge with existing ~README.org~:
 |    64 | Rodney Dangerfield |
 |    47 | Madonna            |
 |    37 | Babe Ruth          |
+|    32 | Elvis              |
 |    30 | Johnny Appleseed   |
+|    28 | Jesus              |
+|    27 | Picasso            |
 |    26 | Mona Lisa          |
 |    24 | Bill Gates         |
 |    23 | Rembrandt          |
+|    23 | Mozart             |
 |    23 | Michelangelo       |
+|    22 | Shakespeare        |
 |    22 | Donald Trump       |
 |    22 | Dalai Lama         |
 |    21 | Tiger Woods        |
 |    21 | P. T. Barnum       |
 |    21 | Jackie Robinson    |
 |    21 | Cary Grant         |
+|    20 | Cinderella         |
 |    19 | John Wayne         |
 |    18 | Napoleon           |
 |    18 | Martha Stewart     |
 |    16 | Mother Teresa      |
+|    16 | Hitler             |
 |    16 | Henry Ford         |
 |    16 | Cal Ripken         |
 |    15 | Ralph Nader        |
+|    14 | Tolstoy            |
 |    14 | Ross Perot         |
 |    13 | Susan Lucci        |
+|    13 | Cassandra          |
 |    12 | Walt Disney        |
 |    12 | Rosa Parks         |
 |    12 | Robin Hood         |
+|    12 | Einstein           |
 |    11 | Willie Horton      |
 |    11 | Moses              |
-|    10 | Virginia Court     |
-|    10 | Oprah Winfrey      |
-|    10 | King Kong          |
-|    10 | Julia Child        |
-|     9 | Tyson              |
-|     9 | Muhammad Ali       |
-|     9 | Mike Tyson         |
-|     9 | James Dean         |
-|     9 | Garbo              |
-|     9 | Bill Clinton       |
-|     8 | Woody Allen        |
+|    11 | Beethoven          |
 
 After cleansing (thank you Frank!):
 #+BEGIN_SRC sh
@@ -400,28 +398,28 @@ After cleansing (thank you Frank!):
       | head -n20
 #+END_SRC
 
-| count | source             |
-|-------+--------------------|
-|    71 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]     |
-|    63 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]] |
-|    39 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]            |
-|    37 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]          |
-|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]   |
-|    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]         |
-|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]       |
-|    22 | [[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]]          |
-|    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]          |
-|    21 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]       |
-|    21 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]       |
-|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]    |
-|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]        |
-|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]         |
-|    19 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]         |
-|    18 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]           |
-|    18 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]     |
-|    16 | [[https://www.wikidata.org/wiki/Q8768][Henry Ford]]         |
-|    16 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]         |
-|    16 | [[https://www.wikidata.org/wiki/Q30547][Mother Teresa]]      |
+| count | source                  |
+|-------+-------------------------|
+|    72 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
+|    63 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
+|    39 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |
+|    37 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
+|    35 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
+|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
+|    29 | [[https://www.wikidata.org/wiki/Q302][Jesus Christ]]            |
+|    28 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |
+|    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |
+|    23 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |
+|    22 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
+|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
+|    22 | [[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]]               |
+|    22 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
+|    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
+|    21 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
+|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |
+|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
+|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |
+|    20 | [[https://www.wikidata.org/wiki/Q21847069][Annie Osborn]]            |
 
 ** temporal distribution
 We plot some temporal distributions:
@@ -4206,3 +4204,4 @@ replot
 78. [[https://www.wikidata.org/wiki/Q162629][Simon Cowell]] (2007/06/16/1854714) (She is billed as *the Simon Cowell of* matchmaking.)
 79. [[https://www.wikidata.org/wiki/Q381178][Bob Barker]] (2007/06/18/1855371) So it's not surprising that Simon Schama, a Columbia University professor, is turning into *the Bob Barker of* art criticism, a genial television host who excitedly invites viewers to come on down to high culture.
 80. [[https://www.wikidata.org/wiki/Q327071][Paul Revere]] (2007/06/19/1855557) Time magazine once nicknamed him ''*the Paul Revere of* the environmental movement.''
+
