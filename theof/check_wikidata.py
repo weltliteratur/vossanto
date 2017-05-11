@@ -11,6 +11,8 @@
 # Author: rja
 #
 # Changes:
+# 2017-05-11 (rja)
+# - replaced simple string matching by regex for occurence of 2nd "the"
 # 2017-05-10 (rja)
 # - cleaned up
 # 2017-05-09 (rja)
@@ -32,6 +34,7 @@ UTF8Writer = codecs.getwriter('utf8')
 sys.stdout = UTF8Writer(sys.stdout)
 
 re_quotes = re.compile("\"\"")
+re_the = re.compile(r".*\bthe\s+(.*)\bof\b")
 
 # to remove control characters, see
 # https://stackoverflow.com/questions/92438/stripping-non-printable-characters-from-a-string-in-python
@@ -109,7 +112,6 @@ if __name__ == '__main__':
                 print(article, items[item], phrase, item, sentence, sep='\t')
             else:
                 # check if the phrase itself contains "the"
-                if " the " in item:
-                    item = item.split(" the ")[1]
-                    if item in items and item not in blacklist:
-                        print(article, items[item], phrase, item, sentence, sep='\t')
+                for match in re_the.findall(item):
+                    if match in items and match not in blacklist:
+                        print(article, items[match], phrase, match, sentence, sep='\t')
