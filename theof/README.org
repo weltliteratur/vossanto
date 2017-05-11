@@ -323,12 +323,21 @@ We extract new candidates for our blacklist using the next year:
 Put everything into this org file:
 #+BEGIN_SRC sh :results raw
   export PYTHONIOENCODING=utf-8
+  rm newR.org
   for year in $(seq 1987 2007); do
-    echo "***" $year
-    ./tsv2org.py theof_${year}_wd_bl.tsv
-    echo
+    echo "**" $year >> newR.org
+    ./tsv2org.py theof_${year}_wda_bl.tsv >> newR.org
+    echo >> newR.org
   done
 #+END_SRC
+
+Merge with existing ~README.org~:
+#+BEGIN_SRC sh
+  grep -A100000 "^ results" README.org > oldR.org
+  ./mergeorg.py README.org newR.org > newREADME.org
+#+END_SRC
+
+
 
 * statistics
 ** most frequent source candidates
