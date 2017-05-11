@@ -34,7 +34,7 @@ UTF8Writer = codecs.getwriter('utf8')
 sys.stdout = UTF8Writer(sys.stdout)
 
 re_quotes = re.compile("\"\"")
-re_the = re.compile(r".*\bthe\s+(.*)\bof\b")
+re_the = re.compile(r".*\bthe\s+(.*)\b")
 
 # to remove control characters, see
 # https://stackoverflow.com/questions/92438/stripping-non-printable-characters-from-a-string-in-python
