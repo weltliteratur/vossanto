@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 #
@@ -9,25 +9,24 @@
 # Author: rja 
 #
 # Changes:
+# 2017-05-11 (rja)
+# - removed dependency to extraction regex and simplified source highlighting
+# - added column for canonical item label
 # 2017-05-09 (rja)
 # - initial version 
 
-from __future__ import print_function
 import re
 import fileinput
 
 re_articleid = re.compile(r"nyt_corpus_([0-9]{4})\.har([0-9/]+)\.xml")
-# first version
-# re_theof = re.compile("(\\bthe\\s([A-Z][a-z]+\\s+){1,3}of\\b)")
-re_theof = re.compile("(\\bthe\\s(\\w+\\s+){1,5}?of\\b)", re.UNICODE)
 
 if __name__ == '__main__':
     for line in fileinput.input():
-        articleid, itemid, phrase, item, sentence = line.strip().split("\t", 4)
+        articleid, itemid, phrase, item, itemCanon, sentence = line.strip().split("\t", 5)
         # clean up the parts
         m = re_articleid.match(articleid)
         articleid = m.group(1) + m.group(2)
 
         # print result
-        print("1. ", "[[https://www.wikidata.org/wiki/" + itemid + "][" + item + "]]", "(" + articleid + ")", re_theof.sub("*\\1*", sentence))
+        print("1.", "[[https://www.wikidata.org/wiki/" + itemid + "][" + itemCanon + "]]", "(" + articleid + ")", re.sub("(the " + item + " of)", "*\\1*", sentence))
     
