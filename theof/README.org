@@ -414,17 +414,16 @@ After cleansing (thank you Frank!):
 |    16 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]         |
 |    16 | [[https://www.wikidata.org/wiki/Q30547][Mother Teresa]]      |
 
-
 ** temporal distribution
 We plot some temporal distributions:
 #+BEGIN_SRC sh
   echo "year all wd wd+bl true prec"
   for year in $(seq 1987 2007); do
     echo $year \
-         $(cat theof_${year}.tsv | wc -l) \
+         $(zcat theof_${year}.tsv.gz | wc -l) \
          $(cat theof_${year}_wd.tsv | wc -l) \
          $(cat theof_${year}_wd_bl.tsv | wc -l) \
-         $(grep -m1 -A300 "^** $year" README.org \
+         $(grep -m1 -A250 "^** $year" README.org \
                   | tail -n+2 \
                   | grep -m1 -B300 "^[^0-9>]\|^$" \
                   | grep "^\(> \)*[0-9][0-9]*\." \
@@ -433,35 +432,38 @@ We plot some temporal distributions:
   done
 #+END_SRC
 
+#+RESULTS:
+| year |    all | wd | wd+bl | true | prec |
+
 
 #+CAPTION: The temporal distribution of the number of candidate phrases (cand), after matching against  Wikidata (wd) and a blacklist (wd+bl), and after manual inspection (true). The last column shows the precision.
 #+NAME: temporal-distribution
-|   year |     cand |    wd | wd+bl | true |  prec |
-|--------+----------+-------+-------+------+-------|
-|   1987 |   575711 |  2880 |   106 |   87 |  74.5 |
-|   1988 |   572450 |  2951 |    88 |   67 |  70.5 |
-|   1989 |   563737 |  2761 |   114 |   93 |  73.7 |
-|   1990 |   554574 |  2886 |   120 |   88 |  73.3 |
-|   1991 |   467765 |  2348 |   124 |  100 | 100.0 |
-|   1992 |   449984 |  2476 |   123 |   92 | 100.0 |
-|   1993 |   438737 |  2306 |   135 |  143 | 100.0 |
-|   1994 |   422779 |  2067 |   134 |  138 | 100.0 |
-|   1995 |   454182 |  2482 |   136 |  140 | 100.0 |
-|   1996 |   446689 |  2223 |   154 |  158 | 100.0 |
-|   1997 |   463034 |  2455 |   143 |  146 | 100.0 |
-|   1998 |   512647 |  2927 |   192 |  199 | 100.0 |
-|   1999 |   525517 |  2864 |   150 |  151 | 100.0 |
-|   2000 |   541685 |  2517 |   191 |  196 | 100.0 |
-|   2001 |   529114 |  2314 |   173 |  175 | 100.0 |
-|   2002 |   537579 |  2595 |   190 |  199 | 100.0 |
-|   2003 |   530908 |  2395 |   189 |  189 | 100.0 |
-|   2004 |   513115 |  2295 |   158 |  163 | 100.0 |
-|   2005 |   504570 |  2319 |   165 |  174 | 100.0 |
-|   2006 |   503986 |  2364 |   185 |  191 | 100.0 |
-|   2007 |   234234 |  1237 |    80 |   71 | 153.8 |
-|--------+----------+-------+-------+------+-------|
-|  *sum* | 10342997 | 51662 |  3050 | 2978 |  97.6 |
-| *mean* |   492524 |  2460 |   145 |  142 |  97.9 |
+|   year |     cand | wd | wd+bl | true |  prec |
+|--------+----------+----+-------+------+-------|
+|   1987 |   640511 |  0 |   114 |   85 |  74.6 |
+|   1988 |   636109 |  0 |    93 |   67 |  72.0 |
+|   1989 |   624727 |  0 |   125 |   90 |  72.0 |
+|   1990 |   613136 |  0 |   120 |   88 |  73.3 |
+|   1991 |   512427 |  0 |   129 |   99 |  76.7 |
+|   1992 |   493694 |  0 |   125 |   92 |  73.6 |
+|   1993 |   480589 |  0 |   143 |  143 | 100.0 |
+|   1994 |   463914 |  0 |   139 |  138 |  99.3 |
+|   1995 |   499904 |  0 |   141 |  140 |  99.3 |
+|   1996 |   497177 |  0 |   160 |  158 |  98.8 |
+|   1997 |   514987 |  0 |   146 |  146 | 100.0 |
+|   1998 |   570026 |  0 |   200 |  199 |  99.5 |
+|   1999 |   584481 |  0 |   155 |  151 |  97.4 |
+|   2000 |   601203 |  0 |   197 |  196 |  99.5 |
+|   2001 |   586104 |  0 |   176 |  175 |  99.4 |
+|   2002 |   595294 |  0 |   199 |  199 | 100.0 |
+|   2003 |   588940 |  0 |   191 |  189 |  99.0 |
+|   2004 |   569884 |  0 |   163 |  163 | 100.0 |
+|   2005 |   560140 |  0 |   174 |  174 | 100.0 |
+|   2006 |   559447 |  0 |   191 |  191 | 100.0 |
+|   2007 |   259921 |  0 |    85 |   71 |  83.5 |
+|--------+----------+----+-------+------+-------|
+|  *sum* | 11452615 |  0 |  3166 | 2954 |  93.3 |
+| *mean* |   545363 |  0 |   151 |  141 |  93.4 |
 #+TBLFM: $6=($-1/$-2)*100;%2.1f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f
 
 
@@ -504,7 +506,7 @@ replot
 8. [[https://www.wikidata.org/wiki/Q34529][Bela Lugosi]] (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
 9. [[https://www.wikidata.org/wiki/Q93188][Errol Flynn]] (1987/01/29/0008167) He is also known by less flattering terms, such as the Aging Right Wing Actor, the Not So Favor-ite Son and *the Errol Flynn of* the B's.
 10. [[https://www.wikidata.org/wiki/Q1413][Nero]] (1987/01/29/0008167) Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
-11. ! [[https://www.wikidata.org/wiki/Q335232][E. L. Doctorow]] (1987/01/31/0008693) Just as the Czechoslovak composer incorporated such themes into his ''New World'' Symphony, so Mr. Skvorecky, a Czechoslovak author, brings to this ''first attempt at writing a historical and biographical novel'' echoes of American writers of the period from Bret Harte to William Dean Howells, with a nod to *the E. L. Doctorow of* ''Ragtime.''
+11. +[[https://www.wikidata.org/wiki/Q335232][E. L. Doctorow]] (1987/01/31/0008693) Just as the Czechoslovak composer incorporated such themes into his ''New World'' Symphony, so Mr. Skvorecky, a Czechoslovak author, brings to this ''first attempt at writing a historical and biographical novel'' echoes of American writers of the period from Bret Harte to William Dean Howells, with a nod to *the E. L. Doctorow of* ''Ragtime.''+
 12. +[[https://www.wikidata.org/wiki/Q91][Abraham Lincoln]] (1987/02/08/0011420) AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''+
 13. +[[https://www.wikidata.org/wiki/Q91][Abraham Lincoln]] (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''+
 14. [[https://www.wikidata.org/wiki/Q20873141][Scarlet Pimpernel]] (1987/02/08/0011467) The son of a banker, Salomon became *the Scarlet Pimpernel of* photojournalism by virtue of the adroitness with which he could conceal his camera when necessary.
@@ -578,7 +580,7 @@ replot
 82. [[https://www.wikidata.org/wiki/Q697096][Cecil Beaton]] (1987/09/11/0073363) ''I want to be *the Cecil Beaton of* the flower world.''
 83. [[https://www.wikidata.org/wiki/Q171826][Alfred Dreyfus]] (1987/09/13/0073979) school of crime reporting; and a third, the novelist Michael Mewshaw, who, in ''Money to Burn,'' is so bent on making Steven Benson *the Alfred Dreyfus of* southwest Florida that he inflates what could have been a chapter of sharp-eyed criticism into a book-length orgy of nit-picking.
 84. [[https://www.wikidata.org/wiki/Q332032][Alice Cooper]] (1987/09/16/0074975) What became an intergallactic dud was ''*the Alice Cooper of* comets,'' according to Mr. Schaffer's publicity.
-85. ! [[https://www.wikidata.org/wiki/Q3195071][Ken O'Brien]] (1987/09/18/0075362) Both teams' passers - Steve Grogan, replacing Tony Eason, and Ken O'Brien, replacing *the Ken O'Brien of* 1986 - will pass and pass.
+85. +[[https://www.wikidata.org/wiki/Q3195071][Ken O'Brien]] (1987/09/18/0075362) Both teams' passers - Steve Grogan, replacing Tony Eason, and Ken O'Brien, replacing *the Ken O'Brien of* 1986 - will pass and pass.+
 86. [[https://www.wikidata.org/wiki/Q3128961][Roone Arledge]] (1987/09/19/0075504) Mr. Brandon, the 37-year-old founder of Cheerleader Productions, can be thought of as *the Roone Arledge of* Britain.
 87. [[https://www.wikidata.org/wiki/Q319648][Ray Kroc]] (1987/09/20/0075758) THE vision that Mr. Zanker's energy serves is as simple as it is grandiose: He would like to be *the Ray Kroc of* adult education.
 88. [[https://www.wikidata.org/wiki/Q303][Elvis Presley]] (1987/09/20/0076210) If he is not exactly *the Elvis Presley of* ballet, Mr. Baryshnikov demonstrates a popular appeal that reaches far beyond the usual ballet audience.
@@ -706,7 +708,7 @@ replot
 5. [[https://www.wikidata.org/wiki/Q189081][Howard Hughes]] (1989/01/15/0214315) Ray McAnally is a bluff, robust fellow, most certainly not to be regarded as *the Howard Hughes of* Irish theaterland.
 6. [[https://www.wikidata.org/wiki/Q233701][Lillian Hellman]] (1989/01/15/0214451) Having read every word of Isabelle's book, I can only surmise either that she wishes to be immortalized as *the Lillian Hellman of* the art world or that the men with whom I spent every waking hour had, previous to our first meeting, collectively repented, reformed and miraculously transformed their characters without the benefit of any self-help programs.
 7. [[https://www.wikidata.org/wiki/Q43203][Clint Eastwood]] (1989/01/16/0214485) Mr. O'Keefe, a playwright and actor whose surreal family drama ''All Night Long'' was produced in 1984 in New York at Second Stage, might be described as *the Clint Eastwood of* performance artists.
-1. ! [[https://www.wikidata.org/wiki/Q65553][Carl-Uwe Steeb]] (1989/01/21/0215915) 1 ranking with a 6-2, 3-6, 6-0, 6-3 second-round victory over *the Carl-Uwe Steeb of* West Germany.
+1. +[[https://www.wikidata.org/wiki/Q65553][Carl-Uwe Steeb]] (1989/01/21/0215915) 1 ranking with a 6-2, 3-6, 6-0, 6-3 second-round victory over *the Carl-Uwe Steeb of* West Germany.+
 8. +[[https://www.wikidata.org/wiki/Q528326][Marianne Werdel]] (1989/01/21/0215915) The Grand Slam winner won the first 11 games against *the Marianne Werdel of* the United States before settling for a 6-0, 6-1 third-round victory.+
 9. [[https://www.wikidata.org/wiki/Q9960][Ronald Reagan]] (1989/01/29/0218458) In all this, Mayor Bradley, a former police officer, has emerged as *the Ronald Reagan of* urban politics, the ''Teflon'' Mayor.
 10. [[https://www.wikidata.org/wiki/Q7245][Mark Twain]] (1989/01/31/0218970) Venice has long been *the Mark Twain of* cities.
@@ -787,7 +789,7 @@ replot
 80. +[[https://www.wikidata.org/wiki/Q5443][Greta Garbo]] (1989/09/29/0286815) Among the hotel's guests are Svengali and Trilby, the legendary Hollywood stars Norma Desmond and Lupe Velez, and a great Russian ballerina whose penchant for suicide is so obsessive that she makes *the Greta Garbo of* ''Grand Hotel'' seem like Rebecca of Sunnybrook Farm.+
 81. [[https://www.wikidata.org/wiki/Q5598][Rembrandt]] (1989/10/01/0287270) ''This is the last E. Joy Morris carousel in operation, and he was *the Rembrandt of* carousels,'' he said.
 82. [[https://www.wikidata.org/wiki/Q235066][Laurie Anderson]] (1989/10/05/0288506) She is not *the Laurie Anderson of* her time, of course.
-1. ! [[https://www.wikidata.org/wiki/Q178698][W. H. Auden]] (1989/10/08/0288976) So, too, the young poet continually tried on the ill-fitting public persona of *the W. H. Auden of* the 1930's.
+1. +[[https://www.wikidata.org/wiki/Q178698][W. H. Auden]] (1989/10/08/0288976) So, too, the young poet continually tried on the ill-fitting public persona of *the W. H. Auden of* the 1930's.+
 83. [[https://www.wikidata.org/wiki/Q467133][David Dinkins]] (1989/10/11/0290032) He was *the David Dinkins of* his day - calm, comforting and, yes, often boring.
 84. [[https://www.wikidata.org/wiki/Q255815][Tallulah Bankhead]] (1989/10/12/0290209) ''Senior citizens are *the Tallulah Bankhead of* the lifeboat: a lot of other people will go over first,'' Mr. Miller said.
 85. [[https://www.wikidata.org/wiki/Q18218128][Valentino]] (1989/10/22/0293575) ''He is *the Valentino of* Deruta,'' said Mr. Raimondi, ''but there are also other couturiers.''
@@ -805,7 +807,7 @@ replot
 96. [[https://www.wikidata.org/wiki/Q298726][John Zorn]] (1989/11/10/0299484) A few hours later, at the Kitchen, Heiner Goebbels, *the John Zorn of* West Germany, is presenting his play ''The Man in the Elevator,'' featuring, among others, the downtown musician Arto Lindsay and the well-respected East German author Heiner Muller.
 98. [[https://www.wikidata.org/wiki/Q3758184][Garbo]] (1989/11/14/0300766) He made her *the Garbo of* the art world.''
 99. [[https://www.wikidata.org/wiki/Q591743][Larry Miller]] (1989/11/15/0301143) Dave LaPoint, with his sense of humor, willingness to help and left-handed observations of the weirdness at Yankee Stadium, might just be *the Larry Miller of* our time.
-1. ! [[https://www.wikidata.org/wiki/Q3195071][Ken O'Brien]] (1989/11/19/0302286) ''You look at *the Ken O'Brien of* 1985 and 1986, and you saw a quarterback who was going to get even better, who was going to take this team even farther along,'' said one N.F.L.
+1. +[[https://www.wikidata.org/wiki/Q3195071][Ken O'Brien]] (1989/11/19/0302286) ''You look at *the Ken O'Brien of* 1985 and 1986, and you saw a quarterback who was going to get even better, who was going to take this team even farther along,'' said one N.F.L.+
 100. [[https://www.wikidata.org/wiki/Q138846][Andy Rooney]] (1989/11/19/0302493) He is a curmudgeon with opinions but no conviction, *the Andy Rooney of* *the Sahara of* the Bozart.
 101. [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]] (1989/11/20/0302750) Mr. Parker, a former drug addict and now working on a master's degree in public health at Yale University, has been called *the Johnny Appleseed of* needles.
 103. [[https://www.wikidata.org/wiki/Q409][Bob Marley]] (1989/11/22/0303163) One of the anthology's strongest cuts, ''Ayiti Pa Fore'' (''Haiti Is Not a Forest') was recorded in 1988 and features Manno Charlemagne, a singer and songwriter who is regarded as *the Bob Marley of* Haiti.
@@ -1023,7 +1025,7 @@ replot
 77. +[[https://www.wikidata.org/wiki/Q375268][Frank Stella]] (1991/08/18/0467814) There is *the Frank Stella of* "Gran Cairo," a 1962 square filled with different colored bands that owes something to Josef Albers; then there is *the Frank Stella of* "Silverstone," a baroque extravaganza in aluminum and fiberglass dabbed expressionistically with color (1981).+
 78. +[[https://www.wikidata.org/wiki/Q472547][David Souter]] (1991/08/22/0468451) ALBANY, Aug. 21              Dr. Mark R. Chassin, the California physician nominated to be New York State's next health commissioner, has emerged as *the David Souter of* gubernatorial appointees, a man with little public record on major health issues and little freedom to stake out his positions.+
 79. [[https://www.wikidata.org/wiki/Q472547][David Souter]] (1991/08/22/0468513) B1         The nominee for health chief of New York State, Dr. Mark Chassin, is emerging as *the David Souter of* gubernatorial appointees, a man with little public record on major health issues and little freedom to stake out his positions.
-1. ! [[https://www.wikidata.org/wiki/Q182450][George C. Scott]] (1991/09/05/0471353) Has age mellowed *the George C. Scott of* the drunken rages, fistfights and five broken noses?
+1. +[[https://www.wikidata.org/wiki/Q182450][George C. Scott]] (1991/09/05/0471353) Has age mellowed *the George C. Scott of* the drunken rages, fistfights and five broken noses?+
 80. [[https://www.wikidata.org/wiki/Q2586583][Henny Youngman]] (1991/09/08/0472147) Gross is *the Henny Youngman of* the Acropolis.
 81. [[https://www.wikidata.org/wiki/Q7352498][Robin Hood]] (1991/09/09/0472458) VIEDMA, Argentina, Sept. 3              He is called *the Robin Hood of* Patagonia.
 82. [[https://www.wikidata.org/wiki/Q8768][Henry Ford]] (1991/09/15/0474006) Gates is *the Henry Ford of* our generation, and if you don't like it, go build a Honda.
