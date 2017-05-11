@@ -1,4 +1,4 @@
-#!/usr/bin/python -u
+#!/usr/bin/python3 -u
 # -*- coding: utf-8 -*-
 
 #
@@ -13,6 +13,8 @@
 # Changes:
 # 2017-05-11 (rja)
 # - replaced simple string matching by regex for occurence of 2nd "the"
+# - added support for gzip files
+# - migration to Python3
 # 2017-05-10 (rja)
 # - cleaned up
 # 2017-05-09 (rja)
@@ -20,25 +22,20 @@
 # - added support for word blacklist
 # - initial version copied from theof.py
 
-from __future__ import print_function
 import re
 import argparse
 import os
 import sys
-import codecs
+import gzip
 
-version = "0.0.2"
-
-# convert all output into a byte string to be safe when redirecting
-UTF8Writer = codecs.getwriter('utf8')
-sys.stdout = UTF8Writer(sys.stdout)
+version = "0.0.3"
 
 re_quotes = re.compile("\"\"")
 re_the = re.compile(r".*\bthe\s+(.*)\b")
 
 # to remove control characters, see
 # https://stackoverflow.com/questions/92438/stripping-non-printable-characters-from-a-string-in-python
-control_chars = ''.join(map(unichr, range(0,32) + range(127,160)))
+control_chars = ''.join(map(chr, list(range(0,32)) + list(range(127,160))))
 control_char_re = re.compile('[%s]' % re.escape(control_chars))
 
 def remove_control_chars(s):
@@ -48,7 +45,7 @@ def remove_control_chars(s):
 def get_items(fname, sep='\t'):
     items = dict()
     # format: "Q863081"       "Billy ""The Kid"" Emerson"
-    with codecs.open(fname, "r", "utf-8") as f:
+    with open(fname, "rt", encoding="utf-8") as f:
         for line in f:
             # extract parts
             itemId, itemLabel = line.strip().split(sep, 1)
@@ -73,7 +70,7 @@ def get_items(fname, sep='\t'):
 def get_blacklist(fname, sep='\t'):
     items = set()
     # format: Lone Ranger\t7
-    with codecs.open(fname, "r", "utf-8") as f:
+    with open(fname, "r", encoding="utf-8") as f:
         for line in f:
             # extract parts
             item, count = line.strip().split(sep)
@@ -102,7 +99,7 @@ if __name__ == '__main__':
         blacklist = set()
 
     # read phrases
-    with codecs.open(args.phrases, "r", "utf-8") as f:
+    with gzip.open(args.phrases, "rt", "utf-8") as f:
         for line in f:
             article, phrase, sentence = line.strip().split('\t', 2)
             # the John Doe of -> strip "the" and "of"
