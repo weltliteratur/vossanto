@@ -83,7 +83,7 @@ if __name__ == '__main__':
     parser.add_argument('new', type=str, help='new entries')
     parser.add_argument('-s', '--string-new', type=str, help="string to mark new entries", default='> ')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
-    
+
     args = parser.parse_args()
 
     # read file into which the other file shall be merged
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     with codecs.open(args.new, "r", "utf-8") as f:
         for line in f:
             insert(index, line, args.string_new)
-    
+
     # print first (unchanged) part of original file
     for line in lines:
         print(line, end='')

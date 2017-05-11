@@ -12,6 +12,7 @@
 #
 # Changes:
 # 2017-05-11 (rja)
+# - support for item synonyms (added as additional columns)
 # - replaced simple string matching by regex for occurence of 2nd "the"
 # - added support for gzip files
 # - migration to Python3
@@ -31,7 +32,7 @@ import gzip
 version = "0.0.3"
 
 re_quotes = re.compile("\"\"")
-re_the = re.compile(r".*\bthe\s+(.*)\b")
+re_the = re.compile(r".*\bthe\s+(.*)$")
 
 # to remove control characters, see
 # https://stackoverflow.com/questions/92438/stripping-non-printable-characters-from-a-string-in-python
@@ -41,31 +42,46 @@ control_char_re = re.compile('[%s]' % re.escape(control_chars))
 def remove_control_chars(s):
     return control_char_re.sub('', s)
 
+def clean(s):
+    s = s[1:-1]
+    # unquote
+    s = re_quotes.sub("\"", s)
+    # remove non-printable characters
+    # TODO: does not work properly for U+200E (which is changed to E2)
+    # check with "Q29841121"     "Alexander Howe<U+200E>"
+    s = remove_control_chars(s)
+    return s
+
 # read Wikidata entity file into map
 def get_items(fname, sep='\t'):
     items = dict()
+    synonyms = dict()
     # format: "Q863081"       "Billy ""The Kid"" Emerson"
     with open(fname, "rt", encoding="utf-8") as f:
         for line in f:
             # extract parts
-            itemId, itemLabel = line.strip().split(sep, 1)
+            itemId, itemLabels = line.strip().split(sep, 1)
+            itemLabels = itemLabels.split(sep)
+            itemLabel = itemLabels.pop(0)
             # remove surrounding quotes
-            itemId = itemId[1:-1]
-            itemLabel = itemLabel[1:-1]
-            # unquote
-            itemLabel = re_quotes.sub("\"", itemLabel)
-            # remove non-printable characters
-            # TODO: does not work properly for U+200E (which is changed to E2)
-            # check with "Q29841121"     "Alexander Howe<U+200E>"
-            itemLabel = remove_control_chars(itemLabel)
+            itemId = clean(itemId)
+            itemLabel = clean(itemLabel)
             # ignore duplicates
             if itemLabel not in items:
                 items[itemLabel] = itemId
             elif int(itemId[1:]) < int(items[itemLabel][1:]):
                 # ensure that we always use the item with the lowest id
                 items[itemLabel] = itemId
-
-    return items
+            # handle synonyms
+            for syn in itemLabels:
+                syn = clean(syn)
+                # conditions as before (but merged with or)
+                if syn not in synonyms or int(itemId[1:]) < int(items[itemLabel][1:]):
+                    # we store the itemLabel such that we can easily
+                    # print it and get the corresponding itemId via
+                    # items
+                    synonyms[syn] = itemLabel
+    return items, synonyms
 
 def get_blacklist(fname, sep='\t'):
     items = set()
@@ -76,7 +92,6 @@ def get_blacklist(fname, sep='\t'):
             item, count = line.strip().split(sep)
             items.add(item)
     return items
-
 
 if __name__ == '__main__':
 
@@ -89,7 +104,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # read items
-    items = get_items(args.wikidata)
+    items, synonyms = get_items(args.wikidata)
     print("read", len(items), "unique item labels", file=sys.stderr)
     # read blacklist
     if args.blacklist:
@@ -106,9 +121,14 @@ if __name__ == '__main__':
             item = phrase[4:-3]
             # check if exists
             if item in items and item not in blacklist:
-                print(article, items[item], phrase, item, sentence, sep='\t')
+                print(article, items[item], phrase, item, item, sentence, sep='\t')
+            elif item in synonyms and item not in blacklist:
+                print(article, items[synonyms[item]], phrase, item, synonyms[item], sentence, sep='\t')
             else:
                 # check if the phrase itself contains "the"
                 for match in re_the.findall(item):
                     if match in items and match not in blacklist:
-                        print(article, items[match], phrase, match, sentence, sep='\t')
+                        print(article, items[match], phrase, match, match, sentence, sep='\t')
+                    elif match in synonyms and match not in blacklist:
+                        print(article, items[synonyms[match]], phrase, match, synonyms[match], sentence, sep='\t')
+                    
