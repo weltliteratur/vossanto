@@ -156,7 +156,7 @@ Of those, 2801931 have a label:
 #+END_SRC
 
 : 2801931 wikidata_humans.tsv
- We will use that file in the sequel.
+We will use that file in the sequel.
 
 *** "fictional character"
 Later, we would like to include [[https://www.wikidata.org/wiki/Q95074][fictional character]]. We can retrieve
@@ -280,14 +280,14 @@ We create an initial blacklist using the terms from the first year:
 #+BEGIN_SRC sh :results silent
   export PYTHONIOENCODING=utf-8
   ./check_wikidata.py theof_1987.tsv wikidata_humans.tsv |\
-      awk -F'\t' '{print $3}' | sort | uniq -c | sort -nr > bl.tsv
+      awk -F'\t' '{print $4}' | sort | uniq -c | sort -nr > bl.tsv
 #+END_SRC
 
 **** Step 2
 Now we edit ~bl.tsv~ to remove all entities which are OK ... and then
 we cleanup and append to the blacklist which we then commit:
 #+BEGIN_SRC sh :results silent
-  sed -e "s/^ *//" -e "s/ the /\t/" -e "s/ of$//" bl.tsv | awk -F'\t' '{print $2"\t"$1}' >> blacklist.tsv
+  sed -e "s/^ *//" -e "s/ /\t/" bl.tsv | awk -F'\t' '{print $2"\t"$1}' >> blacklist.tsv
 #  git commit blacklist.tsv -m"+1987"
 #+END_SRC
 
@@ -325,7 +325,7 @@ Put everything into this org file:
   export PYTHONIOENCODING=utf-8
   for year in $(seq 1987 2007); do
     echo "***" $year
-    ./tsv2md.py theof_${year}_wd_bl.tsv
+    ./tsv2org.py theof_${year}_wd_bl.tsv
     echo
   done
 #+END_SRC
@@ -352,6 +352,7 @@ Put everything into this org file:
 |    22 | Donald Trump       |
 |    22 | Dalai Lama         |
 |    21 | Tiger Woods        |
+|    21 | P. T. Barnum       |
 |    21 | Jackie Robinson    |
 |    21 | Cary Grant         |
 |    19 | John Wayne         |
@@ -379,16 +380,15 @@ Put everything into this org file:
 |     9 | Garbo              |
 |     9 | Bill Clinton       |
 |     8 | Woody Allen        |
-|     8 | Magic Johnson      |
 
 After cleansing (thank you Frank!):
 #+BEGIN_SRC sh
   grep -A10000 "^* results" README.org \
-      | grep "^[0-9]*\." \
-      | sed -e "s/^[0-9]*\. //" -e "s/ ([0-9]*\/.*//" \
+      | grep "^\(> \)*[0-9][0-9]*\." \
+      | sed -e  "s/^\(> \)*[0-9]*\. *//" -e "s/ ([0-9]*\/.*//" \
       | grep -v "^+" \
       | sort | uniq -c | sort -nr \
-      | head -n10
+      | head -n20
 #+END_SRC
 
 | count | source             |
@@ -403,6 +403,17 @@ After cleansing (thank you Frank!):
 |    22 | [[https://www.wikidata.org/wiki/Q3320055][Mona Lisa]]          |
 |    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]          |
 |    21 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]       |
+|    21 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]       |
+|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]    |
+|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]        |
+|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]         |
+|    19 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]         |
+|    18 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]           |
+|    18 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]     |
+|    16 | [[https://www.wikidata.org/wiki/Q8768][Henry Ford]]         |
+|    16 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]         |
+|    16 | [[https://www.wikidata.org/wiki/Q30547][Mother Teresa]]      |
+
 
 ** temporal distribution
 We plot some temporal distributions:
@@ -415,38 +426,39 @@ We plot some temporal distributions:
          $(cat theof_${year}_wd_bl.tsv | wc -l) \
          $(grep -m1 -A300 "^** $year" README.org \
                   | tail -n+2 \
-                  | grep -m1 -B300 "^[^0-9]\|^$" \
-                  | grep "^[0-9]*\." \
-                  | sed -e "s/^[0-9]*\. //" -e "s/ ([0-9]*\/.*//" \
+                  | grep -m1 -B300 "^[^0-9>]\|^$" \
+                  | grep "^\(> \)*[0-9][0-9]*\." \
+                  | sed -e  "s/^\(> \)*[0-9]*\. *//" -e "s/ ([0-9]*\/.*//" \
                   | grep -v "^+" | wc -l)
   done
 #+END_SRC
+
 
 #+CAPTION: The temporal distribution of the number of candidate phrases (cand), after matching against  Wikidata (wd) and a blacklist (wd+bl), and after manual inspection (true). The last column shows the precision.
 #+NAME: temporal-distribution
 |   year |     cand |    wd | wd+bl | true |  prec |
 |--------+----------+-------+-------+------+-------|
-|   1987 |   575711 |  2880 |   106 |   79 |  74.5 |
-|   1988 |   572450 |  2951 |    88 |   62 |  70.5 |
-|   1989 |   563737 |  2761 |   114 |   84 |  73.7 |
+|   1987 |   575711 |  2880 |   106 |   87 |  74.5 |
+|   1988 |   572450 |  2951 |    88 |   67 |  70.5 |
+|   1989 |   563737 |  2761 |   114 |   93 |  73.7 |
 |   1990 |   554574 |  2886 |   120 |   88 |  73.3 |
-|   1991 |   467765 |  2348 |   124 |   95 | 100.0 |
-|   1992 |   449984 |  2476 |   123 |   90 | 100.0 |
-|   1993 |   438737 |  2306 |   135 |  135 | 100.0 |
-|   1994 |   422779 |  2067 |   134 |  134 | 100.0 |
-|   1995 |   454182 |  2482 |   136 |  136 | 100.0 |
-|   1996 |   446689 |  2223 |   154 |  154 | 100.0 |
-|   1997 |   463034 |  2455 |   143 |  143 | 100.0 |
-|   1998 |   512647 |  2927 |   192 |  192 | 100.0 |
-|   1999 |   525517 |  2864 |   150 |  150 | 100.0 |
-|   2000 |   541685 |  2517 |   191 |  191 | 100.0 |
-|   2001 |   529114 |  2314 |   173 |  173 | 100.0 |
-|   2002 |   537579 |  2595 |   190 |  190 | 100.0 |
+|   1991 |   467765 |  2348 |   124 |  100 | 100.0 |
+|   1992 |   449984 |  2476 |   123 |   92 | 100.0 |
+|   1993 |   438737 |  2306 |   135 |  143 | 100.0 |
+|   1994 |   422779 |  2067 |   134 |  138 | 100.0 |
+|   1995 |   454182 |  2482 |   136 |  140 | 100.0 |
+|   1996 |   446689 |  2223 |   154 |  158 | 100.0 |
+|   1997 |   463034 |  2455 |   143 |  146 | 100.0 |
+|   1998 |   512647 |  2927 |   192 |  199 | 100.0 |
+|   1999 |   525517 |  2864 |   150 |  151 | 100.0 |
+|   2000 |   541685 |  2517 |   191 |  196 | 100.0 |
+|   2001 |   529114 |  2314 |   173 |  175 | 100.0 |
+|   2002 |   537579 |  2595 |   190 |  199 | 100.0 |
 |   2003 |   530908 |  2395 |   189 |  189 | 100.0 |
-|   2004 |   513115 |  2295 |   158 |  158 | 100.0 |
-|   2005 |   504570 |  2319 |   165 |  165 | 100.0 |
-|   2006 |   503986 |  2364 |   185 |  185 | 100.0 |
-|   2007 |   234234 |  1237 |    80 |   66 | 153.8 |
+|   2004 |   513115 |  2295 |   158 |  163 | 100.0 |
+|   2005 |   504570 |  2319 |   165 |  174 | 100.0 |
+|   2006 |   503986 |  2364 |   185 |  191 | 100.0 |
+|   2007 |   234234 |  1237 |    80 |   71 | 153.8 |
 |--------+----------+-------+-------+------+-------|
 |  *sum* | 10342997 | 51662 |  3050 | 2978 |  97.6 |
 | *mean* |   492524 |  2460 |   145 |  142 |  97.9 |
@@ -3657,3 +3669,5 @@ replot
 78. [[https://www.wikidata.org/wiki/Q162629][Simon Cowell]] (2007/06/16/1854714) (She is billed as *the Simon Cowell of* matchmaking.)
 79. [[https://www.wikidata.org/wiki/Q381178][Bob Barker]] (2007/06/18/1855371) So it's not surprising that Simon Schama, a Columbia University professor, is turning into *the Bob Barker of* art criticism, a genial television host who excitedly invites viewers to come on down to high culture.
 80. [[https://www.wikidata.org/wiki/Q327071][Paul Revere]] (2007/06/19/1855557) Time magazine once nicknamed him ''*the Paul Revere of* the environmental movement.''
+
+
