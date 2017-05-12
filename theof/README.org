@@ -429,17 +429,11 @@ We plot some temporal distributions:
     echo $year \
          $(zcat theof_${year}.tsv.gz | wc -l) \
          $(cat theof_${year}_wd.tsv | wc -l) \
-         $(cat theof_${year}_wd_bl.tsv | wc -l) \
-         $(grep -m1 -A250 "^** $year" README.org \
-                  | tail -n+2 \
-                  | grep -m1 -B300 "^[^0-9>]\|^$" \
-                  | grep "^\(> \)*[0-9][0-9]*\." \
+         $(cat theof_${year}_wda_bl.tsv | wc -l) \
+         $(grep "^\(> \)*[0-9][0-9]*\. .*(${year}/[0-9][0-9]" README.org \
                   | sed -e  "s/^\(> \)*[0-9]*\. *//" -e "s/ ([0-9]*\/.*//" \
                   | wc -l) \
-         $(grep -m1 -A250 "^** $year" README.org \
-                  | tail -n+2 \
-                  | grep -m1 -B300 "^[^0-9>]\|^$" \
-                  | grep "^\(> \)*[0-9][0-9]*\." \
+         $(grep "^\(> \)*[0-9][0-9]*\. .*(${year}/[0-9][0-9]" README.org \
                   | sed -e  "s/^\(> \)*[0-9]*\. *//" -e "s/ ([0-9]*\/.*//" \
                   | grep -v "^+" | wc -l)
   done
@@ -447,32 +441,32 @@ We plot some temporal distributions:
 
 #+CAPTION: The temporal distribution of the number of candidate phrases (cand), after matching against  Wikidata (wd) and a blacklist (wd+bl), and after manual inspection (true). The last column shows the precision.
 #+NAME: temporal-distribution
-|   year |     cand | wd | found | wd+bl | true |  prec |
+|   year |     cand | wd | wd+bl | found | true |  prec |
 |--------+----------+----+-------+-------+------+-------|
-|   1987 |   640511 |  0 |     0 |   127 |  100 |  78.7 |
-|   1988 |   636109 |  0 |     0 |   134 |  112 |  83.6 |
-|   1989 |   624727 |  0 |     0 |   145 |  113 |  77.9 |
-|   1990 |   613136 |  0 |     0 |   137 |  108 |  78.8 |
-|   1991 |   512427 |  0 |     0 |   149 |  122 |  81.9 |
-|   1992 |   493694 |  0 |     0 |   144 |  113 |  78.5 |
-|   1993 |   480589 |  0 |     0 |   164 |  164 | 100.0 |
-|   1994 |   463914 |  0 |     0 |   160 |  160 | 100.0 |
-|   1995 |   499904 |  0 |     0 |   157 |  157 | 100.0 |
-|   1996 |   497177 |  0 |     0 |   183 |  183 | 100.0 |
-|   1997 |   514987 |  0 |     0 |   171 |  171 | 100.0 |
-|   1998 |   570026 |  0 |     0 |   240 |  240 | 100.0 |
-|   1999 |   584481 |  0 |     0 |   182 |  182 | 100.0 |
-|   2000 |   601203 |  0 |     0 |   227 |  227 | 100.0 |
-|   2001 |   586104 |  0 |     0 |   202 |  202 | 100.0 |
-|   2002 |   595294 |  0 |     0 |   223 |  223 | 100.0 |
-|   2003 |   588940 |  0 |     0 |   213 |  213 | 100.0 |
-|   2004 |   569884 |  0 |     0 |   187 |  187 | 100.0 |
-|   2005 |   560140 |  0 |     0 |   202 |  202 | 100.0 |
-|   2006 |   559447 |  0 |     0 |   217 |  217 | 100.0 |
-|   2007 |   259921 |  0 |     0 |    97 |   84 |  86.6 |
+|   1987 |   640511 |  0 |   130 |   127 |  100 |  78.7 |
+|   1988 |   636109 |  0 |   138 |   134 |  112 |  83.6 |
+|   1989 |   624727 |  0 |   148 |   145 |  113 |  77.9 |
+|   1990 |   613136 |  0 |   140 |   137 |  108 |  78.8 |
+|   1991 |   512427 |  0 |   151 |   149 |  122 |  81.9 |
+|   1992 |   493694 |  0 |   146 |   144 |  113 |  78.5 |
+|   1993 |   480589 |  0 |   164 |   164 |  164 | 100.0 |
+|   1994 |   463914 |  0 |   161 |   160 |  160 | 100.0 |
+|   1995 |   499904 |  0 |   157 |   157 |  157 | 100.0 |
+|   1996 |   497177 |  0 |   185 |   183 |  183 | 100.0 |
+|   1997 |   514987 |  0 |   171 |   171 |  171 | 100.0 |
+|   1998 |   570026 |  0 |   240 |   240 |  240 | 100.0 |
+|   1999 |   584481 |  0 |   185 |   182 |  182 | 100.0 |
+|   2000 |   601203 |  0 |   227 |   227 |  227 | 100.0 |
+|   2001 |   586104 |  0 |   204 |   202 |  202 | 100.0 |
+|   2002 |   595294 |  0 |   223 |   223 |  223 | 100.0 |
+|   2003 |   588940 |  0 |   216 |   213 |  213 | 100.0 |
+|   2004 |   569884 |  0 |   187 |   187 |  187 | 100.0 |
+|   2005 |   560140 |  0 |   202 |   202 |  202 | 100.0 |
+|   2006 |   559447 |  0 |   217 |   217 |  217 | 100.0 |
+|   2007 |   259921 |  0 |    98 |    97 |   84 |  86.6 |
 |--------+----------+----+-------+-------+------+-------|
-|  *sum* | 11452615 |  0 |     0 |  3661 | 3480 |  95.1 |
-| *mean* |   545363 |  0 |     0 |   174 |  166 |  95.4 |
+|  *sum* | 11452615 |  0 |  3690 |  3661 | 3480 |  95.1 |
+| *mean* |   545363 |  0 |   176 |   174 |  166 |  95.4 |
 #+TBLFM: $7=($-1/$-2)*100;%2.1f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f::@24$6=vmean(@I..@II);%2.0f
 
 
@@ -4249,3 +4243,5 @@ Collect the categories of the articles
 78. [[https://www.wikidata.org/wiki/Q162629][Simon Cowell]] (2007/06/16/1854714) (She is billed as *the Simon Cowell of* matchmaking.)
 79. [[https://www.wikidata.org/wiki/Q381178][Bob Barker]] (2007/06/18/1855371) So it's not surprising that Simon Schama, a Columbia University professor, is turning into *the Bob Barker of* art criticism, a genial television host who excitedly invites viewers to come on down to high culture.
 80. [[https://www.wikidata.org/wiki/Q327071][Paul Revere]] (2007/06/19/1855557) Time magazine once nicknamed him ''*the Paul Revere of* the environmental movement.''
+
+
