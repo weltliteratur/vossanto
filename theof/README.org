@@ -509,7 +509,7 @@ Extract the categories for the articles:
 Collect the categories of the articles
 #+BEGIN_SRC sh
   grep "^[0-9]*\." README.org | grep -v "+$" \
-      | sed -e "s|.*(\([0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9]*\)).*|\1|" \
+      | sed -e "s|.*(\([0-9]*/[0-9]*/[0-9]*/[0-9]*\)).*|\1|" \
       | sort | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
       | sort | uniq -c | sort -nr | head -n20
 #+END_SRC
@@ -538,6 +538,46 @@ Collect the categories of the articles
 |    19 | Real Estate            |
 
 ** modifiers
+
+A very simple approach to identify frequent modifiers:
+#+BEGIN_SRC sh
+grep "^\(> \)*[0-9][0-9]*\. .*([0-9]\{4\}/[0-9][0-9]" README.org \
+                  | sed -e  "s/.*of\* //" -e "s/['.,?].*//" \
+                  | sort | uniq -c | sort -nr | head -n30
+#+END_SRC
+
+| count | modifier       |
+|-------+----------------|
+|   136 |                |
+|    48 | his day        |
+|    30 | Japan          |
+|    28 | old            |
+|    26 | his time       |
+|    20 | today          |
+|    18 | the blade      |
+|    15 | women          |
+|    15 | his generation |
+|    14 | baseball       |
+|    13 | China          |
+|    12 | the 1990       |
+|    12 | the            |
+|    12 | tennis         |
+|    11 | the Zulus      |
+|    11 | Punkin Crick   |
+|    11 | her day        |
+|    11 | Brazil         |
+|    11 | basketball     |
+|    10 | Tibet          |
+|    10 | the 90         |
+|    10 | our time       |
+|     9 | hip-hop        |
+|     9 | her time       |
+|     9 | dance          |
+|     8 | politics       |
+|     8 | New York       |
+|     8 | jazz           |
+|     8 | golf           |
+|     7 | this year      |
 
 * results
 
