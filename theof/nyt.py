@@ -107,8 +107,8 @@ if __name__ == '__main__':
     parser.add_argument('-b', '--body', action="store_true", help='extract body text')
     parser.add_argument('-u', '--url', action="store_true", help='extract URL')
     parser.add_argument('-c', '--category', action="store_true", help='extract category')
-    parser.add_argument('-g', '--grep', type=str, help='match regex')
-    parser.add_argument('-s', '--separator', type=str, help='output column separator', default='\t')
+    parser.add_argument('-g', '--grep', type=str, metavar="REGEX", help='match regex')
+    parser.add_argument('-s', '--separator', type=str, metavar="SEP", help='output column separator', default='\t')
     parser.add_argument('-n', '--normalise-ws', action="store_true", help='normalise whitespace')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
