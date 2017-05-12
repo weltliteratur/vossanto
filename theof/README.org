@@ -503,12 +503,45 @@ replot
 [[nyt_vossantos_over_time.png]]
 
 ** categories
-Collecting the categories of the articles
-#+BEGIN_SRC sh :results raw output
-  for i in $(grep "^[0-9][0-9]\." README.org | grep -v "+$" | sed -e "s/.*(\([0-9][0-9][0-9[0-9].*\)/\1/" -e "s/).*/.xml/"); do
-    grep 'name="online_sections"' ../nyt/$i | sed -e "s/.*content=\"//" -e "s/\".*//" -e "s/; /\n/g"
-  done  | head #| sort | uniq -c | sort -nr
+Extract the categories for the articles:
+#+BEGIN_SRC sh :results silent
+  for year in $(seq 1987 2007); do
+      ./nyt.py --category ../nyt_corpus_${year}.tar.gz \
+          | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
+          | sort >> nyt_categories.tsv
+  done
 #+END_SRC
+
+Collect the categories of the articles
+#+BEGIN_SRC sh
+  grep "^[0-9]*\." README.org | grep -v "+$" \
+      | sed -e "s|.*(\([0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]/[0-9]*\)).*|\1|" \
+      | sort | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+      | sort | uniq -c | sort -nr | head -n20
+#+END_SRC
+
+| count | category               |
+|-------+------------------------|
+|   396 | Sports                 |
+|   337 | Arts                   |
+|   309 | New York and Region    |
+|   272 | Arts; Books            |
+|   239 | Movies; Arts           |
+|   120 | Business               |
+|   107 | U.S.                   |
+|   107 | Opinion                |
+|    97 | Magazine               |
+|    69 | Arts; Theater          |
+|    68 | Style                  |
+|    54 | World                  |
+|    44 | Home and Garden; Style |
+|    35 | Travel                 |
+|    31 | Technology; Business   |
+|    31 |                        |
+|    30 | Week in Review         |
+|    25 | Home and Garden        |
+|    20 | Front Page; U.S.       |
+|    19 | Real Estate            |
 
 ** modifiers
 
