@@ -78,22 +78,23 @@ def gen_rm_ctrl(texts):
         yield [re_ws.sub(' ', p).strip() for p in parts]
 
 # generate a list of files from various input
-def gen_files(path):
-    if os.path.splitext(path)[1] == ".xml":
-        # XML input: just one file
-        yield open(path, "rt"), path
-    elif os.path.isdir(path):
-        # read all files in the directory
-        for fname in os.listdir(path):
-            fname = path + "/" + fname
-            if os.path.isfile(fname):
-                yield open(fname, "rt"), fname
-    else:
-        # read TAR file
-        tar = tarfile.open(path, "r:gz")
-        for tarinfo in tar:
-            if tarinfo.isreg():
-                yield tar.extractfile(tarinfo), tarinfo.name
+def gen_files(paths):
+    for path in paths:
+        if os.path.splitext(path)[1] == ".xml":
+            # XML input: just one file
+            yield open(path, "rt"), path
+        elif os.path.isdir(path):
+            # read all files in the directory
+            for fname in os.listdir(path):
+                fname = path + "/" + fname
+                if os.path.isfile(fname):
+                    yield open(fname, "rt"), fname
+        else:
+            # read TAR file
+            tar = tarfile.open(path, "r:gz")
+            for tarinfo in tar:
+                if tarinfo.isreg():
+                    yield tar.extractfile(tarinfo), tarinfo.name
 
 def print_lines(parts, sep='\t'):
     for parts in parts:
@@ -102,7 +103,7 @@ def print_lines(parts, sep='\t'):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Reading the NYT corpus.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('input', type=str, help='input TAR/XML file or directory')
+    parser.add_argument('input', type=str, help='input TAR/XML file or directory', nargs='+')
     parser.add_argument('-t', '--title', action="store_true", help='extract title')
     parser.add_argument('-b', '--body', action="store_true", help='extract body text')
     parser.add_argument('-u', '--url', action="store_true", help='extract URL')
