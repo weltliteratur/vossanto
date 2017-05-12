@@ -69,7 +69,7 @@ def gen_grep(parts, reg):
     regex = re.compile(reg)
     for part in parts:
         # skip filename
-        if any([regex.findall(part[0]) for i in range(1, len(part))]):
+        if any([regex.search(part[i]) for i in range(1, len(part))]):
             yield part
 
 # remove control characters
