@@ -398,28 +398,28 @@ After cleansing (thank you Frank!):
       | head -n20
 #+END_SRC
 
-| count | source                  |   |
-|-------+-------------------------+---|
-|    70 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |   |
-|    58 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |   |
-|    39 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |   |
-|    37 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |   |
-|    34 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |   |
-|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |   |
-|    25 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |   |
-|    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |   |
-|    23 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |   |
-|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |   |
-|    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |   |
-|    21 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |   |
-|    21 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |   |
-|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |   |
-|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |   |
-|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |   |
-|    20 | [[https://www.wikidata.org/wiki/Q153032][Mona Lisa]]               |   |
-|    19 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |   |
-|    18 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |   |
-|    18 | [[https://www.wikidata.org/wiki/Q302][Jesus Christ]]            |   |
+| count | source                  |
+|-------+-------------------------|
+|    70 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
+|    58 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
+|    39 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |
+|    37 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
+|    34 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
+|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
+|    25 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |
+|    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |
+|    23 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |
+|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
+|    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
+|    21 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
+|    21 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
+|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |
+|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
+|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |
+|    20 | [[https://www.wikidata.org/wiki/Q153032][Mona Lisa]]               |
+|    19 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |
+|    18 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
+|    18 | [[https://www.wikidata.org/wiki/Q302][Jesus Christ]]            |
 
 ** temporal distribution
 We plot some temporal distributions:
