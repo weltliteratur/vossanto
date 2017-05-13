@@ -398,28 +398,28 @@ After cleansing (thank you Frank!):
       | head -n20
 #+END_SRC
 
-| count | source                  |
-|-------+-------------------------|
-|    72 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
-|    63 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
-|    39 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |
-|    37 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
-|    35 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
-|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
-|    29 | [[https://www.wikidata.org/wiki/Q302][Jesus Christ]]            |
-|    28 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |
-|    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |
-|    23 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |
-|    22 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
-|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
-|    22 | [[https://www.wikidata.org/wiki/Q153032][Mona Lisa]]               |
-|    22 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
-|    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
-|    21 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
-|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |
-|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
-|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |
-|    20 | [[https://www.wikidata.org/wiki/Q13685096][Cinderella]]            |
+| count | source                  |   |
+|-------+-------------------------+---|
+|    70 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |   |
+|    58 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |   |
+|    39 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |   |
+|    37 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |   |
+|    34 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |   |
+|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |   |
+|    25 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |   |
+|    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |   |
+|    23 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |   |
+|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |   |
+|    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |   |
+|    21 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |   |
+|    21 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |   |
+|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |   |
+|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |   |
+|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |   |
+|    20 | [[https://www.wikidata.org/wiki/Q153032][Mona Lisa]]               |   |
+|    19 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |   |
+|    18 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |   |
+|    18 | [[https://www.wikidata.org/wiki/Q302][Jesus Christ]]            |   |
 
 ** temporal distribution
 We plot some temporal distributions:
@@ -443,19 +443,19 @@ We plot some temporal distributions:
 #+NAME: temporal-distribution
 |   year |     cand | wd | wd+bl | found | true |  prec |
 |--------+----------+----+-------+-------+------+-------|
-|   1987 |   640511 |  0 |   130 |   127 |  100 |  78.7 |
-|   1988 |   636109 |  0 |   138 |   134 |  112 |  83.6 |
-|   1989 |   624727 |  0 |   148 |   145 |  113 |  77.9 |
-|   1990 |   613136 |  0 |   140 |   137 |  108 |  78.8 |
-|   1991 |   512427 |  0 |   151 |   149 |  122 |  81.9 |
-|   1992 |   493694 |  0 |   146 |   144 |  113 |  78.5 |
-|   1993 |   480589 |  0 |   164 |   164 |  164 | 100.0 |
-|   1994 |   463914 |  0 |   161 |   160 |  160 | 100.0 |
+|   1987 |   640511 |  0 |   130 |   127 |   92 |  72.4 |
+|   1988 |   636109 |  0 |   138 |   134 |   89 |  66.4 |
+|   1989 |   624727 |  0 |   148 |   145 |  102 |  70.3 |
+|   1990 |   613136 |  0 |   140 |   137 |  100 |  73.0 |
+|   1991 |   512427 |  0 |   151 |   149 |  106 |  71.1 |
+|   1992 |   493694 |  0 |   146 |   144 |  104 |  72.2 |
+|   1993 |   480589 |  0 |   164 |   164 |  116 |  70.7 |
+|   1994 |   463914 |  0 |   161 |   160 |  119 |  74.4 |
 |   1995 |   499904 |  0 |   157 |   157 |  157 | 100.0 |
 |   1996 |   497177 |  0 |   185 |   183 |  183 | 100.0 |
 |   1997 |   514987 |  0 |   171 |   171 |  171 | 100.0 |
 |   1998 |   570026 |  0 |   240 |   240 |  240 | 100.0 |
-|   1999 |   584481 |  0 |   185 |   182 |  182 | 100.0 |
+|   1999 |   584481 |  0 |   185 |   182 |  181 |  99.5 |
 |   2000 |   601203 |  0 |   227 |   227 |  227 | 100.0 |
 |   2001 |   586104 |  0 |   204 |   202 |  202 | 100.0 |
 |   2002 |   595294 |  0 |   223 |   223 |  223 | 100.0 |
@@ -465,8 +465,8 @@ We plot some temporal distributions:
 |   2006 |   559447 |  0 |   217 |   217 |  217 | 100.0 |
 |   2007 |   259921 |  0 |    98 |    97 |   84 |  86.6 |
 |--------+----------+----+-------+-------+------+-------|
-|  *sum* | 11452615 |  0 |  3690 |  3661 | 3480 |  95.1 |
-| *mean* |   545363 |  0 |   176 |   174 |  166 |  95.4 |
+|  *sum* | 11452615 |  0 |  3690 |  3661 | 3315 |  90.5 |
+| *mean* |   545363 |  0 |   176 |   174 |  158 |  90.8 |
 #+TBLFM: $7=($-1/$-2)*100;%2.1f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f::@24$6=vmean(@I..@II);%2.0f
 
 
@@ -576,6 +576,8 @@ Collect the categories of the articles
 A very simple approach to identify frequent modifiers:
 #+BEGIN_SRC sh
 grep "^\(> \)*[0-9][0-9]*\. .*([0-9]\{4\}/[0-9][0-9]" README.org \
+                  | sed -e  "s/^\(> \)*[0-9][0-9]*\. *//" \
+                  | grep -v "^+" \
                   | sed -e  "s/.*of\* //" -e "s/['.,?].*//" \
                   | sort | uniq -c | sort -nr | head -n30
 #+END_SRC
