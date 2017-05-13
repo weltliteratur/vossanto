@@ -3,7 +3,7 @@
 
 #
 # Process (extract, filter, merge) Vossantos in an org mode file.
-# 
+#
 # Usage: Without any arguments, extracts all Vossanto canidates from
 # the given org file.
 #
@@ -23,8 +23,6 @@ from collections import OrderedDict
 
 version = "0.0.2"
 
-# to detect the Vossanto lines
-re_line = re.compile(r"^[0-9]+\.[ !]+\+?\[\[.+\]\[(.+)\]\] \(([0-9]{4})/([0-9]{2})/([0-9]{2})/([0-9]+)\)(.+[^+])\+?$")
 # to remove markup from the sentences
 re_clean = re.compile(r"[*.]")
 
@@ -54,6 +52,12 @@ def read_file(fname):
                 lines.append(line)
     return lines, index
 
+def gen_true(candidates):
+    for year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss in candidates:
+        if trueVoss:
+            yield year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss
+
+
 # read the lines of a file
 def gen_lines(fname):
     with open(fname, "r", encoding="utf-8") as f:
@@ -62,29 +66,32 @@ def gen_lines(fname):
 
 def gen_candidates(lines):
     for line in lines:
-        match = re_line.match(line.strip())
-        if match:
-            year = match.group(2)
-            aid = match.group(5)
-            item = match.group(1)
-            sentence = match.group(6)
-            yield year, aid, item, sentence
+        parts = match_line(line)
+        if parts:
+            yield parts
 
 # generates a key for a Vossanto
 def get_key(parts):
-    (year, aid, item, sentence) = parts
-    key = "|".join([year, aid, item, re_clean.sub('', sentence)[:40]])
+    year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss = parts
+    key = "|".join([year, aid, itemLabel, re_clean.sub('', sentence)[:40]])
     return year, key
-    
+
 # checks if the line is a Vossanto line
 def match_line(line):
+    # detect the Vossanto lines
+    re_line = re.compile(r"^(> )?[0-9]+\.[ !]+\+?\[\[.+/([^/]+)\]\[(.+)\]\] \((([0-9]{4})/([0-9]{2})/([0-9]{2})/([0-9]+))\)(.+[^+])(\+)?$")
+    # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
     match = re_line.match(line.strip())
     if match:
-        year = match.group(2)
-        aid = match.group(5)
-        item = match.group(1)
-        sentence = match.group(6)
-        return (year, aid, item, sentence)
+        newVoss = match.group(1)
+        itemId = match.group(2)
+        itemLabel = match.group(3)
+        fid = match.group(4)
+        year = match.group(5)
+        aid = match.group(8)
+        sentence = match.group(9)
+        trueVoss = match.group(10) != "+"
+        return year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss
     return None
 
 # inserts a vossanto line into the index
@@ -105,7 +112,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Merge Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('file', type=str, help='org mode file to process')
     parser.add_argument('-m', '--merge', type=str, metavar="FILE", help='file to merge')
-    parser.add_argument('-s', '--string-new', type=str, metavar="S", help="string to mark new entries", default='> ')
+    parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
+    parser.add_argument('-i', '--ignore', action="store_true", help="ignore true positives")
+    parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
@@ -117,7 +126,6 @@ if __name__ == '__main__':
         # read new file and insert Vossantos
         for line in gen_lines(args.merge):
             insert(index, line, args.string_new)
-
         # print first (unchanged) part of original file
         for line in lines:
             print(line, end='')
@@ -130,4 +138,9 @@ if __name__ == '__main__':
                 print(index[year][line], end='')
     else:
         # default: extract Vossntos
-        pass
+        lines = gen_lines(args.file)
+        parts = gen_candidates(lines)
+        if args.ignore:
+            parts = gen_true(parts)
+        for year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss in parts:
+            print(year, aid, fid, itemId, itemLabel, trueVoss, sep=args.separator)
