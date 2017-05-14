@@ -31,6 +31,10 @@ re_line = re.compile(r"^(> )?[0-9]+\.[ !]+\+?\[\[.+/([^/]+)\]\[(.+)\]\] \((([0-9
 # to remove markup from the sentences
 re_clean = re.compile(r"[*.]")
 
+# remove line breaks and tabs from text
+re_ws = re.compile('[\n\t\r]+')
+
+
 # reads the file into which the other file shall be merged
 # all non-vossanto lines are returned in lines,
 # all following (vossanto) lines are indexed in index using
@@ -75,14 +79,19 @@ def gen_candidates(lines):
         if parts:
             yield parts
 
+# remove control characters
+def gen_rm_ctrl(parts):
+    for part in parts:
+        yield [re_ws.sub(' ', p).strip() for p in part]
+
 # generates a key for a Vossanto
 def get_key(parts):
     year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss = parts
     key = "|".join([year, aid, sourceLabel, re_clean.sub('', sentence)[:40]])
     return year, key
 
-def select_parts(parts, syear, said, sfid, ssourceId, ssourceLabel, stext):
-    if any([syear, said, sfid, ssourceId, ssourceLabel, stext]):
+def select_parts(parts, syear, said, sfid, ssourceId, ssourceLabel, stext, swikidata):
+    if any([syear, said, sfid, ssourceId, ssourceLabel, stext, swikidata]):
         for year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss in parts:
             result = []
             if syear:
@@ -97,6 +106,8 @@ def select_parts(parts, syear, said, sfid, ssourceId, ssourceLabel, stext):
                 result.append(sourceLabel)
             if stext:
                 result.append(sentence)
+            if swikidata:
+                result.append("[[https://www.wikidata.org/wiki/" + sourceId + "][" + sourceLabel + "]]")
             yield result
     else:
         # when nothing has been selected, return everything
@@ -143,11 +154,13 @@ if __name__ == '__main__':
     parser.add_argument('-i', '--sourceid', action="store_true", help="output Wikidata source id")
     parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
     parser.add_argument('-t', '--text', action="store_true", help="output text")
+    parser.add_argument('-w', '--wikidata', action="store_true", help="output link to Wikidata")
     # other options
     parser.add_argument('-m', '--merge', type=str, metavar="FILE", help='file to merge')
     parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
     parser.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
-    parser.add_argument('-F', '--false', action="store_true", help="output only false Vossantos")    
+    parser.add_argument('-F', '--false', action="store_true", help="output only false Vossantos")
+    parser.add_argument('-c', '--clean', action="store_true", help="clean whitespace")
     parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
@@ -173,8 +186,10 @@ if __name__ == '__main__':
     else:
         # default: extract Vossntos
         lines = gen_lines(args.file)
-        parts = gen_candidates(lines)        
+        parts = gen_candidates(lines)
         parts = gen_truefalse(parts, args.true, args.false)
-        parts = select_parts(parts, args.year, args.articleid, args.fileid, args.sourceid, args.sourcelabel, args.text)
+        parts = select_parts(parts, args.year, args.articleid, args.fileid, args.sourceid, args.sourcelabel, args.text, args.wikidata)
+        if args.clean:
+            parts = gen_rm_ctrl(parts)
         for part in parts:
             print(args.separator.join([str(p) for p in part]))

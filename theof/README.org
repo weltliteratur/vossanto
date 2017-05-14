@@ -430,31 +430,31 @@ Extracts Vossanto candidates from org files. Options:
 
 After cleansing (thank you Frank!):
 #+BEGIN_SRC sh
-  ./org.py -l -T README.org | sort | uniq -c | sort -nr | head -n20
+  ./org.py -w -T README.org | sort | uniq -c | sort -nr | head -n20
 #+END_SRC
 
 | count | source                  |
 |-------+-------------------------|
-|    68 | Michael Jordan          |
-|    57 | Rodney Dangerfield      |
-|    36 | Madonna                 |
-|    36 | Babe Ruth               |
-|    34 | Elvis Presley           |
-|    30 | Johnny Appleseed        |
-|    25 | Pablo Picasso           |
-|    23 | Bill Gates              |
-|    22 | Michelangelo            |
-|    21 | Tiger Woods             |
-|    21 | Jackie Robinson         |
-|    21 | Donald Trump            |
-|    20 | Rembrandt               |
-|    20 | P. T. Barnum            |
-|    20 | Cary Grant              |
-|    18 | Wolfgang Amadeus Mozart |
-|    18 | William Shakespeare     |
-|    18 | Martha Stewart          |
-|    18 | John Wayne              |
-|    17 | Cinderella              |
+|    68 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
+|    57 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
+|    36 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
+|    36 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |
+|    34 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
+|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
+|    25 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |
+|    23 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |
+|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
+|    21 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |
+|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |
+|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
+|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |
+|    20 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
+|    20 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
+|    18 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |
+|    18 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]          |
+|    18 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
+|    18 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
+|    17 | [[https://www.wikidata.org/wiki/Q352][Adolf Hitler]]            |
 
 ** temporal distribution
 We plot some temporal distributions:
@@ -605,13 +605,13 @@ Collect the categories of the articles
 A very simple approach to identify frequent modifiers:
 #+BEGIN_SRC sh
   ./org.py -T -t README.org \
-                  | sed -e  "s/.*of\* //" -e "s/['.,?\!].*//" \
-                  | sort | uniq -c | sort -nr | head -n30
+      | sed -e  "s/.*of\* //" | perl -pe "s/(.*?[a-zA-Z0-9].*?)['.,?\!].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
+      | sort | uniq -c | sort -nr | head -n30
+#     | sed -e  "s/.*of\* //" -e "s/['.,?\!].*//" \
 #+END_SRC
 
 | count | modifier         |
 |-------+------------------|
-|    86 |                  |
 |    48 | his day          |
 |    28 | Japan            |
 |    27 | his time         |
@@ -637,10 +637,49 @@ A very simple approach to identify frequent modifiers:
 |     8 | hip-hop          |
 |     8 | jazz             |
 |     8 | New York         |
+|     7 | Long Island      | 
 |     7 | the              |
 |     7 | the 19th century |
 |     7 | the art world    |
 |     7 | the new          |
+
+*** "his day" or "his time"
+Who is the ... of "his day" or "his time"?
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* his \(day\|time\)" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
+#+END_SRC
+
+| count | source                |
+|-------+-----------------------|
+|     4 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]        |
+|     3 | [[https://www.wikidata.org/wiki/Q508574][Billy Martin]]          |
+|     3 | [[https://www.wikidata.org/wiki/Q11675][Eliot Spitzer]]         |
+|     2 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]            |
+|     2 | [[https://www.wikidata.org/wiki/Q49214][Dan Quayle]]            |
+|     2 | [[https://www.wikidata.org/wiki/Q2685][Arnold Schwarzenegger]] |
+|     2 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]        |
+|     2 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]          |
+|     2 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]           |
+|     1 | [[https://www.wikidata.org/wiki/Q963129][Lawrence Taylor]]       |
+
+*** "Japan"
+Who is the ... of "Japan"?
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* Japan" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
+#+END_SRC
+
+| count | source            |
+|-------+-------------------|
+|     6 | [[https://www.wikidata.org/wiki/Q8704][Walt Disney]]       |
+|     5 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]        |
+|     3 | [[https://www.wikidata.org/wiki/Q40912][Frank Sinatra]]     |
+|     2 | [[https://www.wikidata.org/wiki/Q8743][Thomas Edison]]     |
+|     2 | [[https://www.wikidata.org/wiki/Q721948][Nolan Ryan]]        |
+|     1 | [[https://www.wikidata.org/wiki/Q966859][Richard Perle]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]        |
+|     1 | [[https://www.wikidata.org/wiki/Q762][Leonardo da Vinci]] |
+|     1 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]        |
+|     1 | [[https://www.wikidata.org/wiki/Q722059][Walter Johnson]]    |
 
 * results
 
@@ -2303,7 +2342,7 @@ A very simple approach to identify frequent modifiers:
 136. [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]] (1997/10/10/0963909) They say he is the greatest ever, but from sunup to sundown         He doesn't even come close to me -- I'm *the Picasso of* the playground.
 137. +[[https://www.wikidata.org/wiki/Q41148][Martin Scorsese]] (1997/10/12/0964272) Because of the nervous energy of Mr. Anderson's writing and directorial style, he is being likened to *the Martin Scorsese of* the ''Mean Streets'' era.+
 138. [[https://www.wikidata.org/wiki/Q236421][Janet Reno]] (1997/10/13/0964875) Jacques Chirac -- that guy is *the Janet Reno of* diplomacy.
-139. [[https://www.wikidata.org/wiki/Q935][+Isaac Newton]] (1997/10/15/0965140) ''Bob Merton is *the Isaac Newton of* his field,'' Mr. Samuelson said.+
+139. +[[https://www.wikidata.org/wiki/Q935][Isaac Newton]] (1997/10/15/0965140) ''Bob Merton is *the Isaac Newton of* his field,'' Mr. Samuelson said.+
 140. [[https://www.wikidata.org/wiki/Q935][Isaac Newton]] (1997/10/15/0965250) ''Bob Merton is *the Isaac Newton of* his field,'' Mr. Samuelson said.
 141. [[https://www.wikidata.org/wiki/Q297142][Joe DiMaggio]] (1997/10/16/0965519) ''He was *the Joe DiMaggio of* legislators,'' said his friend Thomas Lyons, the chairman of the Cook County Democratic Party.
 142. [[https://www.wikidata.org/wiki/Q40531][John Wayne]] (1997/10/17/0965651) Photographed amid spectacular scenery, Mr. Hopkins and Mr. Baldwin trade amusingly wry Mametisms while awaiting regular appearances by Bart, whom Mr. Hopkins has fairly called ''*the John Wayne of* bears.''
@@ -2313,7 +2352,7 @@ A very simple approach to identify frequent modifiers:
 146. [[https://www.wikidata.org/wiki/Q5576257][Goddard Lieberson]] (1997/10/26/0967785) He has said the compliment he most cherishes is one that called him ''*the Goddard Lieberson of* publishing'' -- a reference to the president of Columbia Records who in the 1950's helped pioneer the recording of Broadway musicals and spoken word, spurred John Hammond's talent scouting and supported the signing of the blacklisted Pete Seeger, among other accomplishments.
 147. [[https://www.wikidata.org/wiki/Q937][Albert Einstein]] (1997/10/29/0968855) This has nothing and everything to do with Charles Barkley, *the Einstein of* the Houston Rockets, who was not enraptured with a man at a bar in Orlando, Fla., the other night and, by witnesses' account, picked him up and threw him like a football through a plate-glass window.
 148. +[[https://www.wikidata.org/wiki/Q153032][Mona Lisa]] (1997/11/03/0970198) ; any additional money it must pay to retain series will have to be made up in advertising revenue--or come directly off network's bottom line; Robert C Wright, NBC president, says $10 million figure is 'awful' and expresses hope that Warner Brothers will not push network to the wall in negotiations in light of many other shows Warner has on NBC; photo (M)                     ''E.R.,'' *the Mona Lisa of* contemporary television, is about to be put up for auction -- and every network in America wants this work of prime-time art hanging on its wall.+
-149. [[https://www.wikidata.org/wiki/Q41342][+Mary Tyler Moore]] (1997/11/06/0970877) Imagine *the Mary Tyler Moore of* her 1970's show hitting the bottle and losing her job after reading too much Kafka, and you'll sort of get the idea.+
+149. +[[https://www.wikidata.org/wiki/Q41342][Mary Tyler Moore]] (1997/11/06/0970877) Imagine *the Mary Tyler Moore of* her 1970's show hitting the bottle and losing her job after reading too much Kafka, and you'll sort of get the idea.+
 150. [[https://www.wikidata.org/wiki/Q270707][Dorothy Parker]] (1997/11/07/0971103) Syd Straw has long been *the Dorothy Parker of* the downtown club world, her self-deprecating charm and zany antics in counterpart to one of the biggest hearts and warmest voices in New York.
 151. [[https://www.wikidata.org/wiki/Q30547][Mother Teresa]] (1997/11/10/0972068) In his homily yesterday, the Cardinal said he had received many letters as the centennial of Miss Day's birth drew near, one from a supporter who called her ''*the Mother Teresa of* Mott Street.''
 152. [[https://www.wikidata.org/wiki/Q359416][George Hamilton]] (1997/11/12/0972502) But on the other hand, he was *the George Hamilton of* the Senate, spending so much time bronzing on his Capitol balcony that it was dubbed ''Dole's Beach.''
