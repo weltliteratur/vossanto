@@ -23,6 +23,9 @@ from collections import OrderedDict
 
 version = "0.0.2"
 
+# 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
+re_line = re.compile(r"^(> )?[0-9]+\.[ !]+\+?\[\[.+/([^/]+)\]\[(.+)\]\] \((([0-9]{4})/([0-9]{2})/([0-9]{2})/([0-9]+))\) (.+[^+])(\+)?$")
+
 # to remove markup from the sentences
 re_clean = re.compile(r"[*.]")
 
@@ -53,9 +56,9 @@ def read_file(fname):
     return lines, index
 
 def gen_true(candidates):
-    for year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss in candidates:
+    for year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss in candidates:
         if trueVoss:
-            yield year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss
+            yield year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss
 
 
 # read the lines of a file
@@ -72,26 +75,46 @@ def gen_candidates(lines):
 
 # generates a key for a Vossanto
 def get_key(parts):
-    year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss = parts
-    key = "|".join([year, aid, itemLabel, re_clean.sub('', sentence)[:40]])
+    year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss = parts
+    key = "|".join([year, aid, sourceLabel, re_clean.sub('', sentence)[:40]])
     return year, key
+
+def select_parts(parts, syear, said, sfid, ssourceId, ssourceLabel, stext):
+    if any([syear, said, sfid, ssourceId, ssourceLabel, stext]):
+        for year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss in parts:
+            result = []
+            if syear:
+                result.append(year)
+            if said:
+                result.append(aid)
+            if sfid:
+                result.append(fid)
+            if ssourceId:
+                result.append(sourceId)
+            if ssourceLabel:
+                result.append(sourceLabel)
+            if stext:
+                result.append(sentence)
+            yield result
+    else:
+        # when nothing has been selected, return everything
+        for part in parts:
+            yield part
 
 # checks if the line is a Vossanto line
 def match_line(line):
     # detect the Vossanto lines
-    re_line = re.compile(r"^(> )?[0-9]+\.[ !]+\+?\[\[.+/([^/]+)\]\[(.+)\]\] \((([0-9]{4})/([0-9]{2})/([0-9]{2})/([0-9]+))\)(.+[^+])(\+)?$")
-    # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
     match = re_line.match(line.strip())
     if match:
         newVoss = match.group(1)
-        itemId = match.group(2)
-        itemLabel = match.group(3)
+        sourceId = match.group(2)
+        sourceLabel = match.group(3)
         fid = match.group(4)
         year = match.group(5)
         aid = match.group(8)
         sentence = match.group(9)
         trueVoss = match.group(10) != "+"
-        return year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss
+        return year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss
     return None
 
 # inserts a vossanto line into the index
@@ -111,9 +134,17 @@ def insert(index, line, string_new = '> '):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Merge Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('file', type=str, help='org mode file to process')
+    # what shall be printed
+    parser.add_argument('-y', '--year', action="store_true", help="output year")
+    parser.add_argument('-a', '--articleid', action="store_true", help="output article id")
+    parser.add_argument('-f', '--fileid', action="store_true", help="output file id")
+    parser.add_argument('-i', '--sourceid', action="store_true", help="output Wikidata source id")
+    parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
+    parser.add_argument('-t', '--text', action="store_true", help="output text")
+    # other options
     parser.add_argument('-m', '--merge', type=str, metavar="FILE", help='file to merge')
     parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
-    parser.add_argument('-i', '--ignore', action="store_true", help="ignore true positives")
+    parser.add_argument('-p', '--positive', action="store_true", help="output only true Vossantos")
     parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
@@ -139,8 +170,9 @@ if __name__ == '__main__':
     else:
         # default: extract Vossntos
         lines = gen_lines(args.file)
-        parts = gen_candidates(lines)
-        if args.ignore:
+        parts = gen_candidates(lines)        
+        if args.positive:
             parts = gen_true(parts)
-        for year, aid, fid, itemId, itemLabel, sentence, trueVoss, newVoss in parts:
-            print(year, aid, fid, itemId, itemLabel, trueVoss, sep=args.separator)
+        parts = select_parts(parts, args.year, args.articleid, args.fileid, args.sourceid, args.sourcelabel, args.text)
+        for part in parts:
+            print(args.separator.join([str(p) for p in part]))
