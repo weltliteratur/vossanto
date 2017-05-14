@@ -419,7 +419,7 @@ Extracts Vossanto candidates from org files. Options:
 
 After cleansing (thank you Frank!):
 #+BEGIN_SRC sh
-  ./org.py -l -p README.org | sort | uniq -c | sort -nr | head -n20
+  ./org.py -l -T README.org | sort | uniq -c | sort -nr | head -n20
 #+END_SRC
 
 
@@ -456,7 +456,7 @@ We plot some temporal distributions:
          $(cat theof_${year}_wd.tsv | wc -l) \
          $(cat theof_${year}_wda_bl.tsv | wc -l) \
          $(./org.py -y README.org | grep ${year} | wc -l) \
-         $(./org.py -y -p README.org | grep ${year} | wc -l)
+         $(./org.py -y -T README.org | grep ${year} | wc -l)
   done
 #+END_SRC
 
@@ -583,7 +583,7 @@ Check the number of and the top categories:
 Collect the categories of the articles
 #+BEGIN_SRC sh
   echo "vossantos" $(grep "^[0-9]*\." README.org | grep -v "+$" | wc -l) articles $(wc -l < nyt_categories.tsv)
-  ./org.py -p -f README.org | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+  ./org.py -T -f README.org | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
       | sort | uniq -c \
       | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
       | join -t$'\t' -o1.2,1.1,2.2 - nyt_categories_distrib.tsv \
@@ -618,8 +618,8 @@ Collect the categories of the articles
 
 A very simple approach to identify frequent modifiers:
 #+BEGIN_SRC sh
-  ./org.py -p -t README.org \
-                  | sed -e  "s/.*of\* //" -e "s/['.,?].*//" \
+  ./org.py -T -t README.org \
+                  | sed -e  "s/.*of\* //" -e "s/['.,?\!].*//" \
                   | sort | uniq -c | sort -nr | head -n30
 #+END_SRC
 
