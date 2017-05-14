@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2017-05-14 (rja)
+# - added options for selection
 # 2017-05-13 (rja)
 # - renamed from mergeorg.py and extended for extraction and filtering
 # - migrated to Python3
@@ -55,9 +57,9 @@ def read_file(fname):
                 lines.append(line)
     return lines, index
 
-def gen_true(candidates):
+def gen_truefalse(candidates, true_positive, false_positive):
     for year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss in candidates:
-        if trueVoss:
+        if true_positive == false_positive or true_positive == trueVoss or false_positive != trueVoss:
             yield year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss
 
 
@@ -144,7 +146,8 @@ if __name__ == '__main__':
     # other options
     parser.add_argument('-m', '--merge', type=str, metavar="FILE", help='file to merge')
     parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
-    parser.add_argument('-p', '--positive', action="store_true", help="output only true Vossantos")
+    parser.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
+    parser.add_argument('-F', '--false', action="store_true", help="output only false Vossantos")    
     parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
@@ -171,8 +174,7 @@ if __name__ == '__main__':
         # default: extract Vossntos
         lines = gen_lines(args.file)
         parts = gen_candidates(lines)        
-        if args.positive:
-            parts = gen_true(parts)
+        parts = gen_truefalse(parts, args.true, args.false)
         parts = select_parts(parts, args.year, args.articleid, args.fileid, args.sourceid, args.sourcelabel, args.text)
         for part in parts:
             print(args.separator.join([str(p) for p in part]))

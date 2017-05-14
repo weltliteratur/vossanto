@@ -356,7 +356,15 @@ Merge with existing ~README.org~:
 ** TODO org.my
 
 Extracts Vossanto candidates from org files. Options:
-- merge :: Merge the candidates with candidates from another org file.
+- --merge FILE :: Merge the candidates with candidates from the org
+                  file FILE.
+- --year, --articleid, --fileid, --sourceid, --sourcelabel, --text ::
+     Output the corresponding field (if no field is selected, all
+     fields are printed in that order)
+- --true :: Output only candidates which have been flagged as true
+            Vossantos.
+- --false :: Output only candidates which have been flagged as true
+             Vossantos.
 
 * statistics
 ** most frequent source candidates
@@ -451,6 +459,30 @@ We plot some temporal distributions:
          $(./org.py -y -p README.org | grep ${year} | wc -l)
   done
 #+END_SRC
+
+#+RESULTS:
+| year | all | wd | wd+bl | found | true | prec |
+| 1987 |   0 |  0 |     0 |   127 |   92 |      |
+| 1988 |   0 |  0 |     0 |   134 |   88 |      |
+| 1989 |   0 |  0 |     0 |   145 |  102 |      |
+| 1990 |   0 |  0 |     0 |   137 |  100 |      |
+| 1991 |   0 |  0 |     0 |   149 |  106 |      |
+| 1992 |   0 |  0 |     0 |   144 |  104 |      |
+| 1993 |   0 |  0 |     0 |   164 |  116 |      |
+| 1994 |   0 |  0 |     0 |   160 |  118 |      |
+| 1995 |   0 |  0 |     0 |   157 |  116 |      |
+| 1996 |   0 |  0 |     0 |   183 |  136 |      |
+| 1997 |   0 |  0 |     0 |   171 |  137 |      |
+| 1998 |   0 |  0 |     0 |   240 |  236 |      |
+| 1999 |   0 |  0 |     0 |   182 |  174 |      |
+| 2000 |   0 |  0 |     0 |   227 |  222 |      |
+| 2001 |   0 |  0 |     0 |   202 |  200 |      |
+| 2002 |   0 |  0 |     0 |   223 |  217 |      |
+| 2003 |   0 |  0 |     0 |   213 |  204 |      |
+| 2004 |   0 |  0 |     0 |   187 |  181 |      |
+| 2005 |   0 |  0 |     0 |   202 |  194 |      |
+| 2006 |   0 |  0 |     0 |   217 |  212 |      |
+| 2007 |   0 |  0 |     0 |    97 |   82 |      |
 
 #+CAPTION: The temporal distribution of the number of candidate phrases (cand), after matching against  Wikidata (wd) and a blacklist (wd+bl), and after manual inspection (true). The last column shows the precision.
 #+NAME: temporal-distribution
