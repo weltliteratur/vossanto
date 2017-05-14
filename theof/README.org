@@ -221,8 +221,10 @@ Which are the most frequent ones?
 |   53 | the King of     |
 |   45 | the Sultan of   |
 |      |                 |
-So most of those are covered by rather unusual "names". We put all of
-them into a [[file:blacklist.tsv][blacklist]]:
+So most of those are covered by rather unusual "names". 
+
+** blacklisting names
+We put such rather unusual "names into a [[file:blacklist.tsv][blacklist]]:
 #+BEGIN_SRC sh
   awk -F'\t' '{print $3}' theof_1987_wdfiltered.tsv | sort | uniq -c | sort -nr > blacklist.tsv
 #+END_SRC
@@ -262,6 +264,8 @@ Which were the most frequent ones?
 |    2 | the Abraham Lincoln of |
 
 Much better! Let us repeat this process for all other years.
+
+*** TODO criteria
 
 ** processing all remaining years
 *** matching against Wikidata without blacklist
@@ -321,7 +325,7 @@ We extract new candidates for our blacklist using the next year:
 
 ** format data for analysis
 Put everything into this org file:
-#+BEGIN_SRC sh :results raw
+#+BEGIN_SRC sh :results silent
   export PYTHONIOENCODING=utf-8
   rm newR.org
   for year in $(seq 1987 2007); do
@@ -336,6 +340,23 @@ Merge with existing ~README.org~:
   grep -A100000 "^ results" README.org > oldR.org
   ./mergeorg.py README.org newR.org > newREADME.org
 #+END_SRC
+
+** TODO manual post-processing
+- detection of false positives
+  - how?
+- repairing Wikidata links 
+  - e.g., Bart Simpson, Wagner
+- repairing markup of source
+- handling of duplicates
+  - how?
+- adding markup for modifier
+
+* tools
+** TODO nyt.py
+** TODO org.my
+
+Extracts Vossanto candidates from org files. Options:
+- merge :: Merge the candidates with candidates from another org file.
 
 * statistics
 ** most frequent source candidates
@@ -390,16 +411,9 @@ Merge with existing ~README.org~:
 
 After cleansing (thank you Frank!):
 #+BEGIN_SRC sh
-  grep -A10000 "^* results" README.org \
-      | grep "^\(> \)*[0-9][0-9]*\." \
-      | sed -e  "s/^\(> \)*[0-9]*\. *//" -e "s/ ([0-9]*\/.*//" \
-      | grep -v "^+" \
-      | sort | uniq -c | sort -nr \
-      | head -n20
+  ./org.py -l -p README.org | sort | uniq -c | sort -nr | head -n20
 #+END_SRC
 
-| count | source                  |
-|-------+-------------------------|
 |    70 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
 |    58 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
 |    39 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |
@@ -410,13 +424,13 @@ After cleansing (thank you Frank!):
 |    24 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |
 |    23 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |
 |    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
-|    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
 |    21 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
+|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
+|    21 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
 |    21 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
 |    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |
-|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
-|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |
 |    20 | [[https://www.wikidata.org/wiki/Q153032][Mona Lisa]]               |
+|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |
 |    19 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |
 |    18 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
 |    18 | [[https://www.wikidata.org/wiki/Q302][Jesus Christ]]            |
@@ -430,12 +444,8 @@ We plot some temporal distributions:
          $(zcat theof_${year}.tsv.gz | wc -l) \
          $(cat theof_${year}_wd.tsv | wc -l) \
          $(cat theof_${year}_wda_bl.tsv | wc -l) \
-         $(grep "^\(> \)*[0-9][0-9]*\. .*(${year}/[0-9][0-9]" README.org \
-                  | sed -e  "s/^\(> \)*[0-9]*\. *//" -e "s/ ([0-9]*\/.*//" \
-                  | wc -l) \
-         $(grep "^\(> \)*[0-9][0-9]*\. .*(${year}/[0-9][0-9]" README.org \
-                  | sed -e  "s/^\(> \)*[0-9]*\. *//" -e "s/ ([0-9]*\/.*//" \
-                  | grep -v "^+" | wc -l)
+         $(./org.py -y README.org | grep ${year} | wc -l) \
+         $(./org.py -y -p README.org | grep ${year} | wc -l)
   done
 #+END_SRC
 
@@ -538,7 +548,7 @@ Check the number of and the top categories:
 Collect the categories of the articles
 #+BEGIN_SRC sh
   echo "vossantos" $(grep "^[0-9]*\." README.org | grep -v "+$" | wc -l) articles $(wc -l < nyt_categories.tsv)
-  grep "^[0-9]*\." README.org | grep -v "+$" \
+  grep "./^[0-9]*\." README.org | grep -v "+$" \
       | sed -e "s|.*(\([0-9]*/[0-9]*/[0-9]*/[0-9]*\)).*|\1|" \
       | sort | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
       | sort | uniq -c \
