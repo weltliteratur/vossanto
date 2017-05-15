@@ -643,10 +643,30 @@ A very simple approach to identify frequent modifiers:
 |     7 | the art world    |
 |     7 | the new          |
 
-*** "his day" or "his time"
-Who is the ... of "his day" or "his time"?
+*** today
+**** "today"
+Who are the sources for the modifier "today"?
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* his \(day\|time\)" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
+  ./org.py -w -t -c README.org | grep "of\* today" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr
+#+END_SRC
+
+| count | source               |
+|-------+----------------------|
+|     2 | [[https://www.wikidata.org/wiki/Q189240][Kevin Garnett]]        |
+|     1 | [[https://www.wikidata.org/wiki/Q955322][Shoeless Joe Jackson]] |
+|     1 | [[https://www.wikidata.org/wiki/Q935160][Arthur Mitchell]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q531224][Helen Mack]]           |
+|     1 | [[https://www.wikidata.org/wiki/Q5237521][David Merrick]]        |
+|     1 | [[https://www.wikidata.org/wiki/Q4982930][Buck Rogers]]          |
+|     1 | [[https://www.wikidata.org/wiki/Q4910116][Bill McGowan]]         |
+|     1 | [[https://www.wikidata.org/wiki/Q4908317][Bill Buckley]]         |
+|     1 | [[https://www.wikidata.org/wiki/Q37349][Dalai Lama]]           |
+|     1 | [[https://www.wikidata.org/wiki/Q3569688][Curtis Sliwa]]         |
+
+**** "his day" or "his time"
+Who are the sources for the modifiers "his day", "his time", and "his generation"?
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* his \(day\|time\|generation\)" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
 #+END_SRC
 
 | count | source                |
@@ -655,15 +675,35 @@ Who is the ... of "his day" or "his time"?
 |     3 | [[https://www.wikidata.org/wiki/Q508574][Billy Martin]]          |
 |     3 | [[https://www.wikidata.org/wiki/Q11675][Eliot Spitzer]]         |
 |     2 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]            |
+|     2 | [[https://www.wikidata.org/wiki/Q5431219][Faith Popcorn]]         |
 |     2 | [[https://www.wikidata.org/wiki/Q49214][Dan Quayle]]            |
 |     2 | [[https://www.wikidata.org/wiki/Q2685][Arnold Schwarzenegger]] |
 |     2 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]        |
 |     2 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]          |
 |     2 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]           |
-|     1 | [[https://www.wikidata.org/wiki/Q963129][Lawrence Taylor]]       |
 
-*** "Japan"
-Who is the ... of "Japan"?
+**** "her day"
+Who are the sources for the modifier "her day"?
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* her day" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
+#+END_SRC
+
+| count | source           |
+|-------+------------------|
+|     1 | [[https://www.wikidata.org/wiki/Q93187][Hilary Swank]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q6294][Hillary Clinton]]  |
+|     1 | [[https://www.wikidata.org/wiki/Q4616][Marilyn Monroe]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q452206][Judith Krantz]]    |
+|     1 | [[https://www.wikidata.org/wiki/Q3838473][Lucia Pamela]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q34851][Elizabeth Taylor]] |
+|     1 | [[https://www.wikidata.org/wiki/Q285536][Imelda Marcos]]    |
+|     1 | [[https://www.wikidata.org/wiki/Q235066][Laurie Anderson]]  |
+|     1 | [[https://www.wikidata.org/wiki/Q234163][Nell Gwyn]]        |
+|     1 | [[https://www.wikidata.org/wiki/Q225283][Annie Leibovitz]]  |
+
+*** country
+**** "Japan"
+Who are the sources for the modifier "Japan"?
 #+BEGIN_SRC sh
   ./org.py -w -t -c README.org | grep "of\* Japan" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
 #+END_SRC
@@ -680,6 +720,83 @@ Who is the ... of "Japan"?
 |     1 | [[https://www.wikidata.org/wiki/Q762][Leonardo da Vinci]] |
 |     1 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]        |
 |     1 | [[https://www.wikidata.org/wiki/Q722059][Walter Johnson]]    |
+
+**** "China"
+Who are the sources for the modifier "China"?
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* China" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
+#+END_SRC
+
+| count | source              |
+|-------+---------------------|
+|     4 | [[https://www.wikidata.org/wiki/Q231417][Barbara Walters]]     |
+|     2 | [[https://www.wikidata.org/wiki/Q355314][Jack Welch]]          |
+|     2 | [[https://www.wikidata.org/wiki/Q213430][Larry King]]          |
+|     1 | [[https://www.wikidata.org/wiki/Q7742][Louis XIV of France]] |
+|     1 | [[https://www.wikidata.org/wiki/Q60029][Oskar Schindler]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]            |
+|     1 | [[https://www.wikidata.org/wiki/Q485635][Keith Haring]]        |
+|     1 | [[https://www.wikidata.org/wiki/Q41921][Rosa Parks]]          |
+|     1 | [[https://www.wikidata.org/wiki/Q30487][Mikhail Gorbachev]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]        |
+
+*** sports
+**** baseball
+Who are the sources for the modifier "baseball"?
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* baseball" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
+#+END_SRC
+
+| count | source          |
+|-------+-----------------|
+|     3 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]    |
+|     2 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]       |
+|     2 | [[https://www.wikidata.org/wiki/Q190152][Larry Bird]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q968798][Paul Brown]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q960612][Clifford Irving]] |
+|     1 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q695751][Thomas Dooley]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q6101][Marco Polo]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q453251][Horatio Alger]]   |
+
+**** tennis
+Who are the sources for the modifier "tennis"?
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* tennis" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
+#+END_SRC
+
+| count | source          |
+|-------+-----------------|
+|     2 | [[https://www.wikidata.org/wiki/Q213919][George Foreman]]  |
+|     1 | [[https://www.wikidata.org/wiki/Q7803927][Tim McCarver]]    |
+|     1 | [[https://www.wikidata.org/wiki/Q739866][Pete Rose]]       |
+|     1 | [[https://www.wikidata.org/wiki/Q721948][Nolan Ryan]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q5182352][Crash Davis]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q51566][Spike Lee]]       |
+|     1 | [[https://www.wikidata.org/wiki/Q51516][John Madden]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]  |
+|     1 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q359416][George Hamilton]] |
+
+**** basketball
+Who are the sources for the modifier "basketball"?
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* basketball" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head 
+#+END_SRC
+
+| count | source                  |
+|-------+-------------------------|
+|     3 | [[https://www.wikidata.org/wiki/Q315487][Bugsy Siegel]]            |
+|     2 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
+|     1 | [[https://www.wikidata.org/wiki/Q855][Joseph Stalin]]           |
+|     1 | [[https://www.wikidata.org/wiki/Q8027][Martin Luther King, Jr.]] |
+|     1 | [[https://www.wikidata.org/wiki/Q51516][John Madden]]             |
+|     1 | [[https://www.wikidata.org/wiki/Q4911006][Bill Stern]]              |
+|     1 | [[https://www.wikidata.org/wiki/Q39464][Pol Pot]]                 |
+|     1 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
+|     1 | [[https://www.wikidata.org/wiki/Q352][Adolf Hitler]]            |
+|     1 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
 
 * results
 
