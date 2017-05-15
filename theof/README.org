@@ -1086,6 +1086,79 @@ Who are the sources for the modifier ... ?
 |     4 | wine          |
 |     4 | salsa         |
 
+*** Michael Jordan
+
+#+BEGIN_SRC sh :results raw
+  ./org.py -T -l -t README.org | awk -F'\t' '{if ($1 == "Michael Jordan") print $2}' \
+      | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;)\"].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" -e "s/^/- /" \
+      | sort -u 
+#+END_SRC
+
+the Michael Jordan of
+- 12th men
+- actresses
+- Afghanistan
+- Australia
+- baseball
+- BMX racing
+- boxing
+- Brazilian basketball for the past 20 years
+- college coaches
+- computer games
+- cricket
+- cyberspace
+- dance
+- diving
+- dressage horses
+- fast food
+- figure skating
+- foosball
+- game shows
+- geopolitics
+- golf
+- Harlem
+- hers
+- his day
+- his sport
+- his team
+- his time
+- hockey
+- horse racing
+- hunting and fishing
+- Indiana
+- integrating insurance and health care
+- julienne
+- jumpers
+- language
+- Laser sailing
+- late-night TV
+- management in Digital
+- Mexico
+- motocross racing in the 1980
+- orange juice
+- Sauternes
+- snowboarding
+- soccer
+- television puppets
+- tennis
+- the Buffalo team
+- the dirt set
+- the Eagles
+- the game
+- the Hudson
+- the National Football League
+- the South Korean penal system
+- the sport
+- the White Sox
+- this sport
+- women's ball
+- women's basketball
+
+** favourites
+Robert:
+- [[https://www.wikidata.org/wiki/Q123867][Marquis de Sade]] (1993/09/26/0636952) When we introduced Word in October 1983, in its first incarnation it was dubbed *the Marquis de Sade of* word processors, which was not altogether unfair.
+- [[https://www.wikidata.org/wiki/Q103846][Groucho Marx]] (1987/09/27/0077726) But the tide eventually shifted, partly because the supreme materialist of physics, Richard Feynman of the California Institute of Technology, a man once described as *the Groucho Marx of* physics, turned the quest for nuclear substructure into a cause celebre.
+
 * results
 
 ** 1987
