@@ -378,84 +378,6 @@ Extracts Vossanto candidates from org files. Options:
 - --help :: Output help message and exit.
 
 * statistics
-** most frequent source candidates
-
-#+BEGIN_SRC sh
-  awk -F'\t' '{print $4}' theof_*_wda_bl.tsv \
-      | sort | uniq -c | sort -nr | head -n40
-#+END_SRC
-
-| count | source candidate   |
-|-------+--------------------|
-|    74 | Michael Jordan     |
-|    64 | Rodney Dangerfield |
-|    47 | Madonna            |
-|    37 | Babe Ruth          |
-|    32 | Elvis              |
-|    30 | Johnny Appleseed   |
-|    28 | Jesus              |
-|    27 | Picasso            |
-|    26 | Mona Lisa          |
-|    24 | Bill Gates         |
-|    23 | Rembrandt          |
-|    23 | Mozart             |
-|    23 | Michelangelo       |
-|    22 | Shakespeare        |
-|    22 | Donald Trump       |
-|    22 | Dalai Lama         |
-|    21 | Tiger Woods        |
-|    21 | P. T. Barnum       |
-|    21 | Jackie Robinson    |
-|    21 | Cary Grant         |
-|    20 | Cinderella         |
-|    19 | John Wayne         |
-|    18 | Napoleon           |
-|    18 | Martha Stewart     |
-|    16 | Mother Teresa      |
-|    16 | Hitler             |
-|    16 | Henry Ford         |
-|    16 | Cal Ripken         |
-|    15 | Ralph Nader        |
-|    14 | Tolstoy            |
-|    14 | Ross Perot         |
-|    13 | Susan Lucci        |
-|    13 | Cassandra          |
-|    12 | Walt Disney        |
-|    12 | Rosa Parks         |
-|    12 | Robin Hood         |
-|    12 | Einstein           |
-|    11 | Willie Horton      |
-|    11 | Moses              |
-|    11 | Beethoven          |
-
-After cleansing (thank you Frank!):
-#+BEGIN_SRC sh
-  ./org.py -w -T README.org | sort | uniq -c | sort -nr | head -n20
-#+END_SRC
-
-| count | source                  |
-|-------+-------------------------|
-|    68 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
-|    57 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
-|    36 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
-|    36 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |
-|    34 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
-|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
-|    25 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |
-|    23 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |
-|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
-|    21 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |
-|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |
-|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
-|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |
-|    20 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
-|    20 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
-|    18 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |
-|    18 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]          |
-|    18 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
-|    18 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
-|    17 | [[https://www.wikidata.org/wiki/Q352][Adolf Hitler]]            |
-
 ** temporal distribution
 We plot some temporal distributions:
 #+BEGIN_SRC sh
@@ -526,6 +448,147 @@ replot
 #+end_src
 
 [[nyt_vossantos_over_time.png]]
+** sources
+*** most frequent
+The most frequent source /candidates/ are:
+#+BEGIN_SRC sh
+  awk -F'\t' '{print $4}' theof_*_wda_bl.tsv \
+      | sort | uniq -c | sort -nr | head -n20
+#+END_SRC
+
+| count | source candidate   |
+|-------+--------------------|
+|    74 | Michael Jordan     |
+|    64 | Rodney Dangerfield |
+|    47 | Madonna            |
+|    37 | Babe Ruth          |
+|    32 | Elvis              |
+|    30 | Johnny Appleseed   |
+|    28 | Jesus              |
+|    27 | Picasso            |
+|    26 | Mona Lisa          |
+|    24 | Bill Gates         |
+|    23 | Rembrandt          |
+|    23 | Mozart             |
+|    23 | Michelangelo       |
+|    22 | Shakespeare        |
+|    22 | Donald Trump       |
+|    22 | Dalai Lama         |
+|    21 | Tiger Woods        |
+|    21 | P. T. Barnum       |
+|    21 | Jackie Robinson    |
+|    21 | Cary Grant         |
+
+After cleansing, the following most frequent sources remain:
+#+BEGIN_SRC sh
+  ./org.py -w -T README.org | sort | uniq -c | sort -nr | head -n40
+#+END_SRC
+
+| count | source                  |
+|-------+-------------------------|
+|    68 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
+|    57 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
+|    36 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
+|    36 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |
+|    34 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
+|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
+|    25 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |
+|    23 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |
+|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
+|    21 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |
+|    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |
+|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
+|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |
+|    20 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
+|    20 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
+|    18 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |
+|    18 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]          |
+|    18 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
+|    18 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
+|    17 | [[https://www.wikidata.org/wiki/Q352][Adolf Hitler]]            |
+|    17 | [[https://www.wikidata.org/wiki/Q13685096][Cinderella]]              |
+|    16 | [[https://www.wikidata.org/wiki/Q8768][Henry Ford]]              |
+|    16 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]                |
+|    15 | [[https://www.wikidata.org/wiki/Q193156][Ralph Nader]]             |
+|    14 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]              |
+|    14 | [[https://www.wikidata.org/wiki/Q5443][Greta Garbo]]             |
+|    14 | [[https://www.wikidata.org/wiki/Q30547][Mother Teresa]]           |
+|    13 | [[https://www.wikidata.org/wiki/Q242936][Susan Lucci]]             |
+|    12 | [[https://www.wikidata.org/wiki/Q7243][Leo Tolstoy]]             |
+|    12 | [[https://www.wikidata.org/wiki/Q762][Leonardo da Vinci]]       |
+|    12 | [[https://www.wikidata.org/wiki/Q7352498][Robin Hood]]              |
+|    12 | [[https://www.wikidata.org/wiki/Q41921][Rosa Parks]]              |
+|    12 | [[https://www.wikidata.org/wiki/Q8743][Thomas Edison]]           |
+|    11 | [[https://www.wikidata.org/wiki/Q937][Albert Einstein]]         |
+|    11 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]              |
+|    11 | [[https://www.wikidata.org/wiki/Q9077][Moses]]                   |
+|    11 | [[https://www.wikidata.org/wiki/Q55800][Oprah Winfrey]]           |
+|    11 | [[https://www.wikidata.org/wiki/Q8704][Walt Disney]]             |
+|    11 | [[https://www.wikidata.org/wiki/Q8021572][Willie Horton]]           |
+|    10 | [[https://www.wikidata.org/wiki/Q216810][King Kong]]               |
+
+*** temporal distribution
+
+#+BEGIN_SRC sh
+  for year in $(seq 1987 2007); do
+    echo -n $year
+    for s in "Michael_Jordan" "Rodney_Dangerfield" "Babe_Ruth"; do
+      s=$(echo $s| sed "s/_/ /g")
+      c=$(./org.py -T -y -l README.org | grep ^$year | awk -F'\t' '{print $2}' | grep "^$s$" | wc -l)
+      echo -n "\t$c"
+    done
+    echo
+  done
+#+END_SRC
+
+#+NAME: sources-temporal-distribution
+| year | Michael Jordan | Rodney Dangerfield | Babe Ruth |
+|------+----------------+--------------------+-----------|
+| 1987 |              0 |                  0 |         1 |
+| 1988 |              0 |                  0 |         1 |
+| 1989 |              1 |                  1 |         0 |
+| 1990 |              3 |                  2 |         1 |
+| 1991 |              4 |                  1 |         2 |
+| 1992 |              2 |                  4 |         1 |
+| 1993 |              3 |                  4 |         2 |
+| 1994 |              2 |                  0 |         3 |
+| 1995 |              0 |                  0 |         3 |
+| 1996 |              4 |                  7 |         1 |
+| 1997 |              1 |                  3 |         1 |
+| 1998 |              6 |                  7 |         3 |
+| 1999 |              8 |                  2 |         1 |
+| 2000 |             12 |                  5 |         3 |
+| 2001 |              7 |                  5 |         0 |
+| 2002 |              5 |                  2 |         3 |
+| 2003 |              2 |                  0 |         4 |
+| 2004 |              0 |                  1 |         2 |
+| 2005 |              2 |                  8 |         2 |
+| 2006 |              3 |                  4 |         2 |
+| 2007 |              3 |                  1 |         0 |
+
+#+begin_src gnuplot :var data=sources-temporal-distribution :file nyt_sources_over_time.svg :results silent
+reset
+set datafile separator "\t"
+
+set xlabel "year"
+set ylabel "frequency"
+set grid linetype 1 linecolor 0
+set yrange [0:*]
+set key top left
+set style fill solid 1
+
+set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
+#set out "nyt_sources_over_time.svg"
+plot data using 1:2 with linespoints pt 7 title 'Michael Jordan',\
+     data using 1:3 with linespoints pt 7 title 'Rodney Dangerfield',\
+     data using 1:4 with linespoints pt 7 title 'Babe Ruth'
+
+set term png enhanced size 800,600 font "Arial,16" lw  2
+set out "nyt_sources_over_time.png"
+replot
+#+end_src
+
+[[nyt_sources_over_time.png]]
 
 ** categories
 Extract the categories for the articles:
