@@ -15,9 +15,8 @@
 ** preliminary note
 With our initial exploratory approach we were able to cover a wide
 variety of Vossantos but clearly missed some, as an analysis of some
-[[file:../examples/br.org#examples][examples]] shows. Therefore, we started to think about simplified
-patterns which just match the source, for instance:
-
+[[file:../examples/br.org#examples][examples]] shows. Therefore, we thought about simplified patterns which
+just match the source, for instance:
 #+BEGIN_SRC
   (a|the) (next|new|future|would-be)? ([A-Z][a-z]+ ){1,3} of
 #+END_SRC
@@ -34,8 +33,8 @@ corpus:
 - adjectives that further describe the target, e.g., "the abused
   pint-size Michelangelo of"
 
-This again shows the difficulty to find a good balance between recall
-and precision. We limited ourselves to the most basic pattern "the
+This shows the difficulty to find a good balance between recall and
+precision. We limited ourselves to the most basic pattern "the
 ... of", where "..."  represents up to five words which match a
 Wikidata entity.
 
@@ -50,7 +49,7 @@ We search for sentences which contain the pattern
   done
 #+END_SRC
 
-Allowing up to five words (both capizalised and not) adds noise, e.g.,
+Allowing up to five words (both capitalised and not) adds noise, e.g.,
 - "the other is the Maggie Smith of"
 - "referred to the writer as the Clifford Irving of baseball"
 - "the past are the David Brinkley of"
@@ -224,7 +223,7 @@ Which are the most frequent ones?
 So most of those are covered by rather unusual "names".
 
 ** blacklisting names
-We put such rather unusual "names into a [[file:blacklist.tsv][blacklist]]:
+We put such rather unusual "names" into a [[file:blacklist.tsv][blacklist]]:
 #+BEGIN_SRC sh
   awk -F'\t' '{print $3}' theof_1987_wdfiltered.tsv | sort | uniq -c | sort -nr > blacklist.tsv
 #+END_SRC
@@ -266,6 +265,20 @@ Which were the most frequent ones?
 Much better! Let us repeat this process for all other years.
 
 *** TODO criteria
+Since the blacklist is quite long
+#+BEGIN_SRC sh
+  wc -l blacklist.tsv
+#+END_SRC
+: 1268 blacklist.tsv
+it is worthwhile to describe how we created it: We have iteratively
+examined the source candidates for the years and added names to the
+blacklist which were not obviously (famous) people. This mainly
+affected names with just one word
+#+BEGIN_SRC sh
+  grep " " blacklist.tsv | wc -l
+#+END_SRC
+: 61
+which often are also English nouns like house, hall, church, bill.
 
 ** processing all remaining years
 *** matching against Wikidata without blacklist
@@ -278,7 +291,7 @@ Much better! Let us repeat this process for all other years.
 Now we have restricted the list to phrases which contain a source that
 matches a Wikidata item with an "instance of" property of "human".
 
-*** creating a blacklist
+*** extending the blacklist
 **** Step 1
 We create an initial blacklist using the terms from the first year:
 #+BEGIN_SRC sh :results silent
@@ -337,8 +350,7 @@ Put everything into this org file:
 
 Merge with existing ~README.org~:
 #+BEGIN_SRC sh
-  grep -A100000 "^ results" README.org > oldR.org
-  ./mergeorg.py README.org newR.org > newREADME.org
+  ./org.py --merge newR.org README.org  > newREADME.org
 #+END_SRC
 
 ** TODO manual post-processing
@@ -351,18 +363,69 @@ Merge with existing ~README.org~:
     selected because his surname is provided as "Also known as"
     alternative in Wikidata)
 - repairing markup of source
-- handling of duplicates
-  - how?
+- handling of duplicates, types of duplicates:
+  - exact same sentence but different article
+  - same phrase/similar sentence in same/different article
 - adding markup for modifier
 
 - TODO :: For sentences containing several Vossantos only one source
           is extracted. This means that some sources can not be
           counted properly.
 
+*** TODO duplicates that need to be handled
+
+#+BEGIN_SRC sh :results raw
+  ./org.py -T -t -c README.org | sort | uniq -c | sort -nr | sed "s/^ */- /" | grep -v "^- 1 " | less -S
+#+END_SRC
+
+- 18 Mr. Chow comes across as *the Cary Grant of* the blade.
+- 6 She was *the Sol LeWitt of* weaving.
+- 6 Mr. Kelly was *the Chet Baker of* the new, cool painters of the post-Abstract Expressionist generation.
+- 6 ''Legally Blonde'' is made almost worthwhile by Ms. Witherspoon, who may be *the Doris Day of* our drab age.
+- 6 Coming after Sept. 11, the show gives everybody in town a chance to contemplate through altered eyes *the Rembrandt of* Punkin Crick, as a critic acidly named him years ago.
+- 5 Ms. Grier, *the Annie Oakley of* 1970's blaxploitation films, makes a game comeback even if she struggles with the story's ensemble loafing.
+- 4 Photographed amid spectacular scenery, Mr. Hopkins and Mr. Baldwin trade amusingly wry Mametisms while awaiting regular appearances by Bart, whom Mr. Hopkins has fairly called ''*the John Wayne of* bears.''
+- 4 ''If it is a tax, it's really *the Robin Hood of* taxes,'' Mr. Schwartz said.
+- 4 Coming after Sept. 11, the show gives everybody in town a chance to contemplate *the Rembrandt of* Punkin Crick, as a critic acidly dubbed him years ago, through altered eyes.
+- 3 There are major characters but no heroes in this antiromance of 1907 in Battle Creek, Mich., where Dr. John Harvey Kellogg, *the Edison of* clean living, presides over pilgrims who hope to escape the ills and smells that flesh is heir to.
+- 3 One of the few professionally successful Jewish artists in early 19th-century Europe, Oppenheim (1800-82) was known as ''the painter of Rothschilds and *the Rothschild of* painters.''
+- 3 J Mascis is *the Neil Young of* Generation X.
+- 3 Based on the true story of Michael Alig, *the Peter Pan of* the New York club kids of the 1980's, this familiar tale of big-city glamour and ruin is a stylish muddle.
+- 3 Back in 1997, Congressman Schumer was *the Eliot Spitzer of* his day.
+- 3 A provocative, spirited collection -- his best so far -- by *the Stan Musial of* essay writing.
+- 3 Alfred Portale, *the I. M. Pei of* contemporary American cooking, brings new meaning to the term haute cuisine with his skyscraper salads, towers of twirled pasta, high-rises of french fries and soaring desserts.
+- 2 When Robert accuses her of being *the Jerry Bruckheimer of* cakes, she responds that he's *the Paul Thomas Anderson of* cakes.
+- 2 Watkins is largely forgotten today, but he was *the Ansel Adams of* 19th-century photography.
+- 2 The final paragraph, referring to Mr. Berger, should have read:         ''He is *the Cal Ripken of* national security advisers,'' said William Danvers, who was the White House liaison to Congress until last year.
+- 2 Simply, the chance to be *the Kevin Garnett of* today outweighs the patience and reward of being *the Duncan of* tomorrow.
+- 2 ''She's like *the Stephen King of* our genre,'' Ms. Lynch said, and then amended that to ''Stephen King is *the Nora Roberts of* his genre,'' as her friend and writing partner, Cai Smith, from Wisconsin, nodded her head in agreement.
+- 2 She is *the Robert Ryman of* the 21st century.
+- 2 One critic called him ''*the Charles Atlas of* Western intellection,'' and the writer Nelson Algren dismissed him as ''*the Lawrence Welk of* the philosophy trade.''
+- 2 Mr. Ruffalo's star-making performance deserves to be added to the list of charismatic, grownup lost boys that includes *the Marlon Brando of* ''A Streetcar Named Desire'' and *the Jack Nicholson of* ''Easy Rider.''
+- 2 Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
+- 2 Marly's grandly histrionic mother, Delia Temple (Jane Alexander), known as ''*the Sarah Bernhardt of* Delrona Beach,'' runs the community theater and is a devout environmentalist.
+- 2 It is the Miami outpost of a small dining empire established by Norma Shirley, a Jamaican chef referred to in the restaurant's promotional material as ''*the Julia Child of* the Caribbean.''
+- 2 ''It is a lot safer for short-term use,'' said Barbara Seaman, who has been called *the Ralph Nader of* the pill for her 1969 book ''The Doctors' Case Against the Pill.''
+- 2 Interview with Jon Jerde, experimental architect who designed Bellagio, new casino in Las Vegas, a fusion of architecture, commerce and fantasy; photos (M)                     ''JON JERDE,'' Steve Wynn declared grandly, ''is *the Bernini of* our time.''
+- 2 Imagine *the Grace Kelly of* ''Rear Window'' or *the Kim Novak of* ''Vertigo'' sprawled seductively on an analyst's couch, smoking cigarettes and confiding her sexual frustration to a repressed, wide-eyed shrink who is obsessed with her.
+- 2 If Nelson Mandela is *the George Washington of* this new democracy, the kind of giant among men who turns down offers to be king, then Mr. Mbeki is its John Adams.
+- 2 If Ms. Clayburgh was *the Julia Roberts of* the late 1970's, Gabriel Byrne might be described as *the Humphrey Bogart of* the early 1990's.
+- 2 ''I felt that he was *the Franklin Delano Roosevelt of* 1972,'' Mr.
+- 2 ''I consider myself more of a teacher than a celebrity, a hostess or a star,'' said Ms. Jennings, *the Ted Koppel of* life style.
+- 2 He described Metro-North, with its many service awards, as ''*the Tom Hanks of* commuter railroads.''
+- 2 Don't call her *the Guy Lombardo of* punk rock, but it is becoming clear that this revered poet likes a good tradition.
+- 2 Denied vanguard status in her reading of history are *the Picasso of* ''Three Musicians,''  ''Girl Before Mirror'' and ''Guernica,'' *the Miro of* ''Birth of the World'' and the ''Constellations,'' *the Matisse of* the Barnes murals and ''Jazz,'' *the Bonnard of* the great nudes, *the Mondrian of* the ''classical'' period, and much of what we know of Brancusi, Gonzalez, Giacometti, Rouault, Soutine, Modigliani, to say nothing of the Dadaists and Surrealists.
+- 2 Deeply committed to his faith -- he taught adult classes most Sundays at *the Frederick Church of* the Brethren -- the Iron Man was determined to become a philanthropist.
+- 2 By STEPHEN HOLDEN              Meld *the Lucille Ball of* ''I Love Lucy'' with *the Melanie Griffith of* ''Working Girl,'' and you have Judy Holliday, the brilliant comedian who redefined the stereotype of the dumb blonde as ''the smart dumb blonde.''
+- 2 By ELISABETH GINSBURG              IN a way, Gertrude Jekyll is *the Elvis of* the gardening world.
+- 2 A serial reading by Sophie, Ralph and Joseph from ''Blood Ties'' and ''On Pilgrimage'' on Tuesday night at New School University in Greenwich Village quickly filled all 540 seats, shutting out more than a hundred other fans clamoring for a live encounter with *the Ralph Fiennes of* Broadway's ''Hamlet'' and such popular films as ''The English Patient,'' ''Oscar and Lucinda,'' ''Schindler's List'' and ''Quiz Show,'' and *the Joseph Fiennes of* ''Shakespeare in Love, ''Elizabeth'' and ''Stealing Beauty.''
+- 2 And there's *the Harold Stassen of* New York, Herman Badillo, and *the Paul Tsongas of* New York, Richard Ravitch.
+- 2 40 and 41 jump into the business at hand, with a suddenness that foreshadows *the Beethoven of* the Eighth Symphony and last string quartet.
+
 * tools
 ** nyt.py
 Extracts information from the NYT corpus. Options:
-- --title, --body, --url, --category :: Output the title, body, url,
+- --title, --body, --url, --category :: Output the title, body, URL,
      or category of each article, respectively.
 
 ** org.my
@@ -631,7 +694,7 @@ Check the number of and the top categories:
 
 Collect the categories of the articles
 #+BEGIN_SRC sh
-  echo "vossantos" $(grep "^[0-9]*\." README.org | grep -v "+$" | wc -l) articles $(wc -l < nyt_categories.tsv)
+  echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_categories.tsv)
   ./org.py -T -f README.org | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
       | sort | uniq -c \
       | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
@@ -639,28 +702,28 @@ Collect the categories of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos |  2883 | category               | articles | 1854726 |
+| vossantos |  3136 | category               | articles | 1854726 |
 |-----------+-------+------------------------+----------+---------|
-|       406 | 14.1% | Arts                   |    88460 |    4.8% |
-|       372 | 12.9% | Sports                 |   160888 |    8.7% |
-|       337 | 11.7% | New York and Region    |   221897 |   12.0% |
-|       304 | 10.5% | Arts; Books            |    35475 |    1.9% |
-|       245 |  8.5% | Movies; Arts           |    27759 |    1.5% |
-|       118 |  4.1% | Opinion                |   134428 |    7.2% |
-|       114 |  4.0% | Business               |   291982 |   15.7% |
-|       105 |  3.6% | U.S.                   |    89389 |    4.8% |
-|       100 |  3.5% | Magazine               |    11464 |    0.6% |
-|        75 |  2.6% | Arts; Theater          |    13283 |    0.7% |
-|        71 |  2.5% | Style                  |    65071 |    3.5% |
-|        56 |  1.9% | World                  |    79786 |    4.3% |
-|        47 |  1.6% | Home and Garden; Style |    13978 |    0.8% |
-|        37 |  1.3% | Travel                 |    10440 |    0.6% |
-|        36 |  1.2% |                        |    42157 |    2.3% |
-|        32 |  1.1% | Technology; Business   |    23283 |    1.3% |
+|       406 | 12.9% | Arts                   |    88460 |    4.8% |
+|       372 | 11.9% | Sports                 |   160888 |    8.7% |
+|       337 | 10.7% | New York and Region    |   221897 |   12.0% |
+|       304 |  9.7% | Arts; Books            |    35475 |    1.9% |
+|       245 |  7.8% | Movies; Arts           |    27759 |    1.5% |
+|       118 |  3.8% | Opinion                |   134428 |    7.2% |
+|       114 |  3.6% | Business               |   291982 |   15.7% |
+|       105 |  3.3% | U.S.                   |    89389 |    4.8% |
+|       100 |  3.2% | Magazine               |    11464 |    0.6% |
+|        75 |  2.4% | Arts; Theater          |    13283 |    0.7% |
+|        71 |  2.3% | Style                  |    65071 |    3.5% |
+|        56 |  1.8% | World                  |    79786 |    4.3% |
+|        47 |  1.5% | Home and Garden; Style |    13978 |    0.8% |
+|        37 |  1.2% | Travel                 |    10440 |    0.6% |
+|        36 |  1.1% |                        |    42157 |    2.3% |
+|        32 |  1.0% | Technology; Business   |    23283 |    1.3% |
 |        30 |  1.0% | Week in Review         |    17107 |    0.9% |
 |        27 |  0.9% | Home and Garden        |     5546 |    0.3% |
-|        20 |  0.7% | Style; Magazine        |     1519 |    0.1% |
-|        19 |  0.7% | World; Washington      |    24817 |    1.3% |
+|        20 |  0.6% | Style; Magazine        |     1519 |    0.1% |
+|        19 |  0.6% | World; Washington      |    24817 |    1.3% |
 #+TBLFM: $2=($-1/@1$2)*100;%2.1f%%::$5=($-1/@1$5)*100;%2.1f%%
 
 ** modifiers
@@ -768,6 +831,28 @@ Who are the sources for the modifier "her day"?
 |     1 | [[https://www.wikidata.org/wiki/Q128297][Maria Callas]]     |
 
 *** country
+#+BEGIN_SRC sh
+  ./org.py -T -t README.org \
+      | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
+      | sort | uniq -c | sort -nr | grep "Japan\|China\|Brazil\|Iran\|Israel\|Mexico\|India\|South Africa\|Spain\|South Korea\|Russia\|Poland\|Pakistan" | head -n13
+#+END_SRC
+
+| count | country      |
+|-------+--------------|
+|    28 | Japan        |
+|    13 | China        |
+|    11 | Brazil       |
+|     7 | Israel       |
+|     7 | Iran         |
+|     6 | Mexico       |
+|     6 | India        |
+|     4 | South Africa |
+|     3 | Spain        |
+|     3 | South Korea  |
+|     3 | Russia       |
+|     3 | Poland       |
+|     3 | Pakistan     |
+
 Who are the sources for the modifier ... ?
 **** "Japan"
 #+BEGIN_SRC sh
@@ -849,6 +934,24 @@ Who are the sources for the modifier ... ?
 |     1 | [[https://www.wikidata.org/wiki/Q12897][Pelé]]              |
 
 *** sports
+
+#+BEGIN_SRC sh
+  ./org.py -T -t README.org \
+      | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
+      | sort | uniq -c | sort -nr | grep "baseball\|basketball\|tennis\|golf\|football\|racing\|soccer\|sailing" | head -n8
+#+END_SRC
+
+| count | sports     |
+|-------+------------|
+|    15 | baseball   |
+|    12 | tennis     |
+|     9 | basketball |
+|     7 | football   |
+|     6 | racing     |
+|     6 | golf       |
+|     3 | soccer     |
+|     3 | sailing    |
+
 Who are the sources for the modifier ... ?
 **** baseball
 #+BEGIN_SRC sh
@@ -917,6 +1020,71 @@ Who are the sources for the modifier ... ?
 |     1 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
 |     1 | [[https://www.wikidata.org/wiki/Q271939][Chuck Yeager]]            |
 |     1 | [[https://www.wikidata.org/wiki/Q1999216][Norm Crosby]]             |
+
+**** football
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* football" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+#+END_SRC
+
+| count | source          |
+|-------+-----------------|
+|     1 | [[https://www.wikidata.org/wiki/Q82778][Pliny the Elder]] |
+|     1 | [[https://www.wikidata.org/wiki/Q535502][Michael Myers]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q4766303][Ann Calvello]]    |
+|     1 | [[https://www.wikidata.org/wiki/Q41314][Bobby Fischer]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q318503][Mark Cuban]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q311885][Patrick Henry]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q242936][Susan Lucci]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]] |
+|     1 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]       |
+|     1 | [[https://www.wikidata.org/wiki/Q1341644][Rich Little]]     |
+
+**** racing
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* racing" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+#+END_SRC
+
+| count | source             |
+|-------+--------------------|
+|     2 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]] |
+|     1 | [[https://www.wikidata.org/wiki/Q51516][John Madden]]        |
+|     1 | [[https://www.wikidata.org/wiki/Q4935855][Bobo Holloman]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q357444][Lou Gehrig]]         |
+|     1 | [[https://www.wikidata.org/wiki/Q209518][Wayne Gretzky]]      |
+
+**** golf
+#+BEGIN_SRC sh
+  ./org.py -w -t -c README.org | grep "of\* golf" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+#+END_SRC
+
+| count | source          |
+|-------+-----------------|
+|     4 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]  |
+|     2 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]] |
+|     1 | [[https://www.wikidata.org/wiki/Q79904][J. D. Salinger]]  |
+|     1 | [[https://www.wikidata.org/wiki/Q5950][James Brown]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q34012][Marlon Brando]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]       |
+|     1 | [[https://www.wikidata.org/wiki/Q162629][Simon Cowell]]    |
+
+*** culture
+#+BEGIN_SRC sh
+  ./org.py -T -t README.org \
+      | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
+      | sort | uniq -c | sort -nr | grep "dance\|hip-hop\|jazz\|fashion\|weaving\|ballet\|the art world\|wine\|salsa"   | head -n9
+#+END_SRC
+
+| count | modifier      |
+|-------+---------------|
+|     8 | jazz          |
+|     8 | hip-hop       |
+|     8 | fashion       |
+|     8 | dance         |
+|     7 | the art world |
+|     6 | weaving       |
+|     6 | ballet        |
+|     4 | wine          |
+|     4 | salsa         |
 
 * results
 
