@@ -141,7 +141,15 @@ With the [[https://www.mediawiki.org/wiki/Wikidata_Toolkit][Wikidata Toolkit]] a
           final ItemIdValue itemId = itemDocument.getItemId();
           final MonolingualTextValue label = itemDocument.getLabels().get("en");
           if (label != null) {
-              buf.write(csvEscape(itemId.getId()) + "\t" + csvEscape(label.getText()) + "\n");
+              buf.write(csvEscape(itemId.getId()) + "\t" + csvEscape(label.getText()));
+              // add aliases
+              final List<MonolingualTextValue> aliases = itemDocument.getAliases().get("en");
+              if (aliases != null) {
+                  for (final MonolingualTextValue alias : aliases) {
+                      buf.write("\t" + csvEscape(alias.getText()));
+                  }
+              }
+              buf.write("\n");
           }
       }
   }
@@ -155,6 +163,11 @@ Of those, 2801931 have a label:
 #+END_SRC
 
 : 2801931 wikidata_humans.tsv
+
+With the Java code we also extracted aliases for the names (e.g.,
+"Mozart" for [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]]) to enable matching against
+non-complete names.
+
 We will use that file in the sequel.
 
 *** "fictional character"
