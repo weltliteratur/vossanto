@@ -34,7 +34,7 @@
 	  <feComposite in='SourceGraphic' in2='grey' operator='atop'/>
 	</filter>
 </defs>
-<g style="fill:none; color:white; stroke:black; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+<g style="fill:none; color:white; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
 </g>
 <g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
 </g>
@@ -185,28 +185,28 @@
 	<g transform="translate(220.0,76.5)" style="stroke:none; fill:black; font-family:Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif; font-size:16.00pt; text-anchor:end">
 		<text><tspan>Vossantos</tspan></text>
 	</g>
-	<path  d='M231.2,70.5 L288.0,70.5 M143.1,338.9 L166.2,347.0 L189.3,318.9 L212.5,322.9 L235.6,310.9 L258.7,314.9 
-		L281.9,290.9 L305.0,286.9 L328.1,290.9 L351.3,250.8 L374.4,248.8 L397.5,150.7 L420.6,174.7 L443.8,88.6 
-		L466.9,126.6 L490.0,96.6 L513.2,114.6 L536.3,160.7 L559.4,136.7 L582.6,102.6 L605.7,359.0  '/>	<use xlink:href='#gpPt6' transform='translate(143.1,338.9) scale(6.00)'/>
+	<path  d='M231.2,70.5 L288.0,70.5 M143.1,338.9 L166.2,347.0 L189.3,318.9 L212.5,322.9 L235.6,318.9 L258.7,314.9 
+		L281.9,294.9 L305.0,286.9 L328.1,290.9 L351.3,250.8 L374.4,254.8 L397.5,156.7 L420.6,244.8 L443.8,176.7 
+		L466.9,208.8 L490.0,108.6 L513.2,130.7 L536.3,172.7 L559.4,140.7 L582.6,108.6 L605.7,359.0  '/>	<use xlink:href='#gpPt6' transform='translate(143.1,338.9) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(166.2,347.0) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(189.3,318.9) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(212.5,322.9) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(235.6,310.9) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(235.6,318.9) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(258.7,314.9) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(281.9,290.9) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(281.9,294.9) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(305.0,286.9) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(328.1,290.9) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(351.3,250.8) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(374.4,248.8) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(397.5,150.7) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(420.6,174.7) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(443.8,88.6) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(466.9,126.6) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(490.0,96.6) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(513.2,114.6) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(536.3,160.7) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(559.4,136.7) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(582.6,102.6) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(374.4,254.8) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(397.5,156.7) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(420.6,244.8) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(443.8,176.7) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(466.9,208.8) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(490.0,108.6) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(513.2,130.7) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(536.3,172.7) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(559.4,140.7) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(582.6,108.6) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(605.7,359.0) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(259.6,70.5) scale(6.00)'/>
 </g>
@@ -216,28 +216,28 @@
 	<g transform="translate(220.0,100.5)" style="stroke:none; fill:black; font-family:Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif; font-size:16.00pt; text-anchor:end">
 		<text><tspan>precision</tspan></text>
 	</g>
-	<path  d='M231.2,94.5 L288.0,94.5 M143.1,160.7 L166.2,194.2 L189.3,171.2 L212.5,157.7 L235.6,167.2 L258.7,161.7 
-		L281.9,169.2 L305.0,153.7 L328.1,153.2 L351.3,151.2 L374.4,122.1 L397.5,135.2 L420.6,44.5 L443.8,44.5 
-		L466.9,32.5 L490.0,45.0 L513.2,43.5 L536.3,38.5 L559.4,45.0 L582.6,38.5 L605.7,100.1  '/>	<use xlink:href='#gpPt6' transform='translate(143.1,160.7) scale(6.00)'/>
+	<path  d='M231.2,94.5 L288.0,94.5 M143.1,160.7 L166.2,194.2 L189.3,171.2 L212.5,157.7 L235.6,180.2 L258.7,161.7 
+		L281.9,175.2 L305.0,153.7 L328.1,153.2 L351.3,151.2 L374.4,130.7 L397.5,141.7 L420.6,140.7 L443.8,141.7 
+		L466.9,134.2 L490.0,58.6 L513.2,62.6 L536.3,54.5 L559.4,49.5 L582.6,45.5 L605.7,100.1  '/>	<use xlink:href='#gpPt6' transform='translate(143.1,160.7) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(166.2,194.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(189.3,171.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(212.5,157.7) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(235.6,167.2) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(235.6,180.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(258.7,161.7) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(281.9,169.2) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(281.9,175.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(305.0,153.7) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(328.1,153.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(351.3,151.2) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(374.4,122.1) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(397.5,135.2) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(420.6,44.5) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(443.8,44.5) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(466.9,32.5) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(490.0,45.0) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(513.2,43.5) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(536.3,38.5) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(559.4,45.0) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(582.6,38.5) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(374.4,130.7) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(397.5,141.7) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(420.6,140.7) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(443.8,141.7) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(466.9,134.2) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(490.0,58.6) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(513.2,62.6) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(536.3,54.5) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(559.4,49.5) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(582.6,45.5) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(605.7,100.1) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(259.6,94.5) scale(6.00)'/>
 </g>

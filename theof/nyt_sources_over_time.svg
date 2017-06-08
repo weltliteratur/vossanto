@@ -141,7 +141,7 @@
 		<text><tspan>Michael Jordan</tspan></text>
 	</g>
 	<path  d='M309.6,46.5 L366.4,46.5 M140.1,523.2 L167.3,523.2 L194.5,481.5 L221.7,398.0 L249.0,356.3 L276.2,439.7 
-		L303.4,398.0 L330.7,439.7 L357.9,523.2 L385.1,356.3 L412.3,481.5 L439.6,272.8 L466.8,189.4 L494.0,22.5 
+		L303.4,398.0 L330.7,439.7 L357.9,523.2 L385.1,356.3 L412.3,481.5 L439.6,272.8 L466.8,189.4 L494.0,64.2 
 		L521.2,231.1 L548.5,314.6 L575.7,439.7 L602.9,523.2 L630.2,439.7 L657.4,398.0 L684.6,398.0  '/>	<use xlink:href='#gpPt6' transform='translate(140.1,523.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(167.3,523.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(194.5,481.5) scale(6.00)'/>
@@ -155,7 +155,7 @@
 	<use xlink:href='#gpPt6' transform='translate(412.3,481.5) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(439.6,272.8) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(466.8,189.4) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(494.0,22.5) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(494.0,64.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(521.2,231.1) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(548.5,314.6) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(575.7,439.7) scale(6.00)'/>
@@ -172,7 +172,7 @@
 		<text><tspan>Rodney Dangerfield</tspan></text>
 	</g>
 	<path  d='M309.6,70.5 L366.4,70.5 M140.1,523.2 L167.3,523.2 L194.5,481.5 L221.7,439.7 L249.0,481.5 L276.2,356.3 
-		L303.4,356.3 L330.7,523.2 L357.9,523.2 L385.1,231.1 L412.3,398.0 L439.6,231.1 L466.8,439.7 L494.0,314.6 
+		L303.4,356.3 L330.7,523.2 L357.9,523.2 L385.1,231.1 L412.3,398.0 L439.6,231.1 L466.8,439.7 L494.0,272.8 
 		L521.2,314.6 L548.5,439.7 L575.7,523.2 L602.9,481.5 L630.2,189.4 L657.4,356.3 L684.6,481.5  '/>	<use xlink:href='#gpPt6' transform='translate(140.1,523.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(167.3,523.2) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(194.5,481.5) scale(6.00)'/>
@@ -186,7 +186,7 @@
 	<use xlink:href='#gpPt6' transform='translate(412.3,398.0) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(439.6,231.1) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(466.8,439.7) scale(6.00)'/>
-	<use xlink:href='#gpPt6' transform='translate(494.0,314.6) scale(6.00)'/>
+	<use xlink:href='#gpPt6' transform='translate(494.0,272.8) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(521.2,314.6) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(548.5,439.7) scale(6.00)'/>
 	<use xlink:href='#gpPt6' transform='translate(575.7,523.2) scale(6.00)'/>

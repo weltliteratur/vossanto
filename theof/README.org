@@ -476,26 +476,26 @@ We plot some temporal distributions:
 |   1988 |   636109 |  0 |   138 |   134 |   88 | 65.7 |
 |   1989 |   624727 |  0 |   148 |   145 |  102 | 70.3 |
 |   1990 |   613136 |  0 |   140 |   137 |  100 | 73.0 |
-|   1991 |   512427 |  0 |   151 |   149 |  106 | 71.1 |
+|   1991 |   512427 |  0 |   151 |   149 |  102 | 68.5 |
 |   1992 |   493694 |  0 |   146 |   144 |  104 | 72.2 |
-|   1993 |   480589 |  0 |   164 |   164 |  116 | 70.7 |
+|   1993 |   480589 |  0 |   164 |   164 |  114 | 69.5 |
 |   1994 |   463914 |  0 |   161 |   160 |  118 | 73.8 |
 |   1995 |   499904 |  0 |   157 |   157 |  116 | 73.9 |
 |   1996 |   497177 |  0 |   185 |   183 |  136 | 74.3 |
-|   1997 |   514987 |  0 |   171 |   171 |  137 | 80.1 |
-|   1998 |   570026 |  0 |   240 |   240 |  186 | 77.5 |
-|   1999 |   584481 |  0 |   185 |   182 |  174 | 95.6 |
-|   2000 |   601203 |  0 |   227 |   227 |  217 | 95.6 |
-|   2001 |   586104 |  0 |   204 |   202 |  198 | 98.0 |
-|   2002 |   595294 |  0 |   223 |   223 |  213 | 95.5 |
-|   2003 |   588940 |  0 |   216 |   213 |  204 | 95.8 |
-|   2004 |   569884 |  0 |   187 |   187 |  181 | 96.8 |
-|   2005 |   560140 |  0 |   202 |   202 |  193 | 95.5 |
-|   2006 |   559447 |  0 |   217 |   217 |  210 | 96.8 |
+|   1997 |   514987 |  0 |   171 |   171 |  134 | 78.4 |
+|   1998 |   570026 |  0 |   240 |   240 |  183 | 76.2 |
+|   1999 |   584481 |  0 |   185 |   182 |  139 | 76.4 |
+|   2000 |   601203 |  0 |   227 |   227 |  173 | 76.2 |
+|   2001 |   586104 |  0 |   204 |   202 |  157 | 77.7 |
+|   2002 |   595294 |  0 |   223 |   223 |  207 | 92.8 |
+|   2003 |   588940 |  0 |   216 |   213 |  196 | 92.0 |
+|   2004 |   569884 |  0 |   187 |   187 |  175 | 93.6 |
+|   2005 |   560140 |  0 |   202 |   202 |  191 | 94.6 |
+|   2006 |   559447 |  0 |   217 |   217 |  207 | 95.4 |
 |   2007 |   259921 |  0 |    98 |    97 |   82 | 84.5 |
 |--------+----------+----+-------+-------+------+------|
-|  *sum* | 11452615 |  0 |  3690 |  3661 | 3073 | 83.9 |
-| *mean* |   545363 |  0 |   176 |   174 |  146 | 83.9 |
+|  *sum* | 11452615 |  0 |  3690 |  3661 | 2916 | 79.7 |
+| *mean* |   545363 |  0 |   176 |   174 |  139 | 79.9 |
 #+TBLFM: $7=($-1/$-2)*100;%2.1f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f::@24$6=vmean(@I..@II);%2.0f
 
 
@@ -566,46 +566,46 @@ After cleansing, the following most frequent sources remain:
 
 | count | source                  |
 |-------+-------------------------|
-|    68 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
-|    57 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
+|    67 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
+|    58 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
 |    36 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
-|    34 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
+|    32 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
 |    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
-|    24 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |
+|    23 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |
 |    23 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |
 |    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
 |    21 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |
 |    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |
 |    21 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |
 |    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
-|    20 | [[https://www.wikidata.org/wiki/Q83410][Cary Grant]]              |
-|    20 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
 |    20 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
-|    18 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
 |    18 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
 |    18 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]          |
-|    17 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |
 |    17 | [[https://www.wikidata.org/wiki/Q352][Adolf Hitler]]            |
 |    17 | [[https://www.wikidata.org/wiki/Q13685096][Cinderella]]              |
 |    16 | [[https://www.wikidata.org/wiki/Q8768][Henry Ford]]              |
-|    16 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]                |
+|    16 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
+|    15 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]                |
 |    14 | [[https://www.wikidata.org/wiki/Q5443][Greta Garbo]]             |
+|    14 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |
 |    14 | [[https://www.wikidata.org/wiki/Q30547][Mother Teresa]]           |
 |    14 | [[https://www.wikidata.org/wiki/Q193156][Ralph Nader]]             |
 |    13 | [[https://www.wikidata.org/wiki/Q242936][Susan Lucci]]             |
-|    12 | [[https://www.wikidata.org/wiki/Q8743][Thomas Edison]]           |
 |    12 | [[https://www.wikidata.org/wiki/Q762][Leonardo da Vinci]]       |
 |    12 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]              |
 |    12 | [[https://www.wikidata.org/wiki/Q7243][Leo Tolstoy]]             |
 |    12 | [[https://www.wikidata.org/wiki/Q41921][Rosa Parks]]              |
-|    12 | [[https://www.wikidata.org/wiki/Q122634][Robin Hood]]              |
 |    11 | [[https://www.wikidata.org/wiki/Q937][Albert Einstein]]         |
 |    11 | [[https://www.wikidata.org/wiki/Q8704][Walt Disney]]             |
 |    11 | [[https://www.wikidata.org/wiki/Q8021572][Willie Horton]]           |
 |    11 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]              |
+|    11 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
 |    11 | [[https://www.wikidata.org/wiki/Q55800][Oprah Winfrey]]           |
-|    10 | [[https://www.wikidata.org/wiki/Q9077][Moses]]                   |
+|    10 | [[https://www.wikidata.org/wiki/Q8743][Thomas Edison]]           |
 |    10 | [[https://www.wikidata.org/wiki/Q170779][Cassandra]]               |
+|     9 | [[https://www.wikidata.org/wiki/Q313697][Ross Perot]]              |
+|     9 | [[https://www.wikidata.org/wiki/Q216810][King Kong]]               |
+|     9 | [[https://www.wikidata.org/wiki/Q214477][Julia Child]]             |
 
 *** temporal distribution
 
@@ -637,7 +637,7 @@ After cleansing, the following most frequent sources remain:
 | 1997 |              1 |                  3 |         1 |
 | 1998 |              6 |                  7 |         3 |
 | 1999 |              8 |                  2 |         1 |
-| 2000 |             12 |                  5 |         3 |
+| 2000 |             11 |                  6 |         3 |
 | 2001 |              7 |                  5 |         0 |
 | 2002 |              5 |                  2 |         3 |
 | 2003 |              2 |                  0 |         4 |
@@ -719,25 +719,25 @@ Collect the categories of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos |  3073 | category               | articles | 1854726 |
+| vossantos |  2916 | category               | articles | 1854726 |
 |-----------+-------+------------------------+----------+---------|
-|       398 | 13.0% | Arts                   |    88460 |    4.8% |
-|       369 | 12.0% | Sports                 |   160888 |    8.7% |
-|       330 | 10.7% | New York and Region    |   221897 |   12.0% |
-|       293 |  9.5% | Arts; Books            |    35475 |    1.9% |
-|       238 |  7.7% | Movies; Arts           |    27759 |    1.5% |
-|       115 |  3.7% | Opinion                |   134428 |    7.2% |
-|       114 |  3.7% | Business               |   291982 |   15.7% |
-|       104 |  3.4% | U.S.                   |    89389 |    4.8% |
-|       100 |  3.3% | Magazine               |    11464 |    0.6% |
-|        72 |  2.3% | Arts; Theater          |    13283 |    0.7% |
-|        69 |  2.2% | Style                  |    65071 |    3.5% |
-|        50 |  1.6% | World                  |    79786 |    4.3% |
-|        45 |  1.5% | Home and Garden; Style |    13978 |    0.8% |
-|        36 |  1.2% |                        |    42157 |    2.3% |
-|        35 |  1.1% | Travel                 |    10440 |    0.6% |
-|        32 |  1.0% | Technology; Business   |    23283 |    1.3% |
-|        29 |  0.9% | Week in Review         |    17107 |    0.9% |
+|       375 | 12.9% | Arts                   |    88460 |    4.8% |
+|       363 | 12.4% | Sports                 |   160888 |    8.7% |
+|       316 | 10.8% | New York and Region    |   221897 |   12.0% |
+|       264 |  9.1% | Arts; Books            |    35475 |    1.9% |
+|       194 |  6.7% | Movies; Arts           |    27759 |    1.5% |
+|       113 |  3.9% | Business               |   291982 |   15.7% |
+|       111 |  3.8% | Opinion                |   134428 |    7.2% |
+|       103 |  3.5% | U.S.                   |    89389 |    4.8% |
+|       100 |  3.4% | Magazine               |    11464 |    0.6% |
+|        69 |  2.4% | Style                  |    65071 |    3.5% |
+|        66 |  2.3% | Arts; Theater          |    13283 |    0.7% |
+|        49 |  1.7% | World                  |    79786 |    4.3% |
+|        44 |  1.5% | Home and Garden; Style |    13978 |    0.8% |
+|        35 |  1.2% | Travel                 |    10440 |    0.6% |
+|        34 |  1.2% |                        |    42157 |    2.3% |
+|        32 |  1.1% | Technology; Business   |    23283 |    1.3% |
+|        29 |  1.0% | Week in Review         |    17107 |    0.9% |
 |        27 |  0.9% | Home and Garden        |     5546 |    0.3% |
 |        20 |  0.7% | Style; Magazine        |     1519 |    0.1% |
 |        18 |  0.6% | World; Washington      |    24817 |    1.3% |
@@ -755,18 +755,16 @@ A very simple approach to identify frequent modifiers:
 
 | count | modifier         |
 |-------+------------------|
-|    49 | his day          |
+|    47 | his day          |
 |    29 | his time         |
 |    28 | Japan            |
-|    18 | the blade        |
 |    15 | his generation   |
 |    15 | baseball         |
 |    13 | women            |
-|    13 | today            |
 |    13 | China            |
 |    12 | the 1990         |
 |    12 | tennis           |
-|    11 | Punkin Crick     |
+|    11 | today            |
 |    11 | her day          |
 |    10 | the Zulus        |
 |    10 | the N            |
@@ -782,9 +780,11 @@ A very simple approach to identify frequent modifiers:
 |     8 | hip-hop          |
 |     8 | fashion          |
 |     8 | dance            |
-|     7 | the new          |
 |     7 | the art world    |
 |     7 | the 19th century |
+|     7 | Long Island      |
+|     7 | football         |
+|     6 | this year        |
 
 *** today
 **** "today"
