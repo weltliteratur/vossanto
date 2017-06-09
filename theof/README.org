@@ -391,47 +391,17 @@ Merge with existing ~README.org~:
   ./org.py -T -t -c README.org | sort | uniq -c | sort -nr | sed "s/^ */- /" | grep -v "^- 1 " | less -S
 #+END_SRC
 
-- 18 Mr. Chow comes across as *the Cary Grant of* the blade.
-- 6 She was *the Sol LeWitt of* weaving.
-- 6 Mr. Kelly was *the Chet Baker of* the new, cool painters of the post-Abstract Expressionist generation.
-- 6 ''Legally Blonde'' is made almost worthwhile by Ms. Witherspoon, who may be *the Doris Day of* our drab age.
-- 6 Coming after Sept. 11, the show gives everybody in town a chance to contemplate through altered eyes *the Rembrandt of* Punkin Crick, as a critic acidly named him years ago.
-- 5 Ms. Grier, *the Annie Oakley of* 1970's blaxploitation films, makes a game comeback even if she struggles with the story's ensemble loafing.
-- 4 Photographed amid spectacular scenery, Mr. Hopkins and Mr. Baldwin trade amusingly wry Mametisms while awaiting regular appearances by Bart, whom Mr. Hopkins has fairly called ''*the John Wayne of* bears.''
-- 4 ''If it is a tax, it's really *the Robin Hood of* taxes,'' Mr. Schwartz said.
-- 4 Coming after Sept. 11, the show gives everybody in town a chance to contemplate *the Rembrandt of* Punkin Crick, as a critic acidly dubbed him years ago, through altered eyes.
-- 3 There are major characters but no heroes in this antiromance of 1907 in Battle Creek, Mich., where Dr. John Harvey Kellogg, *the Edison of* clean living, presides over pilgrims who hope to escape the ills and smells that flesh is heir to.
-- 3 One of the few professionally successful Jewish artists in early 19th-century Europe, Oppenheim (1800-82) was known as ''the painter of Rothschilds and *the Rothschild of* painters.''
-- 3 J Mascis is *the Neil Young of* Generation X.
-- 3 Based on the true story of Michael Alig, *the Peter Pan of* the New York club kids of the 1980's, this familiar tale of big-city glamour and ruin is a stylish muddle.
-- 3 Back in 1997, Congressman Schumer was *the Eliot Spitzer of* his day.
-- 3 A provocative, spirited collection -- his best so far -- by *the Stan Musial of* essay writing.
-- 3 Alfred Portale, *the I. M. Pei of* contemporary American cooking, brings new meaning to the term haute cuisine with his skyscraper salads, towers of twirled pasta, high-rises of french fries and soaring desserts.
 - 2 When Robert accuses her of being *the Jerry Bruckheimer of* cakes, she responds that he's *the Paul Thomas Anderson of* cakes.
-- 2 Watkins is largely forgotten today, but he was *the Ansel Adams of* 19th-century photography.
-- 2 The final paragraph, referring to Mr. Berger, should have read:         ''He is *the Cal Ripken of* national security advisers,'' said William Danvers, who was the White House liaison to Congress until last year.
-- 2 Simply, the chance to be *the Kevin Garnett of* today outweighs the patience and reward of being *the Duncan of* tomorrow.
 - 2 ''She's like *the Stephen King of* our genre,'' Ms. Lynch said, and then amended that to ''Stephen King is *the Nora Roberts of* his genre,'' as her friend and writing partner, Cai Smith, from Wisconsin, nodded her head in agreement.
 - 2 She is *the Robert Ryman of* the 21st century.
-- 2 One critic called him ''*the Charles Atlas of* Western intellection,'' and the writer Nelson Algren dismissed him as ''*the Lawrence Welk of* the philosophy trade.''
-- 2 Mr. Ruffalo's star-making performance deserves to be added to the list of charismatic, grownup lost boys that includes *the Marlon Brando of* ''A Streetcar Named Desire'' and *the Jack Nicholson of* ''Easy Rider.''
 - 2 Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
 - 2 Marly's grandly histrionic mother, Delia Temple (Jane Alexander), known as ''*the Sarah Bernhardt of* Delrona Beach,'' runs the community theater and is a devout environmentalist.
-- 2 It is the Miami outpost of a small dining empire established by Norma Shirley, a Jamaican chef referred to in the restaurant's promotional material as ''*the Julia Child of* the Caribbean.''
-- 2 ''It is a lot safer for short-term use,'' said Barbara Seaman, who has been called *the Ralph Nader of* the pill for her 1969 book ''The Doctors' Case Against the Pill.''
-- 2 Interview with Jon Jerde, experimental architect who designed Bellagio, new casino in Las Vegas, a fusion of architecture, commerce and fantasy; photos (M)                     ''JON JERDE,'' Steve Wynn declared grandly, ''is *the Bernini of* our time.''
 - 2 Imagine *the Grace Kelly of* ''Rear Window'' or *the Kim Novak of* ''Vertigo'' sprawled seductively on an analyst's couch, smoking cigarettes and confiding her sexual frustration to a repressed, wide-eyed shrink who is obsessed with her.
-- 2 If Nelson Mandela is *the George Washington of* this new democracy, the kind of giant among men who turns down offers to be king, then Mr. Mbeki is its John Adams.
 - 2 If Ms. Clayburgh was *the Julia Roberts of* the late 1970's, Gabriel Byrne might be described as *the Humphrey Bogart of* the early 1990's.
 - 2 ''I felt that he was *the Franklin Delano Roosevelt of* 1972,'' Mr.
-- 2 ''I consider myself more of a teacher than a celebrity, a hostess or a star,'' said Ms. Jennings, *the Ted Koppel of* life style.
 - 2 He described Metro-North, with its many service awards, as ''*the Tom Hanks of* commuter railroads.''
-- 2 Don't call her *the Guy Lombardo of* punk rock, but it is becoming clear that this revered poet likes a good tradition.
-- 2 Denied vanguard status in her reading of history are *the Picasso of* ''Three Musicians,''  ''Girl Before Mirror'' and ''Guernica,'' *the Miro of* ''Birth of the World'' and the ''Constellations,'' *the Matisse of* the Barnes murals and ''Jazz,'' *the Bonnard of* the great nudes, *the Mondrian of* the ''classical'' period, and much of what we know of Brancusi, Gonzalez, Giacometti, Rouault, Soutine, Modigliani, to say nothing of the Dadaists and Surrealists.
 - 2 Deeply committed to his faith -- he taught adult classes most Sundays at *the Frederick Church of* the Brethren -- the Iron Man was determined to become a philanthropist.
 - 2 By STEPHEN HOLDEN              Meld *the Lucille Ball of* ''I Love Lucy'' with *the Melanie Griffith of* ''Working Girl,'' and you have Judy Holliday, the brilliant comedian who redefined the stereotype of the dumb blonde as ''the smart dumb blonde.''
-- 2 By ELISABETH GINSBURG              IN a way, Gertrude Jekyll is *the Elvis of* the gardening world.
-- 2 A serial reading by Sophie, Ralph and Joseph from ''Blood Ties'' and ''On Pilgrimage'' on Tuesday night at New School University in Greenwich Village quickly filled all 540 seats, shutting out more than a hundred other fans clamoring for a live encounter with *the Ralph Fiennes of* Broadway's ''Hamlet'' and such popular films as ''The English Patient,'' ''Oscar and Lucinda,'' ''Schindler's List'' and ''Quiz Show,'' and *the Joseph Fiennes of* ''Shakespeare in Love, ''Elizabeth'' and ''Stealing Beauty.''
 - 2 And there's *the Harold Stassen of* New York, Herman Badillo, and *the Paul Tsongas of* New York, Richard Ravitch.
 - 2 40 and 41 jump into the business at hand, with a suddenness that foreshadows *the Beethoven of* the Eighth Symphony and last string quartet.
 
