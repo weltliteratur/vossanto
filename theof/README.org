@@ -793,6 +793,60 @@ Collect the desks of the articles
 Note: there are many errors in the specification of the desks ... so
 this table should be digested with care.
 
+** authors
+Extract the authors for the articles:
+#+BEGIN_SRC sh :results silent
+  export PYTHONIOENCODING=utf-8
+  for year in $(seq 1987 2007); do
+      ./nyt.py --author ../nyt_corpus_${year}.tar.gz \
+          | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
+          | sort >> nyt_authors.tsv
+  done
+#+END_SRC
+
+Compute frequency distribution over all articles:
+#+BEGIN_SRC sh :results silent
+  cut -d$'\t' -f2 nyt_authors.tsv | sort -S1G | uniq -c \
+     | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
+                                            > nyt_authors_distrib.tsv
+#+END_SRC
+
+Check the number of and the top authors:
+#+BEGIN_SRC sh
+  echo articles $(wc -l < nyt_authors.tsv)
+  echo categories $(wc -l < nyt_authors_distrib.tsv)
+  echo ""
+  sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
+#+END_SRC
+
+| articles             | 2748400 |
+| categories           |   34841 |
+|----------------------+---------|
+|                      |  961052 |
+|                      |  644888 |
+|                      |  248786 |
+| Elliott, Stuart      |    3967 |
+| BROZAN, NADINE       |    2929 |
+| HOLDEN, STEPHEN      |    2674 |
+| Holden, Stephen      |    2424 |
+| Van Gelder, Lawrence |    2421 |
+| Fabricant, Florence  |    2404 |
+| ELLIOTT, STUART      |    2329 |
+
+*requires cleansing!*
+
+Collect the authors of the articles
+#+BEGIN_SRC sh
+  echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_authors.tsv)
+  ./org.py -T -f README.org | join nyt_authors.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+      | sort | uniq -c \
+      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
+      | join -t$'\t' -o1.2,1.1,2.2 - nyt_authors_distrib.tsv \
+      | sort -nr | head -n20
+#+END_SRC
+
+
+
 ** modifiers
 
 A very simple approach to identify frequent modifiers:
