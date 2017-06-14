@@ -641,6 +641,7 @@ replot
 [[nyt_sources_over_time.png]]
 
 ** categories
+*** online
 Extract the categories for the articles:
 #+BEGIN_SRC sh :results silent
   for year in $(seq 1987 2007); do
@@ -712,6 +713,16 @@ Collect the categories of the articles
 |        20 |  0.7% | Style; Magazine        |     1519 |    0.1% |
 |        18 |  0.6% | World; Washington      |    24817 |    1.3% |
 #+TBLFM: $2=($-1/@1$2)*100;%2.1f%%::$5=($-1/@1$5)*100;%2.1f%%
+
+*** desks
+Extract the desks for the articles:
+#+BEGIN_SRC sh :results silent
+  for year in $(seq 1987 2007); do
+      ./nyt.py --desk ../nyt_corpus_${year}.tar.gz \
+          | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
+          | sort >> nyt_desks.tsv
+  done
+#+END_SRC
 
 ** modifiers
 
