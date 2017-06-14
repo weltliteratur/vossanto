@@ -10,7 +10,7 @@
 #
 # Changes:
 # 2017-06-14 (rja)
-# - added support to extract desk and author information
+# - added support to extract desk and (normalised) author information
 # - fixed extraction of heading
 # 2017-05-12 (rja)
 # - initial version copied from theof.py
@@ -77,6 +77,8 @@ def gen_parts(files, heading, text, url, category, desk, author):
             for tag in root.findall("./body/body.head/byline"):
                 if tag.attrib["class"] == "normalized_byline":
                     a = ET.tostring(tag, encoding="utf-8", method="text").decode("utf-8")
+                    # always try to normalise author names
+                    a = a.strip().title()
             result.append(a)
 
         yield result
