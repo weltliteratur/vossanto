@@ -487,7 +487,7 @@ set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqu
 #set out "nyt_vossantos_over_time.svg"
 plot data using 1:5 with linespoints pt 7 title 'candidates',\
      data using 1:6 with linespoints pt 7 title 'Vossantos',\
-     data using 1:7 with linespoints pt 7 title 'precision' axes x1y2
+     data using 1:7 with lines pt 7 title 'precision' axes x1y2
 
 # data using 1:2 with linespoints pt 7 axes x1y2 title 'cand',\
 #     data using 1:3 with linespoints pt 7 axes x1y2 title 'wd',\

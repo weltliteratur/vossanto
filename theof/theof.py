@@ -9,6 +9,8 @@
 # Author: rja
 #
 # Changes:
+# 2017-06-14 (rja)
+# - fixed extraction of heading
 # 2017-05-10 (rja)
 # - added parameter -r to select the regex to use (default: 4)
 # - refactored using generators
@@ -54,7 +56,7 @@ def xml2str(f):
     tree = ET.parse(f)
     root = tree.getroot()
     # path to the heading
-    heading = root.findall("./body/body.head/")
+    heading = root.findall("./body/body.head/hedline")
     head = ""
     for block in heading:
         head = ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")

@@ -9,6 +9,9 @@
 # Author: rja
 #
 # Changes:
+# 2017-06-14 (rja)
+# - added support to extract desk and author information
+# - fixed extraction of heading
 # 2017-05-12 (rja)
 # - initial version copied from theof.py
 
@@ -21,13 +24,13 @@ import os
 import sys
 import codecs
 
-version = "0.0.1"
+version = "0.0.2"
 
 # remove line breaks and tabs from text
 re_ws = re.compile('[\n\t\r]+')
 
 # convert NYT XML to text
-def gen_parts(files, heading, text, url, category):
+def gen_parts(files, heading, text, url, category, desk, author):
     for f, fname in files:
         result = [fname]
 
@@ -36,7 +39,7 @@ def gen_parts(files, heading, text, url, category):
 
         if heading:
             h = ""
-            for block in root.findall("./body/body.head/"):
+            for block in root.findall("./body/body.head/hedline"):
                 h = ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
             result.append(h)
 
@@ -61,7 +64,21 @@ def gen_parts(files, heading, text, url, category):
                 if tag.attrib["name"] == "online_sections":
                     c = tag.attrib["content"]
             result.append(c)
-            
+
+        if desk:
+            d = ""
+            for tag in root.findall("./head/meta"):
+                if tag.attrib["name"] == "dsk":
+                    d = tag.attrib["content"]
+            result.append(d)
+
+        if author:
+            a = ""
+            for tag in root.findall("./body/body.head/byline"):
+                if tag.attrib["class"] == "normalized_byline":
+                    a = ET.tostring(tag, encoding="utf-8", method="text").decode("utf-8")
+            result.append(a)
+
         yield result
 
 # apply the regex
@@ -108,6 +125,8 @@ if __name__ == '__main__':
     parser.add_argument('-b', '--body', action="store_true", help='extract body text')
     parser.add_argument('-u', '--url', action="store_true", help='extract URL')
     parser.add_argument('-c', '--category', action="store_true", help='extract category')
+    parser.add_argument('-d', '--desk', action="store_true", help='extract desk')
+    parser.add_argument('-a', '--author', action="store_true", help='extract author')
     parser.add_argument('-g', '--grep', type=str, metavar="REGEX", help='match regex')
     parser.add_argument('-s', '--separator', type=str, metavar="SEP", help='output column separator', default='\t')
     parser.add_argument('-n', '--normalise-ws', action="store_true", help='normalise whitespace')
@@ -116,7 +135,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     files = gen_files(args.input)
-    parts = gen_parts(files, args.title, args.body, args.url, args.category)
+    parts = gen_parts(files, args.title, args.body, args.url, args.category, args.desk, args.author)
     if args.grep:
         parts = gen_grep(parts, args.grep)
     if args.normalise_ws:
