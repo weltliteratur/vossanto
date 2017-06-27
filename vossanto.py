@@ -160,7 +160,7 @@ def vossanto(sentence, verbose=False):
                 if d["z43"]:
                     z += " " + d["z43"]
 
-        return [x, y, z, m.group(0), taglist]
+        return [x, y, z, m.group(0), sentence, taglist]
     return None
 
 # for debugging
