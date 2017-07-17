@@ -69,7 +69,7 @@ def xml2vossanto(f, fname, **kwargs):
             for v in vossanto.text2vossanto(txt):
                 # print vossanto
                 if v:
-                    parts = [fname] + v[0:2]
+                    parts = [fname] + v[0:3]
                     if kwargs["pattern"]:
                         parts.append(v[3])
                     if kwargs["sentence"]:
