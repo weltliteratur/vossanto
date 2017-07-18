@@ -41,7 +41,7 @@ See also:
 - *Algarve*, the *Riviera* of *Portugal* (1987/06/14/0048773)
 - Anne Horner's husband was the great-grandson of *Sir John Horner*, the *Little Jack Horner* of the *nursery rhyme* (1987/06/24/0051512)
 - *Hiroshi Itsuki*, the *Frank Sinatra* of *Japan* (1987/06/29/0052991)
-- the *Cesars* - the *French equivalent* of *Oscars* (1987/06/29/0052991)
+- the *Cesars* - the *French equivalent* of *Oscars* (1987/07/03/0053848)
 - the *Olivier Award* - the *British equivalent* of a *Tony* (1987/07/10/0055426)
 - *Sassy*, the *United States version* of *Dolly* (1987/08/24/0068801)
 - *Windsor* is the *Detroit* of *Canada* (1987/09/21/0076414)

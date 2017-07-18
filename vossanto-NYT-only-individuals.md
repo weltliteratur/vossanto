@@ -29,7 +29,7 @@ source: New York Times corpus 1987–2007
 - <strike>*Algarve*, the *Riviera* of *Portugal* (1987/06/14/0048773)</strike>
 - <strike>Anne Horner's husband was the great-grandson of *Sir John Horner*, the *Little Jack Horner* of the *nursery rhyme* (1987/06/24/0051512)</strike>
 - *Hiroshi Itsuki*, the *Frank Sinatra* of *Japan* (1987/06/29/0052991)
-- <strike>the *Cesars* - the *French equivalent* of *Oscars* (1987/06/29/0052991)</strike>
+- <strike>the *Cesars* - the *French equivalent* of *Oscars* (1987/07/03/0053848)</strike>
 - <strike>the *Olivier Award* - the *British equivalent* of a *Tony* (1987/07/10/0055426)</strike>
 - <strike>*Sassy*, the *United States version* of *Dolly* (1987/08/24/0068801)</strike>
 - <strike>*Windsor* is the *Detroit* of *Canada* (1987/09/21/0076414)</strike>
