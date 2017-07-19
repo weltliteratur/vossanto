@@ -9,6 +9,10 @@
 # Author: rja
 #
 # Changes:
+# 2017-07-19 (rja)
+# - added option -c to disable sentence tokenisation
+# - moved control character cleansing before regex application
+# - added sys.path fix to avoid loading org.py as a module (by a dependency of tarfile)
 # 2017-06-14 (rja)
 # - fixed extraction of heading
 # 2017-05-10 (rja)
@@ -20,17 +24,22 @@
 # - initial version copied from nyt.py
 
 from __future__ import print_function
+from __future__ import absolute_import
+
+import sys
+# remove current directory from search path to avoid org.py is loaded
+# as a module
+sys.path = sys.path[1:]
 import re
 import xml.etree.ElementTree as ET
 import tarfile
 import argparse
 import os
-import sys
 import codecs
 import nltk
 from nltk.tokenize import sent_tokenize
 
-version = "0.0.2"
+version = "0.0.3"
 
 # convert all output into a byte string to be safe when redirecting
 # UTF8Writer = codecs.getwriter('utf8')
@@ -50,6 +59,24 @@ re_theof = {
     # 5: all unicode characters and .-,'
     5: re.compile("(\\bthe\\s+([\\w.,'-]+\\s+){1,5}?of\\b)", re.UNICODE)
 }
+
+# generate a list of files from various input
+def gen_files(path):
+    if os.path.splitext(path)[1] == ".xml":
+        # XML input: just one file
+        yield open(path, "rt"), path
+    elif os.path.isdir(path):
+        # read all files in the directory
+        for fname in os.listdir(path):
+            fname = path + "/" + fname
+            if os.path.isfile(fname):
+                yield open(fname, "rt"), fname
+    else:
+        # read TAR file
+        tar = tarfile.open(path, "r:gz")
+        for tarinfo in tar:
+            if tarinfo.isreg():
+                yield tar.extractfile(tarinfo), tarinfo.name
 
 # convert NYT XML to text
 def xml2str(f):
@@ -75,6 +102,11 @@ def gen_text(files):
     for f, fname in files:
         yield fname, xml2str(f)
 
+# remove control characters
+def gen_rm_ctrl(texts):
+    for fname, text in texts:
+        yield fname, re_ws.sub(' ', text)
+
 # extract sentences for texts
 def gen_sentences(texts):
     for fname, text in texts:
@@ -84,48 +116,40 @@ def gen_sentences(texts):
 # apply the regex
 def gen_regex(texts, regex, groupid=0):
     for fname, text in texts:
-        for match in regex.findall(text):
-            yield fname, match[groupid], text
+        for m in regex.finditer(text):
+            # also return the start position of the matches
+            yield fname, m.group(groupid), m.start(groupid), text
 
-# remove control characters
-def gen_rm_ctrl(texts):
-    for fname, match, sentence in texts:
-        yield fname, re_ws.sub(' ', match), re_ws.sub(' ', sentence)
-
-# generate a list of files from various input
-def gen_files(path):
-    if os.path.splitext(path)[1] == ".xml":
-        # XML input: just one file
-        yield open(path, "rt"), path
-    elif os.path.isdir(path):
-        # read all files in the directory
-        for fname in os.listdir(path):
-            fname = path + "/" + fname
-            if os.path.isfile(fname):
-                yield open(fname, "rt"), fname
-    else:
-        # read TAR file
-        tar = tarfile.open(path, "r:gz")
-        for tarinfo in tar:
-            if tarinfo.isreg():
-                yield tar.extractfile(tarinfo), tarinfo.name
+# limit length of text around match
+def gen_limit(texts, chars=sys.maxint):
+    for fname, match, index, text in texts:
+        # reduce text to chars characters before and after match
+        yield fname, match, index, text[max(0,index-chars):min(index+len(match)+chars,len(text))]
 
 def print_matches(matches, sep='\t'):
-    for fname, match, sentence in matches:
-        print(fname, match, sentence, sep=sep)
+    for fname, match, index, text in matches:
+        print(fname, match, text, sep=sep)
 
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Find Vossantos in the NYT corpus.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('input', type=str, help='input TAR/XML file or directory')
-    parser.add_argument('-r', '--regex', type=int, help='select regex', default=4)
+    parser.add_argument('-r', '--regex', type=int, metavar="R", help='select regex', default=4)
+    parser.add_argument('-s', '--sep', type=str, metavar="S", help='column separator', default='\t')
+    parser.add_argument('-c', '--chars', type=int, metavar="C", default=None, help='disable sentence tokenisation and instead print C characters before and after a match')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
 
     files = gen_files(args.input)
     texts = gen_text(files)
-    sents = gen_sentences(texts)
-    match = gen_regex(sents, re_theof[args.regex])
-    match = gen_rm_ctrl(match)
-    print_matches(match)
+    texts = gen_rm_ctrl(texts)
+
+    if args.chars is not None:
+        # avoid sentence tokenisation using NLTK
+        match = gen_regex(texts, re_theof[args.regex])
+        match = gen_limit(match, args.chars)
+    else:
+        sents = gen_sentences(texts)
+        match = gen_regex(sents, re_theof[args.regex])
+    print_matches(match, args.sep)
