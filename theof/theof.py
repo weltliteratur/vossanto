@@ -104,8 +104,15 @@ def gen_text(files):
 
 # remove control characters
 def gen_rm_ctrl(texts):
-    for fname, text in texts:
-        yield fname, re_ws.sub(' ', text)
+    for cols in texts:
+        #yield [re_ws.sub(' ', col) for col in cols]
+        res = []
+        for col in cols:
+            if isinstance(col, int):
+                res.append(col)
+            else:
+                res.append(re_ws.sub(' ', col))
+        yield res
 
 # extract sentences for texts
 def gen_sentences(texts):
@@ -143,13 +150,14 @@ if __name__ == '__main__':
 
     files = gen_files(args.input)
     texts = gen_text(files)
-    texts = gen_rm_ctrl(texts)
 
     if args.chars is not None:
         # avoid sentence tokenisation using NLTK
+        texts = gen_rm_ctrl(texts)
         match = gen_regex(texts, re_theof[args.regex])
         match = gen_limit(match, args.chars)
     else:
         sents = gen_sentences(texts)
         match = gen_regex(sents, re_theof[args.regex])
+        match = gen_rm_ctrl(match)
     print_matches(match, args.sep)
