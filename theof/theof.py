@@ -10,7 +10,7 @@
 #
 # Changes:
 # 2017-07-19 (rja)
-# - added option -c to disable sentence tokenisation
+# - added option -c to disable NLTK sentence tokenisation
 # - moved control character cleansing before regex application
 # - added sys.path fix to avoid loading org.py as a module (by a dependency of tarfile)
 # 2017-06-14 (rja)
