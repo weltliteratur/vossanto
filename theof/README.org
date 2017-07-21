@@ -428,46 +428,47 @@ Extracts Vossanto candidates from org files. Options:
 ** temporal distribution
 We plot some temporal distributions:
 #+BEGIN_SRC sh
-  echo "year all wd wd+bl found true prec"
+  echo "year articles cand wd wd+bl found true prec"
   for year in $(seq 1987 2007); do
-    echo $year \
-         $(zcat theof_${year}.tsv.gz | wc -l) \
-         $(cat theof_${year}_wd.tsv | wc -l) \
-         $(cat theof_${year}_wda_bl.tsv | wc -l) \
-         $(./org.py -y README.org | grep ${year} | wc -l) \
-         $(./org.py -y -T README.org | grep ${year} | wc -l)
+      echo $year \
+	   $(grep ^$year articles.tsv | cut -d' ' -f2) \
+	   $(zcat theof_${year}.tsv.gz | wc -l) \
+	   $(cat theof_${year}_wd.tsv | wc -l) \
+	   $(cat theof_${year}_wda_bl.tsv | wc -l) \
+	   $(./org.py -y README.org | grep ${year} | wc -l) \
+	   $(./org.py -y -T README.org | grep ${year} | wc -l)
   done
 #+END_SRC
 
 #+CAPTION: The temporal distribution of the number of candidate phrases (cand), after matching against  Wikidata (wd) and a blacklist (wd+bl), and after manual inspection (true). The last column shows the precision.
 #+NAME: temporal-distribution
-|   year |     cand | wd | wd+bl | found | true | prec |
-|--------+----------+----+-------+-------+------+------|
-|   1987 |   640511 |  0 |   130 |   127 |   92 | 72.4 |
-|   1988 |   636109 |  0 |   138 |   134 |   88 | 65.7 |
-|   1989 |   624727 |  0 |   148 |   145 |  102 | 70.3 |
-|   1990 |   613136 |  0 |   140 |   137 |  100 | 73.0 |
-|   1991 |   512427 |  0 |   151 |   149 |  102 | 68.5 |
-|   1992 |   493694 |  0 |   146 |   144 |  104 | 72.2 |
-|   1993 |   480589 |  0 |   164 |   164 |  114 | 69.5 |
-|   1994 |   463914 |  0 |   161 |   160 |  118 | 73.8 |
-|   1995 |   499904 |  0 |   157 |   157 |  116 | 73.9 |
-|   1996 |   497177 |  0 |   185 |   183 |  136 | 74.3 |
-|   1997 |   514987 |  0 |   171 |   171 |  134 | 78.4 |
-|   1998 |   570026 |  0 |   240 |   240 |  183 | 76.2 |
-|   1999 |   584481 |  0 |   185 |   182 |  139 | 76.4 |
-|   2000 |   601203 |  0 |   227 |   227 |  173 | 76.2 |
-|   2001 |   586104 |  0 |   204 |   202 |  141 | 69.8 |
-|   2002 |   595294 |  0 |   223 |   223 |  174 | 78.0 |
-|   2003 |   588940 |  0 |   216 |   213 |  170 | 79.8 |
-|   2004 |   569884 |  0 |   187 |   187 |  175 | 93.6 |
-|   2005 |   560140 |  0 |   202 |   202 |  191 | 94.6 |
-|   2006 |   559447 |  0 |   217 |   217 |  207 | 95.4 |
-|   2007 |   259921 |  0 |    98 |    97 |   82 | 84.5 |
-|--------+----------+----+-------+-------+------+------|
-|  *sum* | 11452615 |  0 |  3690 |  3661 | 2841 | 77.6 |
-| *mean* |   545363 |  0 |   176 |   174 |  135 | 77.6 |
-#+TBLFM: $7=($-1/$-2)*100;%2.1f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f::@24$6=vmean(@I..@II);%2.0f
+|   year | articles |     cand | wd | wd+bl | found | true | prec |
+|--------+----------+----------+----+-------+-------+------+------|
+|   1987 |   106104 |   640511 |  0 |   128 |   128 |   93 | 72.7 |
+|   1988 |   104541 |   636109 |  0 |   140 |   139 |   93 | 66.9 |
+|   1989 |   102818 |   624727 |  0 |   148 |   148 |  105 | 70.9 |
+|   1990 |    98812 |   613136 |  0 |   140 |   139 |  102 | 73.4 |
+|   1991 |    85135 |   512427 |  0 |   152 |   152 |  105 | 69.1 |
+|   1992 |    82685 |   493694 |  0 |   150 |   150 |  110 | 73.3 |
+|   1993 |    79200 |   480589 |  0 |   167 |   167 |  117 | 70.1 |
+|   1994 |    74925 |   463914 |  0 |   163 |   163 |  121 | 74.2 |
+|   1995 |    85392 |   499904 |  0 |   162 |   162 |  121 | 74.7 |
+|   1996 |    79077 |   497177 |  0 |   184 |   184 |  137 | 74.5 |
+|   1997 |    85396 |   514987 |  0 |   173 |   173 |  136 | 78.6 |
+|   1998 |    89163 |   570026 |  0 |   243 |   243 |  186 | 76.5 |
+|   1999 |    91074 |   584481 |  0 |   186 |   186 |  143 | 76.9 |
+|   2000 |    94258 |   601203 |  0 |   231 |   231 |  177 | 76.6 |
+|   2001 |    96282 |   586104 |  0 |   207 |   207 |  146 | 70.5 |
+|   2002 |    97258 |   595294 |  0 |   229 |   229 |  180 | 78.6 |
+|   2003 |    94235 |   588940 |  0 |   215 |   215 |  172 | 80.0 |
+|   2004 |    91362 |   569884 |  0 |   191 |   191 |  159 | 83.2 |
+|   2005 |    90004 |   560140 |  0 |   206 |   206 |  166 | 80.6 |
+|   2006 |    87052 |   559447 |  0 |   221 |   220 |  179 | 81.4 |
+|   2007 |    39953 |   259921 |  0 |   100 |   100 |   81 | 81.0 |
+|--------+----------+----------+----+-------+-------+------+------|
+|  *sum* |  1854726 | 11452615 |  0 |  3736 |  3733 | 2829 | 75.8 |
+| *mean* |    88320 |   545363 |  0 |   178 |   178 |  135 | 75.8 |
+#+TBLFM: $8=($-1/$-2)*100;%2.1f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@23$7=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f::@24$6=vmean(@I..@II);%2.0f::@24$7=vmean(@I..@II);%2.0f
 
 
 #+begin_src gnuplot :var data=temporal-distribution :file nyt_vossantos_over_time.svg :results silent
@@ -486,9 +487,9 @@ set style fill solid 1
 
 set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
 #set out "nyt_vossantos_over_time.svg"
-plot data using 1:5 with linespoints pt 7 lc "red" title 'candidates',\
-     data using 1:6 with linespoints pt 7 lc "green"  title 'Vossantos',\
-     data using 1:7 with lines lc "blue" title 'precision' axes x1y2
+plot data using 1:6 with linespoints pt 7 lc "red" title 'candidates',\
+     data using 1:7 with linespoints pt 7 lc "green"  title 'Vossantos',\
+     data using 1:8 with lines lc "blue" title 'precision' axes x1y2
 
 # data using 1:2 with linespoints pt 7 axes x1y2 title 'cand',\
 #     data using 1:3 with linespoints pt 7 axes x1y2 title 'wd',\
@@ -496,9 +497,31 @@ plot data using 1:5 with linespoints pt 7 lc "red" title 'candidates',\
 set term png enhanced size 800,600 font "Arial,16" lw  2
 set out "nyt_vossantos_over_time.png"
 replot
+
+# ---- relative values
+
+set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
+set out "nyt_vossantos_over_time_rel.svg"
+set ylabel "frequency (per mille)"
+set format y "%2.1f"
+
+plot data using 1:($6/$2*1000) with linespoints pt 7 lc "red" title 'candidates',\
+     data using 1:($7/$2*1000) with linespoints pt 7 lc "green"  title 'Vossantos',\
+     data using 1:8 with lines lc "blue" title 'precision' axes x1y2
+
+
+set term png enhanced size 800,600 font "Arial,16" lw  2
+set out "nyt_vossantos_over_time_rel.png"
+replot
 #+end_src
 
+Absolute frequency:
 [[nyt_vossantos_over_time.png]]
+
+Relative frequency:
+[[nyt_vossantos_over_time_rel.png]]
+
+
 ** sources
 *** most frequent
 The most frequent source /candidates/ are:
