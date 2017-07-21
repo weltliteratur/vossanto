@@ -88,7 +88,7 @@ def xml2str(f):
     heading = root.findall("./body/body.head")
     head = ""
     for block in heading:
-        head = ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
+        head += ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
 
     # path to the main text block
     content = root.findall("./body/body.content/")
@@ -96,7 +96,7 @@ def xml2str(f):
     for block in content:
         if block.attrib["class"] == "full_text":
             # strip XML
-            body = body + "\n" + ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
+            body += "\n" + ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
     return head + "\n\n" + body
 
 # convert a list of XML files into texts
