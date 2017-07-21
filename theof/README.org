@@ -521,7 +521,6 @@ Absolute frequency:
 Relative frequency:
 [[nyt_vossantos_over_time_rel.png]]
 
-
 ** sources
 *** most frequent
 The most frequent source /candidates/ are:
@@ -537,20 +536,20 @@ The most frequent source /candidates/ are:
 |    47 | Madonna            |
 |    37 | Babe Ruth          |
 |    32 | Elvis              |
-|    30 | Johnny Appleseed   |
-|    28 | Jesus              |
+|    31 | Johnny Appleseed   |
+|    29 | Jesus              |
 |    27 | Picasso            |
 |    26 | Mona Lisa          |
+|    25 | Rembrandt          |
 |    24 | Bill Gates         |
-|    23 | Rembrandt          |
-|    23 | Mozart             |
 |    23 | Michelangelo       |
 |    22 | Shakespeare        |
+|    22 | Mozart             |
 |    22 | Donald Trump       |
-|    22 | Dalai Lama         |
 |    21 | Tiger Woods        |
 |    21 | P. T. Barnum       |
 |    21 | Jackie Robinson    |
+|    21 | Dalai Lama         |
 |    21 | Cary Grant         |
 
 After cleansing, the following most frequent sources remain:
@@ -560,42 +559,42 @@ After cleansing, the following most frequent sources remain:
 
 | count | source                  |
 |-------+-------------------------|
-|    67 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
+|    68 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]          |
 |    58 | [[https://www.wikidata.org/wiki/Q436386][Rodney Dangerfield]]      |
 |    36 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
 |    32 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
-|    30 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
+|    31 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
 |    23 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]              |
-|    22 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
 |    21 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]           |
+|    21 | [[https://www.wikidata.org/wiki/Q5592][Michelangelo]]            |
 |    21 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]            |
 |    21 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]]         |
 |    21 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]                 |
-|    21 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
 |    20 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
-|    18 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
+|    20 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
 |    18 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]          |
+|    17 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
 |    17 | [[https://www.wikidata.org/wiki/Q13685096][Cinderella]]              |
 |    16 | [[https://www.wikidata.org/wiki/Q8768][Henry Ford]]              |
 |    16 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
-|    16 | [[https://www.wikidata.org/wiki/Q352][Adolf Hitler]]            |
 |    15 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]                |
+|    15 | [[https://www.wikidata.org/wiki/Q352][Adolf Hitler]]            |
 |    14 | [[https://www.wikidata.org/wiki/Q5443][Greta Garbo]]             |
 |    14 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |
 |    14 | [[https://www.wikidata.org/wiki/Q30547][Mother Teresa]]           |
-|    13 | [[https://www.wikidata.org/wiki/Q242936][Susan Lucci]]             |
 |    13 | [[https://www.wikidata.org/wiki/Q193156][Ralph Nader]]             |
 |    12 | [[https://www.wikidata.org/wiki/Q762][Leonardo da Vinci]]       |
 |    12 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]              |
 |    12 | [[https://www.wikidata.org/wiki/Q7243][Leo Tolstoy]]             |
+|    12 | [[https://www.wikidata.org/wiki/Q55800][Oprah Winfrey]]           |
 |    12 | [[https://www.wikidata.org/wiki/Q41921][Rosa Parks]]              |
-|    11 | [[https://www.wikidata.org/wiki/Q937][Albert Einstein]]         |
+|    12 | [[https://www.wikidata.org/wiki/Q242936][Susan Lucci]]             |
 |    11 | [[https://www.wikidata.org/wiki/Q8704][Walt Disney]]             |
 |    11 | [[https://www.wikidata.org/wiki/Q8021572][Willie Horton]]           |
-|    11 | [[https://www.wikidata.org/wiki/Q55800][Oprah Winfrey]]           |
+|    11 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
+|    10 | [[https://www.wikidata.org/wiki/Q937][Albert Einstein]]         |
 |    10 | [[https://www.wikidata.org/wiki/Q8743][Thomas Edison]]           |
 |    10 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]              |
-|    10 | [[https://www.wikidata.org/wiki/Q5598][Rembrandt]]               |
 |    10 | [[https://www.wikidata.org/wiki/Q170779][Cassandra]]               |
 |     9 | [[https://www.wikidata.org/wiki/Q313697][Ross Perot]]              |
 |     9 | [[https://www.wikidata.org/wiki/Q216810][King Kong]]               |
@@ -614,8 +613,6 @@ After cleansing, the following most frequent sources remain:
     echo
   done
 #+END_SRC
-
-#+RESULTS:
 
 #+NAME: sources-temporal-distribution
 | year | Michael Jordan | Rodney Dangerfield | Babe Ruth |
@@ -639,10 +636,10 @@ After cleansing, the following most frequent sources remain:
 | 2003 |              2 |                  0 |         4 |
 | 2004 |              0 |                  1 |         2 |
 | 2005 |              2 |                  8 |         2 |
-| 2006 |              3 |                  4 |         2 |
+| 2006 |              4 |                  4 |         2 |
 | 2007 |              3 |                  1 |         0 |
 |------+----------------+--------------------+-----------|
-|  sum |             67 |                 58 |        36 |
+|  sum |             68 |                 58 |        36 |
 #+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)
 
 
@@ -721,28 +718,28 @@ Collect the categories of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos |  2861 | category               | articles | 1854726 |
+| vossantos |  2829 | category               | articles | 1854726 |
 |-----------+-------+------------------------+----------+---------|
-|       367 | 12.8% | Arts                   |    88460 |    4.8% |
-|       360 | 12.6% | Sports                 |   160888 |    8.7% |
-|       312 | 10.9% | New York and Region    |   221897 |   12.0% |
-|       258 |  9.0% | Arts; Books            |    35475 |    1.9% |
-|       185 |  6.5% | Movies; Arts           |    27759 |    1.5% |
-|       112 |  3.9% | Business               |   291982 |   15.7% |
-|       109 |  3.8% | Opinion                |   134428 |    7.2% |
-|       101 |  3.5% | U.S.                   |    89389 |    4.8% |
-|        99 |  3.5% | Magazine               |    11464 |    0.6% |
-|        68 |  2.4% | Style                  |    65071 |    3.5% |
-|        65 |  2.3% | Arts; Theater          |    13283 |    0.7% |
-|        48 |  1.7% | World                  |    79786 |    4.3% |
-|        44 |  1.5% | Home and Garden; Style |    13978 |    0.8% |
+|       359 | 12.7% | Arts                   |    88460 |    4.8% |
+|       349 | 12.3% | Sports                 |   160888 |    8.7% |
+|       316 | 11.2% | New York and Region    |   221897 |   12.0% |
+|       249 |  8.8% | Arts; Books            |    35475 |    1.9% |
+|       172 |  6.1% | Movies; Arts           |    27759 |    1.5% |
+|       113 |  4.0% | Business               |   291982 |   15.7% |
+|       108 |  3.8% | Opinion                |   134428 |    7.2% |
+|       102 |  3.6% | U.S.                   |    89389 |    4.8% |
+|        98 |  3.5% | Magazine               |    11464 |    0.6% |
+|        66 |  2.3% | Style                  |    65071 |    3.5% |
+|        66 |  2.3% | Arts; Theater          |    13283 |    0.7% |
+|        50 |  1.8% | World                  |    79786 |    4.3% |
+|        47 |  1.7% | Home and Garden; Style |    13978 |    0.8% |
 |        34 |  1.2% | Travel                 |    10440 |    0.6% |
+|        33 |  1.2% | Technology; Business   |    23283 |    1.3% |
 |        33 |  1.2% |                        |    42157 |    2.3% |
-|        32 |  1.1% | Technology; Business   |    23283 |    1.3% |
 |        29 |  1.0% | Week in Review         |    17107 |    0.9% |
-|        27 |  0.9% | Home and Garden        |     5546 |    0.3% |
-|        18 |  0.6% | World; Washington      |    24817 |    1.3% |
-|        18 |  0.6% | Style; Magazine        |     1519 |    0.1% |
+|        27 |  1.0% | Home and Garden        |     5546 |    0.3% |
+|        18 |  0.6% | Front Page; U.S.       |    11425 |    0.6% |
+|        17 |  0.6% | World; Washington      |    24817 |    1.3% |
 #+TBLFM: $2=($-1/@1$2)*100;%2.1f%%::$5=($-1/@1$5)*100;%2.1f%%
 
 *** desks
@@ -911,7 +908,7 @@ A very simple approach to identify frequent modifiers:
 
 | count | modifier         |
 |-------+------------------|
-|    47 | his day          |
+|    48 | his day          |
 |    29 | his time         |
 |    28 | Japan            |
 |    15 | his generation   |
@@ -922,11 +919,11 @@ A very simple approach to identify frequent modifiers:
 |    12 | tennis           |
 |    11 | her day          |
 |    10 | the Zulus        |
-|    10 | the N            |
 |    10 | the 90           |
 |    10 | her time         |
 |    10 | Brazil           |
 |     9 | today            |
+|     9 | the N            |
 |     9 | politics         |
 |     9 | our time         |
 |     9 | basketball       |
