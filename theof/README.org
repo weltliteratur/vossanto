@@ -444,30 +444,30 @@ We plot some temporal distributions:
 #+NAME: temporal-distribution
 |   year | articles |     cand | wd | wd+bl | found | true | prec |
 |--------+----------+----------+----+-------+-------+------+------|
-|   1987 |   106104 |   640511 |  0 |   128 |   128 |   93 | 72.7 |
-|   1988 |   104541 |   636109 |  0 |   140 |   139 |   93 | 66.9 |
-|   1989 |   102818 |   624727 |  0 |   148 |   148 |  105 | 70.9 |
-|   1990 |    98812 |   613136 |  0 |   140 |   139 |  102 | 73.4 |
-|   1991 |    85135 |   512427 |  0 |   152 |   152 |  105 | 69.1 |
-|   1992 |    82685 |   493694 |  0 |   150 |   150 |  110 | 73.3 |
-|   1993 |    79200 |   480589 |  0 |   167 |   167 |  117 | 70.1 |
-|   1994 |    74925 |   463914 |  0 |   163 |   163 |  121 | 74.2 |
-|   1995 |    85392 |   499904 |  0 |   162 |   162 |  121 | 74.7 |
-|   1996 |    79077 |   497177 |  0 |   184 |   184 |  137 | 74.5 |
-|   1997 |    85396 |   514987 |  0 |   173 |   173 |  136 | 78.6 |
-|   1998 |    89163 |   570026 |  0 |   243 |   243 |  186 | 76.5 |
-|   1999 |    91074 |   584481 |  0 |   186 |   186 |  143 | 76.9 |
-|   2000 |    94258 |   601203 |  0 |   231 |   231 |  177 | 76.6 |
-|   2001 |    96282 |   586104 |  0 |   207 |   207 |  146 | 70.5 |
-|   2002 |    97258 |   595294 |  0 |   229 |   229 |  180 | 78.6 |
-|   2003 |    94235 |   588940 |  0 |   215 |   215 |  172 | 80.0 |
-|   2004 |    91362 |   569884 |  0 |   191 |   191 |  159 | 83.2 |
-|   2005 |    90004 |   560140 |  0 |   206 |   206 |  166 | 80.6 |
-|   2006 |    87052 |   559447 |  0 |   221 |   220 |  179 | 81.4 |
-|   2007 |    39953 |   259921 |  0 |   100 |   100 |   81 | 81.0 |
+|   1987 |   106104 |   640511 |  0 |   128 |   128 |   92 | 71.9 |
+|   1988 |   104541 |   636109 |  0 |   140 |   139 |   89 | 64.0 |
+|   1989 |   102818 |   624727 |  0 |   148 |   148 |  102 | 68.9 |
+|   1990 |    98812 |   613136 |  0 |   140 |   139 |  101 | 72.7 |
+|   1991 |    85135 |   512427 |  0 |   152 |   152 |  102 | 67.1 |
+|   1992 |    82685 |   493694 |  0 |   150 |   150 |  105 | 70.0 |
+|   1993 |    79200 |   480589 |  0 |   167 |   167 |  114 | 68.3 |
+|   1994 |    74925 |   463914 |  0 |   163 |   163 |  119 | 73.0 |
+|   1995 |    85392 |   499904 |  0 |   162 |   162 |  117 | 72.2 |
+|   1996 |    79077 |   497177 |  0 |   184 |   184 |  136 | 73.9 |
+|   1997 |    85396 |   514987 |  0 |   173 |   173 |  134 | 77.5 |
+|   1998 |    89163 |   570026 |  0 |   243 |   243 |  183 | 75.3 |
+|   1999 |    91074 |   584481 |  0 |   186 |   186 |  139 | 74.7 |
+|   2000 |    94258 |   601203 |  0 |   231 |   231 |  173 | 74.9 |
+|   2001 |    96282 |   586104 |  0 |   207 |   207 |  143 | 69.1 |
+|   2002 |    97258 |   595294 |  0 |   229 |   229 |  174 | 76.0 |
+|   2003 |    94235 |   588940 |  0 |   215 |   215 |  171 | 79.5 |
+|   2004 |    91362 |   569884 |  0 |   191 |   191 |  155 | 81.2 |
+|   2005 |    90004 |   560140 |  0 |   206 |   206 |  163 | 79.1 |
+|   2006 |    87052 |   559447 |  0 |   221 |   220 |  177 | 80.5 |
+|   2007 |    39953 |   259921 |  0 |   100 |   100 |   78 | 78.0 |
 |--------+----------+----------+----+-------+-------+------+------|
-|  *sum* |  1854726 | 11452615 |  0 |  3736 |  3733 | 2829 | 75.8 |
-| *mean* |    88320 |   545363 |  0 |   178 |   178 |  135 | 75.8 |
+|  *sum* |  1854726 | 11452615 |  0 |  3736 |  3733 | 2767 | 74.1 |
+| *mean* |    88320 |   545363 |  0 |   178 |   178 |  132 | 74.2 |
 #+TBLFM: $8=($-1/$-2)*100;%2.1f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@23$7=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f::@24$6=vmean(@I..@II);%2.0f::@24$7=vmean(@I..@II);%2.0f
 
 
@@ -642,7 +642,6 @@ After cleansing, the following most frequent sources remain:
 |  sum |             68 |                 58 |        36 |
 #+TBLFM: @23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)
 
-
 #+begin_src gnuplot :var data=sources-temporal-distribution :file nyt_sources_over_time.svg :results silent
 reset
 set datafile separator "\t"
@@ -718,28 +717,28 @@ Collect the categories of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos |  2829 | category               | articles | 1854726 |
-|-----------+-------+------------------------+----------+---------|
-|       359 | 12.7% | Arts                   |    88460 |    4.8% |
-|       349 | 12.3% | Sports                 |   160888 |    8.7% |
-|       316 | 11.2% | New York and Region    |   221897 |   12.0% |
-|       249 |  8.8% | Arts; Books            |    35475 |    1.9% |
-|       172 |  6.1% | Movies; Arts           |    27759 |    1.5% |
-|       113 |  4.0% | Business               |   291982 |   15.7% |
-|       108 |  3.8% | Opinion                |   134428 |    7.2% |
-|       102 |  3.6% | U.S.                   |    89389 |    4.8% |
-|        98 |  3.5% | Magazine               |    11464 |    0.6% |
-|        66 |  2.3% | Style                  |    65071 |    3.5% |
-|        66 |  2.3% | Arts; Theater          |    13283 |    0.7% |
-|        50 |  1.8% | World                  |    79786 |    4.3% |
-|        47 |  1.7% | Home and Garden; Style |    13978 |    0.8% |
-|        34 |  1.2% | Travel                 |    10440 |    0.6% |
-|        33 |  1.2% | Technology; Business   |    23283 |    1.3% |
-|        33 |  1.2% |                        |    42157 |    2.3% |
-|        29 |  1.0% | Week in Review         |    17107 |    0.9% |
-|        27 |  1.0% | Home and Garden        |     5546 |    0.3% |
-|        18 |  0.6% | Front Page; U.S.       |    11425 |    0.6% |
-|        17 |  0.6% | World; Washington      |    24817 |    1.3% |
+| vossantos |  2767 | category               | articles | 1854726 |   |
+|-----------+-------+------------------------+----------+---------+---|
+|       347 | 12.5% | Arts                   |    88460 |    4.8% |   |
+|       345 | 12.5% | Sports                 |   160888 |    8.7% |   |
+|       305 | 11.0% | New York and Region    |   221897 |   12.0% |   |
+|       246 |  8.9% | Arts; Books            |    35475 |    1.9% |   |
+|       170 |  6.1% | Movies; Arts           |    27759 |    1.5% |   |
+|       111 |  4.0% | Business               |   291982 |   15.7% |   |
+|       107 |  3.9% | Opinion                |   134428 |    7.2% |   |
+|        98 |  3.5% | U.S.                   |    89389 |    4.8% |   |
+|        98 |  3.5% | Magazine               |    11464 |    0.6% |   |
+|        66 |  2.4% | Style                  |    65071 |    3.5% |   |
+|        65 |  2.3% | Arts; Theater          |    13283 |    0.7% |   |
+|        48 |  1.7% | World                  |    79786 |    4.3% |   |
+|        45 |  1.6% | Home and Garden; Style |    13978 |    0.8% |   |
+|        34 |  1.2% | Travel                 |    10440 |    0.6% |   |
+|        32 |  1.2% | Technology; Business   |    23283 |    1.3% |   |
+|        32 |  1.2% |                        |    42157 |    2.3% |   |
+|        27 |  1.0% | Week in Review         |    17107 |    0.9% |   |
+|        27 |  1.0% | Home and Garden        |     5546 |    0.3% |   |
+|        18 |  0.7% | Front Page; U.S.       |    11425 |    0.6% |   |
+|        17 |  0.6% | World; Washington      |    24817 |    1.3% |   |
 #+TBLFM: $2=($-1/@1$2)*100;%2.1f%%::$5=($-1/@1$5)*100;%2.1f%%
 
 *** desks
@@ -793,23 +792,23 @@ Collect the desks of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos | 2861 | desk                    | articles | 1854727 |
+| vossantos | 2767 | desk                    | articles | 1854727 |
 |-----------+------+-------------------------+----------+---------|
-|       132 | 4.6% | Sports Desk             |   174823 |    9.4% |
-|        77 | 2.7% | Cultural Desk           |    40342 |    2.2% |
-|        68 | 2.4% | Book Review Desk        |    32737 |    1.8% |
-|        61 | 2.1% | National Desk           |   143489 |    7.7% |
-|        54 | 1.9% | Financial Desk          |   206958 |   11.2% |
+|       132 | 4.8% | Sports Desk             |   174823 |    9.4% |
+|        77 | 2.8% | Cultural Desk           |    40342 |    2.2% |
+|        68 | 2.5% | Book Review Desk        |    32737 |    1.8% |
+|        61 | 2.2% | National Desk           |   143489 |    7.7% |
+|        54 | 2.0% | Financial Desk          |   206958 |   11.2% |
 |        51 | 1.8% | Metropolitan Desk       |   237896 |   12.8% |
-|        46 | 1.6% | Weekend Desk            |    18814 |    1.0% |
-|        36 | 1.3% | Arts & Leisure Desk     |     6742 |    0.4% |
-|        35 | 1.2% | Editorial Desk          |   131762 |    7.1% |
+|        46 | 1.7% | Weekend Desk            |    18814 |    1.0% |
+|        38 | 1.4% | Arts & Leisure Desk     |     6742 |    0.4% |
+|        35 | 1.3% | Editorial Desk          |   131762 |    7.1% |
 |        31 | 1.1% | Foreign Desk            |   129732 |    7.0% |
-|        30 | 1.0% | Arts and Leisure Desk   |    27765 |    1.5% |
+|        30 | 1.1% | Arts and Leisure Desk   |    27765 |    1.5% |
 |        25 | 0.9% | Magazine Desk           |    25433 |    1.4% |
-|        24 | 0.8% | Long Island Weekly Desk |    20453 |    1.1% |
+|        25 | 0.9% | Long Island Weekly Desk |    20453 |    1.1% |
 |        22 | 0.8% | Living Desk             |     6843 |    0.4% |
-|        18 | 0.6% | Home Desk               |     8391 |    0.5% |
+|        19 | 0.7% | Home Desk               |     8391 |    0.5% |
 |        15 | 0.5% | Week in Review Desk     |    21897 |    1.2% |
 |        14 | 0.5% | Style Desk              |    21569 |    1.2% |
 |        13 | 0.5% | Styles of The Times     |     2794 |    0.2% |
@@ -872,28 +871,28 @@ Collect the authors of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos |  2861 | author                | articles | 1854726 |
+| vossantos |  2767 | author                | articles | 1854726 |
 |-----------+-------+-----------------------+----------+---------|
-|       473 | 16.5% |                       |   961052 |   51.8% |
-|        35 |  1.2% | Holden, Stephen       |     5098 |    0.3% |
-|        34 |  1.2% | Maslin, Janet         |     2874 |    0.2% |
+|       438 | 15.8% |                       |   961052 |   51.8% |
+|        33 |  1.2% | Maslin, Janet         |     2874 |    0.2% |
+|        30 |  1.1% | Holden, Stephen       |     5098 |    0.3% |
 |        26 |  0.9% | Vecsey, George        |     2739 |    0.1% |
 |        23 |  0.8% | Sandomir, Richard     |     3140 |    0.2% |
 |        22 |  0.8% | Ketcham, Diane        |      717 |    0.0% |
 |        20 |  0.7% | Kisselgoff, Anna      |     2661 |    0.1% |
 |        20 |  0.7% | Dowd, Maureen         |     1647 |    0.1% |
-|        19 |  0.7% | Pareles, Jon          |     4090 |    0.2% |
 |        19 |  0.7% | Berkow, Ira           |     1704 |    0.1% |
-|        18 |  0.6% | Brown, Patricia Leigh |      568 |    0.0% |
-|        17 |  0.6% | Smith, Roberta        |     2497 |    0.1% |
-|        17 |  0.6% | Kimmelman, Michael    |     1515 |    0.1% |
-|        16 |  0.6% | Grimes, William       |     1368 |    0.1% |
+|        18 |  0.7% | Kimmelman, Michael    |     1515 |    0.1% |
+|        18 |  0.7% | Brown, Patricia Leigh |      568 |    0.0% |
+|        16 |  0.6% | Smith, Roberta        |     2497 |    0.1% |
+|        16 |  0.6% | Pareles, Jon          |     4090 |    0.2% |
 |        16 |  0.6% | Chass, Murray         |     4544 |    0.2% |
 |        16 |  0.6% | Barron, James         |     2188 |    0.1% |
 |        16 |  0.6% | Araton, Harvey        |     1940 |    0.1% |
-|        16 |  0.6% | Anderson, Dave        |     2735 |    0.1% |
 |        15 |  0.5% | Stanley, Alessandra   |     1437 |    0.1% |
 |        15 |  0.5% | Lipsyte, Robert       |      817 |    0.0% |
+|        15 |  0.5% | Grimes, William       |     1368 |    0.1% |
+|        15 |  0.5% | Anderson, Dave        |     2735 |    0.1% |
 #+TBLFM: $2=($-1/@1$2)*100;%2.1f%%::$5=($-1/@1$5)*100;%2.1f%%
 
 ** modifiers
@@ -914,9 +913,9 @@ A very simple approach to identify frequent modifiers:
 |    15 | his generation   |
 |    15 | baseball         |
 |    13 | women            |
-|    13 | China            |
 |    12 | the 1990         |
 |    12 | tennis           |
+|    12 | China            |
 |    11 | her day          |
 |    10 | the Zulus        |
 |    10 | the 90           |
@@ -943,45 +942,44 @@ A very simple approach to identify frequent modifiers:
 **** "today"
 Who are the sources for the modifier "today"?
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* today" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* today" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
-| count | source               |
-|-------+----------------------|
-|     2 | [[https://www.wikidata.org/wiki/Q189240][Kevin Garnett]]        |
-|     1 | [[https://www.wikidata.org/wiki/Q955322][Shoeless Joe Jackson]] |
-|     1 | [[https://www.wikidata.org/wiki/Q935160][Arthur Mitchell]]      |
-|     1 | [[https://www.wikidata.org/wiki/Q531224][Helen Mack]]           |
-|     1 | [[https://www.wikidata.org/wiki/Q5237521][David Merrick]]        |
-|     1 | [[https://www.wikidata.org/wiki/Q4982930][Buck Rogers]]          |
-|     1 | [[https://www.wikidata.org/wiki/Q4910116][Bill McGowan]]         |
-|     1 | [[https://www.wikidata.org/wiki/Q4908317][Bill Buckley]]         |
-|     1 | [[https://www.wikidata.org/wiki/Q37349][Dalai Lama]]           |
-|     1 | [[https://www.wikidata.org/wiki/Q3569688][Curtis Sliwa]]         |
+| count | source                 |
+|-------+------------------------|
+|     1 | [[https://www.wikidata.org/wiki/Q955322][Shoeless Joe Jackson]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q5237521][David Merrick]]          |
+|     1 | [[https://www.wikidata.org/wiki/Q4982930][Buck Rogers]]            |
+|     1 | [[https://www.wikidata.org/wiki/Q4910116][Bill McGowan]]           |
+|     1 | [[https://www.wikidata.org/wiki/Q378098][William F. Buckley Jr.]] |
+|     1 | [[https://www.wikidata.org/wiki/Q28493][Ralph Fiennes]]          |
+|     1 | [[https://www.wikidata.org/wiki/Q231255][Julie London]]           |
+|     1 | [[https://www.wikidata.org/wiki/Q1689414][Jimmy Osmond]]           |
+|     1 | [[https://www.wikidata.org/wiki/Q1586470][Harry Cohn]]             |
 
 **** "his day" or "his time"
 Who are the sources for the modifiers "his day", "his time", and "his generation"?
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* his \(day\|time\|generation\)" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head
+  ./org.py -w -T -t -c README.org | grep "of\* his \(day\|time\|generation\)" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head
 #+END_SRC
 
 | count | source                |
 |-------+-----------------------|
-|     4 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]        |
-|     3 | [[https://www.wikidata.org/wiki/Q508574][Billy Martin]]          |
-|     3 | [[https://www.wikidata.org/wiki/Q11675][Eliot Spitzer]]         |
+|     3 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]        |
 |     2 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]            |
-|     2 | [[https://www.wikidata.org/wiki/Q5431219][Faith Popcorn]]         |
+|     2 | [[https://www.wikidata.org/wiki/Q508574][Billy Martin]]          |
 |     2 | [[https://www.wikidata.org/wiki/Q49214][Dan Quayle]]            |
 |     2 | [[https://www.wikidata.org/wiki/Q2685][Arnold Schwarzenegger]] |
 |     2 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]        |
 |     2 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]          |
+|     2 | [[https://www.wikidata.org/wiki/Q216896][L. Ron Hubbard]]        |
 |     2 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]           |
+|     1 | [[https://www.wikidata.org/wiki/Q963129][Lawrence Taylor]]       |
 
 **** "her day"
 Who are the sources for the modifier "her day"?
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* her day" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* her day" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source           |
@@ -989,7 +987,6 @@ Who are the sources for the modifier "her day"?
 |     1 | [[https://www.wikidata.org/wiki/Q93187][Hilary Swank]]     |
 |     1 | [[https://www.wikidata.org/wiki/Q6294][Hillary Clinton]]  |
 |     1 | [[https://www.wikidata.org/wiki/Q4616][Marilyn Monroe]]   |
-|     1 | [[https://www.wikidata.org/wiki/Q452206][Judith Krantz]]    |
 |     1 | [[https://www.wikidata.org/wiki/Q3838473][Lucia Pamela]]     |
 |     1 | [[https://www.wikidata.org/wiki/Q34851][Elizabeth Taylor]] |
 |     1 | [[https://www.wikidata.org/wiki/Q285536][Imelda Marcos]]    |
@@ -1010,13 +1007,13 @@ Who are the sources for the modifier "her day"?
 | count | country      |
 |-------+--------------|
 |    28 | Japan        |
-|    13 | China        |
-|    11 | Brazil       |
-|     7 | Israel       |
-|     7 | Iran         |
-|     6 | Mexico       |
+|    12 | China        |
+|    10 | Brazil       |
+|     6 | Israel       |
+|     6 | Iran         |
 |     6 | India        |
 |     4 | South Africa |
+|     4 | Mexico       |
 |     3 | Spain        |
 |     3 | South Korea  |
 |     3 | Russia       |
@@ -1026,24 +1023,23 @@ Who are the sources for the modifier "her day"?
 Who are the sources for the modifier ... ?
 **** "Japan"
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* Japan" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* Japan" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source            |
 |-------+-------------------|
-|     6 | [[https://www.wikidata.org/wiki/Q8704][Walt Disney]]       |
-|     5 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]        |
-|     3 | [[https://www.wikidata.org/wiki/Q40912][Frank Sinatra]]     |
-|     2 | [[https://www.wikidata.org/wiki/Q8743][Thomas Edison]]     |
+|     5 | [[https://www.wikidata.org/wiki/Q8704][Walt Disney]]       |
+|     4 | [[https://www.wikidata.org/wiki/Q5284][Bill Gates]]        |
 |     2 | [[https://www.wikidata.org/wiki/Q721948][Nolan Ryan]]        |
+|     2 | [[https://www.wikidata.org/wiki/Q40912][Frank Sinatra]]     |
 |     1 | [[https://www.wikidata.org/wiki/Q966859][Richard Perle]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q8743][Thomas Edison]]     |
 |     1 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]        |
 |     1 | [[https://www.wikidata.org/wiki/Q762][Leonardo da Vinci]] |
 |     1 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]        |
 |     1 | [[https://www.wikidata.org/wiki/Q722059][Walter Johnson]]    |
 |     1 | [[https://www.wikidata.org/wiki/Q5603][Andy Warhol]]       |
 |     1 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]     |
-|     1 | [[https://www.wikidata.org/wiki/Q54168][J. P. Morgan]]      |
 |     1 | [[https://www.wikidata.org/wiki/Q51495][William Wyler]]     |
 |     1 | [[https://www.wikidata.org/wiki/Q435203][Katharine Graham]]  |
 |     1 | [[https://www.wikidata.org/wiki/Q41921][Rosa Parks]]        |
@@ -1062,14 +1058,13 @@ Who are the sources for the modifier ... ?
 
 **** "China"
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* China" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* China" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source                |
 |-------+-----------------------|
 |     4 | [[https://www.wikidata.org/wiki/Q231417][Barbara Walters]]       |
 |     2 | [[https://www.wikidata.org/wiki/Q355314][Jack Welch]]            |
-|     2 | [[https://www.wikidata.org/wiki/Q213430][Larry King]]            |
 |     1 | [[https://www.wikidata.org/wiki/Q7742][Louis XIV of France]]   |
 |     1 | [[https://www.wikidata.org/wiki/Q60029][Oskar Schindler]]       |
 |     1 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]              |
@@ -1077,31 +1072,31 @@ Who are the sources for the modifier ... ?
 |     1 | [[https://www.wikidata.org/wiki/Q41921][Rosa Parks]]            |
 |     1 | [[https://www.wikidata.org/wiki/Q30487][Mikhail Gorbachev]]     |
 |     1 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]          |
+|     1 | [[https://www.wikidata.org/wiki/Q213430][Larry King]]            |
 |     1 | [[https://www.wikidata.org/wiki/Q193368][Ted Turner]]            |
 |     1 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]               |
 |     1 | [[https://www.wikidata.org/wiki/Q1126679][The Scarlet Pimpernel]] |
 
 **** "Brazil"
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* Brazil" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* Brazil" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
-| count | source            |
-|-------+-------------------|
-|     1 | [[https://www.wikidata.org/wiki/Q7317][Giuseppe Verdi]]    |
-|     1 | [[https://www.wikidata.org/wiki/Q69066][Jil Sander]]        |
-|     1 | [[https://www.wikidata.org/wiki/Q613136][Walter Reed]]       |
-|     1 | [[https://www.wikidata.org/wiki/Q444][Lech Wałęsa]]       |
-|     1 | [[https://www.wikidata.org/wiki/Q44301][Jim Morrison]]      |
-|     1 | [[https://www.wikidata.org/wiki/Q438876][Fernando Meligeni]] |
-|     1 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]    |
-|     1 | [[https://www.wikidata.org/wiki/Q392][Bob Dylan]]         |
-|     1 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]     |
-|     1 | [[https://www.wikidata.org/wiki/Q191499][Scott Joplin]]      |
-|     1 | [[https://www.wikidata.org/wiki/Q190152][Larry Bird]]        |
-|     1 | [[https://www.wikidata.org/wiki/Q187447][Pablo Escobar]]     |
-|     1 | [[https://www.wikidata.org/wiki/Q16409][Tristan Tzara]]     |
-|     1 | [[https://www.wikidata.org/wiki/Q12897][Pelé]]              |
+| count | source         |
+|-------+----------------|
+|     1 | [[https://www.wikidata.org/wiki/Q7317][Giuseppe Verdi]] |
+|     1 | [[https://www.wikidata.org/wiki/Q69066][Jil Sander]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q613136][Walter Reed]]    |
+|     1 | [[https://www.wikidata.org/wiki/Q444][Lech Wałęsa]]    |
+|     1 | [[https://www.wikidata.org/wiki/Q44301][Jim Morrison]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]] |
+|     1 | [[https://www.wikidata.org/wiki/Q392][Bob Dylan]]      |
+|     1 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]  |
+|     1 | [[https://www.wikidata.org/wiki/Q191499][Scott Joplin]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q190152][Larry Bird]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q187447][Pablo Escobar]]  |
+|     1 | [[https://www.wikidata.org/wiki/Q16409][Tristan Tzara]]  |
+|     1 | [[https://www.wikidata.org/wiki/Q12897][Pelé]]           |
 
 *** sports
 
@@ -1125,7 +1120,7 @@ Who are the sources for the modifier ... ?
 Who are the sources for the modifier ... ?
 **** baseball
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* baseball" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* baseball" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source             |
@@ -1150,7 +1145,7 @@ Who are the sources for the modifier ... ?
 
 **** tennis
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* tennis" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* tennis" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source          |
@@ -1173,12 +1168,11 @@ Who are the sources for the modifier ... ?
 
 **** basketball
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* basketball" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* basketball" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source                  |
 |-------+-------------------------|
-|     3 | [[https://www.wikidata.org/wiki/Q315487][Bugsy Siegel]]            |
 |     2 | [[https://www.wikidata.org/wiki/Q213812][Babe Ruth]]               |
 |     1 | [[https://www.wikidata.org/wiki/Q855][Joseph Stalin]]           |
 |     1 | [[https://www.wikidata.org/wiki/Q8027][Martin Luther King, Jr.]] |
@@ -1187,13 +1181,14 @@ Who are the sources for the modifier ... ?
 |     1 | [[https://www.wikidata.org/wiki/Q39464][Pol Pot]]                 |
 |     1 | [[https://www.wikidata.org/wiki/Q369675][Johnny Appleseed]]        |
 |     1 | [[https://www.wikidata.org/wiki/Q352][Adolf Hitler]]            |
+|     1 | [[https://www.wikidata.org/wiki/Q315487][Bugsy Siegel]]            |
 |     1 | [[https://www.wikidata.org/wiki/Q303][Elvis Presley]]           |
 |     1 | [[https://www.wikidata.org/wiki/Q271939][Chuck Yeager]]            |
 |     1 | [[https://www.wikidata.org/wiki/Q1999216][Norm Crosby]]             |
 
 **** football
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* football" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* football" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source          |
@@ -1211,7 +1206,7 @@ Who are the sources for the modifier ... ?
 
 **** racing
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* racing" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* racing" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source             |
@@ -1224,12 +1219,12 @@ Who are the sources for the modifier ... ?
 
 **** golf
 #+BEGIN_SRC sh
-  ./org.py -w -t -c README.org | grep "of\* golf" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ./org.py -w -T -t -c README.org | grep "of\* golf" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source          |
 |-------+-----------------|
-|     4 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]  |
+|     2 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]  |
 |     2 | [[https://www.wikidata.org/wiki/Q221048][Jackie Robinson]] |
 |     1 | [[https://www.wikidata.org/wiki/Q79904][J. D. Salinger]]  |
 |     1 | [[https://www.wikidata.org/wiki/Q5950][James Brown]]     |
@@ -1244,17 +1239,17 @@ Who are the sources for the modifier ... ?
       | sort | uniq -c | sort -nr | grep "dance\|hip-hop\|jazz\|fashion\|weaving\|ballet\|the art world\|wine\|salsa"   | head -n9
 #+END_SRC
 
-| count | modifier      |
-|-------+---------------|
-|     8 | jazz          |
-|     8 | hip-hop       |
-|     8 | fashion       |
-|     8 | dance         |
-|     7 | the art world |
-|     6 | weaving       |
-|     6 | ballet        |
-|     4 | wine          |
-|     4 | salsa         |
+| count | modifier          |
+|-------+-------------------|
+|     8 | jazz              |
+|     8 | hip-hop           |
+|     8 | fashion           |
+|     8 | dance             |
+|     7 | the art world     |
+|     6 | ballet            |
+|     4 | wine              |
+|     4 | salsa             |
+|     2 | the fashion world |
 
 *** Michael Jordan
 
@@ -1269,14 +1264,14 @@ the Michael Jordan of
 - actresses
 - Afghanistan
 - Australia
-- baseball
+- baseball home where he was raised in Cincinnati
 - BMX racing
 - boxing
 - Brazilian basketball for the past 20 years
 - college coaches
 - computer games
 - cricket
-- cyberspace
+- cyberspace to log a few minutes on a real basketball court
 - dance
 - diving
 - dressage horses
@@ -1285,6 +1280,7 @@ the Michael Jordan of
 - foosball
 - game shows
 - geopolitics
+- geopolitics -- the overwhelmingly dominant system
 - golf
 - Harlem
 - hers
@@ -1293,22 +1289,25 @@ the Michael Jordan of
 - his team
 - his time
 - hockey
+- hockey by a former Lightning owner
 - horse racing
 - hunting and fishing
 - Indiana
 - integrating insurance and health care
-- julienne
+-  julienne
 - jumpers
 - language
 - Laser sailing
 - late-night TV
 - management in Digital
+- Meet *the Michael Jordan of* …
 - Mexico
 - motocross racing in the 1980
 - orange juice
+- recording
 - Sauternes
-- snowboarding
-- soccer
+- snowboarding -- in every interview and article on him
+- soccer and Bebeto is the Magic Johnson of soccer
 - television puppets
 - tennis
 - the Buffalo team
@@ -1321,8 +1320,7 @@ the Michael Jordan of
 - the sport
 - the White Sox
 - this sport
-- women's ball
-- women's basketball
+- women
 
 ** favourites
 Robert:
