@@ -9,6 +9,8 @@
 # Author: rja
 #
 # Changes:
+# 2017-07-21 (rja)
+# - fixed extraction of heading: take complete heading, avoid trailing slash
 # 2017-07-19 (rja)
 # - added option -c to disable NLTK sentence tokenisation
 # - moved control character cleansing before regex application
@@ -83,10 +85,10 @@ def xml2str(f):
     tree = ET.parse(f)
     root = tree.getroot()
     # path to the heading
-    heading = root.findall("./body/body.head/hedline")
+    heading = root.findall("./body/body.head")
     head = ""
     for block in heading:
-        head = ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
+        head += ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
 
     # path to the main text block
     content = root.findall("./body/body.content/")
@@ -94,7 +96,7 @@ def xml2str(f):
     for block in content:
         if block.attrib["class"] == "full_text":
             # strip XML
-            body = body + "\n" + ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
+            body += "\n" + ET.tostring(block, encoding="utf-8", method="text").decode("utf-8")
     return head + "\n\n" + body
 
 # convert a list of XML files into texts

@@ -40,7 +40,7 @@
 	  <feComposite in='SourceGraphic' in2='grey' operator='atop'/>
 	</filter>
 </defs>
-<g fill="none" color="white" stroke="black" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+<g fill="none" color="white" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 </g>
@@ -184,7 +184,7 @@
 <g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
 	<path stroke='rgb(148,   0, 211)'  d='M309.6,46.5 L366.4,46.5 M140.1,523.2 L167.3,523.2 L194.5,481.5 L221.7,398.0 L249.0,356.3 L276.2,439.7
 		L303.4,398.0 L330.7,439.7 L357.9,523.2 L385.1,356.3 L412.3,481.5 L439.6,272.8 L466.8,189.4 L494.0,64.2
-		L521.2,231.1 L548.5,314.6 L575.7,439.7 L602.9,523.2 L630.2,439.7 L657.4,398.0 L684.6,398.0  '/>	<use xlink:href='#gpPt6' transform='translate(140.1,523.2) scale(6.00)' color='rgb(148,   0, 211)'/>
+		L521.2,231.1 L548.5,314.6 L575.7,439.7 L602.9,523.2 L630.2,439.7 L657.4,356.3 L684.6,398.0  '/>	<use xlink:href='#gpPt6' transform='translate(140.1,523.2) scale(6.00)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt6' transform='translate(167.3,523.2) scale(6.00)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt6' transform='translate(194.5,481.5) scale(6.00)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt6' transform='translate(221.7,398.0) scale(6.00)' color='rgb(148,   0, 211)'/>
@@ -203,7 +203,7 @@
 	<use xlink:href='#gpPt6' transform='translate(575.7,439.7) scale(6.00)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt6' transform='translate(602.9,523.2) scale(6.00)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt6' transform='translate(630.2,439.7) scale(6.00)' color='rgb(148,   0, 211)'/>
-	<use xlink:href='#gpPt6' transform='translate(657.4,398.0) scale(6.00)' color='rgb(148,   0, 211)'/>
+	<use xlink:href='#gpPt6' transform='translate(657.4,356.3) scale(6.00)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt6' transform='translate(684.6,398.0) scale(6.00)' color='rgb(148,   0, 211)'/>
 	<use xlink:href='#gpPt6' transform='translate(338.0,46.5) scale(6.00)' color='rgb(148,   0, 211)'/>
 </g>
