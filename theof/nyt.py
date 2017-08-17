@@ -9,6 +9,8 @@
 # Author: rja
 #
 # Changes:
+# 2017-08-17 (rja)
+# - made file path handling os independent
 # 2017-06-14 (rja)
 # - added support to extract desk and (normalised) author information
 # - fixed extraction of heading
@@ -24,7 +26,7 @@ import os
 import sys
 import codecs
 
-version = "0.0.2"
+version = "0.0.3"
 
 # remove line breaks and tabs from text
 re_ws = re.compile('[\n\t\r]+')
@@ -105,7 +107,7 @@ def gen_files(paths):
         elif os.path.isdir(path):
             # read all files in the directory
             for fname in os.listdir(path):
-                fname = path + "/" + fname
+                fname = os.path.join(path, fname)
                 if os.path.isfile(fname):
                     yield open(fname, "rt"), fname
         else:
