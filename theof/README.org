@@ -282,7 +282,9 @@ Since the blacklist is quite long
 #+BEGIN_SRC sh
   wc -l blacklist.tsv
 #+END_SRC
-: 1268 blacklist.tsv
+
+: 1290 blacklist.tsv
+
 it is worthwhile to describe how we created it: We have iteratively
 examined the source candidates for the years and added names to the
 blacklist which were not obviously (famous) people. This mainly
@@ -290,7 +292,8 @@ affected names with just one word
 #+BEGIN_SRC sh
   grep " " blacklist.tsv | wc -l
 #+END_SRC
-: 61
+
+: 62
 which often are also English nouns like house, hall, church, bill.
 
 ** processing all remaining years
