@@ -35,8 +35,8 @@ class TestVossanto(unittest.TestCase):
         self.tv("Angela Merkel is the Lionel Messi of grill models.", "Angela Merkel", "Lionel Messi", "grill models")
         self.tv("Angela Merkel is the Günter Grass of barbers.", "Angela Merkel", "Günter Grass", "barbers")
         self.tv("Angela Merkel is the Leni Riefenstahl of public opinion polls.", "Angela Merkel", "Leni Riefenstahl", "public opinion polls")
-        # does not work: "Homer" is detected as NNP not PERSON
-        #self.tv("Angela Merkel is the Homer of insects.", "Angela Merkel", "Homer", "insects")
+        # should not work, as "Homer" is detected as NNP not PERSON, but we have included NNP
+        self.tv("Angela Merkel is the Homer of insects.", "Angela Merkel", "Homer", "insects")
         # does not work, since "Justin Bieber" is detected as (ORGANIZATION Justin) Bieber/NNP
         #self.tv("Angela Merkel is the Justin Bieber of Cretaceous.", "Angela Merkel", "Justin Bieber", "Cretaceous")
         self.tv("Angela Merkel is the Elvis of Cretaceous.", "Angela Merkel", "Elvis", "Cretaceous")
@@ -86,7 +86,7 @@ class TestVossanto(unittest.TestCase):
         # − the Anti-Reagan9 (2013).
        
     def tv(self, s, x, y, z):
-        self.assertEqual(vossanto.vossanto(s, True), (x, y, z))
+        self.assertEqual(vossanto.vossanto(s, True)[:3], [x, y, z])
 
     def tnv(self, s):
         self.assertEqual(vossanto.vossanto(s, True), None)
