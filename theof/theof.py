@@ -9,6 +9,8 @@
 # Author: rja
 #
 # Changes:
+# 2018-02-21 (rja)
+# - changed default regex to 5 (as in paper)
 # 2017-07-21 (rja)
 # - fixed extraction of heading: take complete heading, avoid trailing slash
 # 2017-07-19 (rja)
@@ -143,7 +145,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Find Vossantos in the NYT corpus.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('input', type=str, help='input TAR/XML file or directory')
-    parser.add_argument('-r', '--regex', type=int, metavar="R", help='select regex', default=4)
+    parser.add_argument('-r', '--regex', type=int, metavar="R", help='select regex', default=5)
     parser.add_argument('-s', '--sep', type=str, metavar="S", help='column separator', default='\t')
     parser.add_argument('-c', '--chars', type=int, metavar="C", default=None, help='disable sentence tokenisation and instead print C characters before and after a match')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
