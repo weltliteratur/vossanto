@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #
-# Reads a TSV file and reformats it into Markdown.
+# Reads a TSV file and reformats it into Emacs org-mode.
 #
 # Usage:
 # 
