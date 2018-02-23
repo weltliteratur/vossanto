@@ -447,7 +447,7 @@ We plot some temporal distributions:
 #+NAME: temporal-distribution
 |   year | articles |     cand | wd | wd+bl | found | true | prec | reltrue ‰ |
 |--------+----------+----------+----+-------+-------+------+------+-----------|
-|   1987 |   106104 |   640511 |  0 |   128 |   128 |   92 | 71.9 |      0.87 |
+|   1987 |   106104 |   640511 |  0 |   128 |   128 |   93 | 72.7 |      0.88 |
 |   1988 |   104541 |   636109 |  0 |   140 |   139 |   89 | 64.0 |      0.85 |
 |   1989 |   102818 |   624727 |  0 |   148 |   148 |  102 | 68.9 |      0.99 |
 |   1990 |    98812 |   613136 |  0 |   140 |   139 |  101 | 72.7 |      1.02 |
@@ -469,7 +469,7 @@ We plot some temporal distributions:
 |   2006 |    87052 |   559447 |  0 |   221 |   220 |  177 | 80.5 |      2.03 |
 |   2007 |    39953 |   259921 |  0 |   100 |   100 |   78 | 78.0 |      1.95 |
 |--------+----------+----------+----+-------+-------+------+------+-----------|
-|  *sum* |  1854726 | 11452615 |  0 |  3736 |  3733 | 2767 | 74.1 |      1.49 |
+|  *sum* |  1854726 | 11452615 |  0 |  3736 |  3733 | 2768 | 74.1 |      1.49 |
 | *mean* |    88320 |   545363 |  0 |   178 |   178 |  132 | 74.2 |      1.49 |
 #+TBLFM: $8=($-1/$-2)*100;%2.1f::$9=($-2/$2)*1000;%2.2f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@23$7=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f::@24$6=vmean(@I..@II);%2.0f::@24$7=vmean(@I..@II);%2.0f
 
@@ -732,7 +732,7 @@ Collect the categories of the articles
 |        98 |  3.5% | U.S.                   |    89389 |    4.8% |   |
 |        98 |  3.5% | Magazine               |    11464 |    0.6% |   |
 |        66 |  2.4% | Style                  |    65071 |    3.5% |   |
-|        65 |  2.3% | Arts; Theater          |    13283 |    0.7% |   |
+|        66 |  2.4% | Arts; Theater          |    13283 |    0.7% |   |
 |        48 |  1.7% | World                  |    79786 |    4.3% |   |
 |        45 |  1.6% | Home and Garden; Style |    13978 |    0.8% |   |
 |        34 |  1.2% | Travel                 |    10440 |    0.6% |   |
@@ -807,7 +807,7 @@ Collect the desks of the articles
 |        38 | 1.4% | Arts & Leisure Desk     |     6742 |    0.4% |
 |        35 | 1.3% | Editorial Desk          |   131762 |    7.1% |
 |        31 | 1.1% | Foreign Desk            |   129732 |    7.0% |
-|        30 | 1.1% | Arts and Leisure Desk   |    27765 |    1.5% |
+|        31 | 1.1% | Arts and Leisure Desk   |    27765 |    1.5% |
 |        25 | 0.9% | Magazine Desk           |    25433 |    1.4% |
 |        25 | 0.9% | Long Island Weekly Desk |    20453 |    1.1% |
 |        22 | 0.8% | Living Desk             |     6843 |    0.4% |
@@ -961,8 +961,8 @@ A very simple approach to identify frequent modifiers:
 |    13 | women            |
 |    12 | the 1990         |
 |    12 | tennis           |
+|    12 | her day          |
 |    12 | China            |
-|    11 | her day          |
 |    10 | the Zulus        |
 |    10 | the 90           |
 |    10 | her time         |
@@ -1033,6 +1033,7 @@ Who are the sources for the modifier "her day"?
 |     1 | [[https://www.wikidata.org/wiki/Q93187][Hilary Swank]]     |
 |     1 | [[https://www.wikidata.org/wiki/Q6294][Hillary Clinton]]  |
 |     1 | [[https://www.wikidata.org/wiki/Q4616][Marilyn Monroe]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q452206][Judith Krantz]]    |
 |     1 | [[https://www.wikidata.org/wiki/Q3838473][Lucia Pamela]]     |
 |     1 | [[https://www.wikidata.org/wiki/Q34851][Elizabeth Taylor]] |
 |     1 | [[https://www.wikidata.org/wiki/Q285536][Imelda Marcos]]    |
@@ -1392,7 +1393,7 @@ Robert:
 14. +[[https://www.wikidata.org/wiki/Q91][Abraham Lincoln]] (1987/02/08/0011420) AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''+
 15. +[[https://www.wikidata.org/wiki/Q91][Abraham Lincoln]] (1987/02/08/0011420) BORITT, GABOR S              LEAD: AT the Gettysburg cemetery, *the Abraham Lincoln of* Gore Vidal's novel barely gets through his first sentence - about the events in America ''four score and seven years ago'' - when the young Presidential secretary, John Hay, cynically observes that such rhetoric ''will please the radicals.''+
 16. [[https://www.wikidata.org/wiki/Q1126679][The Scarlet Pimpernel]] (1987/02/08/0011467) The son of a banker, Salomon became *the Scarlet Pimpernel of* photojournalism by virtue of the adroitness with which he could conceal his camera when necessary.
-17. +[[https://www.wikidata.org/wiki/Q452206][Judith Krantz]] (1987/02/08/0011487) The heroine of the play is Diana Breed Latimer, a best-selling author of romantic fiction, *the Judith Krantz of* her day.+
+17. [[https://www.wikidata.org/wiki/Q452206][Judith Krantz]] (1987/02/08/0011487) The heroine of the play is Diana Breed Latimer, a best-selling author of romantic fiction, *the Judith Krantz of* her day.
 18. [[https://www.wikidata.org/wiki/Q128746][Irving Berlin]] (1987/02/08/0011525) Noel Gay was not, as some have claimed, *the Irving Berlin of* England.
 19. [[https://www.wikidata.org/wiki/Q209050][Jan Brueghel the Elder]] (1987/02/13/0012870) Subjects like ''Flora'' and ''The Four Senses'' cause him to come on like *the Velvet Brueghel of* his set, putting his trust in multiplicity of subject matter and a high degree of finish.
 20. [[https://www.wikidata.org/wiki/Q762][Leonardo da Vinci]] (1987/02/18/0014363) Fixing the Blame         Contending that Dr. Osborne had set himself up as judge, police expert and hand surgeon, Mr. Smirti called him *the Leonardo da Vinci of* the Bronx.
