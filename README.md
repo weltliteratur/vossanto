@@ -8,12 +8,13 @@ Based on an idea by [Frank Fischer](https://twitter.com/umblaetterer)
 (see
 [Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)).
 
-First results were presented at the
-[DHd conference in Bern](http://www.dhd2017.ch/) (February 13 to 18,
-2017)
+First results were presented at the [DHd conference in
+Bern](http://www.dhd2017.ch/) (February 13 to 18, 2017)
 ([abstract](http://www.dhd2017.ch/wp-content/uploads/2017/01/AbstractbandDHd2017-1.pdf#page=122)
 and [slides](https://lehkost.github.io/slides/2017-bern/), both in
 German).
+
+© 2008 The New York Times Company, used with permission
 
 ## Howto
 
