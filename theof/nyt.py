@@ -4,11 +4,11 @@
 #
 # Reads files from the NYT corpus. Supports reading from a TAR archive.
 #
-# Usage:
-#
-# Author: rja
+# Usage: nyt.py -h
 #
 # Changes:
+# 2018-07-10 (rja)
+# - added alternative year extraction
 # 2018-05-18 (rja)
 # - restricted directory input to XML files
 # - fixed URL extraction
@@ -106,7 +106,18 @@ def gen_parts(files, heading, text, url, category, desk, author, date):
             if len(ymd) == 10:
                 result.append(ymd)
             else:
-                result.append("")
+                # sometimes the date is found as <pubdata date.publication="19910121T000000" ...>
+                for tag in root.findall("./head/pubdata"):
+                    if tag.attrib["date.publication"]:
+                        pubdate = tag.attrib["date.publication"]
+                        y = pubdate[:4]
+                        m = pubdate[4:6]
+                        d = pubdate[6:8]
+                        ymd = "-".join([y, m, d])
+                if len(ymd) == 10:
+                    result.append(ymd)
+                else:
+                    result.append("")
 
         yield result
 
