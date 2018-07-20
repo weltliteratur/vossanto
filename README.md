@@ -5,8 +5,8 @@ Automatic extraction of Vossian Antonomasia from large newspaper
 corpora.
 
 Based on an idea by [Frank Fischer](https://twitter.com/umblaetterer)
-(see
-[Der Umblätterer: Vossianische Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)).
+(see [Der Umblätterer: Vossianische
+Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)).
 
 First results were presented at the [DHd conference in
 Bern](http://www.dhd2017.ch/) (February 13 to 18, 2017)
