@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2018-08-09 (rja)
+# - added option -o to output modifier
 # 2018-03-02 (rja)
 # - added option -U to include article URLs from file
 # - added option -u to extract article URLs
@@ -29,7 +31,7 @@ import argparse
 import sys
 from collections import OrderedDict
 
-version = "0.0.2"
+version = "0.0.3"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -110,9 +112,9 @@ def read_urls(flines):
     return urls
 
 def gen_truefalse(candidates, true_positive, false_positive):
-    for year, aid, fid, aurl, sourceId, sourceLabel, sentence, trueVoss, newVoss in candidates:
+    for year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in candidates:
         if true_positive == false_positive or true_positive == trueVoss or false_positive != trueVoss:
-            yield year, aid, fid, aurl, sourceId, sourceLabel, sentence, trueVoss, newVoss
+            yield year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
 
 def gen_candidates(lines):
     for line in lines:
@@ -127,13 +129,13 @@ def gen_rm_ctrl(parts):
 
 # generates a key for a Vossanto
 def get_key(parts):
-    year, aid, fid, aurl, sourceId, sourceLabel, sentence, trueVoss, newVoss = parts
+    year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss = parts
     key = "|".join([year, aid, sourceLabel, re_clean.sub('', sentence)[:40]])
     return year, key
 
-def select_parts(parts, syear, said, sfid, saurl, ssourceId, ssourceLabel, stext, swikidata):
-    if any([syear, said, sfid, saurl, ssourceId, ssourceLabel, stext, swikidata]):
-        for year, aid, fid, aurl, sourceId, sourceLabel, sentence, trueVoss, newVoss in parts:
+def select_parts(parts, syear, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata):
+    if any([syear, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata]):
+        for year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in parts:
             result = []
             if syear:
                 result.append(year)
@@ -145,6 +147,8 @@ def select_parts(parts, syear, said, sfid, saurl, ssourceId, ssourceLabel, stext
                 result.append(sourceId)
             if ssourceLabel:
                 result.append(sourceLabel)
+            if smodifier:
+                result.append(modifier)
             if stext:
                 result.append(sentence)
             if swikidata:
@@ -172,7 +176,16 @@ def match_line(line):
         aurl = d["aurl"]
         sentence = d["sentence"]
         trueVoss = d["truefalse"] != "+"
-        return year, aid, fid, aurl, sourceId, sourceLabel, sentence, trueVoss, newVoss
+        modifier = match_modifier(sentence, trueVoss)
+        return year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
+    return None
+
+# extract everything between /.../ from the sentence
+def match_modifier(sentence, trueVoss):
+    if trueVoss:
+        start = sentence.find('/') + 1
+        end = sentence.find('/', start)
+        return sentence[start:end]
     return None
 
 # given a line, either adds the URL for the article or (if already existent), changes it
@@ -215,6 +228,7 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--fileid', action="store_true", help="output file id")
     parser.add_argument('-i', '--sourceid', action="store_true", help="output Wikidata source id")
     parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
+    parser.add_argument('-o', '--modifier', action="store_true", help="output modifier")
     parser.add_argument('-t', '--text', action="store_true", help="output text")
     parser.add_argument('-u', '--url', action="store_true", help="output article URL")
     parser.add_argument('-w', '--wikidata', action="store_true", help="output link to Wikidata")
@@ -266,7 +280,7 @@ if __name__ == '__main__':
         # default: extract Vossntos
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
-        parts = select_parts(parts, args.year, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.text, args.wikidata)
+        parts = select_parts(parts, args.year, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.modifier, args.text, args.wikidata)
         if args.clean:
             parts = gen_rm_ctrl(parts)
         for part in parts:
