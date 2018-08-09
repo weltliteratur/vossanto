@@ -70,6 +70,9 @@ $                    # end of string
 """
 re_line = re.compile(line_re_str, re.VERBOSE)
 
+# to extract the modifier (enclosed in /.../) from the sentence
+re_modifier = re.compile("[^0-9A-Za-z]/(.+?)/([^0-9A-Za-z]|$)")
+
 # to remove markup from the sentences
 re_clean = re.compile(r"[*.]")
 
@@ -176,17 +179,18 @@ def match_line(line):
         aurl = d["aurl"]
         sentence = d["sentence"]
         trueVoss = d["truefalse"] != "+"
-        modifier = match_modifier(sentence, trueVoss)
+        modifier = extract_modifier(sentence, trueVoss, year)
         return year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
     return None
 
-# extract everything between /.../ from the sentence
-def match_modifier(sentence, trueVoss):
+# extract the modifier (enclosed in /.../) from the sentence
+def extract_modifier(sentence, trueVoss, year):
+    # ignore non-Vossantos
     if trueVoss:
-        start = sentence.find('/') + 1
-        end = sentence.find('/', start)
-        return sentence[start:end]
-    return None
+        match = re_modifier.search(sentence)
+        if match:
+            return match.group(1)
+    return ""
 
 # given a line, either adds the URL for the article or (if already existent), changes it
 def set_article_url(line, urls):
