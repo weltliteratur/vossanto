@@ -10,6 +10,12 @@
 # Author: rja
 #
 # Changes:
+# 2018-08-09 (rja)
+# - added option -o to output modifier
+# 2018-03-02 (rja)
+# - added option -U to include article URLs from file
+# - added option -u to extract article URLs
+# - annotated line regexp
 # 2017-05-17 (rja)
 # - simplified file parameters to support reading from STDIN
 # 2017-05-14 (rja)
@@ -25,10 +31,44 @@ import argparse
 import sys
 from collections import OrderedDict
 
-version = "0.0.2"
+version = "0.0.3"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
-re_line = re.compile(r"^(> )?[0-9]+\.[ !]+\+?\[\[.+/([^/]+)\]\[(.+)\]\] \((([0-9]{4})/([0-9]{2})/([0-9]{2})/([0-9]+))\) (.+[^+])(\+)?$")
+line_re_str = """
+^                    # beginning of string
+(?P<newmark>> )?     # new candidates are marked with "> "line
+(?P<id>[0-9]+)\.     # all candidates are numbered
+[ !]+                # space and/or !
+\+?                  # modifier for false positive
+\[\[.+/              # start of Wikidata URL
+(?P<wdid>[^/]+)      # Wikidata id
+\]\[                 # separators
+(?P<wdlabel>.+)      # Wikidata label
+\]\]                 # end of Wikidata URL
+\                    # space
+\(                   # beginning of file id
+(?P<article>         # beginning of full article part
+(\[\[)?              # opening markup for article URL
+(?P<aurl>http.+?)?   # article URL
+(\]\[)?              # separators for article URL
+(?P<fid>             # full file id
+(?P<year>\\d{4})     # year
+/                    # separator
+(?P<month>\\d{2})    # month
+/                    # separator
+(?P<day>\\d{2})      # day
+/                    # separator
+(?P<aid>\\d+)        # article id
+)                    # end of full file id
+(\]\])?              # closing markup for article URL
+)                    # end of full article part
+\)                   # end of file id
+\                    # space
+(?P<sentence>.+[^+]) # sentence
+(?P<truefalse>\+)?   # false positive indicator
+$                    # end of string
+"""
+re_line = re.compile(line_re_str, re.VERBOSE)
 
 # to remove markup from the sentences
 re_clean = re.compile(r"[*.]")
@@ -63,10 +103,18 @@ def read_file(flines):
                 lines.append(line)
     return lines, index
 
+# reads a TSV file with article ids and corresponding URLs
+def read_urls(flines):
+    urls = dict()
+    for line in flines:
+        aid, url = line.strip().split('\t')
+        urls[aid] = url
+    return urls
+
 def gen_truefalse(candidates, true_positive, false_positive):
-    for year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss in candidates:
+    for year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in candidates:
         if true_positive == false_positive or true_positive == trueVoss or false_positive != trueVoss:
-            yield year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss
+            yield year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
 
 def gen_candidates(lines):
     for line in lines:
@@ -81,13 +129,13 @@ def gen_rm_ctrl(parts):
 
 # generates a key for a Vossanto
 def get_key(parts):
-    year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss = parts
+    year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss = parts
     key = "|".join([year, aid, sourceLabel, re_clean.sub('', sentence)[:40]])
     return year, key
 
-def select_parts(parts, syear, said, sfid, ssourceId, ssourceLabel, stext, swikidata):
-    if any([syear, said, sfid, ssourceId, ssourceLabel, stext, swikidata]):
-        for year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss in parts:
+def select_parts(parts, syear, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata):
+    if any([syear, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata]):
+        for year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in parts:
             result = []
             if syear:
                 result.append(year)
@@ -99,10 +147,14 @@ def select_parts(parts, syear, said, sfid, ssourceId, ssourceLabel, stext, swiki
                 result.append(sourceId)
             if ssourceLabel:
                 result.append(sourceLabel)
+            if smodifier:
+                result.append(modifier)
             if stext:
                 result.append(sentence)
             if swikidata:
                 result.append("[[https://www.wikidata.org/wiki/" + sourceId + "][" + sourceLabel + "]]")
+            if saurl:
+                result.append(aurl)
             yield result
     else:
         # when nothing has been selected, return everything
@@ -114,16 +166,44 @@ def match_line(line):
     # detect the Vossanto lines
     match = re_line.match(line.strip())
     if match:
-        newVoss = match.group(1)
-        sourceId = match.group(2)
-        sourceLabel = match.group(3)
-        fid = match.group(4)
-        year = match.group(5)
-        aid = match.group(8)
-        sentence = match.group(9)
-        trueVoss = match.group(10) != "+"
-        return year, aid, fid, sourceId, sourceLabel, sentence, trueVoss, newVoss
+        d = match.groupdict()
+        newVoss = d["newmark"]
+        sourceId = d["wdid"]
+        sourceLabel = d["wdlabel"]
+        fid = d["fid"]
+        year = d["year"]
+        aid = d["aid"]
+        aurl = d["aurl"]
+        sentence = d["sentence"]
+        trueVoss = d["truefalse"] != "+"
+        modifier = match_modifier(sentence, trueVoss)
+        return year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
     return None
+
+# extract everything between /.../ from the sentence
+def match_modifier(sentence, trueVoss):
+    if trueVoss:
+        start = sentence.find('/') + 1
+        end = sentence.find('/', start)
+        return sentence[start:end]
+    return None
+
+# given a line, either adds the URL for the article or (if already existent), changes it
+def set_article_url(line, urls):
+    # detect Vossanto line
+    match = re_line.match(line.strip())
+    if match:
+        d = match.groupdict()
+        fid = d["fid"]
+        if fid not in urls:
+            print("WARN: URL for", fid, "not found", file=sys.stderr)
+        else:
+            url = urls[fid]
+            # implement
+            article = d["article"]
+            return line.replace(article, "[[" + url + "][" + fid + "]]")
+    else:
+        print("WARN: line did not match", line[:50], file=sys.stderr)
 
 # inserts a vossanto line into the index
 def insert(index, line, string_new = '> '):
@@ -148,7 +228,9 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--fileid', action="store_true", help="output file id")
     parser.add_argument('-i', '--sourceid', action="store_true", help="output Wikidata source id")
     parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
+    parser.add_argument('-o', '--modifier', action="store_true", help="output modifier")
     parser.add_argument('-t', '--text', action="store_true", help="output text")
+    parser.add_argument('-u', '--url', action="store_true", help="output article URL")
     parser.add_argument('-w', '--wikidata', action="store_true", help="output link to Wikidata")
     # other options
     parser.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
@@ -157,6 +239,7 @@ if __name__ == '__main__':
     parser.add_argument('-F', '--false', action="store_true", help="output only false Vossantos")
     parser.add_argument('-c', '--clean', action="store_true", help="clean whitespace")
     parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
+    parser.add_argument('-U', '--include-urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
@@ -178,11 +261,26 @@ if __name__ == '__main__':
             print("**", year)
             for line in sorted(index[year]):
                 print(index[year][line], end='')
+    elif args.include_urls:
+        # read URL file
+        urls = read_urls(args.include_urls)
+        # read file
+        lines, index = read_file(args.file)
+        # print first (unchanged) part of original file
+        for line in lines:
+            print(line, end='')
+        # print Vossanto lines
+        for year in sorted(index):
+            print()
+            print("**", year)
+            for line in sorted(index[year]):
+                # add URL to line
+                print(set_article_url(index[year][line], urls), end='')
     else:
         # default: extract Vossntos
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
-        parts = select_parts(parts, args.year, args.articleid, args.fileid, args.sourceid, args.sourcelabel, args.text, args.wikidata)
+        parts = select_parts(parts, args.year, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.modifier, args.text, args.wikidata)
         if args.clean:
             parts = gen_rm_ctrl(parts)
         for part in parts:
