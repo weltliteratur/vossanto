@@ -501,8 +501,15 @@ set term png enhanced size 800,600 font "Arial,16" lw  2
 set out "nyt_vossantos_over_time.png"
 replot
 
+set key bottom left
+set term pdf enhanced fontscale .7 lw 2
+set out "nyt_vossantos_over_time.pdf"
+replot
+
+
 # ---- relative values
 
+set key top left
 set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
 set out "nyt_vossantos_over_time_rel.svg"
 set ylabel "frequency (per mille)"
@@ -515,6 +522,10 @@ plot data using 1:($6/$2*1000) with linespoints pt 7 lc "red" title 'candidates'
 
 set term png enhanced size 800,600 font "Arial,16" lw  2
 set out "nyt_vossantos_over_time_rel.png"
+replot
+
+set term pdf enhanced lw  2
+set out "nyt_vossantos_over_time_rel.pdf"
 replot
 #+end_src
 
