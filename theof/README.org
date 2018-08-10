@@ -9,7 +9,6 @@
 #+STARTUP: hidestars overview
 #+LaTeX_CLASS: scrartcl
 #+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
-#+PANDOC_OPTIONS:
 
 * "the ... of" Vossantos
 ** preliminary note
