@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2018-08-15 (rja)
+# - improved modifier extraction
 # 2018-08-09 (rja)
 # - added option -o to output modifier
 # 2018-03-02 (rja)
@@ -31,7 +33,7 @@ import argparse
 import sys
 from collections import OrderedDict
 
-version = "0.0.3"
+version = "0.0.4"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -71,7 +73,7 @@ $                    # end of string
 re_line = re.compile(line_re_str, re.VERBOSE)
 
 # to extract the modifier (enclosed in /.../) from the sentence
-re_modifier = re.compile("[^0-9A-Za-z]/(.+?)/([^0-9A-Za-z]|$)")
+re_modifier = re.compile("of\\* ['\"]*/(.+?)/([^0-9A-Za-z]|$)")
 
 # to remove markup from the sentences
 re_clean = re.compile(r"[*.]")
