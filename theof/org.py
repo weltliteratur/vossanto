@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2018-08-16 (rja)
+# - added date extraction
 # 2018-08-15 (rja)
 # - improved modifier extraction
 # 2018-08-09 (rja)
@@ -117,9 +119,9 @@ def read_urls(flines):
     return urls
 
 def gen_truefalse(candidates, true_positive, false_positive):
-    for year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in candidates:
+    for year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in candidates:
         if true_positive == false_positive or true_positive == trueVoss or false_positive != trueVoss:
-            yield year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
+            yield year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
 
 def gen_candidates(lines):
     for line in lines:
@@ -134,16 +136,18 @@ def gen_rm_ctrl(parts):
 
 # generates a key for a Vossanto
 def get_key(parts):
-    year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss = parts
+    year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss = parts
     key = "|".join([year, aid, sourceLabel, re_clean.sub('', sentence)[:40]])
     return year, key
 
-def select_parts(parts, syear, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata):
-    if any([syear, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata]):
-        for year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in parts:
+def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata):
+    if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata]):
+        for year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in parts:
             result = []
             if syear:
                 result.append(year)
+            if sdate:
+                result.append(date)
             if said:
                 result.append(aid)
             if sfid:
@@ -177,12 +181,13 @@ def match_line(line):
         sourceLabel = d["wdlabel"]
         fid = d["fid"]
         year = d["year"]
+        date = d["year"] + "-" + d["month"] + "-" + d["day"]
         aid = d["aid"]
         aurl = d["aurl"]
         sentence = d["sentence"]
         trueVoss = d["truefalse"] != "+"
         modifier = extract_modifier(sentence, trueVoss, year)
-        return year, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
+        return year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
     return None
 
 # extract the modifier (enclosed in /.../) from the sentence
@@ -231,6 +236,7 @@ if __name__ == '__main__':
     # what shall be printed
     parser.add_argument('-y', '--year', action="store_true", help="output year")
     parser.add_argument('-a', '--articleid', action="store_true", help="output article id")
+    parser.add_argument('-d', '--date', action="store_true", help="output date")
     parser.add_argument('-f', '--fileid', action="store_true", help="output file id")
     parser.add_argument('-i', '--sourceid', action="store_true", help="output Wikidata source id")
     parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
@@ -286,7 +292,7 @@ if __name__ == '__main__':
         # default: extract Vossntos
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
-        parts = select_parts(parts, args.year, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.modifier, args.text, args.wikidata)
+        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.modifier, args.text, args.wikidata)
         if args.clean:
             parts = gen_rm_ctrl(parts)
         for part in parts:
