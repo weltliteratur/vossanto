@@ -1,0 +1,14 @@
+#+TITLE:
+#+AUTHOR: 
+#+EMAIL: 
+#+LANGUAGE: en
+#+OPTIONS: toc:nil ':t H:5
+#+STARTUP: hidestars overview
+#+LaTeX_CLASS: scrartcl
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+
+a bipartite graph of sources and modifiers ...
+
+#+BEGIN_SRC sh
+./org.py -T -o -l  README.org | ./graph.py | ccomps -zX#0 | neato -Tpdf -o graph.pdf
+#+END_SRC
