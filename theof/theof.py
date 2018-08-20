@@ -1,4 +1,4 @@
-#!/usr/bin/python -u
+#!/usr/bin/python3 -u
 # -*- coding: utf-8 -*-
 
 #
@@ -9,6 +9,8 @@
 # Author: rja
 #
 # Changes:
+# 2018-08-20 (rja)
+# - migrated to Python 3
 # 2018-02-21 (rja)
 # - changed default regex to 5 (as in paper)
 # 2017-07-21 (rja)
@@ -27,9 +29,6 @@
 # 2017-05-08 (rja)
 # - initial version copied from nyt.py
 
-from __future__ import print_function
-from __future__ import absolute_import
-
 import sys
 # remove current directory from search path to avoid org.py is loaded
 # as a module
@@ -43,7 +42,7 @@ import codecs
 import nltk
 from nltk.tokenize import sent_tokenize
 
-version = "0.0.3"
+version = "0.0.4"
 
 # convert all output into a byte string to be safe when redirecting
 # UTF8Writer = codecs.getwriter('utf8')
@@ -138,7 +137,7 @@ def gen_regex(texts, regex, groupid=0):
             yield fname, m.group(groupid), m.start(groupid), text
 
 # limit length of text around match
-def gen_limit(texts, chars=sys.maxint):
+def gen_limit(texts, chars=sys.maxsize):
     for fname, match, index, text in texts:
         # reduce text to chars characters before and after match
         yield fname, match, index, text[max(0,index-chars):min(index+len(match)+chars,len(text))]
