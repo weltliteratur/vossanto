@@ -86,7 +86,13 @@ def gen_files(path):
 def xml2str(f):
     tree = ET.parse(f)
     root = tree.getroot()
+
     # path to the heading
+    #
+    # ./body/body.head/hedline vs. ./body/body.head/
+    # ./body/body.head/ and ./body/body.head/hedline include only the
+    # heading itself, not the first introductory sentence which we get
+    # with ./body/body.head
     heading = root.findall("./body/body.head")
     head = ""
     for block in heading:
