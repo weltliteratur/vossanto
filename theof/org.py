@@ -12,6 +12,7 @@
 # Changes:
 # 2018-08-21 (rja)
 # - added extraction of source phrase as it appears in the text
+# - key uses source phrase instead of source label and ignores modifier markup ('/')
 # 2018-08-16 (rja)
 # - added date extraction
 # 2018-08-15 (rja)
