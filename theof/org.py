@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2018-08-21 (rja)
+# - added extraction of source phrase as it appears in the text
 # 2018-08-16 (rja)
 # - added date extraction
 # 2018-08-15 (rja)
@@ -77,8 +79,11 @@ re_line = re.compile(line_re_str, re.VERBOSE)
 # to extract the modifier (enclosed in /.../) from the sentence
 re_modifier = re.compile("of\\* ['\"]*/(.+?)/([^0-9A-Za-z]|$)")
 
+# to extract the exact source phrase (enclosed in *the ... of*) from the sentence
+re_sourcephrase = re.compile("\\*the (.+?) of\\*")
+
 # to remove markup from the sentences
-re_clean = re.compile(r"[*.]")
+re_clean = re.compile(r"[*/.\s]")
 
 # remove line breaks and tabs from text
 re_ws = re.compile('[\n\t\r]+')
@@ -119,9 +124,9 @@ def read_urls(flines):
     return urls
 
 def gen_truefalse(candidates, true_positive, false_positive):
-    for year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in candidates:
+    for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss in candidates:
         if true_positive == false_positive or true_positive == trueVoss or false_positive != trueVoss:
-            yield year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
+            yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss
 
 def gen_candidates(lines):
     for line in lines:
@@ -136,13 +141,14 @@ def gen_rm_ctrl(parts):
 
 # generates a key for a Vossanto
 def get_key(parts):
-    year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss = parts
-    key = "|".join([year, aid, sourceLabel, re_clean.sub('', sentence)[:40]])
+    year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss = parts
+    key = "|".join([year, aid, sourcePhrase, re_clean.sub('', sentence)[:40]])
+#    print("   ", key)
     return year, key
 
-def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata):
-    if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, smodifier, stext, swikidata]):
-        for year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss in parts:
+def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata):
+    if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata]):
+        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss in parts:
             result = []
             if syear:
                 result.append(year)
@@ -156,6 +162,8 @@ def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel
                 result.append(sourceId)
             if ssourceLabel:
                 result.append(sourceLabel)
+            if ssourcePhrase:
+                result.append(sourcePhrase)
             if smodifier:
                 result.append(modifier)
             if stext:
@@ -186,18 +194,28 @@ def match_line(line):
         aurl = d["aurl"]
         sentence = d["sentence"]
         trueVoss = d["truefalse"] != "+"
-        modifier = extract_modifier(sentence, trueVoss, year)
-        return year, date, aid, fid, aurl, sourceId, sourceLabel, modifier, sentence, trueVoss, newVoss
+        # extract from sentence
+        sourcePhrase = extract_sourcephrase(sentence)
+        modifier = extract_modifier(sentence, trueVoss)
+        return year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss
     return None
 
 # extract the modifier (enclosed in /.../) from the sentence
-def extract_modifier(sentence, trueVoss, year):
+def extract_modifier(sentence, trueVoss):
     # ignore non-Vossantos
     if trueVoss:
         match = re_modifier.search(sentence)
         if match:
             return match.group(1)
     return ""
+
+# extract the source phrase (enclosed in *the ... of*) from the sentence
+def extract_sourcephrase(sentence):
+    match = re_sourcephrase.search(sentence)
+    if match:
+        return match.group(1)
+    return ""
+
 
 # given a line, either adds the URL for the article or (if already existent), changes it
 def set_article_url(line, urls):
@@ -240,6 +258,7 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--fileid', action="store_true", help="output file id")
     parser.add_argument('-i', '--sourceid', action="store_true", help="output Wikidata source id")
     parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
+    parser.add_argument('-p', '--sourcephrase', action="store_true", help="output source phrase") # as it appears in the text
     parser.add_argument('-o', '--modifier', action="store_true", help="output modifier")
     parser.add_argument('-t', '--text', action="store_true", help="output text")
     parser.add_argument('-u', '--url', action="store_true", help="output article URL")
@@ -292,7 +311,7 @@ if __name__ == '__main__':
         # default: extract Vossntos
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
-        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.modifier, args.text, args.wikidata)
+        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata)
         if args.clean:
             parts = gen_rm_ctrl(parts)
         for part in parts:
