@@ -10,9 +10,12 @@
 # Author: rja
 #
 # Changes:
+# 2018-08-22 (rja)
+# - added extraction of status that explains false positives
 # 2018-08-21 (rja)
 # - added extraction of source phrase as it appears in the text
 # - key uses source phrase instead of source label and ignores modifier markup ('/')
+# - key now uses all characters from sentence (not just the first 40)
 # 2018-08-16 (rja)
 # - added date extraction
 # 2018-08-15 (rja)
@@ -38,42 +41,45 @@ import argparse
 import sys
 from collections import OrderedDict
 
-version = "0.0.4"
+version = "0.0.5"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
-^                    # beginning of string
-(?P<newmark>> )?     # new candidates are marked with "> "line
-(?P<id>[0-9]+)\.     # all candidates are numbered
-[ !]+                # space and/or !
-\+?                  # modifier for false positive
-\[\[.+/              # start of Wikidata URL
-(?P<wdid>[^/]+)      # Wikidata id
-\]\[                 # separators
-(?P<wdlabel>.+)      # Wikidata label
-\]\]                 # end of Wikidata URL
-\                    # space
-\(                   # beginning of file id
-(?P<article>         # beginning of full article part
-(\[\[)?              # opening markup for article URL
-(?P<aurl>http.+?)?   # article URL
-(\]\[)?              # separators for article URL
-(?P<fid>             # full file id
-(?P<year>\\d{4})     # year
-/                    # separator
-(?P<month>\\d{2})    # month
-/                    # separator
-(?P<day>\\d{2})      # day
-/                    # separator
-(?P<aid>\\d+)        # article id
-)                    # end of full file id
-(\]\])?              # closing markup for article URL
-)                    # end of full article part
-\)                   # end of file id
-\                    # space
-(?P<sentence>.+[^+]) # sentence
-(?P<truefalse>\+)?   # false positive indicator
-$                    # end of string
+^                     # beginning of string
+(?P<newmark>> )?      # new candidates are marked with "> "line
+(?P<id>[0-9]+)\.      # all candidates are numbered
+[ !]+                 # space and/or !
+\+?                   # modifier for false positive
+\[\[.+/               # start of Wikidata URL
+(?P<wdid>[^/]+)       # Wikidata id
+\]\[                  # separators
+(?P<wdlabel>.+)       # Wikidata label
+\]\]                  # end of Wikidata URL
+\                     # space
+\(                    # beginning of file id
+(?P<article>          # beginning of full article part
+(\[\[)?               # opening markup for article URL
+(?P<aurl>http.+?)?    # article URL
+(\]\[)?               # separators for article URL
+(?P<fid>              # full file id
+(?P<year>\\d{4})      # year
+/                     # separator
+(?P<month>\\d{2})     # month
+/                     # separator
+(?P<day>\\d{2})       # day
+/                     # separator
+(?P<aid>\\d+)         # article id
+)                     # end of full file id
+(\]\])?               # closing markup for article URL
+)                     # end of full article part
+\)                    # end of file id
+\                     # space
+(?P<sentence>.+?[^+]) # sentence
+(?P<truefalse>\+)?    # false positive indicator
+(\ \(                 # beginning of status token explaining false positives
+(?P<status>[WD]+)     # a combination of characters
+\))?                  # end of (optional) token
+$                     # end of string
 """
 re_line = re.compile(line_re_str, re.VERBOSE)
 
@@ -125,9 +131,9 @@ def read_urls(flines):
     return urls
 
 def gen_truefalse(candidates, true_positive, false_positive):
-    for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss in candidates:
+    for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status in candidates:
         if true_positive == false_positive or true_positive == trueVoss or false_positive != trueVoss:
-            yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss
+            yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status
 
 def gen_candidates(lines):
     for line in lines:
@@ -142,14 +148,13 @@ def gen_rm_ctrl(parts):
 
 # generates a key for a Vossanto
 def get_key(parts):
-    year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss = parts
-    key = "|".join([year, aid, sourcePhrase, re_clean.sub('', sentence)[:40]])
-#    print("   ", key)
+    year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status = parts
+    key = "|".join([year, aid, sourcePhrase, re_clean.sub('', sentence)])
     return year, key
 
-def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata):
-    if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata]):
-        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss in parts:
+def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus):
+    if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus]):
+        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status in parts:
             result = []
             if syear:
                 result.append(year)
@@ -173,6 +178,8 @@ def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel
                 result.append("[[https://www.wikidata.org/wiki/" + sourceId + "][" + sourceLabel + "]]")
             if saurl:
                 result.append(aurl)
+            if sstatus:
+                result.append(status)
             yield result
     else:
         # when nothing has been selected, return everything
@@ -195,10 +202,11 @@ def match_line(line):
         aurl = d["aurl"]
         sentence = d["sentence"]
         trueVoss = d["truefalse"] != "+"
+        status = d["status"]
         # extract from sentence
         sourcePhrase = extract_sourcephrase(sentence)
         modifier = extract_modifier(sentence, trueVoss)
-        return year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss
+        return year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status
     return None
 
 # extract the modifier (enclosed in /.../) from the sentence
@@ -261,6 +269,7 @@ if __name__ == '__main__':
     parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
     parser.add_argument('-p', '--sourcephrase', action="store_true", help="output source phrase") # as it appears in the text
     parser.add_argument('-o', '--modifier', action="store_true", help="output modifier")
+    parser.add_argument('-b', '--status', action="store_true", help="output status of false positives")
     parser.add_argument('-t', '--text', action="store_true", help="output text")
     parser.add_argument('-u', '--url', action="store_true", help="output article URL")
     parser.add_argument('-w', '--wikidata', action="store_true", help="output link to Wikidata")
@@ -268,7 +277,7 @@ if __name__ == '__main__':
     parser.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
     parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
     parser.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
-    parser.add_argument('-F', '--false', action="store_true", help="output only false Vossantos")
+    parser.add_argument('-F', '--false', action="store_true", help="output only false positives")
     parser.add_argument('-c', '--clean', action="store_true", help="clean whitespace")
     parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
     parser.add_argument('-U', '--include-urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
@@ -312,7 +321,7 @@ if __name__ == '__main__':
         # default: extract Vossntos
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
-        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata)
+        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata, args.status)
         if args.clean:
             parts = gen_rm_ctrl(parts)
         for part in parts:
