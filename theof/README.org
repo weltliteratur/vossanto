@@ -378,6 +378,18 @@ Merge with existing ~README.org~:
     selected because his surname is provided as "Also known as"
     alternative in Wikidata)
 - repairing markup of source
+- completing some sentences that got broken due to NLTK sentence
+  tokenisation (e.g., for 1988/06/05/0151262, 1991/02/10/0421854)
+- some sentences contained a Vossanto, but the wrong part was
+  identified, e.g., in  1998/12/20/1071267: /''I am not the Peron of
+  Venezuela, I am the Chavez of Venezuela,'' he has said./ we have
+  identified "the Chavez of Venezuela", though that is not a Vossanto
+  (but "the Peron of Venezuela" is one) - those are marked negatived
+  with a "(W)"
+- some sentences contain several Vossantos where just one was
+  identified, e.g., "WHEN the Godzilla of the Internet decides to wed
+  *the King Kong of* /content/"
+
 - handling of duplicates, types of duplicates:
   - exact same sentence but different article
   - same phrase/similar sentence in same/different article
@@ -386,6 +398,13 @@ Merge with existing ~README.org~:
 - TODO :: For sentences containing several Vossantos only one source
           is extracted. This means that some sources can not be
           counted properly.
+
+*** TODO markup for false positives
+
+| symbol | explanation                                            |
+|--------+--------------------------------------------------------|
+| (W)    | sentence contains Vossanto but *wrong* phrase detected |
+| (D)    | duplicate                                              |
 
 *** TODO duplicates that need to be handled
 
