@@ -9,6 +9,8 @@
 # Author: rja
 #
 # Changes:
+# 2018-08-21 (rja)
+# - added tokenisation at line endings before sentence tokenisation
 # 2018-08-20 (rja)
 # - migrated to Python 3
 # 2018-02-21 (rja)
@@ -126,8 +128,10 @@ def gen_rm_ctrl(texts):
 # extract sentences for texts
 def gen_sentences(texts):
     for fname, text in texts:
-        for sentence in sent_tokenize(text):
-            yield fname, sentence
+        # split at line breaks, since the XML preserved paragraphs
+        for line in text.splitlines():
+            for sentence in sent_tokenize(line):
+                yield fname, sentence
 
 # apply the regex
 def gen_regex(texts, regex, groupid=0):
