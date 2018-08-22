@@ -9,6 +9,8 @@
 # Author: rja 
 #
 # Changes:
+# 2018-08-21 (rja)
+# - added strip() for sentence
 # 2017-05-11 (rja)
 # - removed dependency to extraction regex and simplified source highlighting
 # - added column for canonical item label
@@ -28,5 +30,5 @@ if __name__ == '__main__':
         articleid = m.group(1) + m.group(2)
 
         # print result
-        print("1.", "[[https://www.wikidata.org/wiki/" + itemid + "][" + itemCanon + "]]", "(" + articleid + ")", re.sub("(the " + item + " of)", "*\\1*", sentence))
+        print("1.", "[[https://www.wikidata.org/wiki/" + itemid + "][" + itemCanon + "]]", "(" + articleid + ")", re.sub("(the " + item + " of)", "*\\1*", sentence.strip()))
     
