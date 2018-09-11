@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2018-09-11 (rja)
+# - normalising "None" to "" in output
 # 2018-08-22 (rja)
 # - added extraction of status that explains false positives
 # 2018-08-21 (rja)
@@ -41,7 +43,7 @@ import argparse
 import sys
 from collections import OrderedDict
 
-version = "0.0.5"
+version = "0.0.6"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -257,6 +259,13 @@ def insert(index, line, string_new = '> '):
     if key not in index[year]:
         index[year][key] = string_new + line
 
+# convert value to string, taking care of None
+def part_to_string(p):
+    if p is None:
+        return ""
+    return str(p)
+    
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Merge Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('file', type=argparse.FileType('r', encoding='utf-8'), nargs='?', default=sys.stdin, help='org mode file to process')
@@ -318,11 +327,11 @@ if __name__ == '__main__':
                 # add URL to line
                 print(set_article_url(index[year][line], urls), end='')
     else:
-        # default: extract Vossntos
+        # default: extract Vossantos
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
         parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata, args.status)
         if args.clean:
             parts = gen_rm_ctrl(parts)
         for part in parts:
-            print(args.separator.join([str(p) for p in part]))
+            print(args.separator.join([part_to_string(p) for p in part]))
