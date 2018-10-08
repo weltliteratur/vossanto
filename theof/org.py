@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2018-10-08 (rja)
+# - added option "-c" to output classification (True/False) and renamned existing "-c" to "-C"
 # 2018-09-11 (rja)
 # - normalising "None" to "" in output
 # 2018-08-22 (rja)
@@ -154,7 +156,7 @@ def get_key(parts):
     key = "|".join([year, aid, sourcePhrase, re_clean.sub('', sentence)])
     return year, key
 
-def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus):
+def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus, sclassification):
     if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus]):
         for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status in parts:
             result = []
@@ -182,6 +184,8 @@ def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel
                 result.append(aurl)
             if sstatus:
                 result.append(status)
+            if sclassification:
+                result.append(trueVoss)
             yield result
     else:
         # when nothing has been selected, return everything
@@ -270,24 +274,25 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Merge Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('file', type=argparse.FileType('r', encoding='utf-8'), nargs='?', default=sys.stdin, help='org mode file to process')
     # what shall be printed
-    parser.add_argument('-y', '--year', action="store_true", help="output year")
     parser.add_argument('-a', '--articleid', action="store_true", help="output article id")
+    parser.add_argument('-b', '--status', action="store_true", help="output status of false positives")
+    parser.add_argument('-c', '--classification', action="store_true", help="output classification (True/False)")
     parser.add_argument('-d', '--date', action="store_true", help="output date")
     parser.add_argument('-f', '--fileid', action="store_true", help="output file id")
     parser.add_argument('-i', '--sourceid', action="store_true", help="output Wikidata source id")
     parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
-    parser.add_argument('-p', '--sourcephrase', action="store_true", help="output source phrase") # as it appears in the text
     parser.add_argument('-o', '--modifier', action="store_true", help="output modifier")
-    parser.add_argument('-b', '--status', action="store_true", help="output status of false positives")
+    parser.add_argument('-p', '--sourcephrase', action="store_true", help="output source phrase") # as it appears in the text
     parser.add_argument('-t', '--text', action="store_true", help="output text")
     parser.add_argument('-u', '--url', action="store_true", help="output article URL")
     parser.add_argument('-w', '--wikidata', action="store_true", help="output link to Wikidata")
+    parser.add_argument('-y', '--year', action="store_true", help="output year")
     # other options
     parser.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
     parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
     parser.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
     parser.add_argument('-F', '--false', action="store_true", help="output only false positives")
-    parser.add_argument('-c', '--clean', action="store_true", help="clean whitespace")
+    parser.add_argument('-C', '--clean', action="store_true", help="clean whitespace")
     parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
     parser.add_argument('-U', '--include-urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
@@ -330,7 +335,7 @@ if __name__ == '__main__':
         # default: extract Vossantos
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
-        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata, args.status)
+        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata, args.status, args.classification)
         if args.clean:
             parts = gen_rm_ctrl(parts)
         for part in parts:
