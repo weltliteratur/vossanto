@@ -457,39 +457,40 @@ We plot some temporal distributions:
 	   $(cat theof_${year}_wd.tsv | wc -l) \
 	   $(cat theof_${year}_wda_bl.tsv | wc -l) \
 	   $(./org.py -y README.org | grep ${year} | wc -l) \
-	   $(./org.py -y -T README.org | grep ${year} | wc -l)
+           $(./org.py -y -c -b README.org | grep ${year} | awk -F'\t' '{if ($2 == "D" || $3 == "True") print;}' | wc -l)
   done
 #+END_SRC
 
 #+CAPTION: The temporal distribution of the number of candidate phrases (cand), after matching against  Wikidata (wd) and a blacklist (wd+bl), and after manual inspection (true). The last column shows the precision.
 #+NAME: temporal-distribution
-|   year | articles |     cand | wd | wd+bl | found | true | prec | reltrue ‰ |
-|--------+----------+----------+----+-------+-------+------+------+-----------|
-|   1987 |   106104 |   640511 |  0 |   128 |   128 |   93 | 72.7 |      0.88 |
-|   1988 |   104541 |   636109 |  0 |   140 |   139 |   89 | 64.0 |      0.85 |
-|   1989 |   102818 |   624727 |  0 |   148 |   148 |  102 | 68.9 |      0.99 |
-|   1990 |    98812 |   613136 |  0 |   140 |   139 |  101 | 72.7 |      1.02 |
-|   1991 |    85135 |   512427 |  0 |   152 |   152 |  102 | 67.1 |      1.20 |
-|   1992 |    82685 |   493694 |  0 |   150 |   150 |  105 | 70.0 |      1.27 |
-|   1993 |    79200 |   480589 |  0 |   167 |   167 |  114 | 68.3 |      1.44 |
-|   1994 |    74925 |   463914 |  0 |   163 |   163 |  119 | 73.0 |      1.59 |
-|   1995 |    85392 |   499904 |  0 |   162 |   162 |  117 | 72.2 |      1.37 |
-|   1996 |    79077 |   497177 |  0 |   184 |   184 |  136 | 73.9 |      1.72 |
-|   1997 |    85396 |   514987 |  0 |   173 |   173 |  134 | 77.5 |      1.57 |
-|   1998 |    89163 |   570026 |  0 |   243 |   243 |  183 | 75.3 |      2.05 |
-|   1999 |    91074 |   584481 |  0 |   186 |   186 |  139 | 74.7 |      1.53 |
-|   2000 |    94258 |   601203 |  0 |   231 |   231 |  173 | 74.9 |      1.84 |
-|   2001 |    96282 |   586104 |  0 |   207 |   207 |  143 | 69.1 |      1.49 |
-|   2002 |    97258 |   595294 |  0 |   229 |   229 |  174 | 76.0 |      1.79 |
-|   2003 |    94235 |   588940 |  0 |   215 |   215 |  171 | 79.5 |      1.81 |
-|   2004 |    91362 |   569884 |  0 |   191 |   191 |  155 | 81.2 |      1.70 |
-|   2005 |    90004 |   560140 |  0 |   206 |   206 |  163 | 79.1 |      1.81 |
-|   2006 |    87052 |   559447 |  0 |   221 |   220 |  177 | 80.5 |      2.03 |
-|   2007 |    39953 |   259921 |  0 |   100 |   100 |   78 | 78.0 |      1.95 |
-|--------+----------+----------+----+-------+-------+------+------+-----------|
-|  *sum* |  1854726 | 11452615 |  0 |  3736 |  3733 | 2768 | 74.1 |      1.49 |
-| *mean* |    88320 |   545363 |  0 |   178 |   178 |  132 | 74.2 |      1.49 |
+|   year | articles |     cand | wd | wd+bl | found | true | prec |      |
+|--------+----------+----------+----+-------+-------+------+------+------|
+|   1987 |   106104 |   640511 |  0 |   128 |   129 |   97 | 75.2 | 0.91 |
+|   1988 |   104541 |   636109 |  0 |   140 |   141 |   98 | 69.5 | 0.94 |
+|   1989 |   102818 |   624727 |  0 |   148 |   148 |  108 | 73.0 | 1.05 |
+|   1990 |    98812 |   613136 |  0 |   140 |   140 |  109 | 77.9 | 1.10 |
+|   1991 |    85135 |   512427 |  0 |   152 |   154 |  108 | 70.1 | 1.27 |
+|   1992 |    82685 |   493694 |  0 |   150 |   152 |  107 | 70.4 | 1.29 |
+|   1993 |    79200 |   480589 |  0 |   167 |   167 |  126 | 75.4 | 1.59 |
+|   1994 |    74925 |   463914 |  0 |   163 |   164 |  120 | 73.2 | 1.60 |
+|   1995 |    85392 |   499904 |  0 |   162 |   162 |  128 | 79.0 | 1.50 |
+|   1996 |    79077 |   497177 |  0 |   184 |   186 |  138 | 74.2 | 1.75 |
+|   1997 |    85396 |   514987 |  0 |   173 |   173 |  138 | 79.8 | 1.62 |
+|   1998 |    89163 |   570026 |  0 |   243 |   243 |  191 | 78.6 | 2.14 |
+|   1999 |    91074 |   584481 |  0 |   186 |   189 |  139 | 73.5 | 1.53 |
+|   2000 |    94258 |   601203 |  0 |   231 |   231 |  180 | 77.9 | 1.91 |
+|   2001 |    96282 |   586104 |  0 |   207 |   209 |  168 | 80.4 | 1.74 |
+|   2002 |    97258 |   595294 |  0 |   229 |   229 |  180 | 78.6 | 1.85 |
+|   2003 |    94235 |   588940 |  0 |   215 |   216 |  180 | 83.3 | 1.91 |
+|   2004 |    91362 |   569884 |  0 |   191 |   191 |  160 | 83.8 | 1.75 |
+|   2005 |    90004 |   560140 |  0 |   206 |   207 |  167 | 80.7 | 1.86 |
+|   2006 |    87052 |   559447 |  0 |   221 |   221 |  181 | 81.9 | 2.08 |
+|   2007 |    39953 |   259921 |  0 |   100 |   101 |   78 | 77.2 | 1.95 |
+|--------+----------+----------+----+-------+-------+------+------+------|
+|  *sum* |  1854726 | 11452615 |  0 |  3736 |  3753 | 2901 | 77.3 | 1.56 |
+| *mean* |    88320 |   545363 |  0 |   178 |   179 |  138 | 77.1 | 1.56 |
 #+TBLFM: $8=($-1/$-2)*100;%2.1f::$9=($-2/$2)*1000;%2.2f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@23$7=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f::@24$5=vmean(@I..@II);%2.0f::@24$6=vmean(@I..@II);%2.0f::@24$7=vmean(@I..@II);%2.0f
+
 
 #+begin_src gnuplot :var data=temporal-distribution :file nyt_vossantos_over_time.svg :results silent
 reset
@@ -604,15 +605,15 @@ After cleansing, the following most frequent sources remain:
 |    20 | [[https://www.wikidata.org/wiki/Q223766][P. T. Barnum]]            |
 |    20 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]             |
 |    18 | [[https://www.wikidata.org/wiki/Q234606][Martha Stewart]]          |
-|    17 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
 |    17 | [[https://www.wikidata.org/wiki/Q13685096][Cinderella]]              |
 |    16 | [[https://www.wikidata.org/wiki/Q8768][Henry Ford]]              |
 |    16 | [[https://www.wikidata.org/wiki/Q692][William Shakespeare]]     |
-|    15 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]                |
+|    16 | [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] |
 |    15 | [[https://www.wikidata.org/wiki/Q352][Adolf Hitler]]            |
 |    14 | [[https://www.wikidata.org/wiki/Q5443][Greta Garbo]]             |
 |    14 | [[https://www.wikidata.org/wiki/Q40531][John Wayne]]              |
 |    14 | [[https://www.wikidata.org/wiki/Q30547][Mother Teresa]]           |
+|    13 | [[https://www.wikidata.org/wiki/Q517][Napoleon]]                |
 |    13 | [[https://www.wikidata.org/wiki/Q193156][Ralph Nader]]             |
 |    12 | [[https://www.wikidata.org/wiki/Q762][Leonardo da Vinci]]       |
 |    12 | [[https://www.wikidata.org/wiki/Q731168][Cal Ripken]]              |
@@ -748,28 +749,28 @@ Collect the categories of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos |  2767 | category               | articles | 1854726 |   |
-|-----------+-------+------------------------+----------+---------+---|
-|       347 | 12.5% | Arts                   |    88460 |    4.8% |   |
-|       345 | 12.5% | Sports                 |   160888 |    8.7% |   |
-|       305 | 11.0% | New York and Region    |   221897 |   12.0% |   |
-|       246 |  8.9% | Arts; Books            |    35475 |    1.9% |   |
-|       170 |  6.1% | Movies; Arts           |    27759 |    1.5% |   |
-|       111 |  4.0% | Business               |   291982 |   15.7% |   |
-|       107 |  3.9% | Opinion                |   134428 |    7.2% |   |
-|        98 |  3.5% | U.S.                   |    89389 |    4.8% |   |
-|        98 |  3.5% | Magazine               |    11464 |    0.6% |   |
-|        66 |  2.4% | Style                  |    65071 |    3.5% |   |
-|        66 |  2.4% | Arts; Theater          |    13283 |    0.7% |   |
-|        48 |  1.7% | World                  |    79786 |    4.3% |   |
-|        45 |  1.6% | Home and Garden; Style |    13978 |    0.8% |   |
-|        34 |  1.2% | Travel                 |    10440 |    0.6% |   |
-|        32 |  1.2% | Technology; Business   |    23283 |    1.3% |   |
-|        32 |  1.2% |                        |    42157 |    2.3% |   |
-|        27 |  1.0% | Week in Review         |    17107 |    0.9% |   |
-|        27 |  1.0% | Home and Garden        |     5546 |    0.3% |   |
-|        18 |  0.7% | Front Page; U.S.       |    11425 |    0.6% |   |
-|        17 |  0.6% | World; Washington      |    24817 |    1.3% |   |
+| vossantos |  2764 | category               | articles | 1854726 |
+|-----------+-------+------------------------+----------+---------|
+|       347 | 12.6% | Arts                   |    88460 |    4.8% |
+|       345 | 12.5% | Sports                 |   160888 |    8.7% |
+|       303 | 11.0% | New York and Region    |   221897 |   12.0% |
+|       246 |  8.9% | Arts; Books            |    35475 |    1.9% |
+|       169 |  6.1% | Movies; Arts           |    27759 |    1.5% |
+|       111 |  4.0% | Business               |   291982 |   15.7% |
+|       107 |  3.9% | Opinion                |   134428 |    7.2% |
+|        98 |  3.5% | U.S.                   |    89389 |    4.8% |
+|        98 |  3.5% | Magazine               |    11464 |    0.6% |
+|        66 |  2.4% | Style                  |    65071 |    3.5% |
+|        66 |  2.4% | Arts; Theater          |    13283 |    0.7% |
+|        48 |  1.7% | World                  |    79786 |    4.3% |
+|        45 |  1.6% | Home and Garden; Style |    13978 |    0.8% |
+|        34 |  1.2% | Travel                 |    10440 |    0.6% |
+|        32 |  1.2% | Technology; Business   |    23283 |    1.3% |
+|        32 |  1.2% |                        |    42157 |    2.3% |
+|        27 |  1.0% | Home and Garden        |     5546 |    0.3% |
+|        26 |  0.9% | Week in Review         |    17107 |    0.9% |
+|        18 |  0.7% | Front Page; U.S.       |    11425 |    0.6% |
+|        17 |  0.6% | World; Washington      |    24817 |    1.3% |
 #+TBLFM: $2=($-1/@1$2)*100;%2.1f%%::$5=($-1/@1$5)*100;%2.1f%%
 
 *** desks
@@ -823,9 +824,9 @@ Collect the desks of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos | 2767 | desk                    | articles | 1854727 |
+| vossantos | 2764 | desk                    | articles | 1854727 |
 |-----------+------+-------------------------+----------+---------|
-|       132 | 4.8% | Sports Desk             |   174823 |    9.4% |
+|       133 | 4.8% | Sports Desk             |   174823 |    9.4% |
 |        77 | 2.8% | Cultural Desk           |    40342 |    2.2% |
 |        68 | 2.5% | Book Review Desk        |    32737 |    1.8% |
 |        61 | 2.2% | National Desk           |   143489 |    7.7% |
@@ -902,9 +903,9 @@ Collect the authors of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos |  2767 | author                | articles | 1854726 |
+| vossantos |  2764 | author                | articles | 1854726 |
 |-----------+-------+-----------------------+----------+---------|
-|       438 | 15.8% |                       |   961052 |   51.8% |
+|       436 | 15.8% |                       |   961052 |   51.8% |
 |        33 |  1.2% | Maslin, Janet         |     2874 |    0.2% |
 |        30 |  1.1% | Holden, Stephen       |     5098 |    0.3% |
 |        26 |  0.9% | Vecsey, George        |     2739 |    0.1% |
@@ -925,7 +926,6 @@ Collect the authors of the articles
 |        15 |  0.5% | Grimes, William       |     1368 |    0.1% |
 |        15 |  0.5% | Anderson, Dave        |     2735 |    0.1% |
 #+TBLFM: $2=($-1/@1$2)*100;%2.1f%%::$5=($-1/@1$5)*100;%2.1f%%
-
 
 *** Vossantos of the top author
 #+BEGIN_SRC sh :results raw
@@ -971,46 +971,42 @@ Collect the authors of the articles
 
 ** modifiers
 
-A very simple approach to identify frequent modifiers:
 #+BEGIN_SRC sh
-  ./org.py -T -t README.org \
-      | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
-      | sort | uniq -c | sort -nr | head -n30
-#     | sed -e  "s/.*of\* //" -e "s/['.,?\!].*//" \
+./org.py -o -T README.org | sort | uniq -c | sort -nr | head -n30
 #+END_SRC
 
 | count | modifier         |
 |-------+------------------|
-|    48 | his day          |
-|    29 | his time         |
-|    28 | Japan            |
-|    15 | his generation   |
-|    15 | baseball         |
-|    13 | women            |
-|    12 | the 1990         |
-|    12 | tennis           |
-|    12 | her day          |
-|    12 | China            |
+|    56 | his day          |
+|    33 | his time         |
+|    29 | Japan            |
+|    16 | tennis           |
+|    16 | his generation   |
+|    16 | China            |
+|    16 | baseball         |
+|    13 | her time         |
+|    13 | her day          |
+|    12 | our time         |
+|    11 | the 1990's       |
+|    11 | politics         |
+|    11 | hockey           |
 |    10 | the Zulus        |
-|    10 | the 90           |
-|    10 | her time         |
+|    10 | the 90's         |
 |    10 | Brazil           |
-|     9 | today            |
-|     9 | the N            |
-|     9 | politics         |
-|     9 | our time         |
-|     9 | basketball       |
-|     8 | jazz             |
-|     8 | hockey           |
+|    10 | basketball       |
+|    10 | ballet           |
+|     9 | the art world    |
+|     9 | jazz             |
+|     9 | fashion          |
+|     8 | today            |
+|     8 | Israel           |
+|     8 | Iran             |
+|     8 | his era          |
 |     8 | hip-hop          |
-|     8 | fashion          |
+|     8 | golf             |
 |     8 | dance            |
-|     7 | the art world    |
 |     7 | the 19th century |
-|     7 | New York         |
 |     7 | Long Island      |
-|     7 | football         |
-|     6 | this year        |
 
 *** today
 **** "today"
@@ -1074,28 +1070,27 @@ Who are the sources for the modifier "her day"?
 
 *** country
 #+BEGIN_SRC sh
-  ./org.py -T -t README.org \
-      | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
+  ./org.py -o -T README.org \
       | sort | uniq -c | sort -nr | grep "Japan\|China\|Brazil\|Iran\|Israel\|Mexico\|India\|South Africa\|Spain\|South Korea\|Russia\|Poland\|Pakistan" | head -n13
 #+END_SRC
 
 | count | country      |
 |-------+--------------|
-|    28 | Japan        |
-|    12 | China        |
+|    29 | Japan        |
+|    16 | China        |
 |    10 | Brazil       |
-|     6 | Israel       |
-|     6 | Iran         |
-|     6 | India        |
+|     8 | Israel       |
+|     8 | Iran         |
+|     7 | India        |
+|     5 | Mexico       |
 |     4 | South Africa |
-|     4 | Mexico       |
 |     3 | Spain        |
 |     3 | South Korea  |
 |     3 | Russia       |
 |     3 | Poland       |
 |     3 | Pakistan     |
 
-Who are the sources for the modifier ... ?
+What are the sources for the modifier ... ?
 **** "Japan"
 #+BEGIN_SRC sh
   ./org.py -w -T -t -c README.org | grep "of\* Japan" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
@@ -3054,7 +3049,7 @@ Robert:
 84. [[https://www.wikidata.org/wiki/Q5950][James Brown]] ([[http://www.nytimes.com/1997/06/29/sports/us-faces-acid-test-in-el-salvador.html][1997/06/29/0940509]]) Wynalda has been *the James Brown of* /soccer/; just when he seems about to collapse and someone tosses a figurative cape over him, he bounds back to life.
 85. [[https://www.wikidata.org/wiki/Q254][Wolfgang Amadeus Mozart]] ([[https://www.nytimes.com/1997/06/30/movies/a-specialist-in-esthetics-of-offbeat-violence.html][1997/06/30/0940634]]) Woo ''*the Mozart of* /mayhem/.''
 86. [[https://www.wikidata.org/wiki/Q242936][Susan Lucci]] ([[http://www.nytimes.com/1997/07/04/us/savoring-a-sweet-taste-of-southern-summers.html][1997/07/04/0941534]]) ''I am *the Susan Lucci of* /iced tea contests/.''
-87. [[https://www.wikidata.org/wiki/Q517][Napoleon]] ([[http://www.nytimes.com/1997/07/06/nyregion/a-winning-mix-of-warmth-and-whimsy.html][1997/07/06/0941827]]) Other superb starters are *the Napoleon of* /layered eggplant caviar, olive tapenade and paper-thin focaccia toasts/; the no-filler crab cake mated with a clump of mesclun salad and a drizzle of blueberry ketchup, the cured salmon served on a warm potato roesti and the oysters on the half shell topped with a fresh tomato-radish vinaigrette.
+87. +[[https://www.wikidata.org/wiki/Q517][Napoleon]] ([[http://www.nytimes.com/1997/07/06/nyregion/a-winning-mix-of-warmth-and-whimsy.html][1997/07/06/0941827]]) Other superb starters are *the Napoleon of* layered eggplant caviar, olive tapenade and paper-thin focaccia toasts; the no-filler crab cake mated with a clump of mesclun salad and a drizzle of blueberry ketchup, the cured salmon served on a warm potato roesti and the oysters on the half shell topped with a fresh tomato-radish vinaigrette.+
 88. [[https://www.wikidata.org/wiki/Q1156395][Peter Lynch]] ([[http://www.nytimes.com/1997/07/06/business/a-successful-bond-navigator-sees-calm-waters.html][1997/07/06/0941962]]) Gross, who oversees $92 billion of fixed-income assets, or 84 percent of Pimco's $110 billion total, has been called ''*the Peter Lynch of* /bonds/'' by Newsweek magazine, in reference to the former manager of the Fidelity Magellan fund (though Mr.
 89. [[https://www.wikidata.org/wiki/Q182882][John James Audubon]] ([[https://www.nytimes.com/1997/07/07/books/an-angler-lands-the-best-of-friends.html][1997/07/07/0942258]]) Last year James Prosek, while still an undergraduate at Yale, published a dazzlingly brilliant collection of watercolor paintings, ''Trout: An Illustrated History,'' which set him on a course to becoming *the Audubon of* /fish/.
 90. [[https://www.wikidata.org/wiki/Q204586][Parker Posey]] ([[http://www.nytimes.com/1997/07/13/arts/playing-the-woman-beside-the-man-who-took-san-juan-hill.html][1997/07/13/0943200]]) ''I'm trying to be *the Parker Posey of* /this year/.''
@@ -3152,7 +3147,7 @@ Robert:
 7. [[https://www.wikidata.org/wiki/Q4291304][Ruth Messinger]] ([[http://www.nytimes.com/1998/01/06/nyregion/ferraro-enters-battle-to-take-d-amato-seat.html][1998/01/06/0985708]]) ''She's *the Ruth Messinger of* /1998/,'' Mr. Mahoney said, referring to the Democrat who lost to Mayor Rudolph W. Giuliani this year.
 8. [[https://www.wikidata.org/wiki/Q1744][Madonna]] ([[http://www.nytimes.com/1998/01/07/books/arts-abroad-living-with-a-shortage-of-everything-but-desire.html][1998/01/07/0985825]]) Alejandro Armengol, a critic for El Nuevo Herald, a Miami newspaper, dismissed Ms. Valdes last year as ''*the Madonna of* /Cuban literature/, with an equal capacity to transform self-assurance and the grotesque into spectacle, to show vulgarity and eroticism stripped of any mystery.''
 9. +[[https://www.wikidata.org/wiki/Q6882][James Joyce]] ([[http://www.nytimes.com/1998/01/09/books/books-of-the-times-a-sad-life-through-thick-glasses-wittily.html][1998/01/09/0986280]]) There are shades of *the James Joyce of* ''Portrait of the Artist as a Young Man'' in this unnamed person, whose own tragedies are told almost in passing, in his subordinate clauses.+
-10. [[https://www.wikidata.org/wiki/Q517][Napoleon]] ([[http://www.nytimes.com/1998/01/11/nyregion/dining-out-experienced-hand-in-a-familiar-setting.html][1998/01/11/0986967]]) We loved them all: the moist cranberry brioche pudding, the warm apple tart crowned with cinnamon ice cream, the homemade sorbets, *the Napoleon of* /exotic fruits/ and the creme brulee sampler.
+10. +[[https://www.wikidata.org/wiki/Q517][Napoleon]] ([[http://www.nytimes.com/1998/01/11/nyregion/dining-out-experienced-hand-in-a-familiar-setting.html][1998/01/11/0986967]]) We loved them all: the moist cranberry brioche pudding, the warm apple tart crowned with cinnamon ice cream, the homemade sorbets, *the Napoleon of* exotic fruits and the creme brulee sampler.+
 11. [[https://www.wikidata.org/wiki/Q7411423][Samuel French]] ([[http://www.nytimes.com/1998/01/11/nyregion/theater-review-passing-the-clues-along-with-the-salt.html][1998/01/11/0987037]]) Referring to the New York rights and royalties agency, he added, ''I'm *the Samuel French of* /interactive theater/.''
 12. [[https://www.wikidata.org/wiki/Q1889422][Felix Unger]] ([[http://www.nytimes.com/1998/01/12/nyregion/metropolitan-diary-032824.html][1998/01/12/0987178]]) I must have appeared shocked by his fastidiousness because he looked at me and said, ''I know, I'm *the Felix Unger of* /the Sanitation Department/.''
 13. +[[https://www.wikidata.org/wiki/Q44640][Sting]] ([[http://www.nytimes.com/1998/01/13/nyregion/inside-053120.html][1998/01/13/0987374]]) Reducing *the Sting of* Time  New actuarial studies and findings that life spans are easier to manipulate than biologists had imagined are giving those who study aging cause to not talk of it as inevitable and entirely immutable.+
@@ -4567,7 +4562,7 @@ Robert:
 93. +[[https://www.wikidata.org/wiki/Q129443][Orlando Hernández]] ([[https://www.nytimes.com/2004/07/08/sports/baseball-baseball-analysis-the-pitching-problems-are-not-going-away.html][2004/07/08/1595185]]) The more Cashman spoke, the more it sounded as if the Yankees were desperately praying that *the Orlando Hernández of* 2004 could be the El Duque of 1998.+
 94. [[https://www.wikidata.org/wiki/Q36107][Muhammad Ali]] ([[https://www.nytimes.com/2004/07/09/sports/olympics-after-tribulations-come-the-trials.html][2004/07/09/1595426]]) ''But I think she's getting stronger as the Olympics get closer, because it's sort of like she's *the Muhammad Ali of* /her era/.
 95. [[https://www.wikidata.org/wiki/Q231001][Amanda Beard]] ([[https://www.nytimes.com/2004/07/11/sports/olympics-a-new-crop-of-youngsters-emerges-at-the-trials.html][2004/07/11/1596074]]) Hoff said she never thought she would become *the Amanda Beard of* /this meet/.
-96. [[https://www.wikidata.org/wiki/Q37079][Tom Cruise]] ([[https://www.nytimes.com/2004/07/11/arts/film-spidey-crushes-fahrenheit-in-2004.html][2004/07/11/1596145]]) As a man locked in a war against terror, Peter Parker could not be further removed from the hubristic bravura of Mr. Bush and his own cinematic model, *the Tom Cruise of* /Top Gun/.There s nothing triumphalist about Spider-Man; he would never declare Mission Accomplished after a passing victory, and his very creed is antithetical to the Bush doctrine of pre-emptive war.
+96. +[[https://www.wikidata.org/wiki/Q37079][Tom Cruise]] ([[https://www.nytimes.com/2004/07/11/arts/film-spidey-crushes-fahrenheit-in-2004.html][2004/07/11/1596145]]) As a man locked in a war against terror, Peter Parker could not be further removed from the hubristic bravura of Mr. Bush and his own cinematic model, *the Tom Cruise of* Top Gun.There s nothing triumphalist about Spider-Man; he would never declare Mission Accomplished after a passing victory, and his very creed is antithetical to the Bush doctrine of pre-emptive war.+
 97. [[https://www.wikidata.org/wiki/Q5598][Rembrandt]] ([[https://www.nytimes.com/2004/07/13/movies/new-dvd-s-bertolucci-s-odd-young-people-in-a-revolution.html][2004/07/13/1596311]]) Shot on digital video by *the Rembrandt of* /the medium/, Anthony Dod Mantle (''Dogville''), the film runs a brief 75 minutes, but any more than that would definitely be overkill.
 98. [[https://www.wikidata.org/wiki/Q8768][Henry Ford]] ([[https://www.nytimes.com/2004/07/15/garden/in-silicon-valley-tear-down-interrupted.html][2004/07/15/1596782]]) Daniel Jackling has been called *the Henry Ford of* /minerals/, developing the process by which copper is extracted from low-grade ore and pioneering the open-pit copper strip mine.
 99. [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]] ([[https://www.nytimes.com/2004/07/15/sports/olympics-where-have-all-the-runners-gone.html][2004/07/15/1596883]]) He would be *the Tiger Woods of* /track/.
