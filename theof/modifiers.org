@@ -1,0 +1,222 @@
+#+TITLE:
+#+AUTHOR: 
+#+EMAIL: 
+#+LANGUAGE: en
+#+OPTIONS: toc:nil ':t H:5
+#+STARTUP: hidestars overview
+#+LaTeX_CLASS: scrartcl
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+
+
+Some interesting modifiers:
+* most frequent
+#+BEGIN_SRC sh
+./org.py -o -T  README.org | sort | uniq -c | sort -nr | head -n30
+#+END_SRC
+
+| count | modifier         |
+|-------+------------------|
+|    56 | his day          |
+|    33 | his time         |
+|    29 | Japan            |
+|    16 | tennis           |
+|    16 | his generation   |
+|    16 | China            |
+|    16 | baseball         |
+|    13 | her time         |
+|    13 | her day          |
+|    12 | our time         |
+|    11 | the 1990's       |
+|    11 | politics         |
+|    11 | hockey           |
+|    10 | the Zulus        |
+|    10 | the 90's         |
+|    10 | Brazil           |
+|    10 | basketball       |
+|    10 | ballet           |
+|     9 | the art world    |
+|     9 | jazz             |
+|     9 | fashion          |
+|     8 | today            |
+|     8 | Israel           |
+|     8 | Iran             |
+|     8 | his era          |
+|     8 | hip-hop          |
+|     8 | golf             |
+|     8 | dance            |
+|     7 | the 19th century |
+|     7 | Long Island      |
+
+* "the [A-Z]"
+
+#+BEGIN_SRC sh
+./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -n | grep "the [A-Z]"
+#+END_SRC
+
+* not "the [A-Z]" but "[A-Z]"
+
+= mainly locations
+
+#+BEGIN_SRC 
+./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -n | grep -v "the [A-Z]" | grep  "[A-Z]"
+#+END_SRC
+
+* "New York"
+
+#+BEGIN_SRC sh
+./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr | grep "New York"
+#+END_SRC
+
+#+RESULTS:
+| 5 | New York City                    |
+| 5 | New York                         |
+| 2 | New York baseball                |
+| 1 | the New York State Assembly      |
+| 1 | the New York reporters           |
+| 1 | the New York Jets                |
+| 1 | New York transit                 |
+| 1 | New York steakhouses             |
+| 1 | New York State                   |
+| 1 | New York's movie panorama        |
+| 1 | New York's judiciary             |
+| 1 | New York politics                |
+| 1 | New York City chefs              |
+| 1 | New York City bridges            |
+| 1 | New York beer culture            |
+| 1 | New York beedom                  |
+| 1 | Latin music in New York          |
+| 1 | high school baseball in New York |
+
+* "America"
+
+#+BEGIN_SRC sh
+./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr | grep "America"
+#+END_SRC
+
+#+RESULTS:
+| 5 | American politics                        |
+| 2 | the American theater                     |
+| 2 | postwar American poetry                  |
+| 2 | American Politics                        |
+| 2 | American photography                     |
+| 2 | American design                          |
+| 1 | the Mexican-American world               |
+| 1 | The American Spectator                   |
+| 1 | the American League                      |
+| 1 | the American Football League             |
+| 1 | the American Academy of Arts and Letters |
+| 1 | the American 90's                        |
+| 1 | South America                            |
+| 1 | Latin American pop                       |
+| 1 | Italian-American literature              |
+| 1 | corporate America                        |
+| 1 | contemporary American cooking            |
+| 1 | American wines                           |
+| 1 | American white trash                     |
+| 1 | American sitcoms                         |
+| 1 | American science                         |
+| 1 | American Negroes                         |
+| 1 | American letters                         |
+| 1 | American Indians                         |
+| 1 | American horticulture                    |
+| 1 | American foreign policy                  |
+| 1 | American film                            |
+| 1 | American diplomacy                       |
+| 1 | American dance                           |
+| 1 | American architecture                    |
+| 1 | American Airlines                        |
+| 1 | America                                  |
+* " her "
+
+#+BEGIN_SRC sh
+./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr | grep " her "
+#+END_SRC
+
+#+RESULTS:
+| 5 | her time             |
+| 5 | her day              |
+| 2 | her generation       |
+| 1 | her sport            |
+| 1 | her particular genre |
+
+* " his "
+
+#+BEGIN_SRC sh
+./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr | grep " his "
+#+END_SRC
+
+#+RESULTS:
+| 28 | his day                                   |
+| 19 | his time                                  |
+|  9 | his generation                            |
+|  4 | his era                                   |
+|  2 | his sport                                 |
+|  2 | his age                                   |
+|  1 | Persia in his day                         |
+|  1 | his times                                 |
+|  1 | his team's success-breeds-success mantra  |
+|  1 | his team                                  |
+|  1 | his set                                   |
+|  1 | his position                              |
+|  1 | his people, of the Asian Indian community |
+|  1 | his own Ponderosa                         |
+|  1 | his genre                                 |
+|  1 | his field                                 |
+|  1 | his ancient time                          |
+
+* " [0-9][0-9]"
+
+#+BEGIN_SRC sh
+./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | grep "[0-9][0-9]" | sort | uniq -c | sort -nr 
+#+END_SRC
+
+#+RESULTS:
+| 11 | the 1990's                                                                                                                                                   |
+|  8 | the 90's                                                                                                                                                     |
+|  5 | 1992                                                                                                                                                         |
+|  4 | the 20th century                                                                                                                                             |
+|  4 | the 19th century                                                                                                                                             |
+|  1 | 1988                                                                                                                                                         |
+|  1 | 1990                                                                                                                                                         |
+|  1 | 1994                                                                                                                                                         |
+|  1 | 1995                                                                                                                                                         |
+|  1 | 1996                                                                                                                                                         |
+|  1 | 1998                                                                                                                                                         |
+|  1 | 2000                                                                                                                                                         |
+|  1 | 12th men                                                                                                                                                     |
+|  1 | the 30's                                                                                                                                                     |
+|  1 | the 60's                                                                                                                                                     |
+|  1 | the 80's                                                                                                                                                     |
+|  1 | the 1840's                                                                                                                                                   |
+|  1 | the 1950's                                                                                                                                                   |
+|  1 | the 1980's                                                                                                                                                   |
+|  1 | 26th Street                                                                                                                                                  |
+|  1 | early 80's art                                                                                                                                               |
+|  1 | the 5-to-11 set                                                                                                                                              |
+|  1 | West 46th Street                                                                                                                                             |
+|  1 | pitchers in 1999                                                                                                                                             |
+|  1 | the 15th century                                                                                                                                             |
+|  1 | the 21st century                                                                                                                                             |
+|  1 | the 25th century                                                                                                                                             |
+|  1 | 10 Downing Street                                                                                                                                            |
+|  1 | the 1992 campaign                                                                                                                                            |
+|  1 | the American 90's                                                                                                                                            |
+|  1 | 10th-century tastes                                                                                                                                          |
+|  1 | 20th-century physics                                                                                                                                         |
+|  1 | the mid-19th century                                                                                                                                         |
+|  1 | 1970's blaxploitation                                                                                                                                        |
+|  1 | the 1990's generation                                                                                                                                        |
+|  1 | the late 20th century                                                                                                                                        |
+|  1 | 21st century cyberspace                                                                                                                                      |
+|  1 | late 20th-century Brazil                                                                                                                                     |
+|  1 | 35-millimeter photography                                                                                                                                    |
+|  1 | pro wrestling in the 1950's                                                                                                                                  |
+|  1 | 19th-century Japanese fiction                                                                                                                                |
+|  1 | motocross racing in the 1980's                                                                                                                               |
+|  1 | the 1992 Presidential election                                                                                                                               |
+|  1 | the women's movement in the 1970's                                                                                                                           |
+|  1 | financial markets in the late 1980's                                                                                                                         |
+|  1 | Brazilian basketball for the past 20 years                                                                                                                   |
+|  1 | the Jets' sophisticated 49ers-style attack this season                                                                                                       |
+|  1 | generations of Scots who migrated to northwestern Montana before and after it became a state in 1889                                                         |
+|  1 | the protest movement that has swept Serbia since the Government's annulment of election victories by the opposition in 14 of the country's 18 largest cities |
