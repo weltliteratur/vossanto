@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"  standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg 
+ viewBox="0 0 800 600"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+
+<title>Gnuplot</title>
+<desc>Produced by GNUPLOT 5.0 patchlevel 5 </desc>
+
+<g id="gnuplot_canvas">
+
+<rect x="0" y="0" width="800" height="600" fill="none"/>
+<defs>
+
+	<circle id='gpDot' r='0.5' stroke-width='0.5'/>
+	<path id='gpPt0' stroke-width='0.167' stroke='currentColor' d='M-1,0 h2 M0,-1 v2'/>
+	<path id='gpPt1' stroke-width='0.167' stroke='currentColor' d='M-1,-1 L1,1 M1,-1 L-1,1'/>
+	<path id='gpPt2' stroke-width='0.167' stroke='currentColor' d='M-1,0 L1,0 M0,-1 L0,1 M-1,-1 L1,1 M-1,1 L1,-1'/>
+	<rect id='gpPt3' stroke-width='0.167' stroke='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<rect id='gpPt4' stroke-width='0.167' stroke='currentColor' fill='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<circle id='gpPt5' stroke-width='0.167' stroke='currentColor' cx='0' cy='0' r='1'/>
+	<use xlink:href='#gpPt5' id='gpPt6' fill='currentColor' stroke='none'/>
+	<path id='gpPt7' stroke-width='0.167' stroke='currentColor' d='M0,-1.33 L-1.33,0.67 L1.33,0.67 z'/>
+	<use xlink:href='#gpPt7' id='gpPt8' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt7' id='gpPt9' stroke='currentColor' transform='rotate(180)'/>
+	<use xlink:href='#gpPt9' id='gpPt10' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt3' id='gpPt11' stroke='currentColor' transform='rotate(45)'/>
+	<use xlink:href='#gpPt11' id='gpPt12' fill='currentColor' stroke='none'/>
+	<path id='gpPt13' stroke-width='0.167' stroke='currentColor' d='M0,1.330 L1.265,0.411 L0.782,-1.067 L-0.782,-1.076 L-1.265,0.411 z'/>
+	<use xlink:href='#gpPt13' id='gpPt14' fill='currentColor' stroke='none'/>
+	<filter id='textbox' filterUnits='objectBoundingBox' x='0' y='0' height='1' width='1'>
+	  <feFlood flood-color='white' flood-opacity='1' result='bgnd'/>
+	  <feComposite in='SourceGraphic' in2='bgnd' operator='atop'/>
+	</filter>
+	<filter id='greybox' filterUnits='objectBoundingBox' x='0' y='0' height='1' width='1'>
+	  <feFlood flood-color='lightgrey' flood-opacity='1' result='grey'/>
+	  <feComposite in='SourceGraphic' in2='grey' operator='atop'/>
+	</filter>
+</defs>
+<g fill="none" color="white" stroke="black" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M96.8,523.2 L675.1,523.2  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M96.8,523.2 L108.8,523.2 M675.1,523.2 L663.1,523.2  '/>	<g transform="translate(85.6,528.4)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 0</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M96.8,423.1 L675.1,423.1  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M96.8,423.1 L108.8,423.1 M675.1,423.1 L663.1,423.1  '/>	<g transform="translate(85.6,428.3)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 50</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M96.8,322.9 L675.1,322.9  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M96.8,322.9 L108.8,322.9 M675.1,322.9 L663.1,322.9  '/>	<g transform="translate(85.6,328.1)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 100</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M96.8,222.8 L675.1,222.8  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M96.8,222.8 L108.8,222.8 M675.1,222.8 L663.1,222.8  '/>	<g transform="translate(85.6,228.0)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 150</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M96.8,122.6 L675.1,122.6  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M96.8,122.6 L108.8,122.6 M675.1,122.6 L663.1,122.6  '/>	<g transform="translate(85.6,127.8)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 200</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M96.8,22.5 L675.1,22.5  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M96.8,22.5 L108.8,22.5 M675.1,22.5 L663.1,22.5  '/>	<g transform="translate(85.6,27.7)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 250</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M96.8,523.2 L96.8,22.5  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M96.8,523.2 L96.8,511.2 M96.8,22.5 L96.8,34.5  '/>	<g transform="translate(96.8,552.4)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 1985</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M212.5,523.2 L212.5,106.5 M212.5,34.5 L212.5,22.5  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M212.5,523.2 L212.5,511.2 M212.5,22.5 L212.5,34.5  '/>	<g transform="translate(212.5,552.4)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 1990</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M328.1,523.2 L328.1,22.5  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M328.1,523.2 L328.1,511.2 M328.1,22.5 L328.1,34.5  '/>	<g transform="translate(328.1,552.4)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 1995</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M443.8,523.2 L443.8,22.5  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M443.8,523.2 L443.8,511.2 M443.8,22.5 L443.8,34.5  '/>	<g transform="translate(443.8,552.4)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 2000</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M559.4,523.2 L559.4,22.5  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M559.4,523.2 L559.4,511.2 M559.4,22.5 L559.4,34.5  '/>	<g transform="translate(559.4,552.4)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 2005</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='gray' class="gridline"  d='M675.1,523.2 L675.1,22.5  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M675.1,523.2 L675.1,511.2 M675.1,22.5 L675.1,34.5  '/>	<g transform="translate(675.1,552.4)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 2010</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M675.1,523.2 L663.1,523.2  '/>	<g transform="translate(686.3,528.4)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="start">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 0</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M675.1,423.1 L663.1,423.1  '/>	<g transform="translate(686.3,428.3)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="start">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 20</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M675.1,322.9 L663.1,322.9  '/>	<g transform="translate(686.3,328.1)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="start">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 40</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M675.1,222.8 L663.1,222.8  '/>	<g transform="translate(686.3,228.0)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="start">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 60</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M675.1,122.6 L663.1,122.6  '/>	<g transform="translate(686.3,127.8)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="start">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 80</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M675.1,22.5 L663.1,22.5  '/>	<g transform="translate(686.3,27.7)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="start">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" > 100</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M96.8,22.5 L96.8,523.2 L675.1,523.2 L675.1,22.5 L96.8,22.5 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(22.8,272.9) rotate(270)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" >frequency</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(759.4,272.9) rotate(270)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" >precision</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(385.9,588.4)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="middle">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" >year</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+	<g id="gnuplot_plot_1" ><title>candidates</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(220.0,51.7)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" >candidates</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(255,   0,   0)'  d='M231.2,46.5 L288.0,46.5 M143.1,264.8 L166.2,240.8 L189.3,226.8 L212.5,242.8 L235.6,214.8 L258.7,218.8
+		L281.9,188.7 L305.0,194.7 L328.1,198.7 L351.3,150.7 L374.4,176.7 L397.5,36.5 L420.6,144.7 L443.8,60.6
+		L466.9,104.6 L490.0,64.6 L513.2,90.6 L536.3,140.7 L559.4,108.6 L582.6,80.6 L605.7,320.9  '/>	<use xlink:href='#gpPt6' transform='translate(143.1,264.8) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(166.2,240.8) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(189.3,226.8) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(212.5,242.8) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(235.6,214.8) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(258.7,218.8) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(281.9,188.7) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(305.0,194.7) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(328.1,198.7) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(351.3,150.7) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(374.4,176.7) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(397.5,36.5) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(420.6,144.7) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(443.8,60.6) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(466.9,104.6) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(490.0,64.6) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(513.2,90.6) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(536.3,140.7) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(559.4,108.6) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(582.6,80.6) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(605.7,320.9) scale(6.00)' color='rgb(255,   0,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(259.6,46.5) scale(6.00)' color='rgb(255,   0,   0)'/>
+</g>
+	</g>
+	<g id="gnuplot_plot_2" ><title>Vossantos</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(220.0,75.7)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" >Vossantos</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(  0, 255,   0)'  d='M231.2,70.5 L288.0,70.5 M143.1,332.9 L166.2,347.0 L189.3,314.9 L212.5,312.9 L235.6,316.9 L258.7,316.9
+		L281.9,280.9 L305.0,298.9 L328.1,274.9 L351.3,256.8 L374.4,254.8 L397.5,162.7 L420.6,250.8 L443.8,178.7
+		L466.9,196.7 L490.0,168.7 L513.2,192.7 L536.3,216.8 L559.4,198.7 L582.6,184.7 L605.7,371.0  '/>	<use xlink:href='#gpPt6' transform='translate(143.1,332.9) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(166.2,347.0) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(189.3,314.9) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(212.5,312.9) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(235.6,316.9) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(258.7,316.9) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(281.9,280.9) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(305.0,298.9) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(328.1,274.9) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(351.3,256.8) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(374.4,254.8) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(397.5,162.7) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(420.6,250.8) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(443.8,178.7) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(466.9,196.7) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(490.0,168.7) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(513.2,192.7) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(536.3,216.8) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(559.4,198.7) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(582.6,184.7) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(605.7,371.0) scale(6.00)' color='rgb(  0, 255,   0)'/>
+	<use xlink:href='#gpPt6' transform='translate(259.6,70.5) scale(6.00)' color='rgb(  0, 255,   0)'/>
+</g>
+	</g>
+	<g id="gnuplot_plot_3" ><title>precision</title>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<g transform="translate(220.0,99.7)" stroke="none" fill="black" font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" font-size="16.00"  text-anchor="end">
+		<text><tspan font-family="Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" >precision</tspan></text>
+	</g>
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='rgb(  0,   0, 255)'  d='M231.2,94.5 L288.0,94.5 M143.1,154.7 L166.2,210.8 L189.3,171.2 L212.5,147.7 L235.6,188.2 L258.7,183.7
+		L281.9,160.2 L305.0,181.2 L328.1,140.2 L351.3,165.2 L374.4,135.2 L397.5,152.2 L420.6,162.7 L443.8,150.2
+		L466.9,132.7 L490.0,136.2 L513.2,140.7 L536.3,122.1 L559.4,131.2 L582.6,140.2 L605.7,146.7  '/></g>
+	</g>
+<g fill="none" color="white" stroke="rgb(  0,   0, 255)" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="2.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="black" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+	<path stroke='black'  d='M96.8,22.5 L96.8,523.2 L675.1,523.2 L675.1,22.5 L96.8,22.5 Z  '/></g>
+<g fill="none" color="black" stroke="currentColor" stroke-width="1.00" stroke-linecap="butt" stroke-linejoin="miter">
+</g>
+</g>
+</svg>
+
