@@ -1,10 +1,16 @@
----
-title: Vossian Antonomasia
----
 
-# Vossian Antonomasia<
+# Vossian Antonomasia
 
-Frank Fischer, Robert Jäschke, Elena Krotova, Jannik Strötgen, Michel Schwab
+*Frank Fischer, Robert Jäschke, Elena Krotova, Jannik Strötgen, Michel Schwab*
+
+Automatic extraction of Vossian Antonomasia from large newspaper
+corpora.
+
+Based on an idea by [Frank Fischer](https://twitter.com/umblaetterer)
+(see [Der Umblätterer: Vossianische
+Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)).
+
+© 2008 The New York Times Company, used with permission
 
 ## First Approach
 - [Slides DHd Bern 2017](https://lehkost.github.io/slides/2017-bern/)
