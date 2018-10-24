@@ -4,7 +4,7 @@
 This directory contains results from a Vossanto extraction method that
 focused on the most frequent pattern: /the ENTITY of/.
 
-- [[method.org][method]]
+- [[file:method.org][method]]
 - [[file:tools.org][tools]]
 - [[file:results.org][results]]
 - [[file:statistics.org][statistics]]
