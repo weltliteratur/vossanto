@@ -10,8 +10,12 @@
 # Author: rja
 #
 # Changes:
+# 2018-10-24 (rja)
+# - added option "--ignore-source-ids" to ignore candidates where the
+#   source id is contained in the given file
 # 2018-10-08 (rja)
-# - added option "-c" to output classification (True/False) and renamned existing "-c" to "-C"
+# - added option "-c" to output classification (True/False) and renamned
+#   existing "-c" to "-C"
 # 2018-09-11 (rja)
 # - normalising "None" to "" in output
 # 2018-08-22 (rja)
@@ -126,18 +130,35 @@ def read_file(flines):
                 lines.append(line)
     return lines, index
 
-# reads a TSV file with article ids and corresponding URLs
-def read_urls(flines):
-    urls = dict()
+# Read a TSV file with two columns into a dict.
+# The first column is used as key and the second column as value.
+# Lines starting with # are ignored.
+def read_dict(flines, sep='\t', comment='#'):
+    d = dict()
     for line in flines:
-        aid, url = line.strip().split('\t')
-        urls[aid] = url
-    return urls
+        if not line.startswith(comment):
+            key, val = line.strip().split(sep)
+            d[key] = val
+    return d
 
 def gen_truefalse(candidates, true_positive, false_positive):
     for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status in candidates:
         if true_positive == false_positive or true_positive == trueVoss or false_positive != trueVoss:
             yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status
+
+
+# Skip all candidates whose source's id is contained in sourcefile.
+# Sourcefile must contain one Wikidata id per line, followed by their name.
+# Lines starting with # are ignored.
+def gen_filter_sources(candidates, sourcefile):
+    if sourcefile:
+        sources = read_dict(sourcefile)
+        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status in candidates:
+            if sourceId not in sources:
+                yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status
+    else:
+        for cand in candidates:
+            yield cand
 
 def gen_candidates(lines):
     for line in lines:
@@ -271,7 +292,7 @@ def part_to_string(p):
     
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Merge Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser = argparse.ArgumentParser(description='Manipulate Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('file', type=argparse.FileType('r', encoding='utf-8'), nargs='?', default=sys.stdin, help='org mode file to process')
     # what shall be printed
     parser.add_argument('-a', '--articleid', action="store_true", help="output article id")
@@ -287,13 +308,16 @@ if __name__ == '__main__':
     parser.add_argument('-u', '--url', action="store_true", help="output article URL")
     parser.add_argument('-w', '--wikidata', action="store_true", help="output link to Wikidata")
     parser.add_argument('-y', '--year', action="store_true", help="output year")
-    # other options
-    parser.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
-    parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
+    # filtering options
     parser.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
     parser.add_argument('-F', '--false', action="store_true", help="output only false positives")
+    parser.add_argument('--ignore-source-ids', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='ignore candidates with a source id contained in FILE')
+    # output format options
+    parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
     parser.add_argument('-C', '--clean', action="store_true", help="clean whitespace")
     parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
+    # special options
+    parser.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
     parser.add_argument('-U', '--include-urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
@@ -318,7 +342,7 @@ if __name__ == '__main__':
                 print(index[year][line], end='')
     elif args.include_urls:
         # read URL file
-        urls = read_urls(args.include_urls)
+        urls = read_dict(args.include_urls)
         # read file
         lines, index = read_file(args.file)
         # print first (unchanged) part of original file
@@ -335,6 +359,7 @@ if __name__ == '__main__':
         # default: extract Vossantos
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
+        parts = gen_filter_sources(parts, args.ignore_source_ids)
         parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata, args.status, args.classification)
         if args.clean:
             parts = gen_rm_ctrl(parts)
