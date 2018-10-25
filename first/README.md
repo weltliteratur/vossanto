@@ -10,7 +10,7 @@ Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.h
 
 First results were presented at the [DHd conference in
 Bern](http://www.dhd2017.ch/) (February 13 to 18, 2017)
-([abstract](http://www.dhd2017.ch/wp-content/uploads/2017/01/AbstractbandDHd2017-1.pdf#page=122)
+([abstract](http://www.dhd2017.ch/wp-content/uploads/2017/02/Abstractband_ergaenzt.pdf#page=122)
 and [slides](https://lehkost.github.io/slides/2017-bern/), both in
 German).
 
@@ -20,7 +20,7 @@ German).
 
 For the English corpus we used POS tagging with
 [NLTK](http://www.nltk.org/) as implemented in
-[vossanto.py](vossanto.py).
+[vossanto.py](vossanto.py) (which is run by [nyt.py](nyt.py)).
 
 ## Examples (New York Times corpus 1987-2007)
 

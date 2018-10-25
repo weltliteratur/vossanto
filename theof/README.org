@@ -37,6 +37,8 @@ precision. We limited ourselves to the most basic pattern "the
 ... of", where "..."  represents up to five words which match a
 Wikidata entity.
 
+© 2008 The New York Times Company, used with permission
+
 ** finding source candidates in the corpus
 We search for sentences which contain the pattern
 ~\\bthe\\s(\\w+\\s+){1,5}?of\\b~:
