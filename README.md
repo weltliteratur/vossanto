@@ -11,8 +11,7 @@ Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.h
 
 ## First Approach
 - [Slides DHd Bern 2017](https://lehkost.github.io/slides/2017-bern/)
-- [Abstract DHd Bern
-	  2017](http://www.dhd2017.ch/wp-content/uploads/2017/02/Abstractband_ergaenzt.pdf#page=122)
+- [Abstract DHd Bern 2017](http://www.dhd2017.ch/wp-content/uploads/2017/02/Abstractband_ergaenzt.pdf#page=122)
 - [Data and Code](first)
 
 ## TheOf Approach
