@@ -26,6 +26,7 @@ We plot some temporal distributions:
   done
 #+END_SRC
 
+
 #+CAPTION: The temporal distribution of the number of candidate phrases (cand), after matching against  Wikidata (wd) and a blacklist (wd+bl), and after manual inspection (true). The last column shows the precision.
 #+NAME: temporal-distribution
 |   year | articles |     cand |    wd | wd+bl | found | true | prec |      |
@@ -73,9 +74,9 @@ set style fill solid 1
 
 set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
 #set out "nyt_vossantos_over_time.svg"
-plot data using 1:6 with linespoints pt 7 lc "red" title 'candidates',\
-     data using 1:7 with linespoints pt 7 lc "green"  title 'Vossantos',\
-     data using 1:8 with lines lc "blue" title 'precision' axes x1y2
+plot data using 1:6 with linespoints pt 6 ps 7 lc "black" title 'candidates',\
+     data using 1:7 with linespoints pt 7 ps 7 lc "black"  title 'Vossantos',\
+     data using 1:8 with lines lc "black" title 'precision' axes x1y2
 
 # data using 1:2 with linespoints pt 7 axes x1y2 title 'cand',\
 #     data using 1:3 with linespoints pt 7 axes x1y2 title 'wd',\
@@ -99,9 +100,9 @@ set out "nyt_vossantos_over_time_rel.svg"
 set ylabel "frequency (per mille)"
 set format y "%2.1f"
 
-plot data using 1:($6/$2*1000) with linespoints pt 7 lc "red" title 'candidates',\
-     data using 1:($7/$2*1000) with linespoints pt 7 lc "green"  title 'Vossantos',\
-     data using 1:8 with lines lc "blue" title 'precision' axes x1y2
+plot data using 1:($6/$2*1000) with linespoints pt 6 ps 7 lc "black" title 'candidates',\
+     data using 1:($7/$2*1000) with linespoints pt 7 ps 7 lc "black"  title 'Vossantos',\
+     data using 1:8 with lines lc "black" title 'precision' axes x1y2
 
 
 set term png enhanced size 2835,2126 font "Arial,40" lw 4
