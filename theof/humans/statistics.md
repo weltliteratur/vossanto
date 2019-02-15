@@ -366,19 +366,19 @@ echo ""
 sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
 ```
 
-|  articles            |  1854726 |
-|  categories          |  30691	  |
-|  :------------------ |  ------: |
-|                      |  961052  |
-|  Elliott, Stuart     |  6296	  |
-|  Holden, Stephen     |  5098	  |
-|  Chass, Murray       |  4544	  |
-|  Pareles, Jon        |  4090	  |
-|  Brozan, Nadine      |  3741	  |
-|  Fabricant, Florence |  3659	  |
-|  Kozinn, Allan       |  3654	  |
-|  Curry, Jack         |  3654	  |
-|  Truscott, Alan      |  3646    | 
+| articles            |  1854726 |
+| categories          |  30691	  |
+| :------------------ |  ------: |
+|                     |  961052  |
+| Elliott, Stuart     |  6296	  |
+| Holden, Stephen     |  5098	  |
+| Chass, Murray       |  4544	  |
+| Pareles, Jon        |  4090	  |
+| Brozan, Nadine      |  3741	  |
+| Fabricant, Florence |  3659	  |
+| Kozinn, Allan       |  3654	  |
+| Curry, Jack         |  3654	  |
+| Truscott, Alan      |  3646    | 
 
 **requires cleansing!**
 
@@ -393,28 +393,28 @@ echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_se
     | sort -nr | head -n20
 ```
 
-|  vossantos | 2646  |  author                 | articles |  1854726   |
-|  --------: | ----: | :---------------------- | -------: | ---------: |
-|  411       | 15.5% |                         | 961052   |  51.8%	   |
-|  30        | 1.1%  |  Holden, Stephen        | 5098     |  0.3%	   |
-|  29        | 1.1%  |  Maslin, Janet          | 2874     |  0.2%	   |
-|  26        | 1.0%  |  Vecsey, George         | 2739     |  0.1%	   |
-|  23        | 0.9%  |  Sandomir, Richard      | 3140     |  0.2%	   |
-|  22        | 0.8%  |  Ketcham, Diane         | 717      |  0.0%	   |
-|  20        | 0.8%  |  Kisselgoff, Anna       | 2661     |  0.1%	   |
-|  19        | 0.7%  |  Dowd, Maureen          | 1647     |  0.1%	   |
-|  19        | 0.7%  |  Berkow, Ira            | 1704     |  0.1%	   |
-|  18        | 0.7%  |  Kimmelman, Michael     | 1515     |  0.1%	   |
-|  17        | 0.6%  |  Brown, Patricia Leigh  | 568      |  0.0%	   |
-|  16        | 0.6%  |  Pareles, Jon           | 4090     |  0.2%	   |
-|  16        | 0.6%  |  Chass, Murray          | 4544     |  0.2%	   |
-|  15        | 0.6%  |  Smith, Roberta         | 2497     |  0.1%	   |
-|  15        | 0.6%  |  Lipsyte, Robert        | 817      |  0.0%	   |
-|  15        | 0.6%  |  Grimes, William        | 1368     |  0.1%	   |
-|  15        | 0.6%  |  Barron, James          | 2188     |  0.1%	   |
-|  15        | 0.6%  |  Anderson, Dave         | 2735     |  0.1%	   |
-|  14        | 0.5%  |  Stanley, Alessandra    | 1437     |  0.1%	   |
-|  14        | 0.5%  |  Haberman, Clyde        |  2492    |   0.1%     |
+| vossantos | 2646  |  author                 | articles |  1854726   |
+| --------: | ----: | :---------------------- | -------: | ---------: |
+| 411       | 15.5% |                         | 961052   |  51.8%	  |
+| 30        | 1.1%  |  Holden, Stephen        | 5098     |  0.3%	  |
+| 29        | 1.1%  |  Maslin, Janet          | 2874     |  0.2%	  |
+| 26        | 1.0%  |  Vecsey, George         | 2739     |  0.1%	  |
+| 23        | 0.9%  |  Sandomir, Richard      | 3140     |  0.2%	  |
+| 22        | 0.8%  |  Ketcham, Diane         | 717      |  0.0%	  |
+| 20        | 0.8%  |  Kisselgoff, Anna       | 2661     |  0.1%	  |
+| 19        | 0.7%  |  Dowd, Maureen          | 1647     |  0.1%	  |
+| 19        | 0.7%  |  Berkow, Ira            | 1704     |  0.1%	  |
+| 18        | 0.7%  |  Kimmelman, Michael     | 1515     |  0.1%	  |
+| 17        | 0.6%  |  Brown, Patricia Leigh  | 568      |  0.0%	  |
+| 16        | 0.6%  |  Pareles, Jon           | 4090     |  0.2%	  |
+| 16        | 0.6%  |  Chass, Murray          | 4544     |  0.2%	  |
+| 15        | 0.6%  |  Smith, Roberta         | 2497     |  0.1%	  |
+| 15        | 0.6%  |  Lipsyte, Robert        | 817      |  0.0%	  |
+| 15        | 0.6%  |  Grimes, William        | 1368     |  0.1%	  |
+| 15        | 0.6%  |  Barron, James          | 2188     |  0.1%	  |
+| 15        | 0.6%  |  Anderson, Dave         | 2735     |  0.1%	  |
+| 14        | 0.5%  |  Stanley, Alessandra    | 1437     |  0.1%	  |
+| 14        | 0.5%  |  Haberman, Clyde        |  2492    |   0.1%     |
 
 ### Vossantos of the top author
 
