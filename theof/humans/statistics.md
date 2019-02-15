@@ -309,28 +309,28 @@ echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.
     | sort -nr | head -n20
 ```
 
-  vossantos   2764   desk                      articles   1854727
-  ----------- ------ ------------------------- ---------- ---------
-  133         4.8%   Sports Desk               174823     9.4%
-  77          2.8%   Cultural Desk             40342      2.2%
-  68          2.5%   Book Review Desk          32737      1.8%
-  61          2.2%   National Desk             143489     7.7%
-  54          2.0%   Financial Desk            206958     11.2%
-  51          1.8%   Metropolitan Desk         237896     12.8%
-  46          1.7%   Weekend Desk              18814      1.0%
-  38          1.4%   Arts & Leisure Desk       6742       0.4%
-  35          1.3%   Editorial Desk            131762     7.1%
-  31          1.1%   Foreign Desk              129732     7.0%
-  31          1.1%   Arts and Leisure Desk     27765      1.5%
-  25          0.9%   Magazine Desk             25433      1.4%
-  25          0.9%   Long Island Weekly Desk   20453      1.1%
-  22          0.8%   Living Desk               6843       0.4%
-  19          0.7%   Home Desk                 8391       0.5%
-  15          0.5%   Week in Review Desk       21897      1.2%
-  14          0.5%   Style Desk                21569      1.2%
-  13          0.5%   Styles of The Times       2794       0.2%
-  12          0.4%                             6288       0.3%
-  9           0.3%   Travel Desk               23277      1.3%
+|  vossantos |  2764  | desk                    |  articles |  1854727 |
+| ---------: |  ----: | :---------------------- |  -------: | -------: |
+|  133       |  4.8%  | Sports Desk             |  174823   |  9.4%	   |
+|  77        |  2.8%  | Cultural Desk           |  40342    |  2.2%	   |
+|  68        |  2.5%  | Book Review Desk        |  32737    |  1.8%	   |
+|  61        |  2.2%  | National Desk           |  143489   |  7.7%	   |
+|  54        |  2.0%  | Financial Desk          |  206958   |  11.2%   |
+|  51        |  1.8%  | Metropolitan Desk       |  237896   |  12.8%   |
+|  46        |  1.7%  | Weekend Desk            |  18814    |  1.0%	   |
+|  38        |  1.4%  | Arts & Leisure Desk     |  6742     |  0.4%	   |
+|  35        |  1.3%  | Editorial Desk          |  131762   |  7.1%	   |
+|  31        |  1.1%  | Foreign Desk            |  129732   |  7.0%	   |
+|  31        |  1.1%  | Arts and Leisure Desk   |  27765    |  1.5%	   |
+|  25        |  0.9%  | Magazine Desk           |  25433    |  1.4%	   |
+|  25        |  0.9%  | Long Island Weekly Desk |  20453    |  1.1%	   |
+|  22        |  0.8%  | Living Desk             |  6843     |  0.4%	   |
+|  19        |  0.7%  | Home Desk               |  8391     |  0.5%	   |
+|  15        |  0.5%  | Week in Review Desk     |  21897    |  1.2%	   |
+|  14        |  0.5%  | Style Desk              |  21569    |  1.2%	   |
+|  13        |  0.5%  | Styles of The Times     |  2794     |  0.2%	   |
+|  12        |  0.4%  |                         |  6288     |  0.3%	   |
+|  9         |  0.3%  | Travel Desk             |  23277    |  1.3%    |
 
 Note: there are many errors in the specification of the desks ... so
 this table should be digested with care.
@@ -340,7 +340,7 @@ authors
 
 Extract the authors for the articles:
 
-``` {.bash .rundoc-block rundoc-language="sh" rundoc-results="silent"}
+``` bash
 export PYTHONIOENCODING=utf-8
 for year in $(seq 1987 2007); do
     ./nyt.py --author ../nyt_corpus_${year}.tar.gz \
@@ -351,7 +351,7 @@ done
 
 Compute frequency distribution over all articles:
 
-``` {.bash .rundoc-block rundoc-language="sh" rundoc-results="silent"}
+``` bash
 cut -d$'\t' -f2 nyt_authors.tsv | sort -S1G | uniq -c \
    | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
                                           > nyt_authors_distrib.tsv
@@ -359,33 +359,32 @@ cut -d$'\t' -f2 nyt_authors.tsv | sort -S1G | uniq -c \
 
 Check the number of and the top authors:
 
-``` {.bash}
+``` bash
 echo articles $(wc -l < nyt_authors.tsv)
 echo categories $(wc -l < nyt_authors_distrib.tsv)
 echo ""
 sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
 ```
 
-  --------------------- ---------
-  articles              1854726
-  categories            30691
-                        961052
-  Elliott, Stuart       6296
-  Holden, Stephen       5098
-  Chass, Murray         4544
-  Pareles, Jon          4090
-  Brozan, Nadine        3741
-  Fabricant, Florence   3659
-  Kozinn, Allan         3654
-  Curry, Jack           3654
-  Truscott, Alan        3646
-  --------------------- ---------
+|  articles            |  1854726 |
+|  categories          |  30691	  |
+|  :------------------ |  ------: |
+|                      |  961052  |
+|  Elliott, Stuart     |  6296	  |
+|  Holden, Stephen     |  5098	  |
+|  Chass, Murray       |  4544	  |
+|  Pareles, Jon        |  4090	  |
+|  Brozan, Nadine      |  3741	  |
+|  Fabricant, Florence |  3659	  |
+|  Kozinn, Allan       |  3654	  |
+|  Curry, Jack         |  3654	  |
+|  Truscott, Alan      |  3646    | 
 
 **requires cleansing!**
 
 Collect the authors of the articles
 
-``` {.bash}
+``` bash
 echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T ../README.org | wc -l) articles $(wc -l < ../nyt_authors.tsv)
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -f ../README.org | join ../nyt_authors.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | sort | uniq -c \
@@ -394,212 +393,200 @@ echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_se
     | sort -nr | head -n20
 ```
 
-  vossantos   2646    author                  articles   1854726
-  ----------- ------- ----------------------- ---------- ---------
-  411         15.5%                           961052     51.8%
-  30          1.1%    Holden, Stephen         5098       0.3%
-  29          1.1%    Maslin, Janet           2874       0.2%
-  26          1.0%    Vecsey, George          2739       0.1%
-  23          0.9%    Sandomir, Richard       3140       0.2%
-  22          0.8%    Ketcham, Diane          717        0.0%
-  20          0.8%    Kisselgoff, Anna        2661       0.1%
-  19          0.7%    Dowd, Maureen           1647       0.1%
-  19          0.7%    Berkow, Ira             1704       0.1%
-  18          0.7%    Kimmelman, Michael      1515       0.1%
-  17          0.6%    Brown, Patricia Leigh   568        0.0%
-  16          0.6%    Pareles, Jon            4090       0.2%
-  16          0.6%    Chass, Murray           4544       0.2%
-  15          0.6%    Smith, Roberta          2497       0.1%
-  15          0.6%    Lipsyte, Robert         817        0.0%
-  15          0.6%    Grimes, William         1368       0.1%
-  15          0.6%    Barron, James           2188       0.1%
-  15          0.6%    Anderson, Dave          2735       0.1%
-  14          0.5%    Stanley, Alessandra     1437       0.1%
-  14          0.5%    Haberman, Clyde         2492       0.1%
+|  vossantos | 2646  |  author                 | articles |  1854726   |
+|  --------: | ----: | :---------------------- | -------: | ---------: |
+|  411       | 15.5% |                         | 961052   |  51.8%	   |
+|  30        | 1.1%  |  Holden, Stephen        | 5098     |  0.3%	   |
+|  29        | 1.1%  |  Maslin, Janet          | 2874     |  0.2%	   |
+|  26        | 1.0%  |  Vecsey, George         | 2739     |  0.1%	   |
+|  23        | 0.9%  |  Sandomir, Richard      | 3140     |  0.2%	   |
+|  22        | 0.8%  |  Ketcham, Diane         | 717      |  0.0%	   |
+|  20        | 0.8%  |  Kisselgoff, Anna       | 2661     |  0.1%	   |
+|  19        | 0.7%  |  Dowd, Maureen          | 1647     |  0.1%	   |
+|  19        | 0.7%  |  Berkow, Ira            | 1704     |  0.1%	   |
+|  18        | 0.7%  |  Kimmelman, Michael     | 1515     |  0.1%	   |
+|  17        | 0.6%  |  Brown, Patricia Leigh  | 568      |  0.0%	   |
+|  16        | 0.6%  |  Pareles, Jon           | 4090     |  0.2%	   |
+|  16        | 0.6%  |  Chass, Murray          | 4544     |  0.2%	   |
+|  15        | 0.6%  |  Smith, Roberta         | 2497     |  0.1%	   |
+|  15        | 0.6%  |  Lipsyte, Robert        | 817      |  0.0%	   |
+|  15        | 0.6%  |  Grimes, William        | 1368     |  0.1%	   |
+|  15        | 0.6%  |  Barron, James          | 2188     |  0.1%	   |
+|  15        | 0.6%  |  Anderson, Dave         | 2735     |  0.1%	   |
+|  14        | 0.5%  |  Stanley, Alessandra    | 1437     |  0.1%	   |
+|  14        | 0.5%  |  Haberman, Clyde        |  2492    |   0.1%     |
 
 ### Vossantos of the top author
 
-``` {.bash .rundoc-block rundoc-language="sh" rundoc-results="raw"}
+``` bash
 # extract list of articles
-for article in $(./org.py -T -f README.org | join nyt_authors.tsv - | grep "Maslin, Janet" | cut -d' ' -f1 ); do
-  grep "$article" README.org
+for article in $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -f ../README.org \
+       | join ../nyt_authors.tsv - | grep "Holden, Stephen" | cut -d' ' -f1 ); do
+  grep "$article" ../README.org
 done
 ```
 
--   [Bob
-    Hope](https://www.wikidata.org/wiki/Q94081) (1993/04/23/0604282) is
-    loaded with rap-related cameos that work only if you recognize the
-    players (Fab 5 Freddy, Kid Capri, Naughty by Nature and **the Bob
-    Hope of** rap cinema, Ice-T), and have little intrinsic humor of
-    their own.
--   [Sandy
-    Dennis](https://www.wikidata.org/wiki/Q239691) (1993/09/03/0632371)
-    (Ms. Lewis, who has many similar mannerisms, may be fast becoming
-    **the Sandy Dennis of** her generation.)
--   [Dorian
-    Gray](https://www.wikidata.org/wiki/Q465417) (1993/12/10/0654992)
-    Also on hand is Aerosmith, **the Dorian Gray of** rock bands, to
-    serve the same purpose Alice Cooper did in the first film.
--   [Adolf
-    Hitler](https://www.wikidata.org/wiki/Q352) (1994/02/04/0666537) The
-    terrors of the code, as overseen by Joseph Breen (who was nicknamed
-    "**the Hitler of** Hollywood" in some quarters), went beyond the
-    letter of the document and brought about a more generalized
-    moral purge.
--   [Cinderella](https://www.wikidata.org/wiki/Q13685096) (1994/09/11/0711230)
-    Kevin Smith, **the Cinderella of** this year's Sundance festival,
-    shot this black-and-white movie in the New Jersey store where he
-    himself worked.
--   [Hulk
-    Hogan](https://www.wikidata.org/wiki/Q44176) (1994/10/25/0720551)
-    Libby's cousin Andrew, an art director who's "so incredibly creative
-    that, as my mother says, no one's holding their breath for
-    grandchildren," opines that "David Mamet is **the Hulk Hogan of**
-    the American theater and that his word processor should be tested
-    for steroids."
--   [Andrew Dice
-    Clay](https://www.wikidata.org/wiki/Q504455) (1995/09/22/0790066)
-    Mr. Ezsterhas, **the Andrew Dice Clay of** screenwriting, bludgeons
-    the audience with such tirelessly crude thoughts that when a group
-    of chimps get loose in the showgirls' dressing room and all they do
-    is defecate, the film enjoys a rare moment of good taste.
--   [Thomas
-    Jefferson](https://www.wikidata.org/wiki/Q11812) (1996/01/24/0825044)
-    Last year's overnight sensation, Edward Burns of "The Brothers
-    McMullen," came out of nowhere and now has Jennifer Aniston acting
-    in his new film and Robert Redford, **the Thomas Jefferson of**
-    Sundance, helping as a creative consultant.
--   [Elliott
-    Gould](https://www.wikidata.org/wiki/Q314805) (1996/03/08/0835139)
-    All coy grins and daffy mugging, Mr. Stiller plays the role as if
-    aspiring to become **the Elliott Gould of** his generation.
--   [Charlie
-    Parker](https://www.wikidata.org/wiki/Q103767) (1996/08/09/0870295)
-    But for all its admiration, ''Basquiat'' winds up no closer to that
-    assessment than to the critic Robert Hughes's more jaundiced one:
-    ''Far from being **the Charlie Parker of** SoHo (as his promoters
-    claimed), he became its Jessica Savitch.''
--   [Aesop](https://www.wikidata.org/wiki/Q43423) (1996/08/09/0870300)
-    Janet Maslin reviews movie Rendezvous in Paris, written and directed
-    by Eric Rohmer; photo (M) Eric Rohmer's ''Rendezvous in Paris'' is
-    an oasis of contemplative intelligence in the summer movie season,
-    presenting three graceful and elegant parables with the moral
-    agility that distinguishes Mr. Rohmer as **the Aesop of** amour.
--   [Diana
-    Vreeland](https://www.wikidata.org/wiki/Q450619) (1997/06/06/0934955)
-    The complex aural and visual style of ''The Pillow Book'' involves
-    rectangular insets that flash back to Sei Shonagon (a kind of
-    Windows 995) and illustrate the imperious little lists that made her
-    sound like **the Diana Vreeland of** 10th-century tastes.
--   [Peter
-    Pan](https://www.wikidata.org/wiki/Q107190) (1997/08/08/0949060) Mr.
-    Gibson, delivering one of the hearty, dynamic star turns that have
-    made him **the Peter Pan of** the blockbuster set, makes Jerry much
-    more boyishly likable than he deserves to be.
--   [Thomas
-    Edison](https://www.wikidata.org/wiki/Q8743) (1997/09/19/0958685)
-    Danny DeVito embodies this as a gleeful Sid Hudgens (a character
-    whom Mr. Hanson has called ''**the Thomas Edison of** tabloid
-    journalism''), who is the unscrupulous editor of a publication
-    called Hush-Hush and winds up linked to many of the other
-    characters' nastiest transgressions.
--   [John
-    Wayne](https://www.wikidata.org/wiki/Q40531) (1997/09/26/0960422)
-    Mr. Hopkins, whose creative collaboration with Bart goes back to
-    ''Legends of the Fall,'' has called him ''**the John Wayne of**
-    bears.''
--   [Annie
-    Oakley](https://www.wikidata.org/wiki/Q230935) (1997/12/24/0982708)
-    Running nearly as long as ''Pulp Fiction'' even though its ambitions
-    are more familiar and small, ''Jackie Brown'' has the makings of
-    another, chattier ''Get Shorty'' with an added homage to Pam Grier,
-    **the Annie Oakley of** 1970's blaxploitation.
--   [Robin
-    Hood](https://www.wikidata.org/wiki/Q122634) (1998/04/10/1008616)
-    ''Do not threaten to call the police or have him thrown out,'' went
-    a memorandum issued by another company, when **the Robin Hood of**
-    corporate America went on the road to promote his book
-    abou downsizing.
--   [Buster
-    Keaton](https://www.wikidata.org/wiki/Q103949) (1998/09/18/1047276)
-    Fortunately, being **the Buster Keaton of** martial arts, he makes a
-    doleful expression and comedic physical grace take the place of
-    small talk.
--   [Michelangelo](https://www.wikidata.org/wiki/Q5592) (1998/09/25/1049076)
-    She goes to a plastic surgeon (Michael Lerner) who's been dubbed
-    ''**the Michelangelo of** Manhattan'' by Newsweek.
--   [Brian
-    Wilson](https://www.wikidata.org/wiki/Q313013) (1998/12/31/1073562)
-    The enrapturing beauty and peculiar naivete of ''The Thin Red Line''
-    heightened the impression of Terrence Malick as **the Brian Wilson
-    of** the film world.
--   [Dante
-    Alighieri](https://www.wikidata.org/wiki/Q1067) (1999/10/22/1147181)
-    Though his latest film explores one more urban inferno and
-    colorfully reaffirms Mr. Scorsese's role as **the Dante of** the
-    Cinema, creating its air of nocturnal torment took some doing.
--   [Albert
-    Einstein](https://www.wikidata.org/wiki/Q937) (2000/12/07/1253134)
-    In this much coarser and more violent, action-heavy story, Mr.
-    Deaver presents the villainous Dr. Aaron Matthews, whom a newspaper
-    once called ''**the Einstein of** therapists'' in the days before
-    Hannibal Lecter became his main career influence.
--   [Émile
-    Zola](https://www.wikidata.org/wiki/Q504) (2001/03/09/1276449)
-    'Right as Rain' George P. Pelecanos arrives with the best possible
-    recommendations from other crime writers (e.g., Elmore Leonard likes
-    him), and with jacket copy praising him as ''**the Zola of**
-    Washington, D.C.'' But what he really displays here, in great
-    abundance and to entertaining effect, is a Tarantino touch.
--   [Leonard
-    Cohen](https://www.wikidata.org/wiki/Q1276) (2002/08/22/1417676) The
-    wry, sexy melancholy of his observations would be seductive enough
-    in its own right -- he is **the Leonard Cohen of** the spy genre --
-    even without the sharp political acuity that accompanies it.
--   [Kato
-    Kaelin](https://www.wikidata.org/wiki/Q6377737) (2003/04/07/1478881)
-    Then he has settled in -- as ''a permanent house guest, **the Kato
-    Kaelin of** the wine country,'' in the case of Alan Deutschman --
-    and tried to figure out what it all means.
--   [Hulk
-    Hogan](https://www.wikidata.org/wiki/Q44176) (2003/04/14/1480850)
-    Meanwhile, at 5 feet 10 tall and 115 pounds, Andy is **the Hulk
-    Hogan of** this food-phobic crowd.
--   [Nora
-    Roberts](https://www.wikidata.org/wiki/Q231356) (2003/04/17/1481531)
-    For those who write like clockwork (i.e., Stuart Woods, **the Nora
-    Roberts of** mystery best-sellerdom), a new book every few months is
-    no surprise.
--   [Henny
-    Youngman](https://www.wikidata.org/wiki/Q2586583) (2004/03/05/1563840)
-    Together Mr. Yetnikoff and Mr. Ritz devise a kind of sitcom
-    snappiness that turns Mr. Yetnikoff into **the Henny Youngman
-    of** CBS.
--   [Frank
-    Stallone](https://www.wikidata.org/wiki/Q959153) (2004/09/20/1612886)
-    He can read the biblical story of Aaron and imagine ''**the Frank
-    Stallone of** ancient Judaism.''
--   [Marlon
-    Brando](https://www.wikidata.org/wiki/Q34012) (2005/11/08/1715899)
-    He named his daughter Tuesday, after the actress Tuesday Weld, whom
-    Sam Shepard once called ''**the Marlon Brando of** women.''
--   [Jesse
-    James](https://www.wikidata.org/wiki/Q213626) (2005/12/09/1723424)
-    How else to explain ''Comma Sense,'' which has a blurb from Ms.
-    Truss and claims that the apostrophe is **the Jesse James of**
-    punctuation marks?
--   [Elton
-    John](https://www.wikidata.org/wiki/Q2808) (2006/12/11/1811150)
-    Though Foujita had a fashion sense that made him look like **the
-    Elton John of** Montparnasse (he favored earrings, bangs and
-    show-stopping homemade costumes), and though he is seen here hand in
-    hand with a male Japanese friend during their shared tunic-wearing
-    phase, he is viewed by Ms. Birnbaum strictly as a lady-killer.
--   [Ernest
-    Hemingway](https://www.wikidata.org/wiki/Q23434) (2007/04/30/1844006)
-    Mr. Browne also points out that when he introduced Mr. Zevon to an
-    audience as ''**the Ernest Hemingway of** the twelve-string
-    guitar,'' Mr. Zevon said he was more like Charles Bronson.
+- [Scott Joplin](https://www.wikidata.org/wiki/Q191499)
+  ([1987/01/20/0005135](http://www.nytimes.com/1987/01/20/arts/music-bolcom-and-morris.html))
+  High points of the show included the obscure Cole Porter bonbons,
+  ''Two Little Babes In the Wood'' and ''Nobody's Chasing Me,'' Eubie
+  Blake and Noble Sissle's ''I'm Just Wild About Harry'' (performed
+  both as a waltz and as a one-step to show how a simple time change
+  can alter a song's character), and piano compositions by Ernesto
+  Nazareth, ''**the Scott Joplin of** *Brazil*,'' that blended ragtime
+  and tango.
+- [Irving Berlin](https://www.wikidata.org/wiki/Q128746)
+  ([1987/02/08/0011525](http://www.nytimes.com/1987/02/08/theater/me-and-my-girl-on-disk-captures-giddy-lilt-of-show.html))
+  Noel Gay was not, as some have claimed, **the Irving Berlin of**
+  *England*.
+- [Joe DiMaggio](https://www.wikidata.org/wiki/Q297142)
+  ([1987/05/16/0040728](http://www.nytimes.com/1987/05/16/theater/the-stage-in-revival-wish-you-were-here.html))
+  **the Joe DiMaggio of** *love*,'' he fantasizes while flexing a
+  bicep that refuses to bulge
+- [George Jessel](https://www.wikidata.org/wiki/Q506146)
+  ([1987/05/27/0044042](http://www.nytimes.com/1987/05/27/arts/stage-political-comedy.html))
+  Compared to the younger smoothies, Mr. Altman, who called himself
+  ''**the George Jessel of** *intellectuals*,'' addressed the audience
+  from the standpoint of an embattled, aging hipster commenting
+  amusingly on everything from the relationship between food and
+  language to condom advertising.
+- [Evel Knievel](https://www.wikidata.org/wiki/Q345231)
+  ([1988/02/05/0116272](http://www.nytimes.com/1988/02/05/theater/avant-garde-antics-for-fearless-audiences.html))
+  ''Lear,'' directed by Lee Breuer and featuring Ruth Maleczech as the
+  aged king and Greg Mehrten as a drag-queen Fool, has created some
+  excited word of mouth since early work-in-progress performances
+  began at the George Street Playhouse in New Brunswick, N.J. Other
+  high points of the marathon are likely to be Karen Finley performing
+  an excerpt from her scabrously obscene monologue ''The Constant
+  State of Desire,'' the Alien Comic (Tom Murrin) dressed as an
+  electrified lemon tree, and an appearance by David Leslie, **the
+  Evel Knievel of** *performance artists*.
+- [Jimi Hendrix](https://www.wikidata.org/wiki/Q5928)
+  ([1988/05/11/0144027](http://www.nytimes.com/1988/05/11/arts/the-pop-life-112088.html))
+  Yomo Toro, who has been called ''**the Jimi Hendrix of** *the
+  cuatro*,'' will appear at Sounds of Brazil (204 Varick Street)
+  tomorrow for two shows.
+- [Ed Sullivan](https://www.wikidata.org/wiki/Q83807)
+  ([1988/05/12/0144329](http://www.nytimes.com/1988/05/12/arts/review-comedy-spoofing-old-time-tv.html))
+  Mike, an invented character who is the comic alter ego of the
+  performance artist Michael Smith, is busy becoming **the Ed Sullivan
+  of** *the downtown performance world*.
+- [Clint Eastwood](https://www.wikidata.org/wiki/Q43203)
+  ([1989/01/16/0214485](http://www.nytimes.com/1989/01/16/theater/review-theater-macho-memories.html)) Mr.
+  O'Keefe, a playwright and actor whose surreal family drama ''All
+  Night Long'' was produced in 1984 in New York at Second Stage, might
+  be described as **the Clint Eastwood of** *performance artists*.
+- [James Dean](https://www.wikidata.org/wiki/Q83359)
+  ([1989/03/17/0232294](http://www.nytimes.com/1989/03/17/movies/angry-youth-in-festival-of-new-films.html))
+  ''Let's Get Lost,'' the second feature by the successful fashion
+  photographer Bruce Weber, focuses on the life and times of Chet
+  Baker, the jazz trumpeter and heroin addict who has been called
+  **the James Dean of** *jazz*.
+- [James Dean](https://www.wikidata.org/wiki/Q83359)
+  ([1989/04/02/0236730](http://www.nytimes.com/1989/04/02/movies/pop-view-lost-in-the-bohemian-fog.html))
+  Handsome and talented but imperiously self-destructive, the man who
+  has been called ''**the James Dean of** *jazz*'' was a connoisseur
+  of fast cars, women and drugs.
+- [Bob Marley](https://www.wikidata.org/wiki/Q409)
+  ([1989/11/22/0303163](http://www.nytimes.com/1989/11/22/arts/the-pop-life-717289.html))
+  One of the anthology's strongest cuts, ''Ayiti Pa Fore'' (''Haiti Is
+  Not a Forest') was recorded in 1988 and features Manno Charlemagne,
+  a singer and songwriter who is regarded as **the Bob Marley of**
+  *Haiti*.
+- [Lenny Bruce](https://www.wikidata.org/wiki/Q460876)
+  ([1989/12/13/0308717](http://www.nytimes.com/1989/12/13/arts/the-pop-life-290089.html))
+  Many of his Israeli songs are collaborations with Jonathan Geffen,
+  an journalist and writer whom he described ''as **the Lenny Bruce
+  of** *our time there*.''
+- [Spike Jones](https://www.wikidata.org/wiki/Q622636)
+  ([1990/08/29/0380281](http://www.nytimes.com/1990/08/29/movies/pop-life.html))
+  In ''Don Henley Must Die,'' one of the year's funniest pop songs,
+  Mojo Nixon, a performer who might be described as **the Spike Jones
+  of** *rock-and-roll*, demands the electric chair for the former
+  Eagle as punishment for his being ''pretentious'' and ''whining like
+  a wounded beagle.''
+- [Nelson Riddle](https://www.wikidata.org/wiki/Q961851)
+  ([1990/11/26/0404159](http://www.nytimes.com/1990/11/26/arts/review-music-harry-connick-jr-on-piano-drums-etc.html))
+  "Buried in Blue," which ends the second act, is one of several
+  numbers in the show in which the band is joined by strings, arranged
+  and conducted by Marc Shaiman, the gifted young arranger and
+  composer who is becoming **the Nelson Riddle of** *his generation*.
+- [Stephen Sondheim](https://www.wikidata.org/wiki/Q153579)
+  ([1991/02/06/0420740](http://www.nytimes.com/1991/02/06/arts/the-pop-life-927091.html))
+  In the elegant precision and savage acuity of lyrics for songs like
+  "Blizzard of Lies," "The Wheelers and the Dealers," "My Attorney
+  Bernie," "Can't Take You Nowhere" and "I'm Hip," to name several of
+  the roughly 100 songs he's written, Mr. Frishberg might be described
+  as **the Stephen Sondheim of** *jazz songwriting*.
+- [Neil Simon](https://www.wikidata.org/wiki/Q315808)
+  ([1991/05/28/0448667](http://www.nytimes.com/1991/05/28/obituaries/tom-eyen-50-prolific-playwright-specializing-in-off-off-broadway.html))
+  A pioneer of the Off Off Broadway experimental theater movement in
+  the 1960's, Mr. Eyen was called **the Neil Simon of** *Off Off
+  Broadway* at one point when he had four plays
+  running simultaneously.
+- [Charles Bronson](https://www.wikidata.org/wiki/Q36105)
+  ([1992/02/29/0510431](http://www.nytimes.com/1992/02/29/theater/review-theater-a-loved-wife-her-illness-and-her-last-gift-a-tear.html))
+  And even his wife becomes "**the Charles Bronson of** *organic
+  gardening*."
+- [Bob Dylan](https://www.wikidata.org/wiki/Q392)
+  ([1992/09/11/0555702](http://www.nytimes.com/1992/09/11/arts/critic-s-notebook-for-adult-pop-music-a-quiet-sonic-boom.html))
+  Although the 50-year-old Brazilian singer and songwriter has been
+  called **the Bob Dylan of** *Brazil*, he is more than that.
+- [Nelson Riddle](https://www.wikidata.org/wiki/Q961851)
+  ([1992/09/11/0555702](http://www.nytimes.com/1992/09/11/arts/critic-s-notebook-for-adult-pop-music-a-quiet-sonic-boom.html))
+  They have been lavishly arranged by Ray Santos, **the Nelson Riddle
+  of** *Latin American pop*.
+- [Elvis Presley](https://www.wikidata.org/wiki/Q303)
+  ([1992/09/30/0559861](http://www.nytimes.com/1992/09/30/movies/review-film-festival-independence-in-africa-and-death-in-high-places.html))
+  He is remembered as the "**the Elvis Presley of** *African
+  politics*" and called a lion, a giant and a prophet.
+- [Vanilla Ice](https://www.wikidata.org/wiki/Q313578)
+  ([1992/12/27/0579154](http://www.nytimes.com/1992/12/27/arts/the-year-in-the-arts-pop-jazz-1992-a-lonely-couch-a-dash-of-sex-so-why-the-yawns.html))
+  -- Billy Ray Cyrus could be **the Vanilla Ice of** *country*.
+- [Jimi Hendrix](https://www.wikidata.org/wiki/Q5928)
+  ([1993/03/26/0598111](http://www.nytimes.com/1993/03/26/arts/sounds-around-town-554993.html))
+  Sugar Blue, who has been called **the Jimi Hendrix of** *the
+  harmonica*, has played with everyone from Willie Dixon to the
+  Rolling Stones.
+- [Pete Seeger](https://www.wikidata.org/wiki/Q244441)
+  ([1994/01/07/0660595](http://www.nytimes.com/1994/01/07/arts/sounds-around-town-803332.html))
+  Ladino, one of the three major Jewish languages, has produced a rich
+  and extensive repertory of Judeo-Spanish songs, many of which have
+  been collected by Joseph Elias, who is regarded as **the Pete Seeger
+  of** *Ladino music*.
+- [Donald Trump](https://www.wikidata.org/wiki/Q22686)
+  ([1994/03/04/0672349](http://www.nytimes.com/1994/03/04/movies/review-film-antihero-and-rich-girl-amok-on-a-freeway.html))
+  Unbeknownst to Jack until it's too late, his hostage, Natalie Voss
+  (Kristy Swanson), happens to be the only daughter of a
+  publicity-hungry billionaire (Ray Wise) known as "**the Donald Trump
+  of** *California*."
+- [Pieter Brueghel the Elder](https://www.wikidata.org/wiki/Q43270)
+  ([1994/09/27/0714747](https://www.nytimes.com/1994/09/27/movies/anger-and-obsession-the-life-of-robert-crumb.html))
+  The art critic Robert Hughes calls Mr. Crumb "**the Bruegel of**
+  *the 20th century*."
+- [James Dean](https://www.wikidata.org/wiki/Q83359)
+  ([1996/01/25/0825448](http://www.nytimes.com/1996/01/25/movies/on-how-to-suffer-and-the-reasons.html)) Mr.
+  Cybulski's performance, full of cynical bravado, established him as
+  **the James Dean of** *Poland*.
+- [Jim Morrison](https://www.wikidata.org/wiki/Q44301)
+  ([1996/01/31/0826617](http://www.nytimes.com/1996/01/31/movies/film-review-repression-a-painter-and-desire.html))
+  But "Excess and Punishment," which opens today at the Film Forum,
+  makes no attempt to lionize Schiele as **the Jim Morrison of**
+  *Austrian Expressionists*.
+- [Patrick Swayze](https://www.wikidata.org/wiki/Q49004)
+  ([1998/05/22/1018818](http://www.nytimes.com/1998/05/22/movies/film-review-some-enchanted-evening-man-sees-true-love-across-a-crowded-nation.html))
+  If Mr. Fraser continues to take such roles, he could become the 90's
+  answer to **the Patrick Swayze of** ''*Dirty Dancing*.''
+- [João Gilberto](https://www.wikidata.org/wiki/Q192359)
+  ([2005/03/09/1655600](https://www.nytimes.com/2005/03/09/arts/music/09pass.html))
+  Rosa Passos, an ardent disciple of João Gilberto, the Brazilian
+  singer, guitarist and bossa nova pioneer, has been called ''**the
+  João Gilberto of** *skirts*'' in her native Brazil.
+- [James Stewart](https://www.wikidata.org/wiki/Q102462)
+  ([2006/11/11/1803780](https://www.nytimes.com/2006/11/11/arts/music/11tayl.html))
+  Thus spoke this singer-songwriter, who might be described as **the
+  Jimmy Stewart of** *folk rock*, in his first Manhattan concert in
+  five years.
 
 modifiers
 ---------
