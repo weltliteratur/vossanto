@@ -133,24 +133,24 @@ sources
 |  count |  source                                                           |     |
 |  ----: | :------------------------------------------------------------	 | :-: |
 |  68    |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)			 |  ![Michael Jordan](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Michael_Jordan.jpg/169px-Michael_Jordan.jpg) © [Joshua Massel](https://commons.wikimedia.org/wiki/File:Michael_Jordan.jpg) / CC-BY-SA 2.0 |
-|  58    |  [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)		 |	   |
-|  36    |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)				 |	   |
-|  32    |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)				 |	   |
-|  31    |  [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)		 |	   |
-|  23    |  [Bill Gates](https://www.wikidata.org/wiki/Q5284)				 |	   |
-|  21    |  [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)			 |	   |
-|  21    |  [Michelangelo](https://www.wikidata.org/wiki/Q5592)				 |	   |
-|  21    |  [Donald Trump](https://www.wikidata.org/wiki/Q22686)			 |	   |
-|  21    |  [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)		 |	   |
-|  21    |  [Madonna](https://www.wikidata.org/wiki/Q1744)					 |	   |
-|  20    |  [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)			 |	   |
-|  20    |  [Tiger Woods](https://www.wikidata.org/wiki/Q10993)				 |	   |
-|  18    |  [Martha Stewart](https://www.wikidata.org/wiki/Q234606)			 |	   |
-|  16    |  [Henry Ford](https://www.wikidata.org/wiki/Q8768)				 |	   |
-|  16    |  [William Shakespeare](https://www.wikidata.org/wiki/Q692)		 |	   |
-|  16    |  [Wolfgang Amadeus Mozart](https://www.wikidata.org/wiki/Q254)	 |	   |
-|  15    |  [Adolf Hitler](https://www.wikidata.org/wiki/Q352)				 |	   |
-|  14    |  [Greta Garbo](https://www.wikidata.org/wiki/Q5443)				 |	   |
+|  58    |  [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)		 |	![RodneyDangerfield](https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpg)© [JimAccordino](https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg)/ CC-BY 3.0   |
+|  36    |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)				 |	![Babe Ruth](https://upload.wikimedia.org/wikipedia/commons/c/cb/Babe_Ruth_cropped.jpg)   |
+|  32    |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)				 |	![Elvis Presley](https://upload.wikimedia.org/wikipedia/commons/2/2d/PresleyPromo1954PhotoOnly.jpg)   |
+|  31    |  [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)		 |	![Johnny Appleseed](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Johnny_Appleseed_1.jpg/146px-Johnny_Appleseed_1.jpg)   |
+|  23    |  [Bill Gates](https://www.wikidata.org/wiki/Q5284)				 |	![Bill Gates](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bill_Gates_2018.jpg/191px-Bill_Gates_2018.jpg) |
+|  21    |  [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)			 |	![Pablo Picasso](https://upload.wikimedia.org/wikipedia/commons/a/a9/Pablo_picasso_1_%28cuadrado%29.jpg) |
+|  21    |  [Michelangelo](https://www.wikidata.org/wiki/Q5592)				 |	![Michelangelo](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Miguel_%C3%81ngel%2C_por_Daniele_da_Volterra_%28detalle%29.jpg/207px-Miguel_%C3%81ngel%2C_por_Daniele_da_Volterra_%28detalle%29.jpg) |
+|  21    |  [Donald Trump](https://www.wikidata.org/wiki/Q22686)			 |	![Donald Trump](https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Donald_Trump_official_portrait_%28cropped%29.jpg/174px-Donald_Trump_official_portrait_%28cropped%29.jpg) |
+|  21    |  [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)		 |	![Jackie Robinson](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Jrobinson.jpg/303px-Jrobinson.jpg) |
+|  21    |  [Madonna](https://www.wikidata.org/wiki/Q1744)					 |	![Madonna](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Madonna_Rebel_Heart_Tour_2015_-_Stockholm_%2823051472299%29_%28cropped_2%29.jpg/191px-Madonna_Rebel_Heart_Tour_2015_-_Stockholm_%2823051472299%29_%28cropped_2%29.jpg) © [chrisweger](https://commons.wikimedia.org/wiki/File:Madonna_Rebel_Heart_Tour_2015_-_Stockholm_(23051472299)_(cropped_2).jpg) / CC-BY-SA 2.0 |
+|  20    |  [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)			 |	![P. T. Barnum](https://upload.wikimedia.org/wikipedia/commons/d/df/Phineas_Taylor_Barnum_portrait.jpg) |
+|  20    |  [Tiger Woods](https://www.wikidata.org/wiki/Q10993)				 |	![Tiger Woods](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/TigerWoodsOct2011.jpg/250px-TigerWoodsOct2011.jpg) © [Angela George](https://commons.wikimedia.org/wiki/File:TigerWoodsOct2011.jpg) / CC-BY-SA 3.0 |
+|  18    |  [Martha Stewart](https://www.wikidata.org/wiki/Q234606)			 |	![Martha Stewart](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Martha_Stewart_2011_Shankbone.JPG/160px-Martha_Stewart_2011_Shankbone.JPG) © [David Shankbone](https://commons.wikimedia.org/wiki/File:Martha_Stewart_2011_Shankbone.JPG) / CC-BY 3.0 |
+|  16    |  [Henry Ford](https://www.wikidata.org/wiki/Q8768)				 |	![Henry Ford](https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Henry_ford_1919.jpg/188px-Henry_ford_1919.jpg) |
+|  16    |  [William Shakespeare](https://www.wikidata.org/wiki/Q692)		 |	![William Shakespeare](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/187px-Shakespeare.jpg) |
+|  16    |  [Wolfgang Amadeus Mozart](https://www.wikidata.org/wiki/Q254)	 |	![Wolfgang Amadeus Mozart](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Mozart-small.jpg/202px-Mozart-small.jpg) |
+|  15    |  [Adolf Hitler](https://www.wikidata.org/wiki/Q352)				 |	![Adolf Hitler](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hitler_portrait_crop.jpg) © [Bundesarchiv, Bild 183-H1216-0500-002](https://commons.wikimedia.org/wiki/File:Hitler_portrait_crop.jpg) / CC-BY-SA 3.0 |
+|  14    |  [Greta Garbo](https://www.wikidata.org/wiki/Q5443)				 |	![Greta Garbo](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Garbo-Anna_Karenina-036.jpg/183px-Garbo-Anna_Karenina-036.jpg) |
 |  14    |  [John Wayne](https://www.wikidata.org/wiki/Q40531)				 |	   |
 |  14    |  [Mother Teresa](https://www.wikidata.org/wiki/Q30547)			 |	   |
 |  13    |  [Napoleon](https://www.wikidata.org/wiki/Q517)					 |	   |
@@ -172,21 +172,6 @@ sources
 |  9     |  [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)			 |	   |
 |  8     |  [James Dean](https://www.wikidata.org/wiki/Q83359)				 |	   |
 |  8     |  [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)        |     |
-
-
-![Rodney
-Dangerfield](https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpg)
-© [Jim
-Accordino](https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg)
-/ CC-BY 3.0
-
-![Babe
-Ruth](https://upload.wikimedia.org/wikipedia/commons/c/cb/Babe_Ruth_cropped.jpg)
-
-![Elvis Presley](https://upload.wikimedia.org/wikipedia/commons/2/2d/PresleyPromo1954PhotoOnly.jpg)
-
-![Johnny Appleseed](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Johnny_Appleseed_1.jpg/146px-Johnny_Appleseed_1.jpg)
-
 
 categories
 ----------
