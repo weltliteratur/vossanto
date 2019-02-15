@@ -877,7 +877,8 @@ Robert:
 * list of vossantos
 
 #+BEGIN_SRC sh
-  ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -g -H -T ../README.org > vossantos.org
+  ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -g -H -T ../README.org \
+	    | pandoc -f org -t markdown -o vossantos.md
 #+END_SRC
 
 #+RESULTS:
