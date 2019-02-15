@@ -19,7 +19,7 @@ for year in $(seq 1987 2007); do
 done
 ```
 
-  year       articles   cand       wd      wd+bl   found   true   prec   
+  year       articles   cand       wd      wd+bl   found   true   prec
   ---------- ---------- ---------- ------- ------- ------- ------ ------ ------
   1987       106104     641432     5236    131     129     95     73.6   0.90
   1988       104541     637132     5074    143     141     88     62.4   0.84
@@ -49,7 +49,7 @@ done
   after matching against Wikidata (wd) and a blacklist (wd+bl), and
   after manual inspection (true). The last column shows the precision.
 
-``` {.gnuplot .rundoc-block rundoc-language="gnuplot" rundoc-var="data=temporal-distribution" rundoc-file="nyt_vossantos_over_time.svg" rundoc-results="silent"}
+``` gnuplot
 reset
 set datafile separator "\t"
 
@@ -114,9 +114,9 @@ plot data using 1:($6/$2*1000) with linespoints pt 6 ps 1 title 'candidates',\
 
 ```
 
-Absolute frequency: *nyt\_vossantos\_over\_time.png*
+Absolute frequency: [!nyt_vossantos_over_time.png](nyt_vossantos_over_time.png)
 
-Relative frequency: *nyt\_vossantos\_over\_time\_rel.png*
+Relative frequency: [!nyt_vossantos_over_time_rel.png](nyt_vossantos_over_time_rel.png)
 
 sources
 -------
@@ -360,7 +360,7 @@ Check the number of and the top authors:
 echo articles $(wc -l < nyt_authors.tsv)
 echo categories $(wc -l < nyt_authors_distrib.tsv)
 echo ""
-sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head 
+sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
 ```
 
   --------------------- ---------
@@ -942,15 +942,15 @@ Who are the sources for the modifier ... ?
 ./org.py -w -T -t -c README.org | grep "of\* golf" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
 ```
 
-  count   source
-  ------- ----------------------------------------------------------
-  2       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
-  2       [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)
-  1       [J. D. Salinger](https://www.wikidata.org/wiki/Q79904)
-  1       [James Brown](https://www.wikidata.org/wiki/Q5950)
-  1       [Marlon Brando](https://www.wikidata.org/wiki/Q34012)
-  1       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
-  1       [Simon Cowell](https://www.wikidata.org/wiki/Q162629)
+| count  |  source                                                     |
+| -----: | :---------------------------------------------------------  |
+|  2     |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)	   |
+|  2     |  [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)   |
+|  1     |  [J. D. Salinger](https://www.wikidata.org/wiki/Q79904)	   |
+|  1     |  [James Brown](https://www.wikidata.org/wiki/Q5950)		   |
+|  1     |  [Marlon Brando](https://www.wikidata.org/wiki/Q34012)	   |
+|  1     |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)		   |
+|  1     |  [Simon Cowell](https://www.wikidata.org/wiki/Q162629)      |
 
 ### culture
 
