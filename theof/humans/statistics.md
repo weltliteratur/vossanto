@@ -366,19 +366,19 @@ echo ""
 sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
 ```
 
-| articles            |  1854726 |
-| categories          |  30691	  |
-| :------------------ |  ------: |
-|                     |  961052  |
-| Elliott, Stuart     |  6296	  |
-| Holden, Stephen     |  5098	  |
-| Chass, Murray       |  4544	  |
-| Pareles, Jon        |  4090	  |
-| Brozan, Nadine      |  3741	  |
-| Fabricant, Florence |  3659	  |
-| Kozinn, Allan       |  3654	  |
-| Curry, Jack         |  3654	  |
-| Truscott, Alan      |  3646    | 
+| articles            | 1854726 |
+| categories          | 30691	 |
+| :------------------ | ------: |
+|                     | 961052  |
+| Elliott, Stuart     | 6296	 |
+| Holden, Stephen     | 5098	 |
+| Chass, Murray       | 4544	 |
+| Pareles, Jon        | 4090	 |
+| Brozan, Nadine      | 3741	 |
+| Fabricant, Florence | 3659	 |
+| Kozinn, Allan       | 3654	 |
+| Curry, Jack         | 3654	 |
+| Truscott, Alan      | 3646    | 
 
 **requires cleansing!**
 
@@ -591,116 +591,115 @@ done
 modifiers
 ---------
 
-``` {.bash}
+``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -o -T ../README.org | sort | uniq -c | sort -nr | head -n30
 ```
 
-  count   modifier
-  ------- ------------------
-  55      his day
-  33      his time
-  29      Japan
-  16      tennis
-  16      his generation
-  16      baseball
-  15      China
-  13      her time
-  13      her day
-  12      our time
-  11      the 1990's
-  10      the Zulus
-  10      the 90's
-  10      politics
-  10      hockey
-  10      Brazil
-  10      basketball
-  10      ballet
-  9       jazz
-  9       fashion
-  8       today
-  8       Israel
-  8       his era
-  8       hip-hop
-  8       golf
-  8       dance
-  7       the art world
-  7       the 19th century
-  7       Long Island
-  7       Iran
+| count  | modifier          |
+| -----: | :---------------- |
+| 55     | his day			 |
+| 33     | his time			 |
+| 29     | Japan			 |
+| 16     | tennis			 |
+| 16     | his generation	 |
+| 16     | baseball			 |
+| 15     | China			 |
+| 13     | her time			 |
+| 13     | her day			 |
+| 12     | our time			 |
+| 11     | the 1990's		 |
+| 10     | the Zulus		 |
+| 10     | the 90's			 |
+| 10     | politics			 |
+| 10     | hockey			 |
+| 10     | Brazil			 |
+| 10     | basketball		 |
+| 10     | ballet			 |
+| 9      | jazz				 |
+| 9      | fashion			 |
+| 8      | today			 |
+| 8      | Israel			 |
+| 8      | his era			 |
+| 8      | hip-hop			 |
+| 8      | golf				 |
+| 8      | dance			 |
 
-### today
 
-#### "today"
+### time
 
-Who are the sources for the modifier "today"?
+1.  "today"
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* today" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    Who are the sources for the modifier "today"?
 
-  count   source
-  ------- -----------------------------------------------------------------
-  1       [Shoeless Joe Jackson](https://www.wikidata.org/wiki/Q955322)
-  1       [David Merrick](https://www.wikidata.org/wiki/Q5237521)
-  1       [Buck Rogers](https://www.wikidata.org/wiki/Q4982930)
-  1       [Bill McGowan](https://www.wikidata.org/wiki/Q4910116)
-  1       [William F. Buckley Jr.](https://www.wikidata.org/wiki/Q378098)
-  1       [Ralph Fiennes](https://www.wikidata.org/wiki/Q28493)
-  1       [Julie London](https://www.wikidata.org/wiki/Q231255)
-  1       [Jimmy Osmond](https://www.wikidata.org/wiki/Q1689414)
-  1       [Harry Cohn](https://www.wikidata.org/wiki/Q1586470)
+    ``` bash
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /today/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-#### "his day" or "his time"
+     | count  | source                                                            |
+     | -----: | :---------------------------------------------------------------- |
+     | 1      | [Shoeless Joe Jackson](https://www.wikidata.org/wiki/Q955322)	  |
+     | 1      | [Buck Rogers](https://www.wikidata.org/wiki/Q4982930)			  |
+     | 1      | [Bill McGowan](https://www.wikidata.org/wiki/Q4910116)			  |
+     | 1      | [William F. Buckley Jr.](https://www.wikidata.org/wiki/Q378098)	  |
+     | 1      | [Ralph Fiennes](https://www.wikidata.org/wiki/Q28493)			  |
+     | 1      | [Julie London](https://www.wikidata.org/wiki/Q231255)			  |
+     | 1      | [Jimmy Osmond](https://www.wikidata.org/wiki/Q1689414)			  |
+     | 1      | [Harry Cohn](https://www.wikidata.org/wiki/Q1586470)              |
 
-Who are the sources for the modifiers "his day", "his time", and "his
-generation"?
+2.  "his day" or "his time"
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* his \(day\|time\|generation\)" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head
-```
+    Who are the sources for the modifiers "his day", "his time", and
+    "his generation"?
 
-  count   source
-  ------- --------------------------------------------------------------
-  3       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
-  2       [Mike Tyson](https://www.wikidata.org/wiki/Q79031)
-  2       [Billy Martin](https://www.wikidata.org/wiki/Q508574)
-  2       [Dan Quayle](https://www.wikidata.org/wiki/Q49214)
-  2       [Arnold Schwarzenegger](https://www.wikidata.org/wiki/Q2685)
-  2       [Martha Stewart](https://www.wikidata.org/wiki/Q234606)
-  2       [Donald Trump](https://www.wikidata.org/wiki/Q22686)
-  2       [L. Ron Hubbard](https://www.wikidata.org/wiki/Q216896)
-  2       [Tiger Woods](https://www.wikidata.org/wiki/Q10993)
-  1       [Lawrence Taylor](https://www.wikidata.org/wiki/Q963129)
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /his \(day\|time\|generation\)/" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head
+    ```
 
-#### "her day"
+      count   source
+      ------- --------------------------------------------------------------
+      3       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
+      2       [Mike Tyson](https://www.wikidata.org/wiki/Q79031)
+      2       [Billy Martin](https://www.wikidata.org/wiki/Q508574)
+      2       [Dan Quayle](https://www.wikidata.org/wiki/Q49214)
+      2       [Arnold Schwarzenegger](https://www.wikidata.org/wiki/Q2685)
+      2       [Martha Stewart](https://www.wikidata.org/wiki/Q234606)
+      2       [Donald Trump](https://www.wikidata.org/wiki/Q22686)
+      2       [L. Ron Hubbard](https://www.wikidata.org/wiki/Q216896)
+      2       [Tiger Woods](https://www.wikidata.org/wiki/Q10993)
+      1       [Lawrence Taylor](https://www.wikidata.org/wiki/Q963129)
 
-Who are the sources for the modifier "her day"?
+3.  "her day"
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* her day" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    Who are the sources for the modifier "her day"?
 
-  count   source
-  ------- ----------------------------------------------------------
-  1       [Hilary Swank](https://www.wikidata.org/wiki/Q93187)
-  1       [Hillary Clinton](https://www.wikidata.org/wiki/Q6294)
-  1       [Marilyn Monroe](https://www.wikidata.org/wiki/Q4616)
-  1       [Judith Krantz](https://www.wikidata.org/wiki/Q452206)
-  1       [Lucia Pamela](https://www.wikidata.org/wiki/Q3838473)
-  1       [Elizabeth Taylor](https://www.wikidata.org/wiki/Q34851)
-  1       [Imelda Marcos](https://www.wikidata.org/wiki/Q285536)
-  1       [Laurie Anderson](https://www.wikidata.org/wiki/Q235066)
-  1       [Nell Gwyn](https://www.wikidata.org/wiki/Q234163)
-  1       [Annie Leibovitz](https://www.wikidata.org/wiki/Q225283)
-  1       [Tara Reid](https://www.wikidata.org/wiki/Q211082)
-  1       [Madonna](https://www.wikidata.org/wiki/Q1744)
-  1       [Maria Callas](https://www.wikidata.org/wiki/Q128297)
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /her day/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
+
+      count   source
+      ------- ----------------------------------------------------------
+      1       [Hilary Swank](https://www.wikidata.org/wiki/Q93187)
+      1       [Hillary Clinton](https://www.wikidata.org/wiki/Q6294)
+      1       [Marilyn Monroe](https://www.wikidata.org/wiki/Q4616)
+      1       [Judith Krantz](https://www.wikidata.org/wiki/Q452206)
+      1       [Lucia Pamela](https://www.wikidata.org/wiki/Q3838473)
+      1       [Elizabeth Taylor](https://www.wikidata.org/wiki/Q34851)
+      1       [Imelda Marcos](https://www.wikidata.org/wiki/Q285536)
+      1       [Laurie Anderson](https://www.wikidata.org/wiki/Q235066)
+      1       [Nell Gwyn](https://www.wikidata.org/wiki/Q234163)
+      1       [Annie Leibovitz](https://www.wikidata.org/wiki/Q225283)
+      1       [Tara Reid](https://www.wikidata.org/wiki/Q211082)
+      1       [Madonna](https://www.wikidata.org/wiki/Q1744)
+      1       [Maria Callas](https://www.wikidata.org/wiki/Q128297)
 
 ### country
 
 ``` {.bash}
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -o -T ../README.org \
-    | sort | uniq -c | sort -nr | grep "Japan\|China\|Brazil\|Iran\|Israel\|Mexico\|India\|South Africa\|Spain\|South Korea\|Russia\|Poland\|Pakistan" | head -n13
+      | sort | uniq -c | sort -nr | grep "Japan\|China\|Brazil\|Iran\|Israel\|Mexico\|India\|South Africa\|Spain\|South Korea\|Russia\|Poland\|Pakistan" | head -n13
 ```
 
   count   country
@@ -721,269 +720,268 @@ Who are the sources for the modifier "her day"?
 
 What are the sources for the modifier ... ?
 
-#### "Japan"
+1.  "Japan"
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* Japan" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+          | grep "of\* /Japan/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-  count   source
-  ------- -----------------------------------------------------------
-  5       [Walt Disney](https://www.wikidata.org/wiki/Q8704)
-  4       [Bill Gates](https://www.wikidata.org/wiki/Q5284)
-  2       [Nolan Ryan](https://www.wikidata.org/wiki/Q721948)
-  2       [Frank Sinatra](https://www.wikidata.org/wiki/Q40912)
-  1       [Richard Perle](https://www.wikidata.org/wiki/Q966859)
-  1       [Thomas Edison](https://www.wikidata.org/wiki/Q8743)
-  1       [Mike Tyson](https://www.wikidata.org/wiki/Q79031)
-  1       [Leonardo da Vinci](https://www.wikidata.org/wiki/Q762)
-  1       [Cal Ripken](https://www.wikidata.org/wiki/Q731168)
-  1       [Walter Johnson](https://www.wikidata.org/wiki/Q722059)
-  1       [Andy Warhol](https://www.wikidata.org/wiki/Q5603)
-  1       [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)
-  1       [William Wyler](https://www.wikidata.org/wiki/Q51495)
-  1       [Katharine Graham](https://www.wikidata.org/wiki/Q435203)
-  1       [Rosa Parks](https://www.wikidata.org/wiki/Q41921)
-  1       [Stephen King](https://www.wikidata.org/wiki/Q39829)
-  1       [Walker Evans](https://www.wikidata.org/wiki/Q363308)
-  1       [Brad Pitt](https://www.wikidata.org/wiki/Q35332)
-  1       [Galileo Galilei](https://www.wikidata.org/wiki/Q307)
-  1       [Richard Avedon](https://www.wikidata.org/wiki/Q305497)
-  1       [P. D. James](https://www.wikidata.org/wiki/Q270648)
-  1       [Rem Koolhaas](https://www.wikidata.org/wiki/Q232364)
-  1       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
-  1       [Steve Jobs](https://www.wikidata.org/wiki/Q19837)
-  1       [Ralph Nader](https://www.wikidata.org/wiki/Q193156)
-  1       [Madonna](https://www.wikidata.org/wiki/Q1744)
-  1       [Jack Kerouac](https://www.wikidata.org/wiki/Q160534)
+      count   source
+      ------- ---------------------------------------------------------
+      5       [Walt Disney](https://www.wikidata.org/wiki/Q8704)
+      4       [Bill Gates](https://www.wikidata.org/wiki/Q5284)
+      2       [Nolan Ryan](https://www.wikidata.org/wiki/Q721948)
+      2       [Frank Sinatra](https://www.wikidata.org/wiki/Q40912)
+      1       [Richard Perle](https://www.wikidata.org/wiki/Q966859)
+      1       [Thomas Edison](https://www.wikidata.org/wiki/Q8743)
+      1       [Cal Ripken](https://www.wikidata.org/wiki/Q731168)
+      1       [Walter Johnson](https://www.wikidata.org/wiki/Q722059)
+      1       [Andy Warhol](https://www.wikidata.org/wiki/Q5603)
+      1       [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)
+      1       [William Wyler](https://www.wikidata.org/wiki/Q51495)
+      1       [Stephen King](https://www.wikidata.org/wiki/Q39829)
+      1       [Brad Pitt](https://www.wikidata.org/wiki/Q35332)
+      1       [Richard Avedon](https://www.wikidata.org/wiki/Q305497)
+      1       [P. D. James](https://www.wikidata.org/wiki/Q270648)
+      1       [Rem Koolhaas](https://www.wikidata.org/wiki/Q232364)
+      1       [Steve Jobs](https://www.wikidata.org/wiki/Q19837)
+      1       [Ralph Nader](https://www.wikidata.org/wiki/Q193156)
+      1       [Madonna](https://www.wikidata.org/wiki/Q1744)
+      1       [Jack Kerouac](https://www.wikidata.org/wiki/Q160534)
 
-#### "China"
+2.  "China"
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* China" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+          | grep "of\* /China/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-  count   source
-  ------- -----------------------------------------------------------------
-  4       [Barbara Walters](https://www.wikidata.org/wiki/Q231417)
-  2       [Jack Welch](https://www.wikidata.org/wiki/Q355314)
-  1       [Louis XIV of France](https://www.wikidata.org/wiki/Q7742)
-  1       [Oskar Schindler](https://www.wikidata.org/wiki/Q60029)
-  1       [Napoleon](https://www.wikidata.org/wiki/Q517)
-  1       [Keith Haring](https://www.wikidata.org/wiki/Q485635)
-  1       [Rosa Parks](https://www.wikidata.org/wiki/Q41921)
-  1       [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)
-  1       [Donald Trump](https://www.wikidata.org/wiki/Q22686)
-  1       [Larry King](https://www.wikidata.org/wiki/Q213430)
-  1       [Ted Turner](https://www.wikidata.org/wiki/Q193368)
-  1       [Madonna](https://www.wikidata.org/wiki/Q1744)
-  1       [The Scarlet Pimpernel](https://www.wikidata.org/wiki/Q1126679)
+      count   source
+      ------- ------------------------------------------------------------
+      4       [Barbara Walters](https://www.wikidata.org/wiki/Q231417)
+      2       [Jack Welch](https://www.wikidata.org/wiki/Q355314)
+      1       [Louis XIV of France](https://www.wikidata.org/wiki/Q7742)
+      1       [Oskar Schindler](https://www.wikidata.org/wiki/Q60029)
+      1       [Napoleon](https://www.wikidata.org/wiki/Q517)
+      1       [Keith Haring](https://www.wikidata.org/wiki/Q485635)
+      1       [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)
+      1       [Donald Trump](https://www.wikidata.org/wiki/Q22686)
+      1       [Larry King](https://www.wikidata.org/wiki/Q213430)
+      1       [Ted Turner](https://www.wikidata.org/wiki/Q193368)
+      1       [Madonna](https://www.wikidata.org/wiki/Q1744)
 
-#### "Brazil"
+3.  "Brazil"
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* Brazil" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+          | grep "of\* /Brazil/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-  count   source
-  ------- --------------------------------------------------------
-  1       [Giuseppe Verdi](https://www.wikidata.org/wiki/Q7317)
-  1       [Jil Sander](https://www.wikidata.org/wiki/Q69066)
-  1       [Walter Reed](https://www.wikidata.org/wiki/Q613136)
-  1       [Lech Wałęsa](https://www.wikidata.org/wiki/Q444)
-  1       [Jim Morrison](https://www.wikidata.org/wiki/Q44301)
-  1       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
-  1       [Bob Dylan](https://www.wikidata.org/wiki/Q392)
-  1       [Elvis Presley](https://www.wikidata.org/wiki/Q303)
-  1       [Scott Joplin](https://www.wikidata.org/wiki/Q191499)
-  1       [Larry Bird](https://www.wikidata.org/wiki/Q190152)
-  1       [Pablo Escobar](https://www.wikidata.org/wiki/Q187447)
-  1       [Tristan Tzara](https://www.wikidata.org/wiki/Q16409)
-  1       [Pelé](https://www.wikidata.org/wiki/Q12897)
+      count   source
+      ------- --------------------------------------------------------
+      1       [Giuseppe Verdi](https://www.wikidata.org/wiki/Q7317)
+      1       [Jil Sander](https://www.wikidata.org/wiki/Q69066)
+      1       [Walter Reed](https://www.wikidata.org/wiki/Q613136)
+      1       [Lech Wałęsa](https://www.wikidata.org/wiki/Q444)
+      1       [Jim Morrison](https://www.wikidata.org/wiki/Q44301)
+      1       [Bob Dylan](https://www.wikidata.org/wiki/Q392)
+      1       [Elvis Presley](https://www.wikidata.org/wiki/Q303)
+      1       [Scott Joplin](https://www.wikidata.org/wiki/Q191499)
+      1       [Larry Bird](https://www.wikidata.org/wiki/Q190152)
+      1       [Pablo Escobar](https://www.wikidata.org/wiki/Q187447)
 
 ### sports
 
 ``` {.bash}
-./org.py -T -t README.org \
-    | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
-    | sort | uniq -c | sort -nr | grep "baseball\|basketball\|tennis\|golf\|football\|racing\|soccer\|sailing" | head -n8
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -o -T ../README.org \
+    | sort | uniq -c | sort -nr | grep "baseball\|basketball\|tennis\|golf\|football\|racing\|soccer\|sailing" | head -n7
 ```
 
   count   sports
   ------- ------------
-  15      baseball
-  12      tennis
-  9       basketball
+  16      tennis
+  16      baseball
+  10      basketball
+  8       golf
   7       football
+  6       soccer
   6       racing
-  6       golf
-  3       soccer
-  3       sailing
 
 Who are the sources for the modifier ... ?
 
-#### baseball
+1.  tennis
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* baseball" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /tennis/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-  count   source
-  ------- -------------------------------------------------------------
-  3       [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)
-  2       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
-  2       [Larry Bird](https://www.wikidata.org/wiki/Q190152)
-  1       [Paul Brown](https://www.wikidata.org/wiki/Q968798)
-  1       [Clifford Irving](https://www.wikidata.org/wiki/Q960612)
-  1       [Mike Tyson](https://www.wikidata.org/wiki/Q79031)
-  1       [Thomas Dooley](https://www.wikidata.org/wiki/Q695751)
-  1       [Marco Polo](https://www.wikidata.org/wiki/Q6101)
-  1       [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)
-  1       [Horatio Alger](https://www.wikidata.org/wiki/Q453251)
-  1       [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)
-  1       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
-  1       [Alan Alda](https://www.wikidata.org/wiki/Q310394)
-  1       [Brandon Tartikoff](https://www.wikidata.org/wiki/Q2923786)
-  1       [Howard Hughes](https://www.wikidata.org/wiki/Q189081)
-  1       [Elisha Cook, Jr.](https://www.wikidata.org/wiki/Q1330714)
-  1       [Thomas Jefferson](https://www.wikidata.org/wiki/Q11812)
+      count   source
+      ------- ----------------------------------------------------------
+      2       [George Foreman](https://www.wikidata.org/wiki/Q213919)
+      1       [Tim McCarver](https://www.wikidata.org/wiki/Q7803927)
+      1       [Pete Rose](https://www.wikidata.org/wiki/Q739866)
+      1       [Nolan Ryan](https://www.wikidata.org/wiki/Q721948)
+      1       [Crash Davis](https://www.wikidata.org/wiki/Q5182352)
+      1       [Spike Lee](https://www.wikidata.org/wiki/Q51566)
+      1       [John Madden](https://www.wikidata.org/wiki/Q51516)
+      1       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
+      1       [John Wayne](https://www.wikidata.org/wiki/Q40531)
+      1       [George Hamilton](https://www.wikidata.org/wiki/Q359416)
+      1       [Michael Dukakis](https://www.wikidata.org/wiki/Q319099)
+      1       [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)
+      1       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
+      1       [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)
+      1       [Madonna](https://www.wikidata.org/wiki/Q1744)
 
-#### tennis
+2.  baseball
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* tennis" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /baseball/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-  count   source
-  ------- ----------------------------------------------------------
-  2       [George Foreman](https://www.wikidata.org/wiki/Q213919)
-  1       [Tim McCarver](https://www.wikidata.org/wiki/Q7803927)
-  1       [Pete Rose](https://www.wikidata.org/wiki/Q739866)
-  1       [Nolan Ryan](https://www.wikidata.org/wiki/Q721948)
-  1       [Crash Davis](https://www.wikidata.org/wiki/Q5182352)
-  1       [Spike Lee](https://www.wikidata.org/wiki/Q51566)
-  1       [John Madden](https://www.wikidata.org/wiki/Q51516)
-  1       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
-  1       [John Wayne](https://www.wikidata.org/wiki/Q40531)
-  1       [George Hamilton](https://www.wikidata.org/wiki/Q359416)
-  1       [Michael Dukakis](https://www.wikidata.org/wiki/Q319099)
-  1       [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)
-  1       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
-  1       [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)
-  1       [Madonna](https://www.wikidata.org/wiki/Q1744)
+      count   source
+      ------- -------------------------------------------------------------
+      2       [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)
+      2       [Larry Bird](https://www.wikidata.org/wiki/Q190152)
+      1       [Clifford Irving](https://www.wikidata.org/wiki/Q960612)
+      1       [Mike Tyson](https://www.wikidata.org/wiki/Q79031)
+      1       [Thomas Dooley](https://www.wikidata.org/wiki/Q695751)
+      1       [Marco Polo](https://www.wikidata.org/wiki/Q6101)
+      1       [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)
+      1       [Horatio Alger](https://www.wikidata.org/wiki/Q453251)
+      1       [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)
+      1       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
+      1       [Alan Alda](https://www.wikidata.org/wiki/Q310394)
+      1       [Brandon Tartikoff](https://www.wikidata.org/wiki/Q2923786)
+      1       [Howard Hughes](https://www.wikidata.org/wiki/Q189081)
+      1       [Thomas Jefferson](https://www.wikidata.org/wiki/Q11812)
 
-#### basketball
+3.  basketball
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* basketball" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /basketball/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-  count   source
-  ------- ----------------------------------------------------------------
-  2       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
-  1       [Joseph Stalin](https://www.wikidata.org/wiki/Q855)
-  1       [Martin Luther King, Jr.](https://www.wikidata.org/wiki/Q8027)
-  1       [John Madden](https://www.wikidata.org/wiki/Q51516)
-  1       [Bill Stern](https://www.wikidata.org/wiki/Q4911006)
-  1       [Pol Pot](https://www.wikidata.org/wiki/Q39464)
-  1       [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)
-  1       [Adolf Hitler](https://www.wikidata.org/wiki/Q352)
-  1       [Bugsy Siegel](https://www.wikidata.org/wiki/Q315487)
-  1       [Elvis Presley](https://www.wikidata.org/wiki/Q303)
-  1       [Chuck Yeager](https://www.wikidata.org/wiki/Q271939)
-  1       [Norm Crosby](https://www.wikidata.org/wiki/Q1999216)
+      count   source
+      ------- ----------------------------------------------------------------
+      2       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
+      1       [Joseph Stalin](https://www.wikidata.org/wiki/Q855)
+      1       [Martin Luther King, Jr.](https://www.wikidata.org/wiki/Q8027)
+      1       [Pol Pot](https://www.wikidata.org/wiki/Q39464)
+      1       [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)
+      1       [Adolf Hitler](https://www.wikidata.org/wiki/Q352)
+      1       [Bugsy Siegel](https://www.wikidata.org/wiki/Q315487)
+      1       [Elvis Presley](https://www.wikidata.org/wiki/Q303)
+      1       [Chuck Yeager](https://www.wikidata.org/wiki/Q271939)
 
-#### football
+4.  golf
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* football" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /golf/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-  count   source
-  ------- ----------------------------------------------------------
-  1       [Pliny the Elder](https://www.wikidata.org/wiki/Q82778)
-  1       [Michael Myers](https://www.wikidata.org/wiki/Q535502)
-  1       [Ann Calvello](https://www.wikidata.org/wiki/Q4766303)
-  1       [Bobby Fischer](https://www.wikidata.org/wiki/Q41314)
-  1       [Mark Cuban](https://www.wikidata.org/wiki/Q318503)
-  1       [Patrick Henry](https://www.wikidata.org/wiki/Q311885)
-  1       [Susan Lucci](https://www.wikidata.org/wiki/Q242936)
-  1       [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)
-  1       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
-  1       [Rich Little](https://www.wikidata.org/wiki/Q1341644)
+      count   source
+      ------- ----------------------------------------------------------
+      2       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
+      2       [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)
+      1       [J. D. Salinger](https://www.wikidata.org/wiki/Q79904)
+      1       [James Brown](https://www.wikidata.org/wiki/Q5950)
+      1       [Marlon Brando](https://www.wikidata.org/wiki/Q34012)
+      1       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
 
-#### racing
+5.  football
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* racing" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /football/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-  count   source
-  ------- -------------------------------------------------------------
-  2       [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)
-  1       [John Madden](https://www.wikidata.org/wiki/Q51516)
-  1       [Bobo Holloman](https://www.wikidata.org/wiki/Q4935855)
-  1       [Lou Gehrig](https://www.wikidata.org/wiki/Q357444)
-  1       [Wayne Gretzky](https://www.wikidata.org/wiki/Q209518)
+      count   source
+      ------- ----------------------------------------------------------
+      1       [Ann Calvello](https://www.wikidata.org/wiki/Q4766303)
+      1       [Bobby Fischer](https://www.wikidata.org/wiki/Q41314)
+      1       [Patrick Henry](https://www.wikidata.org/wiki/Q311885)
+      1       [Susan Lucci](https://www.wikidata.org/wiki/Q242936)
+      1       [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)
+      1       [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
+      1       [Rich Little](https://www.wikidata.org/wiki/Q1341644)
 
-#### golf
+6.  soccer
 
-``` {.bash}
-./org.py -w -T -t -c README.org | grep "of\* golf" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-```
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /soccer/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
 
-| count  |  source                                                     |
-| -----: | :---------------------------------------------------------  |
-|  2     |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)	   |
-|  2     |  [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)   |
-|  1     |  [J. D. Salinger](https://www.wikidata.org/wiki/Q79904)	   |
-|  1     |  [James Brown](https://www.wikidata.org/wiki/Q5950)		   |
-|  1     |  [Marlon Brando](https://www.wikidata.org/wiki/Q34012)	   |
-|  1     |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)		   |
-|  1     |  [Simon Cowell](https://www.wikidata.org/wiki/Q162629)      |
+      count   source
+      ------- --------------------------------------------------------
+      1       [James Brown](https://www.wikidata.org/wiki/Q5950)
+      1       [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
+      1       [Larry Brown](https://www.wikidata.org/wiki/Q380013)
+      1       [Derek Jeter](https://www.wikidata.org/wiki/Q353511)
+      1       [Ernie Banks](https://www.wikidata.org/wiki/Q3051017)
+      1       [Magic Johnson](https://www.wikidata.org/wiki/Q134183)
+
+7.  racing
+
+    ``` {.bash}
+    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+        | grep "of\* /racing/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+    ```
+
+      count   source
+      ------- -------------------------------------------------------------
+      2       [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)
+      1       [John Madden](https://www.wikidata.org/wiki/Q51516)
+      1       [Bobo Holloman](https://www.wikidata.org/wiki/Q4935855)
+      1       [Lou Gehrig](https://www.wikidata.org/wiki/Q357444)
+      1       [Wayne Gretzky](https://www.wikidata.org/wiki/Q209518)
 
 ### culture
 
 ``` {.bash}
-./org.py -T -t README.org \
-    | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
-    | sort | uniq -c | sort -nr | grep "dance\|hip-hop\|jazz\|fashion\|weaving\|ballet\|the art world\|wine\|salsa"   | head -n9
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -o ../README.org \
+    | sort | uniq -c | sort -nr | grep "dance\|hip-hop\|jazz\|fashion\|weaving\|ballet\|the art world\|wine\|salsa"   | head -n8
 ```
 
   count   modifier
-  ------- -------------------
-  8       jazz
+  ------- ---------------
+  10      ballet
+  9       jazz
+  9       fashion
   8       hip-hop
-  8       fashion
   8       dance
   7       the art world
-  6       ballet
   4       wine
   4       salsa
-  2       the fashion world
 
 ### Michael Jordan
 
 ``` {.bash .rundoc-block rundoc-language="sh" rundoc-results="raw"}
-./org.py -T -l -t README.org | awk -F'\t' '{if ($1 == "Michael Jordan") print $2}' \
-    | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;)\"].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" -e "s/^/- /" \
-    | sort -u
+../org.py -T -l -o ../README.org | awk -F'\t' '{if ($1 == "Michael Jordan") print $2}' \
+      | sort -u
 ```
 
 the Michael Jordan of
 
+-   …
 -   12th men
 -   actresses
 -   Afghanistan
 -   Australia
--   baseball home where he was raised in Cincinnati
+-   baseball
 -   BMX racing
 -   boxing
 -   Brazilian basketball for the past 20 years
 -   college coaches
 -   computer games
 -   cricket
--   cyberspace to log a few minutes on a real basketball court
+-   cyberspace
 -   dance
 -   diving
 -   dressage horses
@@ -992,16 +990,14 @@ the Michael Jordan of
 -   foosball
 -   game shows
 -   geopolitics
--   geopolitics -- the overwhelmingly dominant system
 -   golf
 -   Harlem
--   hers
+-   her time
 -   his day
 -   his sport
 -   his team
 -   his time
 -   hockey
--   hockey by a former Lightning owner
 -   horse racing
 -   hunting and fishing
 -   Indiana
@@ -1012,14 +1008,13 @@ the Michael Jordan of
 -   Laser sailing
 -   late-night TV
 -   management in Digital
--   Meet **the Michael Jordan of** …
 -   Mexico
--   motocross racing in the 1980
+-   motocross racing in the 1980's
 -   orange juice
 -   recording
 -   Sauternes
--   snowboarding -- in every interview and article on him
--   soccer and Bebeto is the Magic Johnson of soccer
+-   snowboarding
+-   soccer
 -   television puppets
 -   tennis
 -   the Buffalo team
@@ -1032,7 +1027,8 @@ the Michael Jordan of
 -   the sport
 -   the White Sox
 -   this sport
--   women
+-   women's ball
+-   women's basketball
 
 favourites
 ----------
@@ -1059,3 +1055,4 @@ list of vossantos
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -g -H -T ../README.org \
       | pandoc -f org -t markdown -o vossantos.md
 ```
+
