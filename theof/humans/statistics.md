@@ -133,7 +133,7 @@ sources
 |  count |  source                                                           |     |
 |  ----: | :------------------------------------------------------------	 | :-: |
 |  68    |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)			 |  ![Michael Jordan](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Michael_Jordan.jpg/169px-Michael_Jordan.jpg) © [Joshua Massel](https://commons.wikimedia.org/wiki/File:Michael_Jordan.jpg) / CC-BY-SA 2.0 |
-|  58    |  [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)		 |	![RodneyDangerfield](https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpg)© [JimAccordino](https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg)/ CC-BY 3.0   |
+|  58    |  [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)		 |	![RodneyDangerfield](https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpg) © [JimAccordino](https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg)/ CC-BY 3.0  |
 |  36    |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)				 |	![Babe Ruth](https://upload.wikimedia.org/wikipedia/commons/c/cb/Babe_Ruth_cropped.jpg)   |
 |  32    |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)				 |	![Elvis Presley](https://upload.wikimedia.org/wikipedia/commons/2/2d/PresleyPromo1954PhotoOnly.jpg)   |
 |  31    |  [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)		 |	![Johnny Appleseed](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Johnny_Appleseed_1.jpg/146px-Johnny_Appleseed_1.jpg)   |
@@ -151,27 +151,27 @@ sources
 |  16    |  [Wolfgang Amadeus Mozart](https://www.wikidata.org/wiki/Q254)	 |	![Wolfgang Amadeus Mozart](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Mozart-small.jpg/202px-Mozart-small.jpg) |
 |  15    |  [Adolf Hitler](https://www.wikidata.org/wiki/Q352)				 |	![Adolf Hitler](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hitler_portrait_crop.jpg) © [Bundesarchiv, Bild 183-H1216-0500-002](https://commons.wikimedia.org/wiki/File:Hitler_portrait_crop.jpg) / CC-BY-SA 3.0 |
 |  14    |  [Greta Garbo](https://www.wikidata.org/wiki/Q5443)				 |	![Greta Garbo](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Garbo-Anna_Karenina-036.jpg/183px-Garbo-Anna_Karenina-036.jpg) |
-|  14    |  [John Wayne](https://www.wikidata.org/wiki/Q40531)				 |	   |
-|  14    |  [Mother Teresa](https://www.wikidata.org/wiki/Q30547)			 |	   |
-|  13    |  [Napoleon](https://www.wikidata.org/wiki/Q517)					 |	   |
-|  13    |  [Ralph Nader](https://www.wikidata.org/wiki/Q193156)			 |	   |
-|  12    |  [Leonardo da Vinci](https://www.wikidata.org/wiki/Q762)			 |	   |
-|  12    |  [Cal Ripken](https://www.wikidata.org/wiki/Q731168)				 |	   |
-|  12    |  [Leo Tolstoy](https://www.wikidata.org/wiki/Q7243)				 |	   |
-|  12    |  [Oprah Winfrey](https://www.wikidata.org/wiki/Q55800)			 |	   |
-|  12    |  [Rosa Parks](https://www.wikidata.org/wiki/Q41921)				 |	   |
-|  12    |  [Susan Lucci](https://www.wikidata.org/wiki/Q242936)			 |	   |
-|  11    |  [Walt Disney](https://www.wikidata.org/wiki/Q8704)				 |	   |
+|  14    |  [John Wayne](https://www.wikidata.org/wiki/Q40531)				 |	![John Wayne](https://upload.wikimedia.org/wikipedia/commons/4/40/John_Wayne_portrait.jpg) |
+|  14    |  [Mother Teresa](https://www.wikidata.org/wiki/Q30547)			 |	![Mother Teresa](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/MotherTeresa_090.jpg/180px-MotherTeresa_090.jpg) © [Túrelio](https://commons.wikimedia.org/wiki/File:MotherTeresa_090.jpg) / CC-BY-SA 2.0 |
+|  13    |  [Napoleon](https://www.wikidata.org/wiki/Q517)					 |	![Napoleon](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg/144px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg) |
+|  13    |  [Ralph Nader](https://www.wikidata.org/wiki/Q193156)			 |	![Ralph Nader](https://upload.wikimedia.org/wikipedia/commons/8/8e/Ralph_nader_portrait.jpg) © [Don LaVange](https://commons.wikimedia.org/wiki/File:Ralph_nader_portrait.jpg) / CC-BY-SA 2.0|
+|  12    |  [Leonardo da Vinci](https://www.wikidata.org/wiki/Q762)			 |	![Leonardo da Vinci](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg/154px-Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg)  |
+|  12    |  [Cal Ripken](https://www.wikidata.org/wiki/Q731168)				 |	![Cal Ripken](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Cal_Ripken.jpg/179px-Cal_Ripken.jpg) © [Cal Ripken](https://commons.wikimedia.org/wiki/File:Cal_Ripken.jpg) / CC-BY-SA 2.0 |
+|  12    |  [Leo Tolstoy](https://www.wikidata.org/wiki/Q7243)				 |	![Leo Tolstoy](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Leo_Tolstoy%2C_portrait.jpg/176px-Leo_Tolstoy%2C_portrait.jpg) |
+|  12    |  [Oprah Winfrey](https://www.wikidata.org/wiki/Q55800)			 |	![Oprah Winfrey](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Oprah_in_2014.jpg/181px-Oprah_in_2014.jpg) © [aphrodite-in-nyc](https://commons.wikimedia.org/wiki/File:Oprah_in_2014.jpg) / CC-BY 2.0 |
+|  12    |  [Rosa Parks](https://www.wikidata.org/wiki/Q41921)				 |	![Rosa Parks](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Rosaparks.jpg/198px-Rosaparks.jpg) |
+|  12    |  [Susan Lucci](https://www.wikidata.org/wiki/Q242936)			 |	![Susan Lucci](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Susan_Lucci_Heart_Truth_2009.jpg/124px-Susan_Lucci_Heart_Truth_2009.jpg) |
+|  11    |  [Walt Disney](https://www.wikidata.org/wiki/Q8704)				 |	![Walt Disney](https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Walt_Disney_1946.JPG/160px-Walt_Disney_1946.JPG) |
 |  11    |  [Willie Horton](https://www.wikidata.org/wiki/Q8021572)			 |	   |
-|  11    |  [Rembrandt](https://www.wikidata.org/wiki/Q5598)				 |	   |
-|  10    |  [Albert Einstein](https://www.wikidata.org/wiki/Q937)			 |	   |
-|  10    |  [Thomas Edison](https://www.wikidata.org/wiki/Q8743)			 |	   |
-|  10    |  [Mike Tyson](https://www.wikidata.org/wiki/Q79031)				 |	   |
-|  10    |  [Julia Child](https://www.wikidata.org/wiki/Q214477)			 |	   |
-|  9     |  [Ross Perot](https://www.wikidata.org/wiki/Q313697)				 |	   |
-|  9     |  [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)			 |	   |
-|  8     |  [James Dean](https://www.wikidata.org/wiki/Q83359)				 |	   |
-|  8     |  [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)        |     |
+|  11    |  [Rembrandt](https://www.wikidata.org/wiki/Q5598)				 |	![Rembrandt](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg/185px-Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg) |
+|  10    |  [Albert Einstein](https://www.wikidata.org/wiki/Q937)			 |	![Albert Einstein](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/180px-Albert_Einstein_Head.jpg) |
+|  10    |  [Thomas Edison](https://www.wikidata.org/wiki/Q8743)			 |	![Thomas Edison](https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Thomas_Edison2-crop.jpg/192px-Thomas_Edison2-crop.jpg) |
+|  10    |  [Mike Tyson](https://www.wikidata.org/wiki/Q79031)				 |	![Mike Tyson](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Mike_Tyson_Portrait.jpg/160px-Mike_Tyson_Portrait.jpg) © [birzer](https://commons.wikimedia.org/wiki/File:Mike_Tyson_Portrait.jpg) / CC-BY 2.0 |
+|  10    |  [Julia Child](https://www.wikidata.org/wiki/Q214477)			 |	![Julia Child](https://upload.wikimedia.org/wikipedia/commons/f/fe/Julia_Child_restore.jpg) © [Elsa Dorfman](https://commons.wikimedia.org/wiki/File:Julia_Child_restore.jpg) / CC-BY-SA 3.0 |
+|  9     |  [Ross Perot](https://www.wikidata.org/wiki/Q313697)				 |	![Ross Perot](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RossPerotColor.jpg/180px-RossPerotColor.jpg) © [Allan Warren](https://commons.wikimedia.org/wiki/File:RossPerotColor.jpg) / CC-BY-SA 3.0 |
+|  9     |  [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)			 |	![Dennis Rodman](https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Dennis_Rodman_ToPo.jpg/159px-Dennis_Rodman_ToPo.jpg) © [ 	Tuomas Venhola](https://commons.wikimedia.org/wiki/File:Dennis_Rodman_ToPo.jpg) / CC-BY-SA 1.0 |
+|  8     |  [James Dean](https://www.wikidata.org/wiki/Q83359)				 |	![James Dean](https://upload.wikimedia.org/wikipedia/commons/a/a4/James_Dean_in_East_of_Eden_trailer_2.jpg) |
+|  8     |  [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)        |  ![Mikhail Gorbachev](https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_%28crop%29.jpg/190px-RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_%28crop%29.jpg) © [RIA Novosti archive](https://commons.wikimedia.org/wiki/File:RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_(crop).jpg) / CC-BY-SA 3.0 |
 
 categories
 ----------
