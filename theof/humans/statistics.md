@@ -130,53 +130,49 @@ sources
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T ../README.org | sort | uniq -c | sort -nr | head -n40
 ```
 
-|  count |  source                                                           |
-|  ----: | :------------------------------------------------------------	 |
-|  68    |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)			 |
-|  58    |  [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)		 |
-|  36    |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)				 |
-|  32    |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)				 |
-|  31    |  [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)		 |
-|  23    |  [Bill Gates](https://www.wikidata.org/wiki/Q5284)				 |
-|  21    |  [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)			 |
-|  21    |  [Michelangelo](https://www.wikidata.org/wiki/Q5592)				 |
-|  21    |  [Donald Trump](https://www.wikidata.org/wiki/Q22686)			 |
-|  21    |  [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)		 |
-|  21    |  [Madonna](https://www.wikidata.org/wiki/Q1744)					 |
-|  20    |  [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)			 |
-|  20    |  [Tiger Woods](https://www.wikidata.org/wiki/Q10993)				 |
-|  18    |  [Martha Stewart](https://www.wikidata.org/wiki/Q234606)			 |
-|  16    |  [Henry Ford](https://www.wikidata.org/wiki/Q8768)				 |
-|  16    |  [William Shakespeare](https://www.wikidata.org/wiki/Q692)		 |
-|  16    |  [Wolfgang Amadeus Mozart](https://www.wikidata.org/wiki/Q254)	 |
-|  15    |  [Adolf Hitler](https://www.wikidata.org/wiki/Q352)				 |
-|  14    |  [Greta Garbo](https://www.wikidata.org/wiki/Q5443)				 |
-|  14    |  [John Wayne](https://www.wikidata.org/wiki/Q40531)				 |
-|  14    |  [Mother Teresa](https://www.wikidata.org/wiki/Q30547)			 |
-|  13    |  [Napoleon](https://www.wikidata.org/wiki/Q517)					 |
-|  13    |  [Ralph Nader](https://www.wikidata.org/wiki/Q193156)			 |
-|  12    |  [Leonardo da Vinci](https://www.wikidata.org/wiki/Q762)			 |
-|  12    |  [Cal Ripken](https://www.wikidata.org/wiki/Q731168)				 |
-|  12    |  [Leo Tolstoy](https://www.wikidata.org/wiki/Q7243)				 |
-|  12    |  [Oprah Winfrey](https://www.wikidata.org/wiki/Q55800)			 |
-|  12    |  [Rosa Parks](https://www.wikidata.org/wiki/Q41921)				 |
-|  12    |  [Susan Lucci](https://www.wikidata.org/wiki/Q242936)			 |
-|  11    |  [Walt Disney](https://www.wikidata.org/wiki/Q8704)				 |
-|  11    |  [Willie Horton](https://www.wikidata.org/wiki/Q8021572)			 |
-|  11    |  [Rembrandt](https://www.wikidata.org/wiki/Q5598)				 |
-|  10    |  [Albert Einstein](https://www.wikidata.org/wiki/Q937)			 |
-|  10    |  [Thomas Edison](https://www.wikidata.org/wiki/Q8743)			 |
-|  10    |  [Mike Tyson](https://www.wikidata.org/wiki/Q79031)				 |
-|  10    |  [Julia Child](https://www.wikidata.org/wiki/Q214477)			 |
-|  9     |  [Ross Perot](https://www.wikidata.org/wiki/Q313697)				 |
-|  9     |  [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)			 |
-|  8     |  [James Dean](https://www.wikidata.org/wiki/Q83359)				 |
-|  8     |  [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)        |
+|  count |  source                                                           |     |
+|  ----: | :------------------------------------------------------------	 | :-: |
+|  68    |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)			 |  ![Michael Jordan](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Michael_Jordan.jpg/169px-Michael_Jordan.jpg) © [Joshua Massel](https://commons.wikimedia.org/wiki/File:Michael_Jordan.jpg) / CC-BY-SA 2.0 |
+|  58    |  [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)		 |	   |
+|  36    |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)				 |	   |
+|  32    |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)				 |	   |
+|  31    |  [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)		 |	   |
+|  23    |  [Bill Gates](https://www.wikidata.org/wiki/Q5284)				 |	   |
+|  21    |  [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)			 |	   |
+|  21    |  [Michelangelo](https://www.wikidata.org/wiki/Q5592)				 |	   |
+|  21    |  [Donald Trump](https://www.wikidata.org/wiki/Q22686)			 |	   |
+|  21    |  [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)		 |	   |
+|  21    |  [Madonna](https://www.wikidata.org/wiki/Q1744)					 |	   |
+|  20    |  [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)			 |	   |
+|  20    |  [Tiger Woods](https://www.wikidata.org/wiki/Q10993)				 |	   |
+|  18    |  [Martha Stewart](https://www.wikidata.org/wiki/Q234606)			 |	   |
+|  16    |  [Henry Ford](https://www.wikidata.org/wiki/Q8768)				 |	   |
+|  16    |  [William Shakespeare](https://www.wikidata.org/wiki/Q692)		 |	   |
+|  16    |  [Wolfgang Amadeus Mozart](https://www.wikidata.org/wiki/Q254)	 |	   |
+|  15    |  [Adolf Hitler](https://www.wikidata.org/wiki/Q352)				 |	   |
+|  14    |  [Greta Garbo](https://www.wikidata.org/wiki/Q5443)				 |	   |
+|  14    |  [John Wayne](https://www.wikidata.org/wiki/Q40531)				 |	   |
+|  14    |  [Mother Teresa](https://www.wikidata.org/wiki/Q30547)			 |	   |
+|  13    |  [Napoleon](https://www.wikidata.org/wiki/Q517)					 |	   |
+|  13    |  [Ralph Nader](https://www.wikidata.org/wiki/Q193156)			 |	   |
+|  12    |  [Leonardo da Vinci](https://www.wikidata.org/wiki/Q762)			 |	   |
+|  12    |  [Cal Ripken](https://www.wikidata.org/wiki/Q731168)				 |	   |
+|  12    |  [Leo Tolstoy](https://www.wikidata.org/wiki/Q7243)				 |	   |
+|  12    |  [Oprah Winfrey](https://www.wikidata.org/wiki/Q55800)			 |	   |
+|  12    |  [Rosa Parks](https://www.wikidata.org/wiki/Q41921)				 |	   |
+|  12    |  [Susan Lucci](https://www.wikidata.org/wiki/Q242936)			 |	   |
+|  11    |  [Walt Disney](https://www.wikidata.org/wiki/Q8704)				 |	   |
+|  11    |  [Willie Horton](https://www.wikidata.org/wiki/Q8021572)			 |	   |
+|  11    |  [Rembrandt](https://www.wikidata.org/wiki/Q5598)				 |	   |
+|  10    |  [Albert Einstein](https://www.wikidata.org/wiki/Q937)			 |	   |
+|  10    |  [Thomas Edison](https://www.wikidata.org/wiki/Q8743)			 |	   |
+|  10    |  [Mike Tyson](https://www.wikidata.org/wiki/Q79031)				 |	   |
+|  10    |  [Julia Child](https://www.wikidata.org/wiki/Q214477)			 |	   |
+|  9     |  [Ross Perot](https://www.wikidata.org/wiki/Q313697)				 |	   |
+|  9     |  [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)			 |	   |
+|  8     |  [James Dean](https://www.wikidata.org/wiki/Q83359)				 |	   |
+|  8     |  [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)        |     |
 
-![Michael Jordan](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Michael_Jordan.jpg/169px-Michael_Jordan.jpg)
-© [Joshua
-Massel](https://commons.wikimedia.org/wiki/File:Michael_Jordan.jpg) /
-CC-BY-SA 2.0
 
 ![Rodney
 Dangerfield](https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpg)
