@@ -173,23 +173,23 @@ sources
 |  8     |  [James Dean](https://www.wikidata.org/wiki/Q83359)				 |
 |  8     |  [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)        |
 
-[Michael Jordan](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Michael_Jordan.jpg/169px-Michael_Jordan.jpg)
+![Michael Jordan](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Michael_Jordan.jpg/169px-Michael_Jordan.jpg)
 © [Joshua
 Massel](https://commons.wikimedia.org/wiki/File:Michael_Jordan.jpg) /
 CC-BY-SA 2.0
 
-[Rodney
+![Rodney
 Dangerfield](https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpg)
 © [Jim
 Accordino](https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg)
 / CC-BY 3.0
 
-[Babe
+![Babe
 Ruth](https://upload.wikimedia.org/wikipedia/commons/c/cb/Babe_Ruth_cropped.jpg)
 
-[Elvis Presley](https://upload.wikimedia.org/wikipedia/commons/2/2d/PresleyPromo1954PhotoOnly.jpg)
+![Elvis Presley](https://upload.wikimedia.org/wikipedia/commons/2/2d/PresleyPromo1954PhotoOnly.jpg)
 
-lO[Johnny Appleseed](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Johnny_Appleseed_1.jpg/146px-Johnny_Appleseed_1.jpg)
+![Johnny Appleseed](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Johnny_Appleseed_1.jpg/146px-Johnny_Appleseed_1.jpg)
 
 
 categories
