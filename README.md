@@ -18,3 +18,7 @@ Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.h
 ## TheOf Approach
 - [Poster Lange Nacht der Wissenschaften 2018](https://doi.org/10.6084%2fm9.figshare.6531140)
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/theof)
+
+## DSH Paper
+- [Statistics](theof/human/statistics.md)
+- [List](theof/humans/vossantos.md)
