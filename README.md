@@ -20,5 +20,5 @@ Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.h
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/theof)
 
 ## DSH Paper
-- [Statistics](theof/human/statistics.md)
+- [Statistics](theof/humans/statistics.md)
 - [List](theof/humans/vossantos.md)
