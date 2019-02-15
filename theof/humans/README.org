@@ -86,10 +86,13 @@ set term png enhanced size 2835,2126 font "Arial,40" lw 4
 set out "nyt_vossantos_over_time.png"
 replot
 
-set key bottom left
-set term pdf enhanced fontscale .7 lw 2
+# adapted for arxiv paper
+set key bottom right
+set term pdf enhanced lw 2
 set out "nyt_vossantos_over_time.pdf"
-replot
+plot data using 1:6 with linespoints pt 6 ps 1 title 'candidates',\
+     data using 1:7 with linespoints pt 7 ps 1 title 'Vossantos',\
+     data using 1:8 with lines title 'precision' axes x1y2
 
 
 # ---- relative values
@@ -110,9 +113,14 @@ set term png enhanced size 2835,2126 font "Arial,40" lw 4
 set out "nyt_vossantos_over_time_rel.png"
 replot
 
-set term pdf enhanced lw  2
+# adapted for arxiv paper
+set key bottom right
+set term pdf enhanced lw 2
 set out "nyt_vossantos_over_time_rel.pdf"
-replot
+plot data using 1:($6/$2*1000) with linespoints pt 6 ps 1 title 'candidates',\
+     data using 1:($7/$2*1000) with linespoints pt 7 ps 1 title 'Vossantos',\
+     data using 1:8 with lines title 'precision' axes x1y2
+
 #+end_src
 
 Absolute frequency:
@@ -866,3 +874,10 @@ Robert:
 - [[https://www.wikidata.org/wiki/Q123867][Marquis de Sade]] (1993/09/26/0636952) When we introduced Word in October 1983, in its first incarnation it was dubbed *the Marquis de Sade of* word processors, which was not altogether unfair.
 - [[https://www.wikidata.org/wiki/Q103846][Groucho Marx]] (1987/09/27/0077726) But the tide eventually shifted, partly because the supreme materialist of physics, Richard Feynman of the California Institute of Technology, a man once described as *the Groucho Marx of* physics, turned the quest for nuclear substructure into a cause celebre.
 
+* list of vossantos
+
+#+BEGIN_SRC sh
+  ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -g -H -T ../README.org > vossantos.org
+#+END_SRC
+
+#+RESULTS:
