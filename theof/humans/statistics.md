@@ -1,12 +1,14 @@
 statistics
 ==========
 
+An "executable" version of that file can be found in [statistics.org](statistics.org).
+
 temporal distribution
 ---------------------
 
 We plot some temporal distributions:
 
-``` {.bash}
+``` bash
 echo "year articles cand wd wd+bl found true prec"
 for year in $(seq 1987 2007); do
     echo $year \
@@ -19,35 +21,38 @@ for year in $(seq 1987 2007); do
 done
 ```
 
-  year       articles   cand       wd      wd+bl   found   true   prec
-  ---------- ---------- ---------- ------- ------- ------- ------ ------ ------
-  1987       106104     641432     5236    131     129     95     73.6   0.90
-  1988       104541     637132     5074    143     141     88     62.4   0.84
-  1989       102818     625894     4922    151     148     104    70.3   1.01
-  1990       98812      614164     4890    142     140     105    75.0   1.06
-  1991       85135      512582     4189    154     154     103    66.9   1.21
-  1992       82685      493808     4442    152     152     103    67.8   1.25
-  1993       79200      480883     4338    167     167     121    72.5   1.53
-  1994       74925      464278     4038    164     164     112    68.3   1.49
-  1995       85392      500404     4636    162     162     124    76.5   1.45
-  1996       79077      497688     4250    186     186     133    71.5   1.68
-  1997       85396      515759     4561    173     173     134    77.5   1.57
-  1998       89163      571010     5333    243     243     180    74.1   2.02
-  1999       91074      585464     5375    189     189     136    72.0   1.49
-  2000       94258      602240     4750    231     231     172    74.5   1.82
-  2001       96282      587644     4512    210     209     163    78.0   1.69
-  2002       97258      597289     4992    231     229     177    77.3   1.82
-  2003       94235      590890     4749    219     216     165    76.4   1.75
-  2004       91362      571894     4702    192     191     153    80.1   1.67
-  2005       90004      562027     4680    208     207     162    78.3   1.80
-  2006       87052      561203     4786    221     221     169    76.5   1.94
-  2007       39953      260778     2276    101     101     76     75.2   1.90
-  **sum**    1854726    11474463   96731   3770    3753    2775   73.9   1.50
-  **mean**   88320      546403     4606    180     179     132    73.7   1.49
+|  year     |  articles |  cand     |  wd    |  wd+bl |  found |  true |  prec |        |
+| :-------- |  -------: | --------: | -----: | -----: | -----: | ----: | ----: | -----:	|
+|  1987     |  106104   |  641432   |  5236  |  131   |  129   |  95   |  73.6 |  0.90	|
+|  1988     |  104541   |  637132   |  5074  |  143   |  141   |  88   |  62.4 |  0.84	|
+|  1989     |  102818   |  625894   |  4922  |  151   |  148   |  104  |  70.3 |  1.01	|
+|  1990     |  98812    |  614164   |  4890  |  142   |  140   |  105  |  75.0 |  1.06	|
+|  1991     |  85135    |  512582   |  4189  |  154   |  154   |  103  |  66.9 |  1.21	|
+|  1992     |  82685    |  493808   |  4442  |  152   |  152   |  103  |  67.8 |  1.25	|
+|  1993     |  79200    |  480883   |  4338  |  167   |  167   |  121  |  72.5 |  1.53	|
+|  1994     |  74925    |  464278   |  4038  |  164   |  164   |  112  |  68.3 |  1.49	|
+|  1995     |  85392    |  500404   |  4636  |  162   |  162   |  124  |  76.5 |  1.45	|
+|  1996     |  79077    |  497688   |  4250  |  186   |  186   |  133  |  71.5 |  1.68	|
+|  1997     |  85396    |  515759   |  4561  |  173   |  173   |  134  |  77.5 |  1.57	|
+|  1998     |  89163    |  571010   |  5333  |  243   |  243   |  180  |  74.1 |  2.02	|
+|  1999     |  91074    |  585464   |  5375  |  189   |  189   |  136  |  72.0 |  1.49	|
+|  2000     |  94258    |  602240   |  4750  |  231   |  231   |  172  |  74.5 |  1.82	|
+|  2001     |  96282    |  587644   |  4512  |  210   |  209   |  163  |  78.0 |  1.69	|
+|  2002     |  97258    |  597289   |  4992  |  231   |  229   |  177  |  77.3 |  1.82	|
+|  2003     |  94235    |  590890   |  4749  |  219   |  216   |  165  |  76.4 |  1.75	|
+|  2004     |  91362    |  571894   |  4702  |  192   |  191   |  153  |  80.1 |  1.67	|
+|  2005     |  90004    |  562027   |  4680  |  208   |  207   |  162  |  78.3 |  1.80	|
+|  2006     |  87052    |  561203   |  4786  |  221   |  221   |  169  |  76.5 |  1.94	|
+|  2007     |  39953    |  260778   |  2276  |  101   |  101   |  76   |  75.2 |  1.90	|
+|  **sum**  |  1854726  |  11474463 |  96731 |  3770  |  3753  |  2775 |  73.9 |  1.50	|
+|  **mean** |  88320    |  546403   |  4606  |  180   |  179   |  132  |  73.7 |  1.49  |
 
-  : The temporal distribution of the number of candidate phrases (cand),
-  after matching against Wikidata (wd) and a blacklist (wd+bl), and
-  after manual inspection (true). The last column shows the precision.
+The table shows the temporal distribution of the number of candidate
+phrases (cand), after matching against Wikidata (wd) and a blacklist
+(wd+bl), and after manual inspection (true). The last column shows the
+precision.
+
+We plot some of the columns:
 
 ``` gnuplot
 reset
@@ -114,59 +119,59 @@ plot data using 1:($6/$2*1000) with linespoints pt 6 ps 1 title 'candidates',\
 
 ```
 
-Absolute frequency: [!nyt_vossantos_over_time.png](nyt_vossantos_over_time.png)
+Absolute frequency: ![nyt_vossantos_over_time.png](nyt_vossantos_over_time.png)
 
-Relative frequency: [!nyt_vossantos_over_time_rel.png](nyt_vossantos_over_time_rel.png)
+Relative frequency: ![nyt_vossantos_over_time_rel.png](nyt_vossantos_over_time_rel.png)
 
 sources
 -------
 
-``` {.bash}
+``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T ../README.org | sort | uniq -c | sort -nr | head -n40
 ```
 
-  count   source
-  ------- ---------------------------------------------------------------
-  68      [Michael Jordan](https://www.wikidata.org/wiki/Q41421)
-  58      [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)
-  36      [Babe Ruth](https://www.wikidata.org/wiki/Q213812)
-  32      [Elvis Presley](https://www.wikidata.org/wiki/Q303)
-  31      [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)
-  23      [Bill Gates](https://www.wikidata.org/wiki/Q5284)
-  21      [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)
-  21      [Michelangelo](https://www.wikidata.org/wiki/Q5592)
-  21      [Donald Trump](https://www.wikidata.org/wiki/Q22686)
-  21      [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)
-  21      [Madonna](https://www.wikidata.org/wiki/Q1744)
-  20      [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)
-  20      [Tiger Woods](https://www.wikidata.org/wiki/Q10993)
-  18      [Martha Stewart](https://www.wikidata.org/wiki/Q234606)
-  16      [Henry Ford](https://www.wikidata.org/wiki/Q8768)
-  16      [William Shakespeare](https://www.wikidata.org/wiki/Q692)
-  16      [Wolfgang Amadeus Mozart](https://www.wikidata.org/wiki/Q254)
-  15      [Adolf Hitler](https://www.wikidata.org/wiki/Q352)
-  14      [Greta Garbo](https://www.wikidata.org/wiki/Q5443)
-  14      [John Wayne](https://www.wikidata.org/wiki/Q40531)
-  14      [Mother Teresa](https://www.wikidata.org/wiki/Q30547)
-  13      [Napoleon](https://www.wikidata.org/wiki/Q517)
-  13      [Ralph Nader](https://www.wikidata.org/wiki/Q193156)
-  12      [Leonardo da Vinci](https://www.wikidata.org/wiki/Q762)
-  12      [Cal Ripken](https://www.wikidata.org/wiki/Q731168)
-  12      [Leo Tolstoy](https://www.wikidata.org/wiki/Q7243)
-  12      [Oprah Winfrey](https://www.wikidata.org/wiki/Q55800)
-  12      [Rosa Parks](https://www.wikidata.org/wiki/Q41921)
-  12      [Susan Lucci](https://www.wikidata.org/wiki/Q242936)
-  11      [Walt Disney](https://www.wikidata.org/wiki/Q8704)
-  11      [Willie Horton](https://www.wikidata.org/wiki/Q8021572)
-  11      [Rembrandt](https://www.wikidata.org/wiki/Q5598)
-  10      [Albert Einstein](https://www.wikidata.org/wiki/Q937)
-  10      [Thomas Edison](https://www.wikidata.org/wiki/Q8743)
-  10      [Mike Tyson](https://www.wikidata.org/wiki/Q79031)
-  10      [Julia Child](https://www.wikidata.org/wiki/Q214477)
-  9       [Ross Perot](https://www.wikidata.org/wiki/Q313697)
-  9       [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)
-  8       [James Dean](https://www.wikidata.org/wiki/Q83359)
-  8       [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)
+|  count |  source                                                           |
+|  ----: | :------------------------------------------------------------	 |
+|  68    |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)			 |
+|  58    |  [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)		 |
+|  36    |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)				 |
+|  32    |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)				 |
+|  31    |  [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)		 |
+|  23    |  [Bill Gates](https://www.wikidata.org/wiki/Q5284)				 |
+|  21    |  [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)			 |
+|  21    |  [Michelangelo](https://www.wikidata.org/wiki/Q5592)				 |
+|  21    |  [Donald Trump](https://www.wikidata.org/wiki/Q22686)			 |
+|  21    |  [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)		 |
+|  21    |  [Madonna](https://www.wikidata.org/wiki/Q1744)					 |
+|  20    |  [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)			 |
+|  20    |  [Tiger Woods](https://www.wikidata.org/wiki/Q10993)				 |
+|  18    |  [Martha Stewart](https://www.wikidata.org/wiki/Q234606)			 |
+|  16    |  [Henry Ford](https://www.wikidata.org/wiki/Q8768)				 |
+|  16    |  [William Shakespeare](https://www.wikidata.org/wiki/Q692)		 |
+|  16    |  [Wolfgang Amadeus Mozart](https://www.wikidata.org/wiki/Q254)	 |
+|  15    |  [Adolf Hitler](https://www.wikidata.org/wiki/Q352)				 |
+|  14    |  [Greta Garbo](https://www.wikidata.org/wiki/Q5443)				 |
+|  14    |  [John Wayne](https://www.wikidata.org/wiki/Q40531)				 |
+|  14    |  [Mother Teresa](https://www.wikidata.org/wiki/Q30547)			 |
+|  13    |  [Napoleon](https://www.wikidata.org/wiki/Q517)					 |
+|  13    |  [Ralph Nader](https://www.wikidata.org/wiki/Q193156)			 |
+|  12    |  [Leonardo da Vinci](https://www.wikidata.org/wiki/Q762)			 |
+|  12    |  [Cal Ripken](https://www.wikidata.org/wiki/Q731168)				 |
+|  12    |  [Leo Tolstoy](https://www.wikidata.org/wiki/Q7243)				 |
+|  12    |  [Oprah Winfrey](https://www.wikidata.org/wiki/Q55800)			 |
+|  12    |  [Rosa Parks](https://www.wikidata.org/wiki/Q41921)				 |
+|  12    |  [Susan Lucci](https://www.wikidata.org/wiki/Q242936)			 |
+|  11    |  [Walt Disney](https://www.wikidata.org/wiki/Q8704)				 |
+|  11    |  [Willie Horton](https://www.wikidata.org/wiki/Q8021572)			 |
+|  11    |  [Rembrandt](https://www.wikidata.org/wiki/Q5598)				 |
+|  10    |  [Albert Einstein](https://www.wikidata.org/wiki/Q937)			 |
+|  10    |  [Thomas Edison](https://www.wikidata.org/wiki/Q8743)			 |
+|  10    |  [Mike Tyson](https://www.wikidata.org/wiki/Q79031)				 |
+|  10    |  [Julia Child](https://www.wikidata.org/wiki/Q214477)			 |
+|  9     |  [Ross Perot](https://www.wikidata.org/wiki/Q313697)				 |
+|  9     |  [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)			 |
+|  8     |  [James Dean](https://www.wikidata.org/wiki/Q83359)				 |
+|  8     |  [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)        |
 
 categories
 ----------
@@ -175,7 +180,7 @@ categories
 
 Extract the categories for the articles:
 
-``` {.bash .rundoc-block rundoc-language="sh" rundoc-results="silent"}
+``` bash
 export PYTHONIOENCODING=utf-8
 for year in $(seq 1987 2007); do
     ./nyt.py --category ../nyt_corpus_${year}.tar.gz \
@@ -186,7 +191,7 @@ done
 
 Compute frequency distribution over all articles:
 
-``` {.bash .rundoc-block rundoc-language="sh" rundoc-results="silent"}
+``` bash
 cut -d$'\t' -f2 nyt_categories.tsv | sort -S1G | uniq -c \
    | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
                                           > nyt_categories_distrib.tsv
@@ -194,31 +199,30 @@ cut -d$'\t' -f2 nyt_categories.tsv | sort -S1G | uniq -c \
 
 Check the number of and the top categories:
 
-``` {.bash}
+``` bash
 echo articles $(wc -l < nyt_categories.tsv)
 echo categories $(wc -l < nyt_categories_distrib.tsv)
 echo ""
 sort -nrk2 nyt_categories_distrib.tsv | head
 ```
 
-  ------------ ---------
-  articles     1854726
-  categories   1580
-  Business     291982
-  Sports       160888
-  Opinion      134428
-  U.S.         89389
-  Arts         88460
-  World        79786
-  Style        65071
-  Obituaries   19430
-  Magazine     11464
-  Travel       10440
-  ------------ ---------
+|  articles   | 1854726  |
+|  categories | 1580	 |
+|  :--------- | -------: |
+|  Business   | 291982	 |
+|  Sports     | 160888	 |
+|  Opinion    | 134428	 |
+|  U.S.       | 89389	 |
+|  Arts       | 88460	 |
+|  World      | 79786	 |
+|  Style      | 65071	 |
+|  Obituaries | 19430	 |
+|  Magazine   | 11464	 |
+|  Travel     | 10440    |
 
 Collect the categories of the articles
 
-``` {.bash}
+``` bash
 echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T ../README.org | wc -l) articles $(wc -l < ../nyt_categories.tsv)
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -f ../README.org | join ../nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | sort | uniq -c \
@@ -227,34 +231,34 @@ echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_se
     | sort -nr | head -n20
 ```
 
-  vossantos   2646    category                 articles   1854726
-  ----------- ------- ------------------------ ---------- ---------
-  336         12.7%   Sports                   160888     8.7%
-  334         12.6%   Arts                     88460      4.8%
-  290         11.0%   New York and Region      221897     12.0%
-  237         9.0%    Arts; Books              35475      1.9%
-  158         6.0%    Movies; Arts             27759      1.5%
-  109         4.1%    Business                 291982     15.7%
-  102         3.9%    Opinion                  134428     7.2%
-  96          3.6%    U.S.                     89389      4.8%
-  95          3.6%    Magazine                 11464      0.6%
-  62          2.3%    Style                    65071      3.5%
-  61          2.3%    Arts; Theater            13283      0.7%
-  46          1.7%    World                    79786      4.3%
-  39          1.5%    Home and Garden; Style   13978      0.8%
-  32          1.2%    Travel                   10440      0.6%
-  31          1.2%    Technology; Business     23283      1.3%
-  27          1.0%                             42157      2.3%
-  25          0.9%    Week in Review           17107      0.9%
-  25          0.9%    Home and Garden          5546       0.3%
-  17          0.6%    World; Washington        24817      1.3%
-  17          0.6%    Style; Magazine          1519       0.1%
+|  vossantos |  2646   | category                | articles  | 1854726  |
+|  --------: | ------: | :---------------------- | --------: | -------: |
+|  336       |  12.7%  | Sports                  | 160888    | 8.7%		|
+|  334       |  12.6%  | Arts                    | 88460     | 4.8%		|
+|  290       |  11.0%  | New York and Region     | 221897    | 12.0%	|
+|  237       |  9.0%   | Arts; Books             | 35475     | 1.9%		|
+|  158       |  6.0%   | Movies; Arts            | 27759     | 1.5%		|
+|  109       |  4.1%   | Business                | 291982    | 15.7%	|
+|  102       |  3.9%   | Opinion                 | 134428    | 7.2%		|
+|  96        |  3.6%   | U.S.                    | 89389     | 4.8%		|
+|  95        |  3.6%   | Magazine                | 11464     | 0.6%		|
+|  62        |  2.3%   | Style                   | 65071     | 3.5%		|
+|  61        |  2.3%   | Arts; Theater           | 13283     | 0.7%		|
+|  46        |  1.7%   | World                   | 79786     | 4.3%		|
+|  39        |  1.5%   | Home and Garden; Style  | 13978     | 0.8%		|
+|  32        |  1.2%   | Travel                  | 10440     | 0.6%		|
+|  31        |  1.2%   | Technology; Business    | 23283     | 1.3%		|
+|  27        |  1.0%   |                         | 42157     | 2.3%		|
+|  25        |  0.9%   | Week in Review          | 17107     | 0.9%		|
+|  25        |  0.9%   | Home and Garden         | 5546      | 0.3%		|
+|  17        |  0.6%   | World; Washington       | 24817     | 1.3%		|
+|  17        |  0.6%   | Style; Magazine         | 1519      | 0.1%     |
 
 ### desks
 
 Extract the desks for the articles:
 
-``` {.bash .rundoc-block rundoc-language="sh" rundoc-results="silent"}
+``` bash
 export PYTHONIOENCODING=utf-8
 for year in $(seq 1987 2007); do
     ./nyt.py --desk ../nyt_corpus_${year}.tar.gz \
@@ -265,7 +269,7 @@ done
 
 Compute frequency distribution over all articles:
 
-``` {.bash .rundoc-block rundoc-language="sh" rundoc-results="silent"}
+``` bash
 cut -d$'\t' -f2 nyt_desks.tsv | sort -S1G | uniq -c \
    | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
                                           > nyt_desks_distrib.tsv
@@ -273,31 +277,30 @@ cut -d$'\t' -f2 nyt_desks.tsv | sort -S1G | uniq -c \
 
 Check the number of and the top categories:
 
-``` {.bash}
+``` bash
 echo articles $(wc -l < nyt_desks.tsv)
 echo categories $(wc -l < nyt_desks_distrib.tsv)
 echo ""
 sort -t$'\t' -nrk2 nyt_desks_distrib.tsv | head
 ```
 
-  ------------------------- ---------
-  articles                  1854727
-  categories                398
-  Metropolitan Desk         237896
-  Financial Desk            206958
-  Sports Desk               174823
-  National Desk             143489
-  Editorial Desk            131762
-  Foreign Desk              129732
-  Classified                129660
-  Business/Financial Desk   112951
-  Society Desk              44032
-  Cultural Desk             40342
-  ------------------------- ---------
+|  articles                |  1854727   |
+|  categories              |  398		|
+|  :---------------------- |  --------:	|
+|  Metropolitan Desk       |  237896	|
+|  Financial Desk          |  206958	|
+|  Sports Desk             |  174823	|
+|  National Desk           |  143489	|
+|  Editorial Desk          |  131762	|
+|  Foreign Desk            |  129732	|
+|  Classified              |  129660	|
+|  Business/Financial Desk |  112951	|
+|  Society Desk            |  44032		|
+|  Cultural Desk           |  40342     |
 
 Collect the desks of the articles
 
-``` {.bash}
+``` bash
 echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.tsv)
 ./org.py -T -f README.org | join nyt_desks.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | sort | uniq -c \
