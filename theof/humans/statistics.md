@@ -65,63 +65,62 @@ set yrange [0:*]
 set y2range [0:100]
 set y2label 'precision'
 set y2tics
-set key top left
+set key bottom right
 set style fill solid 1
 
-set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
+set term svg enhanced size 800,600 dynamic fname "Noto Sans, Helvetica Neue, Helvetica, Arial, sans-serif" fsize 16
 #set out "nyt_vossantos_over_time.svg"
-plot data using 1:6 with linespoints pt 6 ps 7 lc "black" title 'candidates',\
-     data using 1:7 with linespoints pt 7 ps 7 lc "black"  title 'Vossantos',\
-     data using 1:8 with lines lc "black" title 'precision' axes x1y2
+plot data using 1:6 with linespoints pt 6 title 'candidates',\
+     data using 1:7 with linespoints pt 7 title 'Vossantos',\
+     data using 1:8 with lines            title 'precision' axes x1y2
 
-# data using 1:2 with linespoints pt 7 axes x1y2 title 'cand',\
-#     data using 1:3 with linespoints pt 7 axes x1y2 title 'wd',\
+# for arxiv paper
+set term pdf enhanced lw 2
+set out "nyt_vossantos_over_time.pdf"
+replot
 
+# for DSH paper
 set term png enhanced size 2835,2126 font "Arial,40" lw 4
 # set term png enhanced size 800,600 font "Arial,16" lw  2
 set out "nyt_vossantos_over_time.png"
-replot
-
-# adapted for arxiv paper
-set key bottom right
-set term pdf enhanced lw 2
-set out "nyt_vossantos_over_time.pdf"
-plot data using 1:6 with linespoints pt 6 ps 1 title 'candidates',\
-     data using 1:7 with linespoints pt 7 ps 1 title 'Vossantos',\
-     data using 1:8 with lines title 'precision' axes x1y2
+plot data using 1:6 with linespoints pt 6 ps 7 lc "black" title 'candidates',\
+     data using 1:7 with linespoints pt 7 ps 7 lc "black" title 'Vossantos',\
+     data using 1:8 with lines                 lc "black" title 'precision' axes x1y2
 
 
 # ---- relative values
 
-set key top left
-set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
+set term svg enhanced size 800,600 dynamic fname "Noto Sans, Helvetica Neue, Helvetica, Arial, sans-serif" fsize 16
 set out "nyt_vossantos_over_time_rel.svg"
 set ylabel "frequency (per mille)"
 set format y "%2.1f"
 
-plot data using 1:($6/$2*1000) with linespoints pt 6 ps 7 lc "black" title 'candidates',\
-     data using 1:($7/$2*1000) with linespoints pt 7 ps 7 lc "black"  title 'Vossantos',\
-     data using 1:8 with lines lc "black" title 'precision' axes x1y2
+plot data using 1:($6/$2*1000) with linespoints pt 6 title 'candidates',\
+     data using 1:($7/$2*1000) with linespoints pt 7 title 'Vossantos',\
+     data using 1:8            with lines            title 'precision' axes x1y2
 
+# for arxiv paper
+set term pdf enhanced lw 2
+set out "nyt_vossantos_over_time_rel.pdf"
+replot
 
 set term png enhanced size 2835,2126 font "Arial,40" lw 4
 # set term png enhanced size 800,600 font "Arial,16" lw  2
 set out "nyt_vossantos_over_time_rel.png"
-replot
-
-# adapted for arxiv paper
-set key bottom right
-set term pdf enhanced lw 2
-set out "nyt_vossantos_over_time_rel.pdf"
-plot data using 1:($6/$2*1000) with linespoints pt 6 ps 1 title 'candidates',\
-     data using 1:($7/$2*1000) with linespoints pt 7 ps 1 title 'Vossantos',\
-     data using 1:8 with lines title 'precision' axes x1y2
-
+plot data using 1:($6/$2*1000) with linespoints pt 6 ps 7 lc "black" title 'candidates',\
+     data using 1:($7/$2*1000) with linespoints pt 7 ps 7 lc "black" title 'Vossantos',\
+     data using 1:8            with lines                 lc "black" title 'precision' axes x1y2
 ```
 
-Absolute frequency: ![nyt_vossantos_over_time.png](nyt_vossantos_over_time.png)
+Absolute frequency: ![Absolute number of Vossanto candidates and true
+Vossanto extracted per year.  The right vertical axis measures the
+resulting precision (percentage of true Vossantos among the
+candidates)](nyt_vossantos_over_time.svg)
 
-Relative frequency: ![nyt_vossantos_over_time_rel.png](nyt_vossantos_over_time_rel.png)
+Relative frequency: ![Relative frequency of Vossanto candidates and
+true Vossanto extracted per year.  The right vertical axis measures
+the resulting precision (percentage of true Vossantos among the
+candidates)](nyt_vossantos_over_time_rel.svg)
 
 sources
 -------
