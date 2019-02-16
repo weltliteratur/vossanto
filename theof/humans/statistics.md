@@ -431,7 +431,9 @@ echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_se
 | 14        | 0.5%  |  Stanley, Alessandra    | 1437     |  0.1%	  |
 | 14        | 0.5%  |  Haberman, Clyde        |  2492    |   0.1%     |
 
-### Vossantos of the top author
+### List of all Vossantos coined by the two top-scoring authors
+
+#### Stephen Holden
 
 ``` bash
 # extract list of articles
@@ -603,6 +605,175 @@ done
   Jimmy Stewart of** *folk rock*, in his first Manhattan concert in
   five years.
 
+
+#### Janet Maslin
+
+``` bash
+# extract list of articles
+for article in $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -f ../README.org \
+             | join ../nyt_authors.tsv - | grep "Maslin, Janet" | cut -d' ' -f1 ); do
+  grep "$article" ../README.org
+done
+```
+
+- [Bob Hope](https://www.wikidata.org/wiki/Q94081)
+  ([1993/04/23/0604282](http://www.nytimes.com/1993/04/23/movies/review-film-dialing-911-don-t-bother.html))
+  is loaded with rap-related cameos that work only if you recognize
+  the players (Fab 5 Freddy, Kid Capri, Naughty by Nature and **the
+  Bob Hope of** *rap cinema*, Ice-T), and have little intrinsic humor
+  of their own.
+- [Sandy Dennis](https://www.wikidata.org/wiki/Q239691)
+  ([1993/09/03/0632371](http://www.nytimes.com/1993/09/03/movies/review-film-a-tour-of-homicidal-america.html)) (Ms.
+  Lewis, who has many similar mannerisms, may be fast becoming **the
+  Sandy Dennis of** *her generation*.)
+- [Adolf Hitler](https://www.wikidata.org/wiki/Q352)
+  ([1994/02/04/0666537](https://www.nytimes.com/1994/02/04/movies/critic-s-notebook-when-hollywood-could-be-naughty.html))
+  The terrors of the code, as overseen by Joseph Breen (who was
+  nicknamed "**the Hitler of** *Hollywood*" in some quarters), went
+  beyond the letter of the document and brought about a more
+  generalized moral purge.
+- [Hulk Hogan](https://www.wikidata.org/wiki/Q44176)
+  ([1994/10/25/0720551](http://www.nytimes.com/1994/10/25/books/books-of-the-times-so-libby-should-i-see-the-movie.html))
+  Libby's cousin Andrew, an art director who's "so incredibly creative
+  that, as my mother says, no one's holding their breath for
+  grandchildren," opines that "David Mamet is **the Hulk Hogan of**
+  *the American theater* and that his word processor should be tested
+  for steroids."
+- [Andrew Dice Clay](https://www.wikidata.org/wiki/Q504455)
+  ([1995/09/22/0790066](http://www.nytimes.com/1995/09/22/movies/film-review.html)) Mr.
+  Ezsterhas, **the Andrew Dice Clay of** *screenwriting*, bludgeons
+  the audience with such tirelessly crude thoughts that when a group
+  of chimps get loose in the showgirls' dressing room and all they do
+  is defecate, the film enjoys a rare moment of good taste.
+- [Thomas Jefferson](https://www.wikidata.org/wiki/Q11812)
+  ([1996/01/24/0825044](http://www.nytimes.com/1996/01/24/movies/critic-s-notebook-fighting-over-the-new-talent-at-sundance.html))
+  Last year's overnight sensation, Edward Burns of "The Brothers
+  McMullen," came out of nowhere and now has Jennifer Aniston acting
+  in his new film and Robert Redford, **the Thomas Jefferson of**
+  *Sundance*, helping as a creative consultant.
+- [Elliott Gould](https://www.wikidata.org/wiki/Q314805)
+  ([1996/03/08/0835139](http://www.nytimes.com/1996/03/08/movies/film-review-if-they-haven-t-found-love-by-30-they-ll-jump-well-ok.html))
+  All coy grins and daffy mugging, Mr. Stiller plays the role as if
+  aspiring to become **the Elliott Gould of** *his generation*.
+- [Charlie Parker](https://www.wikidata.org/wiki/Q103767)
+  ([1996/08/09/0870295](http://www.nytimes.com/1996/08/09/movies/a-postcard-picture-of-a-graffiti-artist.html))
+  But for all its admiration, ''Basquiat'' winds up no closer to that
+  assessment than to the critic Robert Hughes's more jaundiced one:
+  ''Far from being **the Charlie Parker of** *SoHo* (as his promoters
+  claimed), he became its Jessica Savitch.''
+- [Aesop](https://www.wikidata.org/wiki/Q43423)
+  ([1996/08/09/0870300](http://www.nytimes.com/1996/08/09/movies/parables-that-blend-love-and-philosophy.html))
+  Eric Rohmer's ''Rendezvous in Paris'' is an oasis of contemplative
+  intelligence in the summer movie season, presenting three graceful
+  and elegant parables with the moral agility that distinguishes Mr.
+  Rohmer as **the Aesop of** *amour*.
+- [Diana Vreeland](https://www.wikidata.org/wiki/Q450619)
+  ([1997/06/06/0934955](http://www.nytimes.com/1997/06/06/movies/man-wanted-must-have-excellent-penmanship.html))
+  The complex aural and visual style of ''The Pillow Book'' involves
+  rectangular insets that flash back to Sei Shonagon (a kind of
+  Windows 995) and illustrate the imperious little lists that made her
+  sound like **the Diana Vreeland of** *10th-century tastes*.
+- [Thomas Edison](https://www.wikidata.org/wiki/Q8743)
+  ([1997/09/19/0958685](http://www.nytimes.com/1997/09/19/movies/film-review-the-dark-underbelly-of-a-sunny-town.html))
+  Danny DeVito embodies this as a gleeful Sid Hudgens (a character
+  whom Mr. Hanson has called ''**the Thomas Edison of** *tabloid
+  journalism*''), who is the unscrupulous editor of a publication
+  called Hush-Hush and winds up linked to many of the other
+  characters' nastiest transgressions.
+- [John Wayne](https://www.wikidata.org/wiki/Q40531)
+  ([1997/09/26/0960422](http://www.nytimes.com/1997/09/26/movies/film-review-where-men-are-manly-and-so-are-bears.html)) Mr.
+  Hopkins, whose creative collaboration with Bart goes back to
+  ''Legends of the Fall,'' has called him ''**the John Wayne of**
+  *bears*.''
+- [Annie Oakley](https://www.wikidata.org/wiki/Q230935)
+  ([1997/12/24/0982708](http://www.nytimes.com/1997/12/24/movies/film-review-smarter-than-she-is-hah.html))
+  Running nearly as long as ''Pulp Fiction'' even though its ambitions
+  are more familiar and small, ''Jackie Brown'' has the makings of
+  another, chattier ''Get Shorty'' with an added homage to Pam Grier,
+  **the Annie Oakley of** *1970's blaxploitation*.
+- [Buster Keaton](https://www.wikidata.org/wiki/Q103949)
+  ([1998/09/18/1047276](http://www.nytimes.com/1998/09/18/movies/film-review-kicks-swivels-and-wisecracks-on-hollywood-boulevard.html))
+  Fortunately, being **the Buster Keaton of** *martial arts*, he makes
+  a doleful expression and comedic physical grace take the place of
+  small talk.
+- [Michelangelo](https://www.wikidata.org/wiki/Q5592)
+  ([1998/09/25/1049076](http://www.nytimes.com/1998/09/25/movies/film-festival-review-jostling-and-stumbling-toward-a-fateful-15-minutes.html))
+  She goes to a plastic surgeon (Michael Lerner) who's been dubbed
+  ''**the Michelangelo of** *Manhattan*'' by Newsweek.
+- [Brian Wilson](https://www.wikidata.org/wiki/Q313013)
+  ([1998/12/31/1073562](http://www.nytimes.com/1998/12/31/movies/critic-s-notebook-beyond-the-meteors-another-riskier-98.html))
+  The enrapturing beauty and peculiar naivete of ''The Thin Red Line''
+  heightened the impression of Terrence Malick as **the Brian Wilson
+  of** *the film world*.
+- [Dante Alighieri](https://www.wikidata.org/wiki/Q1067)
+  ([1999/10/22/1147181](http://www.nytimes.com/1999/10/22/movies/film-review-a-scorsese-devil-hunt.html))
+  Though his latest film explores one more urban inferno and
+  colorfully reaffirms Mr. Scorsese's role as **the Dante of** *the
+  Cinema*, creating its air of nocturnal torment took some doing.
+- [Albert Einstein](https://www.wikidata.org/wiki/Q937)
+  ([2000/12/07/1253134](https://www.nytimes.com/2000/12/07/books/books-of-the-times-tales-with-rivers-of-blood-and-freshets-of-freud.html))
+  In this much coarser and more violent, action-heavy story, Mr.
+  Deaver presents the villainous Dr. Aaron Matthews, whom a newspaper
+  once called ''**the Einstein of** *therapists*'' in the days before
+  Hannibal Lecter became his main career influence.
+- [Émile Zola](https://www.wikidata.org/wiki/Q504)
+  ([2001/03/09/1276449](http://www.nytimes.com/2001/03/09/books/critic-s-notebook-snuggling-up-to-good-and-evil.html))
+  George P. Pelecanos arrives with the best possible recommendations
+  from other crime writers (e.g., Elmore Leonard likes him), and with
+  jacket copy praising him as ''**the Zola of** *Washington, D.C.*''
+  But what he really displays here, in great abundance and to
+  entertaining effect, is a Tarantino touch.
+- [Leonard Cohen](https://www.wikidata.org/wiki/Q1276)
+  ([2002/08/22/1417676](http://www.nytimes.com/2002/08/22/books/books-of-the-times-gliding-through-europe-cloaked-in-diffident-charm.html))
+  The wry, sexy melancholy of his observations would be seductive
+  enough in its own right -- he is **the Leonard Cohen of** *the spy
+  genre* -- even without the sharp political acuity that
+  accompanies it.
+- [Kato Kaelin](https://www.wikidata.org/wiki/Q6377737)
+  ([2003/04/07/1478881](http://www.nytimes.com/2003/04/07/books/books-of-the-times-the-real-estate-agents-who-know-all-see-all.html))
+  Then he has settled in -- as ''a permanent house guest, **the Kato
+  Kaelin of** *the wine country*,'' in the case of Alan Deutschman --
+  and tried to figure out what it all means.
+- [Hulk Hogan](https://www.wikidata.org/wiki/Q44176)
+  ([2003/04/14/1480850](http://www.nytimes.com/2003/04/14/books/books-of-the-times-elegant-magazine-avalanche-of-dirt.html))
+  Meanwhile, at 5 feet 10 tall and 115 pounds, Andy is **the Hulk
+  Hogan of** *this food-phobic crowd*.
+- [Nora Roberts](https://www.wikidata.org/wiki/Q231356)
+  ([2003/04/17/1481531](http://www.nytimes.com/2003/04/17/books/critic-s-notebook-murder-they-wrote-and-wrote.html))
+  For those who write like clockwork (i.e., Stuart Woods, **the Nora
+  Roberts of** *mystery best-sellerdom*), a new book every few months
+  is no surprise.
+- [Henny Youngman](https://www.wikidata.org/wiki/Q2586583)
+  ([2004/03/05/1563840](https://www.nytimes.com/2004/03/05/books/books-of-the-times-a-dizzying-ride-on-the-turntable.html))
+  Together Mr. Yetnikoff and Mr. Ritz devise a kind of sitcom
+  snappiness that turns Mr. Yetnikoff into **the Henny Youngman of**
+  *CBS*.
+- [Frank Stallone](https://www.wikidata.org/wiki/Q959153)
+  ([2004/09/20/1612886](https://www.nytimes.com/2004/09/20/books/20masl.html))
+  He can read the biblical story of Aaron and imagine ''**the Frank
+  Stallone of** *ancient Judaism*.''
+- [Marlon Brando](https://www.wikidata.org/wiki/Q34012)
+  ([2005/11/08/1715899](https://www.nytimes.com/2005/11/08/books/08masl.html))
+  He named his daughter Tuesday, after the actress Tuesday Weld, whom
+  Sam Shepard once called ''**the Marlon Brando of** *women*.''
+- [Jesse James](https://www.wikidata.org/wiki/Q213626)
+  ([2005/12/09/1723424](http://www.nytimes.com/2005/12/09/books/arts/crowd-pleasers-light-reading-gone-wild.html))
+  How else to explain ''Comma Sense,'' which has a blurb from Ms.
+  Truss and claims that the apostrophe is **the Jesse James of**
+  *punctuation marks*?
+- [Elton John](https://www.wikidata.org/wiki/Q2808)
+  ([2006/12/11/1811150](https://www.nytimes.com/2006/12/11/books/11masl.html))
+  Though Foujita had a fashion sense that made him look like **the
+  Elton John of** *Montparnasse* (he favored earrings, bangs and
+  show-stopping homemade costumes), and though he is seen here hand in
+  hand with a male Japanese friend during their shared tunic-wearing
+  phase, he is viewed by Ms. Birnbaum strictly as a lady-killer.
+- [Ernest Hemingway](https://www.wikidata.org/wiki/Q23434)
+  ([2007/04/30/1844006](https://www.nytimes.com/2007/04/30/books/30masl.html)) Mr.
+  Browne also points out that when he introduced Mr. Zevon to an
+  audience as ''**the Ernest Hemingway of** *the twelve-string
+  guitar*,'' Mr. Zevon said he was more like Charles Bronson.
+
 modifiers
 ---------
 
@@ -642,73 +813,73 @@ modifiers
 
 ### time
 
-1.  "today"
+#### "today"
 
-    Who are the sources for the modifier "today"?
+Who are the sources for the modifier "today"?
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /today/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /today/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-     | count  | source                                                            |
-     | -----: | :---------------------------------------------------------------- |
-     | 1      | [Shoeless Joe Jackson](https://www.wikidata.org/wiki/Q955322)	  |
-     | 1      | [Buck Rogers](https://www.wikidata.org/wiki/Q4982930)			  |
-     | 1      | [Bill McGowan](https://www.wikidata.org/wiki/Q4910116)			  |
-     | 1      | [William F. Buckley Jr.](https://www.wikidata.org/wiki/Q378098)	  |
-     | 1      | [Ralph Fiennes](https://www.wikidata.org/wiki/Q28493)			  |
-     | 1      | [Julie London](https://www.wikidata.org/wiki/Q231255)			  |
-     | 1      | [Jimmy Osmond](https://www.wikidata.org/wiki/Q1689414)			  |
-     | 1      | [Harry Cohn](https://www.wikidata.org/wiki/Q1586470)              |
+| count  | source                                                            |
+| -----: | :---------------------------------------------------------------- |
+| 1      | [Shoeless Joe Jackson](https://www.wikidata.org/wiki/Q955322)	  |
+| 1      | [Buck Rogers](https://www.wikidata.org/wiki/Q4982930)			  |
+| 1      | [Bill McGowan](https://www.wikidata.org/wiki/Q4910116)			  |
+| 1      | [William F. Buckley Jr.](https://www.wikidata.org/wiki/Q378098)	  |
+| 1      | [Ralph Fiennes](https://www.wikidata.org/wiki/Q28493)			  |
+| 1      | [Julie London](https://www.wikidata.org/wiki/Q231255)			  |
+| 1      | [Jimmy Osmond](https://www.wikidata.org/wiki/Q1689414)			  |
+| 1      | [Harry Cohn](https://www.wikidata.org/wiki/Q1586470)              |
 
-2.  "his day" or "his time"
+####  "his day" or "his time"
 
-    Who are the sources for the modifiers "his day", "his time", and
-    "his generation"?
+Who are the sources for the modifiers "his day", "his time", and
+"his generation"?
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /his \(day\|time\|generation\)/" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /his \(day\|time\|generation\)/" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head
+```
 
-     | count  | source                                                         |
-     | -----: | :------------------------------------------------------------- |
-     | 3      | [Michael Jordan](https://www.wikidata.org/wiki/Q41421)		   |
-     | 2      | [Mike Tyson](https://www.wikidata.org/wiki/Q79031)			   |
-     | 2      | [Billy Martin](https://www.wikidata.org/wiki/Q508574)		   |
-     | 2      | [Dan Quayle](https://www.wikidata.org/wiki/Q49214)			   |
-     | 2      | [Arnold Schwarzenegger](https://www.wikidata.org/wiki/Q2685)   |
-     | 2      | [Martha Stewart](https://www.wikidata.org/wiki/Q234606)		   |
-     | 2      | [Donald Trump](https://www.wikidata.org/wiki/Q22686)		   |
-     | 2      | [L. Ron Hubbard](https://www.wikidata.org/wiki/Q216896)		   |
-     | 2      | [Tiger Woods](https://www.wikidata.org/wiki/Q10993)			   |
-     | 1      | [Lawrence Taylor](https://www.wikidata.org/wiki/Q963129)       |
+| count  | source                                                         |
+| -----: | :------------------------------------------------------------- |
+| 3      | [Michael Jordan](https://www.wikidata.org/wiki/Q41421)		   |
+| 2      | [Mike Tyson](https://www.wikidata.org/wiki/Q79031)			   |
+| 2      | [Billy Martin](https://www.wikidata.org/wiki/Q508574)		   |
+| 2      | [Dan Quayle](https://www.wikidata.org/wiki/Q49214)			   |
+| 2      | [Arnold Schwarzenegger](https://www.wikidata.org/wiki/Q2685)   |
+| 2      | [Martha Stewart](https://www.wikidata.org/wiki/Q234606)		   |
+| 2      | [Donald Trump](https://www.wikidata.org/wiki/Q22686)		   |
+| 2      | [L. Ron Hubbard](https://www.wikidata.org/wiki/Q216896)		   |
+| 2      | [Tiger Woods](https://www.wikidata.org/wiki/Q10993)			   |
+| 1      | [Lawrence Taylor](https://www.wikidata.org/wiki/Q963129)       |
 
-3.  "her day"
+####  "her day"
 
-    Who are the sources for the modifier "her day"?
+Who are the sources for the modifier "her day"?
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /her day/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /her day/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-     | count  | source                                                    |
-     | -----: | :-------------------------------------------------------- |
-     | 1      | [Hilary Swank](https://www.wikidata.org/wiki/Q93187)	  |
-     | 1      | [Hillary Clinton](https://www.wikidata.org/wiki/Q6294)	  |
-     | 1      | [Marilyn Monroe](https://www.wikidata.org/wiki/Q4616)	  |
-     | 1      | [Judith Krantz](https://www.wikidata.org/wiki/Q452206)	  |
-     | 1      | [Lucia Pamela](https://www.wikidata.org/wiki/Q3838473)	  |
-     | 1      | [Elizabeth Taylor](https://www.wikidata.org/wiki/Q34851)  |
-     | 1      | [Imelda Marcos](https://www.wikidata.org/wiki/Q285536)	  |
-     | 1      | [Laurie Anderson](https://www.wikidata.org/wiki/Q235066)  |
-     | 1      | [Nell Gwyn](https://www.wikidata.org/wiki/Q234163)		  |
-     | 1      | [Annie Leibovitz](https://www.wikidata.org/wiki/Q225283)  |
-     | 1      | [Tara Reid](https://www.wikidata.org/wiki/Q211082)		  |
-     | 1      | [Madonna](https://www.wikidata.org/wiki/Q1744)			  |
-     | 1      | [Maria Callas](https://www.wikidata.org/wiki/Q128297)     |
+| count  | source                                                    |
+| -----: | :-------------------------------------------------------- |
+| 1      | [Hilary Swank](https://www.wikidata.org/wiki/Q93187)	  |
+| 1      | [Hillary Clinton](https://www.wikidata.org/wiki/Q6294)	  |
+| 1      | [Marilyn Monroe](https://www.wikidata.org/wiki/Q4616)	  |
+| 1      | [Judith Krantz](https://www.wikidata.org/wiki/Q452206)	  |
+| 1      | [Lucia Pamela](https://www.wikidata.org/wiki/Q3838473)	  |
+| 1      | [Elizabeth Taylor](https://www.wikidata.org/wiki/Q34851)  |
+| 1      | [Imelda Marcos](https://www.wikidata.org/wiki/Q285536)	  |
+| 1      | [Laurie Anderson](https://www.wikidata.org/wiki/Q235066)  |
+| 1      | [Nell Gwyn](https://www.wikidata.org/wiki/Q234163)		  |
+| 1      | [Annie Leibovitz](https://www.wikidata.org/wiki/Q225283)  |
+| 1      | [Tara Reid](https://www.wikidata.org/wiki/Q211082)		  |
+| 1      | [Madonna](https://www.wikidata.org/wiki/Q1744)			  |
+| 1      | [Maria Callas](https://www.wikidata.org/wiki/Q128297)     |
 
 ### country
 
@@ -735,76 +906,76 @@ modifiers
 
 What are the sources for the modifier ... ?
 
-1.  "Japan"
+####  "Japan"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-          | grep "of\* /Japan/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+      | grep "of\* /Japan/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-    | count |  source                                                  |
-    | ----: | :------------------------------------------------------- |
-    | 5     |  [Walt Disney](https://www.wikidata.org/wiki/Q8704)	   |
-    | 4     |  [Bill Gates](https://www.wikidata.org/wiki/Q5284)	   |
-    | 2     |  [Nolan Ryan](https://www.wikidata.org/wiki/Q721948)	   |
-    | 2     |  [Frank Sinatra](https://www.wikidata.org/wiki/Q40912)   |
-    | 1     |  [Richard Perle](https://www.wikidata.org/wiki/Q966859)  |
-    | 1     |  [Thomas Edison](https://www.wikidata.org/wiki/Q8743)	   |
-    | 1     |  [Cal Ripken](https://www.wikidata.org/wiki/Q731168)	   |
-    | 1     |  [Walter Johnson](https://www.wikidata.org/wiki/Q722059) |
-    | 1     |  [Andy Warhol](https://www.wikidata.org/wiki/Q5603)	   |
-    | 1     |  [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)	   |
-    | 1     |  [William Wyler](https://www.wikidata.org/wiki/Q51495)   |
-    | 1     |  [Stephen King](https://www.wikidata.org/wiki/Q39829)	   |
-    | 1     |  [Brad Pitt](https://www.wikidata.org/wiki/Q35332)	   |
-    | 1     |  [Richard Avedon](https://www.wikidata.org/wiki/Q305497) |
-    | 1     |  [P. D. James](https://www.wikidata.org/wiki/Q270648)	   |
-    | 1     |  [Rem Koolhaas](https://www.wikidata.org/wiki/Q232364)   |
-    | 1     |  [Steve Jobs](https://www.wikidata.org/wiki/Q19837)	   |
-    | 1     |  [Ralph Nader](https://www.wikidata.org/wiki/Q193156)	   |
-    | 1     |  [Madonna](https://www.wikidata.org/wiki/Q1744)		   |
-    | 1     |  [Jack Kerouac](https://www.wikidata.org/wiki/Q160534)   |
+| count |  source                                                  |
+| ----: | :------------------------------------------------------- |
+| 5     |  [Walt Disney](https://www.wikidata.org/wiki/Q8704)	   |
+| 4     |  [Bill Gates](https://www.wikidata.org/wiki/Q5284)	   |
+| 2     |  [Nolan Ryan](https://www.wikidata.org/wiki/Q721948)	   |
+| 2     |  [Frank Sinatra](https://www.wikidata.org/wiki/Q40912)   |
+| 1     |  [Richard Perle](https://www.wikidata.org/wiki/Q966859)  |
+| 1     |  [Thomas Edison](https://www.wikidata.org/wiki/Q8743)	   |
+| 1     |  [Cal Ripken](https://www.wikidata.org/wiki/Q731168)	   |
+| 1     |  [Walter Johnson](https://www.wikidata.org/wiki/Q722059) |
+| 1     |  [Andy Warhol](https://www.wikidata.org/wiki/Q5603)	   |
+| 1     |  [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)	   |
+| 1     |  [William Wyler](https://www.wikidata.org/wiki/Q51495)   |
+| 1     |  [Stephen King](https://www.wikidata.org/wiki/Q39829)	   |
+| 1     |  [Brad Pitt](https://www.wikidata.org/wiki/Q35332)	   |
+| 1     |  [Richard Avedon](https://www.wikidata.org/wiki/Q305497) |
+| 1     |  [P. D. James](https://www.wikidata.org/wiki/Q270648)	   |
+| 1     |  [Rem Koolhaas](https://www.wikidata.org/wiki/Q232364)   |
+| 1     |  [Steve Jobs](https://www.wikidata.org/wiki/Q19837)	   |
+| 1     |  [Ralph Nader](https://www.wikidata.org/wiki/Q193156)	   |
+| 1     |  [Madonna](https://www.wikidata.org/wiki/Q1744)		   |
+| 1     |  [Jack Kerouac](https://www.wikidata.org/wiki/Q160534)   |
 
-2.  "China"
+#### "China"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-          | grep "of\* /China/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+`` bash
+./org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+     | grep "of\* /China/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+``
 
-     | count  | source                                                       |
-     | -----: | :----------------------------------------------------------- |
-     | 4      | [Barbara Walters](https://www.wikidata.org/wiki/Q231417)	 |
-     | 2      | [Jack Welch](https://www.wikidata.org/wiki/Q355314)			 |
-     | 1      | [Louis XIV of France](https://www.wikidata.org/wiki/Q7742)	 |
-     | 1      | [Oskar Schindler](https://www.wikidata.org/wiki/Q60029)		 |
-     | 1      | [Napoleon](https://www.wikidata.org/wiki/Q517)				 |
-     | 1      | [Keith Haring](https://www.wikidata.org/wiki/Q485635)		 |
-     | 1      | [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)	 |
-     | 1      | [Donald Trump](https://www.wikidata.org/wiki/Q22686)		 |
-     | 1      | [Larry King](https://www.wikidata.org/wiki/Q213430)			 |
-     | 1      | [Ted Turner](https://www.wikidata.org/wiki/Q193368)			 |
-     | 1      | [Madonna](https://www.wikidata.org/wiki/Q1744)               |
+| count  | source                                                       |
+| -----: | :----------------------------------------------------------- |
+| 4      | [Barbara Walters](https://www.wikidata.org/wiki/Q231417)	 |
+| 2      | [Jack Welch](https://www.wikidata.org/wiki/Q355314)			 |
+| 1      | [Louis XIV of France](https://www.wikidata.org/wiki/Q7742)	 |
+| 1      | [Oskar Schindler](https://www.wikidata.org/wiki/Q60029)		 |
+| 1      | [Napoleon](https://www.wikidata.org/wiki/Q517)				 |
+| 1      | [Keith Haring](https://www.wikidata.org/wiki/Q485635)		 |
+| 1      | [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)	 |
+| 1      | [Donald Trump](https://www.wikidata.org/wiki/Q22686)		 |
+| 1      | [Larry King](https://www.wikidata.org/wiki/Q213430)			 |
+| 1      | [Ted Turner](https://www.wikidata.org/wiki/Q193368)			 |
+| 1      | [Madonna](https://www.wikidata.org/wiki/Q1744)               |
 
-3.  "Brazil"
+#### "Brazil"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-          | grep "of\* /Brazil/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+      | grep "of\* /Brazil/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-    | count |  source                                                   |
-    | ----: |  :-------------------------------------------------------	|
-    | 1     |  [Giuseppe Verdi](https://www.wikidata.org/wiki/Q7317)	|
-    | 1     |  [Jil Sander](https://www.wikidata.org/wiki/Q69066)		|
-    | 1     |  [Walter Reed](https://www.wikidata.org/wiki/Q613136)		|
-    | 1     |  [Lech Wałęsa](https://www.wikidata.org/wiki/Q444)		|
-    | 1     |  [Jim Morrison](https://www.wikidata.org/wiki/Q44301)		|
-    | 1     |  [Bob Dylan](https://www.wikidata.org/wiki/Q392)			|
-    | 1     |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)		|
-    | 1     |  [Scott Joplin](https://www.wikidata.org/wiki/Q191499)	|
-    | 1     |  [Larry Bird](https://www.wikidata.org/wiki/Q190152)		|
-    | 1     |  [Pablo Escobar](https://www.wikidata.org/wiki/Q187447)   |
+| count |  source                                                   |
+| ----: |  :-------------------------------------------------------	|
+| 1     |  [Giuseppe Verdi](https://www.wikidata.org/wiki/Q7317)	|
+| 1     |  [Jil Sander](https://www.wikidata.org/wiki/Q69066)		|
+| 1     |  [Walter Reed](https://www.wikidata.org/wiki/Q613136)		|
+| 1     |  [Lech Wałęsa](https://www.wikidata.org/wiki/Q444)		|
+| 1     |  [Jim Morrison](https://www.wikidata.org/wiki/Q44301)		|
+| 1     |  [Bob Dylan](https://www.wikidata.org/wiki/Q392)			|
+| 1     |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)		|
+| 1     |  [Scott Joplin](https://www.wikidata.org/wiki/Q191499)	|
+| 1     |  [Larry Bird](https://www.wikidata.org/wiki/Q190152)		|
+| 1     |  [Pablo Escobar](https://www.wikidata.org/wiki/Q187447)   |
 
 ### sports
 
@@ -825,137 +996,137 @@ What are the sources for the modifier ... ?
  
 Who are the sources for the modifier ... ?
 
-1.  "tennis"
+#### "tennis"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /tennis/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /tennis/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-    |  count  | source                                                     |
-    | ------: | :--------------------------------------------------------- |
-    |  2      | [George Foreman](https://www.wikidata.org/wiki/Q213919)	   |
-    |  1      | [Tim McCarver](https://www.wikidata.org/wiki/Q7803927)	   |
-    |  1      | [Pete Rose](https://www.wikidata.org/wiki/Q739866)		   |
-    |  1      | [Nolan Ryan](https://www.wikidata.org/wiki/Q721948)		   |
-    |  1      | [Crash Davis](https://www.wikidata.org/wiki/Q5182352)	   |
-    |  1      | [Spike Lee](https://www.wikidata.org/wiki/Q51566)		   |
-    |  1      | [John Madden](https://www.wikidata.org/wiki/Q51516)		   |
-    |  1      | [Michael Jordan](https://www.wikidata.org/wiki/Q41421)	   |
-    |  1      | [John Wayne](https://www.wikidata.org/wiki/Q40531)		   |
-    |  1      | [George Hamilton](https://www.wikidata.org/wiki/Q359416)   |
-    |  1      | [Michael Dukakis](https://www.wikidata.org/wiki/Q319099)   |
-    |  1      | [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)   |
-    |  1      | [Babe Ruth](https://www.wikidata.org/wiki/Q213812)		   |
-    |  1      | [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)	   |
-    |  1      | [Madonna](https://www.wikidata.org/wiki/Q1744)             |
+|  count  | source                                                     |
+| ------: | :--------------------------------------------------------- |
+|  2      | [George Foreman](https://www.wikidata.org/wiki/Q213919)	   |
+|  1      | [Tim McCarver](https://www.wikidata.org/wiki/Q7803927)	   |
+|  1      | [Pete Rose](https://www.wikidata.org/wiki/Q739866)		   |
+|  1      | [Nolan Ryan](https://www.wikidata.org/wiki/Q721948)		   |
+|  1      | [Crash Davis](https://www.wikidata.org/wiki/Q5182352)	   |
+|  1      | [Spike Lee](https://www.wikidata.org/wiki/Q51566)		   |
+|  1      | [John Madden](https://www.wikidata.org/wiki/Q51516)		   |
+|  1      | [Michael Jordan](https://www.wikidata.org/wiki/Q41421)	   |
+|  1      | [John Wayne](https://www.wikidata.org/wiki/Q40531)		   |
+|  1      | [George Hamilton](https://www.wikidata.org/wiki/Q359416)   |
+|  1      | [Michael Dukakis](https://www.wikidata.org/wiki/Q319099)   |
+|  1      | [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)   |
+|  1      | [Babe Ruth](https://www.wikidata.org/wiki/Q213812)		   |
+|  1      | [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)	   |
+|  1      | [Madonna](https://www.wikidata.org/wiki/Q1744)             |
 
-2.  "baseball"
+#### "baseball"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /baseball/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /baseball/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-    | count |  source                                                       |
-    | ----: | :------------------------------------------------------------	|
-    | 2     |  [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)		|
-    | 2     |  [Larry Bird](https://www.wikidata.org/wiki/Q190152)			|
-    | 1     |  [Clifford Irving](https://www.wikidata.org/wiki/Q960612)		|
-    | 1     |  [Mike Tyson](https://www.wikidata.org/wiki/Q79031)			|
-    | 1     |  [Thomas Dooley](https://www.wikidata.org/wiki/Q695751)		|
-    | 1     |  [Marco Polo](https://www.wikidata.org/wiki/Q6101)			|
-    | 1     |  [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)			|
-    | 1     |  [Horatio Alger](https://www.wikidata.org/wiki/Q453251)		|
-    | 1     |  [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)	|
-    | 1     |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)		|
-    | 1     |  [Alan Alda](https://www.wikidata.org/wiki/Q310394)			|
-    | 1     |  [Brandon Tartikoff](https://www.wikidata.org/wiki/Q2923786)	|
-    | 1     |  [Howard Hughes](https://www.wikidata.org/wiki/Q189081)		|
-    | 1     |  [Thomas Jefferson](https://www.wikidata.org/wiki/Q11812)     |
+| count |  source                                                       |
+| ----: | :------------------------------------------------------------	|
+| 2     |  [P. T. Barnum](https://www.wikidata.org/wiki/Q223766)		|
+| 2     |  [Larry Bird](https://www.wikidata.org/wiki/Q190152)			|
+| 1     |  [Clifford Irving](https://www.wikidata.org/wiki/Q960612)		|
+| 1     |  [Mike Tyson](https://www.wikidata.org/wiki/Q79031)			|
+| 1     |  [Thomas Dooley](https://www.wikidata.org/wiki/Q695751)		|
+| 1     |  [Marco Polo](https://www.wikidata.org/wiki/Q6101)			|
+| 1     |  [Pablo Picasso](https://www.wikidata.org/wiki/Q5593)			|
+| 1     |  [Horatio Alger](https://www.wikidata.org/wiki/Q453251)		|
+| 1     |  [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)	|
+| 1     |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)		|
+| 1     |  [Alan Alda](https://www.wikidata.org/wiki/Q310394)			|
+| 1     |  [Brandon Tartikoff](https://www.wikidata.org/wiki/Q2923786)	|
+| 1     |  [Howard Hughes](https://www.wikidata.org/wiki/Q189081)		|
+| 1     |  [Thomas Jefferson](https://www.wikidata.org/wiki/Q11812)     |
 
-3.  "basketball"
+#### "basketball"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /basketball/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /basketball/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-    |  count |  source                                                           |
-    | -----: | :---------------------------------------------------------------- |
-    |  2     |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)				 |
-    |  1     |  [Joseph Stalin](https://www.wikidata.org/wiki/Q855)				 |
-    |  1     |  [Martin Luther King, Jr.](https://www.wikidata.org/wiki/Q8027)	 |
-    |  1     |  [Pol Pot](https://www.wikidata.org/wiki/Q39464)					 |
-    |  1     |  [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)		 |
-    |  1     |  [Adolf Hitler](https://www.wikidata.org/wiki/Q352)				 |
-    |  1     |  [Bugsy Siegel](https://www.wikidata.org/wiki/Q315487)			 |
-    |  1     |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)				 |
-    |  1     |  [Chuck Yeager](https://www.wikidata.org/wiki/Q271939)            |
+|  count |  source                                                           |
+| -----: | :---------------------------------------------------------------- |
+|  2     |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)				 |
+|  1     |  [Joseph Stalin](https://www.wikidata.org/wiki/Q855)				 |
+|  1     |  [Martin Luther King, Jr.](https://www.wikidata.org/wiki/Q8027)	 |
+|  1     |  [Pol Pot](https://www.wikidata.org/wiki/Q39464)					 |
+|  1     |  [Johnny Appleseed](https://www.wikidata.org/wiki/Q369675)		 |
+|  1     |  [Adolf Hitler](https://www.wikidata.org/wiki/Q352)				 |
+|  1     |  [Bugsy Siegel](https://www.wikidata.org/wiki/Q315487)			 |
+|  1     |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)				 |
+|  1     |  [Chuck Yeager](https://www.wikidata.org/wiki/Q271939)            |
 
-4.  "golf"
+#### "golf"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /golf/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /golf/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-    |  count |  source                                                    |
-    | -----: | :--------------------------------------------------------- |
-    |  2     |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)	  |
-    |  2     |  [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)  |
-    |  1     |  [J. D. Salinger](https://www.wikidata.org/wiki/Q79904)	  |
-    |  1     |  [James Brown](https://www.wikidata.org/wiki/Q5950)		  |
-    |  1     |  [Marlon Brando](https://www.wikidata.org/wiki/Q34012)	  |
-    |  1     |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)        |
+|  count |  source                                                    |
+| -----: | :--------------------------------------------------------- |
+|  2     |  [Michael Jordan](https://www.wikidata.org/wiki/Q41421)	  |
+|  2     |  [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)  |
+|  1     |  [J. D. Salinger](https://www.wikidata.org/wiki/Q79904)	  |
+|  1     |  [James Brown](https://www.wikidata.org/wiki/Q5950)		  |
+|  1     |  [Marlon Brando](https://www.wikidata.org/wiki/Q34012)	  |
+|  1     |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)        |
 
-5.  "football"
+#### "football"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /football/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /football/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-    | count  | source                                                     |
-    | -----: | :--------------------------------------------------------- |
-    | 1      | [Ann Calvello](https://www.wikidata.org/wiki/Q4766303)	  |
-    | 1      | [Bobby Fischer](https://www.wikidata.org/wiki/Q41314)	  |
-    | 1      | [Patrick Henry](https://www.wikidata.org/wiki/Q311885)	  |
-    | 1      | [Susan Lucci](https://www.wikidata.org/wiki/Q242936)		  |
-    | 1      | [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)	  |
-    | 1      | [Babe Ruth](https://www.wikidata.org/wiki/Q213812)		  |
-    | 1      | [Rich Little](https://www.wikidata.org/wiki/Q1341644)      |
+| count  | source                                                     |
+| -----: | :--------------------------------------------------------- |
+| 1      | [Ann Calvello](https://www.wikidata.org/wiki/Q4766303)	  |
+| 1      | [Bobby Fischer](https://www.wikidata.org/wiki/Q41314)	  |
+| 1      | [Patrick Henry](https://www.wikidata.org/wiki/Q311885)	  |
+| 1      | [Susan Lucci](https://www.wikidata.org/wiki/Q242936)		  |
+| 1      | [Jackie Robinson](https://www.wikidata.org/wiki/Q221048)	  |
+| 1      | [Babe Ruth](https://www.wikidata.org/wiki/Q213812)		  |
+| 1      | [Rich Little](https://www.wikidata.org/wiki/Q1341644)      |
 
-6.  "soccer"
+#### "soccer"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /soccer/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /soccer/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-    | count  | source                                                    |
-    | -----: | :-------------------------------------------------------- |
-    | 1      | [James Brown](https://www.wikidata.org/wiki/Q5950)		 |
-    | 1      | [Michael Jordan](https://www.wikidata.org/wiki/Q41421)	 |
-    | 1      | [Larry Brown](https://www.wikidata.org/wiki/Q380013)		 |
-    | 1      | [Derek Jeter](https://www.wikidata.org/wiki/Q353511)		 |
-    | 1      | [Ernie Banks](https://www.wikidata.org/wiki/Q3051017)	 |
-    | 1      | [Magic Johnson](https://www.wikidata.org/wiki/Q134183)    |
+| count  | source                                                    |
+| -----: | :-------------------------------------------------------- |
+| 1      | [James Brown](https://www.wikidata.org/wiki/Q5950)		 |
+| 1      | [Michael Jordan](https://www.wikidata.org/wiki/Q41421)	 |
+| 1      | [Larry Brown](https://www.wikidata.org/wiki/Q380013)		 |
+| 1      | [Derek Jeter](https://www.wikidata.org/wiki/Q353511)		 |
+| 1      | [Ernie Banks](https://www.wikidata.org/wiki/Q3051017)	 |
+| 1      | [Magic Johnson](https://www.wikidata.org/wiki/Q134183)    |
 
-7.  "racing"
+#### "racing"
 
-    ``` bash
-    ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
-        | grep "of\* /racing/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-    ```
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+    | grep "of\* /racing/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+```
 
-    | count  | source                                                        |
-    | -----: | :------------------------------------------------------------ |
-    | 2      | [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)	 |
-    | 1      | [John Madden](https://www.wikidata.org/wiki/Q51516)			 |
-    | 1      | [Bobo Holloman](https://www.wikidata.org/wiki/Q4935855)		 |
-    | 1      | [Lou Gehrig](https://www.wikidata.org/wiki/Q357444)			 |
-    | 1      | [Wayne Gretzky](https://www.wikidata.org/wiki/Q209518)        |
+| count  | source                                                        |
+| -----: | :------------------------------------------------------------ |
+| 2      | [Rodney Dangerfield](https://www.wikidata.org/wiki/Q436386)	 |
+| 1      | [John Madden](https://www.wikidata.org/wiki/Q51516)			 |
+| 1      | [Bobo Holloman](https://www.wikidata.org/wiki/Q4935855)		 |
+| 1      | [Lou Gehrig](https://www.wikidata.org/wiki/Q357444)			 |
+| 1      | [Wayne Gretzky](https://www.wikidata.org/wiki/Q209518)        |
 
 ### culture
 
