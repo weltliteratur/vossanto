@@ -10,6 +10,9 @@
 # Author: rja
 #
 # Changes:
+# 2019-02-15 (rja)
+# - added "-g" option to output original line and "-H" to print year headings
+# - bumped version from 0.0.6 to 0.7.0 for semantic versioning
 # 2018-10-24 (rja)
 # - added option "--ignore-source-ids" to ignore candidates where the
 #   source id is contained in the given file
@@ -49,7 +52,7 @@ import argparse
 import sys
 from collections import OrderedDict
 
-version = "0.0.6"
+version = "0.7.0"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -142,9 +145,9 @@ def read_dict(flines, sep='\t', comment='#'):
     return d
 
 def gen_truefalse(candidates, true_positive, false_positive):
-    for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status in candidates:
+    for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line in candidates:
         if true_positive == false_positive or true_positive == trueVoss or false_positive != trueVoss:
-            yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status
+            yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line
 
 
 # Skip all candidates whose source's id is contained in sourcefile.
@@ -153,9 +156,9 @@ def gen_truefalse(candidates, true_positive, false_positive):
 def gen_filter_sources(candidates, sourcefile):
     if sourcefile:
         sources = read_dict(sourcefile)
-        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status in candidates:
+        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line in candidates:
             if sourceId not in sources:
-                yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status
+                yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line
     else:
         for cand in candidates:
             yield cand
@@ -173,13 +176,13 @@ def gen_rm_ctrl(parts):
 
 # generates a key for a Vossanto
 def get_key(parts):
-    year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status = parts
+    year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line = parts
     key = "|".join([year, aid, sourcePhrase, re_clean.sub('', sentence)])
     return year, key
 
-def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus, sclassification):
-    if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus]):
-        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status in parts:
+def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus, sclassification, sline):
+    if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus, sline]):
+        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line in parts:
             result = []
             if syear:
                 result.append(year)
@@ -207,6 +210,8 @@ def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel
                 result.append(status)
             if sclassification:
                 result.append(trueVoss)
+            if sline:
+                result.append(line.strip())
             yield result
     else:
         # when nothing has been selected, return everything
@@ -233,7 +238,7 @@ def match_line(line):
         # extract from sentence
         sourcePhrase = extract_sourcephrase(sentence)
         modifier = extract_modifier(sentence, trueVoss)
-        return year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status
+        return year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line
     return None
 
 # extract the modifier (enclosed in /.../) from the sentence
@@ -289,7 +294,27 @@ def part_to_string(p):
     if p is None:
         return ""
     return str(p)
-    
+
+# print CSV/TSV lines
+def print_csv(parts, sep):
+    for part in parts:
+        print(sep.join([part_to_string(p) for p in part]))
+
+# prints heading for each year
+# must be called before select_parts, such that year information is available
+# works by interleaving printing with the iteration through yield
+def print_heading(parts):
+    # to detect changing years (to print a heading)
+    prev_year = None
+    for part in parts:
+        # first element is year (FIXME: remove dependency on order)
+        year = part[0]
+        if year != prev_year:
+            print("\n**", year)
+        prev_year = year
+        # this enables us print the heading between the final print statements
+        yield part
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Manipulate Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -300,6 +325,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--classification', action="store_true", help="output classification (True/False)")
     parser.add_argument('-d', '--date', action="store_true", help="output date")
     parser.add_argument('-f', '--fileid', action="store_true", help="output file id")
+    parser.add_argument('-g', '--original', action="store_true", help="output original line")
     parser.add_argument('-i', '--sourceid', action="store_true", help="output Wikidata source id")
     parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
     parser.add_argument('-o', '--modifier', action="store_true", help="output modifier")
@@ -315,6 +341,7 @@ if __name__ == '__main__':
     # output format options
     parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
     parser.add_argument('-C', '--clean', action="store_true", help="clean whitespace")
+    parser.add_argument('-H', '--heading', action="store_true", help="print year heading")
     parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
     # special options
     parser.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
@@ -360,8 +387,10 @@ if __name__ == '__main__':
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
         parts = gen_filter_sources(parts, args.ignore_source_ids)
-        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata, args.status, args.classification)
+        if args.heading:
+            # interleaving the headings works by yielding the parts in a loop
+            parts = print_heading(parts)
+        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata, args.status, args.classification, args.original)
         if args.clean:
             parts = gen_rm_ctrl(parts)
-        for part in parts:
-            print(args.separator.join([part_to_string(p) for p in part]))
+        print_csv(parts, args.separator)

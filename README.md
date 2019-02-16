@@ -17,3 +17,12 @@ Antonomasie](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.h
 ## TheOf Approach
 - [Poster Lange Nacht der Wissenschaften 2018](https://doi.org/10.6084%2fm9.figshare.6531140)
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/theof)
+
+## DSH Paper
+- [Statistics](theof/humans/statistics.md)
+- [List](theof/humans/vossantos.md)
+
+Fischer, F., Jäschke, R.: ‘The Michael Jordan of greatness’—Extracting
+Vossian antonomasia from two decades of The New York Times,
+1987–2007. *Digital Scholarship in the
+Humanities*. 2019. DOI:[10.1093/llc/fqy087](https://doi.org/10.1093/llc/fqy087) 
