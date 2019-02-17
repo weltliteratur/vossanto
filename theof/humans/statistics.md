@@ -113,15 +113,15 @@ plot data using 1:($6/$2*1000) with linespoints pt 6 ps 7 lc "black" title 'cand
 ```
 
 Absolute frequency: ![Absolute Frequency](nyt_vossantos_over_time.svg
-"Absolute number of Vossanto candidates and true Vossanto extracted
-per year.  The right vertical axis measures the resulting precision
-(percentage of true Vossantos among the candidates)")
+"Absolute number of VA candidates and true VA extracted per year.  The
+right vertical axis measures the resulting precision (percentage of
+true VA among the candidates)")
 
 Relative frequency: ![Relative
-Frequency](nyt_vossantos_over_time_rel.svg "Relative frequency of
-Vossanto candidates and true Vossanto extracted per year.  The right
-vertical axis measures the resulting precision (percentage of true
-Vossantos among the candidates)")
+Frequency](nyt_vossantos_over_time_rel.svg "Relative frequency of VA
+candidates and true VA extracted per year.  The right vertical axis
+measures the resulting precision (percentage of true VA among the
+candidates)")
 
 Top-40 VA Sources
 -----------------
