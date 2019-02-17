@@ -1,3 +1,16 @@
+## Complete List of Successfully Extracted VA
+
+This is a list of all 2,646 results for Vossian Antonomasia
+("X is the Y of Z") extracted from the
+[*New York Times* corpus 1987–2007](https://catalog.ldc.upenn.edu/LDC2008T19).
+
+Full paper:<br />
+Fischer, F., Jäschke, R.: ‘The Michael Jordan of greatness’—Extracting
+Vossian antonomasia from two decades of The New York Times, 1987–2007.
+*Digital Scholarship in the Humanities.* 2019.
+(DOI:[10.1093/llc/fqy087](https://doi.org/10.1093/llc/fqy087)) (Preprint: tba)
+
+
 [1987](#1987) |
 [1988](#1988) |
 [1989](#1989) |
