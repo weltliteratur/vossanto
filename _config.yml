@@ -1,7 +1,7 @@
 theme: jekyll-theme-minimal
 title: Vossian Antonomasia
 logo: https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Gerardus_Johannes_Vossius_%281577-1649%29%2C_by_Anonymous.jpg/201px-Gerardus_Johannes_Vossius_%281577-1649%29%2C_by_Anonymous.jpg
-description: Automatic extraction of Vossian Antonomasia from large newspaper corpora.<br /><br />(The image shows Gerardus Vossius, 1577–1649.)
+description: Automatic extraction of Vossian antonomasia from large newspaper corpora.<br /> <br />(Shout-out to Gerardus Vossius, 1577–1649.)
 
 readme_index:
   remove_originals: true
