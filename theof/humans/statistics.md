@@ -968,10 +968,10 @@ What are the sources for the modifier ... ?
 
 #### "China"
 
-`` bash
-./org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
      | grep "of\* /China/" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
-``
+```
 
 | count  | source                                                       |
 | -----: | :----------------------------------------------------------- |
