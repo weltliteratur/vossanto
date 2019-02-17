@@ -123,8 +123,8 @@ Vossanto candidates and true Vossanto extracted per year.  The right
 vertical axis measures the resulting precision (percentage of true
 Vossantos among the candidates)")
 
-sources
--------
+Top-40 Sources
+--------------
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T ../README.org | sort | uniq -c | sort -nr | head -n40
@@ -173,46 +173,50 @@ sources
 |  8     |  [James Dean](https://www.wikidata.org/wiki/Q83359)				 |
 |  8     |  [Mikhail Gorbachev](https://www.wikidata.org/wiki/Q30487)        |
 
-![Michael Jordan](https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Michael_Jordan.jpg/169px-Michael_Jordan.jpg) © [Joshua Massel](https://commons.wikimedia.org/wiki/File:Michael_Jordan.jpg) / CC-BY-SA 2.0
-![RodneyDangerfield](https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpg) © [JimAccordino](https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg)/ CC-BY 3.0
-![Babe Ruth](https://upload.wikimedia.org/wikipedia/commons/c/cb/Babe_Ruth_cropped.jpg)
-![Elvis Presley](https://upload.wikimedia.org/wikipedia/commons/2/2d/PresleyPromo1954PhotoOnly.jpg)
-![Johnny Appleseed](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Johnny_Appleseed_1.jpg/146px-Johnny_Appleseed_1.jpg)
-![Bill Gates](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bill_Gates_2018.jpg/191px-Bill_Gates_2018.jpg)
-![Pablo Picasso](https://upload.wikimedia.org/wikipedia/commons/a/a9/Pablo_picasso_1_%28cuadrado%29.jpg)
-![Michelangelo](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Miguel_%C3%81ngel%2C_por_Daniele_da_Volterra_%28detalle%29.jpg/207px-Miguel_%C3%81ngel%2C_por_Daniele_da_Volterra_%28detalle%29.jpg)
-![Donald Trump](https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Donald_Trump_official_portrait_%28cropped%29.jpg/174px-Donald_Trump_official_portrait_%28cropped%29.jpg)
-![Jackie Robinson](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Jrobinson.jpg/303px-Jrobinson.jpg)
-![Madonna](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Madonna_Rebel_Heart_Tour_2015_-_Stockholm_%2823051472299%29_%28cropped_2%29.jpg/191px-Madonna_Rebel_Heart_Tour_2015_-_Stockholm_%2823051472299%29_%28cropped_2%29.jpg) © [chrisweger](https://commons.wikimedia.org/wiki/File:Madonna_Rebel_Heart_Tour_2015_-_Stockholm_(23051472299)_(cropped_2).jpg) / CC-BY-SA 2.0
-![P. T. Barnum](https://upload.wikimedia.org/wikipedia/commons/d/df/Phineas_Taylor_Barnum_portrait.jpg)
-![Tiger Woods](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/TigerWoodsOct2011.jpg/250px-TigerWoodsOct2011.jpg) © [Angela George](https://commons.wikimedia.org/wiki/File:TigerWoodsOct2011.jpg) / CC-BY-SA 3.0
-![Martha Stewart](https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Martha_Stewart_2011_Shankbone.JPG/160px-Martha_Stewart_2011_Shankbone.JPG) © [David Shankbone](https://commons.wikimedia.org/wiki/File:Martha_Stewart_2011_Shankbone.JPG) / CC-BY 3.0
-![Henry Ford](https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Henry_ford_1919.jpg/188px-Henry_ford_1919.jpg)
-![William Shakespeare](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/187px-Shakespeare.jpg)
-![Wolfgang Amadeus Mozart](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Mozart-small.jpg/202px-Mozart-small.jpg)
-![Adolf Hitler](https://upload.wikimedia.org/wikipedia/commons/e/e1/Hitler_portrait_crop.jpg) © [Bundesarchiv, Bild 183-H1216-0500-002](https://commons.wikimedia.org/wiki/File:Hitler_portrait_crop.jpg) / CC-BY-SA 3.0
-![Greta Garbo](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Garbo-Anna_Karenina-036.jpg/183px-Garbo-Anna_Karenina-036.jpg)
-![John Wayne](https://upload.wikimedia.org/wikipedia/commons/4/40/John_Wayne_portrait.jpg)
-![Mother Teresa](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/MotherTeresa_090.jpg/180px-MotherTeresa_090.jpg) © [Túrelio](https://commons.wikimedia.org/wiki/File:MotherTeresa_090.jpg) / CC-BY-SA 2.0
-![Napoleon](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg/144px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg)
-![Ralph Nader](https://upload.wikimedia.org/wikipedia/commons/8/8e/Ralph_nader_portrait.jpg) © [Don LaVange](https://commons.wikimedia.org/wiki/File:Ralph_nader_portrait.jpg) / CC-BY-SA 2.0
-![Leonardo da Vinci](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg/154px-Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg)
-![Cal Ripken](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Cal_Ripken.jpg/179px-Cal_Ripken.jpg) © [Cal Ripken](https://commons.wikimedia.org/wiki/File:Cal_Ripken.jpg) / CC-BY-SA 2.0
-![Leo Tolstoy](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Leo_Tolstoy%2C_portrait.jpg/176px-Leo_Tolstoy%2C_portrait.jpg)
-![Oprah Winfrey](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Oprah_in_2014.jpg/181px-Oprah_in_2014.jpg) © [aphrodite-in-nyc](https://commons.wikimedia.org/wiki/File:Oprah_in_2014.jpg) / CC-BY 2.0
-![Rosa Parks](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Rosaparks.jpg/198px-Rosaparks.jpg)
-![Susan Lucci](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Susan_Lucci_Heart_Truth_2009.jpg/124px-Susan_Lucci_Heart_Truth_2009.jpg)
-![Walt Disney](https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Walt_Disney_1946.JPG/160px-Walt_Disney_1946.JPG)
-![Rembrandt](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg/185px-Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg)
-![Albert Einstein](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/180px-Albert_Einstein_Head.jpg)
-![Thomas Edison](https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Thomas_Edison2-crop.jpg/192px-Thomas_Edison2-crop.jpg)
-![Mike Tyson](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Mike_Tyson_Portrait.jpg/160px-Mike_Tyson_Portrait.jpg) © [birzer](https://commons.wikimedia.org/wiki/File:Mike_Tyson_Portrait.jpg) / CC-BY 2.0
-![Julia Child](https://upload.wikimedia.org/wikipedia/commons/f/fe/Julia_Child_restore.jpg) © [Elsa Dorfman](https://commons.wikimedia.org/wiki/File:Julia_Child_restore.jpg) / CC-BY-SA 3.0
-![Ross Perot](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RossPerotColor.jpg/180px-RossPerotColor.jpg) © [Allan Warren](https://commons.wikimedia.org/wiki/File:RossPerotColor.jpg) / CC-BY-SA 3.0
-![Dennis Rodman](https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Dennis_Rodman_ToPo.jpg/159px-Dennis_Rodman_ToPo.jpg) © [ 	Tuomas Venhola](https://commons.wikimedia.org/wiki/File:Dennis_Rodman_ToPo.jpg) / CC-BY-SA 1.0
-![James Dean](https://upload.wikimedia.org/wikipedia/commons/a/a4/James_Dean_in_East_of_Eden_trailer_2.jpg)
-![Mikhail Gorbachev](https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_%28crop%29.jpg/190px-RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_%28crop%29.jpg) © [RIA Novosti archive](https://commons.wikimedia.org/wiki/File:RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_(crop).jpg) / CC-BY-SA 3.0
+Top-40 Gallery
+--------------
 
+… pulled from Wikidata via Property:P18 (one entity has no image provided in Wikidata)
+
+<a href="https://commons.wikimedia.org/wiki/File:Michael_Jordan.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Michael_Jordan.jpg/169px-Michael_Jordan.jpg" alt="Michael Jordan" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpg" alt="Rodney Dangerfield" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Babe_Ruth_cropped.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Babe_Ruth_cropped.jpg" alt="Babe Ruth" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:PresleyPromo1954PhotoOnly.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/PresleyPromo1954PhotoOnly.jpg" alt="Elvis Presley" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Johnny_Appleseed_1.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Johnny_Appleseed_1.jpg/146px-Johnny_Appleseed_1.jpg" alt="Johnny Appleseed" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Bill_Gates_2018.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bill_Gates_2018.jpg/191px-Bill_Gates_2018.jpg" alt="Bill Gates" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Pablo_picasso_1_(cuadrado).jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Pablo_picasso_1_%28cuadrado%29.jpg" alt="Pablo Picasso" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Miguel_%C3%81ngel,_por_Daniele_da_Volterra_(detalle).jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Miguel_%C3%81ngel%2C_por_Daniele_da_Volterra_%28detalle%29.jpg/207px-Miguel_%C3%81ngel%2C_por_Daniele_da_Volterra_%28detalle%29.jpg" alt="Michelangelo" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Donald_Trump_official_portrait_(cropped).jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Donald_Trump_official_portrait_%28cropped%29.jpg/174px-Donald_Trump_official_portrait_%28cropped%29.jpg" alt="Donald Trump" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Jrobinson.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Jrobinson.jpg/303px-Jrobinson.jpg" alt="Jackie Robinson" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Madonna_Rebel_Heart_Tour_2015_-_Stockholm_(23051472299)_(cropped_2).jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Madonna_Rebel_Heart_Tour_2015_-_Stockholm_%2823051472299%29_%28cropped_2%29.jpg/191px-Madonna_Rebel_Heart_Tour_2015_-_Stockholm_%2823051472299%29_%28cropped_2%29.jpg" alt="Madonna" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Phineas_Taylor_Barnum_portrait.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Phineas_Taylor_Barnum_portrait.jpg" alt="P. T. Barnum" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:TigerWoodsOct2011.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/TigerWoodsOct2011.jpg/250px-TigerWoodsOct2011.jpg" alt="Tiger Woods" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Martha_Stewart_2011_Shankbone.JPG"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Martha_Stewart_2011_Shankbone.JPG/160px-Martha_Stewart_2011_Shankbone.JPG" alt="Martha Stewart" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Henry_ford_1919.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Henry_ford_1919.jpg/188px-Henry_ford_1919.jpg" alt="Henry Ford" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Shakespeare.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/187px-Shakespeare.jpg" alt="William Shakespeare" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Mozart-small.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Mozart-small.jpg/202px-Mozart-small.jpg" alt="Wolfgang Amadeus Mozart" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Hitler_portrait_crop.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Hitler_portrait_crop.jpg" alt="Adolf Hitler" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Garbo-Anna_Karenina-036.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Garbo-Anna_Karenina-036.jpg/183px-Garbo-Anna_Karenina-036.jpg" alt="Greta Garbo" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:John_Wayne_portrait.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/4/40/John_Wayne_portrait.jpg" alt="John Wayne" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:MotherTeresa_090.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/MotherTeresa_090.jpg/180px-MotherTeresa_090.jpg" alt="Mother Teresa" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg/144px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project_2.jpg" alt="Napoleon" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Ralph_nader_portrait.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Ralph_nader_portrait.jpg" alt="Ralph Nader" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg/154px-Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg" alt="Leonardo da Vinci" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Cal_Ripken.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Cal_Ripken.jpg/179px-Cal_Ripken.jpg" alt="Cal Ripken" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Leo_Tolstoy,_portrait.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Leo_Tolstoy%2C_portrait.jpg/176px-Leo_Tolstoy%2C_portrait.jpg" alt="Leo Tolstoy" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Oprah_in_2014.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Oprah_in_2014.jpg/181px-Oprah_in_2014.jpg" alt="Oprah Winfrey" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Rosaparks.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Rosaparks.jpg/198px-Rosaparks.jpg" alt="Rosa Parks" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Susan_Lucci_Heart_Truth_2009.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Susan_Lucci_Heart_Truth_2009.jpg/124px-Susan_Lucci_Heart_Truth_2009.jpg" alt="Susan Lucci" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Walt_Disney_1946.JPG"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Walt_Disney_1946.JPG/160px-Walt_Disney_1946.JPG" alt="Walt Disney" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg/185px-Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg" alt="Rembrandt" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Albert_Einstein_Head.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/180px-Albert_Einstein_Head.jpg" alt="Albert Einstein" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Thomas_Edison2-crop.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Thomas_Edison2-crop.jpg/192px-Thomas_Edison2-crop.jpg" alt="Thomas Edison" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Mike_Tyson_Portrait.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Mike_Tyson_Portrait.jpg/160px-Mike_Tyson_Portrait.jpg" alt="Mike Tyson" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Julia_Child_restore.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Julia_Child_restore.jpg" alt="Julia Child" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:RossPerotColor.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RossPerotColor.jpg/180px-RossPerotColor.jpg" alt="Ross Perot" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Dennis_Rodman_ToPo.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Dennis_Rodman_ToPo.jpg/159px-Dennis_Rodman_ToPo.jpg" alt="Dennis Rodman" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:James_Dean_in_East_of_Eden_trailer_2.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/James_Dean_in_East_of_Eden_trailer_2.jpg" alt="James Dean" height="140" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_(crop).jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_%28crop%29.jpg/190px-RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_%28crop%29.jpg" alt="Mikhail Gorbachev" height="140" /></a>
 
 categories
 ----------
