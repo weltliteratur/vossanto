@@ -1,12 +1,12 @@
-statistics
-==========
+Some More Statistics
+====================
 
-An "executable" version of that file can be found in [statistics.org](statistics.org).
+An "executable" version of this file is [statistics.org](statistics.org).
 
-temporal distribution
+Temporal Distribution
 ---------------------
 
-We plot some temporal distributions:
+Let us check how Vossian Antonomasia (VA) is spread across the whole corpus:
 
 ``` bash
 echo "year articles cand wd wd+bl found true prec"
@@ -48,11 +48,11 @@ done
 |  **mean** |  88320    |  546403   |  4606  |  180   |  179   |  132  |  73.7 |  1.49  |
 
 The table shows the temporal distribution of the number of candidate
-phrases (cand), after matching against Wikidata (wd) and a blacklist
-(wd+bl), and after manual inspection (true). The last column shows the
-precision.
+phrases (cand) after matching against Wikidata (wd) and a blacklist
+(wd+bl), and after the manual inspection (true). The last column shows
+the precision.
 
-We plot some of the columns:
+Let us plot some of the columns:
 
 ``` gnuplot
 reset
@@ -123,8 +123,10 @@ Vossanto candidates and true Vossanto extracted per year.  The right
 vertical axis measures the resulting precision (percentage of true
 Vossantos among the candidates)")
 
-Top-40 Sources
---------------
+Top-40 VA Sources
+-----------------
+
+Let us count the most frequent sources for Vossian Antonomasia:
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T ../README.org | sort | uniq -c | sort -nr | head -n40
@@ -176,7 +178,7 @@ Top-40 Sources
 Top-40 Gallery
 --------------
 
-… pulled from Wikidata via Property:P18 (one entity has no image provided in Wikidata)
+… pulled from Wikidata via Property:P18 (one entity has no image provided in Wikidata):
 
 <a href="https://commons.wikimedia.org/wiki/File:Michael_Jordan.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Michael_Jordan.jpg/169px-Michael_Jordan.jpg" alt="Michael Jordan" height="140" /></a>
 <a href="https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpg" alt="Rodney Dangerfield" height="140" /></a>
@@ -218,12 +220,12 @@ Top-40 Gallery
 <a href="https://commons.wikimedia.org/wiki/File:James_Dean_in_East_of_Eden_trailer_2.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/James_Dean_in_East_of_Eden_trailer_2.jpg" alt="James Dean" height="140" /></a>
 <a href="https://commons.wikimedia.org/wiki/File:RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_(crop).jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_%28crop%29.jpg/190px-RIAN_archive_850809_General_Secretary_of_the_CPSU_CC_M._Gorbachev_%28crop%29.jpg" alt="Mikhail Gorbachev" height="140" /></a>
 
-categories
+Categories
 ----------
 
 ### online
 
-Extract the categories for the articles:
+Extract the categories of articles:
 
 ``` bash
 export PYTHONIOENCODING=utf-8
@@ -265,7 +267,7 @@ sort -nrk2 nyt_categories_distrib.tsv | head
 |  Magazine   | 11464	 |
 |  Travel     | 10440    |
 
-Collect the categories of the articles
+Collect the categories of the articles:
 
 ``` bash
 echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T ../README.org | wc -l) articles $(wc -l < ../nyt_categories.tsv)
@@ -301,7 +303,7 @@ echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_se
 
 ### desks
 
-Extract the desks for the articles:
+Extract the desks of the articles:
 
 ``` bash
 export PYTHONIOENCODING=utf-8
@@ -343,7 +345,7 @@ sort -t$'\t' -nrk2 nyt_desks_distrib.tsv | head
 |  Society Desk            |  44032		|
 |  Cultural Desk           |  40342     |
 
-Collect the desks of the articles
+Collect the desks of the articles:
 
 ``` bash
 echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.tsv)
@@ -377,13 +379,12 @@ echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.
 |  12        |  0.4%  |                         |  6288     |  0.3%	   |
 |  9         |  0.3%  | Travel Desk             |  23277    |  1.3%    |
 
-Note: there are many errors in the specification of the desks ... so
-this table should be digested with care.
+Sidenote: There are many errors in the specification of desks.
 
-authors
+Authors
 -------
 
-Extract the authors for the articles:
+Extract the authors of articles:
 
 ``` bash
 export PYTHONIOENCODING=utf-8
@@ -425,9 +426,9 @@ sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
 | Curry, Jack         | 3654	 |
 | Truscott, Alan      | 3646    | 
 
-**requires cleansing!**
+**requires clean-upg!**
 
-Collect the authors of the articles
+Collect the authors of the articles:
 
 ``` bash
 echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T ../README.org | wc -l) articles $(wc -l < ../nyt_authors.tsv)
@@ -461,9 +462,9 @@ echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_se
 | 14        | 0.5%  |  Stanley, Alessandra    | 1437     |  0.1%	  |
 | 14        | 0.5%  |  Haberman, Clyde        |  2492    |   0.1%     |
 
-### List of all Vossantos coined by the two top-scoring authors
+### List of All VA Coined by the Two Top-Scoring Authors
 
-#### Stephen Holden
+#### [Stephen Holden](https://en.wikipedia.org/wiki/Stephen_Holden)
 
 ``` bash
 # extract list of articles
@@ -635,8 +636,7 @@ done
   Jimmy Stewart of** *folk rock*, in his first Manhattan concert in
   five years.
 
-
-#### Janet Maslin
+#### [Janet Maslin](https://en.wikipedia.org/wiki/Janet_Maslin)
 
 ``` bash
 # extract list of articles
@@ -804,7 +804,7 @@ done
   audience as ''**the Ernest Hemingway of** *the twelve-string
   guitar*,'' Mr. Zevon said he was more like Charles Bronson.
 
-modifiers
+Modifiers
 ---------
 
 ``` bash
@@ -841,11 +841,11 @@ modifiers
 | 8      | dance			 |
 
 
-### time
+### Time
 
-#### "today"
+#### "Today"
 
-Who are the sources for the modifier "today"?
+Who are the sources for the modifier "… of today"?
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -863,10 +863,10 @@ Who are the sources for the modifier "today"?
 | 1      | [Jimmy Osmond](https://www.wikidata.org/wiki/Q1689414)			  |
 | 1      | [Harry Cohn](https://www.wikidata.org/wiki/Q1586470)              |
 
-####  "his day" or "his time"
+####  "His Day" or "His Time"
 
-Who are the sources for the modifiers "his day", "his time", and
-"his generation"?
+Who are the sources for the modifiers "… of his day", "… of his time", and
+"… of his generation"?
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -886,9 +886,9 @@ Who are the sources for the modifiers "his day", "his time", and
 | 2      | [Tiger Woods](https://www.wikidata.org/wiki/Q10993)			   |
 | 1      | [Lawrence Taylor](https://www.wikidata.org/wiki/Q963129)       |
 
-####  "her day"
+####  "Her Day"
 
-Who are the sources for the modifier "her day"?
+Who are the sources for the modifier "… of her day"?
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -911,7 +911,7 @@ Who are the sources for the modifier "her day"?
 | 1      | [Madonna](https://www.wikidata.org/wiki/Q1744)			  |
 | 1      | [Maria Callas](https://www.wikidata.org/wiki/Q128297)     |
 
-### country
+### Country
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -o -T ../README.org \
@@ -1007,7 +1007,7 @@ What are the sources for the modifier ... ?
 | 1     |  [Larry Bird](https://www.wikidata.org/wiki/Q190152)		|
 | 1     |  [Pablo Escobar](https://www.wikidata.org/wiki/Q187447)   |
 
-### sports
+### Sports
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -o -T ../README.org \
@@ -1026,7 +1026,7 @@ What are the sources for the modifier ... ?
  
 Who are the sources for the modifier ... ?
 
-#### "tennis"
+#### "Tennis"
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -1051,7 +1051,7 @@ Who are the sources for the modifier ... ?
 |  1      | [Dennis Rodman](https://www.wikidata.org/wiki/Q201608)	   |
 |  1      | [Madonna](https://www.wikidata.org/wiki/Q1744)             |
 
-#### "baseball"
+#### "Baseball"
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -1075,7 +1075,7 @@ Who are the sources for the modifier ... ?
 | 1     |  [Howard Hughes](https://www.wikidata.org/wiki/Q189081)		|
 | 1     |  [Thomas Jefferson](https://www.wikidata.org/wiki/Q11812)     |
 
-#### "basketball"
+#### "Basketball"
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -1094,7 +1094,7 @@ Who are the sources for the modifier ... ?
 |  1     |  [Elvis Presley](https://www.wikidata.org/wiki/Q303)				 |
 |  1     |  [Chuck Yeager](https://www.wikidata.org/wiki/Q271939)            |
 
-#### "golf"
+#### "Golf"
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -1110,7 +1110,7 @@ Who are the sources for the modifier ... ?
 |  1     |  [Marlon Brando](https://www.wikidata.org/wiki/Q34012)	  |
 |  1     |  [Babe Ruth](https://www.wikidata.org/wiki/Q213812)        |
 
-#### "football"
+#### "Football"
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -1127,7 +1127,7 @@ Who are the sources for the modifier ... ?
 | 1      | [Babe Ruth](https://www.wikidata.org/wiki/Q213812)		  |
 | 1      | [Rich Little](https://www.wikidata.org/wiki/Q1341644)      |
 
-#### "soccer"
+#### "Soccer"
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -1143,7 +1143,7 @@ Who are the sources for the modifier ... ?
 | 1      | [Ernie Banks](https://www.wikidata.org/wiki/Q3051017)	 |
 | 1      | [Magic Johnson](https://www.wikidata.org/wiki/Q134183)    |
 
-#### "racing"
+#### "Racing"
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -w -T -t -c ../README.org \
@@ -1158,7 +1158,7 @@ Who are the sources for the modifier ... ?
 | 1      | [Lou Gehrig](https://www.wikidata.org/wiki/Q357444)			 |
 | 1      | [Wayne Gretzky](https://www.wikidata.org/wiki/Q209518)        |
 
-### culture
+### Culture
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -o ../README.org \
@@ -1245,10 +1245,8 @@ the Michael Jordan of
 - women's ball
 - women's basketball
 
-favourites
-----------
-
-Robert:
+Some Favourites
+---------------
 
 - [Marquis de Sade](https://www.wikidata.org/wiki/Q123867)
   (1993/09/26/0636952) When we introduced Word in October 1983, in its
@@ -1261,8 +1259,8 @@ Robert:
   Groucho Marx of** physics, turned the quest for nuclear substructure
   into a cause celebre.
 
-list of vossantos
-=================
+Complete List of Successfully Extracted VA
+==========================================
 
 ``` bash
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -g -H -T ../README.org \
