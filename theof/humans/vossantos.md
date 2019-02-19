@@ -8,7 +8,8 @@ Full paper:<br />
 Fischer, F., Jäschke, R.: ‘The Michael Jordan of greatness’—Extracting
 Vossian antonomasia from two decades of The New York Times, 1987–2007.
 *Digital Scholarship in the Humanities.* 2019.
-(DOI:[10.1093/llc/fqy087](https://doi.org/10.1093/llc/fqy087)) (Preprint: tba)
+(DOI:[10.1093/llc/fqy087](https://doi.org/10.1093/llc/fqy087))
+(Preprint: [arXiv:1902.06428](https://arxiv.org/abs/1902.06428))
 
 
 [1987](#1987) |
