@@ -374,29 +374,29 @@ Collect the authors of the articles
       | sort -nr | head -n20
 #+END_SRC
 
-| vossantos |  2646 | author                | articles | 1854726 |
-|-----------+-------+-----------------------+----------+---------|
-|       411 | 15.5% |                       |   961052 |   51.8% |
-|        30 |  1.1% | Holden, Stephen       |     5098 |    0.3% |
-|        29 |  1.1% | Maslin, Janet         |     2874 |    0.2% |
-|        26 |  1.0% | Vecsey, George        |     2739 |    0.1% |
-|        23 |  0.9% | Sandomir, Richard     |     3140 |    0.2% |
-|        22 |  0.8% | Ketcham, Diane        |      717 |    0.0% |
-|        20 |  0.8% | Kisselgoff, Anna      |     2661 |    0.1% |
-|        19 |  0.7% | Dowd, Maureen         |     1647 |    0.1% |
-|        19 |  0.7% | Berkow, Ira           |     1704 |    0.1% |
-|        18 |  0.7% | Kimmelman, Michael    |     1515 |    0.1% |
-|        17 |  0.6% | Brown, Patricia Leigh |      568 |    0.0% |
-|        16 |  0.6% | Pareles, Jon          |     4090 |    0.2% |
-|        16 |  0.6% | Chass, Murray         |     4544 |    0.2% |
-|        15 |  0.6% | Smith, Roberta        |     2497 |    0.1% |
-|        15 |  0.6% | Lipsyte, Robert       |      817 |    0.0% |
-|        15 |  0.6% | Grimes, William       |     1368 |    0.1% |
-|        15 |  0.6% | Barron, James         |     2188 |    0.1% |
-|        15 |  0.6% | Anderson, Dave        |     2735 |    0.1% |
-|        14 |  0.5% | Stanley, Alessandra   |     1437 |    0.1% |
-|        14 |  0.5% | Haberman, Clyde       |     2492 |    0.1% |
-#+TBLFM: $2=($-1/@1$2)*100;%2.1f%%::$5=($-1/@1$5)*100;%2.1f%%
+| vossantos |  2646 | author                | articles | 1854726 |      |
+|-----------+-------+-----------------------+----------+---------+------|
+|       411 | 15.5% |                       |   961052 |   51.8% | 2338 |
+|        30 |  1.1% | Holden, Stephen       |     5098 |    0.3% |  170 |
+|        29 |  1.1% | Maslin, Janet         |     2874 |    0.2% |   99 |
+|        26 |  1.0% | Vecsey, George        |     2739 |    0.1% |  105 |
+|        23 |  0.9% | Sandomir, Richard     |     3140 |    0.2% |  137 |
+|        22 |  0.8% | Ketcham, Diane        |      717 |    0.0% |   33 |
+|        20 |  0.8% | Kisselgoff, Anna      |     2661 |    0.1% |  133 |
+|        19 |  0.7% | Dowd, Maureen         |     1647 |    0.1% |   87 |
+|        19 |  0.7% | Berkow, Ira           |     1704 |    0.1% |   90 |
+|        18 |  0.7% | Kimmelman, Michael    |     1515 |    0.1% |   84 |
+|        17 |  0.6% | Brown, Patricia Leigh |      568 |    0.0% |   33 |
+|        16 |  0.6% | Pareles, Jon          |     4090 |    0.2% |  256 |
+|        16 |  0.6% | Chass, Murray         |     4544 |    0.2% |  284 |
+|        15 |  0.6% | Smith, Roberta        |     2497 |    0.1% |  166 |
+|        15 |  0.6% | Lipsyte, Robert       |      817 |    0.0% |   54 |
+|        15 |  0.6% | Grimes, William       |     1368 |    0.1% |   91 |
+|        15 |  0.6% | Barron, James         |     2188 |    0.1% |  146 |
+|        15 |  0.6% | Anderson, Dave        |     2735 |    0.1% |  182 |
+|        14 |  0.5% | Stanley, Alessandra   |     1437 |    0.1% |  103 |
+|        14 |  0.5% | Haberman, Clyde       |     2492 |    0.1% |  178 |
+#+TBLFM: $2=($-1/@1$2)*100;%2.1f%%::$5=($-1/@1$5)*100;%2.1f%%::$6=$-2/$-5;%2.0f
 
 *** List of all Vossantos coined by the two top-scoring authors
 
