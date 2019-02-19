@@ -426,7 +426,7 @@ sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
 | Curry, Jack         | 3654	 |
 | Truscott, Alan      | 3646    | 
 
-**requires clean-upg!**
+**requires clean-up!**
 
 Collect the authors of the articles:
 
