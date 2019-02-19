@@ -16,6 +16,7 @@ Vossian antonomasia from two decades of The New York Times,
 
 - [Some More Statistics](theof/humans/statistics.md) (**recommended**)
 - [Complete List of Extracted VA](theof/humans/vossantos.md) (**recommended**)
+- [Twitter thread](https://twitter.com/umblaetterer/status/1097865223564869635)
 
 ## First Approach (February, 2017)
 - [Slides DHd 2017, Bern](https://lehkost.github.io/slides/2017-bern/) (in German)
