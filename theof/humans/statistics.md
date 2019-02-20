@@ -71,7 +71,7 @@ set style fill solid 1
 set term svg enhanced size 800,600 dynamic fname "Noto Sans, Helvetica Neue, Helvetica, Arial, sans-serif" fsize 16
 #set out "nyt_vossantos_over_time.svg"
 plot data using 1:6 with linespoints pt 6 title 'candidates',\
-     data using 1:7 with linespoints pt 7 title 'Vossantos',\
+     data using 1:7 with linespoints pt 7 title 'VA',\
      data using 1:8 with lines            title 'precision' axes x1y2
 
 # for arxiv paper
@@ -84,7 +84,7 @@ set term png enhanced size 2835,2126 font "Arial,40" lw 4
 # set term png enhanced size 800,600 font "Arial,16" lw  2
 set out "nyt_vossantos_over_time.png"
 plot data using 1:6 with linespoints pt 6 ps 7 lc "black" title 'candidates',\
-     data using 1:7 with linespoints pt 7 ps 7 lc "black" title 'Vossantos',\
+     data using 1:7 with linespoints pt 7 ps 7 lc "black" title 'VA',\
      data using 1:8 with lines                 lc "black" title 'precision' axes x1y2
 
 
@@ -96,7 +96,7 @@ set ylabel "frequency (per mille)"
 set format y "%2.1f"
 
 plot data using 1:($6/$2*1000) with linespoints pt 6 title 'candidates',\
-     data using 1:($7/$2*1000) with linespoints pt 7 title 'Vossantos',\
+     data using 1:($7/$2*1000) with linespoints pt 7 title 'VA',\
      data using 1:8            with lines            title 'precision' axes x1y2
 
 # for arxiv paper
@@ -108,7 +108,7 @@ set term png enhanced size 2835,2126 font "Arial,40" lw 4
 # set term png enhanced size 800,600 font "Arial,16" lw  2
 set out "nyt_vossantos_over_time_rel.png"
 plot data using 1:($6/$2*1000) with linespoints pt 6 ps 7 lc "black" title 'candidates',\
-     data using 1:($7/$2*1000) with linespoints pt 7 ps 7 lc "black" title 'Vossantos',\
+     data using 1:($7/$2*1000) with linespoints pt 7 ps 7 lc "black" title 'VA',\
      data using 1:8            with lines                 lc "black" title 'precision' axes x1y2
 ```
 
@@ -270,7 +270,7 @@ sort -nrk2 nyt_categories_distrib.tsv | head
 Collect the categories of the articles:
 
 ``` bash
-echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T ../README.org | wc -l) articles $(wc -l < ../nyt_categories.tsv)
+echo "VA" $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T ../README.org | wc -l) articles $(wc -l < ../nyt_categories.tsv)
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -f ../README.org | join ../nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | sort | uniq -c \
     | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
@@ -278,7 +278,7 @@ echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_se
     | sort -nr | head -n20
 ```
 
-|  vossantos |  2646   | category                | articles  | 1854726  |
+|  VA        |  2646   | category                | articles  | 1854726  |
 |  --------: | ------: | :---------------------- | --------: | -------: |
 |  336       |  12.7%  | Sports                  | 160888    | 8.7%		|
 |  334       |  12.6%  | Arts                    | 88460     | 4.8%		|
@@ -348,7 +348,7 @@ sort -t$'\t' -nrk2 nyt_desks_distrib.tsv | head
 Collect the desks of the articles:
 
 ``` bash
-echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.tsv)
+echo "VA" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.tsv)
 ./org.py -T -f README.org | join nyt_desks.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | sort | uniq -c \
     | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
@@ -356,7 +356,7 @@ echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.
     | sort -nr | head -n20
 ```
 
-|  vossantos |  2764  | desk                    |  articles |  1854727 |
+|  VA        |  2764  | desk                    |  articles |  1854727 |
 | ---------: |  ----: | :---------------------- |  -------: | -------: |
 |  133       |  4.8%  | Sports Desk             |  174823   |  9.4%	   |
 |  77        |  2.8%  | Cultural Desk           |  40342    |  2.2%	   |
@@ -431,7 +431,7 @@ sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
 Collect the authors of the articles:
 
 ``` bash
-echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T ../README.org | wc -l) articles $(wc -l < ../nyt_authors.tsv)
+echo "VA" $(../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T ../README.org | wc -l) articles $(wc -l < ../nyt_authors.tsv)
 ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -f ../README.org | join ../nyt_authors.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | sort | uniq -c \
     | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
@@ -439,7 +439,7 @@ echo "vossantos" $(../org.py --ignore-source-ids fictional_humans_in_our_data_se
     | sort -nr | head -n20
 ```
 
-| vossantos | 2646  |  author                 | articles |  1854726   |
+| VA        | 2646  |  author                 | articles |  1854726   |
 | --------: | ----: | :---------------------- | -------: | ---------: |
 | 411       | 15.5% |                         | 961052   |  51.8%	  |
 | 30        | 1.1%  |  Holden, Stephen        | 5098     |  0.3%	  |
