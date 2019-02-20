@@ -805,16 +805,16 @@ done
   guitar*,'' Mr. Zevon said he was more like Charles Bronson.
 
 
-### Relative frequency
+### Relative Frequency
 
 The previous table shows the most prolific authors in terms of the
-*absolute* number of VA within the corpus. As authors that have
-written more articles had more chances to use a VA, we here compare
-the *relative* number of VA. Therefore, we compute how many articles
-of an author we need on average to find a VA. The smaller this number,
-the more often the author uses VA in their articles. So, '33' would
-mean that on average a VA occurs in every 33rd article. We will use a
-threshold of at least 1000 articles to filter authors that only
+*absolute* number of VA used. Naturally, authors who wrote more articles
+had more chances to throw in VA expressions, so let's also compare
+the *relative* number of VA used. We compute how many articles per
+author we need on average to encounter one VA. The smaller this number,
+the more often the author uses VA in their articles. So, '18' would
+mean that on average a VA occurs in every 18th article. We will use a
+threshold of at least 1000 articles to filter authors who only
 occasionally wrote for the NYT.
 
 ``` bash
