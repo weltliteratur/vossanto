@@ -561,7 +561,7 @@ that only occasionally wrote for the NYT.
 |            51.6 |  5 |      258 | Schoemer, Karen                |
 |            53.5 |  2 |      107 | Prose, Francine                |
 
-*** at least 100 articles
+*** at least 1000 articles
 
 #+BEGIN_SRC sh
   ../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -f ../README.org \
