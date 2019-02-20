@@ -804,6 +804,52 @@ done
   audience as ''**the Ernest Hemingway of** *the twelve-string
   guitar*,'' Mr. Zevon said he was more like Charles Bronson.
 
+
+### Relative frequency
+
+The previous table shows the most prolific authors in terms of the
+*absolute* number of VA within the corpus. As authors that have
+written more articles had more chances to use a VA, we here compare
+the *relative* number of VA. Therefore, we compute how many articles
+of an author we need on average to find a VA. The smaller this number,
+the more often the author uses VA in their articles. So, '33' would
+mean that on average a VA occurs in every 33rd article. We will use a
+threshold of at least 1000 articles to filter authors that only
+occasionally wrote for the NYT.
+
+``` bash
+../org.py --ignore-source-ids fictional_humans_in_our_data_set.tsv -T -f ../README.org \
+    | join ../nyt_authors.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+    | sort | uniq -c \
+    | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
+    | join -t$'\t' -o1.2,2.2,1.1 - ../nyt_authors_distrib.tsv \
+    | awk -F$'\t' '{if ($2 >= 1000) printf "%3.1f\t%i\t%i\t%s\n", $2/$1, $1, $2, $3}' \
+    | LC_NUMERIC=en_US.UTF-8 sort -n | head -n20
+```
+
+| articles per VA | VA | articles | author              |
+| --------------: | -: | -------: | :-----------------  |
+|            84.2 | 18 |     1515 | Kimmelman, Michael  |
+|            86.7 | 19 |     1647 | Dowd, Maureen       |
+|            89.7 | 19 |     1704 | Berkow, Ira         |
+|            91.2 | 15 |     1368 | Grimes, William     |
+|            99.1 | 29 |     2874 | Maslin, Janet       |
+|           102.6 | 14 |     1437 | Stanley, Alessandra |
+|           105.3 | 26 |     2739 | Vecsey, George      |
+|           111.4 | 11 |     1225 | Strauss, Neil       |
+|           112.6 | 10 |     1126 | Scott, A O          |
+|           112.9 | 10 |     1129 | Rich, Frank         |
+|           113.0 | 12 |     1356 | Apple, R W Jr       |
+|           132.5 | 12 |     1590 | Longman, Jere       |
+|           133.1 | 20 |     2661 | Kisselgoff, Anna    |
+|           136.5 | 23 |     3140 | Sandomir, Richard   |
+|           138.6 | 14 |     1940 | Araton, Harvey      |
+|           139.5 | 13 |     1814 | Martin, Douglas     |
+|           139.9 | 10 |     1399 | Verhovek, Sam Howe  |
+|           145.9 | 15 |     2188 | Barron, James       |
+|           146.0 |  8 |     1168 | Gates, Anita        |
+|           154.6 |  9 |     1391 | Collins, Glenn      |
+
 Modifiers
 ---------
 
