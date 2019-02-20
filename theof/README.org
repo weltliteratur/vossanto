@@ -19,6 +19,9 @@ The following list of annotated sentences constitutes the current (and
 continuously updated) dataset used for creating statistics and
 derivative datasets (e.g., for our [[file:theof/][2019 DSH paper]]).
 
+/(Note: unfortunately, GitHub does not render the complete list. Get
+it as a [[https://raw.githubusercontent.com/weltliteratur/vossanto/master/theof/README.org][raw org-file]].)/
+
 * results
 
 ** 1987
