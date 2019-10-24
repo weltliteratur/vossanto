@@ -1,0 +1,33 @@
+
+#+TITLE: "A Buster Keaton of Linguistics": First Automated Approaches for the Extraction of Vossian Antonomasia
+#+AUTHOR: Michel Schwab, Robert Jäschke, Frank Fischer, Jannik Strötgen
+#+EMAIL: michel.schwab@hu-berlin.de
+#+DATE: Oktober 24, 2019
+#+KEYWORDS:
+#+DESCRIPTION:
+#+TAGS:
+#+LANGUAGE: en
+#+OPTIONS: toc:nil ':t H:5
+#+STARTUP: hidestars overview
+#+LaTeX_CLASS: article
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+#+latex_header: \usepackage[margin=2cm]{geometry}
+#+PANDOC_OPTIONS:
+
+* Michel Schwab, Robert Jäschke, Frank Fischer, Jannik Strötgen*
+
+** Corpus 
+
+** Approaches
+
+*** Baseline
+
+*** WD
+
+*** NER
+
+*** BLSTM
+
+** Results and Statistics
+
+** Data
