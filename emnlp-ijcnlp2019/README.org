@@ -18,7 +18,8 @@
 - Authors: Michel Schwab, Robert Jäschke, Frank Fischer, Jannik Strötgen
 - Contact: michel.schwab@hu-berlin.de
 ** Corpus 
-
+1 Extending [[https://arxiv.org/abs/1902.06428][Fischer and Jäschke (2019]] approach 
+2 Labeling data by expert 
 ** Identification of source candidates (using regex)
 1. Extract sentences that contain the pattern described in the paper
 #+BEGIN_SRC sh
@@ -34,6 +35,16 @@ python clean.py
 
 ** Approaches
 *** Baseline
+wikidata entity matching
+1. Entity matching and linking
+#+BEGIN_SRC sh
+ python check_wikidata.py theof_${year}.tsv wikidata_humans.tsv > pattern_${year}_wd.tsv
+#+END_SRC
+2. Blacklist 
+#+BEGIN_SRC sh
+python check_wikidata.py --blacklist blacklist.tsv theof_${year}.tsv wikidata_humans.tsv > theof_${year}_wd_bl.tsv
+#+END_SRC
+see: [[https://arxiv.org/abs/1902.06428][Fischer and Jäschke (2019]]
     
 *** WD
 wikidata entity matching
@@ -65,6 +76,7 @@ wikidata entity matching
 #+BEGIN_SRC sh
  python lstm.py 
 #+END_SRC
+
 
 ** Results and Statistics
 
