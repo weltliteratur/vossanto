@@ -22,13 +22,14 @@
 ** Identification of source candidates (using regex)
 1. Extract sentences that contain the pattern described in the paper
 #+BEGIN_SRC sh
-*** python theof.py nyt_corpus_${year}.tar.gz -r 1
+python theof.py nyt_corpus_${year}.tar.gz -r 1
 #+END_SRC
-- The input files are gzipped TAR files for each year, containing the XML files (one for each article).
+
+The input files are gzipped TAR files for each year, containing the XML files (one for each article).
 
 2. Removing duplicates
 #+BEGIN_SRC sh
-*** python clean.py 
+python clean.py 
 #+END_SRC
 
 ** Approaches
