@@ -18,7 +18,7 @@
 - Authors: Michel Schwab, Robert Jäschke, Frank Fischer, Jannik Strötgen
 - Contact: michel.schwab@hu-berlin.de
 ** Corpus 
-1. Extending [[https://arxiv.org/abs/1902.06428][Fischer and Jäschke (2019]] approach 
+1. Extending [[https://arxiv.org/abs/1902.06428][Fischer and Jäschke (2019)]] approach 
 2. Labeling data by expert 
 ** Identification of source candidates (using regex)
 1. Extract sentences that contain the pattern described in the paper
@@ -44,8 +44,8 @@ wikidata entity matching
 #+BEGIN_SRC sh
 python check_wikidata.py --blacklist blacklist.tsv theof_${year}.tsv wikidata_humans.tsv > theof_${year}_wd_bl.tsv
 #+END_SRC
-see: [[https://arxiv.org/abs/1902.06428][Fischer and Jäschke (2019]]
-    
+see: [[https://arxiv.org/abs/1902.06428][Fischer and Jäschke (2019)]]
+
 *** WD
 wikidata entity matching
 1. Entity matching and linking
@@ -82,12 +82,12 @@ wikidata entity matching
 
 
 ** Python Source Code
-- ~theof.py~: implements Step 1
-- ~check_wikidata.py~: implements WD approach 
-- ~wd1_filter.py~: implements WD approach, first WD filter (based on sitelinks)
-- ~wd2_filter.py~: implements WD approach, second WD filter
-- ~ner.py~: implements NER approach
-- ~wd_filter_for_ner.py~: implements filter for NER approach
-- ~lstm.py~: implements BLSTM approach
+- ~theof.py~: Identification of source candidates
+- ~check_wikidata.py~:  WD approach / Baseline 
+- ~wd1_filter.py~: WD approach, second step
+- ~wd2_filter.py~: WD approach, third step
+- ~ner.py~: NER approach
+- ~wd_filter_for_ner.py~:  NER approach, second step
+- ~lstm.py~: BLSTM approach
   
 ** Data
