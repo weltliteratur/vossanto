@@ -18,8 +18,8 @@
 - Authors: Michel Schwab, Robert Jäschke, Frank Fischer, Jannik Strötgen
 - Contact: michel.schwab@hu-berlin.de
 ** Corpus 
-1 Extending [[https://arxiv.org/abs/1902.06428][Fischer and Jäschke (2019]] approach 
-2 Labeling data by expert 
+1. Extending [[https://arxiv.org/abs/1902.06428][Fischer and Jäschke (2019]] approach 
+2. Labeling data by expert 
 ** Identification of source candidates (using regex)
 1. Extract sentences that contain the pattern described in the paper
 #+BEGIN_SRC sh
