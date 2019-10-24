@@ -11,6 +11,7 @@ corpora. Based on an idea by [Frank Fischer](https://twitter.com/umblaetterer)
 
 Michel Schwab, Robert Jäschke, Frank Fischer, Jannik Strötgen: "A Buster Keaton of Linguistics": First Automated Approaches for the Extraction of Vossian Antonomasia
 
+- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/emnlp-ijcnlp2019)
 
 
 
