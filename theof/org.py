@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2019-11-04 (rja)
+# - stripped original line that is added to "parts"
 # 2019-02-15 (rja)
 # - added "-g" option to output original line and "-H" to print year headings
 # - bumped version from 0.0.6 to 0.7.0 for semantic versioning
@@ -52,7 +54,7 @@ import argparse
 import sys
 from collections import OrderedDict
 
-version = "0.7.0"
+version = "0.7.1"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -238,7 +240,7 @@ def match_line(line):
         # extract from sentence
         sourcePhrase = extract_sourcephrase(sentence)
         modifier = extract_modifier(sentence, trueVoss)
-        return year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line
+        return year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line.strip()
     return None
 
 # extract the modifier (enclosed in /.../) from the sentence
