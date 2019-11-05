@@ -1,19 +1,19 @@
 
 # Vossian Antonomasia
 
-*Frank Fischer, Robert Jäschke, Elena Krotova, Jannik Strötgen, Michel Schwab*
+*Frank Fischer, Robert Jäschke, Elena Krotova, Michel Schwab, Jannik Strötgen*
 
 Automatic extraction of Vossian antonomasia (VA) from large newspaper
 corpora. Based on an idea by [Frank Fischer](https://twitter.com/umblaetterer)
 (see *[Der Umblätterer](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)*).
 
 ## EMNLP-IJCNLP 2019 (November, 2019)
-
-Michel Schwab, Robert Jäschke, Frank Fischer, Jannik Strötgen: "A Buster Keaton of Linguistics": First Automated Approaches for the Extraction of Vossian Antonomasia
+Michel Schwab, Robert Jäschke, Frank Fischer, and Jannik Strötgen: "A
+Buster Keaton of Linguistics": First Automated Approaches for the
+Extraction of Vossian Antonomasia
 
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/emnlp-ijcnlp2019)
-
-
+<!-- - [Some Statistics](emnlp-ijcnlp2019/statistics.md) -->
 
 ## DSH Paper (January, 2019)
 Fischer, F., Jäschke, R.: ‘The Michael Jordan of greatness’—Extracting
