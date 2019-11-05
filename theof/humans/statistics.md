@@ -21,7 +21,7 @@ for year in $(seq 1987 2007); do
 done
 ```
 
-|  year     |  articles |  cand     |  wd    |  wd+bl |  found |  true |  prec |        |
+|  year     |  articles |  cand     |  wd    |  wd+bl |  found |  true |  prec | ppm    |
 | :-------- |  -------: | --------: | -----: | -----: | -----: | ----: | ----: | -----:	|
 |  1987     |  106104   |  641432   |  5236  |  131   |  129   |  95   |  73.6 |  0.90	|
 |  1988     |  104541   |  637132   |  5074  |  143   |  141   |  88   |  62.4 |  0.84	|
@@ -49,8 +49,7 @@ done
 
 The table shows the temporal distribution of the number of candidate
 phrases (cand) after matching against Wikidata (wd) and a blacklist
-(wd+bl), and after the manual inspection (true). The last column shows
-the precision.
+(wd+bl), and after the manual inspection (true). 
 
 Let us plot some of the columns:
 

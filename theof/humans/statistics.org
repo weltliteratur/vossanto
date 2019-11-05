@@ -27,9 +27,9 @@ We plot some temporal distributions:
 #+END_SRC
 
 
-#+CAPTION: The temporal distribution of the number of candidate phrases (cand), after matching against  Wikidata (wd) and a blacklist (wd+bl), and after manual inspection (true). The last column shows the precision.
+#+CAPTION: The temporal distribution of the number of candidate phrases (cand), after matching against  Wikidata (wd) and a blacklist (wd+bl), and after manual inspection (true). 
 #+NAME: temporal-distribution
-|   year | articles |     cand |    wd | wd+bl | found | true | prec |      |
+|   year | articles |     cand |    wd | wd+bl | found | true | prec | ppm  |
 |--------+----------+----------+-------+-------+-------+------+------+------|
 |   1987 |   106104 |   641432 |  5236 |   131 |   129 |   95 | 73.6 | 0.90 |
 |   1988 |   104541 |   637132 |  5074 |   143 |   141 |   88 | 62.4 | 0.84 |
