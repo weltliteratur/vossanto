@@ -253,10 +253,9 @@ echo ""
 sort -nrk2 nyt_categories_distrib.tsv | head
 ```
 
-|            |         |
-|------------|---------|
 | articles   | 1854726 |
 | categories | 1580    |
+|------------|---------|
 | Business   | 291982  |
 | Sports     | 160888  |
 | Opinion    | 134428  |
@@ -332,10 +331,9 @@ echo ""
 sort -t$'\t' -nrk2 nyt_desks_distrib.tsv | head
 ```
 
-|                         |         |
-|-------------------------|---------|
 | articles                | 1854727 |
 | categories              | 398     |
+|-------------------------|---------|
 | Metropolitan Desk       | 237896  |
 | Financial Desk          | 206958  |
 | Sports Desk             | 174823  |
@@ -415,10 +413,9 @@ echo ""
 sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head 
 ```
 
-|                     |         |
-|---------------------|---------|
 | articles            | 1854726 |
 | categories          | 30691   |
+|---------------------|---------|
 |                     | 961052  |
 | Elliott, Stuart     | 6296    |
 | Holden, Stephen     | 5098    |
