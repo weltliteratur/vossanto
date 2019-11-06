@@ -20,6 +20,7 @@ Linguistics 2019. ([PDF](https://www.aclweb.org/anthology/D19-1647.pdf),
 
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/emnlp-ijcnlp2019)
 - [Some Statistics](emnlp-ijcnlp2019/statistics.md)
+- [All found VA](emnlp-ijcnlp2019/vossantos.md)
 
 ## DSH Paper (January, 2019)
 Fischer, F., Jäschke, R.: ‘The Michael Jordan of greatness’—Extracting
