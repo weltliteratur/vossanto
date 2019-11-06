@@ -475,166 +475,188 @@ for article in $(../theof/org.py -T -f README.org | join nyt_authors.tsv - | gre
 done
 ```
 
--   [Bob Hope](https://www.wikidata.org/wiki/Q94081)
-    (1993/04/23/0604282) is loaded with rap-related cameos that work
-    only if you recognize the players (Fab 5 Freddy, Kid Capri, Naughty
-    by Nature and **the Bob Hope of** rap cinema, Ice-T), and have
-    little intrinsic humor of their own.
--   [Sandy Dennis](https://www.wikidata.org/wiki/Q239691)
-    (1993/09/03/0632371) (Ms. Lewis, who has many similar mannerisms,
-    may be fast becoming **the Sandy Dennis of** her generation.)
--   [Dorian Gray](https://www.wikidata.org/wiki/Q465417)
-    (1993/12/10/0654992) Also on hand is Aerosmith, **the Dorian Gray
-    of** rock bands, to serve the same purpose Alice Cooper did in the
-    first film.
--   [Adolf Hitler](https://www.wikidata.org/wiki/Q352)
-    (1994/02/04/0666537) The terrors of the code, as overseen by Joseph
-    Breen (who was nicknamed "**the Hitler of** Hollywood" in some
-    quarters), went beyond the letter of the document and brought about
-    a more generalized moral purge.
--   [Cinderella](https://www.wikidata.org/wiki/Q13685096)
-    (1994/09/11/0711230) Kevin Smith, **the Cinderella of** this year\'s
-    Sundance festival, shot this black-and-white movie in the New Jersey
-    store where he himself worked.
--   [Hulk Hogan](https://www.wikidata.org/wiki/Q44176)
-    (1994/10/25/0720551) Libby\'s cousin Andrew, an art director who\'s
-    "so incredibly creative that, as my mother says, no one\'s holding
-    their breath for grandchildren," opines that "David Mamet is **the
-    Hulk Hogan of** the American theater and that his word processor
-    should be tested for steroids."
--   [Andrew Dice Clay](https://www.wikidata.org/wiki/Q504455)
-    (1995/09/22/0790066) Mr. Ezsterhas, **the Andrew Dice Clay of**
-    screenwriting, bludgeons the audience with such tirelessly crude
-    thoughts that when a group of chimps get loose in the showgirls\'
-    dressing room and all they do is defecate, the film enjoys a rare
-    moment of good taste.
--   [Thomas Jefferson](https://www.wikidata.org/wiki/Q11812)
-    (1996/01/24/0825044) Last year\'s overnight sensation, Edward Burns
-    of "The Brothers McMullen," came out of nowhere and now has Jennifer
-    Aniston acting in his new film and Robert Redford, **the Thomas
-    Jefferson of** Sundance, helping as a creative consultant.
--   [Elliott Gould](https://www.wikidata.org/wiki/Q314805)
-    (1996/03/08/0835139) All coy grins and daffy mugging, Mr. Stiller
-    plays the role as if aspiring to become **the Elliott Gould of** his
-    generation.
--   [Charlie Parker](https://www.wikidata.org/wiki/Q103767)
-    (1996/08/09/0870295) But for all its admiration, '\'Basquiat'\'
-    winds up no closer to that assessment than to the critic Robert
-    Hughes\'s more jaundiced one: '\'Far from being **the Charlie Parker
-    of** SoHo (as his promoters claimed), he became its Jessica
-    Savitch.'\'
--   [Aesop](https://www.wikidata.org/wiki/Q43423) (1996/08/09/0870300)
-    Janet Maslin reviews movie Rendezvous in Paris, written and directed
-    by Eric Rohmer; photo (M) Eric Rohmer\'s '\'Rendezvous in Paris'\'
-    is an oasis of contemplative intelligence in the summer movie
-    season, presenting three graceful and elegant parables with the
-    moral agility that distinguishes Mr. Rohmer as **the Aesop of**
-    amour.
--   [Diana Vreeland](https://www.wikidata.org/wiki/Q450619)
-    (1997/06/06/0934955) The complex aural and visual style of '\'The
-    Pillow Book'\' involves rectangular insets that flash back to Sei
-    Shonagon (a kind of Windows 995) and illustrate the imperious little
-    lists that made her sound like **the Diana Vreeland of**
-    10th-century tastes.
--   [Peter Pan](https://www.wikidata.org/wiki/Q107190)
-    (1997/08/08/0949060) Mr. Gibson, delivering one of the hearty,
-    dynamic star turns that have made him **the Peter Pan of** the
-    blockbuster set, makes Jerry much more boyishly likable than he
-    deserves to be.
--   [Thomas Edison](https://www.wikidata.org/wiki/Q8743)
-    (1997/09/19/0958685) Danny DeVito embodies this as a gleeful Sid
-    Hudgens (a character whom Mr. Hanson has called \''**the Thomas
-    Edison of** tabloid journalism''), who is the unscrupulous editor of
-    a publication called Hush-Hush and winds up linked to many of the
-    other characters' nastiest transgressions.
--   [John Wayne](https://www.wikidata.org/wiki/Q40531)
-    (1997/09/26/0960422) Mr. Hopkins, whose creative collaboration with
-    Bart goes back to '\'Legends of the Fall,'\' has called him \''**the
-    John Wayne of** bears.'\'
--   [Annie Oakley](https://www.wikidata.org/wiki/Q230935)
-    (1997/12/24/0982708) Running nearly as long as '\'Pulp Fiction'\'
-    even though its ambitions are more familiar and small, '\'Jackie
-    Brown'\' has the makings of another, chattier '\'Get Shorty'\' with
-    an added homage to Pam Grier, **the Annie Oakley of** 1970\'s
-    blaxploitation.
--   [Robin Hood](https://www.wikidata.org/wiki/Q122634)
-    (1998/04/10/1008616) '\'Do not threaten to call the police or have
-    him thrown out,'\' went a memorandum issued by another company, when
-    **the Robin Hood of** corporate America went on the road to promote
-    his book abou downsizing.
--   [Buster Keaton](https://www.wikidata.org/wiki/Q103949)
-    (1998/09/18/1047276) Fortunately, being **the Buster Keaton of**
-    martial arts, he makes a doleful expression and comedic physical
-    grace take the place of small talk.
--   [Michelangelo](https://www.wikidata.org/wiki/Q5592)
-    (1998/09/25/1049076) She goes to a plastic surgeon (Michael Lerner)
-    who\'s been dubbed \''**the Michelangelo of** Manhattan'\' by
-    Newsweek.
--   [Brian Wilson](https://www.wikidata.org/wiki/Q313013)
-    (1998/12/31/1073562) The enrapturing beauty and peculiar naivete of
-    '\'The Thin Red Line'\' heightened the impression of Terrence Malick
-    as **the Brian Wilson of** the film world.
--   [Dante Alighieri](https://www.wikidata.org/wiki/Q1067)
-    (1999/10/22/1147181) Though his latest film explores one more urban
-    inferno and colorfully reaffirms Mr. Scorsese\'s role as **the Dante
-    of** the Cinema, creating its air of nocturnal torment took some
-    doing.
--   [Albert Einstein](https://www.wikidata.org/wiki/Q937)
-    (2000/12/07/1253134) In this much coarser and more violent,
-    action-heavy story, Mr. Deaver presents the villainous Dr. Aaron
-    Matthews, whom a newspaper once called \''**the Einstein of**
-    therapists'\' in the days before Hannibal Lecter became his main
-    career influence.
--   [Émile Zola](https://www.wikidata.org/wiki/Q504)
-    (2001/03/09/1276449) 'Right as Rain' George P. Pelecanos arrives
-    with the best possible recommendations from other crime writers
-    (e.g., Elmore Leonard likes him), and with jacket copy praising him
-    as \''**the Zola of** Washington, D.C.'\' But what he really
-    displays here, in great abundance and to entertaining effect, is a
-    Tarantino touch.
--   [Leonard Cohen](https://www.wikidata.org/wiki/Q1276)
-    (2002/08/22/1417676) The wry, sexy melancholy of his observations
-    would be seductive enough in its own right -- he is **the Leonard
-    Cohen of** the spy genre -- even without the sharp political acuity
-    that accompanies it.
--   [Kato Kaelin](https://www.wikidata.org/wiki/Q6377737)
-    (2003/04/07/1478881) Then he has settled in -- as '\'a permanent
-    house guest, **the Kato Kaelin of** the wine country,'\' in the case
-    of Alan Deutschman -- and tried to figure out what it all means.
--   [Hulk Hogan](https://www.wikidata.org/wiki/Q44176)
-    (2003/04/14/1480850) Meanwhile, at 5 feet 10 tall and 115 pounds,
-    Andy is **the Hulk Hogan of** this food-phobic crowd.
--   [Nora Roberts](https://www.wikidata.org/wiki/Q231356)
-    (2003/04/17/1481531) For those who write like clockwork (i.e.,
-    Stuart Woods, **the Nora Roberts of** mystery best-sellerdom), a new
-    book every few months is no surprise.
--   [Henny Youngman](https://www.wikidata.org/wiki/Q2586583)
-    (2004/03/05/1563840) Together Mr. Yetnikoff and Mr. Ritz devise a
-    kind of sitcom snappiness that turns Mr. Yetnikoff into **the Henny
-    Youngman of** CBS.
--   [Frank Stallone](https://www.wikidata.org/wiki/Q959153)
-    (2004/09/20/1612886) He can read the biblical story of Aaron and
-    imagine \''**the Frank Stallone of** ancient Judaism.'\'
--   [Marlon Brando](https://www.wikidata.org/wiki/Q34012)
-    (2005/11/08/1715899) He named his daughter Tuesday, after the
-    actress Tuesday Weld, whom Sam Shepard once called \''**the Marlon
-    Brando of** women.'\'
--   [Jesse James](https://www.wikidata.org/wiki/Q213626)
-    (2005/12/09/1723424) How else to explain '\'Comma Sense,'\' which
-    has a blurb from Ms. Truss and claims that the apostrophe is **the
-    Jesse James of** punctuation marks?
--   [Elton John](https://www.wikidata.org/wiki/Q2808)
-    (2006/12/11/1811150) Though Foujita had a fashion sense that made
-    him look like **the Elton John of** Montparnasse (he favored
-    earrings, bangs and show-stopping homemade costumes), and though he
-    is seen here hand in hand with a male Japanese friend during their
-    shared tunic-wearing phase, he is viewed by Ms. Birnbaum strictly as
-    a lady-killer.
--   [Ernest Hemingway](https://www.wikidata.org/wiki/Q23434)
-    (2007/04/30/1844006) Mr. Browne also points out that when he
-    introduced Mr. Zevon to an audience as \''**the Ernest Hemingway
-    of** the twelve-string guitar,'\' Mr. Zevon said he was more like
-    Charles Bronson.
+1.  [Bob Hope](https://www.wikidata.org/wiki/Q94081)
+    ([1993/04/23/0604282](http://query.nytimes.com/gst/fullpage.html?res=9F0CE6D71230F930A15757C0A965958260))
+    is loaded with rap-related cameos that work only if you recognize
+    the players (Fab 5 Freddy, Kid Capri, Naughty by Nature and **the
+    Bob Hope of** *rap cinema*, Ice-T), and have little intrinsic humor
+    of their own.
+2.  [Sandy Dennis](https://www.wikidata.org/wiki/Q239691)
+    ([1993/09/03/0632371](http://query.nytimes.com/gst/fullpage.html?res=9F0CEEDA1730F930A3575AC0A965958260))
+    (Ms. Lewis, who has many similar mannerisms, may be fast becoming
+    **the Sandy Dennis of** *her generation*.)
+3.  [Dorian Gray](https://www.wikidata.org/wiki/Q82464)
+    ([1993/12/10/0654992](http://query.nytimes.com/gst/fullpage.html?res=9F0CE6DE113BF933A25751C1A965958260))
+    Also on hand is Aerosmith, **the Dorian Gray of** *rock bands*, to
+    serve the same purpose Alice Cooper did in the first film.
+4.  [Adolf Hitler](https://www.wikidata.org/wiki/Q352)
+    ([1994/02/04/0666537](http://query.nytimes.com/gst/fullpage.html?res=9E04E1DA1139F937A35751C0A962958260))
+    The terrors of the code, as overseen by Joseph Breen (who was
+    nicknamed "**the Hitler of** *Hollywood*" in some quarters), went
+    beyond the letter of the document and brought about a more
+    generalized moral purge.
+5.  [Cinderella](https://www.wikidata.org/wiki/Q13685096)
+    ([1994/09/11/0711230](http://query.nytimes.com/gst/fullpage.html?res=9F00E4DD1038F932A2575AC0A962958260))
+    Kevin Smith, **the Cinderella of** *this year\'s Sundance festival*,
+    shot this black-and-white movie in the New Jersey store where he
+    himself worked.
+6.  [Hulk Hogan](https://www.wikidata.org/wiki/Q44176)
+    ([1994/10/25/0720551](http://query.nytimes.com/gst/fullpage.html?res=980DEFDA143FF936A15753C1A962958260))
+    Libby\'s cousin Andrew, an art director who\'s "so incredibly
+    creative that, as my mother says, no one\'s holding their breath for
+    grandchildren," opines that "David Mamet is **the Hulk Hogan of**
+    *the American theater* and that his word processor should be tested
+    for steroids."
+7.  [Andrew Dice Clay](https://www.wikidata.org/wiki/Q504455)
+    ([1995/09/22/0790066](http://query.nytimes.com/gst/fullpage.html?res=990CE2DD1F3AF931A1575AC0A963958260))
+    Mr. Ezsterhas, **the Andrew Dice Clay of** *screenwriting*,
+    bludgeons the audience with such tirelessly crude thoughts that when
+    a group of chimps get loose in the showgirls\' dressing room and all
+    they do is defecate, the film enjoys a rare moment of good taste.
+8.  [Thomas Jefferson](https://www.wikidata.org/wiki/Q11812)
+    ([1996/01/24/0825044](http://query.nytimes.com/gst/fullpage.html?res=980DE7DC1F39F937A15752C0A960958260))
+    Last year\'s overnight sensation, Edward Burns of "The Brothers
+    McMullen," came out of nowhere and now has Jennifer Aniston acting
+    in his new film and Robert Redford, **the Thomas Jefferson of**
+    *Sundance*, helping as a creative consultant.
+9.  [Elliott Gould](https://www.wikidata.org/wiki/Q314805)
+    ([1996/03/08/0835139](http://query.nytimes.com/gst/fullpage.html?res=9904EEDA1F39F93BA35750C0A960958260))
+    All coy grins and daffy mugging, Mr. Stiller plays the role as if
+    aspiring to become **the Elliott Gould of** *his generation*.
+10. [Charlie Parker](https://www.wikidata.org/wiki/Q103767)
+    ([1996/08/09/0870295](http://query.nytimes.com/gst/fullpage.html?res=9E07E4DF123EF93AA3575BC0A960958260))
+    But for all its admiration, '\'Basquiat'\' winds up no closer to
+    that assessment than to the critic Robert Hughes\'s more jaundiced
+    one: '\'Far from being **the Charlie Parker of** *SoHo* (as his
+    promoters claimed), he became its Jessica Savitch.'\'
+11. [Aesop](https://www.wikidata.org/wiki/Q43423)
+    ([1996/08/09/0870300](http://query.nytimes.com/gst/fullpage.html?res=9F04E0DF123EF93AA3575BC0A960958260))
+    Eric Rohmer\'s '\'Rendezvous in Paris'\' is an oasis of
+    contemplative intelligence in the summer movie season, presenting
+    three graceful and elegant parables with the moral agility that
+    distinguishes Mr. Rohmer as **the Aesop of** *amour*.
+12. [Diana Vreeland](https://www.wikidata.org/wiki/Q450619)
+    ([1997/06/06/0934955](http://query.nytimes.com/gst/fullpage.html?res=940DE4D91E3DF935A35755C0A961958260))
+    The complex aural and visual style of '\'The Pillow Book'\' involves
+    rectangular insets that flash back to Sei Shonagon (a kind of
+    Windows 995) and illustrate the imperious little lists that made her
+    sound like **the Diana Vreeland of** *10th-century tastes*.
+13. [Peter Pan](https://www.wikidata.org/wiki/Q107190)
+    ([1997/08/08/0949060](http://query.nytimes.com/gst/fullpage.html?res=9E02E5DE143CF93BA3575BC0A961958260))
+    Mr. Gibson, delivering one of the hearty, dynamic star turns that
+    have made him **the Peter Pan of** *the blockbuster set*, makes
+    Jerry much more boyishly likable than he deserves to be.
+14. [Thomas Edison](https://www.wikidata.org/wiki/Q8743)
+    ([1997/09/19/0958685](http://query.nytimes.com/gst/fullpage.html?res=9B0CE5DB1138F93AA2575AC0A961958260))
+    Danny DeVito embodies this as a gleeful Sid Hudgens (a character
+    whom Mr. Hanson has called \''**the Thomas Edison of** *tabloid
+    journalism*''), who is the unscrupulous editor of a publication
+    called Hush-Hush and winds up linked to many of the other
+    characters' nastiest transgressions.
+15. [John Wayne](https://www.wikidata.org/wiki/Q40531)
+    ([1997/09/26/0960422](http://query.nytimes.com/gst/fullpage.html?res=9D0CE2DD1F3BF935A1575AC0A961958260))
+    Mr. Hopkins, whose creative collaboration with Bart goes back to
+    '\'Legends of the Fall,'\' has called him \''**the John Wayne of**
+    *bears*.'\'
+16. [Annie Oakley](https://www.wikidata.org/wiki/Q230935)
+    ([1997/12/24/0982708](http://query.nytimes.com/gst/fullpage.html?res=990CE7D6123EF937A15751C1A961958260))
+    Running nearly as long as '\'Pulp Fiction'\' even though its
+    ambitions are more familiar and small, '\'Jackie Brown'\' has the
+    makings of another, chattier '\'Get Shorty'\' with an added homage
+    to Pam Grier, **the Annie Oakley of** *1970\'s blaxploitation*.
+17. [Robin Hood](https://www.wikidata.org/wiki/Q122634)
+    ([1998/04/10/1008616](http://query.nytimes.com/gst/fullpage.html?res=9B0CEED9143DF933A25757C0A96E958260))
+    Do not threaten to call the police or have him thrown out,\'\' went
+    a memorandum issued by another company, when **the Robin Hood of**
+    *corporate America* went on the road to promote his book abou
+    downsizing.
+18. [Buster Keaton](https://www.wikidata.org/wiki/Q103949)
+    ([1998/09/18/1047276](http://query.nytimes.com/gst/fullpage.html?res=9805E7DD1630F93BA2575AC0A96E958260))
+    Fortunately, being **the Buster Keaton of** *martial arts*, he makes
+    a doleful expression and comedic physical grace take the place of
+    small talk.
+19. [Michelangelo](https://www.wikidata.org/wiki/Q5592)
+    ([1998/09/25/1049076](http://query.nytimes.com/gst/fullpage.html?res=9800E4DB1739F936A1575AC0A96E958260))
+    She goes to a plastic surgeon (Michael Lerner) who\'s been dubbed
+    \''**the Michelangelo of** *Manhattan*'\' by Newsweek.
+20. [Brian Wilson](https://www.wikidata.org/wiki/Q313013)
+    ([1998/12/31/1073562](http://query.nytimes.com/gst/fullpage.html?res=9D01E4DA133FF932A05751C1A96E958260))
+    The enrapturing beauty and peculiar naivete of '\'The Thin Red
+    Line'\' heightened the impression of Terrence Malick as **the Brian
+    Wilson of** *the film world*.
+21. [Dante Alighieri](https://www.wikidata.org/wiki/Q1067)
+    ([1999/10/22/1147181](http://query.nytimes.com/gst/fullpage.html?res=950DE5DF1139F931A15753C1A96F958260))
+    Though his latest film explores one more urban inferno and
+    colorfully reaffirms Mr. Scorsese\'s role as **the Dante of** *the
+    Cinema*, creating its air of nocturnal torment took some doing.
+22. [Albert Einstein](https://www.wikidata.org/wiki/Q937)
+    ([2000/12/07/1253134](http://query.nytimes.com/gst/fullpage.html?res=9D06E0DB133CF934A35751C1A9669C8B63))
+    In this much coarser and more violent, action-heavy story, Mr.
+    Deaver presents the villainous Dr. Aaron Matthews, whom a newspaper
+    once called \''**the Einstein of** *therapists*'\' in the days
+    before Hannibal Lecter became his main career influence.
+23. [Émile Zola](https://www.wikidata.org/wiki/Q504)
+    ([2001/03/09/1276449](http://query.nytimes.com/gst/fullpage.html?res=9C02E0D6163AF93AA35750C0A9679C8B63))
+    George P. Pelecanos arrives with the best possible recommendations
+    from other crime writers (e.g., Elmore Leonard likes him), and with
+    jacket copy praising him as \''**the Zola of** *Washington, D.C.*'\'
+    But what he really displays here, in great abundance and to
+    entertaining effect, is a Tarantino touch.
+24. [Leonard Cohen](https://www.wikidata.org/wiki/Q1276)
+    ([2002/08/22/1417676](http://query.nytimes.com/gst/fullpage.html?res=9A03E5DC163CF931A1575BC0A9649C8B63))
+    The wry, sexy melancholy of his observations would be seductive
+    enough in its own right -- he is **the Leonard Cohen of** *the spy
+    genre* -- even without the sharp political acuity that accompanies
+    it.
+25. [Jane Austen](https://www.wikidata.org/wiki/Q36322)
+    ([2002/10/07/1429887](http://query.nytimes.com/gst/fullpage.html?res=9B03E6DC123BF934A35753C1A9649C8B63))
+    Ms. Pearson does so well in capturing the funny, calculating aspects
+    of her English heroine\'s life that The Guardian has called her
+    \''**a Jane Austen among** *working mothers*.'\'
+26. [Kato Kaelin](https://www.wikidata.org/wiki/Q6377737)
+    ([2003/04/07/1478881](http://query.nytimes.com/gst/fullpage.html?res=9D06EED81238F934A35757C0A9659C8B63))
+    Then he has settled in -- as '\'a permanent house guest, **the Kato
+    Kaelin of** *the wine country*,'\' in the case of Alan Deutschman --
+    and tried to figure out what it all means.
+27. [Hulk Hogan](https://www.wikidata.org/wiki/Q44176)
+    ([2003/04/14/1480850](http://query.nytimes.com/gst/fullpage.html?res=9C02EEDF133BF937A25757C0A9659C8B63))
+    Meanwhile, at 5 feet 10 tall and 115 pounds, Andy is **the Hulk
+    Hogan of** *this food-phobic crowd*.
+28. [Nora Roberts](https://www.wikidata.org/wiki/Q231356)
+    ([2003/04/17/1481531](http://query.nytimes.com/gst/fullpage.html?res=9407E1DC1F3BF934A25757C0A9659C8B63))
+    For those who write like clockwork (i.e., Stuart Woods, **the Nora
+    Roberts of** *mystery best-sellerdom*), a new book every few months
+    is no surprise.
+29. [Henny Youngman](https://www.wikidata.org/wiki/Q2586583)
+    ([2004/03/05/1563840](http://query.nytimes.com/gst/fullpage.html?res=9405E4D7133FF936A35750C0A9629C8B63))
+    Together Mr. Yetnikoff and Mr. Ritz devise a kind of sitcom
+    snappiness that turns Mr. Yetnikoff into **the Henny Youngman of**
+    *CBS*.
+30. [Frank Stallone](https://www.wikidata.org/wiki/Q959153)
+    ([2004/09/20/1612886](http://query.nytimes.com/gst/fullpage.html?res=980DE2D71439F933A1575AC0A9629C8B63))
+    He can read the biblical story of Aaron and imagine \''**the Frank
+    Stallone of** *ancient Judaism*.'\'
+31. [Marlon Brando](https://www.wikidata.org/wiki/Q34012)
+    ([2005/11/08/1715899](http://query.nytimes.com/gst/fullpage.html?res=9D0DE4D7143EF93BA35752C1A9639C8B63))
+    He named his daughter Tuesday, after the actress Tuesday Weld, whom
+    Sam Shepard once called \''**the Marlon Brando of** *women*.'\'
+32. [Jesse James](https://www.wikidata.org/wiki/Q213626)
+    ([2005/12/09/1723424](http://query.nytimes.com/gst/fullpage.html?res=9F00E4D71031F93AA35751C1A9639C8B63))
+    How else to explain '\'Comma Sense,'\' which has a blurb from Ms.
+    Truss and claims that the apostrophe is **the Jesse James of**
+    *punctuation marks*?
+33. [Elton John](https://www.wikidata.org/wiki/Q2808)
+    ([2006/12/11/1811150](http://query.nytimes.com/gst/fullpage.html?res=9401E4DB1431F932A25751C1A9609C8B63))
+    Though Foujita had a fashion sense that made him look like **the
+    Elton John of** *Montparnasse* (he favored earrings, bangs and
+    show-stopping homemade costumes), and though he is seen here hand in
+    hand with a male Japanese friend during their shared tunic-wearing
+    phase, he is viewed by Ms. Birnbaum strictly as a lady-killer.
+34. [Ernest Hemingway](https://www.wikidata.org/wiki/Q23434)
+    ([2007/04/30/1844006](http://query.nytimes.com/gst/fullpage.html?res=950DE5DC133EF933A05757C0A9619C8B63))
+    Mr. Browne also points out that when he introduced Mr. Zevon to an
+    audience as \''**the Ernest Hemingway of** *the twelve-string
+    guitar*,'\' Mr. Zevon said he was more like Charles Bronson.
 
 modifiers
 ---------
