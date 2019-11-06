@@ -13,7 +13,7 @@ Buster Keaton of Linguistics": First Automated Approaches for the
 Extraction of Vossian Antonomasia
 
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/emnlp-ijcnlp2019)
-<!-- - [Some Statistics](emnlp-ijcnlp2019/statistics.md) -->
+- [Some Statistics](emnlp-ijcnlp2019/statistics.md)
 
 ## DSH Paper (January, 2019)
 Fischer, F., Jäschke, R.: ‘The Michael Jordan of greatness’—Extracting
