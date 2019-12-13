@@ -12,7 +12,7 @@
 # Changes:
 # 2019-12-13 (ms)
 # - moved file to parent dir
-# 2019-11-04 (rja)
+# - updated sourcephrase and modifier extraction (see extract_sourcephrase / extract_modifier) -> generalization from theof
 # - stripped original line that is added to "parts"
 # 2019-02-15 (rja)
 # - added "-g" option to output original line and "-H" to print year headings
@@ -99,10 +99,10 @@ $                     # end of string
 re_line = re.compile(line_re_str, re.VERBOSE)
 
 # to extract the modifier (enclosed in /.../) from the sentence
-re_modifier = re.compile("of\\* ['\"]*/(.+?)/([^0-9A-Za-z]|$)")
+#re_modifier = re.compile("(among|from|of)\\* ['\"]*/(.+?)/([^0-9A-Za-z]|$)")
 
 # to extract the exact source phrase (enclosed in *the ... of*) from the sentence
-re_sourcephrase = re.compile("\\*the (.+?) of\\*")
+#re_sourcephrase = re.compile("\\*the (.+?) of\\*")
 
 # to remove markup from the sentences
 re_clean = re.compile(r"[*/.\s]")
@@ -188,6 +188,7 @@ def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel
     if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus, sline]):
         for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line in parts:
             result = []
+
             if syear:
                 result.append(year)
             if sdate:
@@ -240,7 +241,7 @@ def match_line(line):
         trueVoss = d["truefalse"] != "+"
         status = d["status"]
         # extract from sentence
-        sourcePhrase = extract_sourcephrase(sentence)
+        sourcePhrase = extract_sourcephrase(sentence, trueVoss)
         modifier = extract_modifier(sentence, trueVoss)
         return year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line.strip()
     return None
@@ -249,16 +250,21 @@ def match_line(line):
 def extract_modifier(sentence, trueVoss):
     # ignore non-Vossantos
     if trueVoss:
-        match = re_modifier.search(sentence)
-        if match:
-            return match.group(1)
+        #match = re_modifier.search(sentence)
+        match = sentence.split("/")[1]
+        return match
+        # if match:
+            #return match.group(1)
     return ""
 
 # extract the source phrase (enclosed in *the ... of*) from the sentence
-def extract_sourcephrase(sentence):
-    match = re_sourcephrase.search(sentence)
-    if match:
-        return match.group(1)
+def extract_sourcephrase(sentence, trueVoss):
+    if trueVoss:
+        match = sentence.split("*")[1]
+    # match = re_sourcephrase.search(sentence)
+    # if match:
+        return match
+        # return match.group(1)
     return ""
 
 
