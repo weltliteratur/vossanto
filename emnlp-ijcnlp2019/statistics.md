@@ -11,8 +11,8 @@ echo "year articles found true prec"
 for year in $(seq 1987 2007); do
     echo $year \
      $(grep ^$year articles.tsv | cut -d' ' -f2) \
-     $(../theof/org.py -y README.org | grep ${year} | wc -l) \
-         $(../theof/org.py -y -c -b README.org | grep ${year} | awk -F$'\t' '{if ($2 == "D" || $3 == "True") print;}' | wc -l)
+     $(../org.py -f year README.org | grep ${year} | wc -l) \
+         $(../org.py -f year,classification,status README.org | grep ${year} | awk -F$'\t' '{if ($3 == "D" || $2 == "True") print;}' | wc -l)
 done
 ```
 
@@ -111,7 +111,7 @@ sources
 The most frequent *sources* are:
 
 ``` bash
-../theof/org.py -w -T README.org | sort | uniq -c | sort -nr | head -n40
+../org.py -T -f wikidata README.org | sort | uniq -c | sort -nr | head -n40
 ```
 
 | count | source                                                        |
@@ -164,7 +164,7 @@ for year in $(seq 1987 2007); do
   echo -n $year
   for s in "Michael_Jordan" "Rodney_Dangerfield" "Babe_Ruth"; do
     s=$(echo $s| sed "s/_/ /g")
-    c=$(../theof/org.py -T -y -l README.org | grep ^$year | awk -F'\t' '{print $2}' | grep "^$s$" | wc -l)
+    c=$(../org.py -T -f year,sourceLabel README.org | grep ^$year | awk -F'\t' '{print $2}' | grep "^$s$" | wc -l)
     echo -n "\t$c"
   done
   echo
@@ -270,8 +270,8 @@ sort -nrk2 nyt_categories_distrib.tsv | head
 Collect the categories of the articles
 
 ``` bash
-echo "vossantos" $(../theof/org.py -T README.org | wc -l) articles $(wc -l < nyt_categories.tsv)
-../theof/org.py -T -f README.org | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+echo "vossantos" $(../org.py -T README.org | wc -l) articles $(wc -l < nyt_categories.tsv)
+../org.py -T -f fid README.org | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | sort | uniq -c \
     | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
     | join -t$'\t' -o1.2,1.1,2.2 - nyt_categories_distrib.tsv \
@@ -348,8 +348,8 @@ sort -t$'\t' -nrk2 nyt_desks_distrib.tsv | head
 Collect the desks of the articles
 
 ``` bash
-echo "vossantos" $(../theof/org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.tsv)
-../theof/org.py -T -f README.org | join nyt_desks.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+echo "vossantos" $(../org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.tsv)
+../org.py -T -f fid README.org | join nyt_desks.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | sort | uniq -c \
     | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
     | join -t$'\t' -o1.2,1.1,2.2 - nyt_desks_distrib.tsv \
@@ -432,8 +432,8 @@ sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
 Collect the authors of the articles
 
 ``` bash
-echo "vossantos" $(../theof/org.py -T README.org | wc -l) articles $(wc -l < nyt_authors.tsv)
-../theof/org.py -T -f README.org | join nyt_authors.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+echo "vossantos" $(../org.py -T README.org | wc -l) articles $(wc -l < nyt_authors.tsv)
+../org.py -T -f fid README.org | join nyt_authors.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | LC_ALL=C sort | uniq -c \
     | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
     | LC_ALL=C join -t$'\t' -o1.2,1.1,2.2 - nyt_authors_distrib.tsv \
@@ -467,7 +467,7 @@ echo "vossantos" $(../theof/org.py -T README.org | wc -l) articles $(wc -l < nyt
 
 ``` bash
 # extract list of articles
-for article in $(../theof/org.py -T -f README.org | join nyt_authors.tsv - | grep "Maslin, Janet" | cut -d' ' -f1 ); do
+for article in $(../org.py -T -f fid README.org | join nyt_authors.tsv - | grep "Maslin, Janet" | cut -d' ' -f1 ); do
   grep "$article" README.org
 done
 ```
@@ -659,8 +659,8 @@ modifiers
 ---------
 
 ``` bash
-../theof/org.py -o -a -T README.org \
-    | awk -F$'\t' '$2 != "" {print $2;}' \
+../org.py -T -f modifier,aid README.org \
+    | awk -F$'\t' '$1 != "" {print $1;}' \
     | sort | uniq -c | sort -nr | head -n30
 ```
 
@@ -704,7 +704,7 @@ modifiers
 Who are the sources for the modifier "today"?
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "today" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -726,7 +726,7 @@ Who are the sources for the modifiers "his day", "his time", and "his
 generation"?
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 ~ "his (day|time|generation)" {print $2;}' \
     | sort | uniq -c | sort -nr | head
 ```
@@ -749,7 +749,7 @@ Who are the sources for the modifiers "her day", "her time", and "her
 generation"?
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 ~ "her (day|time|generation)" {print $2;}' \
     | sort | uniq -c | sort -nr | head
 ```
@@ -770,7 +770,7 @@ generation"?
 ### country
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 ~ "(Japan|China|Brazil|Iran|Israel|Mexico|India|South Africa|Spain|South Korea|Russia|Poland|Pakistan)" {print $1;}' \
     | sort | uniq -c | sort -nr | head
 ```
@@ -793,7 +793,7 @@ What are the sources for the modifier ... ?
 #### "Japan"
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "Japan" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -824,7 +824,7 @@ What are the sources for the modifier ... ?
 #### "China"
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "China" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -847,7 +847,7 @@ What are the sources for the modifier ... ?
 #### "Brazil"
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "Brazil" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -868,7 +868,7 @@ What are the sources for the modifier ... ?
 ### sports
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 ~ "(baseball|basketball|tennis|golf|football|racing|soccer|sailing)" {print $1;}' \
     | sort | uniq -c | sort -nr 
 ```
@@ -934,7 +934,7 @@ Who are the sources for the modifier ... ?
 #### baseball
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "baseball" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -959,7 +959,7 @@ Who are the sources for the modifier ... ?
 #### tennis
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "tennis" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -985,7 +985,7 @@ Who are the sources for the modifier ... ?
 #### basketball
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "basketball" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -1005,7 +1005,7 @@ Who are the sources for the modifier ... ?
 #### football
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "football" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -1024,7 +1024,7 @@ Who are the sources for the modifier ... ?
 #### racing
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "racing" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -1040,7 +1040,7 @@ Who are the sources for the modifier ... ?
 #### golf
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 == "golf" {print $2;}' \
     | sort | uniq -c | sort -nr
 ```
@@ -1057,7 +1057,7 @@ Who are the sources for the modifier ... ?
 ### culture
 
 ``` bash
-../theof/org.py -w -o -T README.org \
+../org.py -T -f modifier,wikidata README.org \
     | awk -F$'\t' '$1 ~ "(dance|hip-hop|jazz|fashion|weaving|ballet|the art world|wine|salsa|juggling|tango)" {print $1;}' \
     | sort | uniq -c | sort -nr | head -n13
 ```
@@ -1081,7 +1081,7 @@ Who are the sources for the modifier ... ?
 ### Michael Jordan
 
 ``` bash
-../theof/org.py -T -l -o README.org \
+../org.py -T -f sourceLabel,modifier README.org \
     | awk -F$'\t' '{if ($1 == "Michael Jordan") print $2}' \
     | sort -u
 ```
