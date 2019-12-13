@@ -17,6 +17,7 @@
 # - added JSON export
 # - reorganised help messages
 # - added generation of unique id (useful for JSON)
+# - re-added original line (as we need it for conversion to markdown using pandoc)
 # 2019-12-13 (ms)
 # - moved file to parent dir
 # - updated sourcephrase and modifier extraction (see extract_sourcephrase / extract_modifier) -> generalization from theof
@@ -64,7 +65,7 @@ import sys
 import json
 from collections import OrderedDict, Counter
 
-version = "0.8.3"
+version = "0.8.4"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -343,7 +344,10 @@ if __name__ == '__main__':
     # output format options
     output = parser.add_argument_group('output arguments')
     output.add_argument('-f', '--fields', type=parse_fields, metavar="FDS", default="ALL",
-                        help="fields to be included (supported values: ALL, aUrl, aId, classification, date, fId, id, line, modifier, newVoss, sourceId, sourceLabel, sourcePhrase, status, text, wikidata, year)")
+                        help="fields to be included (supported values: ALL, aUrl, aId, " +
+                             "classification, date, fId, id, line, modifier, newVoss, " +
+                             "sourceId, sourceLabel, sourcePhrase, status, text, " +
+                             "wikidata, year)")
     output.add_argument('-o', '--output', type=str, metavar="FMT", help="output format", default="csv", choices=["csv", "json"])
     output.add_argument('-s', '--sep', type=str, metavar="SEP", help="output separator for csv", default='\t')
     output.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
@@ -404,4 +408,4 @@ if __name__ == '__main__':
         if args.output == "json":
             print_json(parts)
         else:
-            print_csv(parts, args.separator)
+            print_csv(parts, args.sep)
