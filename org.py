@@ -14,6 +14,7 @@
 # - refactored iteration over parts from array to dict
 # - changed handling of command line parameters for selecting columns
 # - fixed source phrase and modifier extraction
+# - added JSON export
 # 2019-12-13 (ms)
 # - moved file to parent dir
 # - updated sourcephrase and modifier extraction (see extract_sourcephrase / extract_modifier) -> generalization from theof
@@ -58,9 +59,10 @@
 import re
 import argparse
 import sys
+import json
 from collections import OrderedDict
 
-version = "0.8.1"
+version = "0.8.2"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -292,6 +294,18 @@ def print_csv(parts, sep):
     for part in parts:
         print(sep.join([part_to_string(part[p]) for p in part]))
 
+# print JSON lines
+def print_json(parts):
+    print("[")
+    first = True
+    for part in parts:
+        if first:
+            first = False
+        else:
+            print(",", end='')
+        print(json.dumps(part))
+    print("]")
+        
 # prints heading for each year
 # must be called before select_parts, such that year information is available
 # works by interleaving printing with the iteration through yield
@@ -376,4 +390,7 @@ if __name__ == '__main__':
         parts = select_parts(parts, args.fields)
         if args.clean:
             parts = gen_rm_ctrl(parts)
-        print_csv(parts, args.separator)
+        if args.output == "json":
+            print_json(parts)
+        else:
+            print_csv(parts, args.separator)
