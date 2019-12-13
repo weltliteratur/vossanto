@@ -21,8 +21,8 @@ We plot some temporal distributions:
 	   $(zcat theof_${year}.tsv.gz | wc -l) \
 	   $(cat theof_${year}_wd.tsv | wc -l) \
 	   $(cat theof_${year}_wda_bl.tsv | wc -l) \
-	   $(./org.py -y README.org | grep ${year} | wc -l) \
-           $(./org.py -y -c -b README.org | grep ${year} | awk -F'\t' '{if ($2 == "D" || $3 == "True") print;}' | wc -l)
+	   $(../org.py -f year README.org | grep ${year} | wc -l) \
+           $(../org.py -f year,classification,status README.org | grep ${year} | awk -F$'\t' '{if ($3 == "D" || $2 == "True") print;}' | wc -l)
   done
 #+END_SRC
 
@@ -113,45 +113,16 @@ replot
 #+end_src
 
 Absolute frequency:
-[[nyt_vossantos_over_time.png]]
+[[file:nyt_vossantos_over_time.png]]
 
 Relative frequency:
-[[nyt_vossantos_over_time_rel.png]]
+[[file:nyt_vossantos_over_time_rel.png]]
 
 ** sources
 *** most frequent
-The most frequent source /candidates/ are:
+The most frequent /sources/ are:
 #+BEGIN_SRC sh
-  awk -F'\t' '{print $4}' theof_*_wda_bl.tsv \
-      | sort | uniq -c | sort -nr | head -n20
-#+END_SRC
-
-| count | source candidate   |
-|-------+--------------------|
-|    74 | Michael Jordan     |
-|    64 | Rodney Dangerfield |
-|    47 | Madonna            |
-|    37 | Babe Ruth          |
-|    32 | Elvis              |
-|    31 | Johnny Appleseed   |
-|    29 | Jesus              |
-|    27 | Picasso            |
-|    26 | Mona Lisa          |
-|    25 | Rembrandt          |
-|    24 | Bill Gates         |
-|    23 | Michelangelo       |
-|    22 | Shakespeare        |
-|    22 | Mozart             |
-|    22 | Donald Trump       |
-|    21 | Tiger Woods        |
-|    21 | P. T. Barnum       |
-|    21 | Jackie Robinson    |
-|    21 | Dalai Lama         |
-|    21 | Cary Grant         |
-
-After cleansing, the following most frequent sources remain:
-#+BEGIN_SRC sh
-  ./org.py -w -T README.org | sort | uniq -c | sort -nr | head -n40
+  ../org.py -T -f wikidata README.org | sort | uniq -c | sort -nr | head -n40
 #+END_SRC
 
 | count | source                  |
@@ -192,10 +163,10 @@ After cleansing, the following most frequent sources remain:
 |    10 | [[https://www.wikidata.org/wiki/Q937][Albert Einstein]]         |
 |    10 | [[https://www.wikidata.org/wiki/Q8743][Thomas Edison]]           |
 |    10 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]              |
+|    10 | [[https://www.wikidata.org/wiki/Q216810][King Kong]]               |
+|    10 | [[https://www.wikidata.org/wiki/Q214477][Julia Child]]             |
 |    10 | [[https://www.wikidata.org/wiki/Q170779][Cassandra]]               |
 |     9 | [[https://www.wikidata.org/wiki/Q313697][Ross Perot]]              |
-|     9 | [[https://www.wikidata.org/wiki/Q216810][King Kong]]               |
-|     9 | [[https://www.wikidata.org/wiki/Q214477][Julia Child]]             |
 
 *** temporal distribution
 
@@ -204,7 +175,7 @@ After cleansing, the following most frequent sources remain:
     echo -n $year
     for s in "Michael_Jordan" "Rodney_Dangerfield" "Babe_Ruth"; do
       s=$(echo $s| sed "s/_/ /g")
-      c=$(./org.py -T -y -l README.org | grep ^$year | awk -F'\t' '{print $2}' | grep "^$s$" | wc -l)
+      c=$(../org.py -T -f year,sourceLabel README.org | grep ^$year | awk -F'\t' '{print $2}' | grep "^$s$" | wc -l)
       echo -n "\t$c"
     done
     echo
@@ -261,7 +232,7 @@ set out "nyt_sources_over_time.png"
 replot
 #+end_src
 
-[[nyt_sources_over_time.png]]
+[[file:nyt_sources_over_time.png]]
 
 ** categories
 *** online
@@ -269,7 +240,7 @@ Extract the categories for the articles:
 #+BEGIN_SRC sh :results silent
   export PYTHONIOENCODING=utf-8
   for year in $(seq 1987 2007); do
-      ./nyt.py --category ../nyt_corpus_${year}.tar.gz \
+      ../nyt.py --category ../nyt_corpus_${year}.tar.gz \
           | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
           | sort >> nyt_categories.tsv
   done
@@ -306,8 +277,8 @@ Check the number of and the top categories:
 
 Collect the categories of the articles
 #+BEGIN_SRC sh
-  echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_categories.tsv)
-  ./org.py -T -f README.org | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+  echo "vossantos" $(../org.py -T README.org | wc -l) articles $(wc -l < nyt_categories.tsv)
+  ../org.py -T -f fId README.org | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
       | sort | uniq -c \
       | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
       | join -t$'\t' -o1.2,1.1,2.2 - nyt_categories_distrib.tsv \
@@ -343,7 +314,7 @@ Extract the desks for the articles:
 #+BEGIN_SRC sh :results silent
   export PYTHONIOENCODING=utf-8
   for year in $(seq 1987 2007); do
-      ./nyt.py --desk ../nyt_corpus_${year}.tar.gz \
+      ../nyt.py --desk ../nyt_corpus_${year}.tar.gz \
           | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
           | sort >> nyt_desks.tsv
   done
@@ -378,11 +349,10 @@ Check the number of and the top categories:
 | Society Desk            |   44032 |
 | Cultural Desk           |   40342 |
 
-
 Collect the desks of the articles
 #+BEGIN_SRC sh
-  echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.tsv)
-  ./org.py -T -f README.org | join nyt_desks.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+  echo "vossantos" $(../org.py -T README.org | wc -l) articles $(wc -l < nyt_desks.tsv)
+  ../org.py -T -f fid README.org | join nyt_desks.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
       | sort | uniq -c \
       | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
       | join -t$'\t' -o1.2,1.1,2.2 - nyt_desks_distrib.tsv \
@@ -421,7 +391,7 @@ Extract the authors for the articles:
 #+BEGIN_SRC sh :results silent
   export PYTHONIOENCODING=utf-8
   for year in $(seq 1987 2007); do
-      ./nyt.py --author ../nyt_corpus_${year}.tar.gz \
+      ../nyt.py --author ../nyt_corpus_${year}.tar.gz \
           | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
           | sort >> nyt_authors.tsv
   done
@@ -429,7 +399,7 @@ Extract the authors for the articles:
 
 Compute frequency distribution over all articles:
 #+BEGIN_SRC sh :results silent
-  cut -d$'\t' -f2 nyt_authors.tsv | sort -S1G | uniq -c \
+  cut -d$'\t' -f2 nyt_authors.tsv | LC_ALL=C sort -S1G | uniq -c \
      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
                                             > nyt_authors_distrib.tsv
 #+END_SRC
@@ -460,11 +430,11 @@ Check the number of and the top authors:
 
 Collect the authors of the articles
 #+BEGIN_SRC sh
-  echo "vossantos" $(./org.py -T README.org | wc -l) articles $(wc -l < nyt_authors.tsv)
-  ./org.py -T -f README.org | join nyt_authors.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
-      | sort | uniq -c \
+  echo "vossantos" $(../org.py -T README.org | wc -l) articles $(wc -l < nyt_authors.tsv)
+  ../org.py -T -f fid README.org | join nyt_authors.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+      | LC_ALL=C sort | uniq -c \
       | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
-      | join -t$'\t' -o1.2,1.1,2.2 - nyt_authors_distrib.tsv \
+      | LC_ALL=C join -t$'\t' -o1.2,1.1,2.2 - nyt_authors_distrib.tsv \
       | sort -nr | head -n20
 #+END_SRC
 
@@ -495,7 +465,7 @@ Collect the authors of the articles
 *** Vossantos of the top author
 #+BEGIN_SRC sh :results raw
   # extract list of articles
-  for article in $(./org.py -T -f README.org | join nyt_authors.tsv - | grep "Maslin, Janet" | cut -d' ' -f1 ); do
+  for article in $(../org.py -T -f fid README.org | join nyt_authors.tsv - | grep "Maslin, Janet" | cut -d' ' -f1 ); do
     grep "$article" README.org
   done
 #+END_SRC
@@ -537,7 +507,9 @@ Collect the authors of the articles
 ** modifiers
 
 #+BEGIN_SRC sh
-./org.py -o -T README.org | sort | uniq -c | sort -nr | head -n30
+  ../org.py -T -f modifier,aId README.org \
+      | awk -F$'\t' '$1 != "" {print $1;}' \
+      | sort | uniq -c | sort -nr | head -n30
 #+END_SRC
 
 | count | modifier         |
@@ -577,7 +549,9 @@ Collect the authors of the articles
 **** "today"
 Who are the sources for the modifier "today"?
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* today" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "today" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source                 |
@@ -592,16 +566,20 @@ Who are the sources for the modifier "today"?
 |     1 | [[https://www.wikidata.org/wiki/Q1689414][Jimmy Osmond]]           |
 |     1 | [[https://www.wikidata.org/wiki/Q1586470][Harry Cohn]]             |
 
-**** "his day" or "his time"
-Who are the sources for the modifiers "his day", "his time", and "his generation"?
+**** "his day", "his time", or "his generation"
+Who are the sources for the modifiers "his day", "his time", and "his
+generation"?
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* his \(day\|time\|generation\)" | awk -F'\t' '{print $2}' | sort | uniq -c  | sort -nr  | head
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 ~ "his (day|time|generation)" {print $2;}' \
+      | sort | uniq -c | sort -nr | head
 #+END_SRC
 
 | count | source                |
 |-------+-----------------------|
 |     3 | [[https://www.wikidata.org/wiki/Q41421][Michael Jordan]]        |
 |     2 | [[https://www.wikidata.org/wiki/Q79031][Mike Tyson]]            |
+|     2 | [[https://www.wikidata.org/wiki/Q5593][Pablo Picasso]]         |
 |     2 | [[https://www.wikidata.org/wiki/Q508574][Billy Martin]]          |
 |     2 | [[https://www.wikidata.org/wiki/Q49214][Dan Quayle]]            |
 |     2 | [[https://www.wikidata.org/wiki/Q2685][Arnold Schwarzenegger]] |
@@ -609,34 +587,34 @@ Who are the sources for the modifiers "his day", "his time", and "his generation
 |     2 | [[https://www.wikidata.org/wiki/Q22686][Donald Trump]]          |
 |     2 | [[https://www.wikidata.org/wiki/Q216896][L. Ron Hubbard]]        |
 |     2 | [[https://www.wikidata.org/wiki/Q10993][Tiger Woods]]           |
-|     1 | [[https://www.wikidata.org/wiki/Q963129][Lawrence Taylor]]       |
 
-**** "her day"
-Who are the sources for the modifier "her day"?
+**** "her day", "her time", or "her generation"
+Who are the sources for the modifiers "her day", "her time", and "her
+generation"?
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* her day" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 ~ "her (day|time|generation)" {print $2;}' \
+      | sort | uniq -c | sort -nr | head
 #+END_SRC
 
-| count | source           |
-|-------+------------------|
-|     1 | [[https://www.wikidata.org/wiki/Q93187][Hilary Swank]]     |
-|     1 | [[https://www.wikidata.org/wiki/Q6294][Hillary Clinton]]  |
-|     1 | [[https://www.wikidata.org/wiki/Q4616][Marilyn Monroe]]   |
-|     1 | [[https://www.wikidata.org/wiki/Q452206][Judith Krantz]]    |
-|     1 | [[https://www.wikidata.org/wiki/Q3838473][Lucia Pamela]]     |
-|     1 | [[https://www.wikidata.org/wiki/Q34851][Elizabeth Taylor]] |
-|     1 | [[https://www.wikidata.org/wiki/Q285536][Imelda Marcos]]    |
-|     1 | [[https://www.wikidata.org/wiki/Q235066][Laurie Anderson]]  |
-|     1 | [[https://www.wikidata.org/wiki/Q234163][Nell Gwyn]]        |
-|     1 | [[https://www.wikidata.org/wiki/Q225283][Annie Leibovitz]]  |
-|     1 | [[https://www.wikidata.org/wiki/Q211082][Tara Reid]]        |
-|     1 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]          |
-|     1 | [[https://www.wikidata.org/wiki/Q128297][Maria Callas]]     |
+| count | source          |
+|-------+-----------------|
+|     4 | [[https://www.wikidata.org/wiki/Q1744][Madonna]]         |
+|     2 | [[https://www.wikidata.org/wiki/Q235066][Laurie Anderson]] |
+|     1 | [[https://www.wikidata.org/wiki/Q93187][Hilary Swank]]    |
+|     1 | [[https://www.wikidata.org/wiki/Q83325][Pamela Anderson]] |
+|     1 | [[https://www.wikidata.org/wiki/Q6294][Hillary Clinton]] |
+|     1 | [[https://www.wikidata.org/wiki/Q60303][Lotte Lehmann]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q55800][Oprah Winfrey]]   |
+|     1 | [[https://www.wikidata.org/wiki/Q4616][Marilyn Monroe]]  |
+|     1 | [[https://www.wikidata.org/wiki/Q45661][Coco Chanel]]     |
+|     1 | [[https://www.wikidata.org/wiki/Q452206][Judith Krantz]]   |
 
 *** country
 #+BEGIN_SRC sh
-  ./org.py -o -T README.org \
-      | sort | uniq -c | sort -nr | grep "Japan\|China\|Brazil\|Iran\|Israel\|Mexico\|India\|South Africa\|Spain\|South Korea\|Russia\|Poland\|Pakistan" | head -n13
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 ~ "(Japan|China|Brazil|Iran|Israel|Mexico|India|South Africa|Spain|South Korea|Russia|Poland|Pakistan)" {print $1;}' \
+      | sort | uniq -c | sort -nr | head
 #+END_SRC
 
 | count | country      |
@@ -651,14 +629,13 @@ Who are the sources for the modifier "her day"?
 |     4 | South Africa |
 |     3 | Spain        |
 |     3 | South Korea  |
-|     3 | Russia       |
-|     3 | Poland       |
-|     3 | Pakistan     |
 
 What are the sources for the modifier ... ?
 **** "Japan"
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* Japan" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "Japan" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source            |
@@ -693,7 +670,9 @@ What are the sources for the modifier ... ?
 
 **** "China"
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* China" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "China" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source                |
@@ -714,7 +693,9 @@ What are the sources for the modifier ... ?
 
 **** "Brazil"
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* Brazil" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "Brazil" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source         |
@@ -736,26 +717,73 @@ What are the sources for the modifier ... ?
 *** sports
 
 #+BEGIN_SRC sh
-  ./org.py -T -t README.org \
-      | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
-      | sort | uniq -c | sort -nr | grep "baseball\|basketball\|tennis\|golf\|football\|racing\|soccer\|sailing" | head -n8
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 ~ "(baseball|basketball|tennis|golf|football|racing|soccer|sailing)" {print $1;}' \
+      | sort | uniq -c | sort -nr 
 #+END_SRC
 
-| count | sports     |
-|-------+------------|
-|    15 | baseball   |
-|    12 | tennis     |
-|     9 | basketball |
-|     7 | football   |
-|     6 | racing     |
-|     6 | golf       |
-|     3 | soccer     |
-|     3 | sailing    |
+| count | sports                                                |
+|-------+-------------------------------------------------------|
+|    16 | tennis                                                |
+|    16 | baseball                                              |
+|    10 | basketball                                            |
+|     8 | golf                                                  |
+|     7 | football                                              |
+|     6 | soccer                                                |
+|     6 | racing                                                |
+|     3 | women's basketball                                    |
+|     3 | sailing                                               |
+|     3 | auto racing                                           |
+|     2 | pro football                                          |
+|     2 | New York baseball                                     |
+|     1 | Yale football fame                                    |
+|     1 | women's college soccer                                |
+|     1 | this year's national collegiate basketball tournament |
+|     1 | the tennis tour                                       |
+|     1 | the tennis field                                      |
+|     1 | the soccer set                                        |
+|     1 | the racing world                                      |
+|     1 | stock-car racing                                      |
+|     1 | Rotisserie baseball                                   |
+|     1 | pro football owners                                   |
+|     1 | professional basketball coaches                       |
+|     1 | professional basketball                               |
+|     1 | motocross racing in the 1980's                        |
+|     1 | micro golfers                                         |
+|     1 | major league baseball                                 |
+|     1 | Laser sailing                                         |
+|     1 | Japanese baseball                                     |
+|     1 | Iraqi soccer                                          |
+|     1 | horse racing                                          |
+|     1 | high school baseball in New York                      |
+|     1 | harness racing                                        |
+|     1 | golf criticism                                        |
+|     1 | football teams                                        |
+|     1 | football owners                                       |
+|     1 | football announcers                                   |
+|     1 | country-club golf                                     |
+|     1 | college football these days                           |
+|     1 | college football                                      |
+|     1 | college basketball                                    |
+|     1 | Chinese baseball                                      |
+|     1 | Brazilian basketball for the past 20 years            |
+|     1 | BMX racing                                            |
+|     1 | biddy basketball                                      |
+|     1 | basketball announcers                                 |
+|     1 | basketball analysts                                   |
+|     1 | basketball analysis                                   |
+|     1 | baseball's new era                                    |
+|     1 | baseball managers                                     |
+|     1 | baseball executives                                   |
+|     1 | baseball collections                                  |
+|     1 | baseball cards                                        |
 
 Who are the sources for the modifier ... ?
 **** baseball
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* baseball" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "baseball" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source             |
@@ -780,7 +808,9 @@ Who are the sources for the modifier ... ?
 
 **** tennis
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* tennis" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "tennis" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source          |
@@ -803,7 +833,9 @@ Who are the sources for the modifier ... ?
 
 **** basketball
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* basketball" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "basketball" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source                  |
@@ -823,7 +855,9 @@ Who are the sources for the modifier ... ?
 
 **** football
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* football" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "football" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source          |
@@ -841,7 +875,9 @@ Who are the sources for the modifier ... ?
 
 **** racing
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* racing" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "racing" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source             |
@@ -854,7 +890,9 @@ Who are the sources for the modifier ... ?
 
 **** golf
 #+BEGIN_SRC sh
-  ./org.py -w -T -t -c README.org | grep "of\* golf" | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 == "golf" {print $2;}' \
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | source          |
@@ -869,44 +907,49 @@ Who are the sources for the modifier ... ?
 
 *** culture
 #+BEGIN_SRC sh
-  ./org.py -T -t README.org \
-      | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" \
-      | sort | uniq -c | sort -nr | grep "dance\|hip-hop\|jazz\|fashion\|weaving\|ballet\|the art world\|wine\|salsa"   | head -n9
+  ../org.py -T -f modifier,wikidata README.org \
+      | awk -F$'\t' '$1 ~ "(dance|hip-hop|jazz|fashion|weaving|ballet|the art world|wine|salsa|juggling|tango)" {print $1;}' \
+      | sort | uniq -c | sort -nr | head -n13
 #+END_SRC
 
-| count | modifier          |
-|-------+-------------------|
-|     8 | jazz              |
-|     8 | hip-hop           |
-|     8 | fashion           |
-|     8 | dance             |
-|     7 | the art world     |
-|     6 | ballet            |
-|     4 | wine              |
-|     4 | salsa             |
-|     2 | the fashion world |
+| count | modifier             |
+|-------+----------------------|
+|    10 | ballet               |
+|     9 | the art world        |
+|     9 | jazz                 |
+|     9 | fashion              |
+|     8 | hip-hop              |
+|     8 | dance                |
+|     4 | wine                 |
+|     4 | salsa                |
+|     2 | the hip-hop world    |
+|     2 | the fashion world    |
+|     2 | the fashion industry |
+|     2 | the dance world      |
+|     1 | West Coast jazz      |
 
 *** Michael Jordan
 
 #+BEGIN_SRC sh :results raw
-  ./org.py -T -l -t README.org | awk -F'\t' '{if ($1 == "Michael Jordan") print $2}' \
-      | perl -pe "s/.*of\* (.*?[a-zA-Z0-9\.]{2}.*?)['.,?\!:;)\"].*/\1/" | sed -e "s/^['\"]*//" -e "s/['\"]*$//" -e "s/^/- /" \
+  ../org.py -T -f sourceLabel,modifier README.org \
+      | awk -F$'\t' '{if ($1 == "Michael Jordan") print $2}' \
       | sort -u
 #+END_SRC
 
 the Michael Jordan of
+- …
 - 12th men
 - actresses
 - Afghanistan
 - Australia
-- baseball home where he was raised in Cincinnati
+- baseball
 - BMX racing
 - boxing
 - Brazilian basketball for the past 20 years
 - college coaches
 - computer games
 - cricket
-- cyberspace to log a few minutes on a real basketball court
+- cyberspace
 - dance
 - diving
 - dressage horses
@@ -915,34 +958,31 @@ the Michael Jordan of
 - foosball
 - game shows
 - geopolitics
-- geopolitics -- the overwhelmingly dominant system
 - golf
 - Harlem
-- hers
+- her time
 - his day
 - his sport
 - his team
 - his time
 - hockey
-- hockey by a former Lightning owner
 - horse racing
 - hunting and fishing
 - Indiana
 - integrating insurance and health care
--  julienne
+- julienne
 - jumpers
 - language
 - Laser sailing
 - late-night TV
 - management in Digital
-- Meet *the Michael Jordan of* …
 - Mexico
-- motocross racing in the 1980
+- motocross racing in the 1980's
 - orange juice
 - recording
 - Sauternes
-- snowboarding -- in every interview and article on him
-- soccer and Bebeto is the Magic Johnson of soccer
+- snowboarding
+- soccer
 - television puppets
 - tennis
 - the Buffalo team
@@ -955,7 +995,8 @@ the Michael Jordan of
 - the sport
 - the White Sox
 - this sport
-- women
+- women's ball
+- women's basketball
 
 ** favourites
 Robert:
