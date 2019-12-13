@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset="utf-8">
-    <link href="assets/css/dateline.css" rel="stylesheet">
-    <link href="assets/css/timeline.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="assets/css/dateline.css">
+    <link rel="stylesheet" href="assets/css/timeline.css">
   </head>
   <body>
     
