@@ -13,6 +13,7 @@
 # 2019-12-13 (rja)
 # - refactored iteration over parts from array to dict
 # - changed handling of command line parameters for selecting columns
+# - fixed source phrase and modifier extraction
 # 2019-12-13 (ms)
 # - moved file to parent dir
 # - updated sourcephrase and modifier extraction (see extract_sourcephrase / extract_modifier) -> generalization from theof
@@ -59,7 +60,7 @@ import argparse
 import sys
 from collections import OrderedDict
 
-version = "0.8.0"
+version = "0.8.1"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -102,10 +103,10 @@ $                     # end of string
 re_line = re.compile(line_re_str, re.VERBOSE)
 
 # to extract the modifier (enclosed in /.../) from the sentence
-#re_modifier = re.compile("(among|from|of)\\* ['\"]*/(.+?)/([^0-9A-Za-z]|$)")
+re_modifier = re.compile("\\* ['\"]*/(.+?)/([^0-9A-Za-z]|$)")
 
-# to extract the exact source phrase (enclosed in *the ... of*) from the sentence
-#re_sourcephrase = re.compile("\\*the (.+?) of\\*")
+# to extract the exact source phrase (enclosed in * ... *) from the sentence
+re_sourcephrase = re.compile("\\*\w+ (.+?) \w+\\*")
 
 # to remove markup from the sentences
 re_clean = re.compile(r"[*/.\s]")
@@ -235,21 +236,17 @@ def match_line(line):
 def extract_modifier(sentence, trueVoss):
     # ignore non-Vossantos
     if trueVoss:
-        #match = re_modifier.search(sentence)
-        match = sentence.split("/")[1]
-        return match
-        # if match:
-            #return match.group(1)
+        match = re_modifier.search(sentence)
+        if match:
+            return match.group(1)
     return ""
 
 # extract the source phrase (enclosed in *the ... of*) from the sentence
 def extract_sourcephrase(sentence, trueVoss):
     if trueVoss:
-        match = sentence.split("*")[1]
-    # match = re_sourcephrase.search(sentence)
-    # if match:
-        return match
-        # return match.group(1)
+        match = re_sourcephrase.search(sentence)
+        if match:
+            return match.group(1)
     return ""
 
 
