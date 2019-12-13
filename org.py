@@ -225,7 +225,7 @@ def match_line(line):
             "year"           : d["year"],
             "date"           : d["year"] + "-" + d["month"] + "-" + d["day"],
             "aId"            : d["aid"],
-            "fid"            : d["fid"],
+            "fId"            : d["fid"],
             "sourceId"       : d["wdid"],
             "sourceLabel"    : d["wdlabel"],
             "sourcePhrase"   : sourcePhrase,
@@ -233,7 +233,6 @@ def match_line(line):
             "text"           : d["sentence"],
             "wikidata"       : "[[https://www.wikidata.org/wiki/" + d["wdid"] + "][" + d["wdlabel"] + "]]",
             "aUrl"           : d["aurl"],
-            "status"         : d["status"],
             "classification" : trueVoss,
             "line"           : line.strip(),
             "newVoss"        : d["newmark"], # FIXME: where is this used?
@@ -344,7 +343,7 @@ if __name__ == '__main__':
     # output format options
     output = parser.add_argument_group('output arguments')
     output.add_argument('-f', '--fields', type=parse_fields, metavar="FDS", default="ALL",
-                        help="fields to be included (supported values: ALL, aUrl, aId, classification, date, fid, id, line, modifier, newVoss, sourceId, sourceLabel, sourcePhrase, status, status, text, wikidata, year)")
+                        help="fields to be included (supported values: ALL, aUrl, aId, classification, date, fId, id, line, modifier, newVoss, sourceId, sourceLabel, sourcePhrase, status, text, wikidata, year)")
     output.add_argument('-o', '--output', type=str, metavar="FMT", help="output format", default="csv", choices=["csv", "json"])
     output.add_argument('-s', '--sep', type=str, metavar="SEP", help="output separator for csv", default='\t')
     output.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
