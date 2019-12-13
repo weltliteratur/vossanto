@@ -12,6 +12,7 @@
 # Changes:
 # 2019-12-13 (rja)
 # - refactored iteration over parts from array to dict
+# - changed handling of command line parameters for selecting columns
 # 2019-12-13 (ms)
 # - moved file to parent dir
 # - updated sourcephrase and modifier extraction (see extract_sourcephrase / extract_modifier) -> generalization from theof
@@ -58,7 +59,7 @@ import argparse
 import sys
 from collections import OrderedDict
 
-version = "0.7.1"
+version = "0.8.0"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -184,39 +185,13 @@ def gen_rm_ctrl(parts):
 def get_key(parts):
     return parts["year"], "|".join([parts["year"], parts["aid"], parts["sourcePhrase"], re_clean.sub('', parts["sentence"])])
 
-def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus, sclassification, sline):
-    if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus, sline]):
+def select_parts(parts, fields):
+    if len(fields) > 0:
         for part in parts:
             result = OrderedDict()
-            
-            if syear:
-                result["year"] = part["year"]
-            if sdate:
-                result["date"] = part["date"]
-            if said:
-                result["aid"] = part["aid"]
-            if sfid:
-                result["fid"] = part["fid"]
-            if ssourceId:
-                result["sourceId"] = part["sourceId"]
-            if ssourceLabel:
-                result["sourceLabel"] = part["sourceLabel"]
-            if ssourcePhrase:
-                result["sourcePhrase"] = part["sourcePhrase"]
-            if smodifier:
-                result["modifier"] = part["modifier"]
-            if stext:
-                result["text"] = part["text"]
-            if swikidata:
-                result["wikidata"] = part["wikidata"]
-            if saurl:
-                result["aUrl"] = part["aUrl"]
-            if sstatus:
-                result["status"] = part["status"]
-            if sclassification:
-                result["classification"] = part["classification"]
-            if sline:
-                result["line"] = part["line"]
+
+            for key in fields:
+                result[key] = part[key]
             yield result
     else:
         # when nothing has been selected, return everything
@@ -339,20 +314,20 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Manipulate Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('file', type=argparse.FileType('r', encoding='utf-8'), nargs='?', default=sys.stdin, help='org mode file to process')
     # what shall be printed
-    parser.add_argument('-a', '--articleid', action="store_true", help="output article id")
-    parser.add_argument('-b', '--status', action="store_true", help="output status of false positives")
-    parser.add_argument('-c', '--classification', action="store_true", help="output classification (True/False)")
-    parser.add_argument('-d', '--date', action="store_true", help="output date")
-    parser.add_argument('-f', '--fileid', action="store_true", help="output file id")
-    parser.add_argument('-g', '--original', action="store_true", help="output original line")
-    parser.add_argument('-i', '--sourceid', action="store_true", help="output Wikidata source id")
-    parser.add_argument('-l', '--sourcelabel', action="store_true", help="output source")
-    parser.add_argument('-o', '--modifier', action="store_true", help="output modifier")
-    parser.add_argument('-p', '--sourcephrase', action="store_true", help="output source phrase") # as it appears in the text
-    parser.add_argument('-t', '--text', action="store_true", help="output text")
-    parser.add_argument('-u', '--url', action="store_true", help="output article URL")
-    parser.add_argument('-w', '--wikidata', action="store_true", help="output link to Wikidata")
-    parser.add_argument('-y', '--year', action="store_true", help="output year")
+    parser.add_argument('-a', '--articleid', action="append_const", dest="fields", const="aid", help="output article id")
+    parser.add_argument('-b', '--status', action="append_const", dest="fields", const="status", help="output status of false positives")
+    parser.add_argument('-c', '--classification', action="append_const", dest="fields", const="classification", help="output classification (True/False)")
+    parser.add_argument('-d', '--date', action="append_const", dest="fields", const="date", help="output date")
+    parser.add_argument('-f', '--fileid', action="append_const", dest="fields", const="fid", help="output file id")
+    parser.add_argument('-g', '--original', action="append_const", dest="fields", const="line", help="output original line")
+    parser.add_argument('-i', '--sourceid', action="append_const", dest="fields", const="sourceId", help="output Wikidata source id")
+    parser.add_argument('-l', '--sourcelabel', action="append_const", dest="fields", const="sourceLabel", help="output source")
+    parser.add_argument('-o', '--modifier', action="append_const", dest="fields", const="modifier", help="output modifier")
+    parser.add_argument('-p', '--sourcephrase', action="append_const", dest="fields", const="sourcePhrase", help="output source phrase") # as it appears in the text
+    parser.add_argument('-t', '--text', action="append_const", dest="fields", const="text", help="output text")
+    parser.add_argument('-u', '--url', action="append_const", dest="fields", const="aUrl", help="output article URL")
+    parser.add_argument('-w', '--wikidata', action="append_const", dest="fields", const="wikidata", help="output link to Wikidata")
+    parser.add_argument('-y', '--year', action="append_const", dest="fields", const="year", help="output year")
     # filtering options
     parser.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
     parser.add_argument('-F', '--false', action="store_true", help="output only false positives")
@@ -409,7 +384,7 @@ if __name__ == '__main__':
         if args.heading:
             # interleaving the headings works by yielding the parts in a loop
             parts = print_heading(parts)
-        parts = select_parts(parts, args.year, args.date, args.articleid, args.fileid, args.url, args.sourceid, args.sourcelabel, args.sourcephrase, args.modifier, args.text, args.wikidata, args.status, args.classification, args.original)
+        parts = select_parts(parts, args.fields)
         if args.clean:
             parts = gen_rm_ctrl(parts)
         print_csv(parts, args.separator)
