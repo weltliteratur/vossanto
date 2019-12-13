@@ -33,8 +33,7 @@ function initDateline(events) {
 	    id : p.id,
 	    start : p.date,
 	    text : p.sourceLabel,
-	    sentence : p.sentence,
-	    "class" : "col-" + getColor(colClasses, p.desk)
+	    sentence : p.sentence//,	    "class" : "col-" + getColor(colClasses, p.desk)
 	});
     });
 
@@ -82,8 +81,7 @@ function createInfo(event) {
     let sentence = event.sentence.replace(re, "<b>$1</b> <em>$2</em>");
 
     let imgurl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Goethe_%28Stieler_1828%29.jpg/195px-Goethe_%28Stieler_1828%29.jpg";
-
     let result = "<img src='" + imgurl + "'/>" + sentence;
 
-    return result;
+    return sentence; //result;
 }
