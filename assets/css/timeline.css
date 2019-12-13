@@ -1,11 +1,3 @@
-.d-dateline, #legend {
-    font-family: sans-serif;
-}
-
-.d-event, .d-info, #legend {
-    font-size: 10px;
-}
-
 #legend {
     margin: .5em;
 }
