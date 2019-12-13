@@ -15,6 +15,8 @@
 # - changed handling of command line parameters for selecting columns
 # - fixed source phrase and modifier extraction
 # - added JSON export
+# - reorganised help messages
+# - added generation of unique id (useful for JSON)
 # 2019-12-13 (ms)
 # - moved file to parent dir
 # - updated sourcephrase and modifier extraction (see extract_sourcephrase / extract_modifier) -> generalization from theof
@@ -60,9 +62,9 @@ import re
 import argparse
 import sys
 import json
-from collections import OrderedDict
+from collections import OrderedDict, Counter
 
-version = "0.8.2"
+version = "0.8.3"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -190,11 +192,17 @@ def get_key(parts):
 
 def select_parts(parts, fields):
     if len(fields) > 0 and not "ALL" in fields:
+        ids = Counter()
         for part in parts:
             result = OrderedDict()
 
             for key in fields:
-                result[key] = part[key]
+                if key in part:
+                    result[key] = part[key]
+                elif key == "id":
+                    # generate (hopefully unique) id
+                    result["id"] = part["aid"] + "_" + str(ids[part["aid"]])
+                    ids[part["aid"]] += 1
             yield result
     else:
         # when nothing has been selected, return everything
@@ -305,7 +313,7 @@ def print_json(parts):
             print(",", end='')
         print(json.dumps(part))
     print("]")
-        
+
 # prints heading for each year
 # must be called before select_parts, such that year information is available
 # works by interleaving printing with the iteration through yield
@@ -326,24 +334,28 @@ def parse_fields(s):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Manipulate Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('file', type=argparse.FileType('r', encoding='utf-8'), nargs='?', default=sys.stdin, help='org mode file to process')
-    # what shall be printed
-    parser.add_argument('-f', '--fields', type=parse_fields, metavar="FIELDS", help="fields to be included", default="ALL")
-    # original order: year,date,aid,fid,sourceId,sourceLabel,sourcePhrase,modifier,wikidata,aUrl,status,classification,line
 
     # filtering options
-    parser.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
-    parser.add_argument('-F', '--false', action="store_true", help="output only false positives")
-    parser.add_argument('--ignore-source-ids', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='ignore candidates with a source id contained in FILE')
+    filtering = parser.add_argument_group('filter arguments')
+    filtering.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
+    filtering.add_argument('-F', '--false', action="store_true", help="output only false positives")
+    filtering.add_argument('--ignore-source-ids', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='ignore candidates with a source id contained in FILE')
+
     # output format options
-    parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
-    parser.add_argument('-c', '--clean', action="store_true", help="clean whitespace")
-    parser.add_argument('-H', '--heading', action="store_true", help="print year heading")
-    parser.add_argument('-o', '--output', type=str, metavar="FORMAT", help="output format", default="csv", choices=["tsv", "csv", "json"])
-    parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator for csv", default='\t')
+    output = parser.add_argument_group('output arguments')
+    output.add_argument('-f', '--fields', type=parse_fields, metavar="FDS", default="ALL",
+                        help="fields to be included (supported values: ALL, aUrl, aid, classification, date, fid, id, line, modifier, newVoss, sourceId, sourceLabel, sourcePhrase, status, status, text, wikidata, year)")
+    output.add_argument('-o', '--output', type=str, metavar="FMT", help="output format", default="csv", choices=["csv", "json"])
+    output.add_argument('-s', '--sep', type=str, metavar="SEP", help="output separator for csv", default='\t')
+    output.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
+    output.add_argument('-c', '--clean', action="store_true", help="clean whitespace")
+    output.add_argument('-H', '--heading', action="store_true", help="print year heading (only csv)")
+
     # special options
-    parser.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
-    parser.add_argument('-u', '--include-urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
-    parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
+    special = parser.add_argument_group('special arguments')
+    special.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
+    special.add_argument('-u', '-urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
+    special.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
 
