@@ -42,12 +42,12 @@ function initDateline(events) {
 	size: '500px',
 	bands: [
 	    {
-		size: '80%',
+		size: '85%',
 		scale: Dateline.MONTH,
-		interval: 160
+		interval: 180
 	    },
 	    {
-		size: '20%',
+		size: '15%',
 		scale: Dateline.YEAR,
 		interval: 180,
 		layout: 'overview'
