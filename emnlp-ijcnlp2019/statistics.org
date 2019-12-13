@@ -495,7 +495,7 @@ Collect the authors of the articles
 ** modifiers
 
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,aid README.org \
+  ../org.py -T -f modifier,aId README.org \
       | awk -F$'\t' '$1 != "" {print $1;}' \
       | sort | uniq -c | sort -nr | head -n30
 #+END_SRC

@@ -188,7 +188,7 @@ def gen_rm_ctrl(parts):
 
 # generates a key for a Vossanto
 def get_key(parts):
-    return parts["year"], "|".join([parts["year"], parts["aid"], parts["sourcePhrase"], re_clean.sub('', parts["sentence"])])
+    return parts["year"], "|".join([parts["year"], parts["aId"], parts["sourcePhrase"], re_clean.sub('', parts["sentence"])])
 
 def select_parts(parts, fields):
     if len(fields) > 0 and not "ALL" in fields:
@@ -201,8 +201,8 @@ def select_parts(parts, fields):
                     result[key] = part[key]
                 elif key == "id":
                     # generate (hopefully unique) id
-                    result["id"] = part["aid"] + "_" + str(ids[part["aid"]])
-                    ids[part["aid"]] += 1
+                    result["id"] = part["aId"] + "_" + str(ids[part["aId"]])
+                    ids[part["aId"]] += 1
             yield result
     else:
         # when nothing has been selected, return everything
@@ -224,7 +224,7 @@ def match_line(line):
         return {
             "year"           : d["year"],
             "date"           : d["year"] + "-" + d["month"] + "-" + d["day"],
-            "aid"            : d["aid"],
+            "aId"            : d["aid"],
             "fid"            : d["fid"],
             "sourceId"       : d["wdid"],
             "sourceLabel"    : d["wdlabel"],
@@ -344,7 +344,7 @@ if __name__ == '__main__':
     # output format options
     output = parser.add_argument_group('output arguments')
     output.add_argument('-f', '--fields', type=parse_fields, metavar="FDS", default="ALL",
-                        help="fields to be included (supported values: ALL, aUrl, aid, classification, date, fid, id, line, modifier, newVoss, sourceId, sourceLabel, sourcePhrase, status, status, text, wikidata, year)")
+                        help="fields to be included (supported values: ALL, aUrl, aId, classification, date, fid, id, line, modifier, newVoss, sourceId, sourceLabel, sourcePhrase, status, status, text, wikidata, year)")
     output.add_argument('-o', '--output', type=str, metavar="FMT", help="output format", default="csv", choices=["csv", "json"])
     output.add_argument('-s', '--sep', type=str, metavar="SEP", help="output separator for csv", default='\t')
     output.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
