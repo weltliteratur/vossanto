@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2019-12-13 (rja)
+# - refactored iteration over parts from array to dict
 # 2019-12-13 (ms)
 # - moved file to parent dir
 # - updated sourcephrase and modifier extraction (see extract_sourcephrase / extract_modifier) -> generalization from theof
@@ -149,9 +151,9 @@ def read_dict(flines, sep='\t', comment='#'):
     return d
 
 def gen_truefalse(candidates, true_positive, false_positive):
-    for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line in candidates:
-        if true_positive == false_positive or true_positive == trueVoss or false_positive != trueVoss:
-            yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line
+    for cand in candidates:
+        if true_positive == false_positive or true_positive == cand["classification"] or false_positive != cand["classification"]:
+            yield cand
 
 
 # Skip all candidates whose source's id is contained in sourcefile.
@@ -160,9 +162,9 @@ def gen_truefalse(candidates, true_positive, false_positive):
 def gen_filter_sources(candidates, sourcefile):
     if sourcefile:
         sources = read_dict(sourcefile)
-        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line in candidates:
-            if sourceId not in sources:
-                yield year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line
+        for cand in candidates:
+            if cand["sourceId"] not in sources:
+                yield cand
     else:
         for cand in candidates:
             yield cand
@@ -176,47 +178,45 @@ def gen_candidates(lines):
 # remove control characters
 def gen_rm_ctrl(parts):
     for part in parts:
-        yield [re_ws.sub(' ', p).strip() for p in part]
+        yield [re_ws.sub(' ', part[p]).strip() for p in part]
 
 # generates a key for a Vossanto
 def get_key(parts):
-    year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line = parts
-    key = "|".join([year, aid, sourcePhrase, re_clean.sub('', sentence)])
-    return year, key
+    return parts["year"], "|".join([parts["year"], parts["aid"], parts["sourcePhrase"], re_clean.sub('', parts["sentence"])])
 
 def select_parts(parts, syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus, sclassification, sline):
     if any([syear, sdate, said, sfid, saurl, ssourceId, ssourceLabel, ssourcePhrase, smodifier, stext, swikidata, sstatus, sline]):
-        for year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line in parts:
-            result = []
-
+        for part in parts:
+            result = OrderedDict()
+            
             if syear:
-                result.append(year)
+                result["year"] = part["year"]
             if sdate:
-                result.append(date)
+                result["date"] = part["date"]
             if said:
-                result.append(aid)
+                result["aid"] = part["aid"]
             if sfid:
-                result.append(fid)
+                result["fid"] = part["fid"]
             if ssourceId:
-                result.append(sourceId)
+                result["sourceId"] = part["sourceId"]
             if ssourceLabel:
-                result.append(sourceLabel)
+                result["sourceLabel"] = part["sourceLabel"]
             if ssourcePhrase:
-                result.append(sourcePhrase)
+                result["sourcePhrase"] = part["sourcePhrase"]
             if smodifier:
-                result.append(modifier)
+                result["modifier"] = part["modifier"]
             if stext:
-                result.append(sentence)
+                result["text"] = part["text"]
             if swikidata:
-                result.append("[[https://www.wikidata.org/wiki/" + sourceId + "][" + sourceLabel + "]]")
+                result["wikidata"] = part["wikidata"]
             if saurl:
-                result.append(aurl)
+                result["aUrl"] = part["aUrl"]
             if sstatus:
-                result.append(status)
+                result["status"] = part["status"]
             if sclassification:
-                result.append(trueVoss)
+                result["classification"] = part["classification"]
             if sline:
-                result.append(line.strip())
+                result["line"] = part["line"]
             yield result
     else:
         # when nothing has been selected, return everything
@@ -229,21 +229,31 @@ def match_line(line):
     match = re_line.match(line.strip())
     if match:
         d = match.groupdict()
-        newVoss = d["newmark"]
-        sourceId = d["wdid"]
-        sourceLabel = d["wdlabel"]
-        fid = d["fid"]
-        year = d["year"]
-        date = d["year"] + "-" + d["month"] + "-" + d["day"]
-        aid = d["aid"]
-        aurl = d["aurl"]
-        sentence = d["sentence"]
+
+        # prepare some values
         trueVoss = d["truefalse"] != "+"
-        status = d["status"]
-        # extract from sentence
-        sourcePhrase = extract_sourcephrase(sentence, trueVoss)
-        modifier = extract_modifier(sentence, trueVoss)
-        return year, date, aid, fid, aurl, sourceId, sourceLabel, sourcePhrase, modifier, sentence, trueVoss, newVoss, status, line.strip()
+        sourcePhrase = extract_sourcephrase(d["sentence"], trueVoss)
+        modifier = extract_modifier(d["sentence"], trueVoss)
+
+        return {
+            "year"           : d["year"],
+            "date"           : d["year"] + "-" + d["month"] + "-" + d["day"],
+            "aid"            : d["aid"],
+            "fid"            : d["fid"],
+            "sourceId"       : d["wdid"],
+            "sourceLabel"    : d["wdlabel"],
+            "sourcePhrase"   : sourcePhrase,
+            "modifier"       : modifier,
+            "text"           : d["sentence"],
+            "wikidata"       : "[[https://www.wikidata.org/wiki/" + d["wdid"] + "][" + d["wdlabel"] + "]]",
+            "aUrl"           : d["aurl"],
+            "status"         : d["status"],
+            "classification" : trueVoss,
+            "line"           : line.strip(),
+            "newVoss"        : d["newmark"], # FIXME: where is this used?
+            "status"         : d["status"] # FIXME: where is this used?
+        }
+
     return None
 
 # extract the modifier (enclosed in /.../) from the sentence
@@ -308,7 +318,7 @@ def part_to_string(p):
 # print CSV/TSV lines
 def print_csv(parts, sep):
     for part in parts:
-        print(sep.join([part_to_string(p) for p in part]))
+        print(sep.join([part_to_string(part[p]) for p in part]))
 
 # prints heading for each year
 # must be called before select_parts, such that year information is available
@@ -317,8 +327,7 @@ def print_heading(parts):
     # to detect changing years (to print a heading)
     prev_year = None
     for part in parts:
-        # first element is year (FIXME: remove dependency on order)
-        year = part[0]
+        year = part["year"]
         if year != prev_year:
             print("\n**", year)
         prev_year = year
