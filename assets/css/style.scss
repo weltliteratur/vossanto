@@ -3,5 +3,5 @@
 
 @import "{{ site.theme }}";
 
-@import "dateline";
-@import "timeline";
+@import url("dateline.css");
+@import url("timeline.css");
