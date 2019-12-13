@@ -4,7 +4,7 @@ var colors = ["blueviolet", "darkgreen", "coral", "gold", "maroon", "mediumblue"
 
 // load events from JSON file
 request = new XMLHttpRequest();
-request.open('GET', "vossantos.json", true);
+request.open('GET', "timeline/vossantos.json", true);
 request.onloadend = function() {
     if (this.status >= 200 && this.status < 400) {
 	initDateline(JSON.parse(this.responseText));
