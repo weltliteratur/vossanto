@@ -230,7 +230,7 @@ Extract the categories for the articles:
 ``` bash
 export PYTHONIOENCODING=utf-8
 for year in $(seq 1987 2007); do
-    ../theof/nyt.py --category ../nyt_corpus_${year}.tar.gz \
+    ../nyt.py --category ../nyt_corpus_${year}.tar.gz \
         | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
         | sort >> nyt_categories.tsv
 done
@@ -271,7 +271,7 @@ Collect the categories of the articles
 
 ``` bash
 echo "vossantos" $(../org.py -T README.org | wc -l) articles $(wc -l < nyt_categories.tsv)
-../org.py -T -f fid README.org | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
+../org.py -T -f fId README.org | join nyt_categories.tsv - | sed "s/ /\t/" | awk -F'\t' '{print $2}' \
     | sort | uniq -c \
     | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
     | join -t$'\t' -o1.2,1.1,2.2 - nyt_categories_distrib.tsv \
@@ -308,7 +308,7 @@ Extract the desks for the articles:
 ``` bash
 export PYTHONIOENCODING=utf-8
 for year in $(seq 1987 2007); do
-    ../theof/nyt.py --desk ../nyt_corpus_${year}.tar.gz \
+    ../nyt.py --desk ../nyt_corpus_${year}.tar.gz \
         | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
         | sort >> nyt_desks.tsv
 done
@@ -390,7 +390,7 @@ Extract the authors for the articles:
 ``` bash
 export PYTHONIOENCODING=utf-8
 for year in $(seq 1987 2007); do
-    ../theof/nyt.py --author ../nyt_corpus_${year}.tar.gz \
+    ../nyt.py --author ../nyt_corpus_${year}.tar.gz \
         | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
         | sort >> nyt_authors.tsv
 done
@@ -659,7 +659,7 @@ modifiers
 ---------
 
 ``` bash
-../org.py -T -f modifier,aid README.org \
+../org.py -T -f modifier,aId README.org \
     | awk -F$'\t' '$1 != "" {print $1;}' \
     | sort | uniq -c | sort -nr | head -n30
 ```
