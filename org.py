@@ -186,7 +186,7 @@ def get_key(parts):
     return parts["year"], "|".join([parts["year"], parts["aid"], parts["sourcePhrase"], re_clean.sub('', parts["sentence"])])
 
 def select_parts(parts, fields):
-    if len(fields) > 0:
+    if len(fields) > 0 and not "ALL" in fields:
         for part in parts:
             result = OrderedDict()
 
@@ -309,37 +309,29 @@ def print_heading(parts):
         # this enables us print the heading between the final print statements
         yield part
 
+def parse_fields(s):
+    return s.split(",")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Manipulate Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('file', type=argparse.FileType('r', encoding='utf-8'), nargs='?', default=sys.stdin, help='org mode file to process')
     # what shall be printed
-    parser.add_argument('-a', '--articleid', action="append_const", dest="fields", const="aid", help="output article id")
-    parser.add_argument('-b', '--status', action="append_const", dest="fields", const="status", help="output status of false positives")
-    parser.add_argument('-c', '--classification', action="append_const", dest="fields", const="classification", help="output classification (True/False)")
-    parser.add_argument('-d', '--date', action="append_const", dest="fields", const="date", help="output date")
-    parser.add_argument('-f', '--fileid', action="append_const", dest="fields", const="fid", help="output file id")
-    parser.add_argument('-g', '--original', action="append_const", dest="fields", const="line", help="output original line")
-    parser.add_argument('-i', '--sourceid', action="append_const", dest="fields", const="sourceId", help="output Wikidata source id")
-    parser.add_argument('-l', '--sourcelabel', action="append_const", dest="fields", const="sourceLabel", help="output source")
-    parser.add_argument('-o', '--modifier', action="append_const", dest="fields", const="modifier", help="output modifier")
-    parser.add_argument('-p', '--sourcephrase', action="append_const", dest="fields", const="sourcePhrase", help="output source phrase") # as it appears in the text
-    parser.add_argument('-t', '--text', action="append_const", dest="fields", const="text", help="output text")
-    parser.add_argument('-u', '--url', action="append_const", dest="fields", const="aUrl", help="output article URL")
-    parser.add_argument('-w', '--wikidata', action="append_const", dest="fields", const="wikidata", help="output link to Wikidata")
-    parser.add_argument('-y', '--year', action="append_const", dest="fields", const="year", help="output year")
+    parser.add_argument('-f', '--fields', type=parse_fields, metavar="FIELDS", help="fields to be included", default="ALL")
+    # original order: year,date,aid,fid,sourceId,sourceLabel,sourcePhrase,modifier,wikidata,aUrl,status,classification,line
+
     # filtering options
     parser.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
     parser.add_argument('-F', '--false', action="store_true", help="output only false positives")
     parser.add_argument('--ignore-source-ids', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='ignore candidates with a source id contained in FILE')
     # output format options
     parser.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
-    parser.add_argument('-C', '--clean', action="store_true", help="clean whitespace")
+    parser.add_argument('-c', '--clean', action="store_true", help="clean whitespace")
     parser.add_argument('-H', '--heading', action="store_true", help="print year heading")
-    parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator", default='\t')
+    parser.add_argument('-o', '--output', type=str, metavar="FORMAT", help="output format", default="csv", choices=["tsv", "csv", "json"])
+    parser.add_argument('-s', '--separator', type=str, metavar="SEP", help="output separator for csv", default='\t')
     # special options
     parser.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
-    parser.add_argument('-U', '--include-urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
+    parser.add_argument('-u', '--include-urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
     parser.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
