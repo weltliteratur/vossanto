@@ -1,4 +1,3 @@
-
 # Vossian Antonomasia
 
 *Frank Fischer, Robert Jäschke, Elena Krotova, Michel Schwab, Jannik Strötgen*
@@ -40,4 +39,13 @@ Vossian antonomasia from two decades of The New York Times,
 ## TheOf Approach (2017–2019)
 - [Poster *Lange Nacht der Wissenschaften*](https://doi.org/10.6084%2fm9.figshare.6531140) (June, 2018)
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/theof)
+
+## Timeline
+
+<div id="dl"></div>
+<div id="legend"></div>
+
+<script src="timeline/dateline.js"></script>
+<script src="timelne/timeline.js"></script>
+
 

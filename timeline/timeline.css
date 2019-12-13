@@ -1,0 +1,32 @@
+.d-dateline, #legend {
+    font-family: sans-serif;
+}
+
+.d-event, .d-info, #legend {
+    font-size: 10px;
+}
+
+#legend {
+    margin: .5em;
+}
+
+#legend ul {
+    display: inline;
+    padding-left: 1em;
+}
+
+#legend li {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+#legend li::before {
+    display: inline-block;
+    width: .8em;
+    height: .8em;
+    border-radius: 50%;
+    content: '';
+    color: var(--fa-primary-color);
+    background-color: currentColor;
+    margin-right: .2em;
+}
