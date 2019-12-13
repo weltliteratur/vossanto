@@ -46,6 +46,6 @@ Vossian antonomasia from two decades of The New York Times,
 <div id="legend"></div>
 
 <script src="timeline/dateline.js"></script>
-<script src="timelne/timeline.js"></script>
+<script src="timeline/timeline.js"></script>
 
 
