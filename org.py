@@ -354,7 +354,7 @@ if __name__ == '__main__':
     # special options
     special = parser.add_argument_group('special arguments')
     special.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
-    special.add_argument('-u', '-urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
+    special.add_argument('-u', '--urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
     special.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
@@ -376,7 +376,7 @@ if __name__ == '__main__':
             print("**", year)
             for line in sorted(index[year]):
                 print(index[year][line], end='')
-    elif args.include_urls:
+    elif args.urls:
         # read URL file
         urls = read_dict(args.include_urls)
         # read file
