@@ -3076,7 +3076,7 @@
     1990\'s*?
 94. [Michelangelo](https://www.wikidata.org/wiki/Q5592)
     ([1992/10/17/0563533](http://query.nytimes.com/gst/fullpage.html?res=9E0CEFDE1338F934A25753C1A964958260))
-    Michael Tracy is **a Michelangelo of** the memorial wall, the
+    Michael Tracy is **a Michelangelo of** *the memorial wall*, the
     sprawling street-side shrines to victims of urban violence that have
     sprung up around New York with unnerving frequency in recent years.
 95. [Lizzie Borden](https://www.wikidata.org/wiki/Q240496)
@@ -8714,7 +8714,7 @@
     Sexuality.\'\'
 94. [Elvis Presley](https://www.wikidata.org/wiki/Q303)
     ([2000/07/23/1217051](http://query.nytimes.com/gst/fullpage.html?res=9903E0DB173AF930A15754C0A9669C8B63))
-    IN a way, Gertrude Jekyll is **the Elvis of** the gardening world.
+    IN a way, Gertrude Jekyll is **the Elvis of** *the gardening world*.
 95. [Elvis Presley](https://www.wikidata.org/wiki/Q303)
     ([2000/07/23/1217053](http://query.nytimes.com/gst/fullpage.html?res=9D0DE0DB173AF930A15754C0A9669C8B63))
     GERTRUDE JEKYLL may be **the Elvis of** *the gardening world*.
@@ -8795,7 +8795,7 @@
     cereal en route.
 111. [Robin Hood](https://www.wikidata.org/wiki/Q7352498)
     ([2000/08/17/1223191](http://query.nytimes.com/gst/fullpage.html?res=9904E6DA173EF934A2575BC0A9669C8B63))
-    Mr. Kennedy is, in a way, **a Robin Hood of** sorts for the
+    Mr. Kennedy is, in a way, **a Robin Hood of** *sorts* for the
     Democrats.
 112. [Red Adair](https://www.wikidata.org/wiki/Q589905)
     ([2000/08/18/1223401](http://query.nytimes.com/gst/fullpage.html?res=9401E2DF153EF93BA2575BC0A9669C8B63))
@@ -9708,7 +9708,7 @@
 117. [John Henry](https://www.wikidata.org/wiki/Q202950)
     ([2001/09/10/1323999](http://query.nytimes.com/gst/fullpage.html?res=990DE7D81638F933A2575AC0A9679C8B63))
     Charlie Bundrum was a hammer-swinging roofer, **a John Henry of**
-    the tract houses that sheltered workers who had traded mules and
+    *the tract houses* that sheltered workers who had traded mules and
     plows for shift work in mill towns like Rome, Ga., and Gadsden, Ala.
 118. [Abner Doubleday](https://www.wikidata.org/wiki/Q322555)
     ([2001/09/11/1324229](http://query.nytimes.com/gst/fullpage.html?res=9907E4D71438F932A2575AC0A9679C8B63))
@@ -11245,7 +11245,7 @@
 73. [Rob Wright](https://www.wikidata.org/wiki/Q4354313)
     ([2003/06/01/1493193](http://query.nytimes.com/gst/fullpage.html?res=950CE7DD1731F932A35755C0A9659C8B63))
     But the manipulative and titanically smug Laingian therapist she
-    runs off with in Vienna is **a Mr. Wrong of** a variety that, with
+    runs off with in Vienna is **a Mr. Wrong of** *a variety* that, with
     footwear and psychobabble adjusted to more modern settings, Bridget
     and her cohort would instantly recognize.
 74. [Rudy Giuliani](https://www.wikidata.org/wiki/Q212648)
@@ -13845,11 +13845,11 @@
 78. [Annie Osborn](https://www.wikidata.org/wiki/Q21847069)
     ([2006/05/22/1763594](http://query.nytimes.com/gst/fullpage.html?res=9B06EED6133EF931A15756C0A9609C8B63))
     This year Ms. McGowan, who once sold shoes on eBay to finance her
-    research, was **a Cinderella of** the expo, an author with a unique
-    perspective on its two extremes: the dazzling bonanza of lavish
-    dinners, cocktail parties and autograph signings on the one hand,
-    and on the other, the hardscrabble, entrepreneurial slog of trying
-    to be heard above the din of major publicity campaigns.
+    research, was **a Cinderella of** *the expo*, an author with a
+    unique perspective on its two extremes: the dazzling bonanza of
+    lavish dinners, cocktail parties and autograph signings on the one
+    hand, and on the other, the hardscrabble, entrepreneurial slog of
+    trying to be heard above the din of major publicity campaigns.
 79. [Chris Daughtry](https://www.wikidata.org/wiki/Q877858)
     ([2006/05/24/1764018](http://query.nytimes.com/gst/fullpage.html?res=9400E5D6103EF937A15756C0A9609C8B63))
     (Though Howard Dean was **the Chris Daughtry of** *the 2004
