@@ -1,4 +1,3 @@
-
 // colors for the 20 most frequent desks
 var colors = {
     "Sports Desk"				: "red",
@@ -24,7 +23,6 @@ var colors = {
     "other"                                     : "black"  // default
 };
 
-
 // load events from JSON file
 request = new XMLHttpRequest();
 request.open('GET', "timeline/vossantos.json", true);
@@ -35,15 +33,10 @@ request.onloadend = function() {
 };
 request.send();
 
-
 // return a color for each desk
 function getColor (key) {
     if (! (key in colors)) return colors["other"];
     return colors[key];
-}
-
-function htmlize(s) {
-    return s.replace(/\*([^\*]+)\* \/([^\/]+)\//, "<b>$1</b> <em>$2</em>");
 }
 
 // callback to create dateline given the events
@@ -57,8 +50,9 @@ function initDateline(events) {
 	    id : p.id,
 	    start : p.date,
 	    text : p.sourceLabel,
+	    sId : p.sourceId,
 	    sentence : p.text,
-	    aUrl : "http://query.nytimes.com/gst/fullpage.html?res=" + p.aUrlId,
+	    aUrlId : p.aUrlId,
 	    fId : p.fId,
 	    author : p.author,
 	    desk : p.desk,
@@ -104,11 +98,16 @@ function initDateline(events) {
     initSearch(dlevents, dl);
 }
 
+function htmlize(s, url) {
+    if (url) 
+	return s.replace(/\*(\w+) ([^\*]+) (\w+)\* \/([^\/]+)\//, "<b>$1 <a href='" + url + "'>$2</a> $3</b> <em>$4</em>");
+    return s.replace(/\*(\w+) ([^\*]+) (\w+)\* \/([^\/]+)\//, "<b>$1 $2 $3</b> <em>$4</em>");
+}
+
 // creates info bubble for an event
 function createInfo(event) {
-    // convert sentence into HTML
-    let meta = "<li>NYT <a href='" + event.aUrl + "'>" + event.fId + "</a></li>";
+    let meta = "<li>NYT <a href='http://query.nytimes.com/gst/fullpage.html?res=" + event.aUrlId + "'>" + event.fId + "</a></li>";
     if (event.author) meta += "<li>by " + event.author + "</li>";
     if (event.desk)   meta += "<li>" + event.desk   + "</li>";
-    return htmlize(event.sentence) + "<ul>" + meta + "</ul>";
+    return htmlize(event.sentence, "https://www.wikidata.org/wiki/" + event.sId) + "<ul>" + meta + "</ul>";
 }
