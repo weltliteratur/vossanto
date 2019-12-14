@@ -367,7 +367,7 @@ Put everything into this org file:
 
 Merge with existing ~README.org~:
 #+BEGIN_SRC sh
-  ./org.py --merge newR.org README.org  > newREADME.org
+  ../org.py --merge newR.org README.org  > newREADME.org
 #+END_SRC
 
 ** TODO manual post-processing

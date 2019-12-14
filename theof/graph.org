@@ -10,5 +10,5 @@
 a bipartite graph of sources and modifiers ...
 
 #+BEGIN_SRC sh
-./org.py -T -o -l  README.org | ./graph.py | ccomps -zX#0 | neato -Tpdf -o graph.pdf
+../org.py -T -f modifier,sourceLabel  README.org | ./graph.py | ccomps -zX#0 | neato -Tpdf -o graph.pdf
 #+END_SRC

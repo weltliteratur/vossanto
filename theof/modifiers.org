@@ -11,7 +11,7 @@
 Some interesting modifiers:
 * most frequent
 #+BEGIN_SRC sh
-./org.py -o -T  README.org | sort | uniq -c | sort -nr | head -n30
+../org.py -T -f modifier README.org | sort | uniq -c | sort -nr | head -n30
 #+END_SRC
 
 | count | modifier         |
@@ -50,173 +50,986 @@ Some interesting modifiers:
 * "the [A-Z]"
 
 #+BEGIN_SRC sh
-./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -n | grep "the [A-Z]"
+../org.py -T -f year,modifier,text README.org | awk -F$'\t' '{print $2}' | sort | uniq -c | sort -nr | grep "the [A-Z]"
 #+END_SRC
+
+| count | modifier                                                                                                                                                     |
+|-------+--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    10 | the Zulus                                                                                                                                                    |
+|     5 | the Republican Party                                                                                                                                         |
+|     5 | the N.F.L.                                                                                                                                                   |
+|     4 | the Senate                                                                                                                                                   |
+|     4 | the Midwest                                                                                                                                                  |
+|     4 | the Middle East                                                                                                                                              |
+|     4 | the East                                                                                                                                                     |
+|     3 | the South                                                                                                                                                    |
+|     3 | the North                                                                                                                                                    |
+|     3 | the National Football League                                                                                                                                 |
+|     3 | the Internet                                                                                                                                                 |
+|     2 | the Yankees                                                                                                                                                  |
+|     2 | the West                                                                                                                                                     |
+|     2 | the Persian Gulf                                                                                                                                             |
+|     2 | the Papuans                                                                                                                                                  |
+|     2 | the Nineties                                                                                                                                                 |
+|     2 | the New World                                                                                                                                                |
+|     2 | the Netherlands                                                                                                                                              |
+|     2 | the L.P.G.A.                                                                                                                                                 |
+|     2 | the Information Age                                                                                                                                          |
+|     2 | the Hamptons                                                                                                                                                 |
+|     2 | the Democratic Party                                                                                                                                         |
+|     2 | the Caribbean                                                                                                                                                |
+|     2 | the Bush administration                                                                                                                                      |
+|     2 | the Bronx                                                                                                                                                    |
+|     2 | the Bengalis                                                                                                                                                 |
+|     2 | the American theater                                                                                                                                         |
+|     1 | winter-hardy cactuses in the Northeast                                                                                                                       |
+|     1 | the Yankee staff                                                                                                                                             |
+|     1 | the W.W.J.D.                                                                                                                                                 |
+|     1 | the World Wide Web                                                                                                                                           |
+|     1 | the Wolverine state                                                                                                                                          |
+|     1 | the Whitney Biennial set                                                                                                                                     |
+|     1 | the White Sox                                                                                                                                                |
+|     1 | the West Indies                                                                                                                                              |
+|     1 | the West Coast                                                                                                                                               |
+|     1 | the Westchester County prison                                                                                                                                |
+|     1 | the Weimar Republic                                                                                                                                          |
+|     1 | the W.B.L.                                                                                                                                                   |
+|     1 | the Wailers                                                                                                                                                  |
+|     1 | the Vietnamese community                                                                                                                                     |
+|     1 | the Vietnam era                                                                                                                                              |
+|     1 | the Victorian nursery                                                                                                                                        |
+|     1 | the VH1 ''Behind the Music'' generation                                                                                                                      |
+|     1 | the U.S.O.C.                                                                                                                                                 |
+|     1 | the U.S. avant-garde                                                                                                                                         |
+|     1 | the U.S.                                                                                                                                                     |
+|     1 | the U.P.S.                                                                                                                                                   |
+|     1 | the United States military                                                                                                                                   |
+|     1 | the United Kingdom                                                                                                                                           |
+|     1 | the Turf                                                                                                                                                     |
+|     1 | the Tonys                                                                                                                                                    |
+|     1 | the team that won nine consecutive pennants in what are still called the Negro Leagues                                                                       |
+|     1 | the Sweet Science                                                                                                                                            |
+|     1 | the Sweatshops                                                                                                                                               |
+|     1 | the Sunni Muslim sect                                                                                                                                        |
+|     1 | the State of Israel                                                                                                                                          |
+|     1 | the State House                                                                                                                                              |
+|     1 | the Soviet Union                                                                                                                                             |
+|     1 | the Southwest                                                                                                                                                |
+|     1 | the South Korean penal system                                                                                                                                |
+|     1 | the Shore Association of Nassau Girl Scouts                                                                                                                  |
+|     1 | the Sesame Street set                                                                                                                                        |
+|     1 | the Securities and Exchange Commission                                                                                                                       |
+|     1 | the Sanitation Department                                                                                                                                    |
+|     1 | the San Francisco Bay area                                                                                                                                   |
+|     1 | the Sahara of the Bozart                                                                                                                                     |
+|     1 | the Sahara                                                                                                                                                   |
+|     1 | the Sagaponack Store                                                                                                                                         |
+|     1 | the Romantic novel set                                                                                                                                       |
+|     1 | the Right                                                                                                                                                    |
+|     1 | the Republican convention                                                                                                                                    |
+|     1 | the Ramones                                                                                                                                                  |
+|     1 | the protest movement that has swept Serbia since the Government's annulment of election victories by the opposition in 14 of the country's 18 largest cities |
+|     1 | the Potomac                                                                                                                                                  |
+|     1 | the Philippines                                                                                                                                              |
+|     1 | the Philippine revolution                                                                                                                                    |
+|     1 | the Park Avenue Chinese                                                                                                                                      |
+|     1 | the Palestinians                                                                                                                                             |
+|     1 | the Pacific                                                                                                                                                  |
+|     1 | the Other Side                                                                                                                                               |
+|     1 | the Olympics                                                                                                                                                 |
+|     1 | the Olympic hockey tournament                                                                                                                                |
+|     1 | the Oakland A's                                                                                                                                              |
+|     1 | the N.Y.P.D.                                                                                                                                                 |
+|     1 | the North Fork                                                                                                                                               |
+|     1 | the North Coast forests                                                                                                                                      |
+|     1 | the Nielsen game                                                                                                                                             |
+|     1 | the N.F.C.                                                                                                                                                   |
+|     1 | the New York theme dining world                                                                                                                              |
+|     1 | the New York State Legislature                                                                                                                               |
+|     1 | the New York State Assembly                                                                                                                                  |
+|     1 | the New York stage                                                                                                                                           |
+|     1 | the New York reporters                                                                                                                                       |
+|     1 | the New York Jets                                                                                                                                            |
+|     1 | the New York club scene                                                                                                                                      |
+|     1 | the New York club kids of the 1980's                                                                                                                         |
+|     1 | the New Jersey Supreme Court                                                                                                                                 |
+|     1 | the New Jersey race                                                                                                                                          |
+|     1 | the N.B.A.                                                                                                                                                   |
+|     1 | the N.B.A                                                                                                                                                    |
+|     1 | the Nairobi Slums                                                                                                                                            |
+|     1 | the Ming Dynasty                                                                                                                                             |
+|     1 | the Middle West                                                                                                                                              |
+|     1 | the Middle Ages                                                                                                                                              |
+|     1 | the Mexican War                                                                                                                                              |
+|     1 | the Mexican-American world                                                                                                                                   |
+|     1 | the Menendez trial                                                                                                                                           |
+|     1 | the Mafia                                                                                                                                                    |
+|     1 | the Lost Generation                                                                                                                                          |
+|     1 | the Latin world                                                                                                                                              |
+|     1 | the Kringle clan                                                                                                                                             |
+|     1 | the Knicks' ''Disease of Me''                                                                                                                                |
+|     1 | the Knicks                                                                                                                                                   |
+|     1 | the Justice Department                                                                                                                                       |
+|     1 | the Jets' sophisticated 49ers-style attack this season                                                                                                       |
+|     1 | the Ivy League                                                                                                                                               |
+|     1 | the Island                                                                                                                                                   |
+|     1 | the Iraq antiwar movement                                                                                                                                    |
+|     1 | the Interstates                                                                                                                                              |
+|     1 | the Indians                                                                                                                                                  |
+|     1 | the Indian poll 'Reich'                                                                                                                                      |
+|     1 | the Indian film industry                                                                                                                                     |
+|     1 | the Incas                                                                                                                                                    |
+|     1 | the Hudson Valley                                                                                                                                            |
+|     1 | the Hudson                                                                                                                                                   |
+|     1 | the Houston Rockets                                                                                                                                          |
+|     1 | the Himalayas                                                                                                                                                |
+|     1 | the Hawaiian Jewish community                                                                                                                                |
+|     1 | the Gulf Coast                                                                                                                                               |
+|     1 | the Grand Concourse                                                                                                                                          |
+|     1 | the Gothic novel                                                                                                                                             |
+|     1 | the Golden Globes                                                                                                                                            |
+|     1 | the Global Economy                                                                                                                                           |
+|     1 | the G.D.R.                                                                                                                                                   |
+|     1 | the Food Network                                                                                                                                             |
+|     1 | the Fix Albany movement                                                                                                                                      |
+|     1 | the Federalist Society                                                                                                                                       |
+|     1 | the Farsi-speaking world                                                                                                                                     |
+|     1 | the Evangelical Republic of Massachusetts                                                                                                                    |
+|     1 | the English Midlands                                                                                                                                         |
+|     1 | the Elizabethan age                                                                                                                                          |
+|     1 | the Elián case                                                                                                                                               |
+|     1 | the East Village                                                                                                                                             |
+|     1 | the Eastern bloc                                                                                                                                             |
+|     1 | the East Coast                                                                                                                                               |
+|     1 | the Eagles                                                                                                                                                   |
+|     1 | the Dragonball Z generation                                                                                                                                  |
+|     1 | the Dominican Republic                                                                                                                                       |
+|     1 | the Dolphins                                                                                                                                                 |
+|     1 | the Diamond                                                                                                                                                  |
+|     1 | the Diag                                                                                                                                                     |
+|     1 | the Depression                                                                                                                                               |
+|     1 | the Department Store industry                                                                                                                                |
+|     1 | the Democratic side                                                                                                                                          |
+|     1 | the Czech Republic                                                                                                                                           |
+|     1 | the Crock Pot set                                                                                                                                            |
+|     1 | the Connecticut Republican Party                                                                                                                             |
+|     1 | the Cold Spring Harbor Laboratory                                                                                                                            |
+|     1 | the Cocktail Hour                                                                                                                                            |
+|     1 | the Clearasil set                                                                                                                                            |
+|     1 | the Civil War                                                                                                                                                |
+|     1 | the Cinema                                                                                                                                                   |
+|     1 | the Christian world                                                                                                                                          |
+|     1 | the Chinese art world                                                                                                                                        |
+|     1 | the Chinese Army                                                                                                                                             |
+|     1 | the Chicanos                                                                                                                                                 |
+|     1 | the Catskills                                                                                                                                                |
+|     1 | the Capitol                                                                                                                                                  |
+|     1 | the Camargue                                                                                                                                                 |
+|     1 | the Cabinet                                                                                                                                                  |
+|     1 | the Bush years                                                                                                                                               |
+|     1 | the Buffalo team                                                                                                                                             |
+|     1 | the B's                                                                                                                                                      |
+|     1 | the Brooklyn Dodgers                                                                                                                                         |
+|     1 | the B pictures                                                                                                                                               |
+|     1 | the Boston music scene                                                                                                                                       |
+|     1 | the Big Screen                                                                                                                                               |
+|     1 | the Beijing Games                                                                                                                                            |
+|     1 | the Beats                                                                                                                                                    |
+|     1 | the B Division                                                                                                                                               |
+|     1 | the B.D.                                                                                                                                                     |
+|     1 | the Barrio                                                                                                                                                   |
+|     1 | the Balkans                                                                                                                                                  |
+|     1 | the Bahamas                                                                                                                                                  |
+|     1 | the Back Nine                                                                                                                                                |
+|     1 | the Asimov set                                                                                                                                               |
+|     1 | the Arab world                                                                                                                                               |
+|     1 | the Arabs                                                                                                                                                    |
+|     1 | the American stage                                                                                                                                           |
+|     1 | the American League                                                                                                                                          |
+|     1 | the American Football League                                                                                                                                 |
+|     1 | the American Academy of Arts and Letters                                                                                                                     |
+|     1 | the American 90's                                                                                                                                            |
+|     1 | the Alleghenies                                                                                                                                              |
+|     1 | the AIDS crisis                                                                                                                                              |
+|     1 | the African Poor                                                                                                                                             |
+|     1 | the Acropolis                                                                                                                                                |
+|     1 | his people, of the Asian Indian community                                                                                                                    |
+|     1 | all the French community                                                                                                                                     |
 
 * not "the [A-Z]" but "[A-Z]"
 
 = mainly locations
 
 #+BEGIN_SRC 
-./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -n | grep -v "the [A-Z]" | grep  "[A-Z]"
+../org.py -T -f year,modifier,text README.org | awk -F$'\t' '{print $2}' | sort | uniq -c | sort -nr | grep -v "the [A-Z]" | grep "[A-Z]"
 #+END_SRC
+
+| count | modifier                                                                                                                                                                    |
+|-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    29 | Japan                                                                                                                                                                       |
+|    16 | China                                                                                                                                                                       |
+|    10 | Brazil                                                                                                                                                                      |
+|     8 | Israel                                                                                                                                                                      |
+|     8 | Iran                                                                                                                                                                        |
+|     7 | Long Island                                                                                                                                                                 |
+|     7 | India                                                                                                                                                                       |
+|     6 | New York                                                                                                                                                                    |
+|     6 | American politics                                                                                                                                                           |
+|     5 | New York City                                                                                                                                                               |
+|     5 | Mexico                                                                                                                                                                      |
+|     5 | Hollywood                                                                                                                                                                   |
+|     4 | South Africa                                                                                                                                                                |
+|     4 | New Jersey                                                                                                                                                                  |
+|     4 | Harlem                                                                                                                                                                      |
+|     4 | France                                                                                                                                                                      |
+|     4 | Cuba                                                                                                                                                                        |
+|     3 | Texas                                                                                                                                                                       |
+|     3 | Taiwan                                                                                                                                                                      |
+|     3 | Spain                                                                                                                                                                       |
+|     3 | South Korea                                                                                                                                                                 |
+|     3 | Russia                                                                                                                                                                      |
+|     3 | Punkin Crick                                                                                                                                                                |
+|     3 | Poland                                                                                                                                                                      |
+|     3 | Pakistan                                                                                                                                                                    |
+|     3 | New Orleans                                                                                                                                                                 |
+|     3 | Manhattan                                                                                                                                                                   |
+|     3 | Israeli politics                                                                                                                                                            |
+|     3 | Europe                                                                                                                                                                      |
+|     3 | England                                                                                                                                                                     |
+|     3 | Egypt                                                                                                                                                                       |
+|     3 | Brooklyn                                                                                                                                                                    |
+|     3 | Britain                                                                                                                                                                     |
+|     3 | American higher education                                                                                                                                                   |
+|     3 | Africa                                                                                                                                                                      |
+|     2 | Westchester                                                                                                                                                                 |
+|     2 | Wall Street                                                                                                                                                                 |
+|     2 | Vietnam                                                                                                                                                                     |
+|     2 | Upper Canada                                                                                                                                                                |
+|     2 | Somerset County                                                                                                                                                             |
+|     2 | Queens                                                                                                                                                                      |
+|     2 | postwar American poetry                                                                                                                                                     |
+|     2 | Paris couture                                                                                                                                                               |
+|     2 | Palestine                                                                                                                                                                   |
+|     2 | Our Time                                                                                                                                                                    |
+|     2 | New York politics                                                                                                                                                           |
+|     2 | New York baseball                                                                                                                                                           |
+|     2 | Moscow                                                                                                                                                                      |
+|     2 | Medicaid billers                                                                                                                                                            |
+|     2 | Madison Avenue                                                                                                                                                              |
+|     2 | lower Manhattan                                                                                                                                                             |
+|     2 | Louisiana                                                                                                                                                                   |
+|     2 | Long Beach                                                                                                                                                                  |
+|     2 | London                                                                                                                                                                      |
+|     2 | Korea                                                                                                                                                                       |
+|     2 | Italy                                                                                                                                                                       |
+|     2 | Ireland                                                                                                                                                                     |
+|     2 | Iraq                                                                                                                                                                        |
+|     2 | Indiana                                                                                                                                                                     |
+|     2 | Horse Racing                                                                                                                                                                |
+|     2 | Hoops                                                                                                                                                                       |
+|     2 | Hoboken                                                                                                                                                                     |
+|     2 | Haiti                                                                                                                                                                       |
+|     2 | Generation X                                                                                                                                                                |
+|     2 | East Hampton                                                                                                                                                                |
+|     2 | Detroit                                                                                                                                                                     |
+|     2 | Czechoslovakia                                                                                                                                                              |
+|     2 | Communism                                                                                                                                                                   |
+|     2 | Chicago                                                                                                                                                                     |
+|     2 | Canadian politics                                                                                                                                                           |
+|     2 | Broadway                                                                                                                                                                    |
+|     2 | British psychoanalysis                                                                                                                                                      |
+|     2 | Berlin                                                                                                                                                                      |
+|     2 | Australia                                                                                                                                                                   |
+|     2 | Asia                                                                                                                                                                        |
+|     2 | Arabia                                                                                                                                                                      |
+|     2 | ancient Judaism                                                                                                                                                             |
+|     2 | American science                                                                                                                                                            |
+|     2 | American Politics                                                                                                                                                           |
+|     2 | American photography                                                                                                                                                        |
+|     2 | American literature                                                                                                                                                         |
+|     2 | American letters                                                                                                                                                            |
+|     2 | American design                                                                                                                                                             |
+|     2 | American art                                                                                                                                                                |
+|     2 | American architecture                                                                                                                                                       |
+|     2 | Afghanistan                                                                                                                                                                 |
+|     1 | Zululand                                                                                                                                                                    |
+|     1 | Zionism                                                                                                                                                                     |
+|     1 | Zimbabwe                                                                                                                                                                    |
+|     1 | Yiddish letters                                                                                                                                                             |
+|     1 | Yale football fame                                                                                                                                                          |
+|     1 | X                                                                                                                                                                           |
+|     1 | Wyoming                                                                                                                                                                     |
+|     1 | Woodstown                                                                                                                                                                   |
+|     1 | Wisconsin                                                                                                                                                                   |
+|     1 | winter Olympic sports                                                                                                                                                       |
+|     1 | West Germany                                                                                                                                                                |
+|     1 | West German industry                                                                                                                                                        |
+|     1 | Western modernism                                                                                                                                                           |
+|     1 | Western intellection                                                                                                                                                        |
+|     1 | West Coast jazz                                                                                                                                                             |
+|     1 | West 46th Street                                                                                                                                                            |
+|     1 | Wellfleet                                                                                                                                                                   |
+|     1 | Washington Square Park                                                                                                                                                      |
+|     1 | Washington, D.C.                                                                                                                                                            |
+|     1 | Washington                                                                                                                                                                  |
+|     1 | Waikiki                                                                                                                                                                     |
+|     1 | Virginia                                                                                                                                                                    |
+|     1 | Victorian photography                                                                                                                                                       |
+|     1 | Vermont politics                                                                                                                                                            |
+|     1 | Venetian comedy                                                                                                                                                             |
+|     1 | Utica Avenue                                                                                                                                                                |
+|     1 | Utah                                                                                                                                                                        |
+|     1 | U.F.O.                                                                                                                                                                      |
+|     1 | Tybee                                                                                                                                                                       |
+|     1 | TV shows                                                                                                                                                                    |
+|     1 | TV journalism                                                                                                                                                               |
+|     1 | TV guides                                                                                                                                                                   |
+|     1 | TV animation                                                                                                                                                                |
+|     1 | TV                                                                                                                                                                          |
+|     1 | Turkey or Venezuela                                                                                                                                                         |
+|     1 | Turkey Day                                                                                                                                                                  |
+|     1 | Trash                                                                                                                                                                       |
+|     1 | Torrington                                                                                                                                                                  |
+|     1 | Times Square                                                                                                                                                                |
+|     1 | Tibetan Buddhism                                                                                                                                                            |
+|     1 | Tibet                                                                                                                                                                       |
+|     1 | this year's Sundance festival                                                                                                                                               |
+|     1 | this World Cup                                                                                                                                                              |
+|     1 | this particular Rat Pack                                                                                                                                                    |
+|     1 | this "Carousel."                                                                                                                                                            |
+|     1 | Third Avenue                                                                                                                                                                |
+|     1 | the western Hamptons                                                                                                                                                        |
+|     1 | the up-tempo style of Haitian music called konpa                                                                                                                            |
+|     1 | the smash-hit program ''Here and Now.''                                                                                                                                     |
+|     1 | these Winter Games                                                                                                                                                          |
+|     1 | the pre-Civil War era                                                                                                                                                       |
+|     1 | the online Sims world                                                                                                                                                       |
+|     1 | the northern Rockies                                                                                                                                                        |
+|     1 | the new, cool painters of the post-Abstract Expressionist generation                                                                                                        |
+|     1 | the nascent AIDS epidemic                                                                                                                                                   |
+|     1 | The Mole People                                                                                                                                                             |
+|     1 | the iPod set                                                                                                                                                                |
+|     1 | the gay and lesbian movement in Queens                                                                                                                                      |
+|     1 | the fictional talk show at the center of HBO's popular ''Larry Sanders Show,''                                                                                              |
+|     1 | the earlier generation of Romantic poets                                                                                                                                    |
+|     1 | the continuing Everest soap opera                                                                                                                                           |
+|     1 | the contemporary Midwest                                                                                                                                                    |
+|     1 | the carefully choreographed event that consumes Midtown Manhattan with tin whistles, step dancers and some two million spectators on that invariably brisk March 17 morning |
+|     1 | the ancient Games                                                                                                                                                           |
+|     1 | The American Spectator                                                                                                                                                      |
+|     1 | the 2002 Winter Games                                                                                                                                                       |
+|     1 | the 1992 Presidential election                                                                                                                                              |
+|     1 | Tel Aviv                                                                                                                                                                    |
+|     1 | Syria                                                                                                                                                                       |
+|     1 | S.U.V.'s                                                                                                                                                                    |
+|     1 | Sunshine State politics                                                                                                                                                     |
+|     1 | Sundance                                                                                                                                                                    |
+|     1 | Summit trash                                                                                                                                                                |
+|     1 | Suffolk law                                                                                                                                                                 |
+|     1 | Suffolk County politics                                                                                                                                                     |
+|     1 | Sudan                                                                                                                                                                       |
+|     1 | Stock-Car Racing                                                                                                                                                            |
+|     1 | Stickball                                                                                                                                                                   |
+|     1 | Staten Island                                                                                                                                                               |
+|     1 | Stalingrad                                                                                                                                                                  |
+|     1 | Springfield                                                                                                                                                                 |
+|     1 | Spanish nobility                                                                                                                                                            |
+|     1 | Spanish dance                                                                                                                                                               |
+|     1 | Soviet television                                                                                                                                                           |
+|     1 | southwest Florida                                                                                                                                                           |
+|     1 | South Texas                                                                                                                                                                 |
+|     1 | South Kensington                                                                                                                                                            |
+|     1 | South Hempstead                                                                                                                                                             |
+|     1 | Southern California performance                                                                                                                                             |
+|     1 | South America                                                                                                                                                               |
+|     1 | Somalia                                                                                                                                                                     |
+|     1 | SoHo                                                                                                                                                                        |
+|     1 | Sleepy Hollow                                                                                                                                                               |
+|     1 | Silicon Valley                                                                                                                                                              |
+|     1 | Silicon Alley                                                                                                                                                               |
+|     1 | Sicily                                                                                                                                                                      |
+|     1 | Shakespeare                                                                                                                                                                 |
+|     1 | Shackelford County                                                                                                                                                          |
+|     1 | Seventh Avenue                                                                                                                                                              |
+|     1 | Secaucus and its environs                                                                                                                                                   |
+|     1 | Seattle                                                                                                                                                                     |
+|     1 | Scotland                                                                                                                                                                    |
+|     1 | Scofflaws                                                                                                                                                                   |
+|     1 | Scandinavia                                                                                                                                                                 |
+|     1 | Sauternes                                                                                                                                                                   |
+|     1 | Satanism                                                                                                                                                                    |
+|     1 | Sarajevo                                                                                                                                                                    |
+|     1 | Saddle River                                                                                                                                                                |
+|     1 | Ryan Center                                                                                                                                                                 |
+|     1 | Rutgers                                                                                                                                                                     |
+|     1 | Russian art                                                                                                                                                                 |
+|     1 | Rotisserie baseball                                                                                                                                                         |
+|     1 | Roommates.com                                                                                                                                                               |
+|     1 | Rome in the first century B.C.                                                                                                                                              |
+|     1 | Romania                                                                                                                                                                     |
+|     1 | Roman Catholic sainthood                                                                                                                                                    |
+|     1 | Rock-and-Roll                                                                                                                                                               |
+|     1 | Rock                                                                                                                                                                        |
+|     1 | River Vale, N.J., girls sports                                                                                                                                              |
+|     1 | ''Rhiannon'' and ''Belladonna''                                                                                                                                             |
+|     1 | Republicans                                                                                                                                                                 |
+|     1 | Reaganomics                                                                                                                                                                 |
+|     1 | Reaganland                                                                                                                                                                  |
+|     1 | Reagan-era American adolescence                                                                                                                                             |
+|     1 | Quake                                                                                                                                                                       |
+|     1 | prerevolutionary Moscow                                                                                                                                                     |
+|     1 | Prague                                                                                                                                                                      |
+|     1 | potential Republican candidates                                                                                                                                             |
+|     1 | postwar American planning                                                                                                                                                   |
+|     1 | postindustrial Maryland                                                                                                                                                     |
+|     1 | post-independence New Delhi                                                                                                                                                 |
+|     1 | post-Communist Russia                                                                                                                                                       |
+|     1 | Portland                                                                                                                                                                    |
+|     1 | Poker                                                                                                                                                                       |
+|     1 | Play Ball                                                                                                                                                                   |
+|     1 | Phoenix                                                                                                                                                                     |
+|     1 | Philadelphia                                                                                                                                                                |
+|     1 | Pharoahs                                                                                                                                                                    |
+|     1 | Persia in his day                                                                                                                                                           |
+|     1 | Performance Art                                                                                                                                                             |
+|     1 | Patchogue                                                                                                                                                                   |
+|     1 | Patagonia                                                                                                                                                                   |
+|     1 | Pastry                                                                                                                                                                      |
+|     1 | Paris                                                                                                                                                                       |
+|     1 | Painters Ltd.                                                                                                                                                               |
+|     1 | Our Times                                                                                                                                                                   |
+|     1 | our exclusive cyber-Studio 54                                                                                                                                               |
+|     1 | Orientals                                                                                                                                                                   |
+|     1 | opera Down Under                                                                                                                                                            |
+|     1 | Oklahoma                                                                                                                                                                    |
+|     1 | Off Off Broadway                                                                                                                                                            |
+|     1 | Off Broadway                                                                                                                                                                |
+|     1 | Odessa                                                                                                                                                                      |
+|     1 | Norwegian television                                                                                                                                                        |
+|     1 | Norway                                                                                                                                                                      |
+|     1 | North Korea                                                                                                                                                                 |
+|     1 | Northern Virginia                                                                                                                                                           |
+|     1 | Norse mythology                                                                                                                                                             |
+|     1 | Nordic skiing                                                                                                                                                               |
+|     1 | Nobel candidates                                                                                                                                                            |
+|     1 | N.F.L.                                                                                                                                                                      |
+|     1 | New York transit                                                                                                                                                            |
+|     1 | New York steakhouses                                                                                                                                                        |
+|     1 | New York State                                                                                                                                                              |
+|     1 | New York's movie panorama                                                                                                                                                   |
+|     1 | New York's judiciary                                                                                                                                                        |
+|     1 | New York journalism                                                                                                                                                         |
+|     1 | New York City chefs                                                                                                                                                         |
+|     1 | New York City bridges                                                                                                                                                       |
+|     1 | New York chefs                                                                                                                                                              |
+|     1 | New York beer culture                                                                                                                                                       |
+|     1 | New York beedom                                                                                                                                                             |
+|     1 | newspaper columnists in Japan                                                                                                                                               |
+|     1 | New Jersey politics                                                                                                                                                         |
+|     1 | Newfoundland                                                                                                                                                                |
+|     1 | New Age                                                                                                                                                                     |
+|     1 | Nepal                                                                                                                                                                       |
+|     1 | Neo-Geo                                                                                                                                                                     |
+|     1 | Nascar tracks                                                                                                                                                               |
+|     1 | Nascar                                                                                                                                                                      |
+|     1 | Naples                                                                                                                                                                      |
+|     1 | Nafta                                                                                                                                                                       |
+|     1 | Music Choice signatories                                                                                                                                                    |
+|     1 | MTV                                                                                                                                                                         |
+|     1 | Mozambique                                                                                                                                                                  |
+|     1 | Mott Street                                                                                                                                                                 |
+|     1 | Morgan Stanley                                                                                                                                                              |
+|     1 | Montparnasse                                                                                                                                                                |
+|     1 | Money                                                                                                                                                                       |
+|     1 | Modernism                                                                                                                                                                   |
+|     1 | Mirzapur                                                                                                                                                                    |
+|     1 | mid-Yorkshire                                                                                                                                                               |
+|     1 | Mexican television                                                                                                                                                          |
+|     1 | medieval Denmark                                                                                                                                                            |
+|     1 | Mayberry                                                                                                                                                                    |
+|     1 | Maya's dreams                                                                                                                                                               |
+|     1 | Math                                                                                                                                                                        |
+|     1 | Masters track and field                                                                                                                                                     |
+|     1 | Marquette's conference                                                                                                                                                      |
+|     1 | Marfa                                                                                                                                                                       |
+|     1 | management in Digital                                                                                                                                                       |
+|     1 | Malayalam-language films                                                                                                                                                    |
+|     1 | Magnolia Lane                                                                                                                                                               |
+|     1 | Louisiana politics                                                                                                                                                          |
+|     1 | Los Angeles                                                                                                                                                                 |
+|     1 | Long Island restaurateurs                                                                                                                                                   |
+|     1 | Liverpool                                                                                                                                                                   |
+|     1 | Leningrad                                                                                                                                                                   |
+|     1 | L.B.O.                                                                                                                                                                      |
+|     1 | Latin music in New York                                                                                                                                                     |
+|     1 | Latin music                                                                                                                                                                 |
+|     1 | Latin jazz                                                                                                                                                                  |
+|     1 | Latin American pop                                                                                                                                                          |
+|     1 | Latin American fiction                                                                                                                                                      |
+|     1 | Latin America                                                                                                                                                               |
+|     1 | late-night TV                                                                                                                                                               |
+|     1 | late-20th-century trans-Atlantic society                                                                                                                                    |
+|     1 | late 20th-century Brazil                                                                                                                                                    |
+|     1 | Laser sailing                                                                                                                                                               |
+|     1 | Lanai                                                                                                                                                                       |
+|     1 | Lahore                                                                                                                                                                      |
+|     1 | Ladino music                                                                                                                                                                |
+|     1 | L.A.                                                                                                                                                                        |
+|     1 | Kung Fu                                                                                                                                                                     |
+|     1 | Kosovo                                                                                                                                                                      |
+|     1 | kosher in Kew Gardens Hills, Queens                                                                                                                                         |
+|     1 | Korean radio                                                                                                                                                                |
+|     1 | Kiss Me, Kate                                                                                                                                                               |
+|     1 | Katmandu                                                                                                                                                                    |
+|     1 | Kathak                                                                                                                                                                      |
+|     1 | Jewish illustrators of the time                                                                                                                                             |
+|     1 | Jerusalem                                                                                                                                                                   |
+|     1 | Jersey City politics                                                                                                                                                        |
+|     1 | Japan's media industry                                                                                                                                                      |
+|     1 | Japanese politics                                                                                                                                                           |
+|     1 | Japanese photography                                                                                                                                                        |
+|     1 | Japanese baseball                                                                                                                                                           |
+|     1 | Japanese art                                                                                                                                                                |
+|     1 | Japanese-American life                                                                                                                                                      |
+|     1 | Japan-bashers                                                                                                                                                               |
+|     1 | Jamaica                                                                                                                                                                     |
+|     1 | Jackson Hole, Wyo.                                                                                                                                                          |
+|     1 | Italian opera conductors                                                                                                                                                    |
+|     1 | Italian jazz                                                                                                                                                                |
+|     1 | Italian design                                                                                                                                                              |
+|     1 | Italian-American literature                                                                                                                                                 |
+|     1 | Islam                                                                                                                                                                       |
+|     1 | Irish theaterland                                                                                                                                                           |
+|     1 | Irish jigging                                                                                                                                                               |
+|     1 | Iraqi soccer                                                                                                                                                                |
+|     1 | Indian pop                                                                                                                                                                  |
+|     1 | Indian movie stars                                                                                                                                                          |
+|     1 | Indian literature                                                                                                                                                           |
+|     1 | I.B.M.                                                                                                                                                                      |
+|     1 | Houston                                                                                                                                                                     |
+|     1 | Hoover-ball                                                                                                                                                                 |
+|     1 | Hong Kong                                                                                                                                                                   |
+|     1 | Hollywood zombies                                                                                                                                                           |
+|     1 | Hollywood memoirists                                                                                                                                                        |
+|     1 | Hollywood Inc.                                                                                                                                                              |
+|     1 | hockey in the former Soviet Union                                                                                                                                           |
+|     1 | his own Ponderosa                                                                                                                                                           |
+|     1 | his Biblical day                                                                                                                                                            |
+|     1 | high school baseball in New York                                                                                                                                            |
+|     1 | Hell's Kitchen                                                                                                                                                              |
+|     1 | Havre de Grace                                                                                                                                                              |
+|     1 | Hanoi                                                                                                                                                                       |
+|     1 | Hanns Eisler                                                                                                                                                                |
+|     1 | Grizzlies                                                                                                                                                                   |
+|     1 | Greece                                                                                                                                                                      |
+|     1 | Great Neck                                                                                                                                                                  |
+|     1 | Gopac                                                                                                                                                                       |
+|     1 | Germany                                                                                                                                                                     |
+|     1 | Georgia Tech                                                                                                                                                                |
+|     1 | Georgia                                                                                                                                                                     |
+|     1 | George H. W. Bush's 1988 presidential campaign                                                                                                                              |
+|     1 | generations of Scots who migrated to northwestern Montana before and after it became a state in 1889                                                                        |
+|     1 | Geelong                                                                                                                                                                     |
+|     1 | Galilee                                                                                                                                                                     |
+|     1 | French whites                                                                                                                                                               |
+|     1 | French sweets                                                                                                                                                               |
+|     1 | French contemporary dance                                                                                                                                                   |
+|     1 | French cinema                                                                                                                                                               |
+|     1 | French actresses                                                                                                                                                            |
+|     1 | Fon's New York program                                                                                                                                                      |
+|     1 | fledgling Romanian capitalism                                                                                                                                               |
+|     1 | Flatbush                                                                                                                                                                    |
+|     1 | First-Brother Land                                                                                                                                                          |
+|     1 | Existentialism                                                                                                                                                              |
+|     1 | European hockey                                                                                                                                                             |
+|     1 | European diplomacy                                                                                                                                                          |
+|     1 | European contemporary dance                                                                                                                                                 |
+|     1 | European agriculture                                                                                                                                                        |
+|     1 | Ethiopia                                                                                                                                                                    |
+|     1 | English lyric poetry                                                                                                                                                        |
+|     1 | English letters                                                                                                                                                             |
+|     1 | English class                                                                                                                                                               |
+|     1 | Elizabeth                                                                                                                                                                   |
+|     1 | Edo                                                                                                                                                                         |
+|     1 | Ecology                                                                                                                                                                     |
+|     1 | East Timor                                                                                                                                                                  |
+|     1 | East Germany                                                                                                                                                                |
+|     1 | East Asia                                                                                                                                                                   |
+|     1 | Dutchess County                                                                                                                                                             |
+|     1 | Dupont Circle                                                                                                                                                               |
+|     1 | D.P.                                                                                                                                                                        |
+|     1 | Downtown                                                                                                                                                                    |
+|     1 | Dirty Dancing                                                                                                                                                               |
+|     1 | Destiny's Child                                                                                                                                                             |
+|     1 | Deruta                                                                                                                                                                      |
+|     1 | Denmark                                                                                                                                                                     |
+|     1 | Delrona Beach                                                                                                                                                               |
+|     1 | Decision                                                                                                                                                                    |
+|     1 | Death Row                                                                                                                                                                   |
+|     1 | Daytona                                                                                                                                                                     |
+|     1 | Danish politics                                                                                                                                                             |
+|     1 | Dance                                                                                                                                                                       |
+|     1 | Daisies                                                                                                                                                                     |
+|     1 | Czech television                                                                                                                                                            |
+|     1 | CUNY                                                                                                                                                                        |
+|     1 | Cuban literature                                                                                                                                                            |
+|     1 | Crime                                                                                                                                                                       |
+|     1 | C.R.A.                                                                                                                                                                      |
+|     1 | corporate America                                                                                                                                                           |
+|     1 | Cornwall                                                                                                                                                                    |
+|     1 | contemporary American cooking                                                                                                                                               |
+|     1 | Connecticut politics                                                                                                                                                        |
+|     1 | Congresses                                                                                                                                                                  |
+|     1 | Condé Nast                                                                                                                                                                  |
+|     1 | Conceptual photography                                                                                                                                                      |
+|     1 | Conceptual Art                                                                                                                                                              |
+|     1 | Communism in the musical field                                                                                                                                              |
+|     1 | Clinton-era adolescence                                                                                                                                                     |
+|     1 | Civic Duty                                                                                                                                                                  |
+|     1 | City Hall                                                                                                                                                                   |
+|     1 | Christmas                                                                                                                                                                   |
+|     1 | Chinese kung fu books                                                                                                                                                       |
+|     1 | Chinese baseball                                                                                                                                                            |
+|     1 | Chinatown                                                                                                                                                                   |
+|     1 | Cheyenne's anti-bomb movement                                                                                                                                               |
+|     1 | Central Asia                                                                                                                                                                |
+|     1 | CBS                                                                                                                                                                         |
+|     1 | Catholicism                                                                                                                                                                 |
+|     1 | Cardiff                                                                                                                                                                     |
+|     1 | Capitol Hill                                                                                                                                                                |
+|     1 | Canada                                                                                                                                                                      |
+|     1 | Cambodia                                                                                                                                                                    |
+|     1 | California wildlife                                                                                                                                                         |
+|     1 | California                                                                                                                                                                  |
+|     1 | Calcutta                                                                                                                                                                    |
+|     1 | Butoh                                                                                                                                                                       |
+|     1 | Burlesque                                                                                                                                                                   |
+|     1 | Bunraku                                                                                                                                                                     |
+|     1 | Bulbs                                                                                                                                                                       |
+|     1 | Buddhism                                                                                                                                                                    |
+|     1 | Brookhaven                                                                                                                                                                  |
+|     1 | British history                                                                                                                                                             |
+|     1 | British cookery                                                                                                                                                             |
+|     1 | British Boxing                                                                                                                                                              |
+|     1 | British ballet                                                                                                                                                              |
+|     1 | Bridgeport                                                                                                                                                                  |
+|     1 | Brazilian Tropicalia                                                                                                                                                        |
+|     1 | Brazilian literature                                                                                                                                                        |
+|     1 | Brazilian basketball for the past 20 years                                                                                                                                  |
+|     1 | Brackettville moviemaking                                                                                                                                                   |
+|     1 | Boston                                                                                                                                                                      |
+|     1 | Bollywood                                                                                                                                                                   |
+|     1 | Bogota, Colombia                                                                                                                                                            |
+|     1 | BMX racing                                                                                                                                                                  |
+|     1 | B Movies                                                                                                                                                                    |
+|     1 | Blackglama                                                                                                                                                                  |
+|     1 | Birmingham                                                                                                                                                                  |
+|     1 | Big Waves                                                                                                                                                                   |
+|     1 | Beverly Hills                                                                                                                                                               |
+|     1 | Berkeley, Calif.                                                                                                                                                            |
+|     1 | Bergen County                                                                                                                                                               |
+|     1 | Bellini's day                                                                                                                                                               |
+|     1 | Belgrade                                                                                                                                                                    |
+|     1 | Belarus                                                                                                                                                                     |
+|     1 | Beaver                                                                                                                                                                      |
+|     1 | Bear Stearns                                                                                                                                                                |
+|     1 | Bay Ridge                                                                                                                                                                   |
+|     1 | Barneys today                                                                                                                                                               |
+|     1 | Barcelona                                                                                                                                                                   |
+|     1 | Bank Robbers                                                                                                                                                                |
+|     1 | Baltimore                                                                                                                                                                   |
+|     1 | Ballet Theater                                                                                                                                                              |
+|     1 | Bali                                                                                                                                                                        |
+|     1 | B-6 and goldenseal root                                                                                                                                                     |
+|     1 | Austrian Expressionists                                                                                                                                                     |
+|     1 | Austria                                                                                                                                                                     |
+|     1 | Australian politics                                                                                                                                                         |
+|     1 | Austin                                                                                                                                                                      |
+|     1 | Atlantic City                                                                                                                                                               |
+|     1 | Asian food                                                                                                                                                                  |
+|     1 | Arena ball                                                                                                                                                                  |
+|     1 | Architecture                                                                                                                                                                |
+|     1 | Angkor                                                                                                                                                                      |
+|     1 | ancient Egypt                                                                                                                                                               |
+|     1 | ancient Alexandria                                                                                                                                                          |
+|     1 | Anatevka                                                                                                                                                                    |
+|     1 | America's flourishing folk-music revival                                                                                                                                    |
+|     1 | American wines                                                                                                                                                              |
+|     1 | American white trash                                                                                                                                                        |
+|     1 | American sitcoms                                                                                                                                                            |
+|     1 | American Negroes                                                                                                                                                            |
+|     1 | American movies                                                                                                                                                             |
+|     1 | American media                                                                                                                                                              |
+|     1 | American manufacturing                                                                                                                                                      |
+|     1 | American jurisprudence                                                                                                                                                      |
+|     1 | American Jewish boxing                                                                                                                                                      |
+|     1 | American invitational art surveys                                                                                                                                           |
+|     1 | American Indians                                                                                                                                                            |
+|     1 | American horticulture                                                                                                                                                       |
+|     1 | American haute couture                                                                                                                                                      |
+|     1 | American foreign policy                                                                                                                                                     |
+|     1 | American film                                                                                                                                                               |
+|     1 | American fashion                                                                                                                                                            |
+|     1 | American ex-presidents                                                                                                                                                      |
+|     1 | American diplomacy                                                                                                                                                          |
+|     1 | American dance                                                                                                                                                              |
+|     1 | American corporations                                                                                                                                                       |
+|     1 | American classical music for half a century                                                                                                                                 |
+|     1 | American biogeography                                                                                                                                                       |
+|     1 | American Airlines                                                                                                                                                           |
+|     1 | American academics                                                                                                                                                          |
+|     1 | America                                                                                                                                                                     |
+|     1 | Alsatian wine makers                                                                                                                                                        |
+|     1 | Alsace wine makers                                                                                                                                                          |
+|     1 | Al Qaeda                                                                                                                                                                    |
+|     1 | Alabama                                                                                                                                                                     |
+|     1 | Air Sununu                                                                                                                                                                  |
+|     1 | AIDS ribbons                                                                                                                                                                |
+|     1 | AIDS                                                                                                                                                                        |
+|     1 | Aguinaldo                                                                                                                                                                   |
+|     1 | African politics                                                                                                                                                            |
+|     1 | 26th Street                                                                                                                                                                 |
+|     1 | 19th-century Japanese fiction                                                                                                                                               |
+|     1 | 1860s Britain                                                                                                                                                               |
+|     1 | 16th-century Florence                                                                                                                                                       |
+|     1 | 14th-century Windsor                                                                                                                                                        |
+|     1 | 10 Downing Street                                                                                                                                                           |
 
 * "New York"
 
 #+BEGIN_SRC sh
-./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr | grep "New York"
+../org.py -T -f year,modifier,text README.org | awk -F$'\t' '{print $2}' | sort | uniq -c | sort -nr | grep "New York" 
 #+END_SRC
 
-#+RESULTS:
-| 5 | New York City                    |
-| 5 | New York                         |
-| 2 | New York baseball                |
-| 1 | the New York State Assembly      |
-| 1 | the New York reporters           |
-| 1 | the New York Jets                |
-| 1 | New York transit                 |
-| 1 | New York steakhouses             |
-| 1 | New York State                   |
-| 1 | New York's movie panorama        |
-| 1 | New York's judiciary             |
-| 1 | New York politics                |
-| 1 | New York City chefs              |
-| 1 | New York City bridges            |
-| 1 | New York beer culture            |
-| 1 | New York beedom                  |
-| 1 | Latin music in New York          |
-| 1 | high school baseball in New York |
+| count | modifier                             |
+|-------+--------------------------------------|
+|     6 | New York                             |
+|     5 | New York City                        |
+|     2 | New York politics                    |
+|     2 | New York baseball                    |
+|     1 | the New York theme dining world      |
+|     1 | the New York State Legislature       |
+|     1 | the New York State Assembly          |
+|     1 | the New York stage                   |
+|     1 | the New York reporters               |
+|     1 | the New York Jets                    |
+|     1 | the New York club scene              |
+|     1 | the New York club kids of the 1980's |
+|     1 | New York transit                     |
+|     1 | New York steakhouses                 |
+|     1 | New York State                       |
+|     1 | New York's movie panorama            |
+|     1 | New York's judiciary                 |
+|     1 | New York journalism                  |
+|     1 | New York City chefs                  |
+|     1 | New York City bridges                |
+|     1 | New York chefs                       |
+|     1 | New York beer culture                |
+|     1 | New York beedom                      |
+|     1 | Latin music in New York              |
+|     1 | high school baseball in New York     |
+|     1 | Fon's New York program               |
 
 * "America"
 
 #+BEGIN_SRC sh
-./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr | grep "America"
+../org.py -T -f year,modifier,text README.org | awk -F$'\t' '{print $2}' | sort | uniq -c | sort -nr | grep "America" 
 #+END_SRC
 
-#+RESULTS:
-| 5 | American politics                        |
-| 2 | the American theater                     |
-| 2 | postwar American poetry                  |
-| 2 | American Politics                        |
-| 2 | American photography                     |
-| 2 | American design                          |
-| 1 | the Mexican-American world               |
-| 1 | The American Spectator                   |
-| 1 | the American League                      |
-| 1 | the American Football League             |
-| 1 | the American Academy of Arts and Letters |
-| 1 | the American 90's                        |
-| 1 | South America                            |
-| 1 | Latin American pop                       |
-| 1 | Italian-American literature              |
-| 1 | corporate America                        |
-| 1 | contemporary American cooking            |
-| 1 | American wines                           |
-| 1 | American white trash                     |
-| 1 | American sitcoms                         |
-| 1 | American science                         |
-| 1 | American Negroes                         |
-| 1 | American letters                         |
-| 1 | American Indians                         |
-| 1 | American horticulture                    |
-| 1 | American foreign policy                  |
-| 1 | American film                            |
-| 1 | American diplomacy                       |
-| 1 | American dance                           |
-| 1 | American architecture                    |
-| 1 | American Airlines                        |
-| 1 | America                                  |
+| count | modifier                                    |
+|-------+---------------------------------------------|
+|     6 | American politics                           |
+|     3 | American higher education                   |
+|     2 | the American theater                        |
+|     2 | postwar American poetry                     |
+|     2 | American science                            |
+|     2 | American Politics                           |
+|     2 | American photography                        |
+|     2 | American literature                         |
+|     2 | American letters                            |
+|     2 | American design                             |
+|     2 | American art                                |
+|     2 | American architecture                       |
+|     1 | the Mexican-American world                  |
+|     1 | the American stage                          |
+|     1 | The American Spectator                      |
+|     1 | the American League                         |
+|     1 | the American Football League                |
+|     1 | the American Academy of Arts and Letters    |
+|     1 | the American 90's                           |
+|     1 | South America                               |
+|     1 | Reagan-era American adolescence             |
+|     1 | postwar American planning                   |
+|     1 | Latin American pop                          |
+|     1 | Latin American fiction                      |
+|     1 | Latin America                               |
+|     1 | Japanese-American life                      |
+|     1 | Italian-American literature                 |
+|     1 | corporate America                           |
+|     1 | contemporary American cooking               |
+|     1 | America's flourishing folk-music revival    |
+|     1 | American wines                              |
+|     1 | American white trash                        |
+|     1 | American sitcoms                            |
+|     1 | American Negroes                            |
+|     1 | American movies                             |
+|     1 | American media                              |
+|     1 | American manufacturing                      |
+|     1 | American jurisprudence                      |
+|     1 | American Jewish boxing                      |
+|     1 | American invitational art surveys           |
+|     1 | American Indians                            |
+|     1 | American horticulture                       |
+|     1 | American haute couture                      |
+|     1 | American foreign policy                     |
+|     1 | American film                               |
+|     1 | American fashion                            |
+|     1 | American ex-presidents                      |
+|     1 | American diplomacy                          |
+|     1 | American dance                              |
+|     1 | American corporations                       |
+|     1 | American classical music for half a century |
+|     1 | American biogeography                       |
+|     1 | American Airlines                           |
+|     1 | American academics                          |
+|     1 | America                                     |
+
 * " her "
 
 #+BEGIN_SRC sh
-./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr | grep " her "
+../org.py -T -f year,modifier,text README.org | awk -F$'\t' '{print $2}' | sort | uniq -c | sort -nr | grep " her " 
 #+END_SRC
 
-#+RESULTS:
-| 5 | her time             |
-| 5 | her day              |
-| 2 | her generation       |
-| 1 | her sport            |
-| 1 | her particular genre |
+| count | modifier                 |
+|-------+--------------------------|
+|    13 | her time                 |
+|    13 | her day                  |
+|     5 | her generation           |
+|     3 | her sport                |
+|     1 | her plastered generation |
+|     1 | her particular genre     |
+|     1 | her game                 |
+|     1 | her era                  |
 
 * " his "
 
 #+BEGIN_SRC sh
-./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | sort | uniq -c | sort -nr | grep " his "
+../org.py -T -f year,modifier,text README.org | awk -F$'\t' '{print $2}' | sort | uniq -c | sort -nr | grep " his " 
 #+END_SRC
 
-#+RESULTS:
-| 28 | his day                                   |
-| 19 | his time                                  |
-|  9 | his generation                            |
-|  4 | his era                                   |
-|  2 | his sport                                 |
-|  2 | his age                                   |
-|  1 | Persia in his day                         |
-|  1 | his times                                 |
-|  1 | his team's success-breeds-success mantra  |
-|  1 | his team                                  |
-|  1 | his set                                   |
-|  1 | his position                              |
-|  1 | his people, of the Asian Indian community |
-|  1 | his own Ponderosa                         |
-|  1 | his genre                                 |
-|  1 | his field                                 |
-|  1 | his ancient time                          |
+| count | modifier                                  |
+|-------+-------------------------------------------|
+|    56 | his day                                   |
+|    33 | his time                                  |
+|    16 | his generation                            |
+|     8 | his era                                   |
+|     5 | his age                                   |
+|     3 | his sport                                 |
+|     2 | his set                                   |
+|     2 | his country                               |
+|     1 | Persia in his day                         |
+|     1 | his times                                 |
+|     1 | his time and place                        |
+|     1 | his team's success-breeds-success mantra  |
+|     1 | his team                                  |
+|     1 | his race                                  |
+|     1 | his position                              |
+|     1 | his people, of the Asian Indian community |
+|     1 | his own Ponderosa                         |
+|     1 | his genres                                |
+|     1 | his genre                                 |
+|     1 | his field                                 |
+|     1 | his epoch                                 |
+|     1 | his Biblical day                          |
+|     1 | his ancient time                          |
 
 * " [0-9][0-9]"
 
 #+BEGIN_SRC sh
-./org.py -y -o -T -t README.org | grep ^19 | awk -F'\t' '{print $2}' | grep "[0-9][0-9]" | sort | uniq -c | sort -nr 
+../org.py -T -f year,modifier,text README.org | awk -F$'\t' '{print $2}' | grep "[0-9][0-9]" | sort | uniq -c | sort -nr
 #+END_SRC
 
-#+RESULTS:
-| 11 | the 1990's                                                                                                                                                   |
-|  8 | the 90's                                                                                                                                                     |
-|  5 | 1992                                                                                                                                                         |
-|  4 | the 20th century                                                                                                                                             |
-|  4 | the 19th century                                                                                                                                             |
-|  1 | 1988                                                                                                                                                         |
-|  1 | 1990                                                                                                                                                         |
-|  1 | 1994                                                                                                                                                         |
-|  1 | 1995                                                                                                                                                         |
-|  1 | 1996                                                                                                                                                         |
-|  1 | 1998                                                                                                                                                         |
-|  1 | 2000                                                                                                                                                         |
-|  1 | 12th men                                                                                                                                                     |
-|  1 | the 30's                                                                                                                                                     |
-|  1 | the 60's                                                                                                                                                     |
-|  1 | the 80's                                                                                                                                                     |
-|  1 | the 1840's                                                                                                                                                   |
-|  1 | the 1950's                                                                                                                                                   |
-|  1 | the 1980's                                                                                                                                                   |
-|  1 | 26th Street                                                                                                                                                  |
-|  1 | early 80's art                                                                                                                                               |
-|  1 | the 5-to-11 set                                                                                                                                              |
-|  1 | West 46th Street                                                                                                                                             |
-|  1 | pitchers in 1999                                                                                                                                             |
-|  1 | the 15th century                                                                                                                                             |
-|  1 | the 21st century                                                                                                                                             |
-|  1 | the 25th century                                                                                                                                             |
-|  1 | 10 Downing Street                                                                                                                                            |
-|  1 | the 1992 campaign                                                                                                                                            |
-|  1 | the American 90's                                                                                                                                            |
-|  1 | 10th-century tastes                                                                                                                                          |
-|  1 | 20th-century physics                                                                                                                                         |
-|  1 | the mid-19th century                                                                                                                                         |
-|  1 | 1970's blaxploitation                                                                                                                                        |
-|  1 | the 1990's generation                                                                                                                                        |
-|  1 | the late 20th century                                                                                                                                        |
-|  1 | 21st century cyberspace                                                                                                                                      |
-|  1 | late 20th-century Brazil                                                                                                                                     |
-|  1 | 35-millimeter photography                                                                                                                                    |
-|  1 | pro wrestling in the 1950's                                                                                                                                  |
-|  1 | 19th-century Japanese fiction                                                                                                                                |
-|  1 | motocross racing in the 1980's                                                                                                                               |
-|  1 | the 1992 Presidential election                                                                                                                               |
-|  1 | the women's movement in the 1970's                                                                                                                           |
-|  1 | financial markets in the late 1980's                                                                                                                         |
-|  1 | Brazilian basketball for the past 20 years                                                                                                                   |
-|  1 | the Jets' sophisticated 49ers-style attack this season                                                                                                       |
-|  1 | generations of Scots who migrated to northwestern Montana before and after it became a state in 1889                                                         |
-|  1 | the protest movement that has swept Serbia since the Government's annulment of election victories by the opposition in 14 of the country's 18 largest cities |
+| count | modifier                                                                                                                                                                    |
+|-------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    11 | the 1990's                                                                                                                                                                  |
+|    10 | the 90's                                                                                                                                                                    |
+|     7 | the 19th century                                                                                                                                                            |
+|     5 | the 1980's                                                                                                                                                                  |
+|     5 | 1992                                                                                                                                                                        |
+|     4 | the 20th century                                                                                                                                                            |
+|     2 | the 70's                                                                                                                                                                    |
+|     2 | the 21st century                                                                                                                                                            |
+|     2 | 2006                                                                                                                                                                        |
+|     2 | 2000                                                                                                                                                                        |
+|     1 | West 46th Street                                                                                                                                                            |
+|     1 | the year 2000                                                                                                                                                               |
+|     1 | the women's movement in the 1970's                                                                                                                                          |
+|     1 | the under-12 set                                                                                                                                                            |
+|     1 | the protest movement that has swept Serbia since the Government's annulment of election victories by the opposition in 14 of the country's 18 largest cities                |
+|     1 | the players' 50-day strike that season                                                                                                                                      |
+|     1 | the New York club kids of the 1980's                                                                                                                                        |
+|     1 | the new, cool painting of the late 1950's and early 60's                                                                                                                    |
+|     1 | the mid-19th century                                                                                                                                                        |
+|     1 | the late 20th century                                                                                                                                                       |
+|     1 | the late 1970's                                                                                                                                                             |
+|     1 | the Jets' sophisticated 49ers-style attack this season                                                                                                                      |
+|     1 | the early 1990's                                                                                                                                                            |
+|     1 | the carefully choreographed event that consumes Midtown Manhattan with tin whistles, step dancers and some two million spectators on that invariably brisk March 17 morning |
+|     1 | the American 90's                                                                                                                                                           |
+|     1 | the 9/11 band                                                                                                                                                               |
+|     1 | the 80's                                                                                                                                                                    |
+|     1 | the 60's                                                                                                                                                                    |
+|     1 | the 5-to-11 set                                                                                                                                                             |
+|     1 | the 30's                                                                                                                                                                    |
+|     1 | the 27-inch screen                                                                                                                                                          |
+|     1 | the 25th century                                                                                                                                                            |
+|     1 | the 2004 race                                                                                                                                                               |
+|     1 | the 2004 campaign                                                                                                                                                           |
+|     1 | the 2002 Winter Games                                                                                                                                                       |
+|     1 | the 1992 Presidential election                                                                                                                                              |
+|     1 | the 1992 campaign                                                                                                                                                           |
+|     1 | the 1990's generation                                                                                                                                                       |
+|     1 | the 1970's                                                                                                                                                                  |
+|     1 | the 1950's and 1960's                                                                                                                                                       |
+|     1 | the 1950's                                                                                                                                                                  |
+|     1 | the 1920's                                                                                                                                                                  |
+|     1 | the 1840's                                                                                                                                                                  |
+|     1 | the 17th century                                                                                                                                                            |
+|     1 | the 1720's                                                                                                                                                                  |
+|     1 | the 15th century                                                                                                                                                            |
+|     1 | pro wrestling in the 1950's                                                                                                                                                 |
+|     1 | pitchers in 1999                                                                                                                                                            |
+|     1 | our exclusive cyber-Studio 54                                                                                                                                               |
+|     1 | motocross racing in the 1980's                                                                                                                                              |
+|     1 | late-20th-century trans-Atlantic society                                                                                                                                    |
+|     1 | late 20th-century Brazil                                                                                                                                                    |
+|     1 | George H. W. Bush's 1988 presidential campaign                                                                                                                              |
+|     1 | generations of Scots who migrated to northwestern Montana before and after it became a state in 1889                                                                        |
+|     1 | financial markets in the late 1980's                                                                                                                                        |
+|     1 | early 80's art                                                                                                                                                              |
+|     1 | Brazilian basketball for the past 20 years                                                                                                                                  |
+|     1 | 35-millimeter photography                                                                                                                                                   |
+|     1 | 26th Street                                                                                                                                                                 |
+|     1 | 21st century cyberspace                                                                                                                                                     |
+|     1 | 2176                                                                                                                                                                        |
+|     1 | 20th-century sculpture                                                                                                                                                      |
+|     1 | 20th-century physics                                                                                                                                                        |
+|     1 | 20th-century choreography                                                                                                                                                   |
+|     1 | 19th-century photography                                                                                                                                                    |
+|     1 | 19th-century Japanese fiction                                                                                                                                               |
+|     1 | 1998                                                                                                                                                                        |
+|     1 | 1996                                                                                                                                                                        |
+|     1 | 1995                                                                                                                                                                        |
+|     1 | 1994                                                                                                                                                                        |
+|     1 | 1990                                                                                                                                                                        |
+|     1 | 1988                                                                                                                                                                        |
+|     1 | 1972                                                                                                                                                                        |
+|     1 | 1970's blaxploitation films                                                                                                                                                 |
+|     1 | 1970's blaxploitation                                                                                                                                                       |
+|     1 | 1903                                                                                                                                                                        |
+|     1 | 1860s Britain                                                                                                                                                               |
+|     1 | 16th-century Florence                                                                                                                                                       |
+|     1 | 14th-century Windsor                                                                                                                                                        |
+|     1 | 12th men                                                                                                                                                                    |
+|     1 | 10th-century tastes                                                                                                                                                         |
+|     1 | 10 Downing Street                                                                                                                                                           |
