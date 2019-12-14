@@ -34,7 +34,7 @@ function initDateline(events) {
 	    start : p.date,
 	    text : p.sourceLabel,
 	    sentence : p.text,
-	    aUrl : p.aUrl,
+	    aUrl : "http://query.nytimes.com/gst/fullpage.html?res=" + p.aUrlId,
 	    fId : p.fId
 	    //,	    "class" : "col-" + getColor(colClasses, p.desk)
 	});
