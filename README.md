@@ -12,14 +12,17 @@ popular) person as a reference point. For instance, when <span
 style='color:blue;'>Jim Koch</span> is described as "<a
 href='https://www.theatlantic.com/magazine/archive/2014/11/the-steve-jobs-of-beer/380790/)'>the
 <span style='color:red'>Steve Jobs</span> of <span
-style='color:darkgreen'>Beer</span></a>", certain qualities of Steve Jobs,
-be it entrepreneurship or persuasiveness, are assigned to Jim Koch,
-co-founder and chairman of the Boston Beer Company.  VAs consist of
-three parts: a <span style='color:red;'>source</span> (in our example
-"Steve Jobs") serves as paragon to elevate the <span
+style='color:darkgreen'>Beer</span></a>", certain qualities of Steve
+Jobs, be it entrepreneurship or persuasiveness, are assigned to Jim
+Koch, co-founder and chairman of the Boston Beer Company.  VAs consist
+of three parts: a <span style='color:red;'>source</span> (in our
+example "Steve Jobs") serves as paragon to elevate the <span
 style='color:blue;'>target</span> ("Jim Koch") by applying a <span
 style='color:darkgreen;'>modifier</span> ("of Beer") that provides the
-corresponding context
+corresponding context.  VA is named after [Gerardus
+Vossius](https://en.wikipedia.org/wiki/Gerardus_Vossius) (1577– 1649),
+the Dutch classical scholar and author of rhetorical textbooks, who
+first distinguished and described VA as a separate phenomenon.
 
 ## EMNLP-IJCNLP 2019 (November, 2019)
 Schwab, M., Jäschke, R., Fischer, F., Strötgen, J.: 'A Buster Keaton
