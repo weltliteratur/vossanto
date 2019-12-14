@@ -8,12 +8,19 @@
   </head>
   <body>
 
+    <h1>Timeline of Vossian Antonomasia in 20 years of the New York
+    Times (1987–2007)</h1>
+    
     <div id="dl" style="font-size: 12px;"></div>
     <div id="legend">desks: </div>
 
     <!--
 	 vossantos.json was created as follows:
-	 ./org.py -T -o json -f id,date,sourceLabel,fId,aUrlId,text emnlp-ijcnlp2019/README.org > timeline/vossantos.json
+	 ./org.py --true --output json \
+            --fields id,date,sourceLabel,fId,aUrlId,text,author,desk \
+            --authors nyt_authors.tsv \
+	    --desks nyt_desks.tsv \
+	    emnlp-ijcnlp2019/README.org > timeline/vossantos.json
       -->
 
     <script src="timeline/dateline.js"></script>

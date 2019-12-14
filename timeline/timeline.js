@@ -1,6 +1,29 @@
 
-// colors used for event markers reflect the desk/category of the article
-var colors = ["blueviolet", "darkgreen", "coral", "gold", "maroon", "mediumblue", "fuchsia", "firebrick"];
+// colors for the 20 most frequent desks
+var colors = {
+    "Sports Desk"				: "red",
+    "Metropolitan Desk"				: "green",
+    "Book Review Desk"				: "yellow",
+    "National Desk"				: "blue",
+    "The Arts/Cultural Desk"			: "orange",
+    "Arts and Leisure Desk"			: "purple",
+    "Magazine Desk"				: "cyan",
+    "Editorial Desk"				: "magenta",
+    "Cultural Desk"				: "lime",
+    "Movies, Performing Arts/Weekend Desk"	: "pink",
+    "Business/Financial Desk"			: "teal",
+    "Foreign Desk"				: "lavender",
+    "Weekend Desk"				: "brown",
+    "Leisure/Weekend Desk"			: "beige",
+    "Long Island Weekly Desk"			: "maroon",
+    "Style Desk"				: "aquamarine",
+    "Financial Desk"				: "olive",
+    "Arts & Leisure Desk"			: "bisque",
+    "The City Weekly Desk"			: "navy",
+    "Connecticut Weekly Desk"			: "grey",
+    "other"                                     : "black"  // default
+};
+
 
 // load events from JSON file
 request = new XMLHttpRequest();
@@ -14,18 +37,15 @@ request.send();
 
 
 // return a color for each desk
-function getColor (colorClasses, desk) {
-    // new desk -> new color
-    if (! (desk in colorClasses)) {
-	colorClasses[desk] = colors.pop();
-    }
-    return colorClasses[desk];
+function getColor (key) {
+    if (! (key in colors)) return colors["other"];
+    return colors[key];
 }
 
 // callback to create dateline given the events
 function initDateline(events) {
     let dlevents = [];
-    let colClasses = {}; // to store the used classes
+    let colClasses = {length: 0}; // to store the used classes
 
     // convert our events into dateline events
     events.forEach(p => {
@@ -35,8 +55,10 @@ function initDateline(events) {
 	    text : p.sourceLabel,
 	    sentence : p.text,
 	    aUrl : "http://query.nytimes.com/gst/fullpage.html?res=" + p.aUrlId,
-	    fId : p.fId
-	    //,	    "class" : "col-" + getColor(colClasses, p.desk)
+	    fId : p.fId,
+	    author : p.author,
+	    desk : p.desk,
+	    "class" : "col-" + getColor(p.desk)
 	});
     });
 
@@ -68,10 +90,10 @@ function initDateline(events) {
     let legend = document.getElementById('legend');
     let ul = document.createElement('ul');
     legend.appendChild(ul);
-    for (let key in colClasses) {
+    for (let key in colors) {
 	let li = document.createElement('li');
 	li.appendChild(document.createTextNode(key));
-	li.setAttribute("class", "col-" + colClasses[key]);
+	li.setAttribute("class", "col-" + colors[key]);
 	ul.appendChild(li);
     }
 }
@@ -79,11 +101,9 @@ function initDateline(events) {
 // creates info bubble for an event
 function createInfo(event) {
     // convert sentence into HTML
-    let re = /\*([^\*]+)\* \/([^\/]+)\//;
-    let sentence = event.sentence.replace(re, "<b>$1</b> <em>$2</em>");
-
-    let imgurl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Goethe_%28Stieler_1828%29.jpg/195px-Goethe_%28Stieler_1828%29.jpg";
-    let result = "<img src='" + imgurl + "'/>" + sentence;
-
-    return sentence + "<p/>source: <a href='" + event.aUrl + "'>" + event.fId + "</a></p>"; //result;
+    let sentence = event.sentence.replace(/\*([^\*]+)\* \/([^\/]+)\//, "<b>$1</b> <em>$2</em>");
+    let meta = "<li>source: NYT <a href='" + event.aUrl + "'>" + event.fId + "</a></li>";
+    if (event.author) meta += "<li>author(s): " + event.author + "</li>";
+    if (event.desk)   meta += "<li>desk: "      + event.desk   + "</li>";
+    return sentence + "<ul>" + meta + "</ul>";
 }

@@ -22,3 +22,7 @@
     background-color: currentColor;
     margin-right: .2em;
 }
+
+.d-bubble .d-info ul {
+    padding-left: 1em;
+}
