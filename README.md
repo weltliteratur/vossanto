@@ -6,6 +6,21 @@ Automatic extraction of Vossian antonomasia (VA) from large newspaper
 corpora. Based on an idea by [Frank Fischer](https://twitter.com/umblaetterer)
 (see *[Der Umblätterer](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)*).
 
+**Vossian antonomasia** is a stylistic device which attributes a
+certain property to a person by naming another (more well-known, more
+popular) person as a reference point. For instance, when <span
+style='color:blue;'>Jim Koch</span> is described as "<a
+href='https://www.theatlantic.com/magazine/archive/2014/11/the-steve-jobs-of-beer/380790/)'>the
+<span style='color:red'>Steve Jobs</span> of <span
+style='color:darkgreen'>Beer</span>", certain qualities of Steve Jobs,
+be it entrepreneurship or persuasiveness, are assigned to Jim Koch,
+co-founder and chairman of the Boston Beer Company.  VAs consist of
+three parts: a <span style='color:red;'>source</span> (in our example
+"Steve Jobs") serves as paragon to elevate the <span
+style='color:blue;'>target</span> ("Jim Koch") by applying a <span
+style='color:darkgreen;'>modifier</span> ("of beer") that provides the
+corresponding context
+
 ## EMNLP-IJCNLP 2019 (November, 2019)
 
 Schwab, M., Jäschke, R., Fischer, F., Strötgen, J.: 'A Buster Keaton
