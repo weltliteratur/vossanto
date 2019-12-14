@@ -28,7 +28,8 @@ Vossian Antonomasia. *Proceedings of the 2019 Conference on Empirical
 Methods in Natural Language Processing and the 9th International Joint
 Conference on Natural Language Processing*. pp. 6239–6244. Association
 for Computational
-Linguistics 2019. ([PDF](https://www.aclweb.org/anthology/D19-1647.pdf),
+Linguistics 2019. (DOI:[10.18653/v1/D19-1647](https://doi.org/10.18653/v1/D19-1647),
+[PDF](https://www.aclweb.org/anthology/D19-1647.pdf),
 [Poster](https://doi.org/10.6084/m9.figshare.10069886))
 
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/emnlp-ijcnlp2019)
@@ -39,7 +40,8 @@ Linguistics 2019. ([PDF](https://www.aclweb.org/anthology/D19-1647.pdf),
 Fischer, F., Jäschke, R.: ‘The Michael Jordan of greatness’—Extracting
 Vossian antonomasia from two decades of The New York Times,
 1987–2007. *Digital Scholarship in the Humanities*. 2019.
-(DOI:[10.1093/llc/fqy087](https://doi.org/10.1093/llc/fqy087), Preprint: [arXiv:1902.06428](https://arxiv.org/abs/1902.06428))
+(DOI:[10.1093/llc/fqy087](https://doi.org/10.1093/llc/fqy087),
+Preprint: [arXiv:1902.06428](https://arxiv.org/abs/1902.06428))
 
 - [Some More Statistics](theof/humans/statistics.md) (**recommended**)
 - [Complete List of Extracted VA](theof/humans/vossantos.md) (**recommended**)
