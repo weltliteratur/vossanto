@@ -42,6 +42,10 @@ function getColor (key) {
     return colors[key];
 }
 
+function htmlize(s) {
+    return s.replace(/\*([^\*]+)\* \/([^\/]+)\//, "<b>$1</b> <em>$2</em>");
+}
+
 // callback to create dateline given the events
 function initDateline(events) {
     let dlevents = [];
@@ -63,7 +67,7 @@ function initDateline(events) {
     });
 
     // create dateline
-    dateline('dl', {
+    var dl = dateline('dl', {
 	size: '500px',
 	bands: [
 	    {
@@ -96,14 +100,15 @@ function initDateline(events) {
 	li.setAttribute("class", "col-" + colors[key]);
 	ul.appendChild(li);
     }
+
+    initSearch(dlevents, dl);
 }
 
 // creates info bubble for an event
 function createInfo(event) {
     // convert sentence into HTML
-    let sentence = event.sentence.replace(/\*([^\*]+)\* \/([^\/]+)\//, "<b>$1</b> <em>$2</em>");
-    let meta = "<li>source: NYT <a href='" + event.aUrl + "'>" + event.fId + "</a></li>";
-    if (event.author) meta += "<li>author(s): " + event.author + "</li>";
-    if (event.desk)   meta += "<li>desk: "      + event.desk   + "</li>";
-    return sentence + "<ul>" + meta + "</ul>";
+    let meta = "<li>NYT <a href='" + event.aUrl + "'>" + event.fId + "</a></li>";
+    if (event.author) meta += "<li>by " + event.author + "</li>";
+    if (event.desk)   meta += "<li>" + event.desk   + "</li>";
+    return htmlize(event.sentence) + "<ul>" + meta + "</ul>";
 }

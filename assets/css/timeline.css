@@ -24,5 +24,34 @@
 }
 
 .d-bubble .d-info ul {
-    padding-left: 1em;
+    padding: 0;
+    margin: 1em;
+}
+
+/*
+ * jQuery-UI autocomplete
+ */
+.ui-autocomplete {
+    max-height: 500px;
+    max-width: 500px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+
+.ui-match {
+    color: #d01010 ;/* #267CB9;*/
+    font-weight: bold;
+}
+
+.ui-source {
+    font-weight: bold;
+}
+
+.ui-meta {
+    float: right;
+}
+
+#search-source {
+    margin-bottom: .5em;
 }
