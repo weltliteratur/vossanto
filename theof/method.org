@@ -408,26 +408,6 @@ Merge with existing ~README.org~:
 | (W)    | sentence contains Vossanto but *wrong* phrase detected |
 | (D)    | duplicate                                              |
 
-*** TODO duplicates that need to be handled
-
-#+BEGIN_SRC sh :results raw
-  ./org.py -T -t -c README.org | sort | uniq -c | sort -nr | sed "s/^ */- /" | grep -v "^- 1 " | less -S
-#+END_SRC
-
-- 2 When Robert accuses her of being *the Jerry Bruckheimer of* cakes, she responds that he's *the Paul Thomas Anderson of* cakes.
-- 2 ''She's like *the Stephen King of* our genre,'' Ms. Lynch said, and then amended that to ''Stephen King is *the Nora Roberts of* his genre,'' as her friend and writing partner, Cai Smith, from Wisconsin, nodded her head in agreement.
-- 2 She is *the Robert Ryman of* the 21st century.
-- 2 Mr. Reagan fares far better, nicknamewise, than some other Presidents in the compendium, including one known as Gloomy Gus, King Richard, *the Bela Lugosi of* American Politics, Richard the Chicken-Hearted, *the Nero of* Our Times, the Tarnished President, the Godfather, St. Richard the Commie Killer, President Truthful and Trickie Dick.
-- 2 Marly's grandly histrionic mother, Delia Temple (Jane Alexander), known as ''*the Sarah Bernhardt of* Delrona Beach,'' runs the community theater and is a devout environmentalist.
-- 2 Imagine *the Grace Kelly of* ''Rear Window'' or *the Kim Novak of* ''Vertigo'' sprawled seductively on an analyst's couch, smoking cigarettes and confiding her sexual frustration to a repressed, wide-eyed shrink who is obsessed with her.
-- 2 If Ms. Clayburgh was *the Julia Roberts of* the late 1970's, Gabriel Byrne might be described as *the Humphrey Bogart of* the early 1990's.
-- 2 ''I felt that he was *the Franklin Delano Roosevelt of* 1972,'' Mr.
-- 2 He described Metro-North, with its many service awards, as ''*the Tom Hanks of* commuter railroads.''
-- 2 Deeply committed to his faith -- he taught adult classes most Sundays at *the Frederick Church of* the Brethren -- the Iron Man was determined to become a philanthropist.
-- 2 By STEPHEN HOLDEN              Meld *the Lucille Ball of* ''I Love Lucy'' with *the Melanie Griffith of* ''Working Girl,'' and you have Judy Holliday, the brilliant comedian who redefined the stereotype of the dumb blonde as ''the smart dumb blonde.''
-- 2 And there's *the Harold Stassen of* New York, Herman Badillo, and *the Paul Tsongas of* New York, Richard Ravitch.
-- 2 40 and 41 jump into the business at hand, with a suddenness that foreshadows *the Beethoven of* the Eighth Symphony and last string quartet.
-
 ** tools
 *** nyt.py
 Extracts information from the NYT corpus. Options:
