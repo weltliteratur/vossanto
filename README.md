@@ -22,7 +22,6 @@ style='color:darkgreen;'>modifier</span> ("of Beer") that provides the
 corresponding context
 
 ## EMNLP-IJCNLP 2019 (November, 2019)
-
 Schwab, M., Jäschke, R., Fischer, F., Strötgen, J.: 'A Buster Keaton
 of Linguistics': First Automated Approaches for the Extraction of
 Vossian Antonomasia. *Proceedings of the 2019 Conference on Empirical
@@ -46,14 +45,14 @@ Vossian antonomasia from two decades of The New York Times,
 - [Complete List of Extracted VA](theof/humans/vossantos.md) (**recommended**)
 - [Twitter thread](https://twitter.com/umblaetterer/status/1097865223564869635)
 
+## TheOf Approach (2017–2019)
+- [Poster *Lange Nacht der Wissenschaften*](https://doi.org/10.6084%2fm9.figshare.6531140) (June, 2018)
+- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/theof)
+
 ## First Approach (February, 2017)
 - [Slides DHd 2017, Bern](https://lehkost.github.io/slides/2017-bern/) (in German)
 - [Abstract DHd 2017, Bern](http://www.dhd2017.ch/wp-content/uploads/2017/02/Abstractband_ergaenzt.pdf#page=122) (in German)
 - [Data and Code](first)
-
-## TheOf Approach (2017–2019)
-- [Poster *Lange Nacht der Wissenschaften*](https://doi.org/10.6084%2fm9.figshare.6531140) (June, 2018)
-- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/theof)
 
 ## Timeline
 
