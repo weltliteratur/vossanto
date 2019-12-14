@@ -15,6 +15,7 @@
 # - renamed field "wikidata" to "sourceUrl"
 # - added field aUrlId
 # - cleaned up JSON output
+# - added options --desks and --authors
 # 2019-12-13 (rja)
 # - refactored iteration over parts from array to dict
 # - changed handling of command line parameters for selecting columns
@@ -160,8 +161,12 @@ def read_dict(flines, sep='\t', comment='#'):
     d = dict()
     for line in flines:
         if not line.startswith(comment):
-            key, val = line.strip().split(sep)
-            d[key] = val
+            try:
+                key, val = line.strip().split(sep)
+            except ValueError:
+                pass
+            else:
+                d[key] = val
     return d
 
 def gen_truefalse(candidates, true_positive, false_positive):
@@ -169,6 +174,18 @@ def gen_truefalse(candidates, true_positive, false_positive):
         if true_positive == false_positive or true_positive == cand["classification"] or false_positive != cand["classification"]:
             yield cand
 
+# Enriches the Vossantos with additional information.
+# The file should have two columns, the first being the author id, the
+# second the data to be added for each Vossanto.
+def gen_enrich(parts, key, f, sep='\t', missing=''):
+    aid_to_val = read_dict(f, sep=sep)
+    for part in parts:
+        if part["aId"] in aid_to_val:
+            part[key] = aid_to_val[part["aId"]]
+        else:
+            # always add the key, otherwise CSV columns get messed up
+            part[key] = missing
+        yield part
 
 # Skip all candidates whose source's id is contained in sourcefile.
 # Sourcefile must contain one Wikidata id per line, followed by their name.
@@ -228,7 +245,7 @@ def match_line(line):
         trueVoss = d["truefalse"] != "+"
         sourcePhrase = extract_sourcephrase(d["sentence"], trueVoss)
         modifier = extract_modifier(d["sentence"], trueVoss)
-        
+
         return {
             "year"           : d["year"],
             "date"           : d["year"] + "-" + d["month"] + "-" + d["day"],
@@ -268,7 +285,7 @@ def extract_sourcephrase(sentence, trueVoss):
     return ""
 
 # check whether article URL is normalised ("http://query.nytimes.com/gst/fullpage.html?res=<HEXSTRING>")
-# and if so, returns HEXSTRING 
+# and if so, returns HEXSTRING
 def get_article_url_id(aurl):
     match = re_aurlid.match(aurl)
     if match:
@@ -347,8 +364,8 @@ def parse_fields(s):
     return s.split(",")
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Manipulate Vossantos in org files.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('file', type=argparse.FileType('r', encoding='utf-8'), nargs='?', default=sys.stdin, help='org mode file to process')
+    parser = argparse.ArgumentParser(description='Manipulate Vossantos in and extracts them from org files.')
+    parser.add_argument('file', type=argparse.FileType('r', encoding='utf-8'), nargs='?', default=sys.stdin, help='org mode file to process (default: STDIN)')
 
     # filtering options
     filtering = parser.add_argument_group('filter arguments')
@@ -357,18 +374,22 @@ if __name__ == '__main__':
     filtering.add_argument('--ignore-source-ids', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='ignore candidates with a source id contained in FILE')
     # output format options
     output = parser.add_argument_group('output arguments')
-    output.add_argument('-f', '--fields', type=parse_fields, metavar="FDS", default="ALL", help="fields to be included")
-    parser.add_argument('-l', '--list-fields', action="store_true", help="list available fields")
-    output.add_argument('-o', '--output', type=str, metavar="FMT", help="output format", default="csv", choices=["csv", "json"])
-    output.add_argument('-s', '--sep', type=str, metavar="SEP", help="output separator for csv", default='\t')
-    output.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
+    output.add_argument('-f', '--fields', type=parse_fields, metavar="FDS", default="ALL", help="fields to be included (default: '%(default)s')")
+    parser.add_argument('-l', '--list-fields', action="store_true", help="list available fields for --fields")
+    output.add_argument('-o', '--output', type=str, metavar="FMT", help="output format (default: '%(default)s')", default="csv", choices=["csv", "json"])
+    output.add_argument('-s', '--sep', type=str, metavar="SEP", help="output separator for csv (default: '\\t')", default='\t')
+    output.add_argument('-n', '--new', type=str, metavar="NEW", help="string to mark new entries (default: '%(default)s')", default='> ')
     output.add_argument('-c', '--clean', action="store_true", help="clean whitespace")
     output.add_argument('-H', '--heading', action="store_true", help="print year heading (only csv)")
 
+    enrich = parser.add_argument_group('enrichment arguments', "Expect TSV files with article id in first column.")
+    enrich.add_argument('-u', '--urls', type=argparse.FileType('r', encoding='utf-8'), metavar="F", help='add article URLs (prints org file!)')
+    enrich.add_argument('-a', '--authors', type=argparse.FileType('r', encoding='utf-8'), metavar="F", help='add article authors')
+    enrich.add_argument('-d', '--desks', type=argparse.FileType('r', encoding='utf-8'), metavar="F", help='add article desks')
+
     # special options
     special = parser.add_argument_group('special arguments')
-    special.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file to merge')
-    special.add_argument('-u', '--urls', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='file with article URLs')
+    special.add_argument('-m', '--merge', type=argparse.FileType('r', encoding='utf-8'), metavar="F", help='file to merge')
     special.add_argument('-v', '--version', action="version", version="%(prog)s " + version)
 
     args = parser.parse_args()
@@ -408,7 +429,6 @@ if __name__ == '__main__':
     elif args.list_fields:
         print("""
 The following values are allowed for the --fields (-f) option:
-
   aId             article id in the Sandhaus corpus
   aUrl            article URL
   aUrlId          article id in the URL (for "fullpage.html" URLs only)
@@ -432,13 +452,16 @@ Special/obsolete keywords:
   ALL             print all available fields
   newVoss         whether the Vossanto has been marked as new
   status          additional information (D=duplicate, W=wrong detected)
-
 """)
     else:
-        # default: extract Vossantos
+        # default: extract and print Vossantos
         parts = gen_candidates(args.file)
         parts = gen_truefalse(parts, args.true, args.false)
         parts = gen_filter_sources(parts, args.ignore_source_ids)
+        if args.authors:
+            parts = gen_enrich(parts, "author", args.authors)
+        if args.desks:
+            parts = gen_enrich(parts, "desk", args.desks)
         if args.heading:
             # interleaving the headings works by yielding the parts in a loop
             parts = print_heading(parts)
