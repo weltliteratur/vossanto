@@ -109,7 +109,7 @@ Relative frequency:
 *** most frequent
 The most frequent /sources/ are:
 #+BEGIN_SRC sh
-  ../org.py -T -f wikidata README.org | sort | uniq -c | sort -nr | head -n40
+  ../org.py -T -f sourceUrl README.org | sort | uniq -c | sort -nr | head -n40
 #+END_SRC
 
 | count | source                  |
@@ -537,7 +537,7 @@ Collect the authors of the articles
 **** "today"
 Who are the sources for the modifier "today"?
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "today" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -557,7 +557,7 @@ Who are the sources for the modifier "today"?
 Who are the sources for the modifiers "his day", "his time", and "his
 generation"?
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 ~ "his (day|time|generation)" {print $2;}' \
       | sort | uniq -c | sort -nr | head
 #+END_SRC
@@ -578,7 +578,7 @@ generation"?
 Who are the sources for the modifiers "her day", "her time", and "her
 generation"?
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 ~ "her (day|time|generation)" {print $2;}' \
       | sort | uniq -c | sort -nr | head
 #+END_SRC
@@ -598,7 +598,7 @@ generation"?
 
 *** country
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 ~ "(Japan|China|Brazil|Iran|Israel|Mexico|India|South Africa|Spain|South Korea|Russia|Poland|Pakistan)" {print $1;}' \
       | sort | uniq -c | sort -nr | head
 #+END_SRC
@@ -619,7 +619,7 @@ generation"?
 What are the sources for the modifier ... ?
 **** "Japan"
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "Japan" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -649,7 +649,7 @@ What are the sources for the modifier ... ?
 
 **** "China"
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "China" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -671,7 +671,7 @@ What are the sources for the modifier ... ?
 
 **** "Brazil"
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "Brazil" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -692,7 +692,7 @@ What are the sources for the modifier ... ?
 *** sports
 
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 ~ "(baseball|basketball|tennis|golf|football|racing|soccer|sailing)" {print $1;}' \
       | sort | uniq -c | sort -nr 
 #+END_SRC
@@ -756,7 +756,7 @@ What are the sources for the modifier ... ?
 Who are the sources for the modifier ... ?
 **** baseball
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "baseball" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -780,7 +780,7 @@ Who are the sources for the modifier ... ?
 
 **** tennis
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "tennis" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -805,7 +805,7 @@ Who are the sources for the modifier ... ?
 
 **** basketball
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "basketball" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -824,7 +824,7 @@ Who are the sources for the modifier ... ?
 
 **** football
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "football" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -842,7 +842,7 @@ Who are the sources for the modifier ... ?
 
 **** racing
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "racing" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -857,7 +857,7 @@ Who are the sources for the modifier ... ?
 
 **** golf
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 == "golf" {print $2;}' \
       | sort | uniq -c | sort -nr
 #+END_SRC
@@ -873,7 +873,7 @@ Who are the sources for the modifier ... ?
 
 *** culture
 #+BEGIN_SRC sh
-  ../org.py -T -f modifier,wikidata README.org \
+  ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 ~ "(dance|hip-hop|jazz|fashion|weaving|ballet|the art world|wine|salsa|juggling|tango)" {print $1;}' \
       | sort | uniq -c | sort -nr | head -n13
 #+END_SRC
