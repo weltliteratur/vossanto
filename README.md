@@ -12,7 +12,7 @@ popular) person as a reference point. For instance, when <span
 style='color:blue;'>Jim Koch</span> is described as "<a
 href='https://www.theatlantic.com/magazine/archive/2014/11/the-steve-jobs-of-beer/380790/)'>the
 <span style='color:red'>Steve Jobs</span> of <span
-style='color:darkgreen'>Beer</span>", certain qualities of Steve Jobs,
+style='color:darkgreen'>Beer</span></a>", certain qualities of Steve Jobs,
 be it entrepreneurship or persuasiveness, are assigned to Jim Koch,
 co-founder and chairman of the Boston Beer Company.  VAs consist of
 three parts: a <span style='color:red;'>source</span> (in our example
