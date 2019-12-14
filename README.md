@@ -18,7 +18,7 @@ co-founder and chairman of the Boston Beer Company.  VAs consist of
 three parts: a <span style='color:red;'>source</span> (in our example
 "Steve Jobs") serves as paragon to elevate the <span
 style='color:blue;'>target</span> ("Jim Koch") by applying a <span
-style='color:darkgreen;'>modifier</span> ("of beer") that provides the
+style='color:darkgreen;'>modifier</span> ("of Beer") that provides the
 corresponding context
 
 ## EMNLP-IJCNLP 2019 (November, 2019)
