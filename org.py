@@ -10,6 +10,11 @@
 # Author: rja
 #
 # Changes:
+# 2019-12-14 (rja)
+# - added help message for --fields
+# - renamed field "wikidata" to "sourceUrl"
+# - added field aUrlId
+# - cleaned up JSON output
 # 2019-12-13 (rja)
 # - refactored iteration over parts from array to dict
 # - changed handling of command line parameters for selecting columns
@@ -65,7 +70,7 @@ import sys
 import json
 from collections import OrderedDict, Counter
 
-version = "0.8.4"
+version = "0.8.5"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -119,6 +124,8 @@ re_clean = re.compile(r"[*/.\s]")
 # remove line breaks and tabs from text
 re_ws = re.compile('[\n\t\r]+')
 
+# to extract article URL ids
+re_aurlid = re.compile(r'http://query\.nytimes\.com/gst/fullpage\.html\?res=(.+)')
 
 # reads the file into which the other file shall be merged
 # all non-vossanto lines are returned in lines,
@@ -221,7 +228,7 @@ def match_line(line):
         trueVoss = d["truefalse"] != "+"
         sourcePhrase = extract_sourcephrase(d["sentence"], trueVoss)
         modifier = extract_modifier(d["sentence"], trueVoss)
-
+        
         return {
             "year"           : d["year"],
             "date"           : d["year"] + "-" + d["month"] + "-" + d["day"],
@@ -230,10 +237,11 @@ def match_line(line):
             "sourceId"       : d["wdid"],
             "sourceLabel"    : d["wdlabel"],
             "sourcePhrase"   : sourcePhrase,
+            "sourceUrl"      : "[[https://www.wikidata.org/wiki/" + d["wdid"] + "][" + d["wdlabel"] + "]]",
             "modifier"       : modifier,
             "text"           : d["sentence"],
-            "wikidata"       : "[[https://www.wikidata.org/wiki/" + d["wdid"] + "][" + d["wdlabel"] + "]]",
             "aUrl"           : d["aurl"],
+            "aUrlId"         : get_article_url_id(d["aurl"]),
             "classification" : trueVoss,
             "line"           : line.strip(),
             "newVoss"        : d["newmark"], # FIXME: where is this used?
@@ -259,6 +267,13 @@ def extract_sourcephrase(sentence, trueVoss):
             return match.group(1)
     return ""
 
+# check whether article URL is normalised ("http://query.nytimes.com/gst/fullpage.html?res=<HEXSTRING>")
+# and if so, returns HEXSTRING 
+def get_article_url_id(aurl):
+    match = re_aurlid.match(aurl)
+    if match:
+        return match.group(1)
+    return None
 
 # given a line, either adds the URL for the article or (if already existent), changes it
 def set_article_url(line, urls):
@@ -310,9 +325,9 @@ def print_json(parts):
         if first:
             first = False
         else:
-            print(",", end='')
-        print(json.dumps(part))
-    print("]")
+            print(",")
+        print(json.dumps(part), end='')
+    print("\n]")
 
 # prints heading for each year
 # must be called before select_parts, such that year information is available
@@ -340,14 +355,10 @@ if __name__ == '__main__':
     filtering.add_argument('-T', '--true', action="store_true", help="output only true Vossantos")
     filtering.add_argument('-F', '--false', action="store_true", help="output only false positives")
     filtering.add_argument('--ignore-source-ids', type=argparse.FileType('r', encoding='utf-8'), metavar="FILE", help='ignore candidates with a source id contained in FILE')
-
     # output format options
     output = parser.add_argument_group('output arguments')
-    output.add_argument('-f', '--fields', type=parse_fields, metavar="FDS", default="ALL",
-                        help="fields to be included (supported values: ALL, aUrl, aId, " +
-                             "classification, date, fId, id, line, modifier, newVoss, " +
-                             "sourceId, sourceLabel, sourcePhrase, status, text, " +
-                             "wikidata, year)")
+    output.add_argument('-f', '--fields', type=parse_fields, metavar="FDS", default="ALL", help="fields to be included")
+    parser.add_argument('-l', '--list-fields', action="store_true", help="list available fields")
     output.add_argument('-o', '--output', type=str, metavar="FMT", help="output format", default="csv", choices=["csv", "json"])
     output.add_argument('-s', '--sep', type=str, metavar="SEP", help="output separator for csv", default='\t')
     output.add_argument('-n', '--new', type=str, metavar="S", help="string to mark new entries", default='> ')
@@ -394,6 +405,35 @@ if __name__ == '__main__':
             for line in sorted(index[year]):
                 # add URL to line
                 print(set_article_url(index[year][line], urls), end='')
+    elif args.list_fields:
+        print("""
+The following values are allowed for the --fields (-f) option:
+
+  aId             article id in the Sandhaus corpus
+  aUrl            article URL
+  aUrlId          article id in the URL (for "fullpage.html" URLs only)
+  classification  'True' for true Vossantos, 'False' otherwise
+  date            date in format YYYY-MM-DD
+  fId             file id in the
+  id              unique id (generated using the article id)
+  line            original line from the input file
+  modifier        modifier
+  sourceId        Wikidata id of the source
+  sourceLabel     Wikidata label of the source
+  sourcePhrase    name of the source as it appears in the text
+  sourceUrl       Wikidata URL of the source
+  text            text (typically a sentence) containing the Vossanto
+  year            publication year of the article
+
+Several fields can be concatenated by ",", their order is taken into
+account.
+
+Special/obsolete keywords:
+  ALL             print all available fields
+  newVoss         whether the Vossanto has been marked as new
+  status          additional information (D=duplicate, W=wrong detected)
+
+""")
     else:
         # default: extract Vossantos
         parts = gen_candidates(args.file)
