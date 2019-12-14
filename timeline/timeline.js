@@ -102,8 +102,8 @@ function initDateline(events) {
 function createInfo(event) {
     // convert sentence into HTML
     let sentence = event.sentence.replace(/\*([^\*]+)\* \/([^\/]+)\//, "<b>$1</b> <em>$2</em>");
-    let meta = "<li>source: NYT <a href='" + event.aUrl + "'>" + event.fId + "</a></li>";
-    if (event.author) meta += "<li>author(s): " + event.author + "</li>";
-    if (event.desk)   meta += "<li>desk: "      + event.desk   + "</li>";
+    let meta = "<li>NYT <a href='" + event.aUrl + "'>" + event.fId + "</a></li>";
+    if (event.author) meta += "<li>by " + event.author + "</li>";
+    if (event.desk)   meta += "<li>" + event.desk   + "</li>";
     return sentence + "<ul>" + meta + "</ul>";
 }
