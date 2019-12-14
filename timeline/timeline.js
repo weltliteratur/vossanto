@@ -67,7 +67,6 @@ function initDateline(events) {
     // create legend
     let legend = document.getElementById('legend');
     let ul = document.createElement('ul');
-    legend.appendChild(document.createTextNode("legend: "));
     legend.appendChild(ul);
     for (let key in colClasses) {
 	let li = document.createElement('li');
