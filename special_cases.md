@@ -42,8 +42,8 @@ Hypothetical
 -   "She could be the Michael Jordan that women's basketball hasn't
     yet had"
 
-Several within one sentence
----------------------------
+More than one
+-------------
 
 -   I actually consider myself **the Stalin of** *basketball*,'' he
     says, ''**the Hitler of** *basketball*, **the Pol Pot of**
@@ -58,9 +58,9 @@ Several within one sentence
     Reichl of** *the sky*. (?)
 -   A historian and journalist by training, he has nonetheless striven
     for years to bear witness to Montana history in fiction, and to
-    become if not the Homer at least **the Virgil of** /generations of
+    become if not the Homer at least **the Virgil of** *generations of
     Scots who migrated to northwestern Montana before and after it
-    became a state in 1889/.
+    became a state in 1889*.
 -   A noted French writer has called Leni Riefenstahl "**the Plato and
     Michelangelo of** *the Leica*," and her films assure her an
     enduring place in cinematic history.
