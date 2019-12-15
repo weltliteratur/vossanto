@@ -452,6 +452,31 @@
 - 2007/04/17/1841042	Billed as the *Michael Jordan of* hockey by a former Lightning owner, Lecavalier appeared to be on a career path more like Sam Bowie's, his 37 points in 76 games in his fourth season seeming to cement his underachieving status.
 - 2007/05/03/1844722	He's the *Michael Jordan of* boxing.
 
+*** Which occurences of "M of" are not preceded by "the"?
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "michael jordan of\b" mj.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | grep -vi "the michael jordan of" | grep -v "Bulls" | grep -v "Chicago" | sed "s/michael jordan of/*&*/i"
+#+END_SRC
+
+#+RESULTS:
+- 1987/03/12/0020963	The majority will be spent in television, starting with a 60-second commercial of the black-and-white documentary genre in which ordinary health nuts appear with such stars as *Michael Jordan of* basketball and John McEnroe of tennis in a variety of sports including barefoot swimming.
+- 1987/08/11/0064926	A team of scientists, led by *Michael Jordan of* the University of North Carolina at Wilmington, will look for openings in the sea floor where water heated inside the earth's crust is welling up.
+- 1988/03/18/0128589	It has been an especially tumultuous year for Smart, the 6-foot-1 inch guard who joined Lorenzo Charles of North Carolina State and *Michael Jordan of* North Carolina as college basketball's last-second heroes.
+- 1989/02/07/0221328	The three additions followed by one day the withdrawal of *Michael Jordan of* the
+- 1990/01/03/0313936	'*Michael Jordan of* Hockey'
+- 1991/07/02/0456931	Also during the All-Star Game, Nike plans to show new spots with the tennis star Andre Agassi; David Robinson of the San Antonio Spurs of the National Basketball Association, and the film director Spike Lee as Mars Blackmon, the ultimate fan of *Michael Jordan of* the N.
+- 1992/08/16/0550508	2), Dave Anderson seems to accuse *Michael Jordan of* putting his commercial interests ahead of his country's in the great logo race.
+- 1994/01/23/0664050	He was kind of like a *Michael Jordan of* football.
+- 1997/12/12/0979675	*Michael Jordan of* the State Department of Environmental Conservation.
+- 1999/01/17/1077956	And a *Michael Jordan of* bull riding.
+- 1999/01/17/1077956	Even a *Michael Jordan of* real-life bulls.
+- 2000/03/05/1181268	Suppose you are a would-be *Michael Jordan of* my trade, consulting?
+- 2001/10/04/1330703	He will share the stage at MCI Center with *Michael Jordan of* the N.
+- 2002/01/27/1362878	*Michael Jordan of* the Washington Wizards should get credit, too, for nothing more than activating himself.
+- 2002/05/15/1392385	''I've read that I'm the '*Michael Jordan of* rodeo' thousands of times,'' Murray said.
+- 2003/06/01/1493264	'' By the time he stands, slick with sweat and smiling, at the curtain calls, the audience is on its feet and screaming for him as if he is the Mick Jagger or *Michael Jordan of* Broadway.
+- 2004/07/25/1599236	United who has been hailed as the future *Michael Jordan of* American soccer.
+
 ** "the michael jordan of"
 *** distribution
 
