@@ -104,18 +104,18 @@ Recursion
 Typical modifiers
 -----------------
 
-[temporal](theof/humans/statistics.html#today)
+[temporal](theof/humans/statistics.md#today)
 :   "today", "his day", "her day", "his time", "her time",
     "his generation", "her generation", "the future", ...
 
-[geographical](theof/humans/statistics.html#country)
+[geographical](theof/humans/statistics.md#country)
 :   continents, countries, cities, mountains ("Himalayas", "Hudson
     Valley"), rivers ("Hudson"), ...
 
-[sports](theof/humans/statistics.html#sports)
+[sports](theof/humans/statistics.md#sports)
 :   "tennis", "baseball", "basketball", "golf", ...
 
-[culture](theof/humans/statistics.html#culture)
+[culture](theof/humans/statistics.md#culture)
 :   "ballet", "the art world", "jazz", "fashion", ...
 
 Misc
