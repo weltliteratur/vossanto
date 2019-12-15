@@ -28,8 +28,10 @@ Temporal
 - Keith Haring will be **the Peter Max of** *the future*.
 - United who has been hailed as **the future Michael Jordan of**
   /American soccer/.
-- "She could be the Michael Jordan that women's basketball hasn't yet
-  had"
+- ''She could be **the Michael Jordan** *that women's basketball
+  hasn't yet had*,'' said Michele Timms, a guard for Australia and a
+  member of the Phoenix Mercury in the Women's National Basketball
+  Association.
 
 Hypothetical
 ------------
@@ -41,8 +43,14 @@ Hypothetical
 - It felt right that **the James Bond of** *the future* would bed
   anyone,'' said Steven Moffat, the creator of the BBC sitcom
   ''Coupling'' and the writer of the Captain Jack storyline.
-- "She could be the Michael Jordan that women's basketball hasn't yet
-  had"
+- ''She could be **the Michael Jordan** *that women's basketball
+  hasn't yet had*,'' said Michele Timms, a guard for Australia and a
+  member of the Phoenix Mercury in the Women's National Basketball
+  Association.
+- If Mel Gibson was truly **the ''Michelangelo of** *this
+  generation*,'' as one supporter puts it, he would open screenings of
+  ''The Passion'' to viewers other than those he knows will safely
+  embrace it
 - Bruce Ellerstein letter says that if Mel Gibson really were
   '**Michelangelo of** *his generation*' he would open up screenings
   of The Passion to viewers other than those he knows will safely
@@ -104,9 +112,12 @@ Some form of negation
 - The Yankees were not **the Marco Polo of** *baseball*.
 - Levine did not come back with **the Yao Ming of** *Chinese baseball*
   because no such person exists.
-- "He has not been the Michael Jordan in the debates"
-- "She could be the Michael Jordan that women's basketball hasn't yet
-  had"
+- ''He has not been **the Michael Jordan** *in the debates*,'' said
+  Representative John R.
+- ''She could be **the Michael Jordan** *that women's basketball
+  hasn't yet had*,'' said Michele Timms, a guard for Australia and a
+  member of the Phoenix Mercury in the Women's National Basketball
+  Association.
 
 Additional adjectives
 ---------------------
@@ -155,7 +166,6 @@ Typical modifiers
 Misc
 ----
 
--   Even \[Michael\] Jordan isn't always Jordan. The last time he
-    retired, to play baseball, the Chicago Bulls' owner, Jerry
-    Reinsdorf, called him the Babe Ruth of basketball.
--   "if Mel Gibson really were Michelangelo of his generation"
+- Even \[Michael\] Jordan isn't always Jordan. The last time he
+  retired, to play baseball, the Chicago Bulls' owner, Jerry
+  Reinsdorf, called him the Babe Ruth of basketball.
