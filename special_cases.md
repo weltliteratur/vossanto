@@ -88,6 +88,8 @@ A special nested variant where the modifier is also a VA:
   Brooklyn cheerfulness, **a Richard Feynman among** *the Einsteins of
   design*, taking a Klee doodle for a walk on a Mondrian Manhattan
   grid.
+- He is a curmudgeon with opinions but no conviction, **the Andy
+  Rooney of** *the Sahara of the Bozart*. (?)
 
 Some form of negation
 ---------------------
