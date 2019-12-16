@@ -35,7 +35,7 @@ Temporal
   Councilman.
 - Keith Haring will be **the Peter Max of** *the future*.
 - United who has been hailed as **the future Michael Jordan of**
-  /American soccer/.
+  *American soccer*.
 - ''She could be **the Michael Jordan** *that women's basketball
   hasn't yet had*,'' said Michele Timms, a guard for Australia and a
   member of the Phoenix Mercury in the Women's National Basketball
@@ -154,10 +154,10 @@ Additional adjectives
   Quixote of** *the State Legislature*, a man willing to rail
   endlessly about the political misdeeds of the majority even when
   absolutely nobody was listening.
-- Suppose you are **a would-be Michael Jordan of** /my trade/,
+- Suppose you are **a would-be Michael Jordan of** *my trade*,
   consulting?
 - United who has been hailed as **the future Michael Jordan of**
-  /American soccer/.
+  *American soccer*.
 
 Recursion
 ---------
@@ -195,6 +195,32 @@ more than one
     of** *buncombe, hokum, hoopla and ballyhoo* - was himself the
     victim of a hoax.
 
+
+Types of targets
+----------------
+
+humans
+:    Mr. Price, who could become **the Charles Bronson of**
+     *guacamole*,
+
+objects
+:   Waterman, **the Rolls-Royce of** *pens* acquired in 1987, and
+    Papermate, **the Chevrolet of** *pens*
+
+locations
+:   "New York State is **the Cadillac of** *social services*,"
+    Mr. Alfonso said. "**Other states** have *Volkswagens*."
+
+Types of sources
+-----------------
+
+humans
+:    Mr. Price, who could become **the Charles Bronson of**
+     *guacamole*,
+
+objects
+:   Waterman, **the Rolls-Royce of** *pens* acquired in 1987, and
+    Papermate, **the Chevrolet of** *pens*
 
 Syntactic variations
 --------------------
