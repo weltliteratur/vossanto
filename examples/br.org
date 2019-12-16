@@ -238,6 +238,18 @@
 - 2006/03/14/1746784	Lee was a pitcher when he played in high school and, Heo suggested, could be considered the *Babe Ruth of* South Korea.
 - 2006/05/14/1761444	) Edelstein, a motor-sports writer for TV Guide, chronicles the bumpy career of Curtis Turner (1924-70), who ran moonshine in the Virginia hills as a teenager and blazed a dirt trail to stardom during Nascar's early years, earning the title of ''the *Babe Ruth of* stock-car racing.
 
+*** Which occurences of "B of" are not preceded by "the"?
+
+#+BEGIN_SRC sh :results raw list
+  grep -i "babe ruth of\b" br.txt | sed -e "s/nyt_corpus_//" -e "s/\.har\//\//" -e "s/.xml//" -e "s/[[:space:]]*$//" | grep -vi "the babe ruth of" | sed "s/babe ruth of/*&*/i"
+#+END_SRC
+
+#+RESULTS:
+- 1988/03/07/0125336	Louis Cardinal catcher, reported that he ended the 1926 World Series by throwing out *Babe Ruth of* the Yankees attempting to steal second base.
+- 1988/03/07/0125336	Louis Cardinal catcher, reported that he ended the 1926 World Series by throwing out *Babe Ruth of* the Yankees attempting to steal second base.
+- 1990/09/30/0387484	Only 10 major leaguers have hit 50 or more home runs, although several did it more than once and *Babe Ruth of* the Yankees did it four times.
+- 2002/03/10/1374352	''I think Jason Giambi will be the next *Babe Ruth of* New York,'' Rodriguez said.
+
 ** "the Babe Ruth of"
 *** Which occurences of "BR of" are not preceded by "the"?
 

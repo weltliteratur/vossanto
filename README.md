@@ -35,6 +35,7 @@ Linguistics 2019. (DOI:[10.18653/v1/D19-1647](https://doi.org/10.18653/v1/D19-16
 [PDF](https://www.aclweb.org/anthology/D19-1647.pdf),
 [Poster](https://doi.org/10.6084/m9.figshare.10069886))
 
+- [Timeline](timeline) (**recommended**)
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/emnlp-ijcnlp2019)
 - [Some Statistics](emnlp-ijcnlp2019/statistics.md)
 - [All found VA](emnlp-ijcnlp2019/vossantos.md)
@@ -58,13 +59,3 @@ Preprint: [arXiv:1902.06428](https://arxiv.org/abs/1902.06428))
 - [Slides DHd 2017, Bern](https://lehkost.github.io/slides/2017-bern/) (in German)
 - [Abstract DHd 2017, Bern](http://www.dhd2017.ch/wp-content/uploads/2017/02/Abstractband_ergaenzt.pdf#page=122) (in German)
 - [Data and Code](first)
-
-## Timeline
-
-<div id="dl"></div>
-<div id="legend"></div>
-
-<script src="timeline/dateline.js"></script>
-<script src="timeline/timeline.js"></script>
-
-

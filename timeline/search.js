@@ -13,13 +13,17 @@ function initSearch(events, dl) {
 	},
 	select: function( event, ui ) {
             $( "#source" ).val( ui.item.text );
-	    dl.find(ui.item.id);
+	    var evt = dl.find(ui.item.id);
+/*	    var e = document.createEvent("HTMLEvents");
+	    e.initEvent("onclick", true, true);
+	    e.eventName = "onclick";
+	    evt.elements[1].dispatchEvent(e);*/
             return false;
 	}
     })
 	.autocomplete( "instance" )._renderItem = function( ul, item ) {
-	    var re = new RegExp($.ui.autocomplete.escapeRegex(this.term), "i");
-	    var text = htmlize(item.sentence).replace(re, "<span class='ui-match'>" + this.term + "</span>");
+ 	    var re = new RegExp("(" + $.ui.autocomplete.escapeRegex(this.term) + ")", "i");
+	    var text = htmlize(item.sentence).replace(re, "<span class='ui-match'>$1</span>");
 	    return $( "<li>" )
 		.append(
 		    "<div>" +
