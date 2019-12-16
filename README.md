@@ -35,7 +35,7 @@ Linguistics 2019. (DOI:[10.18653/v1/D19-1647](https://doi.org/10.18653/v1/D19-16
 [PDF](https://www.aclweb.org/anthology/D19-1647.pdf),
 [Poster](https://doi.org/10.6084/m9.figshare.10069886))
 
-- [Timeline](tl.html) (**recommended**)
+- [Timeline](timeline) (**recommended**)
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/emnlp-ijcnlp2019)
 - [Some Statistics](emnlp-ijcnlp2019/statistics.md)
 - [All found VA](emnlp-ijcnlp2019/vossantos.md)
