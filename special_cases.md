@@ -100,6 +100,10 @@ More than one
 - "Romario is **the Michael Jordan of** *soccer* and Bebeto is **the
   Magic Johnson of** *soccer*," said American defender Paul Caligiuri.
 
+<!-- many more can be found here:
+https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-three-parts-but-not-if-
+-->
+
 
 Combined with a condition:
 - If Mr. Moynihan is **the Sherlock Holmes of** *the fiscal story*,
@@ -123,6 +127,10 @@ Combined with a condition:
 - If Vanilla Ice is **the Pat Boone of** *hip-hop*, watering down a
   vibrant black musical form to make it appeal to a generic pop
   audience, then G. Love is *its* **Elvis Presley**.
+
+<!-- many more can be found here: 
+https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#if-
+-->
 
 A special nested variant where the modifier is also a VA:
 - We might claim for Rand a minor place in art history: an interesting
