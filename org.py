@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2019-12-16 (rja)
+# - added option "--images" to enrich URLs for Wikipedia Commons images
 # 2019-12-14 (rja)
 # - added help message for --fields
 # - renamed field "wikidata" to "sourceUrl"
@@ -162,7 +164,7 @@ def read_dict(flines, sep='\t', comment='#'):
     for line in flines:
         if not line.startswith(comment):
             try:
-                key, val = line.strip().split(sep)
+                key, val = line.strip().split(sep, 1)
             except ValueError:
                 pass
             else:
@@ -175,7 +177,7 @@ def gen_truefalse(candidates, true_positive, false_positive):
             yield cand
 
 # Enriches the Vossantos with additional information.
-# The file should have two columns, the first being the author id, the
+# The file should have two columns, the first being the article id, the
 # second the data to be added for each Vossanto.
 def gen_enrich(parts, key, f, sep='\t', missing=''):
     aid_to_val = read_dict(f, sep=sep)
@@ -187,6 +189,28 @@ def gen_enrich(parts, key, f, sep='\t', missing=''):
             part[key] = missing
         yield part
 
+
+# Enriches the Vossantos with image information from Wikimedia commons.
+# The file should have three columns, the first being the source id, the
+# second the URL to the image page and the third the URL to the image itself.
+def gen_enrich_images(parts, f, sep='\t', missing=''):
+    images = read_dict(f, sep=sep)
+    for part in parts:
+        if part["sourceId"] in images:
+            # further split value
+            page_url, image_url = images[part["sourceId"]].split(sep)
+            # https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg       https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpgx
+            # strip off common prefixes
+            source_image_id = page_url[len("https://commons.wikimedia.org/wiki/File:"):]
+            source_image_thumb = image_url[len("https://upload.wikimedia.org/wikipedia/commons/"):]
+        else:
+            # always add the key, otherwise CSV columns get messed up
+            source_image_id = missing
+            source_image_thumb = missing
+        part["sourceImId"] = source_image_id
+        part["sourceImThumb"] = source_image_thumb
+        yield part
+        
 # Skip all candidates whose source's id is contained in sourcefile.
 # Sourcefile must contain one Wikidata id per line, followed by their name.
 # Lines starting with # are ignored.
@@ -343,6 +367,7 @@ def print_json(parts):
             first = False
         else:
             print(",")
+        # FIXME: ignore keys with empty values
         print(json.dumps(part), end='')
     print("\n]")
 
@@ -382,9 +407,10 @@ if __name__ == '__main__':
     output.add_argument('-c', '--clean', action="store_true", help="clean whitespace")
     output.add_argument('-H', '--heading', action="store_true", help="print year heading (only csv)")
 
-    enrich = parser.add_argument_group('enrichment arguments', "Expect TSV files with article id in first column.")
+    enrich = parser.add_argument_group('enrichment arguments', "Expect TSV files with article (or source) id in first column.")
     enrich.add_argument('-u', '--urls', type=argparse.FileType('r', encoding='utf-8'), metavar="F", help='add article URLs (prints org file!)')
     enrich.add_argument('-a', '--authors', type=argparse.FileType('r', encoding='utf-8'), metavar="F", help='add article authors')
+    enrich.add_argument('-i', '--images', type=argparse.FileType('r', encoding='utf-8'), metavar="F", help='add source images')
     enrich.add_argument('-d', '--desks', type=argparse.FileType('r', encoding='utf-8'), metavar="F", help='add article desks')
 
     # special options
@@ -432,8 +458,10 @@ The following values are allowed for the --fields (-f) option:
   aId             article id in the Sandhaus corpus
   aUrl            article URL
   aUrlId          article id in the URL (for "fullpage.html" URLs only)
+  author          author (requires --author)
   classification  'True' for true Vossantos, 'False' otherwise
   date            date in format YYYY-MM-DD
+  desk            desk (requires --desk)
   fId             file id in the
   id              unique id (generated using the article id)
   line            original line from the input file
@@ -442,6 +470,8 @@ The following values are allowed for the --fields (-f) option:
   sourceLabel     Wikidata label of the source
   sourcePhrase    name of the source as it appears in the text
   sourceUrl       Wikidata URL of the source
+  sourceImId      Wikimedia Commons id for source image (requires --images)
+  sourceImThumb   Wikimedia Commons thumbnail path for source image (requires --images)
   text            text (typically a sentence) containing the Vossanto
   year            publication year of the article
 
@@ -462,6 +492,8 @@ Special/obsolete keywords:
             parts = gen_enrich(parts, "author", args.authors)
         if args.desks:
             parts = gen_enrich(parts, "desk", args.desks)
+        if args.images:
+            parts = gen_enrich_images(parts, args.images)
         if args.heading:
             # interleaving the headings works by yielding the parts in a loop
             parts = print_heading(parts)

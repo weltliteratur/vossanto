@@ -23,9 +23,19 @@
     margin-right: .2em;
 }
 
+.d-bubble {
+    max-width: 300px;
+    width: auto;
+}
+
 .d-bubble .d-info ul {
     padding: 0;
     margin: 1em;
+}
+
+.d-bubble img {
+    display: block;
+    margin-bottom: 10px;
 }
 
 /*

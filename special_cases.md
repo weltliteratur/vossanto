@@ -15,14 +15,16 @@ fit into several dimensions.)
 Who's claiming it?
 -------------------
 
--   Her fans in Kerala, in southern India, consider her **the Julia
-    Roberts of** *Malayalam-language films*.
--   I like to consider myself **the Mae West of** *rock 'n' roll*,''
-    Ms. Claret, the lead singer of the band Morningwood, said one recent
-    evening.
--   The ''85'' riddim is the work of Dave Kelly, a brilliant
-    producer who could (but wouldn't) claim to be **the Dr. Dre of**
-    *dancehall*.
+- Her fans in Kerala, in southern India, consider her **the Julia
+  Roberts of** *Malayalam-language films*.
+- I like to consider myself **the Mae West of** *rock 'n' roll*,''
+  Ms. Claret, the lead singer of the band Morningwood, said one recent
+  evening.
+- The ''85'' riddim is the work of Dave Kelly, a brilliant producer
+  who could (but wouldn't) claim to be **the Dr. Dre of** *dancehall*.
+- Willoughby is sometimes called **the Lake Lucerne of** *North
+  America*
+
 
 Temporal
 --------
@@ -98,11 +100,12 @@ More than one
 
 Combined with a condition:
 - If Mr. Moynihan is **the Sherlock Holmes of** *the fiscal story*,
-  then Mr. Stockman is at once *its Dr. Watson* and *its Moriarty*
+  then Mr. Stockman is at once *its* **Dr. Watson** and *its*
+  **Moriarty**
 - If Wrigley is **the Faneuil Hall Marketplace of** *ball parks*,
-  Comiskey is *Paddy's Market*.
+  Comiskey is **Paddy's Market**.
 - If Wynton Marsalis is **the Steven Spielberg of** *the jazz scene*,
-  the alto saxophonist Steve Coleman has a strong claim to being its
+  the alto saxophonist Steve Coleman has a strong claim to being *its*
   **Stanley Kubrick**.
 - If Ms. Clayburgh was **the Julia Roberts of** *the late 1970's*,
   Gabriel Byrne might be described as **the Humphrey Bogart of** *the
@@ -111,6 +114,12 @@ Combined with a condition:
   is **the Godzilla of** *toys*
 - If this was the Zagat's of the air, I would now be **the Ruth Reichl
   of** *the sky*. (?) <!-- is this one? if so, highlight source+modifier -->
+- But if Jordan is **the Chuck Yeager of** *basketball*, Julius Erving
+  was **Charles Lindbergh** and Connie Hawkins was *its* **Wright
+  Brothers**.
+- If Vanilla Ice is **the Pat Boone of** *hip-hop*, watering down a
+  vibrant black musical form to make it appeal to a generic pop
+  audience, then G. Love is *its* **Elvis Presley**.
 
 A special nested variant where the modifier is also a VA:
 - We might claim for Rand a minor place in art history: an interesting
@@ -158,6 +167,8 @@ Additional adjectives
   consulting?
 - United who has been hailed as **the future Michael Jordan of**
   *American soccer*.
+- If Klensch is **the Cronkite of** the *rag trade*, Crawford is **a
+  game, albeit hipper, Kathie Lee**
 
 Recursion
 ---------
@@ -203,6 +214,15 @@ humans
 :    Mr. Price, who could become **the Charles Bronson of**
      *guacamole*,
 
+groups
+:    Aerosmith, **the Dorian Gray of** *rock bands*
+
+organisations
+:    Starbucks Coffee, **the General Motors of** *espresso*
+
+animals
+:    Sea Hero is the **Bobo Holloman** of *racing*
+
 objects
 :   Waterman, **the Rolls-Royce of** *pens* acquired in 1987, and
     Papermate, **the Chevrolet of** *pens*
@@ -218,9 +238,27 @@ humans
 :    Mr. Price, who could become **the Charles Bronson of**
      *guacamole*,
 
+organisations
+:   Vaz Auto Works, **the General Motors of** *Russia*
+
+fictional characters
+:   Mike Wallace, the **Godzilla** of the *tube*
+
 objects
 :   Waterman, **the Rolls-Royce of** *pens* acquired in 1987, and
     Papermate, **the Chevrolet of** *pens*
+
+locations
+:   Schonbrunn Castle, **the Versailles of** the *Hapsburgs*
+
+<!-- 
+
+It's also relevant to consider how types of sources and targets are
+combined, e.g., whether source and target are of the same or different
+type. We should check, which combinations are common or don't exist at
+all.
+
+-->
 
 Syntactic variations
 --------------------
@@ -234,9 +272,16 @@ Syntactic variations
 "the ... sort of"
 :    George Romney, **the Middle America sort of** *guy* <!-- is this a VA at all? -->
 
+"the ..., the ..., the ... of"
+:    Joe Sparks might very well end up being **the Dali, the Truffaut,
+     the Coppola of** *this industry*
+
 Misc
 ----
 
 - Even \[Michael\] Jordan isn't always Jordan. The last time he
   retired, to play baseball, the Chicago Bulls' owner, Jerry
   Reinsdorf, called him the Babe Ruth of basketball.
+- "Some people say Claire Shulman is **the Golda Meir of**
+  *Queens*. [...] I say Golda Meir was **the Claire Shulman of**
+  *Israel*."

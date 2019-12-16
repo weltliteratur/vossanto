@@ -51,6 +51,8 @@ function initDateline(events) {
 	    start : p.date,
 	    text : p.sourceLabel,
 	    sId : p.sourceId,
+	    sImId : p.sourceImId,
+	    sImTh : p.sourceImThumb,
 	    sentence : p.text,
 	    aUrlId : p.aUrlId,
 	    fId : p.fId,
@@ -105,9 +107,18 @@ function htmlize(s, url) {
 }
 
 // creates info bubble for an event
-function createInfo(event) {
-    let meta = "<li>NYT <a href='http://query.nytimes.com/gst/fullpage.html?res=" + event.aUrlId + "'>" + event.fId + "</a></li>";
-    if (event.author) meta += "<li>by " + event.author + "</li>";
-    if (event.desk)   meta += "<li>" + event.desk   + "</li>";
-    return htmlize(event.sentence, "https://www.wikidata.org/wiki/" + event.sId) + "<ul>" + meta + "</ul>";
+function createInfo(e) {
+    let image = "";
+    if (e.sImId) image += "<a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>" +
+	"<img src='https://upload.wikimedia.org/wikipedia/commons/" + e.sImTh + "'/></a>";
+
+    console.log(e.sImId);
+    console.log(e.sImTh);
+    console.log(image);
+    
+	
+    let meta = "<li>NYT <a href='http://query.nytimes.com/gst/fullpage.html?res=" + e.aUrlId + "'>" + e.fId + "</a></li>";
+    if (e.author) meta += "<li>by " + e.author + "</li>";
+    if (e.desk)   meta += "<li>" + e.desk   + "</li>";
+    return image + htmlize(e.sentence, "https://www.wikidata.org/wiki/" + e.sId) + "<ul>" + meta + "</ul>";
 }
