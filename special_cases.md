@@ -95,8 +95,11 @@ More than one
 - By the time he stands, slick with sweat and smiling, at the curtain
   calls, the audience is on its feet and screaming for him as if he is
   **the Mick Jagger or Michael Jordan of** *Broadway*.
-- "the Mick Jagger or Michael Jordan of"
-- "the Michael Jordan and Magic Johnson of"
+- If Jones was **the Michael Jordan of** *her time*, scoring at will,
+  Cain, 33, is **the Magic Johnson** of *hers*.
+- "Romario is **the Michael Jordan of** *soccer* and Bebeto is **the
+  Magic Johnson of** *soccer*," said American defender Paul Caligiuri.
+
 
 Combined with a condition:
 - If Mr. Moynihan is **the Sherlock Holmes of** *the fiscal story*,
@@ -153,22 +156,38 @@ Some form of negation
 Additional adjectives
 ---------------------
 
-- He has already had an encounter with two of the students -- the
-  troubled basketball star Lester Dewitt (Usher Raymond) and Ziggy
-  Malone (Robert Ri'chard ), **the abused pint-size Michelangelo of**
-  *the Lincoln High cockloft* by the time Mr.
-- ''I think Jason Giambi will be **the next Babe Ruth of** *New
+next
+: ''I think Jason Giambi will be **the next Babe Ruth of** *New
   York*,'' Rodriguez said.
-- Over the last 24 years, he has emerged as **the undisputed Don
+
+future
+: United who has been hailed as **the future Michael Jordan of**
+  *American soccer*.
+
+would-be
+: Suppose you are **a would-be Michael Jordan of** *my trade*,
+  consulting?
+
+undisputed
+: Over the last 24 years, he has emerged as **the undisputed Don
   Quixote of** *the State Legislature*, a man willing to rail
   endlessly about the political misdeeds of the majority even when
   absolutely nobody was listening.
-- Suppose you are **a would-be Michael Jordan of** *my trade*,
-  consulting?
-- United who has been hailed as **the future Michael Jordan of**
-  *American soccer*.
-- If Klensch is **the Cronkite of** the *rag trade*, Crawford is **a
+
+abused pint-size
+: He has already had an encounter with two of the students -- the
+  troubled basketball star Lester Dewitt (Usher Raymond) and Ziggy
+  Malone (Robert Ri'chard ), **the abused pint-size Michelangelo of**
+  *the Lincoln High cockloft* by the time Mr.
+
+game, albeit hipper
+: If Klensch is **the Cronkite of** the *rag trade*, Crawford is **a
   game, albeit hipper, Kathie Lee**
+
+new
+: Leslie Carter is apparently **the new Marie Osmond**
+  <!-- here "new" is the modifier? -->
+
 
 Recursion
 ---------
