@@ -4,6 +4,14 @@ Special Cases
 A collection of special cases of VA along different dimensions. (Some VA
 fit into several dimensions.)
 
+<!--
+
+  Often we have several examples for each case. We probably should
+  reduce that to a few cases each that show the diversity. Please do
+  not remove such (proper) examples but comment them out.
+
+  -->
+
 Who's claiming it?
 -------------------
 
@@ -62,14 +70,12 @@ More than one
 - I actually consider myself **the Stalin of** *basketball*,'' he
   says, ''**the Hitler of** *basketball*, **the Pol Pot of**
   *basketball*.''
-- If Wynton Marsalis is **the Steven Spielberg of** *the jazz scene*,
-  the alto saxophonist Steve Coleman has a strong claim to being its
-  **Stanley Kubrick**.
-- If Ms. Clayburgh was **the Julia Roberts of** *the late 1970's*,
-  Gabriel Byrne might be described as **the Humphrey Bogart of** *the
-  early 1990's*.
-- If this was the Zagat's of the air, I would now be **the Ruth Reichl
-  of** *the sky*. (?)
+- Guzman is regarded as "**the Stalin of** *Patchogue*, **the Idi Amin
+  of** *Long Island*
+- Waterman, **the Rolls-Royce of** *pens* acquired in 1987, and
+  Papermate, **the Chevrolet of** *pens*
+- "New York State is **the Cadillac of** *social services*,"
+  Mr. Alfonso said. "**Other states** have *Volkswagens*."
 - A historian and journalist by training, he has nonetheless striven
   for years to bear witness to Montana history in fiction, and to
   become if not the Homer at least **the Virgil of** *generations of
@@ -89,6 +95,22 @@ More than one
   **the Mick Jagger or Michael Jordan of** *Broadway*.
 - "the Mick Jagger or Michael Jordan of"
 - "the Michael Jordan and Magic Johnson of"
+
+Combined with a condition:
+- If Mr. Moynihan is **the Sherlock Holmes of** *the fiscal story*,
+  then Mr. Stockman is at once *its Dr. Watson* and *its Moriarty*
+- If Wrigley is **the Faneuil Hall Marketplace of** *ball parks*,
+  Comiskey is *Paddy's Market*.
+- If Wynton Marsalis is **the Steven Spielberg of** *the jazz scene*,
+  the alto saxophonist Steve Coleman has a strong claim to being its
+  **Stanley Kubrick**.
+- If Ms. Clayburgh was **the Julia Roberts of** *the late 1970's*,
+  Gabriel Byrne might be described as **the Humphrey Bogart of** *the
+  early 1990's*.
+- If Toys "R" Us is **the Gulliver of** *toy sellers*, then Nintendo
+  is **the Godzilla of** *toys*
+- If this was the Zagat's of the air, I would now be **the Ruth Reichl
+  of** *the sky*. (?) <!-- is this one? if so, highlight source+modifier -->
 
 A special nested variant where the modifier is also a VA:
 - We might claim for Rand a minor place in art history: an interesting
@@ -150,8 +172,8 @@ Typical modifiers
 -----------------
 
 [temporal](theof/humans/statistics.md#today)
-:   "today", "his day", "her day", "his time", "her time",
-    "his generation", "her generation", "the future", ...
+:   "today", "his day", "her day", "his time", "her time", "his
+    generation", "her generation", "the future", "the 70s", ...
 
 [geographical](theof/humans/statistics.md#country)
 :   continents, countries, cities, mountains ("Himalayas", "Hudson
@@ -162,6 +184,29 @@ Typical modifiers
 
 [culture](theof/humans/statistics.md#culture)
 :   "ballet", "the art world", "jazz", "fashion", ...
+
+
+Special modifiers
+-----------------
+
+more than one
+:   The top-hatted statue will utter not a word about the American
+    sucker, for the simple reason that Barnum - **the Michelangelo
+    of** *buncombe, hokum, hoopla and ballyhoo* - was himself the
+    victim of a hoax.
+
+
+Syntactic variations
+--------------------
+
+"the ... equivalent of"
+:    New South Wales, **the Georgian equivalent of** *deep space* <!-- is this a VA at all? -->
+
+"the ... version of"
+:    Sassy, **the United States version of** *Dolly* 
+
+"the ... sort of"
+:    George Romney, **the Middle America sort of** *guy* <!-- is this a VA at all? -->
 
 Misc
 ----
