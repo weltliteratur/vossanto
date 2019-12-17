@@ -109,12 +109,8 @@ function htmlize(s, url) {
 // creates info bubble for an event
 function createInfo(e) {
     let image = "";
-//    if (e.sImId) image += "<a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>" +
-//	"<img src='https://upload.wikimedia.org/wikipedia/commons/" + e.sImTh + "'/></a>";
-
-    console.log(e.sImId);
-    console.log(e.sImTh);
-    console.log(image);
+    if (e.sImId) image += "<a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>" +
+	"<img src='https://upload.wikimedia.org/wikipedia/commons/" + e.sImTh + "'/></a>";
     
 	
     let meta = "<li>NYT <a href='http://query.nytimes.com/gst/fullpage.html?res=" + e.aUrlId + "'>" + e.fId + "</a></li>";
