@@ -161,6 +161,9 @@ Some form of negation
   member of the Phoenix Mercury in the Women's National Basketball
   Association.
 
+Plural forms
+---------------------
+CONCERT bands are **the Rodney Dangerfields of** *the music world*: they get no respect.
 Additional adjectives
 ---------------------
 
