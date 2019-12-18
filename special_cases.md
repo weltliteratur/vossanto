@@ -169,6 +169,11 @@ Plural forms
 - He and other composers were **the Andrew Lloyd-Webbers of** *their day*, writing popular musicals in the hope of box-office success.
 - To some, agreements among nations may seem like hopelessly weak weapons against **the Osama bin Ladens of** *the world*, who aren't known for consulting international law before acting.
 
+Including explanations
+---------------------
+- It’s **the Dolly Parton of** *cakes*: _a little bit tacky, but you love her_,” said Angie Mosier, a food writer in Atlanta and a board member of the Southern Foodways Alliance at the University of Mississippi in Oxford.
+
+
 Additional adjectives
 ---------------------
 
