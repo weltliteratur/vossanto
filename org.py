@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2019-12-18 (rja)
+# - added field sourceImageLicense
 # 2019-12-16 (rja)
 # - added option "--images" to enrich URLs for Wikipedia Commons images
 # 2019-12-14 (rja)
@@ -73,7 +75,7 @@ import sys
 import json
 from collections import OrderedDict, Counter
 
-version = "0.8.5"
+version = "0.8.6"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
 line_re_str = """
@@ -198,7 +200,7 @@ def gen_enrich_images(parts, f, sep='\t', missing=''):
     for part in parts:
         if part["sourceId"] in images:
             # further split value
-            page_url, image_url = images[part["sourceId"]].split(sep)
+            page_url, image_url, image_license = images[part["sourceId"]].split(sep)
             # https://commons.wikimedia.org/wiki/File:RodneyDangerfield1978.jpg       https://upload.wikimedia.org/wikipedia/commons/b/bf/RodneyDangerfield1978.jpgx
             # strip off common prefixes
             source_image_id = page_url[len("https://commons.wikimedia.org/wiki/File:"):]
@@ -207,8 +209,10 @@ def gen_enrich_images(parts, f, sep='\t', missing=''):
             # always add the key, otherwise CSV columns get messed up
             source_image_id = missing
             source_image_thumb = missing
+            image_license = missing
         part["sourceImId"] = source_image_id
         part["sourceImThumb"] = source_image_thumb
+        part["sourceImLicense"] = image_license
         yield part
         
 # Skip all candidates whose source's id is contained in sourcefile.
@@ -472,6 +476,7 @@ The following values are allowed for the --fields (-f) option:
   sourceUrl       Wikidata URL of the source
   sourceImId      Wikimedia Commons id for source image (requires --images)
   sourceImThumb   Wikimedia Commons thumbnail path for source image (requires --images)
+  sourceImLicense Wikimedia Commons license for image (requires --images)
   text            text (typically a sentence) containing the Vossanto
   year            publication year of the article
 

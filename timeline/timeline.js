@@ -53,6 +53,7 @@ function initDateline(events) {
 	    sId : p.sourceId,
 	    sImId : p.sourceImId,
 	    sImTh : p.sourceImThumb,
+	    sImLi : p.sourceImLicense,
 	    sentence : p.text,
 	    aUrlId : p.aUrlId,
 	    fId : p.fId,
@@ -116,6 +117,6 @@ function createInfo(e) {
     let meta = "<li>NYT <a href='http://query.nytimes.com/gst/fullpage.html?res=" + e.aUrlId + "'>" + e.fId + "</a></li>";
     if (e.author) meta += "<li>by " + e.author + "</li>";
     if (e.desk)   meta += "<li>" + e.desk   + "</li>";
-    if (e.sImId)  meta += "<li>image: <a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>Wikimedia Commons</a></li>";
+    if (e.sImId)  meta += "<li>image: <a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>Wikimedia Commons</a>, license:" + e.sImLi + "</li>";
     return image + htmlize(e.sentence, "https://www.wikidata.org/wiki/" + e.sId) + "<ul>" + meta + "</ul>";
 }
