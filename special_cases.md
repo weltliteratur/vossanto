@@ -329,3 +329,4 @@ Misc
 - "Some people say Claire Shulman is **the Golda Meir of**
   *Queens*. [...] I say Golda Meir was **the Claire Shulman of**
   *Israel*."
+- 'I'm like **David** fighting **the Goliath of** *the beauty industry*,'' she said in a recent interview.
