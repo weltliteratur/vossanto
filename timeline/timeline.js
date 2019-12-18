@@ -120,7 +120,7 @@ function createInfo(e) {
 	image += "<a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>" +
 	    "<img src='https://upload.wikimedia.org/wikipedia/commons/" + e.sImTh + "'/></a>";
 	meta += "<li>image: <a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>Wikimedia Commons</a>";
-	if (e.sImLi)  meta += ", license:" + e.sImLi;
+	if (e.sImLi)  meta += ", license: " + e.sImLi;
 	meta +=  "</li>";
     }
     return image + htmlize(e.sentence, "https://www.wikidata.org/wiki/" + e.sId) + "<ul>" + meta + "</ul>";
