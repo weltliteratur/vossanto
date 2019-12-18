@@ -171,8 +171,12 @@ Plural forms
 
 Including explanations
 ---------------------
-- It’s **the Dolly Parton of** *cakes*: <u>a little bit tacky, but you love her</u>,” said Angie Mosier, a food writer in Atlanta and a board member of the Southern Foodways Alliance at the University of Mississippi in Oxford.
-
+- It’s **the Dolly Parton of** *cakes*: a little bit tacky, but you love her,” said Angie Mosier, a food writer in Atlanta and a board member of the Southern Foodways Alliance at the University of Mississippi in Oxford.
+- If not, Odom will become **the Randy Moss of** *the N.B.A.*, a guy with a lot of question marks who may pay huge dividends.
+- He became **the Joyce Carol Oates of** *pop*, incredibly prolific with variable quality.
+- She describes herself as "**the Donald Trump of** *the horse show world*," buying and selling horses like so many pieces of real estate, pocketing a profit and never shedding a tear as she watches her property being trucked away.
+- He has since established himself as **the Tim McCarver of** *tennis*, the undisputed master of his craft.
+- Mr. Cave is **the Elvis of** *punk*, a beloved and semitragic cult icon who for years has been battling the demon of his own image.
 
 Additional adjectives
 ---------------------
