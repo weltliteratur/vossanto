@@ -164,6 +164,10 @@ Some form of negation
 Plural forms
 ---------------------
 - CONCERT bands are **the Rodney Dangerfields of** *the music world*: they get no respect.
+- They do not support **the Slobodan Milosevics of**  *the region*.
+- That's Jim Wright's party, or ought to be, and trying to seduce **the Donald Trumps of** *this world* won't fool them or save it.
+- He and other composers were **the Andrew Lloyd-Webbers of** *their day*, writing popular musicals in the hope of box-office success.
+- To some, agreements among nations may seem like hopelessly weak weapons against **the Osama bin Ladens of** *the world*, who aren't known for consulting international law before acting.
 
 Additional adjectives
 ---------------------
