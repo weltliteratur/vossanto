@@ -171,7 +171,7 @@ Plural forms
 
 Including explanations
 ---------------------
-- It’s **the Dolly Parton of** *cakes*: <u>a little bit tacky, but you love her<\u>,” said Angie Mosier, a food writer in Atlanta and a board member of the Southern Foodways Alliance at the University of Mississippi in Oxford.
+- It’s **the Dolly Parton of** *cakes*: <u>a little bit tacky, but you love her</u>,” said Angie Mosier, a food writer in Atlanta and a board member of the Southern Foodways Alliance at the University of Mississippi in Oxford.
 
 
 Additional adjectives
