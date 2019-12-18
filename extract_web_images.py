@@ -18,7 +18,7 @@ with open(timelineJSON) as f:
         d = json.loads(line.rstrip()[0:-1])
         vossantoDicts.append(d)
 
-sourceidListFromJson = list(set([d["sourceId"] for d in vossantoDicts]))
+sourceidListFromJson = sorted(list(set([d["sourceId"] for d in vossantoDicts])))
 print(sourceidListFromJson.__len__())
 #sourceidListFromJson  = ["Q18218128","Q5443"]
 
@@ -103,17 +103,23 @@ for i,sourceId in list(enumerate(sourceidListFromJson)):
         continue
     else:
         try:
-            valid_source_id.append(sourceId)
             thumbnail_url = create_thumbnail_url(common_url)
             image_title = common_url.split("File:")[-1]
             image_info = extract_image_license(image_title)
-            permissions.append(image_info[0]['extmetadata']['License']['value'])
-            common_urls.append(common_url)
-            thumbnail_urls.append(thumbnail_url)
-            print(str(i), sourceId, common_url)
+            try:
+                license_value = image_info[0]['extmetadata']['License']['value']
+            except:
+                licence_related_key = [key for key in image_info[0]['extmetadata'].keys() if key.__contains__("License")][0]
+                license_value = image_info[0]['extmetadata'][licence_related_key]['value']
         except:
             unknown_error_url.append(common_url)
             continue
+
+        print(str(i), sourceId, common_url, license_value)
+        valid_source_id.append(sourceId)
+        common_urls.append(common_url)
+        thumbnail_urls.append(thumbnail_url)
+        permissions.append(license_value)
 
 image_urls = ["\t".join(e) + "\n" for e in zip(valid_source_id,common_urls,thumbnail_urls,permissions)]
 no_image_urls = "\n".join(no_image_urls)
