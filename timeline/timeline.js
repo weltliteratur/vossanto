@@ -109,14 +109,19 @@ function htmlize(s, url) {
 
 // creates info bubble for an event
 function createInfo(e) {
-    let image = "";
-    if (e.sImId) image += "<a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>" +
-	"<img src='https://upload.wikimedia.org/wikipedia/commons/" + e.sImTh + "'/></a>";
     
 	
     let meta = "<li>NYT <a href='http://query.nytimes.com/gst/fullpage.html?res=" + e.aUrlId + "'>" + e.fId + "</a></li>";
     if (e.author) meta += "<li>by " + e.author + "</li>";
     if (e.desk)   meta += "<li>" + e.desk   + "</li>";
-    if (e.sImId)  meta += "<li>image: <a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>Wikimedia Commons</a>, license:" + e.sImLi + "</li>";
+
+    let image = "";
+    if (e.sImId)  {
+	image += "<a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>" +
+	    "<img src='https://upload.wikimedia.org/wikipedia/commons/" + e.sImTh + "'/></a>";
+	meta += "<li>image: <a href='https://commons.wikimedia.org/wiki/File:" + e.sImId + "'>Wikimedia Commons</a>";
+	if (e.sImLi)  meta += ", license:" + e.sImLi;
+	meta +=  "</li>";
+    }
     return image + htmlize(e.sentence, "https://www.wikidata.org/wiki/" + e.sId) + "<ul>" + meta + "</ul>";
 }
