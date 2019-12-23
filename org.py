@@ -121,7 +121,7 @@ re_line = re.compile(line_re_str, re.VERBOSE)
 re_modifier = re.compile("\\* ['\"]*/(.+?)/([^0-9A-Za-z]|$)")
 
 # to extract the exact source phrase (enclosed in * ... *) from the sentence
-re_sourcephrase = re.compile("\\*\w+ (.+?) \w+\\*")
+re_sourcephrase = re.compile("\\*\\w+ (.+?) \\w+\\*")
 
 # to remove markup from the sentences
 re_clean = re.compile(r"[*/.\s]")
@@ -131,6 +131,7 @@ re_ws = re.compile('[\n\t\r]+')
 
 # to extract article URL ids
 re_aurlid = re.compile(r'http://query\.nytimes\.com/gst/fullpage\.html\?res=(.+)')
+
 
 # reads the file into which the other file shall be merged
 # all non-vossanto lines are returned in lines,
@@ -158,6 +159,7 @@ def read_file(flines):
                 lines.append(line)
     return lines, index
 
+
 # Read a TSV file with two columns into a dict.
 # The first column is used as key and the second column as value.
 # Lines starting with # are ignored.
@@ -173,10 +175,12 @@ def read_dict(flines, sep='\t', comment='#'):
                 d[key] = val
     return d
 
+
 def gen_truefalse(candidates, true_positive, false_positive):
     for cand in candidates:
         if true_positive == false_positive or true_positive == cand["classification"] or false_positive != cand["classification"]:
             yield cand
+
 
 # Enriches the Vossantos with additional information.
 # The file should have two columns, the first being the article id, the
@@ -214,7 +218,8 @@ def gen_enrich_images(parts, f, sep='\t', missing=''):
         part["sourceImThumb"] = source_image_thumb
         part["sourceImLicense"] = image_license
         yield part
-        
+
+
 # Skip all candidates whose source's id is contained in sourcefile.
 # Sourcefile must contain one Wikidata id per line, followed by their name.
 # Lines starting with # are ignored.
@@ -228,23 +233,27 @@ def gen_filter_sources(candidates, sourcefile):
         for cand in candidates:
             yield cand
 
+
 def gen_candidates(lines):
     for line in lines:
         parts = match_line(line)
         if parts:
             yield parts
 
+
 # remove control characters
 def gen_rm_ctrl(parts):
     for part in parts:
         yield [re_ws.sub(' ', part[p]).strip() for p in part]
 
+
 # generates a key for a Vossanto
 def get_key(parts):
     return parts["year"], "|".join([parts["year"], parts["aId"], parts["sourcePhrase"], re_clean.sub('', parts["sentence"])])
 
+
 def select_parts(parts, fields):
-    if len(fields) > 0 and not "ALL" in fields:
+    if len(fields) > 0 and "ALL" not in fields:
         ids = Counter()
         for part in parts:
             result = OrderedDict()
@@ -261,6 +270,7 @@ def select_parts(parts, fields):
         # when nothing has been selected, return everything
         for part in parts:
             yield part
+
 
 # checks if the line is a Vossanto line
 def match_line(line):
@@ -295,6 +305,7 @@ def match_line(line):
 
     return None
 
+
 # extract the modifier (enclosed in /.../) from the sentence
 def extract_modifier(sentence, trueVoss):
     # ignore non-Vossantos
@@ -304,6 +315,7 @@ def extract_modifier(sentence, trueVoss):
             return match.group(1)
     return ""
 
+
 # extract the source phrase (enclosed in *the ... of*) from the sentence
 def extract_sourcephrase(sentence, trueVoss):
     if trueVoss:
@@ -312,6 +324,7 @@ def extract_sourcephrase(sentence, trueVoss):
             return match.group(1)
     return ""
 
+
 # check whether article URL is normalised ("http://query.nytimes.com/gst/fullpage.html?res=<HEXSTRING>")
 # and if so, returns HEXSTRING
 def get_article_url_id(aurl):
@@ -319,6 +332,7 @@ def get_article_url_id(aurl):
     if match:
         return match.group(1)
     return None
+
 
 # given a line, either adds the URL for the article or (if already existent), changes it
 def set_article_url(line, urls):
@@ -337,6 +351,7 @@ def set_article_url(line, urls):
     else:
         print("WARN: line did not match", line[:50], file=sys.stderr)
 
+
 # inserts a vossanto line into the index
 def insert(index, line, string_new = '> '):
     # extract key for this line
@@ -351,16 +366,19 @@ def insert(index, line, string_new = '> '):
     if key not in index[year]:
         index[year][key] = string_new + line
 
+
 # convert value to string, taking care of None
 def part_to_string(p):
     if p is None:
         return ""
     return str(p)
 
+
 # print CSV/TSV lines
 def print_csv(parts, sep):
     for part in parts:
         print(sep.join([part_to_string(part[p]) for p in part]))
+
 
 # print JSON lines
 def print_json(parts):
@@ -372,8 +390,9 @@ def print_json(parts):
         else:
             print(",")
         # FIXME: ignore keys with empty values
-        print(json.dumps(part), end='')
+        print(json.dummps(part), end='')
     print("\n]")
+
 
 # prints heading for each year
 # must be called before select_parts, such that year information is available
@@ -389,8 +408,10 @@ def print_heading(parts):
         # this enables us print the heading between the final print statements
         yield part
 
+
 def parse_fields(s):
     return s.split(",")
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Manipulate Vossantos in and extracts them from org files.')
