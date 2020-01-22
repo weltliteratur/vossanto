@@ -99,6 +99,7 @@ function initDateline(events) {
     }
 
     initSearch(dlevents, dl);
+    scrollToFragment(dl);
 }
 
 function htmlize(s, url) {
@@ -109,8 +110,6 @@ function htmlize(s, url) {
 
 // creates info bubble for an event
 function createInfo(e) {
-    
-	
     let meta = "<li>NYT <a href='http://query.nytimes.com/gst/fullpage.html?res=" + e.aUrlId + "'>" + e.fId + "</a></li>";
     if (e.author) meta += "<li>by " + e.author + "</li>";
     if (e.desk)   meta += "<li>" + e.desk   + "</li>";
@@ -123,5 +122,6 @@ function createInfo(e) {
 	if (e.sImLi)  meta += ", license: " + e.sImLi;
 	meta +=  "</li>";
     }
+    meta += "<li><a href='#" + e.id + "'>perma link</a></li>";
     return image + htmlize(e.sentence, "https://www.wikidata.org/wiki/" + e.sId) + "<ul>" + meta + "</ul>";
 }

@@ -1,11 +1,3 @@
-function simulateClick(cb) {
-    cb.dispatchEvent(new MouseEvent('click', {
-	view: window,
-	bubbles: true,
-	cancelable: true
-    }));
-}
-
 function initSearch(events, dl) {
     $( "#search-source" ).autocomplete({
 	minLength: 0,
@@ -21,17 +13,7 @@ function initSearch(events, dl) {
 	},
 	select: function( event, ui ) {
             $( "#source" ).val( ui.item.text );
-	    var evt = dl.find(ui.item.id);
-	    // after some delay (!) show info bubble
-	    setTimeout(function(){
-		for (var i=0; i < evt.elements.length; i++) {
-		    var elem = evt.elements[i];
-		    if (elem.classList.contains("d-event")) {
-			simulateClick(elem);
-		    }
-		}
-	    }, 1000);
-
+	    scrollTo(dl, ui.item.id)
 	    return false;
 	}
     })
@@ -48,4 +30,36 @@ function initSearch(events, dl) {
 		    "</div>" )
 		.appendTo( ul );
 	};
+}
+
+/*
+ * If the URL contains an event id as fragment, scroll to the 
+ * event and show its info box. */
+function scrollToFragment(dl) {
+    if (document.location.hash)
+	scrollTo(dl, document.location.hash.substr(1));
+}
+
+/*
+ * Scroll to the event with the given id and show its info box.
+ */
+function scrollTo(dl, itemid) {
+    var evt = dl.find(itemid);
+    // hack: after some delay (!) show info bubble
+    setTimeout(function(){
+	for (var i=0; i < evt.elements.length; i++) {
+	    var elem = evt.elements[i];
+	    if (elem.classList.contains("d-event")) {
+		simulateClick(elem);
+	    }
+	}
+    }, 2000);
+}
+
+function simulateClick(cb) {
+    cb.dispatchEvent(new MouseEvent('click', {
+	view: window,
+	bubbles: true,
+	cancelable: true
+    }));
 }
