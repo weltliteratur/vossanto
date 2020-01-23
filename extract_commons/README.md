@@ -2,7 +2,7 @@ This is an instruction to use the pywikibot for the extraction of information of
 from commons.wikimedia given a wikidata sourceId. 
 
 1. Retrieve the Pywikibot from https://github.com/wikimedia/pywikibot and generate the user files (see https://www.mediawiki.org/wiki/Manual:Pywikibot/Installation)
-	somthing along the lines of "python3 generate_user_files.py" should happen
+	execute "python3 generate_user_files.py"
 	1.1 Follow the instruction here https://www.mediawiki.org/wiki/Special:BotPasswords to create a Bot and password
 	1.2 The language should be "commons" and the wiki should be "commons" as well
 	1.3 An account on the commons-website needs to be created 
