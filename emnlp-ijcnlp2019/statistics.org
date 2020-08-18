@@ -9,11 +9,11 @@ We plot some temporal distributions:
       echo $year \
 	   $(grep ^$year articles.tsv | cut -d' ' -f2) \
 	   $(../org.py -f year README.org | grep ${year} | wc -l) \
-           $(../org.py -f year,classification,status README.org | grep ${year} | awk -F$'\t' '{if ($3 == "D" || $2 == "True") print;}' | wc -l)
+	   $(../org.py -f year,classification,status README.org | grep ${year} | awk -F$'\t' '{if ($3 == "D" || $2 == "True") print;}' | wc -l)
   done
 #+END_SRC
 
-#+CAPTION: The temporal distribution of the number of found and true candidates. 
+#+CAPTION: The temporal distribution of the number of found and true candidates.
 #+NAME: temporal-distribution
 |   year | articles | found | true |   prec |  ppm  |
 |--------+----------+-------+------+--------+-------|
@@ -228,8 +228,8 @@ Extract the categories for the articles:
   export PYTHONIOENCODING=utf-8
   for year in $(seq 1987 2007); do
       ../nyt.py --category ../nyt_corpus_${year}.tar.gz \
-          | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
-          | sort >> nyt_categories.tsv
+	  | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
+	  | sort >> nyt_categories.tsv
   done
 #+END_SRC
 
@@ -237,7 +237,7 @@ Compute frequency distribution over all articles:
 #+BEGIN_SRC sh :results silent
   cut -d$'\t' -f2 nyt_categories.tsv | sort -S1G | uniq -c \
      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
-                                            > nyt_categories_distrib.tsv
+					    > nyt_categories_distrib.tsv
 #+END_SRC
 
 Check the number of and the top categories:
@@ -302,8 +302,8 @@ Extract the desks for the articles:
   export PYTHONIOENCODING=utf-8
   for year in $(seq 1987 2007); do
       ../nyt.py --desk ../nyt_corpus_${year}.tar.gz \
-          | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
-          | sort >> nyt_desks.tsv
+	  | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
+	  | sort >> nyt_desks.tsv
   done
 #+END_SRC
 
@@ -311,7 +311,7 @@ Compute frequency distribution over all articles:
 #+BEGIN_SRC sh :results silent
   cut -d$'\t' -f2 nyt_desks.tsv | sort -S1G | uniq -c \
      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
-                                            > nyt_desks_distrib.tsv
+					    > nyt_desks_distrib.tsv
 #+END_SRC
 
 Check the number of and the top categories:
@@ -379,8 +379,8 @@ Extract the authors for the articles:
   export PYTHONIOENCODING=utf-8
   for year in $(seq 1987 2007); do
       ../nyt.py --author ../nyt_corpus_${year}.tar.gz \
-          | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
-          | sort >> nyt_authors.tsv
+	  | sed -e "s/^nyt_corpus_//" -e "s/\.har\//\//" -e "s/\.xml\t/\t/" \
+	  | sort >> nyt_authors.tsv
   done
 #+END_SRC
 
@@ -388,7 +388,7 @@ Compute frequency distribution over all articles:
 #+BEGIN_SRC sh :results silent
   cut -d$'\t' -f2 nyt_authors.tsv | LC_ALL=C sort -S1G | uniq -c \
      | sed -e "s/^ *//" -e "s/ /\t/" | awk -F'\t' '{print $2"\t"$1}' \
-                                            > nyt_authors_distrib.tsv
+					    > nyt_authors_distrib.tsv
 #+END_SRC
 
 Check the number of and the top authors:
@@ -396,7 +396,7 @@ Check the number of and the top authors:
   echo articles $(wc -l < nyt_authors.tsv)
   echo categories $(wc -l < nyt_authors_distrib.tsv)
   echo ""
-  sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head 
+  sort -t$'\t' -nrk2 nyt_authors_distrib.tsv | head
 #+END_SRC
 
 | articles            | 1854726 |
@@ -532,6 +532,66 @@ Collect the authors of the articles
 |     8 | dance            |
 |     7 | the 19th century |
 |     7 | Mexico           |
+
+*** distribution of the number of words
+
+#+BEGIN_SRC sh
+  ../org.py -T -f modifier,aId README.org \
+      | awk -F$'\t' '$1 != "" {print $1;}' \
+      | awk '{print NF}' \
+      | sort -n | uniq -c
+  # unique VA
+  ../org.py -T -f modifier,aId README.org \
+      | awk -F$'\t' '$1 != "" {print $1;}' \
+      | sort -u \
+      | awk '{print NF}' \
+      | sort -n | uniq -c
+#+END_SRC
+
+#+CAPTION: Frequencies of the number of words in modifiers
+#+NAME: modifier_length
+| number of words | frequency | frequency (unique) |
+|-----------------+-----------+--------------------|
+|               1 |      1002 |                610 |
+|               2 |      1266 |                888 |
+|               3 |       544 |                465 |
+|               4 |       118 |                110 |
+|               5 |        35 |                 34 |
+|               6 |        17 |                 17 |
+|               7 |         9 |                  9 |
+|               8 |         5 |                  5 |
+|               9 |         3 |                  3 |
+|              11 |         1 |                  1 |
+|              12 |         1 |                  1 |
+|              13 |         1 |                  1 |
+|              14 |         1 |                  1 |
+|              15 |         3 |                  3 |
+|              17 |         1 |                  1 |
+|              25 |         2 |                  2 |
+
+#+begin_src gnuplot :var data=modifier_length :file nyt_vossantos_modifier_length.svg :results silent
+reset
+set datafile separator "\t"
+
+set xlabel "number of words"
+set ylabel "frequency"
+set grid linetype 1 linecolor 0
+set yrange [0:*]
+set key top left
+set style fill solid 1
+
+set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
+set out "nyt_vossantos_modifier_length.svg"
+
+plot data using 1:2 with linespoints pt 7 lc "blue" title 'all modifiers',\
+     data using 1:3 with linespoints pt 7 lc "green"  title 'unique modifiers'
+
+set term png enhanced size 800,600 font "Arial,16" lw  2
+set out "nyt_vossantos_modifier_length.png"
+replot
+#+end_src
+
+file+sys:nyt_vossantos_modifier_length.png
 
 *** today
 **** "today"
@@ -694,7 +754,7 @@ What are the sources for the modifier ... ?
 #+BEGIN_SRC sh
   ../org.py -T -f modifier,sourceUrl README.org \
       | awk -F$'\t' '$1 ~ "(baseball|basketball|tennis|golf|football|racing|soccer|sailing)" {print $1;}' \
-      | sort | uniq -c | sort -nr 
+      | sort | uniq -c | sort -nr
 #+END_SRC
 
 | count | sports                                                |
