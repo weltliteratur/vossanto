@@ -128,7 +128,7 @@ Combined with a condition:
   vibrant black musical form to make it appeal to a generic pop
   audience, then G. Love is *its* **Elvis Presley**.
 
-<!-- many more can be found here: 
+<!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#if-
 -->
 
@@ -177,6 +177,7 @@ Including explanations
 - She describes herself as "**the Donald Trump of** *the horse show world*," buying and selling horses like so many pieces of real estate, pocketing a profit and never shedding a tear as she watches her property being trucked away.
 - He has since established himself as **the Tim McCarver of** *tennis*, the undisputed master of his craft.
 - Mr. Cave is **the Elvis of** *punk*, a beloved and semitragic cult icon who for years has been battling the demon of his own image.
+- It is the **Madonna** of *Italian-American literature* in that it shows the transition from the Italian immigrant to American citizen like no other book of its genre.''
 
 Additional adjectives
 ---------------------
@@ -228,11 +229,11 @@ Typical modifiers
 
 [temporal](theof/humans/statistics.md#today)
 :   "today", "his day", "her day", "his time", "her time", "his
-    generation", "her generation", "the future", "the 70s", ...
+	generation", "her generation", "the future", "the 70s", ...
 
 [geographical](theof/humans/statistics.md#country)
 :   continents, countries, cities, mountains ("Himalayas", "Hudson
-    Valley"), rivers ("Hudson"), ...
+	Valley"), rivers ("Hudson"), ...
 
 [sports](theof/humans/statistics.md#sports)
 :   "tennis", "baseball", "basketball", "golf", ...
@@ -246,9 +247,9 @@ Special modifiers
 
 more than one
 :   The top-hatted statue will utter not a word about the American
-    sucker, for the simple reason that Barnum - **the Michelangelo
-    of** *buncombe, hokum, hoopla and ballyhoo* - was himself the
-    victim of a hoax.
+	sucker, for the simple reason that Barnum - **the Michelangelo
+	of** *buncombe, hokum, hoopla and ballyhoo* - was himself the
+	victim of a hoax.
 
 
 Types of targets
@@ -256,7 +257,7 @@ Types of targets
 
 humans
 :    Mr. Price, who could become **the Charles Bronson of**
-     *guacamole*,
+	 *guacamole*,
 
 groups
 :    Aerosmith, **the Dorian Gray of** *rock bands*
@@ -269,18 +270,18 @@ animals
 
 objects
 :   Waterman, **the Rolls-Royce of** *pens* acquired in 1987, and
-    Papermate, **the Chevrolet of** *pens*
+	Papermate, **the Chevrolet of** *pens*
 
 locations
 :   "New York State is **the Cadillac of** *social services*,"
-    Mr. Alfonso said. "**Other states** have *Volkswagens*."
+	Mr. Alfonso said. "**Other states** have *Volkswagens*."
 
 Types of sources
 -----------------
 
 humans
 :    Mr. Price, who could become **the Charles Bronson of**
-     *guacamole*,
+	 *guacamole*,
 
 organisations
 :   Vaz Auto Works, **the General Motors of** *Russia*
@@ -290,12 +291,12 @@ fictional characters
 
 objects
 :   Waterman, **the Rolls-Royce of** *pens* acquired in 1987, and
-    Papermate, **the Chevrolet of** *pens*
+	Papermate, **the Chevrolet of** *pens*
 
 locations
 :   Schonbrunn Castle, **the Versailles of** the *Hapsburgs*
 
-<!-- 
+<!--
 
 It's also relevant to consider how types of sources and targets are
 combined, e.g., whether source and target are of the same or different
@@ -311,14 +312,14 @@ Syntactic variations
 :    New South Wales, **the Georgian equivalent of** *deep space* <!-- is this a VA at all? -->
 
 "the ... version of"
-:    Sassy, **the United States version of** *Dolly* 
+:    Sassy, **the United States version of** *Dolly*
 
 "the ... sort of"
 :    George Romney, **the Middle America sort of** *guy* <!-- is this a VA at all? -->
 
 "the ..., the ..., the ... of"
 :    Joe Sparks might very well end up being **the Dali, the Truffaut,
-     the Coppola of** *this industry*
+	 the Coppola of** *this industry*
 
 Misc
 ----
