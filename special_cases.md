@@ -99,6 +99,11 @@ More than one
   Cain, 33, is **the Magic Johnson** of *hers*.
 - "Romario is **the Michael Jordan of** *soccer* and Bebeto is **the
   Magic Johnson of** *soccer*," said American defender Paul Caligiuri.
+- Descriptions of Mr. King as "a *street* **Machiavelli**, a *ghetto*
+  **Einstein**" and of Muhammad Ali as "the **Einstein** of *the Sweet
+  Science*" hit the eye like a head-butt, and calling Ali's victory
+  over George Foreman "an epic, a miracle, a revolution" throws
+  rhetoric over the event while illuminating nothing.
 
 <!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-three-parts-but-not-if-
