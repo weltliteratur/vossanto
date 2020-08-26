@@ -183,6 +183,7 @@ Including explanations
 - He has since established himself as **the Tim McCarver of** *tennis*, the undisputed master of his craft.
 - Mr. Cave is **the Elvis of** *punk*, a beloved and semitragic cult icon who for years has been battling the demon of his own image.
 - It is the **Madonna** of *Italian-American literature* in that it shows the transition from the Italian immigrant to American citizen like no other book of its genre.''
+- We might claim for Rand a minor place in art history: an interesting American modulation of European modernist sobriety into bouncy Brooklyn cheerfulness, a **Richard Feynman** among *the Einsteins of design*, taking a Klee doodle for a walk on a Mondrian Manhattan grid.
 
 Additional adjectives
 ---------------------
