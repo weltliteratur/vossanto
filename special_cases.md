@@ -104,6 +104,15 @@ More than one
   Science*" hit the eye like a head-butt, and calling Ali's victory
   over George Foreman "an epic, a miracle, a revolution" throws
   rhetoric over the event while illuminating nothing.
+- Some possible portents of doom: a recording that advertises
+  Beethoven's Fifth Symphony as "the **'Star Wars'** of *symphonic
+  music*" and Ludwig van B. himself as the **Kurt Cobain** of *his
+  generation*; a famous young virtuoso playing "The Four Seasons" in a
+  music video broadcast on the Weather Channel; arousing anthologies
+  of "Sensual Classics" aimed at heterosexual or homosexual listeners;
+  disks of Arvo Part's music stamped with a descriptive blurb from
+  Michael Stipe of R.E.M.
+  [link](https://vossanto.weltliteratur.net/timeline/#0744055_0)
 
 <!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-three-parts-but-not-if-
@@ -184,6 +193,9 @@ Including explanations
 - Mr. Cave is **the Elvis of** *punk*, a beloved and semitragic cult icon who for years has been battling the demon of his own image.
 - It is the **Madonna** of *Italian-American literature* in that it shows the transition from the Italian immigrant to American citizen like no other book of its genre.''
 - We might claim for Rand a minor place in art history: an interesting American modulation of European modernist sobriety into bouncy Brooklyn cheerfulness, a **Richard Feynman** among *the Einsteins of design*, taking a Klee doodle for a walk on a Mondrian Manhattan grid.
+- Sam Schwartz, who writes the Gridlock Sam column for The Daily News,
+  calls him the **Beethoven** of *traffic cops* -- in other words, he
+  does not direct traffic so much as conduct it, like a symphony. [link](https://vossanto.weltliteratur.net/timeline/#1035441_0)
 
 Additional adjectives
 ---------------------
