@@ -120,27 +120,35 @@ https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-
 
 
 Combined with a condition:
-- If Mr. Moynihan is **the Sherlock Holmes of** *the fiscal story*,
+- If Mr. Moynihan is the **Sherlock Holmes** of *the fiscal story*,
   then Mr. Stockman is at once *its* **Dr. Watson** and *its*
   **Moriarty**
-- If Wrigley is **the Faneuil Hall Marketplace of** *ball parks*,
+- If Wrigley is the **Faneuil Hall Marketplace** of *ball parks*,
   Comiskey is **Paddy's Market**.
-- If Wynton Marsalis is **the Steven Spielberg of** *the jazz scene*,
+- If Wynton Marsalis is the **Steven Spielberg** of *the jazz scene*,
   the alto saxophonist Steve Coleman has a strong claim to being *its*
-  **Stanley Kubrick**.
-- If Ms. Clayburgh was **the Julia Roberts of** *the late 1970's*,
-  Gabriel Byrne might be described as **the Humphrey Bogart of** *the
-  early 1990's*.
-- If Toys "R" Us is **the Gulliver of** *toy sellers*, then Nintendo
-  is **the Godzilla of** *toys*
-- If this was the Zagat's of the air, I would now be **the Ruth Reichl
-  of** *the sky*. (?) <!-- is this one? if so, highlight source+modifier -->
-- But if Jordan is **the Chuck Yeager of** *basketball*, Julius Erving
+  **Stanley
+  Kubrick**. [link](https://vossanto.weltliteratur.net/timeline/#1104452_0)
+- If Ms. Clayburgh was the **Julia Roberts** of *the late 1970's*,
+  Gabriel Byrne might be described as the **Humphrey Bogart** of *the
+  early
+  1990's*. [link](https://vossanto.weltliteratur.net/timeline/#1701109_0)
+- If Toys "R" Us is the **Gulliver** of *toy sellers*, then Nintendo
+  is the **Godzilla** of *toys*
+- If this was the Zagat's of the air, I would now be the **Ruth
+  Reichl** of *the sky*. (?) <!-- is this one? if so, highlight source+modifier -->
+- But if Jordan is the **Chuck Yeager** of *basketball*, Julius Erving
   was **Charles Lindbergh** and Connie Hawkins was *its* **Wright
-  Brothers**.
-- If Vanilla Ice is **the Pat Boone of** *hip-hop*, watering down a
+  Brothers**. [link](https://vossanto.weltliteratur.net/timeline/#0526474_0)
+- If Vanilla Ice is the **Pat Boone** of *hip-hop*, watering down a
   vibrant black musical form to make it appeal to a generic pop
-  audience, then G. Love is *its* **Elvis Presley**.
+  audience, then G. Love is *its* **Elvis
+  Presley**. [link](https://vossanto.weltliteratur.net/timeline/#0694707_0)
+- If bin Laden is the **Robin Hood** of *jihad*,'' the authors write,
+  then Abu Musab al-Zarqawi ''has been *its* **Horatio Alger**, and
+  Iraq his field of dreams.''
+  [link](https://vossanto.weltliteratur.net/timeline/#1719129_0)
+
 
 <!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#if-
@@ -149,11 +157,12 @@ https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#if-
 A special nested variant where the modifier is also a VA:
 - We might claim for Rand a minor place in art history: an interesting
   American modulation of European modernist sobriety into bouncy
-  Brooklyn cheerfulness, **a Richard Feynman among** *the Einsteins of
+  Brooklyn cheerfulness, a **Richard Feynman** among *the Einsteins of
   design*, taking a Klee doodle for a walk on a Mondrian Manhattan
-  grid.
-- He is a curmudgeon with opinions but no conviction, **the Andy
-  Rooney of** *the Sahara of the Bozart*. (?)
+  grid. [link](https://vossanto.weltliteratur.net/timeline/#1125694_0)
+- He is a curmudgeon with opinions but no conviction, the **Andy
+  Rooney** of *the Sahara of the Bozart*. (?)
+  [link](https://vossanto.weltliteratur.net/timeline/#0302493_0)
 
 Some form of negation
 ---------------------
@@ -195,7 +204,13 @@ Including explanations
 - We might claim for Rand a minor place in art history: an interesting American modulation of European modernist sobriety into bouncy Brooklyn cheerfulness, a **Richard Feynman** among *the Einsteins of design*, taking a Klee doodle for a walk on a Mondrian Manhattan grid.
 - Sam Schwartz, who writes the Gridlock Sam column for The Daily News,
   calls him the **Beethoven** of *traffic cops* -- in other words, he
-  does not direct traffic so much as conduct it, like a symphony. [link](https://vossanto.weltliteratur.net/timeline/#1035441_0)
+  does not direct traffic so much as conduct it, like a
+  symphony. [link](https://vossanto.weltliteratur.net/timeline/#1035441_0)
+- He is the **Stanley Kubrick** of *New York chefs* -- difficult to
+  get a read on, by most accounts difficult to deal with, but always
+  pointed in a direction that feels as though it will lead straight to
+  the next big
+  thing. [link](https://vossanto.weltliteratur.net/timeline/#1175017_0)
 
 Additional adjectives
 ---------------------
