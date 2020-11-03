@@ -868,65 +868,72 @@ What are the sources for the modifier ... ?
 
 ``` bash
 ../org.py -T -f modifier,sourceUrl README.org \
-	| awk -F$'\t' '$1 ~ "(baseball|basketball|tennis|golf|football|racing|soccer|sailing)" {print $1;}' \
+	| awk -F$'\t' '$1 ~ "(baseball|hockey|basketball|tennis|golf|football|racing|soccer|sailing)" {print $1;}' \
 	| sort | uniq -c | sort -nr
 ```
 
-| count | sports                                                 |
-|-------|--------------------------------------------------------|
-| 16    | tennis                                                 |
-| 16    | baseball                                               |
-| 10    | basketball                                             |
-| 8     | golf                                                   |
-| 8     | football                                               |
-| 6     | soccer                                                 |
-| 6     | racing                                                 |
-| 3     | women\'s basketball                                    |
-| 3     | sailing                                                |
-| 3     | auto racing                                            |
-| 2     | pro football                                           |
-| 2     | New York baseball                                      |
-| 1     | Yale football fame                                     |
-| 1     | women\'s college soccer                                |
-| 1     | this year\'s national collegiate basketball tournament |
-| 1     | the tennis tour                                        |
-| 1     | the tennis field                                       |
-| 1     | the soccer set                                         |
-| 1     | the racing world                                       |
-| 1     | stock-car racing                                       |
-| 1     | Rotisserie baseball                                    |
-| 1     | pro football owners                                    |
-| 1     | professional basketball coaches                        |
-| 1     | professional basketball                                |
-| 1     | motocross racing in the 1980\'s                        |
-| 1     | micro golfers                                          |
-| 1     | major league baseball                                  |
-| 1     | Laser sailing                                          |
-| 1     | Japanese baseball                                      |
-| 1     | Iraqi soccer                                           |
-| 1     | horse racing                                           |
-| 1     | high school baseball in New York                       |
-| 1     | harness racing                                         |
-| 1     | golf criticism                                         |
-| 1     | football teams                                         |
-| 1     | football owners                                        |
-| 1     | football announcers                                    |
-| 1     | country-club golf                                      |
-| 1     | college football these days                            |
-| 1     | college football                                       |
-| 1     | college basketball                                     |
-| 1     | Chinese baseball                                       |
-| 1     | Brazilian basketball for the past 20 years             |
-| 1     | BMX racing                                             |
-| 1     | biddy basketball                                       |
-| 1     | basketball announcers                                  |
-| 1     | basketball analysts                                    |
-| 1     | basketball analysis                                    |
-| 1     | baseball\'s new era                                    |
-| 1     | baseball managers                                      |
-| 1     | baseball executives                                    |
-| 1     | baseball collections                                   |
-| 1     | baseball cards                                         |
+| count | sports                                                |
+|-------|-------------------------------------------------------|
+|    16 | tennis                                                |
+|    16 | baseball                                              |
+|    11 | hockey                                                |
+|    10 | basketball                                            |
+|     8 | golf                                                  |
+|     8 | football                                              |
+|     6 | soccer                                                |
+|     6 | racing                                                |
+|     3 | women's basketball                                    |
+|     3 | sailing                                               |
+|     3 | auto racing                                           |
+|     2 | pro football                                          |
+|     2 | New York baseball                                     |
+|     1 | Yale football fame                                    |
+|     1 | women's hockey                                        |
+|     1 | women's college soccer                                |
+|     1 | this year's national collegiate basketball tournament |
+|     1 | the tennis tour                                       |
+|     1 | the tennis field                                      |
+|     1 | the soccer set                                        |
+|     1 | the racing world                                      |
+|     1 | the Olympic hockey tournament                         |
+|     1 | stock-car racing                                      |
+|     1 | Rotisserie baseball                                   |
+|     1 | pro football owners                                   |
+|     1 | professional basketball coaches                       |
+|     1 | professional basketball                               |
+|     1 | motocross racing in the 1980's                        |
+|     1 | micro golfers                                         |
+|     1 | major league baseball                                 |
+|     1 | Laser sailing                                         |
+|     1 | Japanese baseball                                     |
+|     1 | Iraqi soccer                                          |
+|     1 | horse racing                                          |
+|     1 | hockey in the former Soviet Union                     |
+|     1 | hockey commentary                                     |
+|     1 | high school baseball in New York                      |
+|     1 | harness racing                                        |
+|     1 | golf criticism                                        |
+|     1 | football teams                                        |
+|     1 | football owners                                       |
+|     1 | football announcers                                   |
+|     1 | European hockey                                       |
+|     1 | country-club golf                                     |
+|     1 | college football underclassmen                        |
+|     1 | college football these days                           |
+|     1 | college football                                      |
+|     1 | college basketball                                    |
+|     1 | Chinese baseball                                      |
+|     1 | Brazilian basketball for the past 20 years            |
+|     1 | BMX racing                                            |
+|     1 | biddy basketball                                      |
+|     1 | basketball announcers                                 |
+|     1 | basketball analysts                                   |
+|     1 | basketball analysis                                   |
+|     1 | baseball's new era                                    |
+|     1 | baseball managers                                     |
+|     1 | baseball executives                                   |
+|     1 | baseball collections                                  |
+|     1 | baseball cards                                        |
 
 Who are the sources for the modifier ... ?
 
