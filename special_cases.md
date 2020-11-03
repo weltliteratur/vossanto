@@ -15,30 +15,30 @@ fit into several dimensions.)
 Who's claiming it?
 -------------------
 
-- Her fans in Kerala, in southern India, consider her **the Julia
-  Roberts of** *Malayalam-language films*.
-- I like to consider myself **the Mae West of** *rock 'n' roll*,''
+- Her fans in Kerala, in southern India, consider her the **Julia
+  Roberts** of *Malayalam-language films*.
+- I like to consider myself the **Mae West** of *rock 'n' roll*,''
   Ms. Claret, the lead singer of the band Morningwood, said one recent
   evening.
 - The ''85'' riddim is the work of Dave Kelly, a brilliant producer
-  who could (but wouldn't) claim to be **the Dr. Dre of** *dancehall*.
-- Willoughby is sometimes called **the Lake Lucerne of** *North
+  who could (but wouldn't) claim to be the **Dr. Dre** of *dancehall*.
+- Willoughby is sometimes called the **Lake Lucerne** of *North
   America*
 
 
 Temporal
 --------
 
-- Mr. Price, who could become **the Charles Bronson of** *guacamole*,
-- In physique, personality and production, Ortiz could be **the Babe
-  Ruth of** *the Dominican Republic*.
-- Millicent Fenwick was **the Katharine Hepburn of** *politics*, said
+- Mr. Price, who could become the **Charles Bronson** of *guacamole*,
+- In physique, personality and production, Ortiz could be the **Babe
+  Ruth** of *the Dominican Republic*.
+- Millicent Fenwick was the **Katharine Hepburn** of *politics*, said
   Charles Millard, a former aide and now a Republican New York City
   Councilman.
-- Keith Haring will be **the Peter Max of** *the future*.
-- United who has been hailed as **the future Michael Jordan of**
+- Keith Haring will be the **Peter Max** of *the future*.
+- United who has been hailed as the **future Michael Jordan** of
   *American soccer*.
-- ''She could be **the Michael Jordan** *that women's basketball
+- ''She could be the **Michael Jordan** *that women's basketball
   hasn't yet had*,'' said Michele Timms, a guard for Australia and a
   member of the Phoenix Mercury in the Women's National Basketball
   Association.
@@ -342,17 +342,22 @@ Syntactic variations
 --------------------
 
 "the ... equivalent of"
-:    New South Wales, **the Georgian equivalent of** *deep space* <!-- is this a VA at all? -->
+:    New South Wales, the **Georgian equivalent** of *deep space* <!-- is this a VA at all? -->
 
 "the ... version of"
-:    Sassy, **the United States version of** *Dolly*
+:    Sassy, the **United States version** of *Dolly*
 
 "the ... sort of"
-:    George Romney, **the Middle America sort of** *guy* <!-- is this a VA at all? -->
+:    George Romney, the **Middle America sort of** *guy* <!-- is this a VA at all? -->
 
 "the ..., the ..., the ... of"
-:    Joe Sparks might very well end up being **the Dali, the Truffaut,
-	 the Coppola of** *this industry*
+:    Joe Sparks might very well end up being the **Dali**, the
+	 **Truffaut**, the **Coppola** of *this industry*
+
+"my version of the ... of ..."
+: I was basically my version of the **Michael Scott** of *car
+  salesman* which is a total contrast to the way David runs his
+  stores.
 
 Misc
 ----
