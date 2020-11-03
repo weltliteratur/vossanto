@@ -162,7 +162,7 @@ The most frequent *sources* are:
 ``` bash
 for year in $(seq 1987 2007); do
   echo -n $year
-  for s in "Michael_Jordan" "Rodney_Dangerfield" "Babe_Ruth"; do
+  for s in "Michael_Jordan" "Rodney_Dangerfield" "Johnny_Appleseed"; do
 	s=$(echo $s| sed "s/_/ /g")
 	c=$(../org.py -T -f year,sourceLabel README.org | grep ^$year | awk -F'\t' '{print $2}' | grep "^$s$" | wc -l)
 	echo -n "\t$c"
@@ -171,30 +171,29 @@ for year in $(seq 1987 2007); do
 done
 ```
 
-| year | Michael Jordan | Rodney Dangerfield | Babe Ruth |
-|------|----------------|--------------------|-----------|
-| 1987 | 0              | 0                  | 1         |
-| 1988 | 0              | 0                  | 1         |
-| 1989 | 1              | 1                  | 0         |
-| 1990 | 3              | 2                  | 1         |
-| 1991 | 4              | 1                  | 2         |
-| 1992 | 2              | 4                  | 1         |
-| 1993 | 3              | 4                  | 2         |
-| 1994 | 3              | 0                  | 4         |
-| 1995 | 0              | 1                  | 3         |
-| 1996 | 4              | 8                  | 1         |
-| 1997 | 1              | 3                  | 1         |
-| 1998 | 6              | 7                  | 3         |
-| 1999 | 11             | 2                  | 1         |
-| 2000 | 11             | 6                  | 3         |
-| 2001 | 7              | 5                  | 0         |
-| 2002 | 5              | 2                  | 3         |
-| 2003 | 2              | 1                  | 4         |
-| 2004 | 0              | 1                  | 2         |
-| 2005 | 2              | 8                  | 2         |
-| 2006 | 4              | 5                  | 2         |
-| 2007 | 3              | 1                  | 0         |
-| sum  | 72             | 62                 | 37        |
+| year | Michael Jordan | Rodney Dangerfield | Johnny Appleseed |
+|------|----------------|--------------------|------------------|
+| 1987 |              0 |                  0 |                2 |
+| 1988 |              0 |                  0 |                1 |
+| 1989 |              1 |                  1 |                1 |
+| 1990 |              3 |                  2 |                1 |
+| 1991 |              4 |                  1 |                1 |
+| 1992 |              2 |                  4 |                1 |
+| 1993 |              3 |                  4 |                2 |
+| 1994 |              3 |                  0 |                0 |
+| 1995 |              0 |                  1 |                3 |
+| 1996 |              4 |                  8 |                3 |
+| 1997 |              1 |                  3 |                1 |
+| 1998 |              6 |                  7 |                2 |
+| 1999 |             11 |                  2 |                3 |
+| 2000 |             11 |                  6 |                1 |
+| 2001 |              7 |                  5 |                1 |
+| 2002 |              5 |                  2 |                3 |
+| 2003 |              2 |                  1 |                3 |
+| 2004 |              0 |                  1 |                3 |
+| 2005 |              2 |                  8 |                4 |
+| 2006 |              4 |                  5 |                3 |
+| 2007 |              3 |                  1 |                1 |
 
 ``` gnuplot
 reset
@@ -207,11 +206,11 @@ set yrange [0:*]
 set key top left
 set style fill solid 1
 
-set term svg enhanced size 800,600 dynamic fname "Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif" fsize 16
+set term svg enhanced size 800,600 dynamic font "Palatino Linotype, 16"
 #set out "nyt_sources_over_time.svg"
-plot data using 1:2 with linespoints pt 7 title 'Michael Jordan',\
+plot data using 1:2 with linespoints pt 7 lw 2 title 'Michael Jordan',\
 	 data using 1:3 with linespoints pt 7 title 'Rodney Dangerfield',\
-	 data using 1:4 with linespoints pt 7 title 'Babe Ruth'
+	 data using 1:4 with linespoints pt 7 title 'Johnny Appleseed'
 
 set term png enhanced size 800,600 font "Arial,16" lw  2
 set out "nyt_sources_over_time.png"
