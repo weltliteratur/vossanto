@@ -280,9 +280,16 @@ Special modifiers
 
 more than one
 :   The top-hatted statue will utter not a word about the American
-	sucker, for the simple reason that Barnum - **the Michelangelo
-	of** *buncombe, hokum, hoopla and ballyhoo* - was himself the
-	victim of a hoax.
+	sucker, for the simple reason that Barnum - the **Michelangelo**
+	of *buncombe, hokum, hoopla and ballyhoo* - was himself the victim
+	of a hoax.
+
+longest so far
+:   And while he modestly demurs, Mr. Barker is widely regarded as the
+	**Bob Fosse** of *the carefully choreographed event that consumes
+	Midtown Manhattan with tin whistles, step dancers and some two
+	million spectators on that invariably brisk March 17
+	morning*. [link](https://vossanto.weltliteratur.net/timeline/#1276052_0)
 
 
 Types of targets
