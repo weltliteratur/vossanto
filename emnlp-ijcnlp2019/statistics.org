@@ -15,7 +15,7 @@ We plot some temporal distributions:
 
 #+CAPTION: The temporal distribution of the number of found and true candidates.
 #+NAME: temporal-distribution
-|   year | articles | found | true |   prec |  ppm  |
+|   year | articles | found | true |   prec |   ppm |
 |--------+----------+-------+------+--------+-------|
 |   1987 |   106104 |   207 |  103 |   49.8 |  0.97 |
 |   1988 |   104541 |   223 |   99 |   44.4 |  0.95 |
@@ -39,9 +39,9 @@ We plot some temporal distributions:
 |   2006 |    87052 |   411 |  187 |   45.5 |  2.15 |
 |   2007 |    39953 |   180 |   85 |   47.2 |  2.13 |
 |--------+----------+-------+------+--------+-------|
-|  *sum* |  1854726 |  3753 | 3014 | 1042.5 | 34.71 |
+|  *sum* |  1854726 |  6071 | 3014 |   49.6 | 34.71 |
 | *mean* |    88320 |   289 |  144 |   49.8 |  1.63 |
-#+TBLFM: $5=($-1/$-2)*100;%2.1f::$6=($-2/$2)*1000;%2.2f::@23$2=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=vsum(@I..@II)::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f
+#+TBLFM: $5=($-1/$-2)*100;%2.1f::$6=($-2/$2)*1000;%2.2f::@23$2=vsum(@I..@II)::@23$3=vsum(@I..@II)::@23$4=vsum(@I..@II)::@23$5=($-1/$-2)*100;%2.1f::@23$6=vsum(@I..@II)::@24$2=vmean(@I..@II);%2.0f::@24$3=vmean(@I..@II);%2.0f::@24$4=vmean(@I..@II);%2.0f
 
 
 #+begin_src gnuplot :var data=temporal-distribution :file nyt_vossantos_over_time.svg :results silent
