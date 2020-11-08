@@ -1,3 +1,11 @@
+function simulateClick(cb) {
+    cb.dispatchEvent(new MouseEvent('click', {
+	view: window,
+	bubbles: true,
+	cancelable: true
+    }));
+}
+
 function initSearch(events, dl) {
     $( "#search-source" ).autocomplete({
 	minLength: 0,
@@ -14,11 +22,17 @@ function initSearch(events, dl) {
 	select: function( event, ui ) {
             $( "#source" ).val( ui.item.text );
 	    var evt = dl.find(ui.item.id);
-/*	    var e = document.createEvent("HTMLEvents");
-	    e.initEvent("onclick", true, true);
-	    e.eventName = "onclick";
-	    evt.elements[1].dispatchEvent(e);*/
-            return false;
+	    // after some delay (!) show info bubble
+	    setTimeout(function(){
+		for (var i=0; i < evt.elements.length; i++) {
+		    var elem = evt.elements[i];
+		    if (elem.classList.contains("d-event")) {
+			simulateClick(elem);
+		    }
+		}
+	    }, 1000);
+
+	    return false;
 	}
     })
 	.autocomplete( "instance" )._renderItem = function( ul, item ) {
