@@ -376,3 +376,6 @@ Misc
   *Queens*. [...] I say Golda Meir was **the Claire Shulman of**
   *Israel*."
 - 'I'm like **David** fighting **the Goliath of** *the beauty industry*,'' she said in a recent interview.
+
+
+- |Climbing harnesses| are the *new* **Guy Fawkes mask** of *Portland protest*
