@@ -41,6 +41,7 @@ if __name__ == "__main__":
         reader = csv.reader(inputfile, delimiter="\t")
         next(reader, None)
         for line in reader:
+            # print(line)
             label = line[0]
             articleid = line[1]
             itemid = line[2]
@@ -49,11 +50,12 @@ if __name__ == "__main__":
             item = line[5]
             itemCanon = line[6]
             sentence = line[7]
-            annotated = line[8]
+
             if label == "T":
+                annotated = line[8]
                 annotated = annotated.replace("*" + phrase + "*", phrase.split()[0] + " *" + " ".join(phrase.split()[1:-1]) + "* " + phrase.split()[-1])
             else:
-                annotated == ""
+                annotated = ""
             # annotated = annotated.replace("|", "")
             m = re_articleid.match(articleid)
             articledate = m.group(1) + m.group(2)
