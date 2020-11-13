@@ -104,8 +104,8 @@ function initDateline(events) {
 
 function htmlize(s, url) {
     if (url) 
-	return s.replace(/\*(\w+) ([^\*]+) (\w+)\* \/([^\/]+)\//, "<b>$1 <a href='" + url + "'>$2</a> $3</b> <em>$4</em>");
-    return s.replace(/\*(\w+) ([^\*]+) (\w+)\* \/([^\/]+)\//, "<b>$1 $2 $3</b> <em>$4</em>");
+	return s.replace(/\*([^\*]+)\* (\w+) \/([^\/]+)\//, "<b><a href='" + url + "'>$1</a></b> $2 <em>$3</em>");
+    return s.replace(/\*([^\*]+)\* \/([^\/]+)\//, "<b>$1</b> $2 <em>$3</em>");
 }
 
 // creates info bubble for an event
