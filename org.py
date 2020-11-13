@@ -273,7 +273,6 @@ def match_line(line):
         trueVoss = d["truefalse"] != "+"
         sourcePhrase = extract_sourcephrase(d["sentence"], trueVoss)
         modifier = extract_modifier(d["sentence"], trueVoss)
-        sent =  sourcephrease2source(d["sentence"], trueVoss)
         return {
             "year"           : d["year"],
             "date"           : d["year"] + "-" + d["month"] + "-" + d["day"],
@@ -284,7 +283,7 @@ def match_line(line):
             "sourcePhrase"   : sourcePhrase,
             "sourceUrl"      : "[[https://www.wikidata.org/wiki/" + d["wdid"] + "][" + d["wdlabel"] + "]]",
             "modifier"       : modifier,
-            "text"           : sent,
+            "text"           : d["sentence"],
             "aUrl"           : d["aurl"],
             "aUrlId"         : get_article_url_id(d["aurl"]),
             "classification" : trueVoss,
@@ -311,21 +310,6 @@ def extract_sourcephrase(sentence, trueVoss):
         if match:
             return match.group(1)
     return ""
-
-def sourcephrease2source(sentence, trueVoss):
-    if trueVoss:
-        match = re_sourcephrase.search(sentence)
-        if match:
-            src_phrase = match.group(0)
-            src_phrase = src_phrase[1:-1]
-            src_phrase_lst = src_phrase.split()
-            src_phrase_beginning = src_phrase_lst.pop(0)
-            src_phrase_end = src_phrase_lst.pop()
-            src = " ".join(src_phrase_lst)
-            new_source_phrase = src_phrase_beginning + " *" + src + "* " + src_phrase_end
-            return sentence.replace("*" + src_phrase + "*", new_source_phrase)
-    else:
-        return sentence
 
 # check whether article URL is normalised ("http://query.nytimes.com/gst/fullpage.html?res=<HEXSTRING>")
 # and if so, returns HEXSTRING

@@ -16,7 +16,7 @@ import argparse
 
 
 def get_nyt_link(year, id):
-    file = "michel/nyt_" + str(year) + "_links.tsv"
+    file = "../../../vossanto/theof/michel/data/nyt_links/nyt_" + str(year) + "_links.tsv"
     with open(file, "r") as inputfile:
         reader = csv.reader(inputfile, delimiter="\t")
         for line in reader:
@@ -50,7 +50,11 @@ if __name__ == "__main__":
             itemCanon = line[6]
             sentence = line[7]
             annotated = line[8]
-            annotated = annotated.replace("|", "")
+            if label == "T":
+                annotated = annotated.replace("*" + phrase + "*", phrase.split()[0] + " *" + " ".join(phrase.split()[1:-1]) + "* " + phrase.split()[-1])
+            else:
+                annotated == ""
+            # annotated = annotated.replace("|", "")
             m = re_articleid.match(articleid)
             articledate = m.group(1) + m.group(2)
             year = m.group(1).split("/")[0]
