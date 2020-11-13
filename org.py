@@ -273,7 +273,6 @@ def match_line(line):
         trueVoss = d["truefalse"] != "+"
         sourcePhrase = extract_sourcephrase(d["sentence"], trueVoss)
         modifier = extract_modifier(d["sentence"], trueVoss)
-
         return {
             "year"           : d["year"],
             "date"           : d["year"] + "-" + d["month"] + "-" + d["day"],
