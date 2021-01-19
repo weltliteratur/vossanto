@@ -113,6 +113,12 @@ More than one
   disks of Arvo Part's music stamped with a descriptive blurb from
   Michael Stipe of R.E.M.
   [link](https://vossanto.weltliteratur.net/timeline/#0744055_0)
+- Bijan wants Jordan to be the **Elizabeth Taylor** of *men's
+  fragrances* -- not the now-retired Gabriela Sabatini, whose Gabriela
+  perfume is no Chanel
+  No. [link](https://vossanto.weltliteratur.net/timeline/#0889510_0)
+  <!-- three in one: more than one, negation, sex change -->
+
 
 <!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-three-parts-but-not-if-
@@ -183,6 +189,11 @@ Some form of negation
   hasn't yet had*,'' said Michele Timms, a guard for Australia and a
   member of the Phoenix Mercury in the Women's National Basketball
   Association.
+- Bijan wants Jordan to be the **Elizabeth Taylor** of *men's
+  fragrances* -- not the now-retired Gabriela Sabatini, whose Gabriela
+  perfume is no Chanel
+  No. [link](https://vossanto.weltliteratur.net/timeline/#0889510_0)
+  <!-- three in one: more than one, negation, sex change -->
 
 Plural forms
 ---------------------
@@ -344,6 +355,16 @@ type. We should check, which combinations are common or don't exist at
 all.
 
 -->
+
+Change of Gender
+----------------
+
+- Bijan wants Jordan to be the **Elizabeth Taylor** of *men's
+  fragrances* -- not the now-retired Gabriela Sabatini, whose Gabriela
+  perfume is no Chanel
+  No. [link](https://vossanto.weltliteratur.net/timeline/#0889510_0)
+  <!-- three in one: more than one, negation, sex change -->
+
 
 Syntactic variations
 --------------------
