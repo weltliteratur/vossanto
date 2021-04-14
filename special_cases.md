@@ -118,7 +118,7 @@ More than one
   perfume is no Chanel
   No. [link](https://vossanto.weltliteratur.net/timeline/#0889510_0)
   <!-- three in one: more than one, negation, sex change -->
-
+- Stephen Colbert Isn't the New Letterman—He's the New Charlie Rose.
 
 <!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-three-parts-but-not-if-
@@ -194,6 +194,7 @@ Some form of negation
   perfume is no Chanel
   No. [link](https://vossanto.weltliteratur.net/timeline/#0889510_0)
   <!-- three in one: more than one, negation, sex change -->
+- Stephen Colbert Isn't the New Letterman—He's the New Charlie Rose.
 
 Plural forms
 ---------------------
@@ -273,11 +274,11 @@ Typical modifiers
 
 [temporal](theof/humans/statistics.md#today)
 :   "today", "his day", "her day", "his time", "her time", "his
-	generation", "her generation", "the future", "the 70s", ...
+    generation", "her generation", "the future", "the 70s", ...
 
 [geographical](theof/humans/statistics.md#country)
 :   continents, countries, cities, mountains ("Himalayas", "Hudson
-	Valley"), rivers ("Hudson"), ...
+    Valley"), rivers ("Hudson"), ...
 
 [sports](theof/humans/statistics.md#sports)
 :   "tennis", "baseball", "basketball", "golf", ...
@@ -291,16 +292,16 @@ Special modifiers
 
 more than one
 :   The top-hatted statue will utter not a word about the American
-	sucker, for the simple reason that Barnum - the **Michelangelo**
-	of *buncombe, hokum, hoopla and ballyhoo* - was himself the victim
-	of a hoax.
+    sucker, for the simple reason that Barnum - the **Michelangelo**
+    of *buncombe, hokum, hoopla and ballyhoo* - was himself the victim
+    of a hoax.
 
 longest so far
 :   And while he modestly demurs, Mr. Barker is widely regarded as the
-	**Bob Fosse** of *the carefully choreographed event that consumes
-	Midtown Manhattan with tin whistles, step dancers and some two
-	million spectators on that invariably brisk March 17
-	morning*. [link](https://vossanto.weltliteratur.net/timeline/#1276052_0)
+    **Bob Fosse** of *the carefully choreographed event that consumes
+    Midtown Manhattan with tin whistles, step dancers and some two
+    million spectators on that invariably brisk March 17
+    morning*. [link](https://vossanto.weltliteratur.net/timeline/#1276052_0)
 
 
 Types of targets
@@ -308,7 +309,7 @@ Types of targets
 
 humans
 :    Mr. Price, who could become **the Charles Bronson of**
-	 *guacamole*,
+     *guacamole*,
 
 groups
 :    Aerosmith, **the Dorian Gray of** *rock bands*
@@ -321,18 +322,18 @@ animals
 
 objects
 :   Waterman, **the Rolls-Royce of** *pens* acquired in 1987, and
-	Papermate, **the Chevrolet of** *pens*
+    Papermate, **the Chevrolet of** *pens*
 
 locations
 :   "New York State is **the Cadillac of** *social services*,"
-	Mr. Alfonso said. "**Other states** have *Volkswagens*."
+    Mr. Alfonso said. "**Other states** have *Volkswagens*."
 
 Types of sources
 -----------------
 
 humans
 :    Mr. Price, who could become **the Charles Bronson of**
-	 *guacamole*,
+     *guacamole*,
 
 organisations
 :   Vaz Auto Works, **the General Motors of** *Russia*
@@ -342,7 +343,7 @@ fictional characters
 
 objects
 :   Waterman, **the Rolls-Royce of** *pens* acquired in 1987, and
-	Papermate, **the Chevrolet of** *pens*
+    Papermate, **the Chevrolet of** *pens*
 
 locations
 :   Schonbrunn Castle, **the Versailles of** the *Hapsburgs*
@@ -380,7 +381,7 @@ Syntactic variations
 
 "the ..., the ..., the ... of"
 :    Joe Sparks might very well end up being the **Dali**, the
-	 **Truffaut**, the **Coppola** of *this industry*
+     **Truffaut**, the **Coppola** of *this industry*
 
 "my version of the ... of ..."
 : I was basically my version of the **Michael Scott** of *car
