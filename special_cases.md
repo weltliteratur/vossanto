@@ -124,6 +124,10 @@ More than one
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-three-parts-but-not-if-
 -->
 
+Switch from source to target:
+- He was the Einstein of his time or perhaps we should say that
+  Einstein was the Archimedes of his time
+
 
 Combined with a condition:
 - If Mr. Moynihan is the **Sherlock Holmes** of *the fiscal story*,
