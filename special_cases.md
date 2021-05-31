@@ -392,6 +392,14 @@ Syntactic variations
   salesman* which is a total contrast to the way David runs his
   stores.
 
+"the new ..."
+: As far as selling sneakers is concerned, Cleveland guard LeBRON JAMES is the *new* **Michael Jordan**.
+
+
+"the <national adjective> ..."
+: the Chinese Michael Jordan
+
+
 Misc
 ----
 
