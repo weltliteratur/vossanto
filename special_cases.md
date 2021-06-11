@@ -65,6 +65,7 @@ Hypothetical
   '**Michelangelo of** *his generation*' he would open up screenings
   of The Passion to viewers other than those he knows will safely
   embrace it
+- If it is a tax, it's really the *Robin Hood* of /taxes/,'' Mr. Schwartz said.
 
 More than one
 -------------
@@ -338,6 +339,9 @@ objects
 locations
 :   "New York State is **the Cadillac of** *social services*,"
     Mr. Alfonso said. "**Other states** have *Volkswagens*."
+
+taxes:
+:   If it is a tax, it's really the *Robin Hood* of /taxes/,'' Mr. Schwartz said.
 
 Types of sources
 -----------------
