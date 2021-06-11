@@ -229,6 +229,7 @@ Including explanations
   the next big
   thing. [link](https://vossanto.weltliteratur.net/timeline/#1175017_0)
 - He acts as if he were the *Louis Pasteur* of /poverty/, identifying its forms for the first time through the lens of some sociological microscope.
+- In a March 28 op-ed article in The Wall Street Journal, she warned Mr. Spielberg that he could ''go down in history as the *Leni Riefenstahl* of /the Beijing Games/,'' a reference to a German filmmaker who made Nazi propaganda films.
 
 Additional adjectives
 ---------------------
