@@ -119,6 +119,7 @@ More than one
   No. [link](https://vossanto.weltliteratur.net/timeline/#0889510_0)
   <!-- three in one: more than one, negation, sex change -->
 - Stephen Colbert Isn't the New Letterman—He's the New Charlie Rose.
+- I wanted the *Meryl Streep* of /toasters/, a Hepburn; either would do.
 
 <!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-three-parts-but-not-if-
