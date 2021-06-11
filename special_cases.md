@@ -228,6 +228,7 @@ Including explanations
   pointed in a direction that feels as though it will lead straight to
   the next big
   thing. [link](https://vossanto.weltliteratur.net/timeline/#1175017_0)
+- He acts as if he were the *Louis Pasteur* of /poverty/, identifying its forms for the first time through the lens of some sociological microscope.
 
 Additional adjectives
 ---------------------
