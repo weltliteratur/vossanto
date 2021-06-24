@@ -418,8 +418,8 @@ Syntactic variations
 
 
 "the <national adjective> ..."
-: the Chinese Michael Jordan
-
+: the *Chinese* **Michael Jordan**
+: For those who stay inside, 6:30 A.M. brings a *Chinese* **Jane Fonda** on state television, leading a studio audience and home viewers in exercises based on disco steps, to the accompaniment of Chinese disco music.
 
 Misc
 ----
