@@ -233,6 +233,9 @@ Including explanations
 - He acts as if he were the **Louis Pasteur** of *poverty*, identifying its forms for the first time through the lens of some sociological microscope.
 - Loki is the **Bart Simpson** of *Norse mythology*, forever pulling pranks, forever getting caught and forever talking his way out of the consequences.
 - Meanwhile you wait for the tomatoes - the **Godot** of *vegetables*
+- The business press has painted Mr McColl as the **George Patton** of
+  *banking* - a bluntspoken toughminded leader with a ruthless
+  disregard for tradition at the banks he takes over
 
 Here, the source (!) is explained:
 - In a March 28 op-ed article in The Wall Street Journal, she warned Mr. Spielberg that he could ''go down in history as the **Leni Riefenstahl** of *the Beijing Games*,'' a reference to a German filmmaker who made Nazi propaganda films.
