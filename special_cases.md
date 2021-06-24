@@ -100,8 +100,8 @@ More than one
   the **Mick Jagger or Michael Jordan** of *Broadway*.
 - If Jones was the **Michael Jordan** of *her time*, scoring at will,
   Cain, 33, is the **Magic Johnson** of *hers*.
-- "Romario is the **Michael Jordan** of *soccer* and Bebeto is **the
-  Magic Johnson** of *soccer*," said American defender Paul Caligiuri.
+- "Romario is the **Michael Jordan** of *soccer* and Bebeto is the
+  **Magic Johnson** of *soccer*," said American defender Paul Caligiuri.
 - Descriptions of Mr. King as "a *street* **Machiavelli**, a *ghetto*
   **Einstein**" and of Muhammad Ali as "the **Einstein** of *the Sweet
   Science*" hit the eye like a head-butt, and calling Ali's victory
@@ -182,9 +182,9 @@ A special nested variant where the modifier is also a VA:
 Some form of negation
 ---------------------
 
-- Leach Cross, ''the fighting dentist,'' not Benny Leonard, was **the
-  Moses** of *American Jewish boxing* (Sports pages, Dec. 27).
-- He is not **a Donald Trump** of *the Lower East Side*.
+- Leach Cross, ''the fighting dentist,'' not Benny Leonard, was the
+  **Moses** of *American Jewish boxing* (Sports pages, Dec. 27).
+- He is not a **Donald Trump** of *the Lower East Side*.
 - The ''85'' riddim is the work of Dave Kelly, a brilliant producer
   who could (but wouldn't) claim to be the **Dr. Dre** of *dancehall*.
 - ''I am not the Peron of Venezuela, I am the **Chavez** of
@@ -215,7 +215,7 @@ Plural forms
 
 Including explanations
 ---------------------
-- It’s the **Dolly Parton** of *cakes*: a little bit tacky, but you love her,” said Angie Mosier, a food writer in Atlanta and a board member of the Southern Foodways Alliance at the University of Mississippi in Oxford.
+- It's the **Dolly Parton** of *cakes*: a little bit tacky, but you love her,” said Angie Mosier, a food writer in Atlanta and a board member of the Southern Foodways Alliance at the University of Mississippi in Oxford.
 - If not, Odom will become the **Randy Moss** of *the N.B.A.*, a guy with a lot of question marks who may pay huge dividends.
 - He became the **Joyce Carol Oates** of *pop*, incredibly prolific with variable quality.
 - She describes herself as "the **Donald Trump** of *the horse show world*," buying and selling horses like so many pieces of real estate, pocketing a profit and never shedding a tear as she watches her property being trucked away.
@@ -256,7 +256,7 @@ future
   *American soccer*.
 
 would-be
-: Suppose you are **a would-be Michael Jordan** of *my trade*,
+: Suppose you are a **would-be Michael Jordan** of *my trade*,
   consulting?
 
 undisputed
@@ -272,8 +272,8 @@ abused pint-size
   *the Lincoln High cockloft* by the time Mr.
 
 game, albeit hipper
-: If Klensch is the **Cronkite** of the *rag trade*, Crawford is **a
-  game, albeit hipper, Kathie Lee**
+: If Klensch is the **Cronkite** of the *rag trade*, Crawford is a
+  **game, albeit hipper, Kathie Lee**
 
 new
 : Leslie Carter is apparently the **new Marie Osmond**
@@ -415,12 +415,10 @@ Syntactic variations
      **Truffaut**, the **Coppola** of *this industry*
 
 "my version of the ... of ..."
-: I was basically my version of the **Michael Scott** of *car
-  salesman* which is a total contrast to the way David runs his
-  stores.
+:    I was basically my version of the **Michael Scott** of *car salesman* which is a total contrast to the way David runs his stores.
 
 "the new ..."
-: As far as selling sneakers is concerned, Cleveland guard LeBRON JAMES is the *new* **Michael Jordan**.
+:    As far as selling sneakers is concerned, Cleveland guard LeBRON JAMES is the *new* **Michael Jordan**.
 
 
 National Adjectives
