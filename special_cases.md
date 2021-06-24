@@ -247,37 +247,25 @@ Here, the source (!) is explained:
 Additional adjectives
 ---------------------
 
-next
-: ''I think Jason Giambi will be the **next Babe Ruth** of *New
-  York*,'' Rodriguez said.
+- **next**: ''I think Jason Giambi will be the **next Babe Ruth** of
+  *New York*,'' Rodriguez said.
+- **future**: United who has been hailed as the **future Michael
+  Jordan** of *American soccer*.
+- **would-be**: Suppose you are a **would-be Michael Jordan** of *my
+  trade*, consulting?
+- **undisputed**: Over the last 24 years, he has emerged as the
+  **undisputed Don Quixote** of *the State Legislature*, a man willing
+  to rail endlessly about the political misdeeds of the majority even
+  when absolutely nobody was listening.
+- **abused pint-size**: He has already had an encounter with two of
+  the students -- the troubled basketball star Lester Dewitt (Usher
+  Raymond) and Ziggy Malone (Robert Ri'chard ), the **abused pint-size
+  Michelangelo** of *the Lincoln High cockloft* by the time Mr.
+- **game, albeit hipper**: If Klensch is the **Cronkite** of the *rag
+  trade*, Crawford is a **game, albeit hipper, Kathie Lee**
 
-future
-: United who has been hailed as the **future Michael Jordan** of
-  *American soccer*.
-
-would-be
-: Suppose you are a **would-be Michael Jordan** of *my trade*,
-  consulting?
-
-undisputed
-: Over the last 24 years, he has emerged as the **undisputed Don
-  Quixote** of *the State Legislature*, a man willing to rail
-  endlessly about the political misdeeds of the majority even when
-  absolutely nobody was listening.
-
-abused pint-size
-: He has already had an encounter with two of the students -- the
-  troubled basketball star Lester Dewitt (Usher Raymond) and Ziggy
-  Malone (Robert Ri'chard ), the **abused pint-size Michelangelo** of
-  *the Lincoln High cockloft* by the time Mr.
-
-game, albeit hipper
-: If Klensch is the **Cronkite** of the *rag trade*, Crawford is a
-  **game, albeit hipper, Kathie Lee**
-
-new
-: Leslie Carter is apparently the **new Marie Osmond**
-  <!-- here "new" is the modifier? -->
+see also [syntactic variations](#syntactic-variations) and [national
+adjectives](#national-adjectives) below
 
 
 Recursion
@@ -292,84 +280,62 @@ Recursion
 Typical modifiers
 -----------------
 
-[temporal](theof/humans/statistics.md#today)
-:   "today", "his day", "her day", "his time", "her time", "his
-    generation", "her generation", "the future", "the 70s", ...
-
-[geographical](theof/humans/statistics.md#country)
-:   continents, countries, cities, mountains ("Himalayas", "Hudson
-    Valley"), rivers ("Hudson"), ...
-
-[sports](theof/humans/statistics.md#sports)
-:   "tennis", "baseball", "basketball", "golf", ...
-
-[culture](theof/humans/statistics.md#culture)
-:   "ballet", "the art world", "jazz", "fashion", ...
+- [temporal](theof/humans/statistics.md#today): "today", "his day",
+    "her day", "his time", "her time", "his generation", "her
+    generation", "the future", "the 70s", ...
+- [geographical](theof/humans/statistics.md#country): continents,
+    countries, cities, mountains ("Himalayas", "Hudson Valley"),
+    rivers ("Hudson"), ...
+- [sports](theof/humans/statistics.md#sports): "tennis", "baseball",
+  "basketball", "golf", ...
+- [culture](theof/humans/statistics.md#culture): "ballet", "the art
+  world", "jazz", "fashion", ...
 
 
 Special modifiers
 -----------------
 
-more than one
-:   The top-hatted statue will utter not a word about the American
-    sucker, for the simple reason that Barnum - the **Michelangelo**
-    of *buncombe, hokum, hoopla and ballyhoo* - was himself the victim
-    of a hoax.
-
-longest so far
-:   And while he modestly demurs, Mr. Barker is widely regarded as the
-    **Bob Fosse** of *the carefully choreographed event that consumes
-    Midtown Manhattan with tin whistles, step dancers and some two
-    million spectators on that invariably brisk March 17
+- **more than one**: The top-hatted statue will utter not a word about
+    the American sucker, for the simple reason that Barnum - the
+    **Michelangelo** of *buncombe, hokum, hoopla and ballyhoo* - was
+    himself the victim of a hoax.
+- **longest so far**: And while he modestly demurs, Mr. Barker is
+    widely regarded as the **Bob Fosse** of *the carefully
+    choreographed event that consumes Midtown Manhattan with tin
+    whistles, step dancers and some two million spectators on that
+    invariably brisk March 17
     morning*. [link](https://vossanto.weltliteratur.net/timeline/#1276052_0)
 
 
 Types of targets
 ----------------
 
-humans
-:    Mr. Price, who could become the **Charles Bronson** of
-     *guacamole*,
-
-groups
-:    Aerosmith, the **Dorian Gray** of *rock bands*
-
-organisations
-:    Starbucks Coffee, the **General Motors** of *espresso*
-
-animals
-:    Sea Hero is the **Bobo Holloman** of *racing*
-
-objects
-:   Waterman, the **Rolls-Royce** of *pens* acquired in 1987, and
-    Papermate, the **Chevrolet** of *pens*
-
-locations
-:   "New York State is the **Cadillac** of *social services*,"
-    Mr. Alfonso said. "**Other states** have *Volkswagens*."
-
-taxes:
-:   If it is a tax, it's really the *Robin Hood* of /taxes/,'' Mr. Schwartz said.
+- **humans**: Mr. Price, who could become the **Charles Bronson** of
+  *guacamole*,
+- **groups**: Aerosmith, the **Dorian Gray** of *rock bands*
+- **organisations**: Starbucks Coffee, the **General Motors** of
+  *espresso*
+- **animals**: Sea Hero is the **Bobo Holloman** of *racing*
+- **objects**: Waterman, the **Rolls-Royce** of *pens* acquired in
+  1987, and Papermate, the **Chevrolet** of *pens*
+- **locations**: "New York State is the **Cadillac** of *social
+  services*," Mr. Alfonso said. "**Other states** have *Volkswagens*."
+- **taxes**: If it is a tax, it's really the **Robin Hood** of
+  *taxes*,'' Mr. Schwartz said.
 
 Types of sources
 -----------------
 
-humans
-:    Mr. Price, who could become the **Charles Bronson** of
-     *guacamole*,
-
-organisations
-:   Vaz Auto Works, the **General Motors** of *Russia*
-
-fictional characters
-:   Mike Wallace, the **Godzilla** of the *tube*
-
-objects
-:   Waterman, the **Rolls-Royce** of *pens* acquired in 1987, and
-    Papermate, the **Chevrolet** of *pens*
-
-locations
-:   Schonbrunn Castle, the **Versailles** of the *Hapsburgs*
+- **humans**: Mr. Price, who could become the **Charles Bronson** of
+  *guacamole*,
+- **organisations**: Vaz Auto Works, the **General Motors** of
+  *Russia*
+- **fictional characters**: Mike Wallace, the **Godzilla** of the
+  *tube*
+- **objects**: Waterman, the **Rolls-Royce** of *pens* acquired in
+  1987, and Papermate, the **Chevrolet** of *pens*
+- **locations**: Schonbrunn Castle, the **Versailles** of the
+  *Hapsburgs*
 
 <!--
 
@@ -394,31 +360,29 @@ Change of Name
 
 - As Joe Peters a visiting school administrator from Connecticut who
   was strolling on Broadway saw it Hes going to learn all our tricks
-  of capitalism and become the *Donald Trumpski* of /the Soviet Union/
-  Sour Note in the Sky
+  of capitalism and become the **Donald Trumpski** of *the Soviet
+  Union* Sour Note in the Sky
 
 
 Syntactic variations
 --------------------
 
-"the ... equivalent of"
-:    New South Wales, the **Georgian equivalent** of *deep space* <!-- is this a VA at all? -->
-
-"the ... version of"
-:    Sassy, the **United States version** of *Dolly*
-
-"the ... sort of"
-:    George Romney, the **Middle America sort** of *guy* <!-- is this a VA at all? -->
-
-"the ..., the ..., the ... of"
-:    Joe Sparks might very well end up being the **Dali**, the
-     **Truffaut**, the **Coppola** of *this industry*
-
-"my version of the ... of ..."
-:    I was basically my version of the **Michael Scott** of *car salesman* which is a total contrast to the way David runs his stores.
-
-"the new ..."
-:    As far as selling sneakers is concerned, Cleveland guard LeBRON JAMES is the *new* **Michael Jordan**.
+- **the ... equivalent of**: New South Wales, the **Georgian
+  equivalent** of *deep space* <!-- is this a VA at all? -->
+- **the ... version of**: Sassy, the **United States version** of
+  *Dolly*
+- **the ... sort of**: George Romney, the **Middle America sort** of
+  *guy* <!-- is this a VA at all? -->
+- **the ..., the ..., the ... of**: Joe Sparks might very well end up
+  being the **Dali**, the **Truffaut**, the **Coppola** of *this
+  industry*
+- **my version of the ... of ...**: I was basically my version of the
+  **Michael Scott** of *car salesman* which is a total contrast to the
+  way David runs his stores.
+- **the new ...**: As far as selling sneakers is concerned,
+  Cleveland guard LeBRON JAMES is the *new* **Michael Jordan**.
+- **new**: Leslie Carter is apparently the **new Marie Osmond**
+  <!-- here "new" is the modifier? -->
 
 
 National Adjectives
