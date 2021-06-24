@@ -45,3 +45,4 @@
     foundation Larry Vershel
 
 - New York is not the Wild West of the construction industry
+- Effectiveness of assertion is the Alpha and Omega of style
