@@ -40,5 +40,8 @@
     the world on a search for secret agreements that underlie the
     currency accord of the United States Japan West Germany Britain
     France and Canada
+  - Maybe the Sam Donaldsons of the world think that but I cant see
+    most respected newsmen thinking that said a spokesman for the
+    foundation Larry Vershel
 
 - New York is not the Wild West of the construction industry
