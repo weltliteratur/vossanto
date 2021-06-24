@@ -427,6 +427,7 @@ Syntactic variations
 : the *Chinese* **Michael Jordan**
 : For those who stay inside, 6:30 A.M. brings a *Chinese* **Jane Fonda** on state television, leading a studio audience and home viewers in exercises based on disco steps, to the accompaniment of Chinese disco music.
 : For El Vez, who bills himself as the *Mexican* **Elvis Presley**, there is no better time  to celebrate Christmas than after the fact: it gives his show maximum kitsch appeal.
+: Mr. Farmanara's sense of humor flows into this three-part story about Bahman, a filmmaker coming to terms with his own mortality; he could be an *Iranian* **Woody Allen** using his own life for scoring laughs off himself.
 
 Misc
 ----
