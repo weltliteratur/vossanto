@@ -424,6 +424,8 @@ National Adjectives
   about Bahman, a filmmaker coming to terms with his own mortality; he
   could be an *Iranian* **Woody Allen** using his own life for scoring
   laughs off himself.
+- ''Harumi Kurihara is just one of several women who you might call
+  'the *Japanese* **Martha Stewart**.'
 
 Misc
 ----
