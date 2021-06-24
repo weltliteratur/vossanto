@@ -24,7 +24,9 @@ Who's claiming it?
   who could (but wouldn't) claim to be the **Dr. Dre** of *dancehall*.
 - Willoughby is sometimes called the **Lake Lucerne** of *North
   America*
-
+- For El Vez, who bills himself as the *Mexican* **Elvis Presley**,
+  there is no better time to celebrate Christmas than after the fact:
+  it gives his show maximum kitsch appeal.
 
 Temporal
 --------
@@ -424,6 +426,7 @@ Syntactic variations
 "the <national adjective> ..."
 : the *Chinese* **Michael Jordan**
 : For those who stay inside, 6:30 A.M. brings a *Chinese* **Jane Fonda** on state television, leading a studio audience and home viewers in exercises based on disco steps, to the accompaniment of Chinese disco music.
+: For El Vez, who bills himself as the *Mexican* **Elvis Presley**, there is no better time  to celebrate Christmas than after the fact: it gives his show maximum kitsch appeal.
 
 Misc
 ----
