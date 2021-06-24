@@ -214,7 +214,7 @@ def gen_enrich_images(parts, f, sep='\t', missing=''):
         part["sourceImThumb"] = source_image_thumb
         part["sourceImLicense"] = image_license
         yield part
-        
+
 # Skip all candidates whose source's id is contained in sourcefile.
 # Sourcefile must contain one Wikidata id per line, followed by their name.
 # Lines starting with # are ignored.

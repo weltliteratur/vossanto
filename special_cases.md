@@ -379,9 +379,17 @@ Change of Gender
 
 - Bijan wants Jordan to be the **Elizabeth Taylor** of *men's
   fragrances* -- not the now-retired Gabriela Sabatini, whose Gabriela
-  perfume is no Chanel
-  No. [link](https://vossanto.weltliteratur.net/timeline/#0889510_0)
+  perfume is no Chanel No. [link](https://vossanto.weltliteratur.net/timeline/#0889510_0)
   <!-- three in one: more than one, negation, sex change -->
+
+
+Change of Name
+--------------
+
+- As Joe Peters a visiting school administrator from Connecticut who
+  was strolling on Broadway saw it Hes going to learn all our tricks
+  of capitalism and become the *Donald Trumpski* of /the Soviet Union/
+  Sour Note in the Sky
 
 
 Syntactic variations
@@ -424,3 +432,8 @@ Misc
   *Israel*."
 - 'I'm like **David** fighting the **Goliath** of *the beauty industry*,'' she said in a recent interview.
 - Climbing harnesses are the *new* **Guy Fawkes mask** of *Portland protest*
+
+- witzig/sarkastisch:
+  - Norwegen ist das Schweden Skandinaviens.
+  - Ich bin der deutsche Rainald Götz.
+  - I have myself heard the Dutch described as the Chinese of Europe.

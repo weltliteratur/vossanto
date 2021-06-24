@@ -36,3 +36,9 @@
   - Only the *Adams Oshiomoles* of this world and some irrational and
     self serving individuals still cling onto such inhumane
     absurdities.
+  - Nevertheless Mr Baker has set the financial Sherlock Holmeses of
+    the world on a search for secret agreements that underlie the
+    currency accord of the United States Japan West Germany Britain
+    France and Canada
+
+- New York is not the Wild West of the construction industry
