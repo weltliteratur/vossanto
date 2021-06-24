@@ -256,6 +256,10 @@ Including explanations
 - The business press has painted Mr McColl as the **George Patton** of
   *banking* - a bluntspoken toughminded leader with a ruthless
   disregard for tradition at the banks he takes over
+- He gave us hope he was the **Dr King** of *baseball*.
+- With her campaign to clean up sex and violence in rock-and-roll
+  imagery Mary Elizabeth Tipper Gore has become the Dr. Moriarity of
+  the heavy metal set.
 
 Here, the source (!) is explained:
 - In a March 28 op-ed article in The Wall Street Journal, she warned Mr. Spielberg that he could ''go down in history as the **Leni Riefenstahl** of *the Beijing Games*,'' a reference to a German filmmaker who made Nazi propaganda films.

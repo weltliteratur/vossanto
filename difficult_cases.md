@@ -24,6 +24,8 @@
   - But what about "the pizza of the middle east"? And what if a
     product name becomes the informal denomination for a category,
     e.g., "the velcro of the group"?
+  - "So in a sense you could say that the military have become the
+    **doves** of our *time*"
 
 - Research and Markets: Private Banker International - the *"Bible"*
   of the Wealth Industry.
@@ -43,6 +45,7 @@
   - Maybe the Sam Donaldsons of the world think that but I cant see
     most respected newsmen thinking that said a spokesman for the
     foundation Larry Vershel
+  - That's what the Dr. Pilkeys of the world want us to do.
 
 - New York is not the Wild West of the construction industry
 - Effectiveness of assertion is the Alpha and Omega of style
