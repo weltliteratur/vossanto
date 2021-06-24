@@ -68,6 +68,8 @@ Hypothetical
   of The Passion to viewers other than those he knows will safely
   embrace it
 - If it is a tax, it's really the **Robin Hood** of *taxes*,'' Mr. Schwartz said.
+- There may be no **Anthony Powell** of *wine* but Hugh Johnson's
+  prose is very fine.
 
 More than one
 -------------
@@ -124,6 +126,20 @@ More than one
 - Stephen Colbert Isn't the New Letterman—He's the New Charlie Rose.
 - I wanted the **Meryl Streep** of *toasters*, a Hepburn; either would
   do. (→ "Hepburn" is also a source!?)
+- One result of the change they say is that the nature of the
+  technological oneupsmanship between industry leaders like Intel and
+  Motorola, the **Coke and Pepsi** of *microprocessors*, appears to be
+  undergoing a metamorphosis
+- Putting in appearances also are various lions tigers bears birds and
+  fish not to overlook the hosts Mickey Mouse and Minnie Mouse perhaps
+  the **Bruce Willis and Cybill Shepherd** of the *cartoon set* Jiminy
+  Cricket Freuds superego in the body of an insect and the eminent
+  musicologist Prof Ludwig Von Drake
+- But their showcase wines are meant for the well heeled they want to
+  be the **Bordeaux** of *California* not the **Beaujolais**.
+- The Finger Lakes will become the **Champagne** of *America* and Long
+  Island will become the **Bordeaux** of *America* said Mr Gifford
+- George Grosz was the **Hogarth** or **Daumier** of *Weimar Germany*
 
 <!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-three-parts-but-not-if-
@@ -203,7 +219,9 @@ Some form of negation
   perfume is no Chanel
   No. [link](https://vossanto.weltliteratur.net/timeline/#0889510_0)
   <!-- three in one: more than one, negation, sex change -->
-- Stephen Colbert Isn't the New Letterman—He's the New Charlie Rose.
+- Stephen Colbert Isn't the New Letterman — He's the New Charlie Rose.
+- But their showcase wines are meant for the well heeled they want to
+  be the **Bordeaux** of *California* not the **Beaujolais**.
 
 Plural forms
 ---------------------
@@ -263,6 +281,10 @@ Additional adjectives
   Michelangelo** of *the Lincoln High cockloft* by the time Mr.
 - **game, albeit hipper**: If Klensch is the **Cronkite** of the *rag
   trade*, Crawford is a **game, albeit hipper, Kathie Lee**
+- **sad-eyed**: An accident perhaps but one that has an uncanny
+  antecedent he believes: "The same thing that happened to me happened
+  to Menasha Skulnik" Mr Mason said referring to the **sad-eyed
+  Charlie Chaplin** of the *Yiddish theater*
 
 see also [syntactic variations](#syntactic-variations) and [national
 adjectives](#national-adjectives) below
@@ -336,6 +358,9 @@ Types of sources
   1987, and Papermate, the **Chevrolet** of *pens*
 - **locations**: Schonbrunn Castle, the **Versailles** of the
   *Hapsburgs*
+- **poems**: Carter had become the **Ancient Mariner** of the *Mets*
+  carrying the albatross around his neck trying to hit his 300th home
+  run during this becalmed and sultry summer
 
 <!--
 

@@ -46,3 +46,9 @@
 
 - New York is not the Wild West of the construction industry
 - Effectiveness of assertion is the Alpha and Omega of style
+- During a news conference at the festival Mr Askoldov called
+  chauvinism a frequently used codeword for both nationalism and
+  anti-Semitism - the cancer of our society
+- Norman Stone, a professor of modern history at Oxford, has termed it
+  the ''Dallas-izing'' of the Royal
+  family. [link](https://www.nytimes.com/1987/06/25/world/london-agog-over-frolics-of-princesses.html)
