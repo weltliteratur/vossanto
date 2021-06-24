@@ -422,7 +422,10 @@ Syntactic variations
 "the new ..."
 : As far as selling sneakers is concerned, Cleveland guard LeBRON JAMES is the *new* **Michael Jordan**.
 
-"the *national adjective* ...":
+
+National Adjectives
+-------------------
+
 - For those who stay inside, 6:30 A.M. brings a *Chinese* **Jane
   Fonda** on state television, leading a studio audience and home
   viewers in exercises based on disco steps, to the accompaniment of
