@@ -416,6 +416,10 @@ Syntactic variations
   Cleveland guard LeBRON JAMES is the *new* **Michael Jordan**.
 - **new**: Leslie Carter is apparently the **new Marie Osmond**
   <!-- here "new" is the modifier? -->
+- **might turn out to be**: He said Xerox and other companies had high
+  hopes for Internet businesses but he also said that some companies
+  were worried that the **Internet** might turn out to be the *CB
+  radio of the 1990s*.
 
 
 National Adjectives
