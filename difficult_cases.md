@@ -55,3 +55,6 @@
 - Norman Stone, a professor of modern history at Oxford, has termed it
   the ''Dallas-izing'' of the Royal
   family. [link](https://www.nytimes.com/1987/06/25/world/london-agog-over-frolics-of-princesses.html)
+- This minute mischiefmaker his character is himself pulverizes every
+  scene bouncing mutely through them like a **Charlie Chaplin** on *a
+  trampoline*.

@@ -421,7 +421,6 @@ Syntactic variations
   were worried that the **Internet** might turn out to be the *CB
   radio of the 1990s*.
 
-
 National Adjectives
 -------------------
 
