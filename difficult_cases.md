@@ -58,3 +58,23 @@
 - This minute mischiefmaker his character is himself pulverizes every
   scene bouncing mutely through them like a **Charlie Chaplin** on *a
   trampoline*.
+- Perhaps the greatest achievement of this fine richly illustrated
+  biography is that it humanizes the daunting artist who has come to
+  be known as the **Dada** of *us all* Robin Lippincott said in The
+  Book Review in 1989
+- "wunderkind" is quite common, e.g.,
+  - On any given day in Fort Greene Mr Lee the wunderkind of black
+    film makers may be pedaling his bicycle over to the jazz
+    saxophonist Branford Marsaliss house to discuss their latest
+    projects or more likely basketball
+  - Mr Hua who at 36 years old is head of the Microeconomics
+    Department at the Chinese Academy of Social Sciences Institute of
+    Economics is considered a Wunderkind in Chinese economic circles
+- One company disdaining patents is the Software Publishing
+  Corporation, in Mountain View, Calif., which has an attitude that
+  its chairman and chief executive, Fred Gibbons, describes as the
+  ''Wyatt Earp Silicon Valley gunslinger mentality.''
+  [link](https://www.nytimes.com/1989/05/12/business/software-industry-in-uproar-over-recent-rush-of-patents.html)
+- "enfant terrible" ist normalerweise keines: "Vivienne Westwood the
+  enfant terrible of British fashion opened her show tamely enough
+  with tailored suits in Scottish wool plaids"

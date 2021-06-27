@@ -264,6 +264,15 @@ Including explanations
   record of 2360 patents Yoshiro NakaMats created a sensation by
   showing up with his invention which he told a disbelieving audience
   can heighten intelligence and even extend life
+- Emil Nolde (1867-1956) was the **Darth Vader** of *modern art*:
+  trained in the ways of the Force (Post-Impressionism), but seduced
+  by the forces of the Dark Side (anti-Semitism and Nazism).
+- TIMECOP JeanClaude Van Damme the **Energizer Bunny** of *action
+  stars* just never stops trying
+- Since his death in 1866, Chief Seattle has grown in fame and stature
+  to a point where he has become a sort of **Abraham Lincoln** of
+  *American Indians*, a gifted orator and visionary
+  leader. [link](https://www.nytimes.com/1992/04/21/us/chief-s-speech-of-1854-given-new-meaning-and-words.html)
 
 Here, the source (!) is explained:
 - In a March 28 op-ed article in The Wall Street Journal, she warned Mr. Spielberg that he could ''go down in history as the **Leni Riefenstahl** of *the Beijing Games*,'' a reference to a German filmmaker who made Nazi propaganda films.
