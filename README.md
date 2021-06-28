@@ -33,6 +33,7 @@ Conference on Natural Language Processing*. pp. 6239–6244. Association
 for Computational
 Linguistics 2019. (DOI:[10.18653/v1/D19-1647](https://doi.org/10.18653/v1/D19-1647),
 [PDF](https://www.aclweb.org/anthology/D19-1647.pdf),
+[BibTeX](https://www.bibsonomy.org/bib/bibtex/25d30fd8911ded13edd4c0f07bd73e624/jaeschke),
 [Poster](https://doi.org/10.6084/m9.figshare.10069886))
 
 - [Timeline](timeline) (**recommended**)
