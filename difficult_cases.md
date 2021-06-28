@@ -78,3 +78,7 @@
 - "enfant terrible" ist normalerweise keines: "Vivienne Westwood the
   enfant terrible of British fashion opened her show tamely enough
   with tailored suits in Scottish wool plaids"
+- ist keine VA: "In setting the scene Mr Softleys dark shadings and
+  supple camerawork can be extremely effective as when he tracks the
+  first visit by beautiful Astrid Sheryl Lee the Laura Palmer of Twin
+  Peaks into the club where she discovers the band."
