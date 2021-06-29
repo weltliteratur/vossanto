@@ -70,6 +70,9 @@
   - Mr Hua who at 36 years old is head of the Microeconomics
     Department at the Chinese Academy of Social Sciences Institute of
     Economics is considered a Wunderkind in Chinese economic circles
+- "Xray": "This collection of 37 essays introducing the canonical
+  biblical texts of the Hebrew Bible presents a literary Xray of
+  American Jewish experience"
 - One company disdaining patents is the Software Publishing
   Corporation, in Mountain View, Calif., which has an attitude that
   its chairman and chief executive, Fred Gibbons, describes as the
