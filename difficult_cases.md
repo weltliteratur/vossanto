@@ -46,8 +46,24 @@
     most respected newsmen thinking that said a spokesman for the
     foundation Larry Vershel
   - That's what the Dr. Pilkeys of the world want us to do.
+  - But the Michael Jordans of the world -- from Charles Barkley to
+    Andre Agassi to Frank Thomas -- can do more.
+  - Dr. Schwartz, who is researching whether human ''energy'' lives on
+    after death, called Mr. Edward ''one of the Michael Jordans of the
+    mediumship world.''
+  - Finally, hire the ad makers and marketing experts who are the
+    Jordans of their industry (they're a little harder to identify)
+    and get them to manufacture the perfect image.
+- What about "All of these international stars, the Michael Jordans of
+  the soccer set, could walk down most American streets with complete
+  invisibility." – here "soccer set" could be exchanged by "world" –
+  why should it then no longer be a VA?
 
 - New York is not the Wild West of the construction industry
+- It was like the Wild West of retailing, Ms. Sachs said.
+- It was like the Black Hole of Calcutta, he said.
+- Jordan calls it the Mecca of basketball, if for no other reason than
+  it has been his Mecca of basketball.
 - Effectiveness of assertion is the Alpha and Omega of style
 - During a news conference at the festival Mr Askoldov called
   chauvinism a frequently used codeword for both nationalism and
@@ -85,3 +101,6 @@
   supple camerawork can be extremely effective as when he tracks the
   first visit by beautiful Astrid Sheryl Lee the Laura Palmer of Twin
   Peaks into the club where she discovers the band."
+- How the quiet kingdom of Jordan could produce a man who has become
+  known as the Sheik of the Slaughterers is a question at the heart of
+  contemporary jihad.

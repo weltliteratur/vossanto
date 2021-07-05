@@ -180,6 +180,14 @@ Combined with a condition:
   Iraq his field of dreams.''
   [link](https://vossanto.weltliteratur.net/timeline/#1719129_0)
 
+Temporal change:
+- Long considered the David to Microsoft's Goliath, Google is
+  increasingly being thought of as a Goliath itself.
+- Long content with being the BMW of the computer industry, suppying
+  finely crafted machines to a relatively small number of fanatic
+  customers, Apple now wants to become a Ford or Toyota, to move into
+  the mainstream.
+
 
 <!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#if-
@@ -304,6 +312,10 @@ Additional adjectives
   antecedent he believes: "The same thing that happened to me happened
   to Menasha Skulnik" Mr Mason said referring to the **sad-eyed
   Charlie Chaplin** of the *Yiddish theater*
+- **upscale**: Her role as a kind of upscale **Johnny Appleseed** of
+  *the arts* has, for the moment at least, effectively transcended the
+  arguments about obscenity that all but paralyzed the arts agency
+  during most of the Bush years.
 
 see also [syntactic variations](#syntactic-variations) and [national
 adjectives](#national-adjectives) below
@@ -356,7 +368,12 @@ Types of targets
 - **groups**: Aerosmith, the **Dorian Gray** of *rock bands*
 - **organisations**: Starbucks Coffee, the **General Motors** of
   *espresso*
-- **animals**: Sea Hero is the **Bobo Holloman** of *racing*
+- **animals**:
+  - Sea Hero is the **Bobo Holloman** of *racing*
+  - IF there is one thing that unites all racing people, it is the
+    fervent prayer that their stagnant industry will develop a great
+    four-legged hope, a Michael Jordan or Wayne Gretzky of the equine
+    set.
 - **objects**: Waterman, the **Rolls-Royce** of *pens* acquired in
   1987, and Papermate, the **Chevrolet** of *pens*
 - **locations**: "New York State is the **Cadillac** of *social
@@ -433,6 +450,9 @@ Syntactic variations
   hopes for Internet businesses but he also said that some companies
   were worried that the **Internet** might turn out to be the *CB
   radio of the 1990s*.
+- **pioneers**: 'They were the great **Johnny Appleseed** pioneers of
+  *punk rock*,'' said Andy Schwartz, the former editor of New York
+  Rocker, which chronicled the scene while it happened.
 
 National Adjectives
 -------------------
@@ -457,13 +477,24 @@ Misc
 - Even \[Michael\] Jordan isn't always Jordan. The last time he
   retired, to play baseball, the Chicago Bulls' owner, Jerry
   Reinsdorf, called him the Babe Ruth of basketball.
+- And the anticipated return of Jordan, whom the Bulls' coach, Phil
+  Jackson, called ''the Michelangelo'' of basketball, created mere
+  frenzy in Chicago.
 - "Some people say Claire Shulman is the **Golda Meir** of
   *Queens*. [...] I say Golda Meir was the **Claire Shulman** of
   *Israel*."
 - 'I'm like **David** fighting the **Goliath** of *the beauty industry*,'' she said in a recent interview.
 - Climbing harnesses are the *new* **Guy Fawkes mask** of *Portland protest*
-
 - witzig/sarkastisch:
   - Norwegen ist das Schweden Skandinaviens.
   - Ich bin der deutsche Rainald Götz.
   - I have myself heard the Dutch described as the Chinese of Europe.
+
+- reflecting on (Michael Jordan) VA:
+  - Long list of people and some nonhumans are acclaimed as the
+    Michael Jordans of their fields, including billiards champion Sang
+    Chun Lee, speller Jody-Anne Maxwell, lacrosse player Gary Gait,
+    rodeo rider Ty Murray and rodeo bull Bodacious; photos (S)
+  - One frequent fallback, which comes in handy when covering esoteric
+    events, is to describe someone as ''the Michael Jordan'' of his or
+    her sport.
