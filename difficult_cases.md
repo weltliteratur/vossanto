@@ -104,3 +104,19 @@
 - How the quiet kingdom of Jordan could produce a man who has become
   known as the Sheik of the Slaughterers is a question at the heart of
   contemporary jihad.
+
+
+- False positive errors included sentences like “But should I be the
+  Pierre Cardin of today. . . ?”  (NYT 2002/08/18/1416592) where
+  fashion designer Pierre Cardin compares his current self (‘today’)
+  with a younger version of himself → Reviewer argumentiert, dass es
+  eine VA sein könnte ("as we have a source (famous NE) and a modifier
+  (contemporary times) and a target that is different from the source
+  (from a philosophical point of view, a person might not be
+  considered the same as they were 30 years ago)"
+
+# What to annotate?
+
+- As far as selling sneakers is concerned, Cleveland guard |LeBRON
+  JAMES| is the *new* **MICHAEL JORDAN**. → shouldn't we also annotate
+  "Cleveland guard" as target?
