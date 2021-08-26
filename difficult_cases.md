@@ -120,3 +120,62 @@
 - As far as selling sneakers is concerned, Cleveland guard |LeBRON
   JAMES| is the *new* **MICHAEL JORDAN**. → shouldn't we also annotate
   "Cleveland guard" as target?
+
+# "counterpart"
+
+The regex ~[a-z] counterpart (of|to)~ retrieves 1129 sentences,
+for example:
+
+- This controversial development - DAT stands for digital audio tape -
+  in effect is **the cassette counterpart of compact disks**.
+- **the electronic counterpart of Home Shopping Network**
+
+Examples for different countries/languages:
+- American (37) sentences:
+  - While the New Globe is modeled after its London counterpart, the
+    theater would be its own innovation, Ms. Romer said. ''I'm not
+    interested in doing a wooden replica -- that to me would be a
+    theme park,'' she said. ''We're very much looking at **the
+    21st-century American counterpart** to the Globe.''
+  - intended as **an American counterpart** to the Turner Prize in
+    Britain
+  - a **South American counterpart** to the scandal over Swiss banks
+    that swallowed Jewish assets
+  - Mr. Tonoian said in a telephone interview the other day that he
+    hopes the club will become **the American counterpart** of the
+    Moscow Bluebird, the jazz club he opened three years ago, which
+    was closed last Friday by Communist Party officials.
+- Chinese (13 sentences):
+  - **The southern Chinese counterpart** of soy-milk soup is congee or
+    jook
+  - offering **a Chinese counterpart** to the words of Marie
+    Antoinette
+  - the ancient pipa (**the Chinese counterpart** of the lute)
+  - ''The Peony Pavilion,'' an opera often called **the Chinese
+    counterpart** to ''Romeo and Juliet,''
+- German (11 sentences):
+  - noting that there was **a German counterpart** to Labor Day that
+    was celebrated every May 1
+  - the Bundesbank, **the German counterpart** to the Federal Reserve
+  - **the German counterpart** to the F.D.A.
+  - Lola, **the German counterpart** of an Oscar
+- Japanese (6 sentences):
+  - In a way, she is almost **a Japanese counterpart** of himself.
+  - They say the university and the world can only benefit by having
+    **a Japanese counterpart** to the university's media laboratory.
+  - could be considered **a Japanese counterpart** to the Mercedes
+    Maybach
+  - **The Japanese counterpart** to our Dec. 7 commemoration takes
+    place in August -- in Hiroshima on Aug. 6, in Nagasaki on Aug. 9
+    and nationwide on Aug. 15, the day Emperor Hirohito ordered his
+    forces to lay down their arms.
+- Canadian (3 sentences):
+  - Published reports here say that the inquiry commission, headed by
+    Justice Jules Deschenes of the Quebec Superior Court, has
+    recommended that the Government consider establishing **a Canadian
+    counterpart to the Office of Special Investigations** in the
+    United States Justice Department, the unit that has handled Nazi
+    investigations in the United States since 1979.
+  - **The Canadian counterpart to Amtrak**, VIA Rail Canada, is
+    experimenting with tilt car trains and plans to put them into
+    regular service this spring.
