@@ -241,6 +241,8 @@ Plural forms
 - To some, agreements among nations may seem like hopelessly weak weapons against the **Osama bin Ladens** of *the world*, who aren't known for consulting international law before acting.
 - To do that the Apollo bought what Mr Sutton described as the **Rolls-Royces** of *television and recording equipment*.
 
+There are also singular/plural changes, e.g. "die Brüder Goncourt der Bundesrepublik = Fritz J. Raddatz".
+
 Including explanations
 ---------------------
 - It's the **Dolly Parton** of *cakes*: a little bit tacky, but you love her,” said Angie Mosier, a food writer in Atlanta and a board member of the Southern Foodways Alliance at the University of Mississippi in Oxford.
