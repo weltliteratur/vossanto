@@ -125,6 +125,11 @@
 
 - |''She's| really a **Florence Nightingale,** helping people who are
   handicapped.
+- He is, in what has traditionally been one of the most acclaimed
+  positions in sports, no Mike Tyson, no Muhammad Ali, no Smokin' Joe
+  Frazier.  Nor is he a Lennox Lewis, here or anywhere else in the
+  world, including in his hometown of Baltimore.
+
 
 # non-VA + VA?
 
