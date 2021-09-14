@@ -462,6 +462,9 @@ Syntactic variations
   14.; Despite his reservations, Evans, for example, calls |her| a
   **''Paul Revere** in *skirts,* running through the airline
   industry's village of complacency.''
+- **a ... figure in/of/among**: |Mel Fisher,| a former chicken farmer
+  who became a **Horatio Alger** figure among *undersea treasure
+  hunters,* died on Saturday at his home in Key West, Fla.
 
 National Adjectives
 -------------------
