@@ -121,6 +121,15 @@
   JAMES| is the *new* **MICHAEL JORDAN**. → shouldn't we also annotate
   "Cleveland guard" as target?
 
+# non-VA + VA?
+
+- The second sentence contains a VA but does the first one also
+  contain one ("dapper older brother of Bill Clinton")? "With a full
+  mane of snow-white hair and an imperial self-confidence, Jack Jones
+  suggests a dapper older brother of Bill Clinton as he stalks the
+  platform stage of the Oak Room at the Algonquin Hotel.  The
+  67-year-old **Lion King** of *lounge singers* has reason to strut."
+
 # "counterpart"
 
 The regex `[a-z] counterpart (of|to)` retrieves 1129 sentences,
