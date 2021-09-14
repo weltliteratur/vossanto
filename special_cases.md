@@ -455,6 +455,11 @@ Syntactic variations
 - **pioneers**: 'They were the great **Johnny Appleseed** pioneers of
   *punk rock*,'' said Andy Schwartz, the former editor of New York
   Rocker, which chronicled the scene while it happened.
+- **a ... in**: |Conor Oberst,| a 20-year-old Omaha native, is a
+  **Mozart** in *this world*, a prolific recording artist since age
+  14.; Despite his reservations, Evans, for example, calls |her| a
+  **''Paul Revere** in *skirts,* running through the airline
+  industry's village of complacency.''
 
 National Adjectives
 -------------------
