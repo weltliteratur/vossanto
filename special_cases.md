@@ -70,6 +70,8 @@ Hypothetical
 - If it is a tax, it's really the **Robin Hood** of *taxes*,'' Mr. Schwartz said.
 - There may be no **Anthony Powell** of *wine* but Hugh Johnson's
   prose is very fine.
+- What if there's a **Lucy Van Pelt** in *your sport* who's always
+  pulling the glory right out from under you?
 
 More than one
 -------------
