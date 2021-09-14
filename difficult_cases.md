@@ -123,7 +123,7 @@
 
 # "counterpart"
 
-The regex ~[a-z] counterpart (of|to)~ retrieves 1129 sentences,
+The regex `[a-z] counterpart (of|to)` retrieves 1129 sentences,
 for example:
 
 - This controversial development - DAT stands for digital audio tape -
