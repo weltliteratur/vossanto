@@ -121,6 +121,11 @@
   JAMES| is the *new* **MICHAEL JORDAN**. → shouldn't we also annotate
   "Cleveland guard" as target?
 
+# without modifier?
+
+- |''She's| really a **Florence Nightingale,** helping people who are
+  handicapped.
+
 # non-VA + VA?
 
 - The second sentence contains a VA but does the first one also
