@@ -143,6 +143,7 @@ More than one
   Island will become the **Bordeaux** of *America* said Mr Gifford
 - George Grosz was the **Hogarth** or **Daumier** of *Weimar Germany*
 
+
 <!-- many more can be found here:
 https://github.com/weltliteratur/vossanto/blob/master/first/notes.org#more-than-three-parts-but-not-if-
 -->
