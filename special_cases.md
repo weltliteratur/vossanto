@@ -142,6 +142,10 @@ More than one
 - The Finger Lakes will become the **Champagne** of *America* and Long
   Island will become the **Bordeaux** of *America* said Mr Gifford
 - George Grosz was the **Hogarth** or **Daumier** of *Weimar Germany*
+- If |Istanbul| is the **T. E. Lawrence** of *world capitals*, sword
+  unsheathed and racing on horseback toward another clash with
+  history, then **Washington** is *Indiana Jones* -- handsome and
+  dashing in its porkpie hat and bullwhip, but only playing a part.
 
 
 <!-- many more can be found here:
@@ -288,6 +292,10 @@ Including explanations
   to a point where he has become a sort of **Abraham Lincoln** of
   *American Indians*, a gifted orator and visionary
   leader. [link](https://www.nytimes.com/1992/04/21/us/chief-s-speech-of-1854-given-new-meaning-and-words.html)
+- If |Istanbul| is the **T. E. Lawrence** of *world capitals*, sword
+  unsheathed and racing on horseback toward another clash with
+  history, then **Washington** is *Indiana Jones* -- handsome and
+  dashing in its porkpie hat and bullwhip, but only playing a part.
 
 Here, the source (!) is explained:
 - In a March 28 op-ed article in The Wall Street Journal, she warned Mr. Spielberg that he could ''go down in history as the **Leni Riefenstahl** of *the Beijing Games*,'' a reference to a German filmmaker who made Nazi propaganda films.
