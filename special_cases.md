@@ -296,6 +296,10 @@ Including explanations
   unsheathed and racing on horseback toward another clash with
   history, then **Washington** is *Indiana Jones* -- handsome and
   dashing in its porkpie hat and bullwhip, but only playing a part.
+- Her [Madonna] appearance at the first Video Music Awards in 1984 was
+  the award-show equivalent of Abraham Lincoln's Gettysburg Address —
+  the ideal against which all successors would be measured. [source: I
+  want my MTV, ISBN 978-0452298569)
 
 Here, the source (!) is explained:
 - In a March 28 op-ed article in The Wall Street Journal, she warned Mr. Spielberg that he could ''go down in history as the **Leni Riefenstahl** of *the Beijing Games*,'' a reference to a German filmmaker who made Nazi propaganda films.
