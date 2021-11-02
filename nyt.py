@@ -7,6 +7,8 @@
 # Usage: nyt.py -h
 #
 # Changes:
+# 2021-11-02 (rja)
+# - small code cleanups
 # 2018-07-10 (rja)
 # - added alternative year extraction
 # 2018-05-18 (rja)
@@ -27,13 +29,12 @@ import xml.etree.ElementTree as ET
 import tarfile
 import argparse
 import os
-import sys
-import codecs
 
 version = "0.0.4"
 
 # remove line breaks and tabs from text
 re_ws = re.compile('[\n\t\r]+')
+
 
 # convert NYT XML to text
 def gen_parts(files, heading, text, url, category, desk, author, date):
@@ -121,6 +122,7 @@ def gen_parts(files, heading, text, url, category, desk, author, date):
 
         yield result
 
+
 # apply the regex
 def gen_grep(parts, reg):
     regex = re.compile(reg)
@@ -129,10 +131,12 @@ def gen_grep(parts, reg):
         if any([regex.search(part[i]) for i in range(1, len(part))]):
             yield part
 
+
 # remove control characters
 def gen_rm_ctrl(texts):
     for parts in texts:
         yield [re_ws.sub(' ', p).strip() for p in parts]
+
 
 # generate a list of files from various input
 def gen_files(paths):
@@ -155,9 +159,11 @@ def gen_files(paths):
                 if tarinfo.isreg():
                     yield tar.extractfile(tarinfo), tarinfo.name
 
+
 def print_lines(parts, sep='\t'):
     for parts in parts:
         print(sep.join(parts))
+
 
 if __name__ == '__main__':
 
