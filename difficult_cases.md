@@ -75,14 +75,13 @@ toto](https://en.wikipedia.org/wiki/Pars_pro_toto)?
   after death, called Mr. Edward ''one of the Michael Jordans of the
   mediumship **world**.''
 
-Smaller coverage than 'world':
+Smaller coverage than 'world' but clearly different context:
 - Finally, hire the ad makers and marketing experts who are the
   Jordans of their **industry** (they're a little harder to identify)
   and get them to manufacture the perfect image.
 - What about "All of these international stars, the Michael Jordans of
   the **soccer set**, could walk down most American streets with
-  complete invisibility." – here "soccer set" could be exchanged by
-  "world" – why should it then no longer be a VA?
+  complete invisibility."
 
 # Very specific or difficult to interpret examples
 
