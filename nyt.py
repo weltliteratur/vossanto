@@ -174,6 +174,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--category', action="store_true", help='extract category')
     parser.add_argument('-d', '--desk', action="store_true", help='extract desk')
     parser.add_argument('-e', '--date', action="store_true", help='extract date')
+    parser.add_argument('-f', '--filename', action="store_true", help='output filename')
     parser.add_argument('-t', '--title', action="store_true", help='extract title')
     parser.add_argument('-u', '--url', action="store_true", help='extract URL')
     parser.add_argument('-g', '--grep', type=str, metavar="REGEX", help='match regex')
