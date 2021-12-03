@@ -9,6 +9,7 @@
 # Changes:
 # 2021-11-02 (rja)
 # - small code cleanups
+# - made output of filename optional
 # 2018-07-10 (rja)
 # - added alternative year extraction
 # 2018-05-18 (rja)
@@ -30,19 +31,22 @@ import tarfile
 import argparse
 import os
 
-version = "0.0.4"
+version = "0.0.5"
 
 # remove line breaks and tabs from text
 re_ws = re.compile('[\n\t\r]+')
 
 
 # convert NYT XML to text
-def gen_parts(files, heading, text, url, category, desk, author, date):
+def gen_parts(files, heading, text, url, category, desk, author, date, filename):
     for f, fname in files:
-        result = [fname]
+        result = []
 
         tree = ET.parse(f)
         root = tree.getroot()
+
+        if filename:
+            result.append(fname)
 
         if heading:
             h = ""
@@ -185,7 +189,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     files = gen_files(args.input)
-    parts = gen_parts(files, args.title, args.body, args.url, args.category, args.desk, args.author, args.date)
+    parts = gen_parts(files, args.title, args.body, args.url, args.category, args.desk, args.author, args.date, args.filename)
     if args.grep:
         parts = gen_grep(parts, args.grep)
     if args.normalise_ws:
