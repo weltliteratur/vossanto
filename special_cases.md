@@ -478,6 +478,11 @@ Syntactic variations
 - **a ... figure in/of/among**: |Mel Fisher,| a former chicken farmer
   who became a **Horatio Alger** figure among *undersea treasure
   hunters,* died on Saturday at his home in Key West, Fla.
+- **modifier before source**: You see, being a designer has never been
+  enough for a champion of peace, a patron of the arts, a bon vivant,
+  a world conqueror of sorts, *fashion's* **Johnny Appleseed**
+  spreading Pierre Cardin seeds all over the world.
+
 
 National Adjectives
 -------------------
