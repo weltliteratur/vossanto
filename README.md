@@ -24,6 +24,16 @@ Vossius](https://en.wikipedia.org/wiki/Gerardus_Vossius) (1577– 1649),
 the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
+## Frontiers of Artifical Intelligence 2022
+Schwab, M., Jäschke, R., Fischer, F.: "The Rodney Dangerfield of Stylistic Devices":
+End-to-End Detection and Extraction of
+Vossian Antonomasia Using Neural Networks.
+(DOI:[10.3389/frai.2022.868249](10.3389/frai.2022.868249),
+[PDF](https://www.frontiersin.org/articles/10.3389/frai.2022.868249/abstract),
+[BibTeX](https://www.bibsonomy.org/bib/publication/2ec528a4b293f3ddc9582fcdeed6c6f9/jaeschke))
+
+- [Data](https://github.com/weltliteratur/vossanto/tree/master/frontiers)
+
 ## EMNLP-IJCNLP 2019 (November, 2019)
 Schwab, M., Jäschke, R., Fischer, F., Strötgen, J.: 'A Buster Keaton
 of Linguistics': First Automated Approaches for the Extraction of
