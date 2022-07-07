@@ -28,7 +28,7 @@ first distinguished and described VA as a separate phenomenon.
 Schwab, M., Jäschke, R., Fischer, F.: "The Rodney Dangerfield of Stylistic Devices":
 End-to-End Detection and Extraction of
 Vossian Antonomasia Using Neural Networks.
-(DOI:[10.3389/frai.2022.868249](10.3389/frai.2022.868249),
+(DOI:[10.3389/frai.2022.868249](https://doi.org/10.3389/frai.2022.868249),
 [PDF](https://www.frontiersin.org/articles/10.3389/frai.2022.868249/abstract),
 [BibTeX](https://www.bibsonomy.org/bib/publication/2ec528a4b293f3ddc9582fcdeed6c6f9/jaeschke))
 
