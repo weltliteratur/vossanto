@@ -24,6 +24,10 @@ Vossius](https://en.wikipedia.org/wiki/Gerardus_Vossius) (1577– 1649),
 the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
+## Analytics of the NYT VA Dataset
+- [Visualizations](chunk_analysis/visualizations)
+
+
 ## Frontiers in Artificial Intelligence (2022)
 Schwab, M., Jäschke, R., Fischer, F.: "The Rodney Dangerfield of Stylistic Devices":
 End-to-End Detection and Extraction of
