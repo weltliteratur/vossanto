@@ -449,6 +449,7 @@ Syntactic variations
 
 - **the ... equivalent of**: New South Wales, the **Georgian
   equivalent** of *deep space* <!-- is this a VA at all? -->
+- **the ... answer to**:
 - **the ... version of**: Sassy, the **United States version** of
   *Dolly*
 - **the ... sort of**: George Romney, the **Middle America sort** of
