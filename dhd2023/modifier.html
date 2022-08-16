@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier visualizations</title>
+
+    <style>
+        .axis text,
+        .slider text {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<!-- Create a div where the graph will take place -->
+
+<body>
+
+<!-- divs for slider and vis-->
+<svg id="legend"></svg>
+<p >Choose number of clusters</p>
+<div id="slider"></div>
+<div id="my_dataviz"></div>
+
+
+
+<script src="https://unpkg.com/d3-simple-slider"></script>
+<script src="https://d3js.org/d3.v6.js"></script>
+<script src="scripte/modifier_vis.js"></script>
+<!--<link href="{{ site.baseurl }}/css/com_det.css" rel="stylesheet">-->
+
+</body>
+</html>
