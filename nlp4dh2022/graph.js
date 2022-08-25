@@ -179,13 +179,14 @@ d3.json("graph.json", function (error, graph) {
     node.on("click", function (d) {
         set_highlight(d);
     })
-        .on("mousedown", function (d) {
+        .on("click", function (d) {
+            exit_highlight();
             d3.event.stopPropagation();
             focus_node = d;
             set_focus(d)
             if (highlight_node === null) set_highlight(d)
 
-        }).on("mouseout", function (d) {
+        }).on("mousedown", function (d) {
         exit_highlight();
 
     });
@@ -246,12 +247,28 @@ d3.json("graph.json", function (error, graph) {
             circle.style(towhite, function (o) {
                 return isConnected(d, o) ? highlight_color : "white";
             });
+            circle.style("opacity", function (o) {
+                return isConnected(d, o) ? 1 : 0.3;
+            });
             text.style("font-weight", function (o) {
                 return isConnected(d, o) ? "bold" : "normal";
+            });
+            text.style("opacity", function (o) {
+                return isConnected(d, o) ? 1 : 0.3;
+            });
+            text.style("font-size", function (o) {
+                return isConnected(d, o) ? nominal_text_size*2 + "px" : nominal_text_size + "px";
             });
             link.style("stroke", function (o) {
                 return o.source.index == d.index || o.target.index == d.index ? highlight_color : ((isNumber(o.score) && o.score >= 0) ? color(o.score) : default_link_color);
 
+            });
+            link.style("opacity", function (o) {
+                return isConnected(d, o) ? 1 : 0.3;
+            });
+            console.log(d)
+            text.style("font-size", function (o) {
+                return d == o ? nominal_text_size*5 + "px" : nominal_text_size + "px";
             });
         }
     }
@@ -287,6 +304,7 @@ d3.json("graph.json", function (error, graph) {
     });
 
     svg.call(zoom);
+
 
     resize();
     //window.focus();
