@@ -2,8 +2,25 @@
 // var h = window.innerHeight;
 
 
-var w = 500;
-var h = 500;
+// var w = 500;
+// var h = 500;
+
+
+w = window.innerWidth;
+h = window.innerHeight;
+    // maxRadius = (Math.min(width, height) / 2) - 50;
+const margin = {top: 5, right: 25, bottom: 20, left: 25};
+const width = parseInt(d3.selectAll("#visualization_container").style("width")) - margin.left - margin.right;
+const height = parseInt(d3.selectAll("#visualization_container").style("height")) - margin.top - margin.bottom;
+console.log("lengths: ", width, height)
+// console.log(d3.selectAll("#visualization_container"))
+// var svg = d3.select("#visualization_container")
+//     .append("svg")
+//     .attr("width", width)
+//     .attr("height", height)
+//     .append("g")
+//     .attr("transform",
+//         "translate(" + margin.left + "," + margin.top + ")");
 var keyc = true, keys = true, keyt = true, keyr = true, keyx = true, keyd = true, keyl = true, keym = true, keyh = true,
     key1 = true, key2 = true, key3 = true, key0 = true
 
@@ -14,17 +31,11 @@ var outline = false;
 
 var min_score = 0;
 var max_score = 1;
-const margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 2000 - margin.left - margin.right,
-    height = 1000 - margin.top - margin.bottom;
+// const margin = {top: 10, right: 30, bottom: 30, left: 60};
+    // width = 2000 - margin.left - margin.right,
+    // height = 1000 - margin.top - margin.bottom;
 
-// // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`)
+
 
 var color = d3.scale.linear()
     .domain([min_score, (min_score + max_score) / 2, max_score])
@@ -54,7 +65,19 @@ var max_base_node_size = 36;
 var min_zoom = 0.1;
 var max_zoom = 7;
 // var svg = d3.select("body").append("svg");
-var zoom = d3.behavior.zoom().scaleExtent([min_zoom, max_zoom])
+var zoom = d3.behavior.zoom().scaleExtent([min_zoom, max_zoom])//s.translate([100,50]).scale(.5)
+
+
+// // append the svg object to the body of the page
+
+var svg = d3.select("#visualization_container")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform","translate(100,50)scale(.3,.3)");
+// .attr("transform", `translate(${margin.left}, ${margin.top})`)
+
 var g = svg.append("g");
 svg.style("cursor", "move");
 
@@ -179,7 +202,14 @@ d3.json("graph.json", function (error, graph) {
     node.on("click", function (d) {
         set_highlight(d);
     })
+
+
         .on("click", function (d) {
+            console.log(this.__data__)
+            id =
+            d3.select("#url_p")
+                .html("Infos: \n" +
+                    "<a href=https://www.wikidata.org/wiki/" + this.__data__.id + ">" + this.__data__.id + "</a>")
             exit_highlight();
             d3.event.stopPropagation();
             focus_node = d;
@@ -248,6 +278,7 @@ d3.json("graph.json", function (error, graph) {
                 return isConnected(d, o) ? highlight_color : "white";
             });
             circle.style("opacity", function (o) {
+                console.log(this)
                 return isConnected(d, o) ? 1 : 0.3;
             });
             text.style("font-weight", function (o) {
@@ -266,7 +297,7 @@ d3.json("graph.json", function (error, graph) {
             link.style("opacity", function (o) {
                 return isConnected(d, o) ? 1 : 0.3;
             });
-            console.log(d)
+            // console.log(d)
             text.style("font-size", function (o) {
                 return d == o ? nominal_text_size*5 + "px" : nominal_text_size + "px";
             });

@@ -2,27 +2,78 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<style>
-    body {
-        overflow:hidden;
-        margin:0;
-    }
+<!--<style>-->
+<!--    body {-->
+<!--        overflow:hidden;-->
+<!--        margin:0;-->
+<!--    }-->
 
-    text {
-        font-family: sans-serif;
-        pointer-events: none;
-    }
-</style>
+<!--    text {-->
+<!--        font-family: sans-serif;-->
+<!--        pointer-events: none;-->
+<!--    }-->
+<!--</style>-->
+<link href="style.css" rel="stylesheet">
+<script src="https://d3js.org/d3.v3.min.js"></script>
 </head>
 <body>
 
-<svg id="legend"></svg>
-<p >Choose number of clusters</p>
-<div id="slider"></div>
-<div id="my_dataviz"></div>
+<!--<div id="visualization_container">-->
+<!--    <svg id="vis" class="graph_container"></svg>-->
+<!--</div>-->
+<!--<div class="vertical_divider"> test</div>-->
+<!--<div id="explanation_and_results_main_container">-->
+<!--    <div class="text_container" >-->
+<!--        <p> <b>Erklärung</b>-->
+<!--            <br/>-->
 
-<script src="https://d3js.org/d3.v3.min.js"></script>
+
+<!--            <br/>-->
+
+<!--        </p>-->
+<!--    </div>-->
+<!--    <hr class="horizontal_divider"/>-->
+<!--    &lt;!&ndash;            <div id="tt" class="tooltip" ></div>&ndash;&gt;-->
+<!--</div>-->
+
+
+<main id="main_container">
+<!--    <div id="visualization_container">-->
+        <div id="visualization_container"></div>
+
+<!--            <div id="stats_container">te</div>-->
+<!--        </div>-->
+    <div class="vertical_divider"></div>
+    <div id="explanation_and_results_main_container">
+        <div id="legend_container" >
+<!--            <b>Legende</b> <br/>-->
+<!--            <svg id="legend"></svg>-->
+        </div>
+        <hr class="horizontal_divider"/>
+<!--        <div class="text_container" >-->
+<!--            <p> <b>Erklärung</b>-->
+<!--                <br/>-->
+<!--                Dieser Streamgraph beschreibt die zeitliche Entwicklung der Anzahl von Publikationen je BDSL Kategorie (Level 1).-->
+<!--                <br/>-->
+<!--                Indem man die Maus über den Graphen bewegt, kann man sich die Zahlen je Jahr und Kategorie anschauen (rechts unten).-->
+<!--                Die top10 Autoren (Primärlieratur) erscheinen unten links.-->
+<!--            </p>-->
+<!--            Sobald man auf einen Punkt in der Grafik klickt, friert die Grafik ein und man kann zusätzlich die Dropdown-Box nutzen, um sich die Werke der einzelnen Autoren anzuschauen und die Links zu den jeweiligen BDSL-Online Einträgen zu bekommen.-->
+<!--            <p>-->
+
+<!--            </p>-->
+<!--        </div>-->
+<!--        <hr class="horizontal_divider"/>-->
+        <div id="tt" class="tooltip" >
+            <div class="tooltip_bg" ></div>
+            <div class="tooltip_text" >Click on a node to get more information.
+                <p id="url_p"></p>
+            </div>
+        </div>
+
+    </div>
+
+</main>
 <script src="graph.js"></script>
-
 </body>
 </html>
