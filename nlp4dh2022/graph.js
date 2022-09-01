@@ -95,8 +95,15 @@ svg.append('defs').append('marker')
     .attr('fill', '#999')
     .style('stroke', 'none');
 
-d3.json("graph.json", function (error, graph) {
 
+queue()
+    .defer(d3.json, 'graph.json')
+    .defer(d3.json, 'paths.json')
+    .defer(d3.json, 'node_infos.json')
+    .await(visualize);
+// d3.json("graph.json",
+function visualize(error, graph, paths, node_infos) {
+    console.log(paths["Q41421"])
     var linkedByIndex = {};
     graph.links.forEach(function (d) {
         linkedByIndex[d.source + "," + d.target] = true;
@@ -205,11 +212,38 @@ d3.json("graph.json", function (error, graph) {
 
 
         .on("click", function (d) {
-            console.log(this.__data__)
-            id =
+            // console.log(this.__data__)
+            node_id = this.__data__.id
+            node_name = get_wiki_name()
+            html_text = ""
+            html_text += "Infos: <br>" +
+                "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_id + "</a>"
+            html_text += "<br><br> Ancestors and Descendants: <br>"
+
+            paths[node_id].forEach(function (d){
+                html_text += "<a href=https://www.wikidata.org/wiki/" + d + ">" + d + "</a> <br>"
+            })
+            html_text += "<br><br> Sentences including entity as source: <br>"
+            html_text += "<ul>"
+            console.log(node_id)
+            node_infos[node_id]["VA_src_sents"].forEach(function (d){
+                splitted = d.split("*")
+                sent  = "<li>" + splitted[0] + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] +"<br></li>"
+                html_text += sent
+            })
+            html_text += "</ul>"
+            html_text += "<br><br> Sentences including entity as target: <br>"
+            html_text += "<ul>"
+            node_infos[node_id]["VA_trg_sents"].forEach(function (d){
+                splitted = d.split("|")
+                sent  = "<li>" + splitted[0] + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] +"<br></li>"
+                html_text += sent
+            html_text += "</ul>"
+            });
+            console.log(html_text)
             d3.select("#url_p")
-                .html("Infos: \n" +
-                    "<a href=https://www.wikidata.org/wiki/" + this.__data__.id + ">" + this.__data__.id + "</a>")
+                .html(html_text);
+
             exit_highlight();
             d3.event.stopPropagation();
             focus_node = d;
@@ -278,7 +312,7 @@ d3.json("graph.json", function (error, graph) {
                 return isConnected(d, o) ? highlight_color : "white";
             });
             circle.style("opacity", function (o) {
-                console.log(this)
+                // console.log(this)
                 return isConnected(d, o) ? 1 : 0.3;
             });
             text.style("font-weight", function (o) {
@@ -370,7 +404,17 @@ d3.json("graph.json", function (error, graph) {
                 return d.y;
             });
     });
+    function get_wiki_name(wiki_id){
+        var xmlHttp = new XMLHttpRequest();
+        url = "https://www.wikidata.org/w/api.php?action=wbgetentities&props=labels&ids=" + wiki_id + "&languages=es"
+        xmlHttp.open("GET",url,false);
+        xmlHttp.send(null);
+        content = Httpreq.responseText;
+        infos = JSON.parse(content);
 
+        console.log(infos["entities"][wiki_id][labels]["en"]["value"])
+        return infos["entities"][wiki_id][labels]["en"]["value"]
+    }
     function resize() {
         var width = window.innerWidth, height = window.innerHeight;
         svg.attr("width", width).attr("height", height);
@@ -450,7 +494,7 @@ d3.json("graph.json", function (error, graph) {
         }
     }
 
-});
+};
 
 function vis_by_type(type) {
     switch (type) {
