@@ -41,6 +41,7 @@ d3.json("graph.json").then(function (graph) {
                     .on("tick", ticked);
 
                 var adjlist = [];
+                var adjlist2 = [];
 
                 graph.links.forEach(function (d) {
                     adjlist[d.source.index + "-" + d.target.index] = true;
@@ -49,6 +50,15 @@ d3.json("graph.json").then(function (graph) {
 
                 function neigh(a, b) {
                     return a == b || adjlist[a + "-" + b];
+                }
+
+                graph.links.forEach(function (d) {
+                    adjlist2[d.source.id + "-" + d.target.id] = true;
+                    adjlist2[d.target.id + "-" + d.source.id] = true;
+                });
+
+                function neigh2(a, b) {
+                    return a == b || adjlist2[a + "-" + b];
                 }
 
                 var svg = d3.select("#visualization_container")
@@ -116,7 +126,7 @@ d3.json("graph.json").then(function (graph) {
                     .enter()
                     .append("text")
                     .text(function (d, i) {
-                        return i % 2 == 0 ? "" : d.node.id;
+                        return i % 2 == 0 ? "" : node_infos[d.node.id]["label"];
                     })
                     .style("fill", "#555")
                     .style("font-family", "Arial")
@@ -160,15 +170,53 @@ d3.json("graph.json").then(function (graph) {
                 }
 
                 function focus(d) {
+                    node_id = this.__data__.id
+                    node_name = node_infos[node_id]["label"]
+
+
                     var index = d3.select(d3.event.target).datum().index;
                     node.style("opacity", function (o) {
                         return neigh(index, o.index) ? 1 : 0.3;
                     });
-                    node.style("stroke", "white");
+                    node.style("fill", function (o) {
+                        return neigh(index, o.index) ? "#34a8eb" : "#555";
+                    })
+                    labelNode.attr("opacity", function (o) {
+                        return neigh(index, o.node.index) ? 1 : 0.3;
+                    });
+                    link.style("opacity", function (o) {
+                        return o.source.index == index || o.target.index == index ? 1 : 0.3;
+                    });
+                    link.style("stroke", function (o) {
+                        return o.source.index == index || o.target.index == index ? "#34a8eb" : "#555";
+                        ;
+                    });
+                    node.style("stroke", "blue");
+
+                    // connected = paths[node_id]
+                    // console.log("list", connected)
+                    // console.log("this node", d)
+                    // for (let i = 0; i < connected.length; i++) {
+                    //     node.style("fill", function (o) {
+                    //             // console.log(d.id)
+                    //             // console.log(o.id)
+                    //             if (neigh2(d.id, o.id)) {
+                    //                 return "#34a8eb"
+                    //             } else if (o.id == connected[i]) {
+                    //                 console.log(o)
+                    //                 return "#34eb74"
+                    //             } else {
+                    //                 return "#555"
+                    //             }
+                    //
+                    //         }
+                    //     )
+                    //     console.log("i", connected[i])
+                    //     console.log("node", node)
+                    // }
 
                     // write html in box
-                    node_id = this.__data__.id
-                    node_name = node_infos[node_id]["label"]
+
                     html_text = ""
                     html_text += "Infos: <br>" +
                         "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a>"
@@ -202,21 +250,21 @@ d3.json("graph.json").then(function (graph) {
                     // wikidata image by url
                     let image = "";
                     let meta = "";
-                    image += "<a href='https://commons.wikimedia.org/wiki/File:" + image_urls[node_id]["sourceImId"] + "'>" +
-                        "<img src='https://upload.wikimedia.org/wikipedia/commons/" + image_urls[node_id]["sourceImThumb"] + "'/></a><br>";
-                    meta += "image: <a href='https://commons.wikimedia.org/wiki/File:" + image_urls[node_id]["sourceImId"] + "'>Wikimedia Commons</a>";
-                    // if (e.sImLi) image += ", license: " + e.sImLi;
+                    if (image_urls.hasOwnProperty(node_id)) {
+                        image += "<a href='https://commons.wikimedia.org/wiki/File:" + image_urls[node_id]["sourceImId"] + "'>" +
+                            "<img src='https://upload.wikimedia.org/wikipedia/commons/" + image_urls[node_id]["sourceImThumb"] + "'/></a><br>";
+                        meta += "image: <a href='https://commons.wikimedia.org/wiki/File:" + image_urls[node_id]["sourceImId"] + "'>Wikimedia Commons</a>";
+                        // if (e.sImLi) image += ", license: " + e.sImLi;
 
-                    meta += ", license:  " + image_urls[node_id]["permissions"]
-                    d3.select("#image_container")
-                        .html(image + meta);
+                        meta += ", license:  " + image_urls[node_id]["permissions"]
+                        d3.select("#image_container")
+                            .html(image + meta);
+                    } else {
+                        d3.select("#image_container")
+                            .html("No image available.");
+                    }
 
-                    labelNode.attr("opacity", function (o) {
-                        return neigh(index, o.node.index) ? 1 : 0.3;
-                    });
-                    link.style("opacity", function (o) {
-                        return o.source.index == index || o.target.index == index ? 1 : 0.3;
-                    });
+
                 }
 
                 function unfocus() {
