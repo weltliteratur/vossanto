@@ -136,7 +136,7 @@ d3.json("graph.json").then(function (graph) {
                         return i % 2 == 0 ? "" : node_infos[d.node.id]["label"];
                     })
                     .style("fill", "#555")
-                    .style("font-family", "Arial")
+                    .style("font-fa mily", "Arial")
                     .style("font-size", 12)
                     .style("pointer-events", "none"); // to prevent mouseover/drag capture
 
@@ -177,32 +177,16 @@ d3.json("graph.json").then(function (graph) {
                 }
 
                 function focus(d) {
-                    node_id = this.__data__.id
-                    node_name = node_infos[node_id]["label"]
-                    console.log(node_name)
-
+                    var node_id = this.__data__.id
+                    var node_name = node_infos[node_id]["label"]
                     var index = d3.select(d3.event.target).datum().index;
-                    node.style("opacity", function (o) {
-                        return neigh(index, o.index) ? 1 : 0.3;
-                    });
-                    // node.style("fill", function (o) {
-                    //     return neigh(index, o.index) ? "#34a8eb" : "#555";
-                    // })
-                    // labelNode.attr("opacity", function (o) {
-                    //     return neigh(index, o.node.index) ? 1 : 0.3;
-                    // });
-                    // link.style("opacity", function (o) {
-                    //     return o.source.index == index || o.target.index == index ? 1 : 0.3;
-                    // });
-                    // link.style("stroke", function (o) {
-                    //     return o.source.index == index || o.target.index == index ? "#34a8eb" : "#555";
-                    //     ;
-                    // });
-                    node.style("stroke", "blue");
+
 
                     connected = paths[node_id]
                     node.style("fill", function (o) {
-                        if (connected[0].includes(o.id) && connected[1].includes(o.id)) {
+                        if (o.index == index) {
+                            return "#cccc66";
+                        } else if (connected[0].includes(o.id) && connected[1].includes(o.id)) {
                             return "#703cd8";
                         } else if (connected[0].includes(o.id)) {
                             return "#EC5552";
@@ -213,20 +197,47 @@ d3.json("graph.json").then(function (graph) {
                         }
                     })
                     node.style("opacity", function (o) {
-                        // if (neigh(index, o.index)) {
-                        //     return 1;
-                        // } else
-                        if (connected[0].includes(o.id) || connected[1].includes(o.id)) {
+                        if ((o.index == index) || (connected[0].includes(o.id) || connected[1].includes(o.id))) {
                             return 1;
                         } else {
                             return 0.3;
                         }
                     })
-                    link.style("opacity", function (o) {
-                        if (o.source.index == index || o.target.index == index) {
+                    node.style("stroke", function (o) {
+                        if (o.index == index) {
+                            return "black";
+                        }
+                    })
+
+                    labelNode.style("fill", function (o) {
+                        if (o.node.index == index) {
+                            return "#cccc66";
+                        } else if (connected[0].includes(o.node.id) && connected[1].includes(o.node.id)) {
+                            return "#703cd8";
+                        } else if (connected[0].includes(o.node.id)) {
+                            return "#EC5552";
+                        } else if (connected[1].includes(o.node.id)) {
+                            return "#34eb74";
+                        } else {
+                            return "#555";
+                        }
+                    })
+                    labelNode.style("opacity", function (o) {
+                        if ((o.node.index == index) || (connected[0].includes(o.node.id) || connected[1].includes(o.node.id))) {
                             return 1;
-                        } else if ((connected[0].includes(o.source.id) && connected[0].includes(o.target.id))
-                            || (connected[1].includes(o.source.id) && connected[1].includes(o.target.id))) {
+                        } else {
+                            return 0.3;
+                        }
+                    })
+                    labelNode.style("stroke", function (o) {
+                        if (o.node.index == index) {
+                            return "black";
+                        }
+                    })
+                    link.style("opacity", function (o) {
+                        if ((o.source.index == index || o.target.index == index) ||
+                            ((connected[0].includes(o.source.id) && connected[0].includes(o.target.id))
+                                || (connected[1].includes(o.source.id) && connected[1].includes(o.target.id)))) {
                             return 1;
                         } else {
                             return 0.3;
@@ -254,6 +265,32 @@ d3.json("graph.json").then(function (graph) {
                         }
                     })
 
+
+                    node.attr("r", function (o) {
+                        if ((o.index == index) || (connected[0].includes(o.id) || connected[1].includes(o.id))) {
+                            return 10;
+                        } else {
+                            return 5;
+                        }
+                    })
+
+                    labelNode.style("font-size", function (o) {
+                        if (o.node.index == index) {
+                            return "1.5em";
+                        } else if (connected[0].includes(o.node.id) || connected[1].includes(o.node.id)) {
+                            return "1.2em";
+                        }
+                    })
+
+                    labelNode.style("font-weight", function (o) {
+                        if (o.node.index == index) {
+                            return "bold";
+                        } else {
+                            return "normal";
+                        }
+                    })
+
+
                     // write html in box
 
                     html_text = ""
@@ -264,24 +301,33 @@ d3.json("graph.json").then(function (graph) {
                     // paths[node_id].forEach(function (d) {
                     //     html_text += "<a href=https://www.wikidata.org/wiki/" + d + ">" + d + "</a> <br>"
                     // })
-                    html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as source: <br>"
+                    html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as source:"
                     html_text += "<ul>"
-                    console.log(node_id)
                     node_infos[node_id]["VA_src_sents"].forEach(function (d) {
-                        splitted = d.split("*")
-                        sent = "<li>" + splitted[0] + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] + "<br></li>"
+                        splitted_modifier = d[0].split("/")
+                        sent = splitted_modifier[0] + "<em>" + splitted_modifier[1] + "</em>" + splitted_modifier[2]
+                        splitted_target = sent.split("|")
+                        sent = splitted_target[0] + "<a style='color:#34eb74'; href=https://www.wikidata.org/wiki/" + d[3] + ">" + splitted_target[1] + "</a>" + splitted_target[2]
+                        splitted = sent.split("*")
+                        sent = "<li>" + splitted[0] + "<a style='color:#cccc66'; href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] +
+                            "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
                         html_text += sent
                     })
                     html_text += "</ul>"
-                    html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as target: <br>"
+                    html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as target:"
                     html_text += "<ul>"
                     node_infos[node_id]["VA_trg_sents"].forEach(function (d) {
-                        splitted = d.split("|")
-                        sent = "<li>" + splitted[0] + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] + "<br></li>"
+                        splitted_modifier = d[0].split("/")
+                        sent = splitted_modifier[0] + "<em>" + splitted_modifier[1] + "</em>" + splitted_modifier[2]
+                        splitted_source = sent.split("*")
+                        sent = splitted_source[0] + "<a style='color:#EC5552'; href=https://www.wikidata.org/wiki/" + d[3] + ">" + splitted_source[1] + "</a>" + splitted_source[2]
+                        splitted = sent.split("|")
+                        sent = "<li>" + splitted[0] + "<a style='color:#cccc66'; href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] +
+                            "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
+
                         html_text += sent
-                        html_text += "</ul>"
                     });
-                    // console.log(html_text)
+                    html_text += "</ul>"
                     d3.select("#url_p")
                         .html(html_text);
 
