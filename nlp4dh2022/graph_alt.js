@@ -15,6 +15,13 @@ d3.json("graph.json").then(function (graph) {
                     'nodes': [],
                     'links': []
                 };
+                var edges = [];
+
+                graph.links.forEach(function (d, i) {
+                    edges.push(d.source + d.target)
+                })
+                console.log(edges)
+                console.log(edges.includes("Q41421" + "Q213812"))//[0].source)
 
                 graph.nodes.forEach(function (d, i) {
                     label.nodes.push({node: d});
@@ -172,48 +179,80 @@ d3.json("graph.json").then(function (graph) {
                 function focus(d) {
                     node_id = this.__data__.id
                     node_name = node_infos[node_id]["label"]
-
+                    console.log(node_name)
 
                     var index = d3.select(d3.event.target).datum().index;
                     node.style("opacity", function (o) {
                         return neigh(index, o.index) ? 1 : 0.3;
                     });
-                    node.style("fill", function (o) {
-                        return neigh(index, o.index) ? "#34a8eb" : "#555";
-                    })
-                    labelNode.attr("opacity", function (o) {
-                        return neigh(index, o.node.index) ? 1 : 0.3;
-                    });
-                    link.style("opacity", function (o) {
-                        return o.source.index == index || o.target.index == index ? 1 : 0.3;
-                    });
-                    link.style("stroke", function (o) {
-                        return o.source.index == index || o.target.index == index ? "#34a8eb" : "#555";
-                        ;
-                    });
+                    // node.style("fill", function (o) {
+                    //     return neigh(index, o.index) ? "#34a8eb" : "#555";
+                    // })
+                    // labelNode.attr("opacity", function (o) {
+                    //     return neigh(index, o.node.index) ? 1 : 0.3;
+                    // });
+                    // link.style("opacity", function (o) {
+                    //     return o.source.index == index || o.target.index == index ? 1 : 0.3;
+                    // });
+                    // link.style("stroke", function (o) {
+                    //     return o.source.index == index || o.target.index == index ? "#34a8eb" : "#555";
+                    //     ;
+                    // });
                     node.style("stroke", "blue");
 
-                    // connected = paths[node_id]
-                    // console.log("list", connected)
-                    // console.log("this node", d)
-                    // for (let i = 0; i < connected.length; i++) {
-                    //     node.style("fill", function (o) {
-                    //             // console.log(d.id)
-                    //             // console.log(o.id)
-                    //             if (neigh2(d.id, o.id)) {
-                    //                 return "#34a8eb"
-                    //             } else if (o.id == connected[i]) {
-                    //                 console.log(o)
-                    //                 return "#34eb74"
-                    //             } else {
-                    //                 return "#555"
-                    //             }
-                    //
-                    //         }
-                    //     )
-                    //     console.log("i", connected[i])
-                    //     console.log("node", node)
-                    // }
+                    connected = paths[node_id]
+                    node.style("fill", function (o) {
+                        if (connected[0].includes(o.id) && connected[1].includes(o.id)) {
+                            return "#703cd8";
+                        } else if (connected[0].includes(o.id)) {
+                            return "#EC5552";
+                        } else if (connected[1].includes(o.id)) {
+                            return "#34eb74";
+                        } else {
+                            return "#555";
+                        }
+                    })
+                    node.style("opacity", function (o) {
+                        // if (neigh(index, o.index)) {
+                        //     return 1;
+                        // } else
+                        if (connected[0].includes(o.id) || connected[1].includes(o.id)) {
+                            return 1;
+                        } else {
+                            return 0.3;
+                        }
+                    })
+                    link.style("opacity", function (o) {
+                        if (o.source.index == index || o.target.index == index) {
+                            return 1;
+                        } else if ((connected[0].includes(o.source.id) && connected[0].includes(o.target.id))
+                            || (connected[1].includes(o.source.id) && connected[1].includes(o.target.id))) {
+                            return 1;
+                        } else {
+                            return 0.3;
+                        }
+                    })
+                    link.style("stroke", function (o) {
+                        //neighbors
+                        if (((edges.includes(o.source.id + o.target.id) && edges.includes(o.target.id + o.source.id))
+                                && (o.target.index == index || o.source.index == index))
+                            ||
+                            //non-neighbors
+                            ((edges.includes(o.source.id + o.target.id) && edges.includes(o.target.id + o.source.id))
+                                && (connected[0].includes(o.target.id) || connected[1].includes(o.target.id))
+                                && (connected[0].includes(o.source.id) || connected[1].includes(o.source.id))
+                            )) {
+                            return "#703cd8";
+                        } else if ((connected[0].includes(o.source.id) && connected[0].includes(o.target.id))
+                            || (o.target.index == index)) {
+                            return "#EC5552";
+                        } else if ((connected[1].includes(o.source.id) && connected[1].includes(o.target.id))
+                            || (o.source.index == index)) {
+                            return "#34eb74";
+                        } else {
+                            return "#555";
+                        }
+                    })
 
                     // write html in box
 
@@ -225,7 +264,7 @@ d3.json("graph.json").then(function (graph) {
                     // paths[node_id].forEach(function (d) {
                     //     html_text += "<a href=https://www.wikidata.org/wiki/" + d + ">" + d + "</a> <br>"
                     // })
-                    html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a>" + " as source: <br>"
+                    html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as source: <br>"
                     html_text += "<ul>"
                     console.log(node_id)
                     node_infos[node_id]["VA_src_sents"].forEach(function (d) {
@@ -234,7 +273,7 @@ d3.json("graph.json").then(function (graph) {
                         html_text += sent
                     })
                     html_text += "</ul>"
-                    html_text += "<br><br> Sentences including entity as target: <br>"
+                    html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as target: <br>"
                     html_text += "<ul>"
                     node_infos[node_id]["VA_trg_sents"].forEach(function (d) {
                         splitted = d.split("|")
@@ -242,7 +281,7 @@ d3.json("graph.json").then(function (graph) {
                         html_text += sent
                         html_text += "</ul>"
                     });
-                    console.log(html_text)
+                    // console.log(html_text)
                     d3.select("#url_p")
                         .html(html_text);
 

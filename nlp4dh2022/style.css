@@ -126,6 +126,13 @@ header > h1 {
 
 
 
+
+    /* unvisited link */
+a:link,a:visited,a:hover,a:active {
+    color: #267CB9;
+}
+
+
 /*#test{*/
 /*    font-size: 20px;*/
 /*}*/
