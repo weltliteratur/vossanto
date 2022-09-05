@@ -306,8 +306,10 @@ d3.json("graph.json").then(function (graph) {
                     node_infos[node_id]["VA_src_sents"].forEach(function (d) {
                         splitted_modifier = d[0].split("/")
                         sent = splitted_modifier[0] + "<em>" + splitted_modifier[1] + "</em>" + splitted_modifier[2]
-                        splitted_target = sent.split("|")
-                        sent = splitted_target[0] + "<a style='color:#34eb74'; href=https://www.wikidata.org/wiki/" + d[3] + ">" + splitted_target[1] + "</a>" + splitted_target[2]
+                        if (sent.includes("|")) {
+                            splitted_target = sent.split("|")
+                            sent = splitted_target[0] + "<a style='color:#34eb74'; href=https://www.wikidata.org/wiki/" + d[3] + ">" + splitted_target[1] + "</a>" + splitted_target[2]
+                        }
                         splitted = sent.split("*")
                         sent = "<li>" + splitted[0] + "<a style='color:#cccc66'; href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] +
                             "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
@@ -321,9 +323,15 @@ d3.json("graph.json").then(function (graph) {
                         sent = splitted_modifier[0] + "<em>" + splitted_modifier[1] + "</em>" + splitted_modifier[2]
                         splitted_source = sent.split("*")
                         sent = splitted_source[0] + "<a style='color:#EC5552'; href=https://www.wikidata.org/wiki/" + d[3] + ">" + splitted_source[1] + "</a>" + splitted_source[2]
-                        splitted = sent.split("|")
-                        sent = "<li>" + splitted[0] + "<a style='color:#cccc66'; href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] +
-                            "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
+                        if (sent.includes("|")) {
+                            console.log(sent)
+                            splitted = sent.split("|")
+                            sent = "<li>" + splitted[0] + "<a style='color:#cccc66'; href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] +
+                                "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
+                        } else {
+                            sent = "<li>" + sent + "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
+                        }
+
 
                         html_text += sent
                     });
