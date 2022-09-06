@@ -294,14 +294,14 @@ d3.json("graph.json").then(function (graph) {
                     // write html in box
 
                     html_text = ""
-                    html_text += "Infos: <br>" +
-                        "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a>"
+                    html_text += "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a><br><br>"
                     // html_text += "<br><br> Ancestors and Descendants: <br>"
 
                     // paths[node_id].forEach(function (d) {
                     //     html_text += "<a href=https://www.wikidata.org/wiki/" + d + ">" + d + "</a> <br>"
                     // })
-                    html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as source:"
+                    // html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as source:"
+                    html_text += "As source:"
                     html_text += "<ul>"
                     node_infos[node_id]["VA_src_sents"].forEach(function (d) {
                         splitted_modifier = d[0].split("/")
@@ -312,11 +312,12 @@ d3.json("graph.json").then(function (graph) {
                         }
                         splitted = sent.split("*")
                         sent = "<li>" + splitted[0] + "<a style='color:#cccc66'; href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] +
-                            "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
+                            " (<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
                         html_text += sent
                     })
                     html_text += "</ul>"
-                    html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as target:"
+                    // html_text += "<br><br> Sentences including " + "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a> as target:"
+                    html_text += "As target:"
                     html_text += "<ul>"
                     node_infos[node_id]["VA_trg_sents"].forEach(function (d) {
                         splitted_modifier = d[0].split("/")
@@ -327,7 +328,7 @@ d3.json("graph.json").then(function (graph) {
                             console.log(sent)
                             splitted = sent.split("|")
                             sent = "<li>" + splitted[0] + "<a style='color:#cccc66'; href=https://www.wikidata.org/wiki/" + node_id + ">" + splitted[1] + "</a>" + splitted[2] +
-                                "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
+                                " (<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
                         } else {
                             sent = "<li>" + sent + "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
                         }
@@ -346,10 +347,10 @@ d3.json("graph.json").then(function (graph) {
                     if (image_urls.hasOwnProperty(node_id)) {
                         image += "<a href='https://commons.wikimedia.org/wiki/File:" + image_urls[node_id]["sourceImId"] + "'>" +
                             "<img src='https://upload.wikimedia.org/wikipedia/commons/" + image_urls[node_id]["sourceImThumb"] + "'/></a><br>";
-                        meta += "image: <a href='https://commons.wikimedia.org/wiki/File:" + image_urls[node_id]["sourceImId"] + "'>Wikimedia Commons</a>";
+                        meta += "<a href='https://commons.wikimedia.org/wiki/File:" + image_urls[node_id]["sourceImId"] + "'>Wikimedia Commons</a>";
                         // if (e.sImLi) image += ", license: " + e.sImLi;
 
-                        meta += ", license:  " + image_urls[node_id]["permissions"]
+                        meta += " / " + image_urls[node_id]["permissions"]
                         d3.select("#image_container")
                             .html(image + meta);
                     } else {
