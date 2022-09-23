@@ -150,6 +150,11 @@ d3.json("graph.json").then(function (graph) {
                     .enter()
                     .append("line")
                     .attr("x1", function (d) {
+
+                        console.log(d)
+                        console.log(d.source)
+                        console.log(graph.nodes)
+                        console.log(graph.nodes[d.source]["x"])
                         return x(graph.nodes[d.source]["x"])
                     })
                     .attr("x2", function (d) {
