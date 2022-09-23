@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<!--<style>-->
-<!--    body {-->
-<!--        overflow:hidden;-->
-<!--        margin:0;-->
-<!--    }-->
+    <meta charset="utf-8">
+    <!--<style>-->
+    <!--    body {-->
+    <!--        overflow:hidden;-->
+    <!--        margin:0;-->
+    <!--    }-->
 
-<!--    text {-->
-<!--        font-family: sans-serif;-->
-<!--        pointer-events: none;-->
-<!--    }-->
-<!--</style>-->
-<link href="style.css" rel="stylesheet">
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<!--<script src="http://d3js.org/queue.v1.min.js"></script>-->
+    <!--    text {-->
+    <!--        font-family: sans-serif;-->
+    <!--        pointer-events: none;-->
+    <!--    }-->
+    <!--</style>-->
+    <link href="style.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!--<script src="http://d3js.org/queue.v1.min.js"></script>-->
 </head>
 <body>
 
@@ -39,35 +39,57 @@
 
 
 <main id="main_container">
-<!--    <div id="visualization_container">-->
-        <div id="visualization_container"></div>
+    <!--    <div id="visualization_container">-->
+    <div id="visualization_container"></div>
 
-<!--            <div id="stats_container">te</div>-->
-<!--        </div>-->
+    <!--            <div id="stats_container">te</div>-->
+    <!--        </div>-->
     <div class="vertical_divider"></div>
     <div id="explanation_and_results_main_container">
-        <div id="image_container" >
-<!--            <b>Legende</b> <br/>-->
-<!--            <svg id="legend"></svg>-->
+        <div id="image_container">
+            <!--            <b>Legende</b> <br/>-->
+            <!--            <svg id="legend"></svg>-->
         </div>
         <hr class="horizontal_divider"/>
-<!--        <div class="text_container" >-->
-<!--            <p> <b>Erklärung</b>-->
-<!--                <br/>-->
-<!--                Dieser Streamgraph beschreibt die zeitliche Entwicklung der Anzahl von Publikationen je BDSL Kategorie (Level 1).-->
-<!--                <br/>-->
-<!--                Indem man die Maus über den Graphen bewegt, kann man sich die Zahlen je Jahr und Kategorie anschauen (rechts unten).-->
-<!--                Die top10 Autoren (Primärlieratur) erscheinen unten links.-->
-<!--            </p>-->
-<!--            Sobald man auf einen Punkt in der Grafik klickt, friert die Grafik ein und man kann zusätzlich die Dropdown-Box nutzen, um sich die Werke der einzelnen Autoren anzuschauen und die Links zu den jeweiligen BDSL-Online Einträgen zu bekommen.-->
-<!--            <p>-->
+        <div id="description_container">
+            <p>
+            <ul>
+                <li>
+                    <span style="color:#cccc66;">Yellow</span>: The node that is currently clicked
+                </li>
+                <li>
+                    <span style="color:#34eb74;">Green</span>: All nodes that can be reached from the current node via a directed
+                    path
+                </li>
+                <li>
+                    <span style="color:#EC5552;">Red</span>: All nodes that are able to reach the current node via a directed path
+                </li>
+                <li>
+                    <span style="color:#703cd8;">Purple</span>: All nodes that are able to reach the current node via a directed path
+                    AND that can be reached from the current node via a directed path
+                </li>
+            </ul>
+            </p>
+        </div>
+        <hr class="horizontal_divider"/>
 
-<!--            </p>-->
-<!--        </div>-->
-<!--        <hr class="horizontal_divider"/>-->
-        <div id="tt" class="tooltip" >
-            <div class="tooltip_bg" ></div>
-            <div class="tooltip_text" >Click on a node to get more information.
+        <!--        <div class="text_container" >-->
+        <!--            <p> <b>Erklärung</b>-->
+        <!--                <br/>-->
+        <!--                Dieser Streamgraph beschreibt die zeitliche Entwicklung der Anzahl von Publikationen je BDSL Kategorie (Level 1).-->
+        <!--                <br/>-->
+        <!--                Indem man die Maus über den Graphen bewegt, kann man sich die Zahlen je Jahr und Kategorie anschauen (rechts unten).-->
+        <!--                Die top10 Autoren (Primärlieratur) erscheinen unten links.-->
+        <!--            </p>-->
+        <!--            Sobald man auf einen Punkt in der Grafik klickt, friert die Grafik ein und man kann zusätzlich die Dropdown-Box nutzen, um sich die Werke der einzelnen Autoren anzuschauen und die Links zu den jeweiligen BDSL-Online Einträgen zu bekommen.-->
+        <!--            <p>-->
+
+        <!--            </p>-->
+        <!--        </div>-->
+        <!--        <hr class="horizontal_divider"/>-->
+        <div id="tt" class="tooltip">
+            <div class="tooltip_bg"></div>
+            <div class="tooltip_text">Click on a node or a name to get more information.
                 <p id="url_p"></p>
             </div>
         </div>
