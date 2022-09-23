@@ -150,11 +150,6 @@ d3.json("graph.json").then(function (graph) {
                     .enter()
                     .append("line")
                     .attr("x1", function (d) {
-
-                        console.log(d)
-                        console.log(d.source)
-                        console.log(graph.nodes)
-                        console.log(graph.nodes[d.source]["x"])
                         return x(graph.nodes[d.source]["x"])
                     })
                     .attr("x2", function (d) {
@@ -192,19 +187,10 @@ d3.json("graph.json").then(function (graph) {
                     .style("fill", "white")
                     .style("stroke-width", "0.5px")
 
-                // .attr("fill", function(d) { return color(d.group); })
-
 
                 node.on("click", focus)
 
-                // node.call(
-                //     d3.drag()
-                //         .on("start", dragstarted)
-                //         .on("drag", dragged)
-                //         .on("end", dragended)
-                // );
-                //
-                console.log(label.nodes)
+
                 var labelNode = container.append("g").attr("class", "labelNodes")
                     .selectAll("g")
                     .data(label.nodes)
@@ -222,7 +208,6 @@ d3.json("graph.json").then(function (graph) {
                     .style("fill", "#aaa")
                     .style("font-family", "Arial")
                     .style("font-size", function (d) {
-                        console.log(d.node.size)
                         return Math.max(d.node.size, 3).toString() + "px"
                     })
                 // .style("pointer-events", "none"); // to prevent mouseover/drag capture
@@ -233,49 +218,50 @@ d3.json("graph.json").then(function (graph) {
                 });
                 //
                 node.on("click", focus);//.on("mouseout", unfocus);
-                // node.on("mouseover", focus);//.on("mouseout", unfocus);
-                //
-                // function ticked() {
-                //     // if (Date.now() < endTime) {
-                //         /*update the simulation*/
-                //
-                //         node.call(updateNode);
-                //         link.call(updateLink);
-                //
-                //         // labelLayout.alphaTarget(0.3).restart();
-                //         labelNode.each(function (d, i) {
-                //             if (i % 2 == 0) {
-                //                 d.x = d.node.x;
-                //                 d.y = d.node.y;
-                //             } else {
-                //                 var b = this.getBBox();
-                //
-                //                 var diffX = d.x - d.node.x;
-                //                 var diffY = d.y - d.node.y;
-                //
-                //                 var dist = Math.sqrt(diffX * diffX + diffY * diffY);
-                //
-                //                 var shiftX = b.width * (diffX - dist) / (dist * 2);
-                //                 shiftX = Math.max(-b.width, Math.min(0, shiftX));
-                //                 var shiftY = 16;
-                //                 this.setAttribute("transform", "translate(" + shiftX + "," + shiftY + ")");
-                //             }
-                //         });
-                //         labelNode.call(updateNode);
-                //     // } else {
-                //         // graphLayout.stop();
-                //         // graph.nodes.forEach(function (d, i) {
-                //         // })
-                //     // }
-                // }
-                //
-                //
+
                 function fixna(x) {
                     if (isFinite(x)) return x;
                     return 0;
                 }
 
+                var tooltip = d3.select("#visualization_container")
+                    .append("div")
+                    .style("position", "absolute")
+                    .style("visibility", "hidden")
+                // .html(function (d) {
+                //     console.log(d)
+                // });
+
+                link
+                    .on("mouseover", focus_link)
+                // link
+                //     .on("mouseover", function (d) {
+                //         console.log(this)
+                //             return d.attr("stroke", "blue");
+                //         }
+                //     )
+                    .on("mousemove", function () {
+                        return tooltip.style("top", (event.pageY - 8) + "px").style("left", (event.pageX - 8) + "px");
+                    })
+                // .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
                 //
+
+
+                function focus_link(d){
+                    link.attr("stroke", function(o){
+                        if (o.source == d.source &&o.target == d.target) {
+                            console.log(o)
+                            return "blue";}
+                        else{
+                            return "#555";
+                        }
+                    })
+
+                    tooltip.style("visibility", "visible").html(d.modifier)
+
+                }
+
                 function focus(d) {
 
                     var node_id = d.id
@@ -332,19 +318,7 @@ d3.json("graph.json").then(function (graph) {
                             return i % 2 == 0 ? 0 : 0.3;
                         }
                     })
-                    // labelNode.style("font-weight", function (o, i) {
-                    //     if (o.node.index == node_index) {
-                    //         return i % 2 == 0 ? "" :  "bold";
-                    //     }
-                    // })
-                    // console.log(labelNode)
-                    // labelNode.style("font-size", function (o) {
-                    //     if (o.node.index == node_index) {
-                    //         return "8px";
-                    //     } else {
-                    //         return "5px"
-                    //     }
-                    // })
+
                     link.style("opacity", function (o) {
                         if ((o.source == node_index || o.target == node_index) ||
                             ((connected[0].includes(o.source) && connected[0].includes(o.target))
@@ -375,31 +349,6 @@ d3.json("graph.json").then(function (graph) {
                             return "#555";
                         }
                     })
-
-
-                    // node.attr("r", function (o) {
-                    //     if ((o.id == node_id) || (connected[0].includes(o.index) || connected[1].includes(o.index))) {
-                    //         return 3;
-                    //     } else {
-                    //         return 2;
-                    //     }
-                    // })
-
-                    // labelNode.style("font-size", function (o) {
-                    //     if (o.node.index == index) {
-                    //         return "1.5em";
-                    //     } else if (connected[0].includes(o.node.id) || connected[1].includes(o.node.id)) {
-                    //         return "1.2em";
-                    //     }
-                    // })
-
-                    // labelNode.style("font-weight", function (o) {
-                    //     if (o.node.index == index) {
-                    //         return "bold";
-                    //     } else {
-                    //         return "normal";
-                    //     }
-                    // })
 
 
                     // write html in box
@@ -503,23 +452,6 @@ d3.json("graph.json").then(function (graph) {
                     });
                 }
 
-                // function dragstarted(d) {
-                //     d3.event.sourceEvent.stopPropagation();
-                //     if (!d3.event.active) graphLayout.alphaTarget(0.3).restart();
-                //     d.fx = d.x;
-                //     d.fy = d.y;
-                // }
-                //
-                // function dragged(d) {
-                //     d.fx = d3.event.x;
-                //     d.fy = d3.event.y;
-                // }
-                //
-                // function dragended(d) {
-                //     if (!d3.event.active) graphLayout.alphaTarget(0);
-                //     d.fx = null;
-                //     d.fy = null;
-                // }
 
             })
         })

@@ -18,7 +18,9 @@
     <!--<script src="http://d3js.org/queue.v1.min.js"></script>-->
 </head>
 <body>
-
+<header >
+    <h1>Exploring Relationships between Sources and Targets of Vossian Antonomasia</h1>
+</header>
 <!--<div id="visualization_container">-->
 <!--    <svg id="vis" class="graph_container"></svg>-->
 <!--</div>-->
@@ -100,3 +102,11 @@
 <script src="graph.js"></script>
 </body>
 </html>
+
+function focus_link(d){
+
+link.attr("stroke"), function(o){
+if (o.source == d.source &&o.target == d.target)
+return "blue";
+}
+}
