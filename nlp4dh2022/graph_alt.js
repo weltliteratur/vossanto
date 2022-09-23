@@ -4,8 +4,12 @@ const margin = {top: 5, right: 25, bottom: 20, left: 25};
 const width = parseInt(d3.selectAll("#visualization_container").style("width")) - margin.left - margin.right;
 const height = parseInt(d3.selectAll("#visualization_container").style("height")) - margin.top - margin.bottom;
 
+const simulationDurationInMs = 60000; // 20 seconds
+
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
+let startTime = Date.now();
+let endTime = startTime + simulationDurationInMs;
 
 d3.json("graph.json").then(function (graph) {
     d3.json("node_infos.json").then(function (node_infos) {
@@ -20,8 +24,6 @@ d3.json("graph.json").then(function (graph) {
                 graph.links.forEach(function (d, i) {
                     edges.push(d.source + d.target)
                 })
-                console.log(edges)
-                console.log(edges.includes("Q41421" + "Q213812"))//[0].source)
 
                 graph.nodes.forEach(function (d, i) {
                     label.nodes.push({node: d});
@@ -46,6 +48,7 @@ d3.json("graph.json").then(function (graph) {
                         return d.id;
                     }).distance(50).strength(1))
                     .on("tick", ticked);
+
 
                 var adjlist = [];
                 var adjlist2 = [];
@@ -115,8 +118,12 @@ d3.json("graph.json").then(function (graph) {
                     .data(graph.nodes)
                     .enter()
                     .append("circle")
+                    .attr("id", function (d) {
+                        return d.id
+                    })
                     .attr("r", 5)
                 // .attr("fill", function(d) { return color(d.group); })
+
 
                 node.on("click", focus)
 
@@ -127,49 +134,62 @@ d3.json("graph.json").then(function (graph) {
                         .on("end", dragended)
                 );
 
-                var labelNode = container.append("g").attr("class", "labelNodes")
-                    .selectAll("text")
-                    .data(label.nodes)
-                    .enter()
-                    .append("text")
-                    .text(function (d, i) {
-                        return i % 2 == 0 ? "" : node_infos[d.node.id]["label"];
-                    })
-                    .style("fill", "#555")
-                    .style("font-fa mily", "Arial")
-                    .style("font-size", 12)
-                    .style("pointer-events", "none"); // to prevent mouseover/drag capture
+                // var labelNode = container.append("g").attr("class", "labelNodes")
+                //     .selectAll("text")
+                //     .data(label.nodes)
+                //     .enter()
+                //     .append("text")
+                //     .html(function (d, i) {
+                //         return i % 2 == 0 ? "" : node_infos[d.node.id]["label"];
+                //     })
+                //     .style("fill", "#555")
+                //     .style("font-fa mily", "Arial")
+                //     .style("font-size", 12)
+                // // .style("pointer-events", "none"); // to prevent mouseover/drag capture
+                //
+                //
+                // labelNode.on("click", function (d) {
+                //     return focus(d.node)
+                // });
 
-                node.on("click", focus);//.on("mouseout", unfocus);
+                // node.on("click", focus);//.on("mouseout", unfocus);
 
                 function ticked() {
+                    if (Date.now() < endTime) {
+                        /*update the simulation*/
 
-                    node.call(updateNode);
-                    link.call(updateLink);
+                        node.call(updateNode);
+                        link.call(updateLink);
 
-                    labelLayout.alphaTarget(0.3).restart();
-                    labelNode.each(function (d, i) {
-                        if (i % 2 == 0) {
-                            // console.log(d.x, d.y)
-                            d.x = d.node.x;
-                            d.y = d.node.y;
-                        } else {
-                            var b = this.getBBox();
+                        labelLayout.alphaTarget(0.3).restart();
+                        labelNode.each(function (d, i) {
+                            if (i % 2 == 0) {
+                                // console.log(d.x, d.y)
+                                d.x = d.node.x;
+                                d.y = d.node.y;
+                            } else {
+                                var b = this.getBBox();
 
-                            var diffX = d.x - d.node.x;
-                            var diffY = d.y - d.node.y;
+                                var diffX = d.x - d.node.x;
+                                var diffY = d.y - d.node.y;
 
-                            var dist = Math.sqrt(diffX * diffX + diffY * diffY);
+                                var dist = Math.sqrt(diffX * diffX + diffY * diffY);
 
-                            var shiftX = b.width * (diffX - dist) / (dist * 2);
-                            shiftX = Math.max(-b.width, Math.min(0, shiftX));
-                            var shiftY = 16;
-                            this.setAttribute("transform", "translate(" + shiftX + "," + shiftY + ")");
-                        }
-                    });
-                    labelNode.call(updateNode);
-
+                                var shiftX = b.width * (diffX - dist) / (dist * 2);
+                                shiftX = Math.max(-b.width, Math.min(0, shiftX));
+                                var shiftY = 16;
+                                this.setAttribute("transform", "translate(" + shiftX + "," + shiftY + ")");
+                            }
+                        });
+                        labelNode.call(updateNode);
+                    } else {
+                        graphLayout.stop();
+                        graph.nodes.forEach(function (d, i) {
+                            console.log(i, d.id, d.x, d.y)
+                        })
+                    }
                 }
+
 
                 function fixna(x) {
                     if (isFinite(x)) return x;
@@ -177,10 +197,15 @@ d3.json("graph.json").then(function (graph) {
                 }
 
                 function focus(d) {
-                    var node_id = this.__data__.id
+                    console.log(d)
+                    console.log(d.id)
+                    var node_id = d.id
                     var node_name = node_infos[node_id]["label"]
-                    var index = d3.select(d3.event.target).datum().index;
+                    var index = d.index;
 
+                    // window.location.href = "#" + d.id;
+                    // console.log(d.id)
+                    // console.log(window.location.href)
 
                     connected = paths[node_id]
                     node.style("fill", function (o) {
@@ -208,8 +233,9 @@ d3.json("graph.json").then(function (graph) {
                             return "black";
                         }
                     })
-
+                    console.log(index)
                     labelNode.style("fill", function (o) {
+
                         if (o.node.index == index) {
                             return "#cccc66";
                         } else if (connected[0].includes(o.node.id) && connected[1].includes(o.node.id)) {
@@ -295,6 +321,7 @@ d3.json("graph.json").then(function (graph) {
 
                     html_text = ""
                     html_text += "<a href=https://www.wikidata.org/wiki/" + node_id + ">" + node_name + "</a><br><br>"
+                    // html_text += "<a href='#" + node_id + "'>" + node_name + "</a><br><br>"
                     // html_text += "<br><br> Ancestors and Descendants: <br>"
 
                     // paths[node_id].forEach(function (d) {
@@ -331,6 +358,7 @@ d3.json("graph.json").then(function (graph) {
                                 " (<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
                         } else {
                             sent = "<li>" + sent + "(<a href=http://query.nytimes.com/gst/fullpage.html?res=" + d[1] + ">NYT " + d[2] + "</a>)</li>"
+
                         }
 
 
@@ -405,6 +433,8 @@ d3.json("graph.json").then(function (graph) {
                     d.fx = null;
                     d.fy = null;
                 }
+
+                // console.log(label.nodes)
             })
         })
     })
