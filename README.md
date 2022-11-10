@@ -70,3 +70,9 @@ Preprint: [arXiv:1902.06428](https://arxiv.org/abs/1902.06428))
 - [Slides DHd 2017, Bern](https://lehkost.github.io/slides/2017-bern/) (in German)
 - [Abstract DHd 2017, Bern](http://www.dhd2017.ch/wp-content/uploads/2017/02/Abstractband_ergaenzt.pdf#page=122) (in German)
 - [Data and Code](first)
+
+
+## Further Ressources
+
+- [a bibliography of related publications](https://www.bibsonomy.org/user/jaeschke/vossanto)
+- [a poster about a Vossanto memory game](https://doi.org/10.6084/m9.figshare.6531140) (in German)
