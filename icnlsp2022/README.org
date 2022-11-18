@@ -1,0 +1,18 @@
+* Data and code of our paper: "Der Frank Sinatra der Wettervorhersage": Cross-Lingual Vossian Antonomasia Extraction
+
+tba
+
+** Datasets
+
+*** English datasets
+
+
+*** German datasets
+
+** Code
+
+- 0shot
+
+- de2en
+
+- en2de
