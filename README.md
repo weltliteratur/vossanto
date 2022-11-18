@@ -25,9 +25,10 @@ the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
 
-## ICNLSP (2022) Schwab, M., Jäschke, R., Fischer, F.: “Der Frank
-Sinatra der Wettervorhersage”: Cross-Lingual Vossian Antonomasia
-Extraction [Link tba]
+## ICNLSP (2022)
+Schwab, M., Jäschke, R., Fischer, F.: “Der Frank Sinatra der
+Wettervorhersage”: Cross-Lingual Vossian Antonomasia Extraction [Link
+tba]
 
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/icnlsp2022)
 
