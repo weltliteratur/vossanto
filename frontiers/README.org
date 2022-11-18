@@ -1,4 +1,6 @@
-* Description
+* "The Rodney Dangerfield of Stylistic Devices": End-to-End Detection and Extraction of Vossian Antonomasia Using Neural Networks.
+
+** Description
 This is an extension of the dataset from [[https://aclanthology.org/D19-1647.pdf][Schwab et al. (2019)]] which
  was the result of a semi-automated VA extraction method on The New
  York Times Annotated Corpus (Sandhaus, 2008) which contains around
@@ -33,7 +35,7 @@ include a VA, 2,929 do not.
 Annotations: The target is encapsulated by "|", the source by "*" and
 the modifier by "/".
 
-* Dataset 
+** Dataset 
 +[[https://www.wikidata.org/wiki/Q65553][Carl-Uwe Steeb]] [[http://query.nytimes.com/gst/fullpage.html?res=950DE1DE1538F932A15752C0A96F948260][(1989/01/21/)]] 1 ranking with a 6-2, 3-6, 6-0, 6-3 second-round victory over the Carl-Uwe Steeb of West Germany.+
 [[https://www.wikidata.org/wiki/Q213626][Jesse James]] [[http://query.nytimes.com/gst/fullpage.html?res=9F03E5D61731F937A25752C1A962958260][(1994/11/14/)]] 1 suspect, |Leroy Linen|, 41, was in custody yesterday, facing a felony charge as the *Jesse James* of /Scofflaws/.
 +[[https://www.wikidata.org/wiki/Q235262][Emmy]] [[http://query.nytimes.com/gst/fullpage.html?res=9C04E6DD1630F933A1575AC0A9639C8B63][(2005/09/20/)]] 10 in the Nielsen ratings, and on Sunday it won the Emmy for best comedy, its second.+
