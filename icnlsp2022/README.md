@@ -23,6 +23,7 @@
 
 ## Code
 
-- 0shot:
-- de2en:
-- en2de:
+* translate.py: translates sentences from english to german or vice versa
+* align.py: aligns tags from original sentence to translated sentence
+
+Fine-tuning and inference is conducted using [Huggingface' transformers library](https://github.com/huggingface/transformers/tree/main/examples/pytorch/token-classification) and adapting [the example script](https://github.com/huggingface/transformers/blob/main/examples/pytorch/token-classification/run_ner.py).
