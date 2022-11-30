@@ -1,10 +1,10 @@
 // set the dimensions and margins of the graph
 const margin = {top: 10, right: 30, bottom: 30, left: 60},
     width = 2000 - margin.left - margin.right,
-    height = 1500 - margin.top - margin.bottom;
+    height = 1000 - margin.top - margin.bottom;
 
 // // append the svg object to the body of the page
-const svg = d3.select("#my_dataviz")
+const svg = d3.select("#visualization_container")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -16,24 +16,40 @@ var slider = d3
     .min(1)
     .max(14)
     .step(1)
-    .value(10)
+    .value(9)
     .width(600)
     .displayValue(true)
+
+
 // .on('onchange', function (val) {
 //     d3.select('#value').text(val);
 // });
 
+var buttonNames = ["pca", "pca_tsne", "tsne", "umap", "ivis"]
+
+buttons = d3.select("#image_container")
+    .selectAll("input")
+    .data(buttonNames)
+    .enter()
+    .append("input")
+    .attr("type", "button")
+    .attr("class", "button")
+    .attr("value", function (d) {
+        return d;
+    })
+
+
 d3.select('#slider')
     .append('svg')
     .attr('width', 700)
-    .attr('height', 150)
+    // .attr('height', 150)
     .append('g')
     .attr('transform', 'translate(30,30)')
     .call(slider);
 
 d3.select('#legend')
     .attr('width', 600)
-    .attr('height', 150)
+    // .attr('height', 150)
     .append('g')
     .attr('transform', 'translate(30,30)')
 
@@ -41,32 +57,31 @@ d3.select('#legend')
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 // //Read the data
-d3.csv("./data/kmeans_pca_tsne.csv").then(function (data) {
 
+
+function visualize(data, reduction) {
+    console.log(reduction)
     // transform datatype of x and y coordinates to numeric
     data.forEach(function (d) {
-        d.x = +d.x;
+        d[reduction + "_x"] = +d[reduction + "_x"];
     });
     data.forEach(function (d) {
-        d.y = +d.y;
+        d[reduction + "_y"] = +d[reduction + "_y"];
     });
 
     // Add X axis
     var x = d3.scaleLinear()
         .domain(d3.extent(data, function (d) {
-            return d.x;
+            return d[reduction + "_x"];
         }))
         .range([0, width]);
 
     // Add Y axis
     var y = d3.scaleLinear()
         .domain(d3.extent(data, function (d) {
-            return d.y;
+            return d[reduction + "_y"];
         }))
         .range([height, 0]);
-    // svg.append("g")
-    //     .attr("transform", `translate($0,{width})`)
-    //     .call(d3.axisLeft(y));
 
     var brush = d3.brush().extent([[0, 0], [width, height]]).on("end", brushended),
         idleTimeout,
@@ -74,16 +89,16 @@ d3.csv("./data/kmeans_pca_tsne.csv").then(function (data) {
 
 
     x.domain(d3.extent(data, function (d) {
-        return d.x;
+        return d[reduction + "_x"];
     })).nice();
     y.domain(d3.extent(data, function (d) {
-        return d.y;
+        return d[reduction + "_y"];
     })).nice();
 
 
     var scattertext = svg.append("g")
         .attr("id", "scatterplot")
-        .attr("my_dataviz-path", "url(#my_dataviz)");
+        .attr("visualization_container-path", "url(#visualization_container)");
 
 
     // "draw" labels
@@ -92,22 +107,22 @@ d3.csv("./data/kmeans_pca_tsne.csv").then(function (data) {
         .enter().append("text")
         .attr("class", "dot")
         .attr("x", function (d) {
-            return x(d.x);
+            return x(d[reduction + "_x"]);
         })
         .attr("y", function (d) {
-            return y(d.y);
+            return y(d[reduction + "_y"]);
         })
         .text(function (d) {
             return d.label;
         })
         .style("font", "5px times")
         .style("fill", function (d) {
-            // console.log(d[9])
             return color(d[9])
         })
 
 
     var legend = d3.select("#legend")
+
     keys = Array.from({length: slider.value()}, (x, i) => i)
     legend.selectAll("mydots")
         .data(keys)
@@ -122,20 +137,12 @@ d3.csv("./data/kmeans_pca_tsne.csv").then(function (data) {
             return color(i)
         })
         .on("click", function (d, i) {
-            console.log(d)
-            console.log(i)
-            d3.selectAll(".dot").style("fill", "rgb(0,0,0,0.4)")
-            d3.selectAll(".dot").style("fill", "rgb(0,0,0,0.4)")
+            d3.selectAll(".dot").style("fill", "rgb(0,0,0,0.1)")
             for (let t of d3.selectAll(".dot")) {
-                // console.log(t.__data__[slider.value()] == i + 1, color(t.__data__[slider.value()]))
-                color_p = color(t.__data__[slider.value()] )
-                if (t.__data__[slider.value()] == i ) {
-                    console.log("test")
+                color_p = color(t.__data__[slider.value()])
+                if (t.__data__[slider.value()] == i) {
                     t.style.fill = color_p
                 }
-                console.log(typeof color_p)
-                //     console.log(slider.value() == i + 1)
-                //     t.style.fill =  color_p
             }
         })
 
@@ -150,10 +157,10 @@ d3.csv("./data/kmeans_pca_tsne.csv").then(function (data) {
         if (s === null) {
             if (!idleTimeout) return idleTimeout = setTimeout(idled, idleDelay);
             x.domain(d3.extent(data, function (d) {
-                return d.x;
+                return d[reduction + "_x"];
             })).nice();
             y.domain(d3.extent(data, function (d) {
-                return d.y;
+                return d[reduction + "_y"];
             })).nice();
         } else {
             x.domain([s[0][0], s[1][0]].map(x.invert, x));
@@ -172,18 +179,18 @@ d3.csv("./data/kmeans_pca_tsne.csv").then(function (data) {
         if (s == null) {
             scattertext.selectAll("text")
                 .attr("x", function (d) {
-                    return x(d.x);
+                    return x(d[reduction + "_x"]);
                 })
                 .attr("y", function (d) {
-                    return y(d.y);
+                    return y(d[reduction + "_y"]);
                 }).style("font", "5px times");
         } else {
             scattertext.selectAll("text").transition(t)
                 .attr("x", function (d) {
-                    return x(d.x);
+                    return x(d[reduction + "_x"]);
                 })
                 .attr("y", function (d) {
-                    return y(d.y);
+                    return y(d[reduction + "_y"]);
                 })
                 .style("font", "15px times");
         }
@@ -216,25 +223,33 @@ d3.csv("./data/kmeans_pca_tsne.csv").then(function (data) {
                 return color(i)
             })
             .on("click", function (d, i) {
-                console.log(d)
-                console.log(i)
-                d3.selectAll(".dot").style("fill", "rgb(0,0,0,0.4)")
-                d3.selectAll(".dot").style("fill", "rgb(0,0,0,0.4)")
+                d3.selectAll(".dot").style("fill", "rgb(0,0,0,0.1)")
                 for (let t of d3.selectAll(".dot")) {
-                    // console.log(t.__data__[slider.value()] == i + 1, color(t.__data__[slider.value()]))
                     color_p = color(t.__data__[slider.value()])
                     if (t.__data__[slider.value()] == i) {
-                        console.log("test")
                         t.style.fill = color_p
                     }
-                    console.log(typeof color_p)
-                    //     console.log(slider.value() == i + 1)
-                    //     t.style.fill =  color_p
                 }
             })
+
     });
 
+    clicked = buttons.on("click", function () {
+        buttons.style("background", "#ccc");
+        d3.select(this).style("background", "red");
+        reduction_name = this.value// console.log(this.value)
+        // todo:mit transition().duration(1000) o.ä. punkte verschieben lassen, sieht halt cooler aus.
+        //  bräcuhte aber eine andere architektur: update coordinates instead of drawing new
+        svg.selectAll("*").remove()
+        d3.csv("./data/data.csv").then(function (data) {
+            visualize(data, reduction_name)
+        })
+    })
 
+}
+
+d3.csv("./data/data.csv").then(function (data) {
+    visualize(data, "pca_tsne")
 })
 
 
