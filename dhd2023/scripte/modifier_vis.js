@@ -377,8 +377,8 @@ function visualize(data, infos, reduction) {
         svg.selectAll("*").remove()
         bar_chart.selectAll("*").remove()
         Promise.all([
-            d3.csv('../data/data.csv'),
-            d3.json('../data/infos.json')
+            d3.csv('./data/data.csv'),
+            d3.json('./data/infos.json')
         ]).then(([data, infos]) => {
                 visualize(data, infos, "pca_tsne")
             }
@@ -391,8 +391,8 @@ function visualize(data, infos, reduction) {
 }
 
 Promise.all([
-    d3.csv('../data/data.csv'),
-    d3.json('../data/infos.json')
+    d3.csv('./data/data.csv'),
+    d3.json('./data/infos.json')
 ]).then(([data, infos]) => {
         visualize(data, infos, "pca_tsne")
     }
