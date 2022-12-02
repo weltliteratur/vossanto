@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
-const margin = {top: 10, right: 30, bottom: 30, left: 60}, width = 2000 - margin.left - margin.right,
-    height = 1500 - margin.top - margin.bottom;
+const margin = {top: 40, right: 60, bottom: 50, left: 60}, width = 2000 - margin.left - margin.right,
+    height = 1200 - margin.top - margin.bottom;
 
 // // append the svg object to the body of the page
 const svg = d3.select("#visualization_container")
@@ -330,7 +330,9 @@ function visualize(data, infos, reduction) {
             })
             //todo: eigentlich wäre es cooler, auf den barchart zu klicken bzw beides?
             .on("click", function (d, i) {
-                d3.selectAll(".dot").style("fill", "rgb(0,0,0,0.1)")
+                d3.selectAll(".dot")//.transition().duration(200)
+                    .style("fill", "rgb(0,0,0,0.1)")
+                    .style("font-weight", "bold")
                 for (let t of d3.selectAll(".dot")) {
 
                     color_p = color(t.__data__[slider.value()])
