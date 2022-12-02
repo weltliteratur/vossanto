@@ -19,11 +19,6 @@ var slider = d3
     .width(600)
     .displayValue(true)
 
-
-// .on('onchange', function (val) {
-//     d3.select('#value').text(val);
-// });
-
 var buttonNames = ["pca", "pca_tsne", "tsne", "umap", "ivis"]
 
 buttons = d3.select("#reduction_container")
@@ -36,7 +31,6 @@ buttons = d3.select("#reduction_container")
     .attr("value", function (d) {
         return d;
     })
-
 
 d3.select('#slider')
     .append('svg')
@@ -55,7 +49,6 @@ d3.select('#legend')
 // color scheme
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-
 function visualize(data, infos, reduction) {
 
     // X axis
@@ -68,11 +61,6 @@ function visualize(data, infos, reduction) {
     // Using brush
     var brush = d3.brush().extent([[0, 0], [width, height]])
     var idleTimeout, idleDelay = 750;
-
-    // // add plot
-    // var scattertext = svg.append("g")
-    //     .attr("id", "scatterplot")
-    //     .attr("visualization_container-path", "url(#visualization_container)");
 
     // add barchart
     var bar_infos = infos.total_count
@@ -187,8 +175,6 @@ function visualize(data, infos, reduction) {
 
         function brushended(event, d) {
             var s = event.selection;
-            console.log("text", scattertext.selectAll("text"))
-            console.log(d3.selectAll(".dot"))
             d3.selectAll(".dot")
                 .attr('transform', event.transform);
             if (s === null) {
@@ -200,7 +186,6 @@ function visualize(data, infos, reduction) {
                     return d[reduction + "_y"];
                 })).nice();
             } else {
-                console.log("here")
                 x.domain([s[0][0], s[1][0]].map(x.invert, x));
                 y.domain([s[1][1], s[0][1]].map(y.invert, y));
                 d3.select(".brush").call(brush.move, null);
@@ -272,9 +257,6 @@ function visualize(data, infos, reduction) {
         bar_x
             .domain(bar_infos[(val - 1).toString()])
             .padding(0.2);
-
-        console.log(Math.max.apply(null, bar_infos[(val - 1).toString()]))
-        console.log(yAxis)
         bar_y
             .domain([0, Math.max.apply(null, bar_infos[(val - 1).toString()])])
         yAxis
@@ -311,9 +293,7 @@ function visualize(data, infos, reduction) {
             .attr("fill", function (d, i) {
                 return color(i)
             })
-
         bars.exit().remove()
-
 
         legend.selectAll("circle").remove();
         legend.selectAll("mydots")
@@ -332,9 +312,7 @@ function visualize(data, infos, reduction) {
             .on("click", function (d, i) {
                 d3.selectAll(".dot")//.transition().duration(200)
                     .style("fill", "rgb(0,0,0,0.1)")
-                    .style("font-weight", "bold")
                 for (let t of d3.selectAll(".dot")) {
-
                     color_p = color(t.__data__[slider.value()])
                     if (t.__data__[slider.value()] == i) {
                         t.style.fill = color_p
