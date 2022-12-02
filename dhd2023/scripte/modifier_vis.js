@@ -66,7 +66,8 @@ function visualize(data, infos, reduction) {
         .range([height, 0])
 
     // Using brush
-    var brush = d3.brush().extent([[0, 0], [width, height]]).on("end", brushended), idleTimeout, idleDelay = 350;
+    var brush = d3.brush().extent([[0, 0], [width, height]])
+    var idleTimeout, idleDelay = 750;
 
     // // add plot
     // var scattertext = svg.append("g")
@@ -132,15 +133,15 @@ function visualize(data, infos, reduction) {
             return color(d[9])
         })
 
+    scattertext.append("g")
+        .attr("class", "brush")
+
 
     // update plot depended on reduction algorithm
     update_reduction(reduction, 25)
 
     //update plot
     function update_reduction(reduction, k) {
-
-        // computes new domains when brushed
-
 
         // update domains
         x.domain(d3.extent(data, function (d) {
@@ -179,80 +180,76 @@ function visualize(data, infos, reduction) {
                 return color(d[9])
             })
 
-        scattertext.append("g")
-            .attr("class", "brush")
+        d3.select(".brush")
             .call(brush);
 
         update_slider(slider.value())
 
-
-        // call brush on scattertext
-        scattertext.append("g")
-            .attr("class", "brush")
-            .call(brush);
-    }
-
-    function brushended(event, d) {
-        var s = event.selection;
-
-        scattertext.selectAll("text")
-            .attr('transform', event.transform);
-        if (s === null) {
-            if (!idleTimeout) return idleTimeout = setTimeout(idled, idleDelay);
-            x.domain(d3.extent(data, function (d) {
-                return d[reduction + "_x"];
-            })).nice();
-            y.domain(d3.extent(data, function (d) {
-                return d[reduction + "_y"];
-            })).nice();
-        } else {
-            x.domain([s[0][0], s[1][0]].map(x.invert, x));
-            y.domain([s[1][1], s[0][1]].map(y.invert, y));
-            scattertext.select(".brush").call(brush.move, null);
+        function brushended(event, d) {
+            var s = event.selection;
+            console.log("text", scattertext.selectAll("text"))
+            console.log(d3.selectAll(".dot"))
+            d3.selectAll(".dot")
+                .attr('transform', event.transform);
+            if (s === null) {
+                if (!idleTimeout) return idleTimeout = setTimeout(idled, idleDelay);
+                x.domain(d3.extent(data, function (d) {
+                    return d[reduction + "_x"];
+                })).nice();
+                y.domain(d3.extent(data, function (d) {
+                    return d[reduction + "_y"];
+                })).nice();
+            } else {
+                console.log("here")
+                x.domain([s[0][0], s[1][0]].map(x.invert, x));
+                y.domain([s[1][1], s[0][1]].map(y.invert, y));
+                d3.select(".brush").call(brush.move, null);
+            }
+            zoom(s);
         }
-        zoom(s);
-    }
 
-    function idled() {
-        idleTimeout = null;
-    }
+        brush.on("end", brushended);
 
-    // zooms in when brushed
-    function zoom(s) {
-        var t = scattertext.transition().duration(750);
-        if (s == null) {
-            scattertext.selectAll("text").transition(t)
-                .attr("x", function (d) {
-                    return x(d[reduction + "_x"]);
-                })
-                .attr("y", function (d) {
-                    return y(d[reduction + "_y"]);
-                })
-                .style("font", function (d) {
-                    if (d.count < 5) {
-                        return "5px times"
-                    } else {
-                        return d.count + "px times"
-                    }
-                });
-        } else {
-            // change text size depended on the chosen brush
-            var brush_size = Math.abs(s[1][0] - s[0][0]) * Math.abs(s[1][1] - s[0][1])
-            var alpha = Math.sqrt((2000 * 1000) / brush_size)
-            scattertext.selectAll("text").transition(t)
-                .attr("x", function (d) {
-                    return x(d[reduction + "_x"]);
-                })
-                .attr("y", function (d) {
-                    return y(d[reduction + "_y"]);
-                })
-                .style("font", function (d) {
-                    if (d.count < 5) {
-                        return alpha * 5 + "px times"
-                    } else {
-                        return alpha * d.count + "px times"
-                    }
-                })
+        function idled() {
+            idleTimeout = null;
+        }
+
+        // zooms in when brushed
+        function zoom(s) {
+            if (s == null) {
+                d3.selectAll(".dot").transition().duration(1500)
+                    .attr("x", function (d) {
+                        return x(d[reduction + "_x"]);
+                    })
+                    .attr("y", function (d) {
+                        return y(d[reduction + "_y"]);
+                    })
+                    .style("font", function (d) {
+                        if (d.count < 5) {
+                            return "5px times"
+                        } else {
+                            return d.count + "px times"
+                        }
+                    });
+            } else {
+                // change text size depended on the chosen brush
+                var brush_size = Math.abs(s[1][0] - s[0][0]) * Math.abs(s[1][1] - s[0][1])
+                var alpha = Math.sqrt((2000 * 1000) / brush_size)
+                scattertext.selectAll("text").transition().duration(1500)
+                    .attr("x", function (d) {
+                        return x(d[reduction + "_x"]);
+                    })
+                    .attr("y", function (d) {
+                        return y(d[reduction + "_y"]);
+                    })
+                    .style("font", function (d) {
+                        if (d.count < 5) {
+                            return alpha * 5 + "px times"
+                        } else {
+                            return alpha * d.count + "px times"
+                        }
+                    })
+            }
         }
     }
 
@@ -345,13 +342,17 @@ function visualize(data, infos, reduction) {
     }
 
 
-    buttons.on("click", function () {
+    buttons.on("click", clickbutton)
+
+    function clickbutton() {
         buttons.style("background", "#e7e7e7");
         d3.select(this).style("background", "#B2D8D8");
         reduction_name = this.value// console.log(this.value)
         // bar_chart.selectAll("*").remove()
         update_reduction(reduction_name, 50)
-    })
+    }
+
+    console.log("red", reduction)
 }
 
 // call function
