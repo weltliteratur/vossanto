@@ -53,33 +53,7 @@ header > h1 {
     flex-direction: row;
 }
 
-/* Add a black background color to the top navigation */
-.topnav {
-    background-color: #5D6683;
-    overflow: hidden;
-}
 
-/* Style the links inside the navigation bar */
-.topnav a {
-    float: left;
-    color: #ddd;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-    background-color: #CF0133;
-    color: white;
-}
 
 #visualization_container{
     flex-basis: 70%;
@@ -88,34 +62,7 @@ header > h1 {
     flex-direction: column;
 }
 
-.State_chart{
-    flex-basis: 70%;
-    height: 100%;
-    display: flex;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    flex-direction: column;
-}
-#explanation_and_results_main_container{
-    position: relative;
-    flex-basis: 30%;
-    height: 100%;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding: 15px;
-    touch-action: none;
-}
 
-.text_container{
-    position: relative;
-    width: 100%;
-    height: 20%;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding: 15px;
-}
 .tooltip {
     flex-basis: 30%;
     width: 100%;
@@ -124,25 +71,10 @@ header > h1 {
 }
 
 
-
-
-
     /* unvisited link */
 a:link,a:visited,a:hover,a:active {
     color: #267CB9;
 }
-
-
-/*#test{*/
-/*    font-size: 20px;*/
-/*}*/
-
-/*.tooltip {*/
-/*    flex-basis: 55%;*/
-/*    width: 100%;*/
-/*    padding: 0px;*/
-/*    font: 12px sans-serif;*/
-/*}*/
 
 
 #visualization_and_stats_container{
@@ -151,12 +83,7 @@ a:link,a:visited,a:hover,a:active {
     display: flex;
     flex-direction: column;
 }
-#visualization_container{
-    width: 100%;
-    height: 99%;
-    /*display: flex;*/
-    /*flex-direction: row;*/
-}
+
 
 #stats_url_container{
     width: 100%;
@@ -207,10 +134,21 @@ a:link,a:visited,a:hover,a:active {
     overflow-x: hidden;
     padding: 15px;
 }
-#legend_container{
+
+.reduction_container{
     position: relative;
     width: 100%;
-    height: 50%;
+    height: 20%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 15px;
+}
+
+#bar_div{
+    position: relative;
+    width: 100%;
+    height: 25%;
     box-sizing: border-box;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -230,22 +168,13 @@ a:link,a:visited,a:hover,a:active {
     /*viewBox:    "0 0 2287 1276";*/
 }
 
-
-.tooltip {
-    flex-basis: 30%;
+#bar_chart{
     width: 100%;
-    padding: 0px;
-    /*font: 12px sans-serif;*/
+    height: 250px;
+    /*viewBox:    "0 0 2287 1276";*/
 }
 
-.tooltip_bg {
-    position: absolute;
-    background-color: white;
-    opacity: 0.6;
-    height: 100%;
-    width: 100%;
-    padding: 0px;
-}
+
 .tooltip_text {
     position: absolute;
     opacity: 1;
@@ -255,4 +184,23 @@ a:link,a:visited,a:hover,a:active {
 }
 
 
+.button {
+    transition-duration: 0.7s;
+    padding: 12px 28px;
+    font-size: 16px;
+    background-color: #e7e7e7;
+    color: black;
+    position: relative;
+    width: 120px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
 
+
+.button:hover {
+    background-color: #4CAF50; /* Green */
+      color: white;
+    opacity: 1;
+}

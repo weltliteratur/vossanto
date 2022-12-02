@@ -5,19 +5,19 @@
     <link href="style.css" rel="stylesheet">
     <title>Modifier visualizations</title>
 
-<!--    <style>-->
-<!--        .axis text,-->
-<!--        .slider text {-->
-<!--            font-size: 18px;-->
-<!--        }-->
-<!--    </style>-->
+    <!--    <style>-->
+    <!--        .axis text,-->
+    <!--        .slider text {-->
+    <!--            font-size: 18px;-->
+    <!--        }-->
+    <!--    </style>-->
 </head>
 
 <!-- Create a div where the graph will take place -->
 
 <body>
 
-<header >
+<header>
     <h1>DHD 2023: »Die Greta Garbo der Leichtathletik«
         – Eine systematische Analyse der Modifier vossianischer Antonomasien mithilfe von Word Embeddings</h1>
 </header>
@@ -28,55 +28,52 @@
     <!--        </div>-->
     <div class="vertical_divider"></div>
     <div id="explanation_and_results_main_container">
-        <div id="image_container">
-            <p >Choose reduction algorithm</p>
-<!--            <button onclick="update_coords('pca')">PCA</button>-->
-<!--            <button onclick="update_coords('tsne')">t-SNE</button>-->
-<!--            <button onclick="update_coords('pca_tsne')">PCA+t-SNE</button>-->
-<!--            <button onclick="update_coords('umap')">UMAP</button>-->
-<!--            <button onclick="update_coords('ivis')">IVIS</button>-->
-<!--            &lt;!&ndash;            <b>Legende</b> <br/>&ndash;&gt;-->
+        <div id="reduction_container">
+            <p><b>Choice of reduction algorithm</b></p>
+            <!--            <button onclick="update_coords('pca')">PCA</button>-->
+            <!--            <button onclick="update_coords('tsne')">t-SNE</button>-->
+            <!--            <button onclick="update_coords('pca_tsne')">PCA+t-SNE</button>-->
+            <!--            <button onclick="update_coords('umap')">UMAP</button>-->
+            <!--            <button onclick="update_coords('ivis')">IVIS</button>-->
+            <!--            &lt;!&ndash;            <b>Legende</b> <br/>&ndash;&gt;-->
             <!--            <svg id="legend"></svg>-->
         </div>
         <hr class="horizontal_divider"/>
-        <div id="description_container">
-            <p >Choose number of clusters</p>
+        <div id="text_container">
+            <p><b>Number of clusters</b></p>
             <svg id="legend"></svg>
             <div id="slider"></div>
 
         </div>
         <hr class="horizontal_divider"/>
 
-        <!--        <div class="text_container" >-->
-        <!--            <p> <b>Erklärung</b>-->
-        <!--                <br/>-->
-        <!--                Dieser Streamgraph beschreibt die zeitliche Entwicklung der Anzahl von Publikationen je BDSL Kategorie (Level 1).-->
-        <!--                <br/>-->
-        <!--                Indem man die Maus über den Graphen bewegt, kann man sich die Zahlen je Jahr und Kategorie anschauen (rechts unten).-->
-        <!--                Die top10 Autoren (Primärlieratur) erscheinen unten links.-->
-        <!--            </p>-->
-        <!--            Sobald man auf einen Punkt in der Grafik klickt, friert die Grafik ein und man kann zusätzlich die Dropdown-Box nutzen, um sich die Werke der einzelnen Autoren anzuschauen und die Links zu den jeweiligen BDSL-Online Einträgen zu bekommen.-->
-        <!--            <p>-->
+        <div class="text_container">
+            <p><b>Description</b>
+                <br/>
+                <br/>
+            </p>
+            <p>
 
-        <!--            </p>-->
-        <!--        </div>-->
-        <!--        <hr class="horizontal_divider"/>-->
-        <div id="tt" class="tooltip">
-            <div class="tooltip_bg"></div>
-            <div class="tooltip_text">Click on a node or a name to get more information.
-                <p id="url_p"></p>
-            </div>
+            </p>
         </div>
+        <hr class="horizontal_divider"/>
+        <!--        <div id="tt" class="tooltip">-->
+        <!--            <div class="tooltip_bg"></div>-->
+        <div id="bar_div">
+            <p><b>Number of phrases per cluster</b></p>
+            <svg id="bar_chart"></svg>
+        </div>
+
+<!--        <hr class="horizontal_divider"/>-->
+
+<!--        <div id="cluster_info_div" class="tooltip_text">-->
+<!--            <p><b>Most phrases used</b></p>-->
+<!--        </div>-->
 
     </div>
 
 </main>
 <!-- divs for slider and vis-->
-
-
-
-
-
 
 
 <script src="https://unpkg.com/d3-simple-slider"></script>
