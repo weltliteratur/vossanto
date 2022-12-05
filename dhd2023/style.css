@@ -13,7 +13,7 @@ hr {
 }
 
 header {
-    height: 50px;
+    height: 100px;
     display: flex;
     justify-content: left;
     align-items: center;
