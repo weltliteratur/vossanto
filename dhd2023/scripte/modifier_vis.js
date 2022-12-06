@@ -165,9 +165,6 @@ function visualize(data, infos, reduction) {
                     return d.count + "px times"
                 }
             })
-            .style("fill", function (d) {
-                return color(d[9])
-            })
 
         d3.select(".brush")
             .call(brush);
