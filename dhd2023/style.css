@@ -63,13 +63,6 @@ header > h1 {
 }
 
 
-.tooltip {
-    flex-basis: 30%;
-    width: 100%;
-    padding: 0px;
-    /*font: 12px sans-serif;*/
-}
-
 
     /* unvisited link */
 a:link,a:visited,a:hover,a:active {
@@ -77,34 +70,7 @@ a:link,a:visited,a:hover,a:active {
 }
 
 
-#visualization_and_stats_container{
-    width: 70%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
 
-
-#stats_url_container{
-    width: 100%;
-    height: 4%;
-    display: flex;
-    flex-direction: row;
-}
-#stats_container{
-    width: 45%;
-    height: 1%;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-}
-
-#url_container{
-    width: 55%;
-    height: 100%;
-    overflow-y: scroll;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-}
 
 #url_p{
     display: block;
@@ -120,7 +86,7 @@ a:link,a:visited,a:hover,a:active {
     height: 100%;
     box-sizing: border-box;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: scroll;
     padding: 15px;
     touch-action: none;
 }
@@ -128,7 +94,7 @@ a:link,a:visited,a:hover,a:active {
 .text_container{
     position: relative;
     width: 100%;
-    height: 20%;
+    height: 30%;
     box-sizing: border-box;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -145,42 +111,45 @@ a:link,a:visited,a:hover,a:active {
     padding: 15px;
 }
 
-#bar_div{
+.legend_container{
     position: relative;
     width: 100%;
-    height: 25%;
+    height: 50%;
     box-sizing: border-box;
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 15px;
 }
 
-
-#vis{
+#bar_container{
+    position: relative;
     width: 100%;
-    height: 50%;
-    viewBox:    "0 0 2287 1276";
+    height: 30%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 15px;
 }
 
 #legend{
+    position: relative;
     width: 100%;
-    height: 150px;
+    height: 20%;
+    /*box-sizing: border-box;*/
     /*viewBox:    "0 0 2287 1276";*/
+}
+
+#topics{
+    position: relative;
+    /*box-sizing: border-box;*/
+    width: 100%;
+    height: 80%;
 }
 
 #bar_chart{
     width: 100%;
-    height: 250px;
-    /*viewBox:    "0 0 2287 1276";*/
-}
-
-
-.tooltip_text {
-    position: absolute;
-    opacity: 1;
     height: 100%;
-    width: 100%;
-    padding: 0.5em;
+    /*viewBox:    "0 0 2287 1276";*/
 }
 
 
@@ -204,3 +173,4 @@ a:link,a:visited,a:hover,a:active {
       color: white;
     opacity: 1;
 }
+
