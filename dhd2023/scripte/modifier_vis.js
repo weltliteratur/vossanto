@@ -42,10 +42,10 @@ d3.select('#slider')
     .call(slider);
 
 d3.select('#legend')
-    .attr('width', 600)
+    // .attr('width', 600)
     // .attr('height', 150)
     .append('g')
-    .attr('transform', 'translate(30,30)')
+// .attr('transform', 'translate(30,30)')
 
 // color scheme
 var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -92,6 +92,29 @@ function visualize(data, infos, reduction) {
     var scattertext = svg.append("g")
         .attr("id", "scatterplot")
 
+
+    // var topic_div = d3.select("#topic_div")
+    //
+    // var topic_infos = infos["topics"]
+    //
+    // // topic_div.style("columns","9")
+    // //     .style("column-fill", "balance-all")
+    // // add topics per cluster
+    // html_text = "<h3>Topics per Cluster</h3>"
+    // html_text += "<ul>"
+    // t = 0
+    // topic_infos["8"].forEach(function (d) {
+    //     console.log("d", d)
+    //     t += 1
+    //     console.log("t",t)
+    //     for (let i = 0; i < d.length-5; i++) {
+    //         html_text += "<li>" + d[i]
+    //     }
+    //
+    // })
+    // topic_div
+    //     .html(html_text)
+    //     .style("font", "10px times");
 
     // draw plot
     scattertext.selectAll(".dot")
@@ -165,6 +188,7 @@ function visualize(data, infos, reduction) {
                     return d.count + "px times"
                 }
             })
+
 
         d3.select(".brush")
             .call(brush);
@@ -293,6 +317,7 @@ function visualize(data, infos, reduction) {
             })
         bars.exit().remove()
 
+
         legend.selectAll("circle").remove();
         legend.selectAll("mydots")
             .data(Array.from({length: val}, (x, i) => i))
@@ -301,22 +326,98 @@ function visualize(data, infos, reduction) {
             .attr("cx", function (d, i) {
                 return 30 + i * 35
             })
-            .attr("cy", 100) // 100 is where the first dot appears. 25 is the distance between dots
+            .attr("cy", 30)
+            // .attr("cx", 30)
+            // .attr("cy", function (d, i) {
+            // return 50 + i * 35
+            // })
             .attr("r", 15)
             .style("fill", function (d, i) {
                 return color(i)
             })
             //todo: eigentlich wäre es cooler, auf den barchart zu klicken bzw beides?
+
+            // highlight cluster which is clicked on
             .on("click", function (d, i) {
-                d3.selectAll(".dot")//.transition().duration(200)
+                // update domains
+
+                // points = data.filter( d => d[slider.value()] == i);
+                //
+                // console.log(points)
+                // console.log(reduction)
+                // x.domain(d3.extent(points, function (d) {
+                //     return d[reduction + "_x"];
+                // })).nice()
+                //
+                // y.domain(d3.extent(points, function (d) {
+                //     return d[reduction + "_y"];
+                // })).nice()
+
+                // "update" coords of phrases
+                d3.selectAll(".dot")
+                    .data(data)
                     .style("fill", "rgb(0,0,0,0.1)")
+
                 for (let t of d3.selectAll(".dot")) {
                     color_p = color(t.__data__[slider.value()])
                     if (t.__data__[slider.value()] == i) {
                         t.style.fill = color_p
                     }
                 }
+
+                //
+                //     d3.selectAll(".dot")
+                //         .data(points)
+                //         .transition().duration(2000)
+                //         .style("fill", color(points[0][slider.value()]))
+                //         .attr("x", function (d) {
+                //             return x(d[reduction + "_x"]);
+                //         })
+                //         .attr("y", function (d) {
+                //             return y(d[reduction + "_y"]);
+                //         })
+                //         .attr("size", function (d) {
+                //             return d.count*10;
+                //         })
+                //         .text(function (d) {
+                //             return d.label;
+                //         })
+                //         // .style("font", "5px times")
+                //         .style("font", function (d) {
+                //             if (d.count < 5) {
+                //                 return "10px times"
+                //             } else {
+                //                 return d.count*2 + "px times"
+                //             }
+                //         })
+
+                var topic_infos = infos["topics"]
+                html_text = "<ul>"
+
+                for (let j = 0; j < topic_infos[slider.value() - 1][i].length - 5; j++) {
+                    html_text += "<li>" + topic_infos[slider.value() - 1][i][j]
+                }
+
+                d3.select("#topics")
+                    .html(html_text)
+                    .style("font", "20px times");
+
             })
+
+            // .on("click", function (d, i) {
+            //
+            //
+            //     var topic_infos = infos["topics"]
+            //     html_text = "<ul>"
+            //
+            //     for (let j = 0; j < topic_infos[slider.value() - 1][i].length - 5; j++) {
+            //         html_text += "<li>" + topic_infos[slider.value() - 1][i][j]
+            //     }
+            //
+            //     d3.select("#topics")
+            //         .html(html_text)
+            //         .style("font", "20px times");
+            // })
     }
 
 
