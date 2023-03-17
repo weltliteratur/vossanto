@@ -25,8 +25,9 @@ the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
 
-## DHd (2023) Schwab, M., Fischer, F.: »Die Greta Garbo der
-Leichtathletik«. Eine systematische Analyse der Modifier vossianischer
+## DHd (2023)
+Schwab, M., Fischer, F.: »Die Greta Garbo der Leichtathletik«.
+Eine systematische Analyse der Modifier vossianischer
 Antonomasien mithilfe von Word Embeddings.
 ((DOI:[10.5281/zenodo.7715490](https://doi.org/10.5281/zenodo.7715490),
 [PDF](https://doi.org/10.5281/zenodo.7715490),
