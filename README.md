@@ -25,6 +25,17 @@ the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
 
+## DHd (2023) Schwab, M., Fischer, F.: »Die Greta Garbo der
+Leichtathletik«. Eine systematische Analyse der Modifier vossianischer
+Antonomasien mithilfe von Word Embeddings.
+((DOI:[10.5281/zenodo.7715490](https://doi.org/10.5281/zenodo.7715490),
+[PDF](https://doi.org/10.5281/zenodo.7715490),
+[BibTeX](https://www.bibsonomy.org/bibtex/2de024e4cfd50172144a4041eae3642d1/mschwab))
+
+- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/dhd2023)
+- [Data Visualization](dhd2023/modifier.html)
+
+
 ## ICNLSP (2022)
 Schwab, M., Jäschke, R., Fischer, F.: “Der Frank Sinatra der
 Wettervorhersage”: Cross-Lingual Vossian Antonomasia Extraction.
@@ -44,6 +55,7 @@ Vossian Antonomasia Using Neural Networks.
 [BibTeX](https://www.bibsonomy.org/bib/publication/2ec528a4b293f3ddc9582fcdeed6c6f9/jaeschke))
 
 - [Data](https://github.com/weltliteratur/vossanto/tree/master/frontiers)
+
 
 ## EMNLP-IJCNLP 2019 (November, 2019)
 Schwab, M., Jäschke, R., Fischer, F., Strötgen, J.: 'A Buster Keaton
@@ -73,9 +85,11 @@ Preprint: [arXiv:1902.06428](https://arxiv.org/abs/1902.06428))
 - [Complete List of Extracted VA](theof/humans/vossantos.md) (**recommended**)
 - [Twitter thread](https://twitter.com/umblaetterer/status/1097865223564869635)
 
+
 ## TheOf Approach (2017–2019)
 - [Poster *Lange Nacht der Wissenschaften*](https://doi.org/10.6084%2fm9.figshare.6531140) (June, 2018)
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/theof)
+
 
 ## First Approach (February, 2017)
 - [Slides DHd 2017, Bern](https://lehkost.github.io/slides/2017-bern/) (in German)
@@ -88,5 +102,4 @@ Preprint: [arXiv:1902.06428](https://arxiv.org/abs/1902.06428))
 - [a bibliography of related publications](https://www.bibsonomy.org/user/jaeschke/vossanto)
 - [a poster about a Vossanto memory game](https://doi.org/10.6084/m9.figshare.6531140) (in German)
 - [VA detection model on HuggingFace](https://huggingface.co/mschwab/va_bert_classification)
-- va_source_target_graph
-- [Modifier analysis](dhd2023/modifier.html)
+
