@@ -27,8 +27,10 @@ first distinguished and described VA as a separate phenomenon.
 
 ## ICNLSP (2022)
 Schwab, M., Jäschke, R., Fischer, F.: “Der Frank Sinatra der
-Wettervorhersage”: Cross-Lingual Vossian Antonomasia Extraction [Link
-tba]
+Wettervorhersage”: Cross-Lingual Vossian Antonomasia Extraction.
+([URL](https://aclanthology.org/2022.icnlsp-1.33/),
+[PDF](https://aclanthology.org/2022.icnlsp-1.33.pdf),
+[BibTeX](https://www.bibsonomy.org/bib/bibtex/2e68d487a554f79407c532889e826b3d8/jaeschke))
 
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/icnlsp2022)
 
