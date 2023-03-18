@@ -24,6 +24,40 @@ Vossius](https://en.wikipedia.org/wiki/Gerardus_Vossius) (1577– 1649),
 the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
+
+## DHd (2023)
+Schwab, M., Fischer, F.: »Die Greta Garbo der Leichtathletik«.
+Eine systematische Analyse der Modifier vossianischer
+Antonomasien mithilfe von Word Embeddings.
+((DOI:[10.5281/zenodo.7715490](https://doi.org/10.5281/zenodo.7715490),
+[PDF](https://doi.org/10.5281/zenodo.7715490),
+[BibTeX](https://www.bibsonomy.org/bibtex/2de024e4cfd50172144a4041eae3642d1/mschwab))
+
+- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/dhd2023)
+- [Data Visualization](dhd2023/modifier.html)
+
+
+## ICNLSP (2022)
+Schwab, M., Jäschke, R., Fischer, F.: “Der Frank Sinatra der
+Wettervorhersage”: Cross-Lingual Vossian Antonomasia Extraction.
+([URL](https://aclanthology.org/2022.icnlsp-1.33/),
+[PDF](https://aclanthology.org/2022.icnlsp-1.33.pdf),
+[BibTeX](https://www.bibsonomy.org/bib/bibtex/2e68d487a554f79407c532889e826b3d8/jaeschke))
+
+- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/icnlsp2022)
+
+
+## Frontiers in Artificial Intelligence (2022)
+Schwab, M., Jäschke, R., Fischer, F.: "The Rodney Dangerfield of Stylistic Devices":
+End-to-End Detection and Extraction of
+Vossian Antonomasia Using Neural Networks.
+(DOI:[10.3389/frai.2022.868249](https://doi.org/10.3389/frai.2022.868249),
+[PDF](https://www.frontiersin.org/articles/10.3389/frai.2022.868249/abstract),
+[BibTeX](https://www.bibsonomy.org/bib/publication/2ec528a4b293f3ddc9582fcdeed6c6f9/jaeschke))
+
+- [Data](https://github.com/weltliteratur/vossanto/tree/master/frontiers)
+
+
 ## EMNLP-IJCNLP 2019 (November, 2019)
 Schwab, M., Jäschke, R., Fischer, F., Strötgen, J.: 'A Buster Keaton
 of Linguistics': First Automated Approaches for the Extraction of
@@ -33,6 +67,7 @@ Conference on Natural Language Processing*. pp. 6239–6244. Association
 for Computational
 Linguistics 2019. (DOI:[10.18653/v1/D19-1647](https://doi.org/10.18653/v1/D19-1647),
 [PDF](https://www.aclweb.org/anthology/D19-1647.pdf),
+[BibTeX](https://www.bibsonomy.org/bib/bibtex/25d30fd8911ded13edd4c0f07bd73e624/jaeschke),
 [Poster](https://doi.org/10.6084/m9.figshare.10069886))
 
 - [Timeline](timeline) (**recommended**)
@@ -51,11 +86,21 @@ Preprint: [arXiv:1902.06428](https://arxiv.org/abs/1902.06428))
 - [Complete List of Extracted VA](theof/humans/vossantos.md) (**recommended**)
 - [Twitter thread](https://twitter.com/umblaetterer/status/1097865223564869635)
 
+
 ## TheOf Approach (2017–2019)
 - [Poster *Lange Nacht der Wissenschaften*](https://doi.org/10.6084%2fm9.figshare.6531140) (June, 2018)
 - [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/theof)
+
 
 ## First Approach (February, 2017)
 - [Slides DHd 2017, Bern](https://lehkost.github.io/slides/2017-bern/) (in German)
 - [Abstract DHd 2017, Bern](http://www.dhd2017.ch/wp-content/uploads/2017/02/Abstractband_ergaenzt.pdf#page=122) (in German)
 - [Data and Code](first)
+
+
+## Further Ressources
+
+- [a bibliography of related publications](https://www.bibsonomy.org/user/jaeschke/vossanto)
+- [a poster about a Vossanto memory game](https://doi.org/10.6084/m9.figshare.6531140) (in German)
+- [VA detection model on HuggingFace](https://huggingface.co/mschwab/va_bert_classification)
+

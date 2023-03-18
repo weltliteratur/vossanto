@@ -7,6 +7,9 @@
 # Usage: nyt.py -h
 #
 # Changes:
+# 2021-11-02 (rja)
+# - small code cleanups
+# - made output of filename optional
 # 2018-07-10 (rja)
 # - added alternative year extraction
 # 2018-05-18 (rja)
@@ -27,21 +30,23 @@ import xml.etree.ElementTree as ET
 import tarfile
 import argparse
 import os
-import sys
-import codecs
 
-version = "0.0.4"
+version = "0.0.5"
 
 # remove line breaks and tabs from text
 re_ws = re.compile('[\n\t\r]+')
 
+
 # convert NYT XML to text
-def gen_parts(files, heading, text, url, category, desk, author, date):
+def gen_parts(files, heading, text, url, category, desk, author, date, filename):
     for f, fname in files:
-        result = [fname]
+        result = []
 
         tree = ET.parse(f)
         root = tree.getroot()
+
+        if filename:
+            result.append(fname)
 
         if heading:
             h = ""
@@ -121,6 +126,7 @@ def gen_parts(files, heading, text, url, category, desk, author, date):
 
         yield result
 
+
 # apply the regex
 def gen_grep(parts, reg):
     regex = re.compile(reg)
@@ -129,10 +135,12 @@ def gen_grep(parts, reg):
         if any([regex.search(part[i]) for i in range(1, len(part))]):
             yield part
 
+
 # remove control characters
 def gen_rm_ctrl(texts):
     for parts in texts:
         yield [re_ws.sub(' ', p).strip() for p in parts]
+
 
 # generate a list of files from various input
 def gen_files(paths):
@@ -155,9 +163,11 @@ def gen_files(paths):
                 if tarinfo.isreg():
                     yield tar.extractfile(tarinfo), tarinfo.name
 
+
 def print_lines(parts, sep='\t'):
     for parts in parts:
         print(sep.join(parts))
+
 
 if __name__ == '__main__':
 
@@ -168,6 +178,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--category', action="store_true", help='extract category')
     parser.add_argument('-d', '--desk', action="store_true", help='extract desk')
     parser.add_argument('-e', '--date', action="store_true", help='extract date')
+    parser.add_argument('-f', '--filename', action="store_true", help='output filename')
     parser.add_argument('-t', '--title', action="store_true", help='extract title')
     parser.add_argument('-u', '--url', action="store_true", help='extract URL')
     parser.add_argument('-g', '--grep', type=str, metavar="REGEX", help='match regex')
@@ -178,7 +189,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     files = gen_files(args.input)
-    parts = gen_parts(files, args.title, args.body, args.url, args.category, args.desk, args.author, args.date)
+    parts = gen_parts(files, args.title, args.body, args.url, args.category, args.desk, args.author, args.date, args.filename)
     if args.grep:
         parts = gen_grep(parts, args.grep)
     if args.normalise_ws:
