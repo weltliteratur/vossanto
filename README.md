@@ -30,12 +30,12 @@ Schwab, M., Fischer, F.: »Die Greta Garbo der Leichtathletik«.
 Eine systematische Analyse der Modifier vossianischer
 Antonomasien mithilfe von Word Embeddings.
 ((DOI:[10.5281/zenodo.7715490](https://doi.org/10.5281/zenodo.7715490),
-[PDF](https://doi.org/10.5281/zenodo.7715490),
+[PDF](https://zenodo.org/record/7715490/files/SCHWAB_Michel__Die_Greta_Garbo_der_Leichtathletik____Eine_sy.pdf?download=1),
 [BibTeX](https://www.bibsonomy.org/bibtex/2de024e4cfd50172144a4041eae3642d1/mschwab))
 
-- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/dhd2023)
-- [Data Visualization](dhd2023/modifier.html)
-
+- [Data and code](https://github.com/weltliteratur/vossanto/tree/master/dhd2023)
+- [Visualization of modifiers](dhd2023/modifier.html)
+- [Twitter thread](https://twitter.com/umblaetterer/status/1636685384821211138)
 
 ## ICNLSP (2022)
 Schwab, M., Jäschke, R., Fischer, F.: “Der Frank Sinatra der
@@ -44,7 +44,7 @@ Wettervorhersage”: Cross-Lingual Vossian Antonomasia Extraction.
 [PDF](https://aclanthology.org/2022.icnlsp-1.33.pdf),
 [BibTeX](https://www.bibsonomy.org/bib/bibtex/2e68d487a554f79407c532889e826b3d8/jaeschke))
 
-- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/icnlsp2022)
+- [Data and code](https://github.com/weltliteratur/vossanto/tree/master/icnlsp2022)
 
 
 ## Frontiers in Artificial Intelligence (2022)
@@ -71,8 +71,8 @@ Linguistics 2019. (DOI:[10.18653/v1/D19-1647](https://doi.org/10.18653/v1/D19-16
 [Poster](https://doi.org/10.6084/m9.figshare.10069886))
 
 - [Timeline](timeline) (**recommended**)
-- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/emnlp-ijcnlp2019)
-- [Some Statistics](emnlp-ijcnlp2019/statistics.md)
+- [Data and code](https://github.com/weltliteratur/vossanto/tree/master/emnlp-ijcnlp2019)
+- [Some statistics](emnlp-ijcnlp2019/statistics.md)
 - [All found VA](emnlp-ijcnlp2019/vossantos.md)
 
 ## DSH Paper (January, 2019)
@@ -82,25 +82,24 @@ Vossian antonomasia from two decades of The New York Times,
 (DOI:[10.1093/llc/fqy087](https://doi.org/10.1093/llc/fqy087),
 Preprint: [arXiv:1902.06428](https://arxiv.org/abs/1902.06428))
 
-- [Some More Statistics](theof/humans/statistics.md) (**recommended**)
-- [Complete List of Extracted VA](theof/humans/vossantos.md) (**recommended**)
+- [Some more statistics](theof/humans/statistics.md) (**recommended**)
+- [Complete list of extracted VA](theof/humans/vossantos.md) (**recommended**)
 - [Twitter thread](https://twitter.com/umblaetterer/status/1097865223564869635)
 
 
 ## TheOf Approach (2017–2019)
 - [Poster *Lange Nacht der Wissenschaften*](https://doi.org/10.6084%2fm9.figshare.6531140) (June, 2018)
-- [Data and Code](https://github.com/weltliteratur/vossanto/tree/master/theof)
+- [Data and code](https://github.com/weltliteratur/vossanto/tree/master/theof)
 
 
 ## First Approach (February, 2017)
 - [Slides DHd 2017, Bern](https://lehkost.github.io/slides/2017-bern/) (in German)
 - [Abstract DHd 2017, Bern](http://www.dhd2017.ch/wp-content/uploads/2017/02/Abstractband_ergaenzt.pdf#page=122) (in German)
-- [Data and Code](first)
+- [Data and code](first)
 
 
 ## Further Ressources
 
-- [a bibliography of related publications](https://www.bibsonomy.org/user/jaeschke/vossanto)
-- [a poster about a Vossanto memory game](https://doi.org/10.6084/m9.figshare.6531140) (in German)
-- [VA detection model on HuggingFace](https://huggingface.co/mschwab/va_bert_classification)
-
+- [A Bibliography of Related Publications](https://www.bibsonomy.org/user/jaeschke/vossanto)
+- [A Poster About a Vossanto Memory Game](https://doi.org/10.6084/m9.figshare.6531140) (in German)
+- [VA Detection Model on HuggingFace](https://huggingface.co/mschwab/va_bert_classification)
