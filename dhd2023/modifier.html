@@ -29,22 +29,24 @@
     <div class="vertical_divider"></div>
     <div id="explanation_and_results_main_container">
         <div id="reduction_container">
-            <p><b>Choice of reduction algorithm</b></p>
-            <!--            <button onclick="update_coords('pca')">PCA</button>-->
-            <!--            <button onclick="update_coords('tsne')">t-SNE</button>-->
-            <!--            <button onclick="update_coords('pca_tsne')">PCA+t-SNE</button>-->
-            <!--            <button onclick="update_coords('umap')">UMAP</button>-->
-            <!--            <button onclick="update_coords('ivis')">IVIS</button>-->
-            <!--            &lt;!&ndash;            <b>Legende</b> <br/>&ndash;&gt;-->
-            <!--            <svg id="legend"></svg>-->
+            <h4>Choice of reduction algorithm:</h4>
+            <select id="selectButton"></select>
+        </div>
+        <hr class="horizontal_divider"/>
+
+        <div id="cluster_container">
+            <h4>Number of clusters:</h4>
+            <div id="slider"></div>
         </div>
 
         <hr class="horizontal_divider"/>
+        <div id="bar_container">
+            <h4>Number of Phrases per cluster</h4>
+            <svg id="bar_chart"></svg>
 
-        <div id="legend_container">
+            <hr class="horizontal_divider"/>
             <h4>Topics</h4>
-            Click on one of the colors to highlight the cluster and to see the computed topics.
-            <svg id="legend"></svg>
+            Click on one of the bars to highlight the cluster and to see the computed topics.
             <div id="topics">
                 <ul>
                     <li></li>
@@ -56,33 +58,9 @@
             </div>
         </div>
 
-        <hr class="horizontal_divider"/>
 
-        <div id="text_container">
-            <h4>Number of clusters</h4>
-            <div id="slider"></div>
-        </div>
 
-        <!--        <hr class="horizontal_divider"/>-->
-        <!--        <div class="text_container">-->
-        <!--            <p><b>Description</b>-->
-        <!--                <br/>-->
 
-        <!--                <br/>-->
-        <!--            </p>-->
-        <!--            <p>-->
-
-        <!--            </p>-->
-        <!--        </div>-->
-        <!--        <hr class="horizontal_divider"/>-->
-        <!--        <div id="tt" class="tooltip">-->
-        <!--            <div class="tooltip_bg"></div>-->
-        <hr class="horizontal_divider"/>
-
-        <div id="bar_container">
-            <h4>Number of Phrases per cluster</h4>
-            <svg id="bar_chart"></svg>
-        </div>
 
         <!--        <hr class="horizontal_divider"/>-->
 
@@ -98,7 +76,7 @@
 
 <script src="https://unpkg.com/d3-simple-slider"></script>
 <script src="https://d3js.org/d3.v6.js"></script>
-<script src="scripte/modifier_vis.js"></script>
+<script src="scripte/modifier_vis2.js"></script>
 <!--<link href="{{ site.baseurl }}/css/com_det.css" rel="stylesheet">-->
 
 </body>

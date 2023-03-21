@@ -3,6 +3,10 @@ const margin = {top: 40, right: 60, bottom: 80, left: 60};
 const width = parseInt(d3.selectAll("#visualization_container").style("width")) - margin.left - margin.right;
 const height = parseInt(d3.selectAll("#visualization_container").style("height")) - margin.top - margin.bottom;
 
+const barMargin = {top: 20, right: 20, bottom: 30, left: 50};
+const barWidth = parseInt(d3.selectAll("#bar_chart").style("width")) - barMargin.left - barMargin.right;
+const barHeight = parseInt(d3.selectAll("#bar_chart").style("height")) - barMargin.top - barMargin.bottom;
+
 // // append the svg object to the body of the page
 const svg = d3.select("#visualization_container")
     .append("svg")
@@ -12,21 +16,25 @@ const svg = d3.select("#visualization_container")
     .attr("transform", `translate(${margin.left}, ${margin.top})`)
 
 
+
+
+var sliderWidthFactor = 0.8;
+var sliderWidth = barWidth * sliderWidthFactor;
+
 var slider = d3
     .sliderHorizontal()
     .min(1)
     .max(15)
     .step(1)
     .value(9)
-    .width(250)
-    .displayValue(true)
+    .width(sliderWidth)
+    .displayValue(true);
 
-d3.select('#slider')
+var sliderGroup = d3.select('#slider')
     .append('svg')
-    .attr('width', 300)
-    // .attr('height', 150)
+    .attr('width', sliderWidth + barMargin.left + barMargin.right + 30)
     .append('g')
-    .attr('transform', 'translate(30,30)')
+    .attr('transform', 'translate(' + (barMargin.left + 10) + ',30)')
     .call(slider);
 
 
@@ -62,23 +70,36 @@ function visualize(data, infos, reduction) {
 
     // Using brush
     var brush = d3.brush().extent([[0, 0], [width, height]])
+    var zoomBehavior = d3.zoom()
+        .scaleExtent([0.5, 20]) // Allow zooming between 0.5x and 20x
+        .on("zoom", zoomed);
+
+
     var idleTimeout, idleDelay = 750;
 
     // add barchart
     var bar_infos = infos.total_count
+// Update the bar_chart SVG attributes
     var bar_chart = d3.select("#bar_chart")
+        .append("svg")
+        .attr("width", barWidth + barMargin.left + barMargin.right)
+        .attr("height", barHeight + barMargin.top + barMargin.bottom)
         .append("g")
-        .attr("transform", "translate(" + 50 + "," + 0 + ")");
+        .attr("transform", "translate(" + barMargin.left + "," + barMargin.top + ")");
+
+
+// Add this after the bar_chart variable
+    var selectedBarIndex = null;
 
 
     var bar_x = d3.scaleBand()
-        .range([0, 400])
+        .range([0, barWidth])
         .domain(bar_infos["8"])
         .padding(0.2);
 
     var bar_y = d3.scaleLinear()
         .domain([0, Math.max.apply(null, bar_infos["8"])])
-        .range([200, 0])
+        .range([barHeight, 0])
     var yAxis = bar_chart.append("g")
         .call(d3.axisLeft(bar_y));
 
@@ -86,6 +107,12 @@ function visualize(data, infos, reduction) {
     var scattertext = svg.append("g")
         .attr("id", "scatterplot")
 
+// Add this after the scattertext variable
+    var chartArea = svg.append("rect")
+        .attr("class", "chart-area")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("fill", "transparent");
 
     // draw plot
     scattertext.selectAll(".dot")
@@ -106,8 +133,8 @@ function visualize(data, infos, reduction) {
         })
 
         .style("font", function (d) {
-            if (d.count < 5) {
-                return "5px times"
+            if (d.count < 3) {
+                return "3px times"
             } else {
                 return d.count + "px times"
             }
@@ -115,9 +142,6 @@ function visualize(data, infos, reduction) {
         .style("fill", function (d) {
             return color(d[9])
         })
-
-    scattertext.append("g")
-        .attr("class", "brush")
 
 
     // update plot depended on reduction algorithm
@@ -153,8 +177,8 @@ function visualize(data, infos, reduction) {
             })
             // .style("font", "5px times")
             .style("font", function (d) {
-                if (d.count < 5) {
-                    return "5px times"
+                if (d.count < 3) {
+                    return "3px times"
                 } else {
                     return d.count + "px times"
                 }
@@ -166,69 +190,7 @@ function visualize(data, infos, reduction) {
 
         update_slider(slider.value())
 
-        function brushended(event, d) {
-            var s = event.selection;
-            d3.selectAll(".dot")
-                .attr('transform', event.transform);
-            if (s === null) {
-                if (!idleTimeout) return idleTimeout = setTimeout(idled, idleDelay);
-                x.domain(d3.extent(data, function (d) {
-                    return d[reduction + "_x"];
-                })).nice();
-                y.domain(d3.extent(data, function (d) {
-                    return d[reduction + "_y"];
-                })).nice();
-            } else {
-                x.domain([s[0][0], s[1][0]].map(x.invert, x));
-                y.domain([s[1][1], s[0][1]].map(y.invert, y));
-                d3.select(".brush").call(brush.move, null);
-            }
-            zoom(s);
-        }
 
-        brush.on("end", brushended);
-
-        function idled() {
-            idleTimeout = null;
-        }
-
-        // zooms in when brushed
-        function zoom(s) {
-            if (s == null) {
-                d3.selectAll(".dot").transition().duration(1500)
-                    .attr("x", function (d) {
-                        return x(d[reduction + "_x"]);
-                    })
-                    .attr("y", function (d) {
-                        return y(d[reduction + "_y"]);
-                    })
-                    .style("font", function (d) {
-                        if (d.count < 5) {
-                            return "5px times"
-                        } else {
-                            return d.count + "px times"
-                        }
-                    });
-            } else {
-                // change text size depended on the chosen brush
-                var brush_size = Math.abs(s[1][0] - s[0][0]) * Math.abs(s[1][1] - s[0][1])
-                var alpha = Math.sqrt((2000 * 1000) / brush_size)
-                scattertext.selectAll("text").transition().duration(1500)
-                    .attr("x", function (d) {
-                        return x(d[reduction + "_x"]);
-                    })
-                    .attr("y", function (d) {
-                        return y(d[reduction + "_y"]);
-                    })
-                    .style("font", function (d) {
-                        if (d.count < 5) {
-                            return alpha * 5 + "px times"
-                        } else {
-                            return alpha * d.count + "px times"
-                        }
-                    })
-            }
-        }
     }
 
     // Function that change a color
@@ -238,6 +200,31 @@ function visualize(data, infos, reduction) {
             return color(d[value])
         });
     }
+
+    function zoomed(event) {
+        var transform = event.transform;
+        scattertext.attr("transform", transform);
+        scattertext.selectAll(".dot")
+            .style("font", function (d) {
+                var k = event.transform.k;
+                var customScalingFactor = 0.01; // Adjust this value to control the text zoom speed
+                if (d.count < 3) {
+                    return (3 * (1 + customScalingFactor * (k - 1))) + "px times";
+                } else {
+                    return (d.count * (1 + customScalingFactor * (k - 1))) + "px times";
+                }
+            });
+    }
+
+    // function resetZoom() {
+    //     svg.transition()
+    //         .duration(500)
+    //         .call(zoomBehavior.transform, d3.zoomIdentity);
+    // }
+
+    chartArea.call(zoomBehavior);
+    // chartArea.on('dblclick.zoom', null);
+    // chartArea.on('dblclick', resetZoom);
 
 
     // update when changing slider
@@ -257,11 +244,10 @@ function visualize(data, infos, reduction) {
             .call(d3.axisLeft(bar_y));
 
         bar_chart.append("g")
-            .attr("transform", "translate(0," + 200 + ")")
+            .attr("transform", "translate(0," + barHeight + ")")
             .call(d3.axisBottom(bar_x).tickSize(0))
             .selectAll("text")
-            .style("font", "0 px")
-
+            .style("font", "0 px");
 
         var bars = bar_chart.selectAll(".bar")
             .data(bar_infos[(val - 1).toString()])
@@ -271,6 +257,9 @@ function visualize(data, infos, reduction) {
             .enter()
             .append("rect")
             .attr("class", "bar")
+            .attr("data-index", function (d, i) {
+                return i;
+            })
             .merge(bars)
             .transition()
             .duration(750)
@@ -282,23 +271,32 @@ function visualize(data, infos, reduction) {
             })
             .attr("width", bar_x.bandwidth())
             .attr("height", function (d) {
-                return 200 - bar_y(d)
+                return barHeight - bar_y(d)
             })
             .attr("fill", function (d, i) {
                 return color(i)
             })
 
-        d3.selectAll(".bar").on("click", function (d, i) {
-            i = parseInt(d3.select(this).attr("x") / (400 / slider.value()))
-            d3.selectAll(".bar")
-                .style("opacity", 0.2);
-            d3.select(this)
-                .style("opacity", 1.0);
-            // "update" coords of phrases
-            d3.selectAll(".dot")
-                .data(data)
-                .style("fill", "rgb(0,0,0,0.1)")
-            console.log(i)
+        d3.selectAll(".bar").on("click", function (event, d) {
+            var i = parseInt(d3.select(this).attr("data-index"));
+            console.log(d)
+            if (selectedBarIndex === i) { // If the clicked bar is already selected, deselect it
+                d3.selectAll(".bar").style("opacity", 1.0);
+                d3.selectAll(".dot").style("fill", function (d) {
+                    return color(d[slider.value()]);
+                });
+                selectedBarIndex = null;
+            } else { // If the clicked bar is not selected, select it
+                selectedBarIndex = i;
+                d3.selectAll(".bar").style("opacity", 0.2);
+                d3.select(this).style("opacity", 1.0);
+                d3.selectAll(".dot").style("fill", "rgb(0,0,0,0.1)");
+                d3.selectAll(".dot").filter(function (d) {
+                    return d[slider.value()] === selectedBarIndex;
+                }).style("fill", function (d) {
+                    return color(d[slider.value()]);
+                });
+            }
             for (let t of d3.selectAll(".dot")) {
 
                 color_p = color(t.__data__[slider.value()])
@@ -317,7 +315,7 @@ function visualize(data, infos, reduction) {
 
             d3.select("#topics")
                 .html(html_text)
-                .style("font", "10px times");
+                .style("font", "20px times");
             // })
         });
 
@@ -334,9 +332,20 @@ function visualize(data, infos, reduction) {
         reduction_name = this.value// console.log(this.value)
         // bar_chart.selectAll("*").remove()
         update_reduction(reduction_name, 50)
+
+        // Reset the opacity of all bars
+        d3.selectAll(".bar").style("opacity", 1.0);
+
+        // Reset the selectedBarIndex
+        selectedBarIndex = null;
+
+        // Reset the colors of the dots
+        d3.selectAll(".dot").style("fill", function (d) {
+            return color(d[slider.value()]);
+        });
     }
 
-    console.log("red", reduction)
+
 }
 
 // call function

@@ -126,8 +126,8 @@ a:link,a:visited,a:hover,a:active {
     width: 100%;
     height: 30%;
     box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /*overflow-y: scroll;*/
+    /*overflow-x: hidden;*/
     padding: 15px;
 }
 
@@ -153,24 +153,83 @@ a:link,a:visited,a:hover,a:active {
 }
 
 
-.button {
-    transition-duration: 0.7s;
-    padding: 12px 28px;
-    font-size: 16px;
-    background-color: #e7e7e7;
-    color: black;
+#selectButton {
+    /* Set the element to relative position so the arrow can be positioned relative to it */
     position: relative;
-    width: 120px;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    border-radius: 8px;
+    /* Display the element as an inline block so it takes up only the necessary width */
+    display: inline-block;
+    /* Set the width of the element */
+    width: 100%;
+    max-width: 100px;
+    /* Set the height, padding, font size, and weight of the element */
+    height: 40px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    /* Set the line-height and color of the element */
+    line-height: 1.2;
+    color: #555;
+    /* Set the background color, border, and border radius of the element */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    /* Remove the default appearance of the select element */
+    /*appearance: none;*/
+    /* Set the cursor to pointer so it changes on hover */
+    cursor: pointer;
+}
+
+#selectButton::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    transform: translateY(-50%) rotate(45deg);
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+}
+#selectButton option {
+    /* Set the font size, weight, line-height, color, and background color of the dropdown options */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #555;
+    background-color: #fff;
 }
 
 
-.button:hover {
-    background-color: #4CAF50; /* Green */
-      color: white;
-    opacity: 1;
+#cluster_container {
+    display: flex;
+    align-items: center;
+}
+
+#cluster_container p {
+    margin-right: 1rem;
+    /* Center the text vertically in the flex container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#slider {
+    /* Set the height of the slider element */
+    height: 90px;
+}
+
+
+#reduction_container {
+    display: flex;
+    align-items: center;
+}
+
+#reduction_container h4 {
+    margin-right: 1rem;
+}
+
+#cluster_container h4 {
+    margin-right: -3.5px;
 }
 
