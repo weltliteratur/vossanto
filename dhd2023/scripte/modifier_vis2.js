@@ -134,9 +134,9 @@ function visualize(data, infos, reduction) {
 
         .style("font", function (d) {
             if (d.count < 3) {
-                return "3px times"
+                return "3px Roboto"
             } else {
-                return d.count + "px times"
+                return d.count + "px Roboto"
             }
         })
         .style("fill", function (d) {
@@ -175,12 +175,12 @@ function visualize(data, infos, reduction) {
             .text(function (d) {
                 return d.label;
             })
-            // .style("font", "5px times")
+            // .style("font", "5px Roboto")
             .style("font", function (d) {
                 if (d.count < 3) {
-                    return "3px times"
+                    return "3px Roboto"
                 } else {
-                    return d.count + "px times"
+                    return d.count + "px Roboto"
                 }
             })
 
@@ -209,11 +209,12 @@ function visualize(data, infos, reduction) {
                 var k = event.transform.k;
                 var customScalingFactor = 0.01; // Adjust this value to control the text zoom speed
                 if (d.count < 3) {
-                    return (3 * (1 + customScalingFactor * (k - 1))) + "px times";
+                    return (3 * (1 + customScalingFactor * (k - 1))) + "px Roboto";
                 } else {
-                    return (d.count * (1 + customScalingFactor * (k - 1))) + "px times";
+                    return (d.count * (1 + customScalingFactor * (k - 1))) + "px Roboto";
                 }
-            });
+            })
+
     }
 
 
@@ -309,7 +310,7 @@ function visualize(data, infos, reduction) {
 
             d3.select("#topics")
                 .html(html_text)
-                .style("font", "20px times");
+                .style("font", "15 Roboto");
             // })
         });
 
