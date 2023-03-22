@@ -2,19 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <title>Modifier visualizations</title>
 
-    <!--    <style>-->
-    <!--        .axis text,-->
-    <!--        .slider text {-->
-    <!--            font-size: 18px;-->
-    <!--        }-->
-    <!--    </style>-->
 </head>
-
-<!-- Create a div where the graph will take place -->
-
 <body>
 
 <header>
@@ -23,27 +15,29 @@
 </header>
 <main id="main_container">
     <!--    <div id="visualization_container">-->
-    <div id="visualization_container"></div>
-    <!--            <div id="stats_container">te</div>-->
-    <!--        </div>-->
+    <div id="visualization_container">
+<!--        <div id="zoom_buttons">-->
+<!--            <button id="zoom_in">Zoom In</button>-->
+<!--            <button id="zoom_out">Zoom Out</button>-->
+<!--        </div>-->
+    </div>
+
+
     <div class="vertical_divider"></div>
-    <div id="explanation_and_results_main_container">
+    <div id="insights_container">
         <div id="reduction_container">
             <h4>Choice of reduction algorithm:</h4>
             <select id="selectButton"></select>
         </div>
         <hr class="horizontal_divider"/>
-
         <div id="cluster_container">
             <h4>Number of clusters:</h4>
             <div id="slider"></div>
         </div>
-
         <hr class="horizontal_divider"/>
         <div id="bar_container">
             <h4>Number of Phrases per cluster</h4>
             <svg id="bar_chart"></svg>
-
             <hr class="horizontal_divider"/>
             <h4>Topics</h4>
             Click on one of the bars to highlight the cluster and to see the computed topics.
@@ -57,27 +51,13 @@
                 </ul>
             </div>
         </div>
-
-
-
-
-
-        <!--        <hr class="horizontal_divider"/>-->
-
-        <!--        <div id="cluster_info_div" class="tooltip_text">-->
-        <!--            <p><b>Most phrases used</b></p>-->
-        <!--        </div>-->
-
     </div>
 
 </main>
-<!-- divs for slider and vis-->
-
 
 <script src="https://unpkg.com/d3-simple-slider"></script>
 <script src="https://d3js.org/d3.v6.js"></script>
 <script src="scripte/modifier_vis2.js"></script>
-<!--<link href="{{ site.baseurl }}/css/com_det.css" rel="stylesheet">-->
 
 </body>
 </html>

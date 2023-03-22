@@ -216,15 +216,9 @@ function visualize(data, infos, reduction) {
             });
     }
 
-    // function resetZoom() {
-    //     svg.transition()
-    //         .duration(500)
-    //         .call(zoomBehavior.transform, d3.zoomIdentity);
-    // }
 
     chartArea.call(zoomBehavior);
-    // chartArea.on('dblclick.zoom', null);
-    // chartArea.on('dblclick', resetZoom);
+
 
 
     // update when changing slider
@@ -345,12 +339,12 @@ function visualize(data, infos, reduction) {
         });
     }
 
-
 }
 
 // call function
 Promise.all([d3.csv('./data/data.csv'), d3.json('./data/infos.json')]).then(([data, infos]) => {
     visualize(data, infos, "pca_tsne")
+
 })
 
 

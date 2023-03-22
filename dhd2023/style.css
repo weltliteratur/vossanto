@@ -1,7 +1,10 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+/**/
 html, body {
     height: 100%;
     overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
 }
 
 hr {
@@ -17,8 +20,11 @@ header {
     display: flex;
     justify-content: left;
     align-items: center;
-    border-bottom: 1.5px solid rgba(0,0,0,0.5);
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .header img {
     float: right;
     position: relative;
@@ -31,11 +37,23 @@ header > h1 {
     margin-left: 25px;
     cursor: pointer;
     text-align: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #333;
 }
+
+h4 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+
 .horizontal_divider {
-    border-color: #5D6683;
-    color: #5D6683;
-    heighst: 5px;
+    border-color: #c7c7c7;
+    color: #c7c7c7;
+    height: 5px;
     width: 100%;
 }
 
@@ -54,25 +72,23 @@ header > h1 {
 }
 
 
-
-#visualization_container{
+#visualization_container {
+    position: relative;
     flex-basis: 70%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    cursor: grab;
 }
 
 
-
-    /* unvisited link */
-a:link,a:visited,a:hover,a:active {
+/* unvisited link */
+a:link, a:visited, a:hover, a:active {
     color: #267CB9;
 }
 
 
-
-
-#url_p{
+#url_p {
     display: block;
     margin-top: 2em;
     margin-bottom: 10em;
@@ -80,7 +96,7 @@ a:link,a:visited,a:hover,a:active {
     margin-right: 0.5em;
 }
 
-#explanation_and_results_main_container{
+#insights_container {
     position: relative;
     flex-basis: 30%;
     height: 100%;
@@ -91,17 +107,8 @@ a:link,a:visited,a:hover,a:active {
     touch-action: none;
 }
 
-.text_container{
-    position: relative;
-    width: 100%;
-    height: 30%;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding: 15px;
-}
 
-.reduction_container{
+.reduction_container {
     position: relative;
     width: 100%;
     height: 20%;
@@ -111,17 +118,9 @@ a:link,a:visited,a:hover,a:active {
     padding: 15px;
 }
 
-.legend_container{
-    position: relative;
-    width: 100%;
-    height: 50%;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding: 15px;
-}
 
-#bar_container{
+
+#bar_container {
     position: relative;
     width: 100%;
     height: 30%;
@@ -131,52 +130,72 @@ a:link,a:visited,a:hover,a:active {
     padding: 15px;
 }
 
-#legend{
-    position: relative;
-    width: 100%;
-    height: 20%;
-    /*box-sizing: border-box;*/
-    /*viewBox:    "0 0 2287 1276";*/
+#cluster_container {
+    display: flex;
+    align-items: center;
 }
 
-#topics{
+#cluster_container h4 {
+    margin-right: -3.5px;
+}
+
+#cluster_container p {
+    margin-right: 1rem;
+    /* Center the text vertically in the flex container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#reduction_container {
+    display: flex;
+    align-items: center;
+}
+
+#reduction_container h4 {
+    margin-right: 1rem;
+}
+
+
+#topics {
     position: relative;
     /*box-sizing: border-box;*/
     width: 100%;
     height: 80%;
 }
 
-#bar_chart{
+#bar_chart {
     width: 100%;
     height: 100%;
     /*viewBox:    "0 0 2287 1276";*/
 }
 
+.bar {
+    cursor: pointer;
+}
+
+#slider {
+    /* Set the height of the slider element */
+    height: 90px
+}
 
 #selectButton {
-    /* Set the element to relative position so the arrow can be positioned relative to it */
     position: relative;
-    /* Display the element as an inline block so it takes up only the necessary width */
     display: inline-block;
-    /* Set the width of the element */
     width: 100%;
     max-width: 100px;
-    /* Set the height, padding, font size, and weight of the element */
     height: 40px;
     padding: 0.5rem;
     font-size: 1rem;
     font-weight: 500;
-    /* Set the line-height and color of the element */
     line-height: 1.2;
     color: #555;
-    /* Set the background color, border, and border radius of the element */
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 0.25rem;
-    /* Remove the default appearance of the select element */
-    /*appearance: none;*/
-    /* Set the cursor to pointer so it changes on hover */
     cursor: pointer;
+    /*appearance: none;*/
+    outline: none;
 }
 
 #selectButton::after {
@@ -191,8 +210,8 @@ a:link,a:visited,a:hover,a:active {
     border-top: 1px solid #999;
     border-right: 1px solid #999;
 }
+
 #selectButton option {
-    /* Set the font size, weight, line-height, color, and background color of the dropdown options */
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.2;
@@ -200,36 +219,20 @@ a:link,a:visited,a:hover,a:active {
     background-color: #fff;
 }
 
-
-#cluster_container {
-    display: flex;
-    align-items: center;
+#zoom_buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
-#cluster_container p {
-    margin-right: 1rem;
-    /* Center the text vertically in the flex container */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#slider {
-    /* Set the height of the slider element */
-    height: 90px;
+#zoom_buttons button {
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
 
-#reduction_container {
-    display: flex;
-    align-items: center;
-}
 
-#reduction_container h4 {
-    margin-right: 1rem;
-}
-
-#cluster_container h4 {
-    margin-right: -3.5px;
-}
 
