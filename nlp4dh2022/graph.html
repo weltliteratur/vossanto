@@ -2,99 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!--<style>-->
-    <!--    body {-->
-    <!--        overflow:hidden;-->
-    <!--        margin:0;-->
-    <!--    }-->
-
-    <!--    text {-->
-    <!--        font-family: sans-serif;-->
-    <!--        pointer-events: none;-->
-    <!--    }-->
-    <!--</style>-->
     <link href="style.css" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <!--<script src="http://d3js.org/queue.v1.min.js"></script>-->
 </head>
 <body>
-<header >
+<header>
     <h1>Exploring Relationships between Sources and Targets of Vossian Antonomasia</h1>
 </header>
-<!--<div id="visualization_container">-->
-<!--    <svg id="vis" class="graph_container"></svg>-->
-<!--</div>-->
-<!--<div class="vertical_divider"> test</div>-->
-<!--<div id="explanation_and_results_main_container">-->
-<!--    <div class="text_container" >-->
-<!--        <p> <b>Erklärung</b>-->
-<!--            <br/>-->
-
-
-<!--            <br/>-->
-
-<!--        </p>-->
-<!--    </div>-->
-<!--    <hr class="horizontal_divider"/>-->
-<!--    &lt;!&ndash;            <div id="tt" class="tooltip" ></div>&ndash;&gt;-->
-<!--</div>-->
-
 
 <main id="main_container">
-    <!--    <div id="visualization_container">-->
     <div id="visualization_container"></div>
-
-    <!--            <div id="stats_container">te</div>-->
-    <!--        </div>-->
     <div class="vertical_divider"></div>
-    <div id="explanation_and_results_main_container">
-        <div id="image_container">
-            <!--            <b>Legende</b> <br/>-->
-            <!--            <svg id="legend"></svg>-->
-        </div>
-        <hr class="horizontal_divider"/>
+    <div id="insights_container">
+
         <div id="description_container">
-            <p>
-            <ul>
-                <li>
-                    <span style="color:#cccc66;">Yellow</span>: The node that is currently clicked
-                </li>
-                <li>
-                    <span style="color:#34eb74;">Green</span>: All nodes that can be reached from the current node via a directed
-                    path
-                </li>
-                <li>
-                    <span style="color:#EC5552;">Red</span>: All nodes that are able to reach the current node via a directed path
-                </li>
-                <li>
-                    <span style="color:#703cd8;">Purple</span>: All nodes that are able to reach the current node via a directed path
-                    AND that can be reached from the current node via a directed path
-                </li>
-            </ul>
-            </p>
-        </div>
-        <hr class="horizontal_divider"/>
-
-        <!--        <div class="text_container" >-->
-        <!--            <p> <b>Erklärung</b>-->
-        <!--                <br/>-->
-        <!--                Dieser Streamgraph beschreibt die zeitliche Entwicklung der Anzahl von Publikationen je BDSL Kategorie (Level 1).-->
-        <!--                <br/>-->
-        <!--                Indem man die Maus über den Graphen bewegt, kann man sich die Zahlen je Jahr und Kategorie anschauen (rechts unten).-->
-        <!--                Die top10 Autoren (Primärlieratur) erscheinen unten links.-->
-        <!--            </p>-->
-        <!--            Sobald man auf einen Punkt in der Grafik klickt, friert die Grafik ein und man kann zusätzlich die Dropdown-Box nutzen, um sich die Werke der einzelnen Autoren anzuschauen und die Links zu den jeweiligen BDSL-Online Einträgen zu bekommen.-->
-        <!--            <p>-->
-
-        <!--            </p>-->
-        <!--        </div>-->
-        <!--        <hr class="horizontal_divider"/>-->
-        <div id="tt" class="tooltip">
-            <div class="tooltip_bg"></div>
-            <div class="tooltip_text">Click on a node or a name to get more information.
-                <p id="url_p"></p>
+            <div class="legend_container">
+                <h4 style="color:#f0b000;">Yellow Nodes:</h4>
+                <p>The currently selected node.</p>
+            </div>
+            <div class="legend_container">
+                <h4 style="color:#069869;">Green Nodes:</h4>
+                <p>Nodes reachable from the current node via a directed path.</p>
+            </div>
+            <div class="legend_container">
+                <h4 style="color:#EC5552;">Red Nodes:</h4>
+                <p>Nodes with a directed path to the selected node</p></div>
+            <div class="legend_container">
+                <h4 style="color:#703cd8;">Purple Nodes:</h4>
+                <p>Nodes with bidirectional paths to/from the selected node</p>
             </div>
         </div>
+
+        <hr class="horizontal_divider"/>
+        <div id="label"></div>
+        <div id="image_container">
+        </div>
+        <hr class="horizontal_divider"/>
+        <div class="sentences">
+            <button id="source-button">Source</button>
+            <button id="target-button">Target</button>
+            <p id="text"></p>
+        </div>
+    </div>
 
     </div>
 
@@ -102,11 +51,3 @@
 <script src="graph.js"></script>
 </body>
 </html>
-
-function focus_link(d){
-
-link.attr("stroke"), function(o){
-if (o.source == d.source &&o.target == d.target)
-return "blue";
-}
-}
