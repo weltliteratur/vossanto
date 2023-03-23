@@ -218,6 +218,11 @@ Promise.all([
             } else {
                 d3.select("#text").text("Please click on a node in the graph first.");
             }
+            console.log(this)
+            d3.select(this).style("background-color", "#800000")
+                .style("color", "white");
+            d3.select("#target-button").style("background-color", "lightgrey")
+                .style("color", "black");
         });
 
     text_container.select("#target-button")
@@ -228,6 +233,10 @@ Promise.all([
             } else {
                 d3.select("#text").text("Please click on a node in the graph first.");
             }
+            d3.select(this).style("background-color", "#808000")
+                .style("color", "white");
+            d3.select("#source-button").style("background-color", "lightgrey")
+                .style("color", "black");
         });
 
 
@@ -250,6 +259,10 @@ Promise.all([
         d3.select("#text").text("");
         d3.select("#label").text("");
         d3.select("#image_container").text("");
+        d3.select("#target-button").style("background-color", "lightgrey")
+            .style("color", "black");
+        d3.select("#source-button").style("background-color", "lightgrey")
+            .style("color", "black");
     }
 
     function focus(d) {
@@ -264,6 +277,10 @@ Promise.all([
         updateLabelNodeStyle(node_index, connected);
         updateLinkStyle(node_index, connected, edges)
 
+        d3.select("#target-button").style("background-color", "lightgrey")
+            .style("color", "black");
+        d3.select("#source-button").style("background-color", "lightgrey")
+            .style("color", "black");
         d3.select("#label").html(
             `<h2><a href=https://www.wikidata.org/wiki/${node_id}>${node_name}</a></h2>`
         )
@@ -288,7 +305,7 @@ Promise.all([
     function updateNodeStyle(node, node_id, connected) {
         node.style("stroke", function (o) {
             if (o.id == node_id) {
-                return "#f0b000";
+                return "#f58231";
             } else if (connected[0].includes(o.index) && connected[1].includes(o.index)) {
                 return "#703cd8";
             } else if (connected[0].includes(o.index)) {
@@ -312,7 +329,7 @@ Promise.all([
     function updateLabelNodeStyle(node_index, connected) {
         labelNode.style("fill", function (o) {
             if (o.node.index == node_index) {
-                return "#f0b000";
+                return "#f58231";
             } else if (connected[0].includes(o.node.index) && connected[1].includes(o.node.index)) {
                 return "#9763db";
             } else if (connected[0].includes(o.node.index)) {
@@ -413,10 +430,10 @@ Promise.all([
             let sent = `${prefix}<em>${modifier}</em>${suffix}`;
             if (sent.includes("|")) {
                 const [prefix, target, suffix] = sent.split("|");
-                sent = `${prefix}<a class='current-link' href='https://www.wikidata.org/wiki/${d[3]}'>${target}</a>${suffix}`;
+                sent = `${prefix}<a class='current-link' href='https://www.wikidata.org/wiki/${node_id}'>${target}</a>${suffix}`;
             }
             const [prefix2, emphasis, suffix2] = sent.split("*");
-            sent = `<li>${prefix2}<a class='src-link' href='https://www.wikidata.org/wiki/${node_id}'>${emphasis}</a>${suffix2}
+            sent = `<li>${prefix2}<a class='src-link' href='https://www.wikidata.org/wiki/${d[3]}'>${emphasis}</a>${suffix2}
       (<a href='http://query.nytimes.com/gst/fullpage.html?res=${d[1]}'>NYT ${d[2]}</a>)</li>`;
             return sent;
         });
