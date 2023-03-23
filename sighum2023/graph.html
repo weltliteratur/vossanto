@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+<header>
+    <h1>Exploring Relationships between Sources and Targets of Vossian Antonomasia</h1>
+</header>
+
+<main id="main_container">
+    <div id="visualization_container">
+        <div id="zoom_buttons">
+            <button id="zoom_in">+</button>
+            <button id="zoom_out">-</button>
+        </div>
+    </div>
+    <div class="vertical_divider"></div>
+    <div id="insights_container">
+
+        <div id="description_container">
+            <div class="legend_container">
+                <h4 style="color:#f0b000;">Yellow Nodes:</h4>
+                <p>The currently selected node.</p>
+            </div>
+            <div class="legend_container">
+                <h4 style="color:#069869;">Green Nodes:</h4>
+                <p>Nodes reachable from the current node via a directed path.</p>
+            </div>
+            <div class="legend_container">
+                <h4 style="color:#EC5552;">Red Nodes:</h4>
+                <p>Nodes with a directed path to the selected node</p></div>
+            <div class="legend_container">
+                <h4 style="color:#703cd8;">Purple Nodes:</h4>
+                <p>Nodes with bidirectional paths to/from the selected node</p>
+            </div>
+        </div>
+
+        <hr class="horizontal_divider"/>
+        <div id="label"></div>
+        <div id="image_container">
+        </div>
+        <hr class="horizontal_divider"/>
+        <div class="sentences">
+            <button class="custom-button" id="source-button">Source</button>
+            <button class="custom-button" id="target-button">Target</button>
+            <p id="text"></p>
+        </div>
+    </div>
+
+    </div>
+
+</main>
+<script src="graph.js"></script>
+</body>
+</html>
