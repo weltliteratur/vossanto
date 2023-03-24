@@ -300,6 +300,10 @@ Including explanations
   the award-show equivalent of Abraham Lincoln's Gettysburg Address —
   the ideal against which all successors would be measured. [source: I
   want my MTV, ISBN 978-0452298569)
+- Someone -- often a contemporary composer trying to address the
+  masses -- is always remarking with approval that Mozart tailored his
+  music for particular occasions, that he was just a working stiff,
+  the Burt Bacharach of his day. (NYT 1994/08/28/0708660)
 
 Here, the source (!) is explained:
 - In a March 28 op-ed article in The Wall Street Journal, she warned Mr. Spielberg that he could ''go down in history as the **Leni Riefenstahl** of *the Beijing Games*,'' a reference to a German filmmaker who made Nazi propaganda films.
