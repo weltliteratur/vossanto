@@ -532,3 +532,11 @@ Misc
   - One frequent fallback, which comes in handy when covering esoteric
     events, is to describe someone as ''the Michael Jordan'' of his or
     her sport.
+
+No VA?
+------
+
+- He [Lou Reed] is to New York what James Joyce was to Dublin. (ISBN 978-0060776756)
+  - Could also be written as "Lou Reed is the James Joyce of New York"
+    but that lacks a bit the temporal ("was") aspect and the reference
+    to Dublin.
