@@ -31,7 +31,7 @@ the Madonna of Italian-American Literature?”: Extracting and Analyzing
 Target Entities of Vossian Antonomasia.
 (DOI:[tba](tba),
 [PDF](https://sighum.files.wordpress.com/2023/03/latech-clfl-2023-unofficial-proceedings.pdf),
-[BibTeX](tba)
+[BibTeX](tba))
 
 - [Slides SIGHUM 2023, Dubrovnik](https://schwabmi.github.io/presentations/2023-05-05-sighum/)
 - [Data and code](https://github.com/weltliteratur/vossanto/tree/master/sighum2023)
@@ -58,6 +58,7 @@ Wettervorhersage”: Cross-Lingual Vossian Antonomasia Extraction.
 [PDF](https://aclanthology.org/2022.icnlsp-1.33.pdf),
 [BibTeX](https://www.bibsonomy.org/bib/bibtex/2e68d487a554f79407c532889e826b3d8/jaeschke))
 
+- [Slides ICNLSP 2022, online](https://schwabmi.github.io/presentations/2022-12-17-icnlsp/)
 - [Data and code](https://github.com/weltliteratur/vossanto/tree/master/icnlsp2022)
 
 
