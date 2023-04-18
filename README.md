@@ -25,6 +25,19 @@ the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
 
+## SIGHUM (May, 2023)
+Schwab, M., Jäschke, R., Fischer, F.: “Who is
+the Madonna of Italian-American Literature?”: Extracting and Analyzing
+Target Entities of Vossian Antonomasia.
+(DOI:[tba](tba),
+[PDF](https://sighum.files.wordpress.com/2023/03/latech-clfl-2023-unofficial-proceedings.pdf),
+[BibTeX](tba)
+
+- [Slides SIGHUM 2023, Dubrovnik](https://schwabmi.github.io/presentations/2023-05-05-sighum/)
+- [Data and code](https://github.com/weltliteratur/vossanto/tree/master/sighum2023)
+- [Visualization of Source-Target pairs](sighum2023/graph.html) (**recommended**)
+
+
 ## DHd (March, 2023)
 Schwab, M., Fischer, F.: »Die Greta Garbo der Leichtathletik«.
 Eine systematische Analyse der Modifier vossianischer
