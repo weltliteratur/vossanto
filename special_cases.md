@@ -454,7 +454,7 @@ Syntactic variations
 --------------------
 
 - **the ... equivalent of**: New South Wales, the **Georgian
-  equivalent** of *deep space* <!-- is this a VA at all? -->
+  equivalent** of *deep space*
 - **the ... answer to**: Miss Westwood, who helped revive the British
   fashion scene in the early 1980's, is back after a few seasons'
   absence with outrageous clothes that her fans are calling the
