@@ -35,6 +35,32 @@ include a VA, 2,929 do not.
 Annotations: The target is encapsulated by "|", the source by "*" and
 the modifier by "/".
 
+** Models/Skripte
+*** BLSTM-ATT
+This neuronal network is based on a bidirectional LSTM and an attention layer on top.
+The network is trained for the binary sentence classification task.
+
+The script is highly based on the implementation from https://github.com/gao-g/metaphor-in-context
+- Script: lstm_att_main.py  (lstm_att_utils.py and lstm_att_model.py)
+*** BERT_CLF
+ 
+This is a fine-tuned BERT model for binary sequence classification.
+
+- Script: bert_clf.py
+
+*** BLSTM-CRF
+
+This neuronal network is based on a bidirectional LSTM and a
+conditional random field on top that is trained on the sequence
+tagging task.
+
+- Scripts: lstm_crf.py
+
+*** BERT_SEQ
+
+This is a fine-tuned BERT model for sequence tagging.
+
+- Script: bert_seq.py
 ** Dataset 
 +[[https://www.wikidata.org/wiki/Q65553][Carl-Uwe Steeb]] [[http://query.nytimes.com/gst/fullpage.html?res=950DE1DE1538F932A15752C0A96F948260][(1989/01/21/)]] 1 ranking with a 6-2, 3-6, 6-0, 6-3 second-round victory over the Carl-Uwe Steeb of West Germany.+
 [[https://www.wikidata.org/wiki/Q213626][Jesse James]] [[http://query.nytimes.com/gst/fullpage.html?res=9F03E5D61731F937A25752C1A962958260][(1994/11/14/)]] 1 suspect, |Leroy Linen|, 41, was in custody yesterday, facing a felony charge as the *Jesse James* of /Scofflaws/.
@@ -6031,29 +6057,3 @@ the modifier by "/".
 +[[https://www.wikidata.org/wiki/Q3316590][Blue Angel]] [[http://query.nytimes.com/gst/fullpage.html?res=9D03E4D61039F931A35757C0A9659C8B63][(2003/04/02/)]] won the Blue Angel for Best European Film at the Berlin Film Festival, and the resulting promotion enlivened the discussion about lingering divisions between East and West.+
 [[https://www.wikidata.org/wiki/Q2331870][M. L. Carr]] [[http://query.nytimes.com/gst/fullpage.html?res=9B0DE5D8163BF93BA25751C1A961948260][(1987/12/18/)]] - won the Super Bowl with a former Navy helicopter pilot named |Phil McConkey| running up and down the sidelines waving a flag, the *M. L. Carr* of /the swamplands/.
 [[https://www.wikidata.org/wiki/Q5443][Greta Garbo]] [[http://query.nytimes.com/gst/fullpage.html?res=9D00E4DC153CF93AA1575BC0A9629C8B63][(2004/08/29/)]] would love |the Carnegie International| in Pittsburgh, in many ways the *Garbo* of /American invitational art surveys/ -- revered but aloof, never garnering the mainstream brouhaha of, say, the Whitney Biennial.
-** Models/Skripte
-*** BLSTM-ATT
-This neuronal network is based on a bidirectional LSTM and an attention layer on top.
-The network is trained for the binary sentence classification task.
-
-The script is highly based on the implementation from https://github.com/gao-g/metaphor-in-context
-- Script: lstm_att_main.py  (lstm_att_utils.py and lstm_att_model.py)
-*** BERT_CLF
- 
-This is a fine-tuned BERT model for binary sequence classification.
-
-- Script: bert_clf.py
-
-*** BLSTM-CRF
-
-This neuronal network is based on a bidirectional LSTM and a
-conditional random field on top that is trained on the sequence
-tagging task.
-
-- Scripts: lstm_crf.py
-
-*** BERT_SEQ
-
-This is a fine-tuned BERT model for sequence tagging.
-
-- Script: bert_seq.py
