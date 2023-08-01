@@ -42,6 +42,12 @@ The network is trained for the binary sentence classification task.
 
 The script is highly based on the implementation from https://github.com/gao-g/metaphor-in-context
 - Script: lstm_att_main.py  (lstm_att_utils.py and lstm_att_model.py)
+
+Note 1: Before using the script, you have to download pre-trained GloVe embeddings
+Note 2: Before using the script, you have to pre-compute ELMo embeddings for the training, validation and test dataset, e.g.
+
+```!allennlp elmo path_to_train_file train.hdf5 --average --use-sentence-keys```
+
 *** BERT_CLF
  
 This is a fine-tuned BERT model for binary sequence classification.
