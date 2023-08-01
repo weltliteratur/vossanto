@@ -1,3 +1,6 @@
+# align tags of sentence and translated sentence (output from translate.py is needed) with simalign
+# please see https://github.com/cisnlp/simalign/tree/master on how to use simalign
+
 import argparse
 import ast
 import re
@@ -7,7 +10,7 @@ from nltk.tokenize import TreebankWordTokenizer
 from simalign import SentenceAligner
 
 
-# loads tsv files (original file and file including translations)
+# load input files (original file and file including translations)
 def read_data(path_orig, path_translated):
     data_orig = pd.read_csv(path_orig, delimiter="\t")
     translations = pd.read_csv(path_translated, delimiter="\t")
@@ -15,34 +18,34 @@ def read_data(path_orig, path_translated):
     return data_orig
 
 
-# transforms data to bert formatting
-def transform2bert_style(data):
+# format data
+def format_data(data):
     data_unstacked = data.explode(["aligned_translated_tuples"])[["aligned_translated_tuples"]]
     data_unstacked[["word", "tag"]] = data_unstacked.aligned_translated_tuples.apply(
         lambda x: pd.Series({"word": x[0], "tag": x[1]}))
     return data_unstacked
 
 
-# aligns tags from orig sentence to translated sentence
+# align tags from original sentence to translated sentence
 def align(data):
-    # checks column due to different naming and tokenizes annotated sentece
+    # check column due to different naming and tokenizes annotated sentece
     if "annotated_sent" in data:
         splitted = TreebankWordTokenizer().tokenize(data['annotated_sent'])
     else:
         splitted = TreebankWordTokenizer().tokenize(str(data['annotated'])) if "*" in str(
             data['annotated']) else TreebankWordTokenizer().tokenize(str(data['sentence']))
 
-    # removes special annotation characters from tokens
+    # remove special annotation characters from tokens
     splitted = [re.sub("(\*|\/|\|)", "", s) for s in splitted]
-    # tokenizes translated sentence
+    # tokenize translated sentence
     splitted_translation = TreebankWordTokenizer().tokenize(str(data['translation']))
-    # computes alignments
+    # compute alignments
     alignments = aligner.get_word_aligns(splitted, splitted_translation)
     alignment = alignments["itermax"]
     tuples = ast.literal_eval(data["tuples"])
     tag_lst = []
 
-    # assigns aligned tags to tokenized translated sentence
+    # assign aligned tags to tokenized translated sentence
     for k, word in enumerate(splitted_translation):
         orig_idx = [t[0] for t in alignment if t[1] == k]
         if len(orig_idx) > 1:
@@ -67,7 +70,7 @@ def align(data):
 
 
 # post-processing: boundary words between source and modifier is cleared from false tag alignments
-def rm_of_from_modifier(data):
+def post_processing(data):
     tuples = data["aligned_translated_tuples"]
     #     print(type(tuples))
     for i, t in enumerate(tuples):
@@ -77,7 +80,7 @@ def rm_of_from_modifier(data):
     return tuples
 
 
-# saves data
+# save data
 def save_data(data, path):
     data[["word", "tag"]].to_csv(path, sep=" ",
                                  index=False, header=False)
@@ -99,7 +102,6 @@ if __name__ == "__main__":
     aligner = SentenceAligner(model="xlmr", token_type="bpe", matching_methods="mai")
     data["aligned_translated_tuples"] = data.apply(align, axis=1)
     if args.lang == "de":
-        data["aligned_translated_tuples"] = data.apply(rm_of_from_modifier, axis=1)
-    data = transform2bert_style(data)
+        data["aligned_translated_tuples"] = data.apply(post_processing, axis=1)
+    data = format_data(data)
     save_data(data, args.output)
-

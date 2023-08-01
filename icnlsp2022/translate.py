@@ -1,5 +1,5 @@
 # based on https://github.com/pytorch/fairseq/tree/main/examples/translation
-# translates sentences (en-ger/ger-en) using fairseq transformer model
+# translate sentences (en-ger/ger-en) using fairseq transformer model
 
 import argparse
 import ast
@@ -9,7 +9,7 @@ import torch
 from unidecode import unidecode
 
 
-# loads tsv files
+# load input files
 def load_data(path, lang="de"):
     df = pd.read_csv(path, sep="\t")
     if lang == "de":
@@ -18,7 +18,7 @@ def load_data(path, lang="de"):
     return df
 
 
-# translates sents in both directions (en-ger/ger-en)
+# translate sentences in both directions (en-ger/ger-en)
 def translate(sents, lang="de", cuda=False):
     sents = list(sents)
     if lang == "de":
@@ -36,20 +36,22 @@ def translate(sents, lang="de", cuda=False):
     return pd.Series(translated)
 
 
-# saves data
+# save necessary data
 def save_translated_data(data, path):
     data[["sentence", "translated_sents", "tags"]].to_csv(path, sep="\t", index=False)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='translates sentences using fairseq')
+    parser = argparse.ArgumentParser(description='translates sentences using fairseq transformer model')
     parser.add_argument('input', type=str, help='input file')
-    parser.add_argument('-o', '--output', type=str,
+    parser.add_argument('-o', '--output', type=str, default="translated.tsv",
                         help='path to output file')
-    parser.add_argument('-l', '--lang', type=str,
+    parser.add_argument('-l', '--lang', type=str, default="en",
                         help='language of the input file (de/en)')
     args = parser.parse_args()
 
-    data = load_data(args.input, lang="de")
+    assert args.lang in ['de', 'en'], "Unsupported language. Please choose either 'de' or 'en'."
+
+    data = load_data(args.input, args.lang)
     data["translated_sents"] = translate(data.sentence, lang=args.lang, cuda=True)
     save_translated_data(data, args.output)
