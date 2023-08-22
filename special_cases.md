@@ -306,6 +306,8 @@ Including explanations
   the Burt Bacharach of his day. (NYT 1994/08/28/0708660)
 - Otherwise, he's the George Washington of popular culture: familiar
   but indistinct, ubiquitous but remote. (NYT 2006/12/03/1808861)
+- "Like the Johnny Cash of watches, it is dressed in all black" [source](https://www.hodinkee.com/articles/pre-owned-picks-august-17)
+
 
 Here, the source (!) is explained:
 - In a March 28 op-ed article in The Wall Street Journal, she warned Mr. Spielberg that he could ''go down in history as the **Leni Riefenstahl** of *the Beijing Games*,'' a reference to a German filmmaker who made Nazi propaganda films.
