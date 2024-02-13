@@ -24,6 +24,13 @@ Vossius](https://en.wikipedia.org/wiki/Gerardus_Vossius) (1577– 1649),
 the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
+## ICNLSP (December, 2023)
+Schwab, M., Jäschke, R., Fischer, F.: “Japan’s Answer to Mozart”:
+Automatic Detection of Generalized Patterns of Vossian Antonomasia
+([URL](https://aclanthology.org/2023.icnlsp-1.10),
+[PDF](https://aclanthology.org/2023.icnlsp-1.10.pdf),
+[BibTeX](https://www.bibsonomy.org/bib/publication/0bfda0bad59a0529b9ea3180be45de1d/jaeschke)
+
 
 ## SIGHUM (May, 2023)
 Schwab, M., Jäschke, R., Fischer, F.: “Who is
@@ -51,7 +58,7 @@ Antonomasien mithilfe von Word Embeddings.
 - [Visualization of modifiers](dhd2023/modifier.html) (**recommended**)
 - [Twitter thread](https://twitter.com/umblaetterer/status/1636685384821211138)
 
-## ICNLSP (2022)
+## ICNLSP (December, 2022)
 Schwab, M., Jäschke, R., Fischer, F.: “Der Frank Sinatra der
 Wettervorhersage”: Cross-Lingual Vossian Antonomasia Extraction.
 ([URL](https://aclanthology.org/2022.icnlsp-1.33/),
