@@ -36,8 +36,7 @@ Automatic Detection of Generalized Patterns of Vossian Antonomasia
 Schwab, M., Jäschke, R., Fischer, F.: “Who is
 the Madonna of Italian-American Literature?”: Extracting and Analyzing
 Target Entities of Vossian Antonomasia.
-(DOI:[tba](tba),
-[PDF](https://sighum.files.wordpress.com/2023/03/latech-clfl-2023-unofficial-proceedings.pdf),
+([PDF](https://sighum.files.wordpress.com/2023/03/latech-clfl-2023-unofficial-proceedings.pdf),
 [BibTeX](tba))
 
 - [Slides SIGHUM 2023, Dubrovnik](https://schwabmi.github.io/presentations/2023-05-05-sighum/)
