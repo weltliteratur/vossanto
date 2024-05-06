@@ -20,7 +20,7 @@ example "Steve Jobs") serves as paragon to elevate the <span
 style='color:blue;'>target</span> ("Jim Koch") by applying a <span
 style='color:darkgreen;'>modifier</span> ("of Beer") that provides the
 corresponding context.  VA is named after [Gerardus
-Vossius](https://en.wikipedia.org/wiki/Gerardus_Vossius) (1577– 1649),
+Vossius](https://en.wikipedia.org/wiki/Gerardus_Vossius) (1577–1649),
 the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
@@ -29,7 +29,7 @@ Schwab, M., Jäschke, R., Fischer, F.: “Japan’s Answer to Mozart”:
 Automatic Detection of Generalized Patterns of Vossian Antonomasia
 ([URL](https://aclanthology.org/2023.icnlsp-1.10),
 [PDF](https://aclanthology.org/2023.icnlsp-1.10.pdf),
-[BibTeX](https://www.bibsonomy.org/bib/publication/0bfda0bad59a0529b9ea3180be45de1d/jaeschke)
+[BibTeX](https://www.bibsonomy.org/bib/publication/0bfda0bad59a0529b9ea3180be45de1d/jaeschke))
 
 
 ## SIGHUM (May, 2023)
