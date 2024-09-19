@@ -15,6 +15,7 @@ authors:
     orcid: 'https://orcid.org/0000-0003-3271-9653'
   - given-names: Michel
     family-names: Schwab
+    orcid: 'https://orcid.org/0000-0001-5569-6568'
   - given-names: Frank
     family-names: Fischer
     affiliation: Freie Universität Berlin
@@ -22,24 +23,8 @@ authors:
 repository-code: 'https://github.com/weltliteratur/vossanto'
 abstract: >-
   Automatic extraction of Vossian antonomasia (VA) from
-  large newspaper corpora. Based on an idea by Frank Fischer
-  (see Der Umblätterer).
-
-
-  Vossian antonomasia is a stylistic device which attributes
-  a certain property to a person by naming another (more
-  well-known, more popular) person as a reference point. For
-  instance, when Jim Koch is described as "the Steve Jobs of
-  Beer", certain qualities of Steve Jobs, be it
-  entrepreneurship or persuasiveness, are assigned to Jim
-  Koch, co-founder and chairman of the Boston Beer Company.
-  VAs consist of three parts: a source (in our example
-  "Steve Jobs") serves as paragon to elevate the target
-  ("Jim Koch") by applying a modifier ("of Beer") that
-  provides the corresponding context. VA is named after
-  Gerardus Vossius (1577–1649), the Dutch classical scholar
-  and author of rhetorical textbooks, who first
-  distinguished and described VA as a separate phenomenon.
+  large newspaper corpora. This repository contains code, data and
+  analyses from several scholarly articles.
 license: GPL-3.0
 commit: c04c9f2b7e55fd628ec08c83ce88fc7aad25de42
 date-released: '2024-05-06'
