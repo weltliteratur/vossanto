@@ -24,6 +24,13 @@ Vossius](https://en.wikipedia.org/wiki/Gerardus_Vossius) (1577–1649),
 the Dutch classical scholar and author of rhetorical textbooks, who
 first distinguished and described VA as a separate phenomenon.
 
+## Dissertation Michel Schwab (July, 2024)
+Schwab, M.: Detection, Extraction and Analysis of Vossian Antonomasia
+in Large Text Corpora Using Machine Learning.
+(DOI:[10.18452/28987](https://doi.org/10.18452/28987),
+[PDF](https://edoc.hu-berlin.de/bitstreams/5886b5dd-001f-4763-bb91-7e2deb573c4b/download)
+[BibTeX](https://edoc.hu-berlin.de/citations/bibtex/18452-29680.bib))
+
 ## ICNLSP (December, 2023)
 Schwab, M., Jäschke, R., Fischer, F.: “Japan’s Answer to Mozart”:
 Automatic Detection of Generalized Patterns of Vossian Antonomasia
