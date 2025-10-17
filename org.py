@@ -118,16 +118,19 @@ $                     # end of string
 re_line = re.compile(line_re_str, re.VERBOSE)
 
 # to extract the modifier (enclosed in /.../) from the sentence
-re_modifier = re.compile("\\* ['\"]*/(.+?)/([^0-9A-Za-z]|$)")
+re_modifier = re.compile(r"\* ['\"]*/(.+?)/([^0-9A-Za-z]|$)")
 
 # to extract the exact source phrase (enclosed in * ... *) from the sentence
-re_sourcephrase = re.compile("\\*\\w+ (.+?) \\w+\\*")
+re_sourcephrase = re.compile(r"\*\w+ (.+?) \w+\\*")
 
-# to remove markup from the sentences
+# to remove markup and whitespace from the sentences
 re_clean = re.compile(r"[*/.\s]")
 
+# to remove markup from the sentences
+re_clean_text = re.compile(r"[*/|]")
+
 # remove line breaks and tabs from text
-re_ws = re.compile('[\n\t\r]+')
+re_ws = re.compile(r'[\n\t\r]+')
 
 # to extract article URL ids
 re_aurlid = re.compile(r'http://query\.nytimes\.com/gst/fullpage\.html\?res=(.+)')
