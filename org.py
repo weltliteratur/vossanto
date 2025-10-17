@@ -78,7 +78,7 @@ from collections import OrderedDict, Counter
 version = "0.8.6"
 
 # 1. [[https://www.wikidata.org/wiki/Q83484][Anthony Quinn]] (1987/01/02/0000232) ''I sometimes feel like *the Anthony Quinn of* my set.''
-line_re_str = """
+line_re_str = r"""
 ^                     # beginning of string
 (?P<newmark>> )?      # new candidates are marked with "> "line
 (?P<id>[0-9]+)\.      # all candidates are numbered
@@ -284,22 +284,22 @@ def match_line(line):
         sourcePhrase = extract_sourcephrase(d["sentence"], trueVoss)
         modifier = extract_modifier(d["sentence"], trueVoss)
         return {
-            "year"           : d["year"],
-            "date"           : d["year"] + "-" + d["month"] + "-" + d["day"],
-            "aId"            : d["aid"],
-            "fId"            : d["fid"],
-            "sourceId"       : d["wdid"],
-            "sourceLabel"    : d["wdlabel"],
-            "sourcePhrase"   : sourcePhrase,
-            "sourceUrl"      : "[[https://www.wikidata.org/wiki/" + d["wdid"] + "][" + d["wdlabel"] + "]]",
-            "modifier"       : modifier,
-            "text"           : d["sentence"],
-            "aUrl"           : d["aurl"],
-            "aUrlId"         : get_article_url_id(d["aurl"]),
-            "classification" : trueVoss,
-            "line"           : line.strip(),
-            "newVoss"        : d["newmark"], # FIXME: where is this used?
-            "status"         : d["status"] # FIXME: where is this used?
+            "year":           d["year"],
+            "date":           d["year"] + "-" + d["month"] + "-" + d["day"],
+            "aId":            d["aid"],
+            "fId":            d["fid"],
+            "sourceId":       d["wdid"],
+            "sourceLabel":    d["wdlabel"],
+            "sourcePhrase":   sourcePhrase,
+            "sourceUrl":      "[[https://www.wikidata.org/wiki/" + d["wdid"] + "][" + d["wdlabel"] + "]]",
+            "modifier":       modifier,
+            "text":           d["sentence"],
+            "aUrl":           d["aurl"],
+            "aUrlId":         get_article_url_id(d["aurl"]),
+            "classification": trueVoss,
+            "line":           line.strip(),
+            "newVoss":        d["newmark"],  # FIXME: where is this used?
+            "status":         d["status"]    # FIXME: where is this used?
         }
 
     return None
@@ -352,12 +352,12 @@ def set_article_url(line, urls):
 
 
 # inserts a vossanto line into the index
-def insert(index, line, string_new = '> '):
+def insert(index, line, string_new='> '):
     # extract key for this line
     parts = match_line(line)
     if not parts:
         # print warning only if not a year heading
-        if not re.match("^\*{2,3} [0-9]{4}$", line.strip()):
+        if not re.match(r"^\*{2,3} [0-9]{4}$", line.strip()):
             print("WARN: line did not match", line[:50], file=sys.stderr)
         return
     # add new Vossanto
