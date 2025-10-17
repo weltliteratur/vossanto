@@ -10,6 +10,8 @@
 # Author: rja
 #
 # Changes:
+# 2025-10-17 (rja)
+# - cleanups and addition of "textPlain"
 # 2019-12-18 (rja)
 # - added field sourceImageLicense
 # 2019-12-16 (rja)
@@ -96,13 +98,13 @@ line_re_str = r"""
 (?P<aurl>http.+?)?    # article URL
 (\]\[)?               # separators for article URL
 (?P<fid>              # full file id
-(?P<year>\\d{4})      # year
+(?P<year>\d{4})       # year
 /                     # separator
-(?P<month>\\d{2})     # month
+(?P<month>\d{2})      # month
 /                     # separator
-(?P<day>\\d{2})       # day
+(?P<day>\d{2})        # day
 /                     # separator
-(?P<aid>\\d+)         # article id
+(?P<aid>\d+)          # article id
 )                     # end of full file id
 (\]\])?               # closing markup for article URL
 )                     # end of full article part
@@ -220,6 +222,14 @@ def gen_enrich_images(parts, f, sep='\t', missing=''):
         part["sourceImId"] = source_image_id
         part["sourceImThumb"] = source_image_thumb
         part["sourceImLicense"] = image_license
+        yield part
+
+
+# add plain text (without annotations)
+def gen_enrich_text_plain(parts):
+    for part in parts:
+        if "textPlain" not in part:
+            part["textPlain"] = re_clean_text.sub('', part["text"])
         yield part
 
 
@@ -500,7 +510,8 @@ The following values are allowed for the --fields (-f) option:
   sourceImId      Wikimedia Commons id for source image (requires --images)
   sourceImThumb   Wikimedia Commons thumbnail path for source image (requires --images)
   sourceImLicense Wikimedia Commons license for image (requires --images)
-  text            text (typically a sentence) containing the Vossanto
+  text            text (typically a sentence) with annotated Vossantos
+  textPlain       text (typically a sentence) without any annotations
   year            publication year of the article
 
 Several fields can be concatenated by ",", their order is taken into
@@ -522,6 +533,8 @@ Special/obsolete keywords:
             parts = gen_enrich(parts, "desk", args.desks)
         if args.images:
             parts = gen_enrich_images(parts, args.images)
+        if args.fields == "ALL" or "textPlain" in args.fields:
+            parts = gen_enrich_text_plain(parts)
         if args.heading:
             # interleaving the headings works by yielding the parts in a loop
             parts = print_heading(parts)
