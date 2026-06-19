@@ -3,7 +3,7 @@
 *Frank Fischer, Robert Jäschke, Elena Krotova, Michel Schwab, Jannik Strötgen*
 
 Automatic extraction of Vossian antonomasia (VA) from large newspaper
-corpora. Based on an idea by [Frank Fischer](https://twitter.com/umblaetterer)
+corpora. Based on an idea by [Frank Fischer](https://lehkost.github.io/)
 (see *[Der Umblätterer](http://www.umblaetterer.de/datenzentrum/vossianische-antonomasien.html)*).
 
 **Vossian antonomasia** is a stylistic device which attributes a
