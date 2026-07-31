@@ -2,6 +2,6 @@
   "name": "visualizations",
   "version": "1.0.0",
   "dependencies": {
-    "d3-simple-slider": "^1.10.4"
+    "d3-simple-slider": "^2.0.0"
   }
 }
